@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class ComprehendMedical extends AWSServiceClient {
+export class ComprehendMedical extends AWSServiceClient {
   describeEntitiesDetectionV2Job(
     input: DescribeEntitiesDetectionV2JobRequest,
   ): Effect.Effect<
@@ -12,7 +12,9 @@ export declare class ComprehendMedical extends AWSServiceClient {
     | ResourceNotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeEntitiesDetectionV2Job", input);
+  }
   describeICD10CMInferenceJob(
     input: DescribeICD10CMInferenceJobRequest,
   ): Effect.Effect<
@@ -22,7 +24,9 @@ export declare class ComprehendMedical extends AWSServiceClient {
     | ResourceNotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeICD10CMInferenceJob", input);
+  }
   describePHIDetectionJob(
     input: DescribePHIDetectionJobRequest,
   ): Effect.Effect<
@@ -32,7 +36,9 @@ export declare class ComprehendMedical extends AWSServiceClient {
     | ResourceNotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribePHIDetectionJob", input);
+  }
   describeRxNormInferenceJob(
     input: DescribeRxNormInferenceJobRequest,
   ): Effect.Effect<
@@ -42,7 +48,9 @@ export declare class ComprehendMedical extends AWSServiceClient {
     | ResourceNotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeRxNormInferenceJob", input);
+  }
   describeSNOMEDCTInferenceJob(
     input: DescribeSNOMEDCTInferenceJobRequest,
   ): Effect.Effect<
@@ -52,7 +60,9 @@ export declare class ComprehendMedical extends AWSServiceClient {
     | ResourceNotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeSNOMEDCTInferenceJob", input);
+  }
   detectEntities(
     input: DetectEntitiesRequest,
   ): Effect.Effect<
@@ -64,7 +74,9 @@ export declare class ComprehendMedical extends AWSServiceClient {
     | TextSizeLimitExceededException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DetectEntities", input);
+  }
   detectEntitiesV2(
     input: DetectEntitiesV2Request,
   ): Effect.Effect<
@@ -76,7 +88,9 @@ export declare class ComprehendMedical extends AWSServiceClient {
     | TextSizeLimitExceededException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DetectEntitiesV2", input);
+  }
   detectPHI(
     input: DetectPHIRequest,
   ): Effect.Effect<
@@ -88,7 +102,9 @@ export declare class ComprehendMedical extends AWSServiceClient {
     | TextSizeLimitExceededException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DetectPHI", input);
+  }
   inferICD10CM(
     input: InferICD10CMRequest,
   ): Effect.Effect<
@@ -100,7 +116,9 @@ export declare class ComprehendMedical extends AWSServiceClient {
     | TextSizeLimitExceededException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("InferICD10CM", input);
+  }
   inferRxNorm(
     input: InferRxNormRequest,
   ): Effect.Effect<
@@ -112,7 +130,9 @@ export declare class ComprehendMedical extends AWSServiceClient {
     | TextSizeLimitExceededException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("InferRxNorm", input);
+  }
   inferSNOMEDCT(
     input: InferSNOMEDCTRequest,
   ): Effect.Effect<
@@ -124,7 +144,9 @@ export declare class ComprehendMedical extends AWSServiceClient {
     | TextSizeLimitExceededException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("InferSNOMEDCT", input);
+  }
   listEntitiesDetectionV2Jobs(
     input: ListEntitiesDetectionV2JobsRequest,
   ): Effect.Effect<
@@ -134,7 +156,9 @@ export declare class ComprehendMedical extends AWSServiceClient {
     | TooManyRequestsException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListEntitiesDetectionV2Jobs", input);
+  }
   listICD10CMInferenceJobs(
     input: ListICD10CMInferenceJobsRequest,
   ): Effect.Effect<
@@ -144,7 +168,9 @@ export declare class ComprehendMedical extends AWSServiceClient {
     | TooManyRequestsException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListICD10CMInferenceJobs", input);
+  }
   listPHIDetectionJobs(
     input: ListPHIDetectionJobsRequest,
   ): Effect.Effect<
@@ -154,7 +180,9 @@ export declare class ComprehendMedical extends AWSServiceClient {
     | TooManyRequestsException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListPHIDetectionJobs", input);
+  }
   listRxNormInferenceJobs(
     input: ListRxNormInferenceJobsRequest,
   ): Effect.Effect<
@@ -164,7 +192,9 @@ export declare class ComprehendMedical extends AWSServiceClient {
     | TooManyRequestsException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListRxNormInferenceJobs", input);
+  }
   listSNOMEDCTInferenceJobs(
     input: ListSNOMEDCTInferenceJobsRequest,
   ): Effect.Effect<
@@ -174,7 +204,9 @@ export declare class ComprehendMedical extends AWSServiceClient {
     | TooManyRequestsException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListSNOMEDCTInferenceJobs", input);
+  }
   startEntitiesDetectionV2Job(
     input: StartEntitiesDetectionV2JobRequest,
   ): Effect.Effect<
@@ -184,7 +216,9 @@ export declare class ComprehendMedical extends AWSServiceClient {
     | ResourceNotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartEntitiesDetectionV2Job", input);
+  }
   startICD10CMInferenceJob(
     input: StartICD10CMInferenceJobRequest,
   ): Effect.Effect<
@@ -194,7 +228,9 @@ export declare class ComprehendMedical extends AWSServiceClient {
     | ResourceNotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartICD10CMInferenceJob", input);
+  }
   startPHIDetectionJob(
     input: StartPHIDetectionJobRequest,
   ): Effect.Effect<
@@ -204,7 +240,9 @@ export declare class ComprehendMedical extends AWSServiceClient {
     | ResourceNotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartPHIDetectionJob", input);
+  }
   startRxNormInferenceJob(
     input: StartRxNormInferenceJobRequest,
   ): Effect.Effect<
@@ -214,7 +252,9 @@ export declare class ComprehendMedical extends AWSServiceClient {
     | ResourceNotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartRxNormInferenceJob", input);
+  }
   startSNOMEDCTInferenceJob(
     input: StartSNOMEDCTInferenceJobRequest,
   ): Effect.Effect<
@@ -224,7 +264,9 @@ export declare class ComprehendMedical extends AWSServiceClient {
     | ResourceNotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartSNOMEDCTInferenceJob", input);
+  }
   stopEntitiesDetectionV2Job(
     input: StopEntitiesDetectionV2JobRequest,
   ): Effect.Effect<
@@ -233,7 +275,9 @@ export declare class ComprehendMedical extends AWSServiceClient {
     | InvalidRequestException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StopEntitiesDetectionV2Job", input);
+  }
   stopICD10CMInferenceJob(
     input: StopICD10CMInferenceJobRequest,
   ): Effect.Effect<
@@ -242,7 +286,9 @@ export declare class ComprehendMedical extends AWSServiceClient {
     | InvalidRequestException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StopICD10CMInferenceJob", input);
+  }
   stopPHIDetectionJob(
     input: StopPHIDetectionJobRequest,
   ): Effect.Effect<
@@ -251,7 +297,9 @@ export declare class ComprehendMedical extends AWSServiceClient {
     | InvalidRequestException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StopPHIDetectionJob", input);
+  }
   stopRxNormInferenceJob(
     input: StopRxNormInferenceJobRequest,
   ): Effect.Effect<
@@ -260,7 +308,9 @@ export declare class ComprehendMedical extends AWSServiceClient {
     | InvalidRequestException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StopRxNormInferenceJob", input);
+  }
   stopSNOMEDCTInferenceJob(
     input: StopSNOMEDCTInferenceJobRequest,
   ): Effect.Effect<
@@ -270,10 +320,14 @@ export declare class ComprehendMedical extends AWSServiceClient {
     | ResourceNotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StopSNOMEDCTInferenceJob", input);
+  }
 }
 
-export declare class Comprehendmedical extends ComprehendMedical {}
+export class Comprehendmedical extends ComprehendMedical {}
+
+export default ComprehendMedical;
 
 export type AnyLengthString = string;
 

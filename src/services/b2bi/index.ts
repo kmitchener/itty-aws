@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class b2bi extends AWSServiceClient {
+export class b2bi extends AWSServiceClient {
   createStarterMappingTemplate(
     input: CreateStarterMappingTemplateRequest,
   ): Effect.Effect<
@@ -12,7 +12,9 @@ export declare class b2bi extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateStarterMappingTemplate", input);
+  }
   generateMapping(
     input: GenerateMappingRequest,
   ): Effect.Effect<
@@ -22,7 +24,9 @@ export declare class b2bi extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GenerateMapping", input);
+  }
   getTransformerJob(
     input: GetTransformerJobRequest,
   ): Effect.Effect<
@@ -33,7 +37,9 @@ export declare class b2bi extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetTransformerJob", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
@@ -42,7 +48,9 @@ export declare class b2bi extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   startTransformerJob(
     input: StartTransformerJobRequest,
   ): Effect.Effect<
@@ -54,7 +62,9 @@ export declare class b2bi extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartTransformerJob", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -64,7 +74,9 @@ export declare class b2bi extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   testConversion(
     input: TestConversionRequest,
   ): Effect.Effect<
@@ -75,7 +87,9 @@ export declare class b2bi extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TestConversion", input);
+  }
   testMapping(
     input: TestMappingRequest,
   ): Effect.Effect<
@@ -86,7 +100,9 @@ export declare class b2bi extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TestMapping", input);
+  }
   testParsing(
     input: TestParsingRequest,
   ): Effect.Effect<
@@ -97,7 +113,9 @@ export declare class b2bi extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TestParsing", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
@@ -106,10 +124,14 @@ export declare class b2bi extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
 }
 
-export declare class B2bi extends b2bi {}
+export class B2bi extends b2bi {}
+
+export default b2bi;
 
 export declare class AccessDeniedException extends EffectData.TaggedError(
   "AccessDeniedException",

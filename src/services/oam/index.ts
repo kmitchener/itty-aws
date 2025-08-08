@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class OAM extends AWSServiceClient {
+export class OAM extends AWSServiceClient {
   createLink(
     input: CreateLinkInput,
   ): Effect.Effect<
@@ -13,7 +13,9 @@ export declare class OAM extends AWSServiceClient {
     | MissingRequiredParameterException
     | ServiceQuotaExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateLink", input);
+  }
   createSink(
     input: CreateSinkInput,
   ): Effect.Effect<
@@ -24,7 +26,9 @@ export declare class OAM extends AWSServiceClient {
     | MissingRequiredParameterException
     | ServiceQuotaExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateSink", input);
+  }
   deleteLink(
     input: DeleteLinkInput,
   ): Effect.Effect<
@@ -34,7 +38,9 @@ export declare class OAM extends AWSServiceClient {
     | MissingRequiredParameterException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteLink", input);
+  }
   deleteSink(
     input: DeleteSinkInput,
   ): Effect.Effect<
@@ -45,7 +51,9 @@ export declare class OAM extends AWSServiceClient {
     | MissingRequiredParameterException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteSink", input);
+  }
   getLink(
     input: GetLinkInput,
   ): Effect.Effect<
@@ -55,7 +63,9 @@ export declare class OAM extends AWSServiceClient {
     | MissingRequiredParameterException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetLink", input);
+  }
   getSink(
     input: GetSinkInput,
   ): Effect.Effect<
@@ -65,7 +75,9 @@ export declare class OAM extends AWSServiceClient {
     | MissingRequiredParameterException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetSink", input);
+  }
   getSinkPolicy(
     input: GetSinkPolicyInput,
   ): Effect.Effect<
@@ -75,7 +87,9 @@ export declare class OAM extends AWSServiceClient {
     | MissingRequiredParameterException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetSinkPolicy", input);
+  }
   listAttachedLinks(
     input: ListAttachedLinksInput,
   ): Effect.Effect<
@@ -85,7 +99,9 @@ export declare class OAM extends AWSServiceClient {
     | MissingRequiredParameterException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListAttachedLinks", input);
+  }
   listLinks(
     input: ListLinksInput,
   ): Effect.Effect<
@@ -94,7 +110,9 @@ export declare class OAM extends AWSServiceClient {
     | InvalidParameterException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListLinks", input);
+  }
   listSinks(
     input: ListSinksInput,
   ): Effect.Effect<
@@ -103,13 +121,17 @@ export declare class OAM extends AWSServiceClient {
     | InvalidParameterException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListSinks", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceInput,
   ): Effect.Effect<
     ListTagsForResourceOutput,
     ResourceNotFoundException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   putSinkPolicy(
     input: PutSinkPolicyInput,
   ): Effect.Effect<
@@ -119,7 +141,9 @@ export declare class OAM extends AWSServiceClient {
     | MissingRequiredParameterException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutSinkPolicy", input);
+  }
   tagResource(
     input: TagResourceInput,
   ): Effect.Effect<
@@ -128,13 +152,17 @@ export declare class OAM extends AWSServiceClient {
     | TooManyTagsException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceInput,
   ): Effect.Effect<
     UntagResourceOutput,
     ResourceNotFoundException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
   updateLink(
     input: UpdateLinkInput,
   ): Effect.Effect<
@@ -144,10 +172,14 @@ export declare class OAM extends AWSServiceClient {
     | MissingRequiredParameterException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateLink", input);
+  }
 }
 
-export declare class Oam extends OAM {}
+export class Oam extends OAM {}
+
+export default OAM;
 
 export type Arn = string;
 

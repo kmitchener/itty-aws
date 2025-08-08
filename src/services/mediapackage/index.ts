@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class MediaPackage extends AWSServiceClient {
+export class MediaPackage extends AWSServiceClient {
   configureLogs(
     input: ConfigureLogsRequest,
   ): Effect.Effect<
@@ -14,7 +14,9 @@ export declare class MediaPackage extends AWSServiceClient {
     | TooManyRequestsException
     | UnprocessableEntityException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ConfigureLogs", input);
+  }
   createChannel(
     input: CreateChannelRequest,
   ): Effect.Effect<
@@ -26,7 +28,9 @@ export declare class MediaPackage extends AWSServiceClient {
     | TooManyRequestsException
     | UnprocessableEntityException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateChannel", input);
+  }
   createHarvestJob(
     input: CreateHarvestJobRequest,
   ): Effect.Effect<
@@ -38,7 +42,9 @@ export declare class MediaPackage extends AWSServiceClient {
     | TooManyRequestsException
     | UnprocessableEntityException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateHarvestJob", input);
+  }
   createOriginEndpoint(
     input: CreateOriginEndpointRequest,
   ): Effect.Effect<
@@ -50,7 +56,9 @@ export declare class MediaPackage extends AWSServiceClient {
     | TooManyRequestsException
     | UnprocessableEntityException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateOriginEndpoint", input);
+  }
   deleteChannel(
     input: DeleteChannelRequest,
   ): Effect.Effect<
@@ -62,7 +70,9 @@ export declare class MediaPackage extends AWSServiceClient {
     | TooManyRequestsException
     | UnprocessableEntityException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteChannel", input);
+  }
   deleteOriginEndpoint(
     input: DeleteOriginEndpointRequest,
   ): Effect.Effect<
@@ -74,7 +84,9 @@ export declare class MediaPackage extends AWSServiceClient {
     | TooManyRequestsException
     | UnprocessableEntityException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteOriginEndpoint", input);
+  }
   describeChannel(
     input: DescribeChannelRequest,
   ): Effect.Effect<
@@ -86,7 +98,9 @@ export declare class MediaPackage extends AWSServiceClient {
     | TooManyRequestsException
     | UnprocessableEntityException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeChannel", input);
+  }
   describeHarvestJob(
     input: DescribeHarvestJobRequest,
   ): Effect.Effect<
@@ -98,7 +112,9 @@ export declare class MediaPackage extends AWSServiceClient {
     | TooManyRequestsException
     | UnprocessableEntityException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeHarvestJob", input);
+  }
   describeOriginEndpoint(
     input: DescribeOriginEndpointRequest,
   ): Effect.Effect<
@@ -110,7 +126,9 @@ export declare class MediaPackage extends AWSServiceClient {
     | TooManyRequestsException
     | UnprocessableEntityException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeOriginEndpoint", input);
+  }
   listChannels(
     input: ListChannelsRequest,
   ): Effect.Effect<
@@ -122,7 +140,9 @@ export declare class MediaPackage extends AWSServiceClient {
     | TooManyRequestsException
     | UnprocessableEntityException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListChannels", input);
+  }
   listHarvestJobs(
     input: ListHarvestJobsRequest,
   ): Effect.Effect<
@@ -134,7 +154,9 @@ export declare class MediaPackage extends AWSServiceClient {
     | TooManyRequestsException
     | UnprocessableEntityException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListHarvestJobs", input);
+  }
   listOriginEndpoints(
     input: ListOriginEndpointsRequest,
   ): Effect.Effect<
@@ -146,10 +168,14 @@ export declare class MediaPackage extends AWSServiceClient {
     | TooManyRequestsException
     | UnprocessableEntityException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListOriginEndpoints", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
-  ): Effect.Effect<ListTagsForResourceResponse, CommonAwsError>;
+  ): Effect.Effect<ListTagsForResourceResponse, CommonAwsError> {
+    return this.call("ListTagsForResource", input);
+  }
   rotateChannelCredentials(
     input: RotateChannelCredentialsRequest,
   ): Effect.Effect<
@@ -161,7 +187,9 @@ export declare class MediaPackage extends AWSServiceClient {
     | TooManyRequestsException
     | UnprocessableEntityException
     | CommonAwsError
-  >;
+  > {
+    return this.call("RotateChannelCredentials", input);
+  }
   rotateIngestEndpointCredentials(
     input: RotateIngestEndpointCredentialsRequest,
   ): Effect.Effect<
@@ -173,9 +201,17 @@ export declare class MediaPackage extends AWSServiceClient {
     | TooManyRequestsException
     | UnprocessableEntityException
     | CommonAwsError
-  >;
-  tagResource(input: TagResourceRequest): Effect.Effect<{}, CommonAwsError>;
-  untagResource(input: UntagResourceRequest): Effect.Effect<{}, CommonAwsError>;
+  > {
+    return this.call("RotateIngestEndpointCredentials", input);
+  }
+  tagResource(input: TagResourceRequest): Effect.Effect<{}, CommonAwsError> {
+    return this.call("TagResource", input);
+  }
+  untagResource(
+    input: UntagResourceRequest,
+  ): Effect.Effect<{}, CommonAwsError> {
+    return this.call("UntagResource", input);
+  }
   updateChannel(
     input: UpdateChannelRequest,
   ): Effect.Effect<
@@ -187,7 +223,9 @@ export declare class MediaPackage extends AWSServiceClient {
     | TooManyRequestsException
     | UnprocessableEntityException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateChannel", input);
+  }
   updateOriginEndpoint(
     input: UpdateOriginEndpointRequest,
   ): Effect.Effect<
@@ -199,10 +237,14 @@ export declare class MediaPackage extends AWSServiceClient {
     | TooManyRequestsException
     | UnprocessableEntityException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateOriginEndpoint", input);
+  }
 }
 
-export declare class Mediapackage extends MediaPackage {}
+export class Mediapackage extends MediaPackage {}
+
+export default MediaPackage;
 
 export type __AdTriggersElement =
   | "SPLICE_INSERT"

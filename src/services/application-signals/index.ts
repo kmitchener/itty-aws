@@ -2,13 +2,15 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class ApplicationSignals extends AWSServiceClient {
+export class ApplicationSignals extends AWSServiceClient {
   batchGetServiceLevelObjectiveBudgetReport(
     input: BatchGetServiceLevelObjectiveBudgetReportInput,
   ): Effect.Effect<
     BatchGetServiceLevelObjectiveBudgetReportOutput,
     ThrottlingException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("BatchGetServiceLevelObjectiveBudgetReport", input);
+  }
   batchUpdateExclusionWindows(
     input: BatchUpdateExclusionWindowsInput,
   ): Effect.Effect<
@@ -17,25 +19,33 @@ export declare class ApplicationSignals extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("BatchUpdateExclusionWindows", input);
+  }
   getService(
     input: GetServiceInput,
   ): Effect.Effect<
     GetServiceOutput,
     ThrottlingException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("GetService", input);
+  }
   listServiceDependencies(
     input: ListServiceDependenciesInput,
   ): Effect.Effect<
     ListServiceDependenciesOutput,
     ThrottlingException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("ListServiceDependencies", input);
+  }
   listServiceDependents(
     input: ListServiceDependentsInput,
   ): Effect.Effect<
     ListServiceDependentsOutput,
     ThrottlingException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("ListServiceDependents", input);
+  }
   listServiceLevelObjectiveExclusionWindows(
     input: ListServiceLevelObjectiveExclusionWindowsInput,
   ): Effect.Effect<
@@ -44,25 +54,33 @@ export declare class ApplicationSignals extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListServiceLevelObjectiveExclusionWindows", input);
+  }
   listServiceOperations(
     input: ListServiceOperationsInput,
   ): Effect.Effect<
     ListServiceOperationsOutput,
     ThrottlingException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("ListServiceOperations", input);
+  }
   listServices(
     input: ListServicesInput,
   ): Effect.Effect<
     ListServicesOutput,
     ThrottlingException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("ListServices", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
     ResourceNotFoundException | ThrottlingException | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   startDiscovery(
     input: StartDiscoveryInput,
   ): Effect.Effect<
@@ -71,7 +89,9 @@ export declare class ApplicationSignals extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartDiscovery", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -80,14 +100,20 @@ export declare class ApplicationSignals extends AWSServiceClient {
     | ServiceQuotaExceededException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
     ResourceNotFoundException | ThrottlingException | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
 }
+
+export default ApplicationSignals;
 
 export declare class AccessDeniedException extends EffectData.TaggedError(
   "AccessDeniedException",

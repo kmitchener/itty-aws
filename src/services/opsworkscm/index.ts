@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class OpsWorksCM extends AWSServiceClient {
+export class OpsWorksCM extends AWSServiceClient {
   associateNode(
     input: AssociateNodeRequest,
   ): Effect.Effect<
@@ -11,7 +11,9 @@ export declare class OpsWorksCM extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AssociateNode", input);
+  }
   createBackup(
     input: CreateBackupRequest,
   ): Effect.Effect<
@@ -21,7 +23,9 @@ export declare class OpsWorksCM extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateBackup", input);
+  }
   createServer(
     input: CreateServerRequest,
   ): Effect.Effect<
@@ -31,7 +35,9 @@ export declare class OpsWorksCM extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateServer", input);
+  }
   deleteBackup(
     input: DeleteBackupRequest,
   ): Effect.Effect<
@@ -40,7 +46,9 @@ export declare class OpsWorksCM extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteBackup", input);
+  }
   deleteServer(
     input: DeleteServerRequest,
   ): Effect.Effect<
@@ -49,10 +57,14 @@ export declare class OpsWorksCM extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteServer", input);
+  }
   describeAccountAttributes(
     input: DescribeAccountAttributesRequest,
-  ): Effect.Effect<DescribeAccountAttributesResponse, CommonAwsError>;
+  ): Effect.Effect<DescribeAccountAttributesResponse, CommonAwsError> {
+    return this.call("DescribeAccountAttributes", input);
+  }
   describeBackups(
     input: DescribeBackupsRequest,
   ): Effect.Effect<
@@ -61,7 +73,9 @@ export declare class OpsWorksCM extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeBackups", input);
+  }
   describeEvents(
     input: DescribeEventsRequest,
   ): Effect.Effect<
@@ -70,13 +84,17 @@ export declare class OpsWorksCM extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeEvents", input);
+  }
   describeNodeAssociationStatus(
     input: DescribeNodeAssociationStatusRequest,
   ): Effect.Effect<
     DescribeNodeAssociationStatusResponse,
     ResourceNotFoundException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeNodeAssociationStatus", input);
+  }
   describeServers(
     input: DescribeServersRequest,
   ): Effect.Effect<
@@ -85,7 +103,9 @@ export declare class OpsWorksCM extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeServers", input);
+  }
   disassociateNode(
     input: DisassociateNodeRequest,
   ): Effect.Effect<
@@ -94,7 +114,9 @@ export declare class OpsWorksCM extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DisassociateNode", input);
+  }
   exportServerEngineAttribute(
     input: ExportServerEngineAttributeRequest,
   ): Effect.Effect<
@@ -103,13 +125,17 @@ export declare class OpsWorksCM extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ExportServerEngineAttribute", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
     ResourceNotFoundException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   restoreServer(
     input: RestoreServerRequest,
   ): Effect.Effect<
@@ -118,7 +144,9 @@ export declare class OpsWorksCM extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("RestoreServer", input);
+  }
   startMaintenance(
     input: StartMaintenanceRequest,
   ): Effect.Effect<
@@ -127,7 +155,9 @@ export declare class OpsWorksCM extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartMaintenance", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -136,7 +166,9 @@ export declare class OpsWorksCM extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
@@ -145,7 +177,9 @@ export declare class OpsWorksCM extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
   updateServer(
     input: UpdateServerRequest,
   ): Effect.Effect<
@@ -154,7 +188,9 @@ export declare class OpsWorksCM extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateServer", input);
+  }
   updateServerEngineAttributes(
     input: UpdateServerEngineAttributesRequest,
   ): Effect.Effect<
@@ -163,10 +199,14 @@ export declare class OpsWorksCM extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateServerEngineAttributes", input);
+  }
 }
 
-export declare class Opsworkscm extends OpsWorksCM {}
+export class Opsworkscm extends OpsWorksCM {}
+
+export default OpsWorksCM;
 
 export interface AccountAttribute {
   Name?: string;

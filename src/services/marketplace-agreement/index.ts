@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class MarketplaceAgreement extends AWSServiceClient {
+export class MarketplaceAgreement extends AWSServiceClient {
   describeAgreement(
     input: DescribeAgreementInput,
   ): Effect.Effect<
@@ -13,7 +13,9 @@ export declare class MarketplaceAgreement extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeAgreement", input);
+  }
   getAgreementTerms(
     input: GetAgreementTermsInput,
   ): Effect.Effect<
@@ -24,7 +26,9 @@ export declare class MarketplaceAgreement extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetAgreementTerms", input);
+  }
   searchAgreements(
     input: SearchAgreementsInput,
   ): Effect.Effect<
@@ -34,8 +38,12 @@ export declare class MarketplaceAgreement extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("SearchAgreements", input);
+  }
 }
+
+export default MarketplaceAgreement;
 
 interface _AcceptedTerm {
   legalTerm?: LegalTerm;

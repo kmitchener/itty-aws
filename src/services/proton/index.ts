@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class Proton extends AWSServiceClient {
+export class Proton extends AWSServiceClient {
   cancelComponentDeployment(
     input: CancelComponentDeploymentInput,
   ): Effect.Effect<
@@ -14,7 +14,9 @@ export declare class Proton extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CancelComponentDeployment", input);
+  }
   cancelEnvironmentDeployment(
     input: CancelEnvironmentDeploymentInput,
   ): Effect.Effect<
@@ -26,7 +28,9 @@ export declare class Proton extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CancelEnvironmentDeployment", input);
+  }
   cancelServiceInstanceDeployment(
     input: CancelServiceInstanceDeploymentInput,
   ): Effect.Effect<
@@ -38,7 +42,9 @@ export declare class Proton extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CancelServiceInstanceDeployment", input);
+  }
   cancelServicePipelineDeployment(
     input: CancelServicePipelineDeploymentInput,
   ): Effect.Effect<
@@ -50,7 +56,9 @@ export declare class Proton extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CancelServicePipelineDeployment", input);
+  }
   getRepositorySyncStatus(
     input: GetRepositorySyncStatusInput,
   ): Effect.Effect<
@@ -61,7 +69,9 @@ export declare class Proton extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetRepositorySyncStatus", input);
+  }
   getResourcesSummary(
     input: GetResourcesSummaryInput,
   ): Effect.Effect<
@@ -71,7 +81,9 @@ export declare class Proton extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetResourcesSummary", input);
+  }
   getServiceInstanceSyncStatus(
     input: GetServiceInstanceSyncStatusInput,
   ): Effect.Effect<
@@ -82,7 +94,9 @@ export declare class Proton extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetServiceInstanceSyncStatus", input);
+  }
   getTemplateSyncStatus(
     input: GetTemplateSyncStatusInput,
   ): Effect.Effect<
@@ -93,7 +107,9 @@ export declare class Proton extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetTemplateSyncStatus", input);
+  }
   listRepositorySyncDefinitions(
     input: ListRepositorySyncDefinitionsInput,
   ): Effect.Effect<
@@ -103,7 +119,9 @@ export declare class Proton extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListRepositorySyncDefinitions", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceInput,
   ): Effect.Effect<
@@ -114,7 +132,9 @@ export declare class Proton extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   notifyResourceDeploymentStatusChange(
     input: NotifyResourceDeploymentStatusChangeInput,
   ): Effect.Effect<
@@ -127,7 +147,9 @@ export declare class Proton extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("NotifyResourceDeploymentStatusChange", input);
+  }
   tagResource(
     input: TagResourceInput,
   ): Effect.Effect<
@@ -139,7 +161,9 @@ export declare class Proton extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceInput,
   ): Effect.Effect<
@@ -151,8 +175,12 @@ export declare class Proton extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
 }
+
+export default Proton;
 
 export interface AcceptEnvironmentAccountConnectionInput {
   id: string;

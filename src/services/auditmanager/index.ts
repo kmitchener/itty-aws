@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class AuditManager extends AWSServiceClient {
+export class AuditManager extends AWSServiceClient {
   associateAssessmentReportEvidenceFolder(
     input: AssociateAssessmentReportEvidenceFolderRequest,
   ): Effect.Effect<
@@ -12,7 +12,9 @@ export declare class AuditManager extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AssociateAssessmentReportEvidenceFolder", input);
+  }
   batchAssociateAssessmentReportEvidence(
     input: BatchAssociateAssessmentReportEvidenceRequest,
   ): Effect.Effect<
@@ -22,7 +24,9 @@ export declare class AuditManager extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("BatchAssociateAssessmentReportEvidence", input);
+  }
   batchCreateDelegationByAssessment(
     input: BatchCreateDelegationByAssessmentRequest,
   ): Effect.Effect<
@@ -32,7 +36,9 @@ export declare class AuditManager extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("BatchCreateDelegationByAssessment", input);
+  }
   batchDeleteDelegationByAssessment(
     input: BatchDeleteDelegationByAssessmentRequest,
   ): Effect.Effect<
@@ -42,7 +48,9 @@ export declare class AuditManager extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("BatchDeleteDelegationByAssessment", input);
+  }
   batchDisassociateAssessmentReportEvidence(
     input: BatchDisassociateAssessmentReportEvidenceRequest,
   ): Effect.Effect<
@@ -52,7 +60,9 @@ export declare class AuditManager extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("BatchDisassociateAssessmentReportEvidence", input);
+  }
   batchImportEvidenceToAssessmentControl(
     input: BatchImportEvidenceToAssessmentControlRequest,
   ): Effect.Effect<
@@ -63,7 +73,9 @@ export declare class AuditManager extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("BatchImportEvidenceToAssessmentControl", input);
+  }
   createAssessment(
     input: CreateAssessmentRequest,
   ): Effect.Effect<
@@ -75,7 +87,9 @@ export declare class AuditManager extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateAssessment", input);
+  }
   createAssessmentFramework(
     input: CreateAssessmentFrameworkRequest,
   ): Effect.Effect<
@@ -86,7 +100,9 @@ export declare class AuditManager extends AWSServiceClient {
     | ServiceQuotaExceededException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateAssessmentFramework", input);
+  }
   createAssessmentReport(
     input: CreateAssessmentReportRequest,
   ): Effect.Effect<
@@ -96,7 +112,9 @@ export declare class AuditManager extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateAssessmentReport", input);
+  }
   createControl(
     input: CreateControlRequest,
   ): Effect.Effect<
@@ -107,7 +125,9 @@ export declare class AuditManager extends AWSServiceClient {
     | ServiceQuotaExceededException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateControl", input);
+  }
   deleteAssessment(
     input: DeleteAssessmentRequest,
   ): Effect.Effect<
@@ -117,7 +137,9 @@ export declare class AuditManager extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteAssessment", input);
+  }
   deleteAssessmentFramework(
     input: DeleteAssessmentFrameworkRequest,
   ): Effect.Effect<
@@ -127,7 +149,9 @@ export declare class AuditManager extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteAssessmentFramework", input);
+  }
   deleteAssessmentFrameworkShare(
     input: DeleteAssessmentFrameworkShareRequest,
   ): Effect.Effect<
@@ -137,7 +161,9 @@ export declare class AuditManager extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteAssessmentFrameworkShare", input);
+  }
   deleteAssessmentReport(
     input: DeleteAssessmentReportRequest,
   ): Effect.Effect<
@@ -147,7 +173,9 @@ export declare class AuditManager extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteAssessmentReport", input);
+  }
   deleteControl(
     input: DeleteControlRequest,
   ): Effect.Effect<
@@ -157,7 +185,9 @@ export declare class AuditManager extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteControl", input);
+  }
   deregisterAccount(
     input: DeregisterAccountRequest,
   ): Effect.Effect<
@@ -167,7 +197,9 @@ export declare class AuditManager extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeregisterAccount", input);
+  }
   deregisterOrganizationAdminAccount(
     input: DeregisterOrganizationAdminAccountRequest,
   ): Effect.Effect<
@@ -177,7 +209,9 @@ export declare class AuditManager extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeregisterOrganizationAdminAccount", input);
+  }
   disassociateAssessmentReportEvidenceFolder(
     input: DisassociateAssessmentReportEvidenceFolderRequest,
   ): Effect.Effect<
@@ -187,13 +221,17 @@ export declare class AuditManager extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DisassociateAssessmentReportEvidenceFolder", input);
+  }
   getAccountStatus(
     input: GetAccountStatusRequest,
   ): Effect.Effect<
     GetAccountStatusResponse,
     InternalServerException | CommonAwsError
-  >;
+  > {
+    return this.call("GetAccountStatus", input);
+  }
   getAssessment(
     input: GetAssessmentRequest,
   ): Effect.Effect<
@@ -203,7 +241,9 @@ export declare class AuditManager extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetAssessment", input);
+  }
   getAssessmentFramework(
     input: GetAssessmentFrameworkRequest,
   ): Effect.Effect<
@@ -213,7 +253,9 @@ export declare class AuditManager extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetAssessmentFramework", input);
+  }
   getAssessmentReportUrl(
     input: GetAssessmentReportUrlRequest,
   ): Effect.Effect<
@@ -223,7 +265,9 @@ export declare class AuditManager extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetAssessmentReportUrl", input);
+  }
   getChangeLogs(
     input: GetChangeLogsRequest,
   ): Effect.Effect<
@@ -233,7 +277,9 @@ export declare class AuditManager extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetChangeLogs", input);
+  }
   getControl(
     input: GetControlRequest,
   ): Effect.Effect<
@@ -243,7 +289,9 @@ export declare class AuditManager extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetControl", input);
+  }
   getDelegations(
     input: GetDelegationsRequest,
   ): Effect.Effect<
@@ -252,7 +300,9 @@ export declare class AuditManager extends AWSServiceClient {
     | InternalServerException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetDelegations", input);
+  }
   getEvidence(
     input: GetEvidenceRequest,
   ): Effect.Effect<
@@ -262,7 +312,9 @@ export declare class AuditManager extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetEvidence", input);
+  }
   getEvidenceByEvidenceFolder(
     input: GetEvidenceByEvidenceFolderRequest,
   ): Effect.Effect<
@@ -272,7 +324,9 @@ export declare class AuditManager extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetEvidenceByEvidenceFolder", input);
+  }
   getEvidenceFileUploadUrl(
     input: GetEvidenceFileUploadUrlRequest,
   ): Effect.Effect<
@@ -282,7 +336,9 @@ export declare class AuditManager extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetEvidenceFileUploadUrl", input);
+  }
   getEvidenceFolder(
     input: GetEvidenceFolderRequest,
   ): Effect.Effect<
@@ -292,7 +348,9 @@ export declare class AuditManager extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetEvidenceFolder", input);
+  }
   getEvidenceFoldersByAssessment(
     input: GetEvidenceFoldersByAssessmentRequest,
   ): Effect.Effect<
@@ -302,7 +360,9 @@ export declare class AuditManager extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetEvidenceFoldersByAssessment", input);
+  }
   getEvidenceFoldersByAssessmentControl(
     input: GetEvidenceFoldersByAssessmentControlRequest,
   ): Effect.Effect<
@@ -312,13 +372,17 @@ export declare class AuditManager extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetEvidenceFoldersByAssessmentControl", input);
+  }
   getInsights(
     input: GetInsightsRequest,
   ): Effect.Effect<
     GetInsightsResponse,
     AccessDeniedException | InternalServerException | CommonAwsError
-  >;
+  > {
+    return this.call("GetInsights", input);
+  }
   getInsightsByAssessment(
     input: GetInsightsByAssessmentRequest,
   ): Effect.Effect<
@@ -328,7 +392,9 @@ export declare class AuditManager extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetInsightsByAssessment", input);
+  }
   getOrganizationAdminAccount(
     input: GetOrganizationAdminAccountRequest,
   ): Effect.Effect<
@@ -338,7 +404,9 @@ export declare class AuditManager extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetOrganizationAdminAccount", input);
+  }
   getServicesInScope(
     input: GetServicesInScopeRequest,
   ): Effect.Effect<
@@ -347,13 +415,17 @@ export declare class AuditManager extends AWSServiceClient {
     | InternalServerException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetServicesInScope", input);
+  }
   getSettings(
     input: GetSettingsRequest,
   ): Effect.Effect<
     GetSettingsResponse,
     AccessDeniedException | InternalServerException | CommonAwsError
-  >;
+  > {
+    return this.call("GetSettings", input);
+  }
   listAssessmentControlInsightsByControlDomain(
     input: ListAssessmentControlInsightsByControlDomainRequest,
   ): Effect.Effect<
@@ -363,7 +435,9 @@ export declare class AuditManager extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListAssessmentControlInsightsByControlDomain", input);
+  }
   listAssessmentFrameworks(
     input: ListAssessmentFrameworksRequest,
   ): Effect.Effect<
@@ -372,7 +446,9 @@ export declare class AuditManager extends AWSServiceClient {
     | InternalServerException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListAssessmentFrameworks", input);
+  }
   listAssessmentFrameworkShareRequests(
     input: ListAssessmentFrameworkShareRequestsRequest,
   ): Effect.Effect<
@@ -381,7 +457,9 @@ export declare class AuditManager extends AWSServiceClient {
     | InternalServerException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListAssessmentFrameworkShareRequests", input);
+  }
   listAssessmentReports(
     input: ListAssessmentReportsRequest,
   ): Effect.Effect<
@@ -390,7 +468,9 @@ export declare class AuditManager extends AWSServiceClient {
     | InternalServerException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListAssessmentReports", input);
+  }
   listAssessments(
     input: ListAssessmentsRequest,
   ): Effect.Effect<
@@ -399,7 +479,9 @@ export declare class AuditManager extends AWSServiceClient {
     | InternalServerException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListAssessments", input);
+  }
   listControlDomainInsights(
     input: ListControlDomainInsightsRequest,
   ): Effect.Effect<
@@ -409,7 +491,9 @@ export declare class AuditManager extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListControlDomainInsights", input);
+  }
   listControlDomainInsightsByAssessment(
     input: ListControlDomainInsightsByAssessmentRequest,
   ): Effect.Effect<
@@ -419,7 +503,9 @@ export declare class AuditManager extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListControlDomainInsightsByAssessment", input);
+  }
   listControlInsightsByControlDomain(
     input: ListControlInsightsByControlDomainRequest,
   ): Effect.Effect<
@@ -429,7 +515,9 @@ export declare class AuditManager extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListControlInsightsByControlDomain", input);
+  }
   listControls(
     input: ListControlsRequest,
   ): Effect.Effect<
@@ -438,7 +526,9 @@ export declare class AuditManager extends AWSServiceClient {
     | InternalServerException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListControls", input);
+  }
   listKeywordsForDataSource(
     input: ListKeywordsForDataSourceRequest,
   ): Effect.Effect<
@@ -447,7 +537,9 @@ export declare class AuditManager extends AWSServiceClient {
     | InternalServerException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListKeywordsForDataSource", input);
+  }
   listNotifications(
     input: ListNotificationsRequest,
   ): Effect.Effect<
@@ -456,7 +548,9 @@ export declare class AuditManager extends AWSServiceClient {
     | InternalServerException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListNotifications", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
@@ -465,7 +559,9 @@ export declare class AuditManager extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   registerAccount(
     input: RegisterAccountRequest,
   ): Effect.Effect<
@@ -476,7 +572,9 @@ export declare class AuditManager extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("RegisterAccount", input);
+  }
   registerOrganizationAdminAccount(
     input: RegisterOrganizationAdminAccountRequest,
   ): Effect.Effect<
@@ -487,7 +585,9 @@ export declare class AuditManager extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("RegisterOrganizationAdminAccount", input);
+  }
   startAssessmentFrameworkShare(
     input: StartAssessmentFrameworkShareRequest,
   ): Effect.Effect<
@@ -497,7 +597,9 @@ export declare class AuditManager extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartAssessmentFrameworkShare", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -506,7 +608,9 @@ export declare class AuditManager extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
@@ -515,7 +619,9 @@ export declare class AuditManager extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
   updateAssessment(
     input: UpdateAssessmentRequest,
   ): Effect.Effect<
@@ -527,7 +633,9 @@ export declare class AuditManager extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateAssessment", input);
+  }
   updateAssessmentControl(
     input: UpdateAssessmentControlRequest,
   ): Effect.Effect<
@@ -537,7 +645,9 @@ export declare class AuditManager extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateAssessmentControl", input);
+  }
   updateAssessmentControlSetStatus(
     input: UpdateAssessmentControlSetStatusRequest,
   ): Effect.Effect<
@@ -547,7 +657,9 @@ export declare class AuditManager extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateAssessmentControlSetStatus", input);
+  }
   updateAssessmentFramework(
     input: UpdateAssessmentFrameworkRequest,
   ): Effect.Effect<
@@ -558,7 +670,9 @@ export declare class AuditManager extends AWSServiceClient {
     | ServiceQuotaExceededException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateAssessmentFramework", input);
+  }
   updateAssessmentFrameworkShare(
     input: UpdateAssessmentFrameworkShareRequest,
   ): Effect.Effect<
@@ -569,7 +683,9 @@ export declare class AuditManager extends AWSServiceClient {
     | ServiceQuotaExceededException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateAssessmentFrameworkShare", input);
+  }
   updateAssessmentStatus(
     input: UpdateAssessmentStatusRequest,
   ): Effect.Effect<
@@ -580,7 +696,9 @@ export declare class AuditManager extends AWSServiceClient {
     | ServiceQuotaExceededException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateAssessmentStatus", input);
+  }
   updateControl(
     input: UpdateControlRequest,
   ): Effect.Effect<
@@ -590,7 +708,9 @@ export declare class AuditManager extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateControl", input);
+  }
   updateSettings(
     input: UpdateSettingsRequest,
   ): Effect.Effect<
@@ -599,7 +719,9 @@ export declare class AuditManager extends AWSServiceClient {
     | InternalServerException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateSettings", input);
+  }
   validateAssessmentReportIntegrity(
     input: ValidateAssessmentReportIntegrityRequest,
   ): Effect.Effect<
@@ -609,10 +731,14 @@ export declare class AuditManager extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ValidateAssessmentReportIntegrity", input);
+  }
 }
 
-export declare class Auditmanager extends AuditManager {}
+export class Auditmanager extends AuditManager {}
+
+export default AuditManager;
 
 export declare class AccessDeniedException extends EffectData.TaggedError(
   "AccessDeniedException",

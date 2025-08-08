@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class RedshiftServerless extends AWSServiceClient {
+export class RedshiftServerless extends AWSServiceClient {
   createCustomDomainAssociation(
     input: CreateCustomDomainAssociationRequest,
   ): Effect.Effect<
@@ -14,7 +14,9 @@ export declare class RedshiftServerless extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateCustomDomainAssociation", input);
+  }
   deleteCustomDomainAssociation(
     input: DeleteCustomDomainAssociationRequest,
   ): Effect.Effect<
@@ -26,7 +28,9 @@ export declare class RedshiftServerless extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteCustomDomainAssociation", input);
+  }
   deleteResourcePolicy(
     input: DeleteResourcePolicyRequest,
   ): Effect.Effect<
@@ -35,7 +39,9 @@ export declare class RedshiftServerless extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteResourcePolicy", input);
+  }
   getCredentials(
     input: GetCredentialsRequest,
   ): Effect.Effect<
@@ -44,7 +50,9 @@ export declare class RedshiftServerless extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetCredentials", input);
+  }
   getCustomDomainAssociation(
     input: GetCustomDomainAssociationRequest,
   ): Effect.Effect<
@@ -56,7 +64,9 @@ export declare class RedshiftServerless extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetCustomDomainAssociation", input);
+  }
   getResourcePolicy(
     input: GetResourcePolicyRequest,
   ): Effect.Effect<
@@ -65,7 +75,9 @@ export declare class RedshiftServerless extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetResourcePolicy", input);
+  }
   getTrack(
     input: GetTrackRequest,
   ): Effect.Effect<
@@ -77,7 +89,9 @@ export declare class RedshiftServerless extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetTrack", input);
+  }
   listCustomDomainAssociations(
     input: ListCustomDomainAssociationsRequest,
   ): Effect.Effect<
@@ -88,7 +102,9 @@ export declare class RedshiftServerless extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListCustomDomainAssociations", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
@@ -98,7 +114,9 @@ export declare class RedshiftServerless extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   listTracks(
     input: ListTracksRequest,
   ): Effect.Effect<
@@ -109,7 +127,9 @@ export declare class RedshiftServerless extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTracks", input);
+  }
   putResourcePolicy(
     input: PutResourcePolicyRequest,
   ): Effect.Effect<
@@ -120,7 +140,9 @@ export declare class RedshiftServerless extends AWSServiceClient {
     | ServiceQuotaExceededException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutResourcePolicy", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -131,7 +153,9 @@ export declare class RedshiftServerless extends AWSServiceClient {
     | TooManyTagsException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
@@ -141,7 +165,9 @@ export declare class RedshiftServerless extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
   updateCustomDomainAssociation(
     input: UpdateCustomDomainAssociationRequest,
   ): Effect.Effect<
@@ -153,8 +179,12 @@ export declare class RedshiftServerless extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateCustomDomainAssociation", input);
+  }
 }
+
+export default RedshiftServerless;
 
 export declare class AccessDeniedException extends EffectData.TaggedError(
   "AccessDeniedException",

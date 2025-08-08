@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class Textract extends AWSServiceClient {
+export class Textract extends AWSServiceClient {
   analyzeDocument(
     input: AnalyzeDocumentRequest,
   ): Effect.Effect<
@@ -18,7 +18,9 @@ export declare class Textract extends AWSServiceClient {
     | ThrottlingException
     | UnsupportedDocumentException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AnalyzeDocument", input);
+  }
   analyzeExpense(
     input: AnalyzeExpenseRequest,
   ): Effect.Effect<
@@ -33,7 +35,9 @@ export declare class Textract extends AWSServiceClient {
     | ThrottlingException
     | UnsupportedDocumentException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AnalyzeExpense", input);
+  }
   analyzeID(
     input: AnalyzeIDRequest,
   ): Effect.Effect<
@@ -48,7 +52,9 @@ export declare class Textract extends AWSServiceClient {
     | ThrottlingException
     | UnsupportedDocumentException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AnalyzeID", input);
+  }
   createAdapter(
     input: CreateAdapterRequest,
   ): Effect.Effect<
@@ -64,7 +70,9 @@ export declare class Textract extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateAdapter", input);
+  }
   createAdapterVersion(
     input: CreateAdapterVersionRequest,
   ): Effect.Effect<
@@ -83,7 +91,9 @@ export declare class Textract extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateAdapterVersion", input);
+  }
   deleteAdapter(
     input: DeleteAdapterRequest,
   ): Effect.Effect<
@@ -97,7 +107,9 @@ export declare class Textract extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteAdapter", input);
+  }
   deleteAdapterVersion(
     input: DeleteAdapterVersionRequest,
   ): Effect.Effect<
@@ -111,7 +123,9 @@ export declare class Textract extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteAdapterVersion", input);
+  }
   detectDocumentText(
     input: DetectDocumentTextRequest,
   ): Effect.Effect<
@@ -126,7 +140,9 @@ export declare class Textract extends AWSServiceClient {
     | ThrottlingException
     | UnsupportedDocumentException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DetectDocumentText", input);
+  }
   getAdapter(
     input: GetAdapterRequest,
   ): Effect.Effect<
@@ -139,7 +155,9 @@ export declare class Textract extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetAdapter", input);
+  }
   getAdapterVersion(
     input: GetAdapterVersionRequest,
   ): Effect.Effect<
@@ -152,7 +170,9 @@ export declare class Textract extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetAdapterVersion", input);
+  }
   getDocumentAnalysis(
     input: GetDocumentAnalysisRequest,
   ): Effect.Effect<
@@ -166,7 +186,9 @@ export declare class Textract extends AWSServiceClient {
     | ProvisionedThroughputExceededException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetDocumentAnalysis", input);
+  }
   getDocumentTextDetection(
     input: GetDocumentTextDetectionRequest,
   ): Effect.Effect<
@@ -180,7 +202,9 @@ export declare class Textract extends AWSServiceClient {
     | ProvisionedThroughputExceededException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetDocumentTextDetection", input);
+  }
   getExpenseAnalysis(
     input: GetExpenseAnalysisRequest,
   ): Effect.Effect<
@@ -194,7 +218,9 @@ export declare class Textract extends AWSServiceClient {
     | ProvisionedThroughputExceededException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetExpenseAnalysis", input);
+  }
   getLendingAnalysis(
     input: GetLendingAnalysisRequest,
   ): Effect.Effect<
@@ -208,7 +234,9 @@ export declare class Textract extends AWSServiceClient {
     | ProvisionedThroughputExceededException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetLendingAnalysis", input);
+  }
   getLendingAnalysisSummary(
     input: GetLendingAnalysisSummaryRequest,
   ): Effect.Effect<
@@ -222,7 +250,9 @@ export declare class Textract extends AWSServiceClient {
     | ProvisionedThroughputExceededException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetLendingAnalysisSummary", input);
+  }
   listAdapters(
     input: ListAdaptersRequest,
   ): Effect.Effect<
@@ -234,7 +264,9 @@ export declare class Textract extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListAdapters", input);
+  }
   listAdapterVersions(
     input: ListAdapterVersionsRequest,
   ): Effect.Effect<
@@ -247,7 +279,9 @@ export declare class Textract extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListAdapterVersions", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
@@ -260,7 +294,9 @@ export declare class Textract extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   startDocumentAnalysis(
     input: StartDocumentAnalysisRequest,
   ): Effect.Effect<
@@ -278,7 +314,9 @@ export declare class Textract extends AWSServiceClient {
     | ThrottlingException
     | UnsupportedDocumentException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartDocumentAnalysis", input);
+  }
   startDocumentTextDetection(
     input: StartDocumentTextDetectionRequest,
   ): Effect.Effect<
@@ -296,7 +334,9 @@ export declare class Textract extends AWSServiceClient {
     | ThrottlingException
     | UnsupportedDocumentException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartDocumentTextDetection", input);
+  }
   startExpenseAnalysis(
     input: StartExpenseAnalysisRequest,
   ): Effect.Effect<
@@ -314,7 +354,9 @@ export declare class Textract extends AWSServiceClient {
     | ThrottlingException
     | UnsupportedDocumentException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartExpenseAnalysis", input);
+  }
   startLendingAnalysis(
     input: StartLendingAnalysisRequest,
   ): Effect.Effect<
@@ -332,7 +374,9 @@ export declare class Textract extends AWSServiceClient {
     | ThrottlingException
     | UnsupportedDocumentException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartLendingAnalysis", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -346,7 +390,9 @@ export declare class Textract extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
@@ -359,7 +405,9 @@ export declare class Textract extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
   updateAdapter(
     input: UpdateAdapterRequest,
   ): Effect.Effect<
@@ -373,8 +421,12 @@ export declare class Textract extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateAdapter", input);
+  }
 }
+
+export default Textract;
 
 export declare class AccessDeniedException extends EffectData.TaggedError(
   "AccessDeniedException",

@@ -2,31 +2,43 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class MediaTailor extends AWSServiceClient {
+export class MediaTailor extends AWSServiceClient {
   configureLogsForPlaybackConfiguration(
     input: ConfigureLogsForPlaybackConfigurationRequest,
   ): Effect.Effect<
     ConfigureLogsForPlaybackConfigurationResponse,
     CommonAwsError
-  >;
+  > {
+    return this.call("ConfigureLogsForPlaybackConfiguration", input);
+  }
   listAlerts(
     input: ListAlertsRequest,
-  ): Effect.Effect<ListAlertsResponse, CommonAwsError>;
+  ): Effect.Effect<ListAlertsResponse, CommonAwsError> {
+    return this.call("ListAlerts", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
     BadRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   tagResource(
     input: TagResourceRequest,
-  ): Effect.Effect<{}, BadRequestException | CommonAwsError>;
+  ): Effect.Effect<{}, BadRequestException | CommonAwsError> {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceRequest,
-  ): Effect.Effect<{}, BadRequestException | CommonAwsError>;
+  ): Effect.Effect<{}, BadRequestException | CommonAwsError> {
+    return this.call("UntagResource", input);
+  }
 }
 
-export declare class Mediatailor extends MediaTailor {}
+export class Mediatailor extends MediaTailor {}
+
+export default MediaTailor;
 
 export type __adsInteractionExcludeEventTypesList =
   Array<AdsInteractionExcludeEventType>;

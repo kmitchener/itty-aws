@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class GlobalAccelerator extends AWSServiceClient {
+export class GlobalAccelerator extends AWSServiceClient {
   addCustomRoutingEndpoints(
     input: AddCustomRoutingEndpointsRequest,
   ): Effect.Effect<
@@ -15,7 +15,9 @@ export declare class GlobalAccelerator extends AWSServiceClient {
     | InvalidArgumentException
     | LimitExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AddCustomRoutingEndpoints", input);
+  }
   addEndpoints(
     input: AddEndpointsRequest,
   ): Effect.Effect<
@@ -27,7 +29,9 @@ export declare class GlobalAccelerator extends AWSServiceClient {
     | LimitExceededException
     | TransactionInProgressException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AddEndpoints", input);
+  }
   advertiseByoipCidr(
     input: AdvertiseByoipCidrRequest,
   ): Effect.Effect<
@@ -38,7 +42,9 @@ export declare class GlobalAccelerator extends AWSServiceClient {
     | InternalServiceErrorException
     | InvalidArgumentException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AdvertiseByoipCidr", input);
+  }
   allowCustomRoutingTraffic(
     input: AllowCustomRoutingTrafficRequest,
   ): Effect.Effect<
@@ -47,7 +53,9 @@ export declare class GlobalAccelerator extends AWSServiceClient {
     | InternalServiceErrorException
     | InvalidArgumentException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AllowCustomRoutingTraffic", input);
+  }
   createAccelerator(
     input: CreateAcceleratorRequest,
   ): Effect.Effect<
@@ -58,7 +66,9 @@ export declare class GlobalAccelerator extends AWSServiceClient {
     | LimitExceededException
     | TransactionInProgressException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateAccelerator", input);
+  }
   createCrossAccountAttachment(
     input: CreateCrossAccountAttachmentRequest,
   ): Effect.Effect<
@@ -69,7 +79,9 @@ export declare class GlobalAccelerator extends AWSServiceClient {
     | LimitExceededException
     | TransactionInProgressException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateCrossAccountAttachment", input);
+  }
   createCustomRoutingAccelerator(
     input: CreateCustomRoutingAcceleratorRequest,
   ): Effect.Effect<
@@ -80,7 +92,9 @@ export declare class GlobalAccelerator extends AWSServiceClient {
     | LimitExceededException
     | TransactionInProgressException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateCustomRoutingAccelerator", input);
+  }
   createCustomRoutingEndpointGroup(
     input: CreateCustomRoutingEndpointGroupRequest,
   ): Effect.Effect<
@@ -94,7 +108,9 @@ export declare class GlobalAccelerator extends AWSServiceClient {
     | LimitExceededException
     | ListenerNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateCustomRoutingEndpointGroup", input);
+  }
   createCustomRoutingListener(
     input: CreateCustomRoutingListenerRequest,
   ): Effect.Effect<
@@ -105,7 +121,9 @@ export declare class GlobalAccelerator extends AWSServiceClient {
     | InvalidPortRangeException
     | LimitExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateCustomRoutingListener", input);
+  }
   createEndpointGroup(
     input: CreateEndpointGroupRequest,
   ): Effect.Effect<
@@ -118,7 +136,9 @@ export declare class GlobalAccelerator extends AWSServiceClient {
     | LimitExceededException
     | ListenerNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateEndpointGroup", input);
+  }
   createListener(
     input: CreateListenerRequest,
   ): Effect.Effect<
@@ -129,7 +149,9 @@ export declare class GlobalAccelerator extends AWSServiceClient {
     | InvalidPortRangeException
     | LimitExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateListener", input);
+  }
   deleteAccelerator(
     input: DeleteAcceleratorRequest,
   ): Effect.Effect<
@@ -141,7 +163,9 @@ export declare class GlobalAccelerator extends AWSServiceClient {
     | InvalidArgumentException
     | TransactionInProgressException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteAccelerator", input);
+  }
   deleteCrossAccountAttachment(
     input: DeleteCrossAccountAttachmentRequest,
   ): Effect.Effect<
@@ -152,7 +176,9 @@ export declare class GlobalAccelerator extends AWSServiceClient {
     | InvalidArgumentException
     | TransactionInProgressException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteCrossAccountAttachment", input);
+  }
   deleteCustomRoutingAccelerator(
     input: DeleteCustomRoutingAcceleratorRequest,
   ): Effect.Effect<
@@ -164,7 +190,9 @@ export declare class GlobalAccelerator extends AWSServiceClient {
     | InvalidArgumentException
     | TransactionInProgressException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteCustomRoutingAccelerator", input);
+  }
   deleteCustomRoutingEndpointGroup(
     input: DeleteCustomRoutingEndpointGroupRequest,
   ): Effect.Effect<
@@ -173,7 +201,9 @@ export declare class GlobalAccelerator extends AWSServiceClient {
     | InternalServiceErrorException
     | InvalidArgumentException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteCustomRoutingEndpointGroup", input);
+  }
   deleteCustomRoutingListener(
     input: DeleteCustomRoutingListenerRequest,
   ): Effect.Effect<
@@ -183,7 +213,9 @@ export declare class GlobalAccelerator extends AWSServiceClient {
     | InvalidArgumentException
     | ListenerNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteCustomRoutingListener", input);
+  }
   deleteEndpointGroup(
     input: DeleteEndpointGroupRequest,
   ): Effect.Effect<
@@ -192,7 +224,9 @@ export declare class GlobalAccelerator extends AWSServiceClient {
     | InternalServiceErrorException
     | InvalidArgumentException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteEndpointGroup", input);
+  }
   deleteListener(
     input: DeleteListenerRequest,
   ): Effect.Effect<
@@ -202,7 +236,9 @@ export declare class GlobalAccelerator extends AWSServiceClient {
     | InvalidArgumentException
     | ListenerNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteListener", input);
+  }
   denyCustomRoutingTraffic(
     input: DenyCustomRoutingTrafficRequest,
   ): Effect.Effect<
@@ -211,7 +247,9 @@ export declare class GlobalAccelerator extends AWSServiceClient {
     | InternalServiceErrorException
     | InvalidArgumentException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DenyCustomRoutingTraffic", input);
+  }
   deprovisionByoipCidr(
     input: DeprovisionByoipCidrRequest,
   ): Effect.Effect<
@@ -222,7 +260,9 @@ export declare class GlobalAccelerator extends AWSServiceClient {
     | InternalServiceErrorException
     | InvalidArgumentException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeprovisionByoipCidr", input);
+  }
   describeAccelerator(
     input: DescribeAcceleratorRequest,
   ): Effect.Effect<
@@ -231,7 +271,9 @@ export declare class GlobalAccelerator extends AWSServiceClient {
     | InternalServiceErrorException
     | InvalidArgumentException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeAccelerator", input);
+  }
   describeAcceleratorAttributes(
     input: DescribeAcceleratorAttributesRequest,
   ): Effect.Effect<
@@ -240,7 +282,9 @@ export declare class GlobalAccelerator extends AWSServiceClient {
     | InternalServiceErrorException
     | InvalidArgumentException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeAcceleratorAttributes", input);
+  }
   describeCrossAccountAttachment(
     input: DescribeCrossAccountAttachmentRequest,
   ): Effect.Effect<
@@ -250,7 +294,9 @@ export declare class GlobalAccelerator extends AWSServiceClient {
     | InternalServiceErrorException
     | InvalidArgumentException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeCrossAccountAttachment", input);
+  }
   describeCustomRoutingAccelerator(
     input: DescribeCustomRoutingAcceleratorRequest,
   ): Effect.Effect<
@@ -259,7 +305,9 @@ export declare class GlobalAccelerator extends AWSServiceClient {
     | InternalServiceErrorException
     | InvalidArgumentException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeCustomRoutingAccelerator", input);
+  }
   describeCustomRoutingAcceleratorAttributes(
     input: DescribeCustomRoutingAcceleratorAttributesRequest,
   ): Effect.Effect<
@@ -268,7 +316,9 @@ export declare class GlobalAccelerator extends AWSServiceClient {
     | InternalServiceErrorException
     | InvalidArgumentException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeCustomRoutingAcceleratorAttributes", input);
+  }
   describeCustomRoutingEndpointGroup(
     input: DescribeCustomRoutingEndpointGroupRequest,
   ): Effect.Effect<
@@ -277,7 +327,9 @@ export declare class GlobalAccelerator extends AWSServiceClient {
     | InternalServiceErrorException
     | InvalidArgumentException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeCustomRoutingEndpointGroup", input);
+  }
   describeCustomRoutingListener(
     input: DescribeCustomRoutingListenerRequest,
   ): Effect.Effect<
@@ -286,7 +338,9 @@ export declare class GlobalAccelerator extends AWSServiceClient {
     | InvalidArgumentException
     | ListenerNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeCustomRoutingListener", input);
+  }
   describeEndpointGroup(
     input: DescribeEndpointGroupRequest,
   ): Effect.Effect<
@@ -295,7 +349,9 @@ export declare class GlobalAccelerator extends AWSServiceClient {
     | InternalServiceErrorException
     | InvalidArgumentException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeEndpointGroup", input);
+  }
   describeListener(
     input: DescribeListenerRequest,
   ): Effect.Effect<
@@ -304,7 +360,9 @@ export declare class GlobalAccelerator extends AWSServiceClient {
     | InvalidArgumentException
     | ListenerNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeListener", input);
+  }
   listAccelerators(
     input: ListAcceleratorsRequest,
   ): Effect.Effect<
@@ -313,7 +371,9 @@ export declare class GlobalAccelerator extends AWSServiceClient {
     | InvalidArgumentException
     | InvalidNextTokenException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListAccelerators", input);
+  }
   listByoipCidrs(
     input: ListByoipCidrsRequest,
   ): Effect.Effect<
@@ -323,7 +383,9 @@ export declare class GlobalAccelerator extends AWSServiceClient {
     | InvalidArgumentException
     | InvalidNextTokenException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListByoipCidrs", input);
+  }
   listCrossAccountAttachments(
     input: ListCrossAccountAttachmentsRequest,
   ): Effect.Effect<
@@ -333,13 +395,17 @@ export declare class GlobalAccelerator extends AWSServiceClient {
     | InvalidArgumentException
     | InvalidNextTokenException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListCrossAccountAttachments", input);
+  }
   listCrossAccountResourceAccounts(
     input: ListCrossAccountResourceAccountsRequest,
   ): Effect.Effect<
     ListCrossAccountResourceAccountsResponse,
     AccessDeniedException | InternalServiceErrorException | CommonAwsError
-  >;
+  > {
+    return this.call("ListCrossAccountResourceAccounts", input);
+  }
   listCrossAccountResources(
     input: ListCrossAccountResourcesRequest,
   ): Effect.Effect<
@@ -350,7 +416,9 @@ export declare class GlobalAccelerator extends AWSServiceClient {
     | InvalidArgumentException
     | InvalidNextTokenException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListCrossAccountResources", input);
+  }
   listCustomRoutingAccelerators(
     input: ListCustomRoutingAcceleratorsRequest,
   ): Effect.Effect<
@@ -359,7 +427,9 @@ export declare class GlobalAccelerator extends AWSServiceClient {
     | InvalidArgumentException
     | InvalidNextTokenException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListCustomRoutingAccelerators", input);
+  }
   listCustomRoutingEndpointGroups(
     input: ListCustomRoutingEndpointGroupsRequest,
   ): Effect.Effect<
@@ -369,7 +439,9 @@ export declare class GlobalAccelerator extends AWSServiceClient {
     | InvalidNextTokenException
     | ListenerNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListCustomRoutingEndpointGroups", input);
+  }
   listCustomRoutingListeners(
     input: ListCustomRoutingListenersRequest,
   ): Effect.Effect<
@@ -379,7 +451,9 @@ export declare class GlobalAccelerator extends AWSServiceClient {
     | InvalidArgumentException
     | InvalidNextTokenException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListCustomRoutingListeners", input);
+  }
   listCustomRoutingPortMappings(
     input: ListCustomRoutingPortMappingsRequest,
   ): Effect.Effect<
@@ -390,7 +464,9 @@ export declare class GlobalAccelerator extends AWSServiceClient {
     | InvalidArgumentException
     | InvalidNextTokenException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListCustomRoutingPortMappings", input);
+  }
   listCustomRoutingPortMappingsByDestination(
     input: ListCustomRoutingPortMappingsByDestinationRequest,
   ): Effect.Effect<
@@ -400,7 +476,9 @@ export declare class GlobalAccelerator extends AWSServiceClient {
     | InvalidArgumentException
     | InvalidNextTokenException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListCustomRoutingPortMappingsByDestination", input);
+  }
   listEndpointGroups(
     input: ListEndpointGroupsRequest,
   ): Effect.Effect<
@@ -410,7 +488,9 @@ export declare class GlobalAccelerator extends AWSServiceClient {
     | InvalidNextTokenException
     | ListenerNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListEndpointGroups", input);
+  }
   listListeners(
     input: ListListenersRequest,
   ): Effect.Effect<
@@ -420,7 +500,9 @@ export declare class GlobalAccelerator extends AWSServiceClient {
     | InvalidArgumentException
     | InvalidNextTokenException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListListeners", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
@@ -432,7 +514,9 @@ export declare class GlobalAccelerator extends AWSServiceClient {
     | InvalidArgumentException
     | ListenerNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   provisionByoipCidr(
     input: ProvisionByoipCidrRequest,
   ): Effect.Effect<
@@ -443,7 +527,9 @@ export declare class GlobalAccelerator extends AWSServiceClient {
     | InvalidArgumentException
     | LimitExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ProvisionByoipCidr", input);
+  }
   removeCustomRoutingEndpoints(
     input: RemoveCustomRoutingEndpointsRequest,
   ): Effect.Effect<
@@ -455,7 +541,9 @@ export declare class GlobalAccelerator extends AWSServiceClient {
     | InternalServiceErrorException
     | InvalidArgumentException
     | CommonAwsError
-  >;
+  > {
+    return this.call("RemoveCustomRoutingEndpoints", input);
+  }
   removeEndpoints(
     input: RemoveEndpointsRequest,
   ): Effect.Effect<
@@ -466,7 +554,9 @@ export declare class GlobalAccelerator extends AWSServiceClient {
     | InvalidArgumentException
     | TransactionInProgressException
     | CommonAwsError
-  >;
+  > {
+    return this.call("RemoveEndpoints", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -475,7 +565,9 @@ export declare class GlobalAccelerator extends AWSServiceClient {
     | InternalServiceErrorException
     | InvalidArgumentException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
@@ -484,7 +576,9 @@ export declare class GlobalAccelerator extends AWSServiceClient {
     | InternalServiceErrorException
     | InvalidArgumentException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
   updateAccelerator(
     input: UpdateAcceleratorRequest,
   ): Effect.Effect<
@@ -496,7 +590,9 @@ export declare class GlobalAccelerator extends AWSServiceClient {
     | InvalidArgumentException
     | TransactionInProgressException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateAccelerator", input);
+  }
   updateAcceleratorAttributes(
     input: UpdateAcceleratorAttributesRequest,
   ): Effect.Effect<
@@ -507,7 +603,9 @@ export declare class GlobalAccelerator extends AWSServiceClient {
     | InvalidArgumentException
     | TransactionInProgressException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateAcceleratorAttributes", input);
+  }
   updateCrossAccountAttachment(
     input: UpdateCrossAccountAttachmentRequest,
   ): Effect.Effect<
@@ -519,7 +617,9 @@ export declare class GlobalAccelerator extends AWSServiceClient {
     | LimitExceededException
     | TransactionInProgressException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateCrossAccountAttachment", input);
+  }
   updateCustomRoutingAccelerator(
     input: UpdateCustomRoutingAcceleratorRequest,
   ): Effect.Effect<
@@ -530,7 +630,9 @@ export declare class GlobalAccelerator extends AWSServiceClient {
     | InvalidArgumentException
     | TransactionInProgressException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateCustomRoutingAccelerator", input);
+  }
   updateCustomRoutingAcceleratorAttributes(
     input: UpdateCustomRoutingAcceleratorAttributesRequest,
   ): Effect.Effect<
@@ -541,7 +643,9 @@ export declare class GlobalAccelerator extends AWSServiceClient {
     | InvalidArgumentException
     | TransactionInProgressException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateCustomRoutingAcceleratorAttributes", input);
+  }
   updateCustomRoutingListener(
     input: UpdateCustomRoutingListenerRequest,
   ): Effect.Effect<
@@ -552,7 +656,9 @@ export declare class GlobalAccelerator extends AWSServiceClient {
     | LimitExceededException
     | ListenerNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateCustomRoutingListener", input);
+  }
   updateEndpointGroup(
     input: UpdateEndpointGroupRequest,
   ): Effect.Effect<
@@ -563,7 +669,9 @@ export declare class GlobalAccelerator extends AWSServiceClient {
     | InvalidArgumentException
     | LimitExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateEndpointGroup", input);
+  }
   updateListener(
     input: UpdateListenerRequest,
   ): Effect.Effect<
@@ -574,7 +682,9 @@ export declare class GlobalAccelerator extends AWSServiceClient {
     | LimitExceededException
     | ListenerNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateListener", input);
+  }
   withdrawByoipCidr(
     input: WithdrawByoipCidrRequest,
   ): Effect.Effect<
@@ -585,8 +695,12 @@ export declare class GlobalAccelerator extends AWSServiceClient {
     | InternalServiceErrorException
     | InvalidArgumentException
     | CommonAwsError
-  >;
+  > {
+    return this.call("WithdrawByoipCidr", input);
+  }
 }
+
+export default GlobalAccelerator;
 
 export interface Accelerator {
   AcceleratorArn?: string;

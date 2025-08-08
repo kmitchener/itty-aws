@@ -2,25 +2,31 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class Polly extends AWSServiceClient {
+export class Polly extends AWSServiceClient {
   deleteLexicon(
     input: DeleteLexiconInput,
   ): Effect.Effect<
     DeleteLexiconOutput,
     LexiconNotFoundException | ServiceFailureException | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteLexicon", input);
+  }
   describeVoices(
     input: DescribeVoicesInput,
   ): Effect.Effect<
     DescribeVoicesOutput,
     InvalidNextTokenException | ServiceFailureException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeVoices", input);
+  }
   getLexicon(
     input: GetLexiconInput,
   ): Effect.Effect<
     GetLexiconOutput,
     LexiconNotFoundException | ServiceFailureException | CommonAwsError
-  >;
+  > {
+    return this.call("GetLexicon", input);
+  }
   getSpeechSynthesisTask(
     input: GetSpeechSynthesisTaskInput,
   ): Effect.Effect<
@@ -29,19 +35,25 @@ export declare class Polly extends AWSServiceClient {
     | ServiceFailureException
     | SynthesisTaskNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetSpeechSynthesisTask", input);
+  }
   listLexicons(
     input: ListLexiconsInput,
   ): Effect.Effect<
     ListLexiconsOutput,
     InvalidNextTokenException | ServiceFailureException | CommonAwsError
-  >;
+  > {
+    return this.call("ListLexicons", input);
+  }
   listSpeechSynthesisTasks(
     input: ListSpeechSynthesisTasksInput,
   ): Effect.Effect<
     ListSpeechSynthesisTasksOutput,
     InvalidNextTokenException | ServiceFailureException | CommonAwsError
-  >;
+  > {
+    return this.call("ListSpeechSynthesisTasks", input);
+  }
   putLexicon(
     input: PutLexiconInput,
   ): Effect.Effect<
@@ -54,7 +66,9 @@ export declare class Polly extends AWSServiceClient {
     | UnsupportedPlsAlphabetException
     | UnsupportedPlsLanguageException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutLexicon", input);
+  }
   startSpeechSynthesisTask(
     input: StartSpeechSynthesisTaskInput,
   ): Effect.Effect<
@@ -72,7 +86,9 @@ export declare class Polly extends AWSServiceClient {
     | SsmlMarksNotSupportedForTextTypeException
     | TextLengthExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartSpeechSynthesisTask", input);
+  }
   synthesizeSpeech(
     input: SynthesizeSpeechInput,
   ): Effect.Effect<
@@ -87,8 +103,12 @@ export declare class Polly extends AWSServiceClient {
     | SsmlMarksNotSupportedForTextTypeException
     | TextLengthExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("SynthesizeSpeech", input);
+  }
 }
+
+export default Polly;
 
 export type Alphabet = string;
 

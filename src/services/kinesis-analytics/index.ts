@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class KinesisAnalytics extends AWSServiceClient {
+export class KinesisAnalytics extends AWSServiceClient {
   addApplicationCloudWatchLoggingOption(
     input: AddApplicationCloudWatchLoggingOptionRequest,
   ): Effect.Effect<
@@ -13,7 +13,9 @@ export declare class KinesisAnalytics extends AWSServiceClient {
     | ResourceNotFoundException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AddApplicationCloudWatchLoggingOption", input);
+  }
   addApplicationInput(
     input: AddApplicationInputRequest,
   ): Effect.Effect<
@@ -25,7 +27,9 @@ export declare class KinesisAnalytics extends AWSServiceClient {
     | ResourceNotFoundException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AddApplicationInput", input);
+  }
   addApplicationInputProcessingConfiguration(
     input: AddApplicationInputProcessingConfigurationRequest,
   ): Effect.Effect<
@@ -36,7 +40,9 @@ export declare class KinesisAnalytics extends AWSServiceClient {
     | ResourceNotFoundException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AddApplicationInputProcessingConfiguration", input);
+  }
   addApplicationOutput(
     input: AddApplicationOutputRequest,
   ): Effect.Effect<
@@ -47,7 +53,9 @@ export declare class KinesisAnalytics extends AWSServiceClient {
     | ResourceNotFoundException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AddApplicationOutput", input);
+  }
   addApplicationReferenceDataSource(
     input: AddApplicationReferenceDataSourceRequest,
   ): Effect.Effect<
@@ -58,7 +66,9 @@ export declare class KinesisAnalytics extends AWSServiceClient {
     | ResourceNotFoundException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AddApplicationReferenceDataSource", input);
+  }
   createApplication(
     input: CreateApplicationRequest,
   ): Effect.Effect<
@@ -70,7 +80,9 @@ export declare class KinesisAnalytics extends AWSServiceClient {
     | ResourceInUseException
     | TooManyTagsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateApplication", input);
+  }
   deleteApplication(
     input: DeleteApplicationRequest,
   ): Effect.Effect<
@@ -80,7 +92,9 @@ export declare class KinesisAnalytics extends AWSServiceClient {
     | ResourceNotFoundException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteApplication", input);
+  }
   deleteApplicationCloudWatchLoggingOption(
     input: DeleteApplicationCloudWatchLoggingOptionRequest,
   ): Effect.Effect<
@@ -91,7 +105,9 @@ export declare class KinesisAnalytics extends AWSServiceClient {
     | ResourceNotFoundException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteApplicationCloudWatchLoggingOption", input);
+  }
   deleteApplicationInputProcessingConfiguration(
     input: DeleteApplicationInputProcessingConfigurationRequest,
   ): Effect.Effect<
@@ -102,7 +118,9 @@ export declare class KinesisAnalytics extends AWSServiceClient {
     | ResourceNotFoundException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteApplicationInputProcessingConfiguration", input);
+  }
   deleteApplicationOutput(
     input: DeleteApplicationOutputRequest,
   ): Effect.Effect<
@@ -113,7 +131,9 @@ export declare class KinesisAnalytics extends AWSServiceClient {
     | ResourceNotFoundException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteApplicationOutput", input);
+  }
   deleteApplicationReferenceDataSource(
     input: DeleteApplicationReferenceDataSourceRequest,
   ): Effect.Effect<
@@ -124,13 +144,17 @@ export declare class KinesisAnalytics extends AWSServiceClient {
     | ResourceNotFoundException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteApplicationReferenceDataSource", input);
+  }
   describeApplication(
     input: DescribeApplicationRequest,
   ): Effect.Effect<
     DescribeApplicationResponse,
     ResourceNotFoundException | UnsupportedOperationException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeApplication", input);
+  }
   discoverInputSchema(
     input: DiscoverInputSchemaRequest,
   ): Effect.Effect<
@@ -140,10 +164,14 @@ export declare class KinesisAnalytics extends AWSServiceClient {
     | ServiceUnavailableException
     | UnableToDetectSchemaException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DiscoverInputSchema", input);
+  }
   listApplications(
     input: ListApplicationsRequest,
-  ): Effect.Effect<ListApplicationsResponse, CommonAwsError>;
+  ): Effect.Effect<ListApplicationsResponse, CommonAwsError> {
+    return this.call("ListApplications", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
@@ -152,7 +180,9 @@ export declare class KinesisAnalytics extends AWSServiceClient {
     | InvalidArgumentException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   startApplication(
     input: StartApplicationRequest,
   ): Effect.Effect<
@@ -163,7 +193,9 @@ export declare class KinesisAnalytics extends AWSServiceClient {
     | ResourceNotFoundException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartApplication", input);
+  }
   stopApplication(
     input: StopApplicationRequest,
   ): Effect.Effect<
@@ -172,7 +204,9 @@ export declare class KinesisAnalytics extends AWSServiceClient {
     | ResourceNotFoundException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StopApplication", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -183,7 +217,9 @@ export declare class KinesisAnalytics extends AWSServiceClient {
     | ResourceNotFoundException
     | TooManyTagsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
@@ -194,7 +230,9 @@ export declare class KinesisAnalytics extends AWSServiceClient {
     | ResourceNotFoundException
     | TooManyTagsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
   updateApplication(
     input: UpdateApplicationRequest,
   ): Effect.Effect<
@@ -206,8 +244,12 @@ export declare class KinesisAnalytics extends AWSServiceClient {
     | ResourceNotFoundException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateApplication", input);
+  }
 }
+
+export default KinesisAnalytics;
 
 export interface AddApplicationCloudWatchLoggingOptionRequest {
   ApplicationName: string;

@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class AppStream extends AWSServiceClient {
+export class AppStream extends AWSServiceClient {
   associateAppBlockBuilderAppBlock(
     input: AssociateAppBlockBuilderAppBlockRequest,
   ): Effect.Effect<
@@ -13,7 +13,9 @@ export declare class AppStream extends AWSServiceClient {
     | OperationNotPermittedException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AssociateAppBlockBuilderAppBlock", input);
+  }
   associateApplicationFleet(
     input: AssociateApplicationFleetRequest,
   ): Effect.Effect<
@@ -24,7 +26,9 @@ export declare class AppStream extends AWSServiceClient {
     | OperationNotPermittedException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AssociateApplicationFleet", input);
+  }
   associateApplicationToEntitlement(
     input: AssociateApplicationToEntitlementRequest,
   ): Effect.Effect<
@@ -34,7 +38,9 @@ export declare class AppStream extends AWSServiceClient {
     | OperationNotPermittedException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AssociateApplicationToEntitlement", input);
+  }
   associateFleet(
     input: AssociateFleetRequest,
   ): Effect.Effect<
@@ -46,7 +52,9 @@ export declare class AppStream extends AWSServiceClient {
     | OperationNotPermittedException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AssociateFleet", input);
+  }
   batchAssociateUserStack(
     input: BatchAssociateUserStackRequest,
   ): Effect.Effect<
@@ -54,7 +62,9 @@ export declare class AppStream extends AWSServiceClient {
     | InvalidParameterCombinationException
     | OperationNotPermittedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("BatchAssociateUserStack", input);
+  }
   batchDisassociateUserStack(
     input: BatchDisassociateUserStackRequest,
   ): Effect.Effect<
@@ -62,7 +72,9 @@ export declare class AppStream extends AWSServiceClient {
     | InvalidParameterCombinationException
     | OperationNotPermittedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("BatchDisassociateUserStack", input);
+  }
   copyImage(
     input: CopyImageRequest,
   ): Effect.Effect<
@@ -74,7 +86,9 @@ export declare class AppStream extends AWSServiceClient {
     | ResourceNotAvailableException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CopyImage", input);
+  }
   createAppBlock(
     input: CreateAppBlockRequest,
   ): Effect.Effect<
@@ -84,7 +98,9 @@ export declare class AppStream extends AWSServiceClient {
     | OperationNotPermittedException
     | ResourceAlreadyExistsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateAppBlock", input);
+  }
   createAppBlockBuilder(
     input: CreateAppBlockBuilderRequest,
   ): Effect.Effect<
@@ -100,13 +116,17 @@ export declare class AppStream extends AWSServiceClient {
     | ResourceNotAvailableException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateAppBlockBuilder", input);
+  }
   createAppBlockBuilderStreamingURL(
     input: CreateAppBlockBuilderStreamingURLRequest,
   ): Effect.Effect<
     CreateAppBlockBuilderStreamingURLResult,
     OperationNotPermittedException | ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("CreateAppBlockBuilderStreamingURL", input);
+  }
   createApplication(
     input: CreateApplicationRequest,
   ): Effect.Effect<
@@ -117,7 +137,9 @@ export declare class AppStream extends AWSServiceClient {
     | ResourceAlreadyExistsException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateApplication", input);
+  }
   createDirectoryConfig(
     input: CreateDirectoryConfigRequest,
   ): Effect.Effect<
@@ -129,7 +151,9 @@ export declare class AppStream extends AWSServiceClient {
     | ResourceAlreadyExistsException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateDirectoryConfig", input);
+  }
   createEntitlement(
     input: CreateEntitlementRequest,
   ): Effect.Effect<
@@ -139,7 +163,9 @@ export declare class AppStream extends AWSServiceClient {
     | OperationNotPermittedException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateEntitlement", input);
+  }
   createFleet(
     input: CreateFleetRequest,
   ): Effect.Effect<
@@ -156,7 +182,9 @@ export declare class AppStream extends AWSServiceClient {
     | ResourceNotAvailableException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateFleet", input);
+  }
   createImageBuilder(
     input: CreateImageBuilderRequest,
   ): Effect.Effect<
@@ -173,13 +201,17 @@ export declare class AppStream extends AWSServiceClient {
     | ResourceNotAvailableException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateImageBuilder", input);
+  }
   createImageBuilderStreamingURL(
     input: CreateImageBuilderStreamingURLRequest,
   ): Effect.Effect<
     CreateImageBuilderStreamingURLResult,
     OperationNotPermittedException | ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("CreateImageBuilderStreamingURL", input);
+  }
   createStack(
     input: CreateStackRequest,
   ): Effect.Effect<
@@ -193,7 +225,9 @@ export declare class AppStream extends AWSServiceClient {
     | ResourceAlreadyExistsException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateStack", input);
+  }
   createStreamingURL(
     input: CreateStreamingURLRequest,
   ): Effect.Effect<
@@ -203,7 +237,9 @@ export declare class AppStream extends AWSServiceClient {
     | ResourceNotAvailableException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateStreamingURL", input);
+  }
   createThemeForStack(
     input: CreateThemeForStackRequest,
   ): Effect.Effect<
@@ -215,7 +251,9 @@ export declare class AppStream extends AWSServiceClient {
     | ResourceAlreadyExistsException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateThemeForStack", input);
+  }
   createUpdatedImage(
     input: CreateUpdatedImageRequest,
   ): Effect.Effect<
@@ -228,7 +266,9 @@ export declare class AppStream extends AWSServiceClient {
     | ResourceAlreadyExistsException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateUpdatedImage", input);
+  }
   createUsageReportSubscription(
     input: CreateUsageReportSubscriptionRequest,
   ): Effect.Effect<
@@ -237,7 +277,9 @@ export declare class AppStream extends AWSServiceClient {
     | InvalidRoleException
     | LimitExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateUsageReportSubscription", input);
+  }
   createUser(
     input: CreateUserRequest,
   ): Effect.Effect<
@@ -248,7 +290,9 @@ export declare class AppStream extends AWSServiceClient {
     | OperationNotPermittedException
     | ResourceAlreadyExistsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateUser", input);
+  }
   deleteAppBlock(
     input: DeleteAppBlockRequest,
   ): Effect.Effect<
@@ -257,7 +301,9 @@ export declare class AppStream extends AWSServiceClient {
     | ResourceInUseException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteAppBlock", input);
+  }
   deleteAppBlockBuilder(
     input: DeleteAppBlockBuilderRequest,
   ): Effect.Effect<
@@ -267,7 +313,9 @@ export declare class AppStream extends AWSServiceClient {
     | ResourceInUseException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteAppBlockBuilder", input);
+  }
   deleteApplication(
     input: DeleteApplicationRequest,
   ): Effect.Effect<
@@ -277,13 +325,17 @@ export declare class AppStream extends AWSServiceClient {
     | ResourceInUseException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteApplication", input);
+  }
   deleteDirectoryConfig(
     input: DeleteDirectoryConfigRequest,
   ): Effect.Effect<
     DeleteDirectoryConfigResult,
     ResourceInUseException | ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteDirectoryConfig", input);
+  }
   deleteEntitlement(
     input: DeleteEntitlementRequest,
   ): Effect.Effect<
@@ -293,7 +345,9 @@ export declare class AppStream extends AWSServiceClient {
     | OperationNotPermittedException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteEntitlement", input);
+  }
   deleteFleet(
     input: DeleteFleetRequest,
   ): Effect.Effect<
@@ -302,7 +356,9 @@ export declare class AppStream extends AWSServiceClient {
     | ResourceInUseException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteFleet", input);
+  }
   deleteImage(
     input: DeleteImageRequest,
   ): Effect.Effect<
@@ -312,7 +368,9 @@ export declare class AppStream extends AWSServiceClient {
     | ResourceInUseException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteImage", input);
+  }
   deleteImageBuilder(
     input: DeleteImageBuilderRequest,
   ): Effect.Effect<
@@ -321,13 +379,17 @@ export declare class AppStream extends AWSServiceClient {
     | OperationNotPermittedException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteImageBuilder", input);
+  }
   deleteImagePermissions(
     input: DeleteImagePermissionsRequest,
   ): Effect.Effect<
     DeleteImagePermissionsResult,
     ResourceNotAvailableException | ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteImagePermissions", input);
+  }
   deleteStack(
     input: DeleteStackRequest,
   ): Effect.Effect<
@@ -337,7 +399,9 @@ export declare class AppStream extends AWSServiceClient {
     | ResourceInUseException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteStack", input);
+  }
   deleteThemeForStack(
     input: DeleteThemeForStackRequest,
   ): Effect.Effect<
@@ -346,19 +410,25 @@ export declare class AppStream extends AWSServiceClient {
     | OperationNotPermittedException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteThemeForStack", input);
+  }
   deleteUsageReportSubscription(
     input: DeleteUsageReportSubscriptionRequest,
   ): Effect.Effect<
     DeleteUsageReportSubscriptionResult,
     InvalidAccountStatusException | ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteUsageReportSubscription", input);
+  }
   deleteUser(
     input: DeleteUserRequest,
   ): Effect.Effect<
     DeleteUserResult,
     ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteUser", input);
+  }
   describeAppBlockBuilderAppBlockAssociations(
     input: DescribeAppBlockBuilderAppBlockAssociationsRequest,
   ): Effect.Effect<
@@ -366,19 +436,25 @@ export declare class AppStream extends AWSServiceClient {
     | InvalidParameterCombinationException
     | OperationNotPermittedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeAppBlockBuilderAppBlockAssociations", input);
+  }
   describeAppBlockBuilders(
     input: DescribeAppBlockBuildersRequest,
   ): Effect.Effect<
     DescribeAppBlockBuildersResult,
     OperationNotPermittedException | ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeAppBlockBuilders", input);
+  }
   describeAppBlocks(
     input: DescribeAppBlocksRequest,
   ): Effect.Effect<
     DescribeAppBlocksResult,
     OperationNotPermittedException | ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeAppBlocks", input);
+  }
   describeApplicationFleetAssociations(
     input: DescribeApplicationFleetAssociationsRequest,
   ): Effect.Effect<
@@ -386,19 +462,25 @@ export declare class AppStream extends AWSServiceClient {
     | InvalidParameterCombinationException
     | OperationNotPermittedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeApplicationFleetAssociations", input);
+  }
   describeApplications(
     input: DescribeApplicationsRequest,
   ): Effect.Effect<
     DescribeApplicationsResult,
     OperationNotPermittedException | ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeApplications", input);
+  }
   describeDirectoryConfigs(
     input: DescribeDirectoryConfigsRequest,
   ): Effect.Effect<
     DescribeDirectoryConfigsResult,
     ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeDirectoryConfigs", input);
+  }
   describeEntitlements(
     input: DescribeEntitlementsRequest,
   ): Effect.Effect<
@@ -407,25 +489,33 @@ export declare class AppStream extends AWSServiceClient {
     | OperationNotPermittedException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeEntitlements", input);
+  }
   describeFleets(
     input: DescribeFleetsRequest,
   ): Effect.Effect<
     DescribeFleetsResult,
     ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeFleets", input);
+  }
   describeImageBuilders(
     input: DescribeImageBuildersRequest,
   ): Effect.Effect<
     DescribeImageBuildersResult,
     ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeImageBuilders", input);
+  }
   describeImagePermissions(
     input: DescribeImagePermissionsRequest,
   ): Effect.Effect<
     DescribeImagePermissionsResult,
     ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeImagePermissions", input);
+  }
   describeImages(
     input: DescribeImagesRequest,
   ): Effect.Effect<
@@ -433,31 +523,41 @@ export declare class AppStream extends AWSServiceClient {
     | InvalidParameterCombinationException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeImages", input);
+  }
   describeSessions(
     input: DescribeSessionsRequest,
   ): Effect.Effect<
     DescribeSessionsResult,
     InvalidParameterCombinationException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeSessions", input);
+  }
   describeStacks(
     input: DescribeStacksRequest,
   ): Effect.Effect<
     DescribeStacksResult,
     ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeStacks", input);
+  }
   describeThemeForStack(
     input: DescribeThemeForStackRequest,
   ): Effect.Effect<
     DescribeThemeForStackResult,
     OperationNotPermittedException | ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeThemeForStack", input);
+  }
   describeUsageReportSubscriptions(
     input: DescribeUsageReportSubscriptionsRequest,
   ): Effect.Effect<
     DescribeUsageReportSubscriptionsResult,
     InvalidAccountStatusException | ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeUsageReportSubscriptions", input);
+  }
   describeUsers(
     input: DescribeUsersRequest,
   ): Effect.Effect<
@@ -466,7 +566,9 @@ export declare class AppStream extends AWSServiceClient {
     | OperationNotPermittedException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeUsers", input);
+  }
   describeUserStackAssociations(
     input: DescribeUserStackAssociationsRequest,
   ): Effect.Effect<
@@ -474,13 +576,17 @@ export declare class AppStream extends AWSServiceClient {
     | InvalidParameterCombinationException
     | OperationNotPermittedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeUserStackAssociations", input);
+  }
   disableUser(
     input: DisableUserRequest,
   ): Effect.Effect<
     DisableUserResult,
     ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("DisableUser", input);
+  }
   disassociateAppBlockBuilderAppBlock(
     input: DisassociateAppBlockBuilderAppBlockRequest,
   ): Effect.Effect<
@@ -490,7 +596,9 @@ export declare class AppStream extends AWSServiceClient {
     | OperationNotPermittedException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DisassociateAppBlockBuilderAppBlock", input);
+  }
   disassociateApplicationFleet(
     input: DisassociateApplicationFleetRequest,
   ): Effect.Effect<
@@ -499,7 +607,9 @@ export declare class AppStream extends AWSServiceClient {
     | InvalidParameterCombinationException
     | OperationNotPermittedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DisassociateApplicationFleet", input);
+  }
   disassociateApplicationFromEntitlement(
     input: DisassociateApplicationFromEntitlementRequest,
   ): Effect.Effect<
@@ -508,7 +618,9 @@ export declare class AppStream extends AWSServiceClient {
     | OperationNotPermittedException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DisassociateApplicationFromEntitlement", input);
+  }
   disassociateFleet(
     input: DisassociateFleetRequest,
   ): Effect.Effect<
@@ -518,22 +630,32 @@ export declare class AppStream extends AWSServiceClient {
     | ResourceInUseException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DisassociateFleet", input);
+  }
   enableUser(
     input: EnableUserRequest,
   ): Effect.Effect<
     EnableUserResult,
     InvalidAccountStatusException | ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("EnableUser", input);
+  }
   expireSession(
     input: ExpireSessionRequest,
-  ): Effect.Effect<ExpireSessionResult, CommonAwsError>;
+  ): Effect.Effect<ExpireSessionResult, CommonAwsError> {
+    return this.call("ExpireSession", input);
+  }
   listAssociatedFleets(
     input: ListAssociatedFleetsRequest,
-  ): Effect.Effect<ListAssociatedFleetsResult, CommonAwsError>;
+  ): Effect.Effect<ListAssociatedFleetsResult, CommonAwsError> {
+    return this.call("ListAssociatedFleets", input);
+  }
   listAssociatedStacks(
     input: ListAssociatedStacksRequest,
-  ): Effect.Effect<ListAssociatedStacksResult, CommonAwsError>;
+  ): Effect.Effect<ListAssociatedStacksResult, CommonAwsError> {
+    return this.call("ListAssociatedStacks", input);
+  }
   listEntitledApplications(
     input: ListEntitledApplicationsRequest,
   ): Effect.Effect<
@@ -542,13 +664,17 @@ export declare class AppStream extends AWSServiceClient {
     | OperationNotPermittedException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListEntitledApplications", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
     ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   startAppBlockBuilder(
     input: StartAppBlockBuilderRequest,
   ): Effect.Effect<
@@ -561,7 +687,9 @@ export declare class AppStream extends AWSServiceClient {
     | ResourceNotAvailableException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartAppBlockBuilder", input);
+  }
   startFleet(
     input: StartFleetRequest,
   ): Effect.Effect<
@@ -575,7 +703,9 @@ export declare class AppStream extends AWSServiceClient {
     | ResourceNotAvailableException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartFleet", input);
+  }
   startImageBuilder(
     input: StartImageBuilderRequest,
   ): Effect.Effect<
@@ -586,7 +716,9 @@ export declare class AppStream extends AWSServiceClient {
     | ResourceNotAvailableException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartImageBuilder", input);
+  }
   stopAppBlockBuilder(
     input: StopAppBlockBuilderRequest,
   ): Effect.Effect<
@@ -595,13 +727,17 @@ export declare class AppStream extends AWSServiceClient {
     | OperationNotPermittedException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StopAppBlockBuilder", input);
+  }
   stopFleet(
     input: StopFleetRequest,
   ): Effect.Effect<
     StopFleetResult,
     ConcurrentModificationException | ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("StopFleet", input);
+  }
   stopImageBuilder(
     input: StopImageBuilderRequest,
   ): Effect.Effect<
@@ -610,7 +746,9 @@ export declare class AppStream extends AWSServiceClient {
     | OperationNotPermittedException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StopImageBuilder", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -619,13 +757,17 @@ export declare class AppStream extends AWSServiceClient {
     | LimitExceededException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
     ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
   updateAppBlockBuilder(
     input: UpdateAppBlockBuilderRequest,
   ): Effect.Effect<
@@ -641,7 +783,9 @@ export declare class AppStream extends AWSServiceClient {
     | ResourceNotAvailableException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateAppBlockBuilder", input);
+  }
   updateApplication(
     input: UpdateApplicationRequest,
   ): Effect.Effect<
@@ -650,7 +794,9 @@ export declare class AppStream extends AWSServiceClient {
     | OperationNotPermittedException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateApplication", input);
+  }
   updateDirectoryConfig(
     input: UpdateDirectoryConfigRequest,
   ): Effect.Effect<
@@ -662,7 +808,9 @@ export declare class AppStream extends AWSServiceClient {
     | ResourceInUseException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateDirectoryConfig", input);
+  }
   updateEntitlement(
     input: UpdateEntitlementRequest,
   ): Effect.Effect<
@@ -672,7 +820,9 @@ export declare class AppStream extends AWSServiceClient {
     | OperationNotPermittedException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateEntitlement", input);
+  }
   updateFleet(
     input: UpdateFleetRequest,
   ): Effect.Effect<
@@ -689,7 +839,9 @@ export declare class AppStream extends AWSServiceClient {
     | ResourceNotAvailableException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateFleet", input);
+  }
   updateImagePermissions(
     input: UpdateImagePermissionsRequest,
   ): Effect.Effect<
@@ -698,7 +850,9 @@ export declare class AppStream extends AWSServiceClient {
     | ResourceNotAvailableException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateImagePermissions", input);
+  }
   updateStack(
     input: UpdateStackRequest,
   ): Effect.Effect<
@@ -713,7 +867,9 @@ export declare class AppStream extends AWSServiceClient {
     | ResourceInUseException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateStack", input);
+  }
   updateThemeForStack(
     input: UpdateThemeForStackRequest,
   ): Effect.Effect<
@@ -725,10 +881,14 @@ export declare class AppStream extends AWSServiceClient {
     | OperationNotPermittedException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateThemeForStack", input);
+  }
 }
 
-export declare class Appstream extends AppStream {}
+export class Appstream extends AppStream {}
+
+export default AppStream;
 
 export interface AccessEndpoint {
   EndpointType: AccessEndpointType;

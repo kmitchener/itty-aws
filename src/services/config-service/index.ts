@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class ConfigService extends AWSServiceClient {
+export class ConfigService extends AWSServiceClient {
   associateResourceTypes(
     input: AssociateResourceTypesRequest,
   ): Effect.Effect<
@@ -11,7 +11,9 @@ export declare class ConfigService extends AWSServiceClient {
     | NoSuchConfigurationRecorderException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AssociateResourceTypes", input);
+  }
   batchGetAggregateResourceConfig(
     input: BatchGetAggregateResourceConfigRequest,
   ): Effect.Effect<
@@ -19,7 +21,9 @@ export declare class ConfigService extends AWSServiceClient {
     | NoSuchConfigurationAggregatorException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("BatchGetAggregateResourceConfig", input);
+  }
   batchGetResourceConfig(
     input: BatchGetResourceConfigRequest,
   ): Effect.Effect<
@@ -27,19 +31,30 @@ export declare class ConfigService extends AWSServiceClient {
     | NoAvailableConfigurationRecorderException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("BatchGetResourceConfig", input);
+  }
   deleteAggregationAuthorization(
     input: DeleteAggregationAuthorizationRequest,
-  ): Effect.Effect<{}, InvalidParameterValueException | CommonAwsError>;
+  ): Effect.Effect<{}, InvalidParameterValueException | CommonAwsError> {
+    return this.call("DeleteAggregationAuthorization", input);
+  }
   deleteConfigRule(
     input: DeleteConfigRuleRequest,
   ): Effect.Effect<
     {},
     NoSuchConfigRuleException | ResourceInUseException | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteConfigRule", input);
+  }
   deleteConfigurationAggregator(
     input: DeleteConfigurationAggregatorRequest,
-  ): Effect.Effect<{}, NoSuchConfigurationAggregatorException | CommonAwsError>;
+  ): Effect.Effect<
+    {},
+    NoSuchConfigurationAggregatorException | CommonAwsError
+  > {
+    return this.call("DeleteConfigurationAggregator", input);
+  }
   deleteConfigurationRecorder(
     input: DeleteConfigurationRecorderRequest,
   ): Effect.Effect<
@@ -47,13 +62,17 @@ export declare class ConfigService extends AWSServiceClient {
     | NoSuchConfigurationRecorderException
     | UnmodifiableEntityException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteConfigurationRecorder", input);
+  }
   deleteConformancePack(
     input: DeleteConformancePackRequest,
   ): Effect.Effect<
     {},
     NoSuchConformancePackException | ResourceInUseException | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteConformancePack", input);
+  }
   deleteDeliveryChannel(
     input: DeleteDeliveryChannelRequest,
   ): Effect.Effect<
@@ -61,13 +80,17 @@ export declare class ConfigService extends AWSServiceClient {
     | LastDeliveryChannelDeleteFailedException
     | NoSuchDeliveryChannelException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteDeliveryChannel", input);
+  }
   deleteEvaluationResults(
     input: DeleteEvaluationResultsRequest,
   ): Effect.Effect<
     DeleteEvaluationResultsResponse,
     NoSuchConfigRuleException | ResourceInUseException | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteEvaluationResults", input);
+  }
   deleteOrganizationConfigRule(
     input: DeleteOrganizationConfigRuleRequest,
   ): Effect.Effect<
@@ -76,7 +99,9 @@ export declare class ConfigService extends AWSServiceClient {
     | OrganizationAccessDeniedException
     | ResourceInUseException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteOrganizationConfigRule", input);
+  }
   deleteOrganizationConformancePack(
     input: DeleteOrganizationConformancePackRequest,
   ): Effect.Effect<
@@ -85,10 +110,14 @@ export declare class ConfigService extends AWSServiceClient {
     | OrganizationAccessDeniedException
     | ResourceInUseException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteOrganizationConformancePack", input);
+  }
   deletePendingAggregationRequest(
     input: DeletePendingAggregationRequestRequest,
-  ): Effect.Effect<{}, InvalidParameterValueException | CommonAwsError>;
+  ): Effect.Effect<{}, InvalidParameterValueException | CommonAwsError> {
+    return this.call("DeletePendingAggregationRequest", input);
+  }
   deleteRemediationConfiguration(
     input: DeleteRemediationConfigurationRequest,
   ): Effect.Effect<
@@ -98,13 +127,17 @@ export declare class ConfigService extends AWSServiceClient {
     | NoSuchRemediationConfigurationException
     | RemediationInProgressException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteRemediationConfiguration", input);
+  }
   deleteRemediationExceptions(
     input: DeleteRemediationExceptionsRequest,
   ): Effect.Effect<
     DeleteRemediationExceptionsResponse,
     NoSuchRemediationExceptionException | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteRemediationExceptions", input);
+  }
   deleteResourceConfig(
     input: DeleteResourceConfigRequest,
   ): Effect.Effect<
@@ -112,7 +145,9 @@ export declare class ConfigService extends AWSServiceClient {
     | NoRunningConfigurationRecorderException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteResourceConfig", input);
+  }
   deleteRetentionConfiguration(
     input: DeleteRetentionConfigurationRequest,
   ): Effect.Effect<
@@ -120,7 +155,9 @@ export declare class ConfigService extends AWSServiceClient {
     | InvalidParameterValueException
     | NoSuchRetentionConfigurationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteRetentionConfiguration", input);
+  }
   deleteServiceLinkedConfigurationRecorder(
     input: DeleteServiceLinkedConfigurationRecorderRequest,
   ): Effect.Effect<
@@ -129,13 +166,17 @@ export declare class ConfigService extends AWSServiceClient {
     | NoSuchConfigurationRecorderException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteServiceLinkedConfigurationRecorder", input);
+  }
   deleteStoredQuery(
     input: DeleteStoredQueryRequest,
   ): Effect.Effect<
     DeleteStoredQueryResponse,
     ResourceNotFoundException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteStoredQuery", input);
+  }
   deliverConfigSnapshot(
     input: DeliverConfigSnapshotRequest,
   ): Effect.Effect<
@@ -144,7 +185,9 @@ export declare class ConfigService extends AWSServiceClient {
     | NoRunningConfigurationRecorderException
     | NoSuchDeliveryChannelException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeliverConfigSnapshot", input);
+  }
   describeAggregateComplianceByConfigRules(
     input: DescribeAggregateComplianceByConfigRulesRequest,
   ): Effect.Effect<
@@ -154,7 +197,9 @@ export declare class ConfigService extends AWSServiceClient {
     | NoSuchConfigurationAggregatorException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeAggregateComplianceByConfigRules", input);
+  }
   describeAggregateComplianceByConformancePacks(
     input: DescribeAggregateComplianceByConformancePacksRequest,
   ): Effect.Effect<
@@ -164,7 +209,9 @@ export declare class ConfigService extends AWSServiceClient {
     | NoSuchConfigurationAggregatorException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeAggregateComplianceByConformancePacks", input);
+  }
   describeAggregationAuthorizations(
     input: DescribeAggregationAuthorizationsRequest,
   ): Effect.Effect<
@@ -173,7 +220,9 @@ export declare class ConfigService extends AWSServiceClient {
     | InvalidNextTokenException
     | InvalidParameterValueException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeAggregationAuthorizations", input);
+  }
   describeComplianceByConfigRule(
     input: DescribeComplianceByConfigRuleRequest,
   ): Effect.Effect<
@@ -182,13 +231,17 @@ export declare class ConfigService extends AWSServiceClient {
     | InvalidParameterValueException
     | NoSuchConfigRuleException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeComplianceByConfigRule", input);
+  }
   describeComplianceByResource(
     input: DescribeComplianceByResourceRequest,
   ): Effect.Effect<
     DescribeComplianceByResourceResponse,
     InvalidNextTokenException | InvalidParameterValueException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeComplianceByResource", input);
+  }
   describeConfigRuleEvaluationStatus(
     input: DescribeConfigRuleEvaluationStatusRequest,
   ): Effect.Effect<
@@ -197,7 +250,9 @@ export declare class ConfigService extends AWSServiceClient {
     | InvalidParameterValueException
     | NoSuchConfigRuleException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeConfigRuleEvaluationStatus", input);
+  }
   describeConfigRules(
     input: DescribeConfigRulesRequest,
   ): Effect.Effect<
@@ -206,7 +261,9 @@ export declare class ConfigService extends AWSServiceClient {
     | InvalidParameterValueException
     | NoSuchConfigRuleException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeConfigRules", input);
+  }
   describeConfigurationAggregators(
     input: DescribeConfigurationAggregatorsRequest,
   ): Effect.Effect<
@@ -216,7 +273,9 @@ export declare class ConfigService extends AWSServiceClient {
     | InvalidParameterValueException
     | NoSuchConfigurationAggregatorException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeConfigurationAggregators", input);
+  }
   describeConfigurationAggregatorSourcesStatus(
     input: DescribeConfigurationAggregatorSourcesStatusRequest,
   ): Effect.Effect<
@@ -226,19 +285,25 @@ export declare class ConfigService extends AWSServiceClient {
     | InvalidParameterValueException
     | NoSuchConfigurationAggregatorException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeConfigurationAggregatorSourcesStatus", input);
+  }
   describeConfigurationRecorders(
     input: DescribeConfigurationRecordersRequest,
   ): Effect.Effect<
     DescribeConfigurationRecordersResponse,
     NoSuchConfigurationRecorderException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeConfigurationRecorders", input);
+  }
   describeConfigurationRecorderStatus(
     input: DescribeConfigurationRecorderStatusRequest,
   ): Effect.Effect<
     DescribeConfigurationRecorderStatusResponse,
     NoSuchConfigurationRecorderException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeConfigurationRecorderStatus", input);
+  }
   describeConformancePackCompliance(
     input: DescribeConformancePackComplianceRequest,
   ): Effect.Effect<
@@ -249,7 +314,9 @@ export declare class ConfigService extends AWSServiceClient {
     | NoSuchConfigRuleInConformancePackException
     | NoSuchConformancePackException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeConformancePackCompliance", input);
+  }
   describeConformancePacks(
     input: DescribeConformancePacksRequest,
   ): Effect.Effect<
@@ -259,7 +326,9 @@ export declare class ConfigService extends AWSServiceClient {
     | InvalidParameterValueException
     | NoSuchConformancePackException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeConformancePacks", input);
+  }
   describeConformancePackStatus(
     input: DescribeConformancePackStatusRequest,
   ): Effect.Effect<
@@ -268,19 +337,25 @@ export declare class ConfigService extends AWSServiceClient {
     | InvalidNextTokenException
     | InvalidParameterValueException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeConformancePackStatus", input);
+  }
   describeDeliveryChannels(
     input: DescribeDeliveryChannelsRequest,
   ): Effect.Effect<
     DescribeDeliveryChannelsResponse,
     NoSuchDeliveryChannelException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeDeliveryChannels", input);
+  }
   describeDeliveryChannelStatus(
     input: DescribeDeliveryChannelStatusRequest,
   ): Effect.Effect<
     DescribeDeliveryChannelStatusResponse,
     NoSuchDeliveryChannelException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeDeliveryChannelStatus", input);
+  }
   describeOrganizationConfigRules(
     input: DescribeOrganizationConfigRulesRequest,
   ): Effect.Effect<
@@ -290,7 +365,9 @@ export declare class ConfigService extends AWSServiceClient {
     | NoSuchOrganizationConfigRuleException
     | OrganizationAccessDeniedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeOrganizationConfigRules", input);
+  }
   describeOrganizationConfigRuleStatuses(
     input: DescribeOrganizationConfigRuleStatusesRequest,
   ): Effect.Effect<
@@ -300,7 +377,9 @@ export declare class ConfigService extends AWSServiceClient {
     | NoSuchOrganizationConfigRuleException
     | OrganizationAccessDeniedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeOrganizationConfigRuleStatuses", input);
+  }
   describeOrganizationConformancePacks(
     input: DescribeOrganizationConformancePacksRequest,
   ): Effect.Effect<
@@ -310,7 +389,9 @@ export declare class ConfigService extends AWSServiceClient {
     | NoSuchOrganizationConformancePackException
     | OrganizationAccessDeniedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeOrganizationConformancePacks", input);
+  }
   describeOrganizationConformancePackStatuses(
     input: DescribeOrganizationConformancePackStatusesRequest,
   ): Effect.Effect<
@@ -320,7 +401,9 @@ export declare class ConfigService extends AWSServiceClient {
     | NoSuchOrganizationConformancePackException
     | OrganizationAccessDeniedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeOrganizationConformancePackStatuses", input);
+  }
   describePendingAggregationRequests(
     input: DescribePendingAggregationRequestsRequest,
   ): Effect.Effect<
@@ -329,16 +412,22 @@ export declare class ConfigService extends AWSServiceClient {
     | InvalidNextTokenException
     | InvalidParameterValueException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribePendingAggregationRequests", input);
+  }
   describeRemediationConfigurations(
     input: DescribeRemediationConfigurationsRequest,
-  ): Effect.Effect<DescribeRemediationConfigurationsResponse, CommonAwsError>;
+  ): Effect.Effect<DescribeRemediationConfigurationsResponse, CommonAwsError> {
+    return this.call("DescribeRemediationConfigurations", input);
+  }
   describeRemediationExceptions(
     input: DescribeRemediationExceptionsRequest,
   ): Effect.Effect<
     DescribeRemediationExceptionsResponse,
     InvalidNextTokenException | InvalidParameterValueException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeRemediationExceptions", input);
+  }
   describeRemediationExecutionStatus(
     input: DescribeRemediationExecutionStatusRequest,
   ): Effect.Effect<
@@ -347,7 +436,9 @@ export declare class ConfigService extends AWSServiceClient {
     | InvalidParameterValueException
     | NoSuchRemediationConfigurationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeRemediationExecutionStatus", input);
+  }
   describeRetentionConfigurations(
     input: DescribeRetentionConfigurationsRequest,
   ): Effect.Effect<
@@ -356,7 +447,9 @@ export declare class ConfigService extends AWSServiceClient {
     | InvalidParameterValueException
     | NoSuchRetentionConfigurationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeRetentionConfigurations", input);
+  }
   disassociateResourceTypes(
     input: DisassociateResourceTypesRequest,
   ): Effect.Effect<
@@ -365,7 +458,9 @@ export declare class ConfigService extends AWSServiceClient {
     | NoSuchConfigurationRecorderException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DisassociateResourceTypes", input);
+  }
   getAggregateComplianceDetailsByConfigRule(
     input: GetAggregateComplianceDetailsByConfigRuleRequest,
   ): Effect.Effect<
@@ -375,7 +470,9 @@ export declare class ConfigService extends AWSServiceClient {
     | NoSuchConfigurationAggregatorException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetAggregateComplianceDetailsByConfigRule", input);
+  }
   getAggregateConfigRuleComplianceSummary(
     input: GetAggregateConfigRuleComplianceSummaryRequest,
   ): Effect.Effect<
@@ -385,7 +482,9 @@ export declare class ConfigService extends AWSServiceClient {
     | NoSuchConfigurationAggregatorException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetAggregateConfigRuleComplianceSummary", input);
+  }
   getAggregateConformancePackComplianceSummary(
     input: GetAggregateConformancePackComplianceSummaryRequest,
   ): Effect.Effect<
@@ -395,7 +494,9 @@ export declare class ConfigService extends AWSServiceClient {
     | NoSuchConfigurationAggregatorException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetAggregateConformancePackComplianceSummary", input);
+  }
   getAggregateDiscoveredResourceCounts(
     input: GetAggregateDiscoveredResourceCountsRequest,
   ): Effect.Effect<
@@ -405,7 +506,9 @@ export declare class ConfigService extends AWSServiceClient {
     | NoSuchConfigurationAggregatorException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetAggregateDiscoveredResourceCounts", input);
+  }
   getAggregateResourceConfig(
     input: GetAggregateResourceConfigRequest,
   ): Effect.Effect<
@@ -415,7 +518,9 @@ export declare class ConfigService extends AWSServiceClient {
     | ResourceNotDiscoveredException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetAggregateResourceConfig", input);
+  }
   getComplianceDetailsByConfigRule(
     input: GetComplianceDetailsByConfigRuleRequest,
   ): Effect.Effect<
@@ -424,23 +529,31 @@ export declare class ConfigService extends AWSServiceClient {
     | InvalidParameterValueException
     | NoSuchConfigRuleException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetComplianceDetailsByConfigRule", input);
+  }
   getComplianceDetailsByResource(
     input: GetComplianceDetailsByResourceRequest,
   ): Effect.Effect<
     GetComplianceDetailsByResourceResponse,
     InvalidParameterValueException | CommonAwsError
-  >;
+  > {
+    return this.call("GetComplianceDetailsByResource", input);
+  }
   getComplianceSummaryByConfigRule(input: {}): Effect.Effect<
     GetComplianceSummaryByConfigRuleResponse,
     CommonAwsError
-  >;
+  > {
+    return this.call("GetComplianceSummaryByConfigRule", input);
+  }
   getComplianceSummaryByResourceType(
     input: GetComplianceSummaryByResourceTypeRequest,
   ): Effect.Effect<
     GetComplianceSummaryByResourceTypeResponse,
     InvalidParameterValueException | CommonAwsError
-  >;
+  > {
+    return this.call("GetComplianceSummaryByResourceType", input);
+  }
   getConformancePackComplianceDetails(
     input: GetConformancePackComplianceDetailsRequest,
   ): Effect.Effect<
@@ -451,7 +564,9 @@ export declare class ConfigService extends AWSServiceClient {
     | NoSuchConfigRuleInConformancePackException
     | NoSuchConformancePackException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetConformancePackComplianceDetails", input);
+  }
   getConformancePackComplianceSummary(
     input: GetConformancePackComplianceSummaryRequest,
   ): Effect.Effect<
@@ -460,13 +575,17 @@ export declare class ConfigService extends AWSServiceClient {
     | InvalidNextTokenException
     | NoSuchConformancePackException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetConformancePackComplianceSummary", input);
+  }
   getCustomRulePolicy(
     input: GetCustomRulePolicyRequest,
   ): Effect.Effect<
     GetCustomRulePolicyResponse,
     NoSuchConfigRuleException | CommonAwsError
-  >;
+  > {
+    return this.call("GetCustomRulePolicy", input);
+  }
   getDiscoveredResourceCounts(
     input: GetDiscoveredResourceCountsRequest,
   ): Effect.Effect<
@@ -475,7 +594,9 @@ export declare class ConfigService extends AWSServiceClient {
     | InvalidNextTokenException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetDiscoveredResourceCounts", input);
+  }
   getOrganizationConfigRuleDetailedStatus(
     input: GetOrganizationConfigRuleDetailedStatusRequest,
   ): Effect.Effect<
@@ -485,7 +606,9 @@ export declare class ConfigService extends AWSServiceClient {
     | NoSuchOrganizationConfigRuleException
     | OrganizationAccessDeniedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetOrganizationConfigRuleDetailedStatus", input);
+  }
   getOrganizationConformancePackDetailedStatus(
     input: GetOrganizationConformancePackDetailedStatusRequest,
   ): Effect.Effect<
@@ -495,7 +618,9 @@ export declare class ConfigService extends AWSServiceClient {
     | NoSuchOrganizationConformancePackException
     | OrganizationAccessDeniedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetOrganizationConformancePackDetailedStatus", input);
+  }
   getOrganizationCustomRulePolicy(
     input: GetOrganizationCustomRulePolicyRequest,
   ): Effect.Effect<
@@ -503,7 +628,9 @@ export declare class ConfigService extends AWSServiceClient {
     | NoSuchOrganizationConfigRuleException
     | OrganizationAccessDeniedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetOrganizationCustomRulePolicy", input);
+  }
   getResourceConfigHistory(
     input: GetResourceConfigHistoryRequest,
   ): Effect.Effect<
@@ -515,19 +642,25 @@ export declare class ConfigService extends AWSServiceClient {
     | ResourceNotDiscoveredException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetResourceConfigHistory", input);
+  }
   getResourceEvaluationSummary(
     input: GetResourceEvaluationSummaryRequest,
   ): Effect.Effect<
     GetResourceEvaluationSummaryResponse,
     ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("GetResourceEvaluationSummary", input);
+  }
   getStoredQuery(
     input: GetStoredQueryRequest,
   ): Effect.Effect<
     GetStoredQueryResponse,
     ResourceNotFoundException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("GetStoredQuery", input);
+  }
   listAggregateDiscoveredResources(
     input: ListAggregateDiscoveredResourcesRequest,
   ): Effect.Effect<
@@ -537,13 +670,17 @@ export declare class ConfigService extends AWSServiceClient {
     | NoSuchConfigurationAggregatorException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListAggregateDiscoveredResources", input);
+  }
   listConfigurationRecorders(
     input: ListConfigurationRecordersRequest,
   ): Effect.Effect<
     ListConfigurationRecordersResponse,
     ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("ListConfigurationRecorders", input);
+  }
   listConformancePackComplianceScores(
     input: ListConformancePackComplianceScoresRequest,
   ): Effect.Effect<
@@ -552,7 +689,9 @@ export declare class ConfigService extends AWSServiceClient {
     | InvalidNextTokenException
     | InvalidParameterValueException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListConformancePackComplianceScores", input);
+  }
   listDiscoveredResources(
     input: ListDiscoveredResourcesRequest,
   ): Effect.Effect<
@@ -562,7 +701,9 @@ export declare class ConfigService extends AWSServiceClient {
     | NoAvailableConfigurationRecorderException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListDiscoveredResources", input);
+  }
   listResourceEvaluations(
     input: ListResourceEvaluationsRequest,
   ): Effect.Effect<
@@ -571,13 +712,17 @@ export declare class ConfigService extends AWSServiceClient {
     | InvalidParameterValueException
     | InvalidTimeRangeException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListResourceEvaluations", input);
+  }
   listStoredQueries(
     input: ListStoredQueriesRequest,
   ): Effect.Effect<
     ListStoredQueriesResponse,
     InvalidNextTokenException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("ListStoredQueries", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
@@ -587,13 +732,17 @@ export declare class ConfigService extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   putAggregationAuthorization(
     input: PutAggregationAuthorizationRequest,
   ): Effect.Effect<
     PutAggregationAuthorizationResponse,
     InvalidParameterValueException | CommonAwsError
-  >;
+  > {
+    return this.call("PutAggregationAuthorization", input);
+  }
   putConfigRule(
     input: PutConfigRuleRequest,
   ): Effect.Effect<
@@ -604,7 +753,9 @@ export declare class ConfigService extends AWSServiceClient {
     | NoAvailableConfigurationRecorderException
     | ResourceInUseException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutConfigRule", input);
+  }
   putConfigurationAggregator(
     input: PutConfigurationAggregatorRequest,
   ): Effect.Effect<
@@ -616,7 +767,9 @@ export declare class ConfigService extends AWSServiceClient {
     | OrganizationAccessDeniedException
     | OrganizationAllFeaturesNotEnabledException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutConfigurationAggregator", input);
+  }
   putConfigurationRecorder(
     input: PutConfigurationRecorderRequest,
   ): Effect.Effect<
@@ -628,7 +781,9 @@ export declare class ConfigService extends AWSServiceClient {
     | UnmodifiableEntityException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutConfigurationRecorder", input);
+  }
   putConformancePack(
     input: PutConformancePackRequest,
   ): Effect.Effect<
@@ -639,7 +794,9 @@ export declare class ConfigService extends AWSServiceClient {
     | MaxNumberOfConformancePacksExceededException
     | ResourceInUseException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutConformancePack", input);
+  }
   putDeliveryChannel(
     input: PutDeliveryChannelRequest,
   ): Effect.Effect<
@@ -653,7 +810,9 @@ export declare class ConfigService extends AWSServiceClient {
     | NoAvailableConfigurationRecorderException
     | NoSuchBucketException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutDeliveryChannel", input);
+  }
   putEvaluations(
     input: PutEvaluationsRequest,
   ): Effect.Effect<
@@ -662,13 +821,17 @@ export declare class ConfigService extends AWSServiceClient {
     | InvalidResultTokenException
     | NoSuchConfigRuleException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutEvaluations", input);
+  }
   putExternalEvaluation(
     input: PutExternalEvaluationRequest,
   ): Effect.Effect<
     PutExternalEvaluationResponse,
     InvalidParameterValueException | NoSuchConfigRuleException | CommonAwsError
-  >;
+  > {
+    return this.call("PutExternalEvaluation", input);
+  }
   putOrganizationConfigRule(
     input: PutOrganizationConfigRuleRequest,
   ): Effect.Effect<
@@ -682,7 +845,9 @@ export declare class ConfigService extends AWSServiceClient {
     | ResourceInUseException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutOrganizationConfigRule", input);
+  }
   putOrganizationConformancePack(
     input: PutOrganizationConformancePackRequest,
   ): Effect.Effect<
@@ -696,7 +861,9 @@ export declare class ConfigService extends AWSServiceClient {
     | ResourceInUseException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutOrganizationConformancePack", input);
+  }
   putRemediationConfigurations(
     input: PutRemediationConfigurationsRequest,
   ): Effect.Effect<
@@ -704,7 +871,9 @@ export declare class ConfigService extends AWSServiceClient {
     | InsufficientPermissionsException
     | InvalidParameterValueException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutRemediationConfigurations", input);
+  }
   putRemediationExceptions(
     input: PutRemediationExceptionsRequest,
   ): Effect.Effect<
@@ -712,7 +881,9 @@ export declare class ConfigService extends AWSServiceClient {
     | InsufficientPermissionsException
     | InvalidParameterValueException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutRemediationExceptions", input);
+  }
   putResourceConfig(
     input: PutResourceConfigRequest,
   ): Effect.Effect<
@@ -722,7 +893,9 @@ export declare class ConfigService extends AWSServiceClient {
     | NoRunningConfigurationRecorderException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutResourceConfig", input);
+  }
   putRetentionConfiguration(
     input: PutRetentionConfigurationRequest,
   ): Effect.Effect<
@@ -730,7 +903,9 @@ export declare class ConfigService extends AWSServiceClient {
     | InvalidParameterValueException
     | MaxNumberOfRetentionConfigurationsExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutRetentionConfiguration", input);
+  }
   putServiceLinkedConfigurationRecorder(
     input: PutServiceLinkedConfigurationRecorderRequest,
   ): Effect.Effect<
@@ -740,7 +915,9 @@ export declare class ConfigService extends AWSServiceClient {
     | LimitExceededException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutServiceLinkedConfigurationRecorder", input);
+  }
   putStoredQuery(
     input: PutStoredQueryRequest,
   ): Effect.Effect<
@@ -749,7 +926,9 @@ export declare class ConfigService extends AWSServiceClient {
     | TooManyTagsException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutStoredQuery", input);
+  }
   selectAggregateResourceConfig(
     input: SelectAggregateResourceConfigRequest,
   ): Effect.Effect<
@@ -759,7 +938,9 @@ export declare class ConfigService extends AWSServiceClient {
     | InvalidNextTokenException
     | NoSuchConfigurationAggregatorException
     | CommonAwsError
-  >;
+  > {
+    return this.call("SelectAggregateResourceConfig", input);
+  }
   selectResourceConfig(
     input: SelectResourceConfigRequest,
   ): Effect.Effect<
@@ -768,7 +949,9 @@ export declare class ConfigService extends AWSServiceClient {
     | InvalidLimitException
     | InvalidNextTokenException
     | CommonAwsError
-  >;
+  > {
+    return this.call("SelectResourceConfig", input);
+  }
   startConfigRulesEvaluation(
     input: StartConfigRulesEvaluationRequest,
   ): Effect.Effect<
@@ -778,7 +961,9 @@ export declare class ConfigService extends AWSServiceClient {
     | NoSuchConfigRuleException
     | ResourceInUseException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartConfigRulesEvaluation", input);
+  }
   startConfigurationRecorder(
     input: StartConfigurationRecorderRequest,
   ): Effect.Effect<
@@ -787,7 +972,9 @@ export declare class ConfigService extends AWSServiceClient {
     | NoSuchConfigurationRecorderException
     | UnmodifiableEntityException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartConfigurationRecorder", input);
+  }
   startRemediationExecution(
     input: StartRemediationExecutionRequest,
   ): Effect.Effect<
@@ -796,7 +983,9 @@ export declare class ConfigService extends AWSServiceClient {
     | InvalidParameterValueException
     | NoSuchRemediationConfigurationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartRemediationExecution", input);
+  }
   startResourceEvaluation(
     input: StartResourceEvaluationRequest,
   ): Effect.Effect<
@@ -804,7 +993,9 @@ export declare class ConfigService extends AWSServiceClient {
     | IdempotentParameterMismatch
     | InvalidParameterValueException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartResourceEvaluation", input);
+  }
   stopConfigurationRecorder(
     input: StopConfigurationRecorderRequest,
   ): Effect.Effect<
@@ -812,7 +1003,9 @@ export declare class ConfigService extends AWSServiceClient {
     | NoSuchConfigurationRecorderException
     | UnmodifiableEntityException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StopConfigurationRecorder", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -821,14 +1014,20 @@ export declare class ConfigService extends AWSServiceClient {
     | TooManyTagsException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
     {},
     ResourceNotFoundException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
 }
+
+export default ConfigService;
 
 export interface AccountAggregationSource {
   AccountIds: Array<string>;

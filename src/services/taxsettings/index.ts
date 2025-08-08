@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class TaxSettings extends AWSServiceClient {
+export class TaxSettings extends AWSServiceClient {
   batchDeleteTaxRegistration(
     input: BatchDeleteTaxRegistrationRequest,
   ): Effect.Effect<
@@ -11,7 +11,9 @@ export declare class TaxSettings extends AWSServiceClient {
     | InternalServerException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("BatchDeleteTaxRegistration", input);
+  }
   batchGetTaxExemptions(
     input: BatchGetTaxExemptionsRequest,
   ): Effect.Effect<
@@ -20,7 +22,9 @@ export declare class TaxSettings extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("BatchGetTaxExemptions", input);
+  }
   batchPutTaxRegistration(
     input: BatchPutTaxRegistrationRequest,
   ): Effect.Effect<
@@ -29,7 +33,9 @@ export declare class TaxSettings extends AWSServiceClient {
     | InternalServerException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("BatchPutTaxRegistration", input);
+  }
   deleteSupplementalTaxRegistration(
     input: DeleteSupplementalTaxRegistrationRequest,
   ): Effect.Effect<
@@ -39,7 +45,9 @@ export declare class TaxSettings extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteSupplementalTaxRegistration", input);
+  }
   deleteTaxRegistration(
     input: DeleteTaxRegistrationRequest,
   ): Effect.Effect<
@@ -49,7 +57,9 @@ export declare class TaxSettings extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteTaxRegistration", input);
+  }
   getTaxExemptionTypes(
     input: GetTaxExemptionTypesRequest,
   ): Effect.Effect<
@@ -58,7 +68,9 @@ export declare class TaxSettings extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetTaxExemptionTypes", input);
+  }
   getTaxInheritance(
     input: GetTaxInheritanceRequest,
   ): Effect.Effect<
@@ -67,7 +79,9 @@ export declare class TaxSettings extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetTaxInheritance", input);
+  }
   getTaxRegistration(
     input: GetTaxRegistrationRequest,
   ): Effect.Effect<
@@ -76,13 +90,17 @@ export declare class TaxSettings extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetTaxRegistration", input);
+  }
   getTaxRegistrationDocument(
     input: GetTaxRegistrationDocumentRequest,
   ): Effect.Effect<
     GetTaxRegistrationDocumentResponse,
     InternalServerException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("GetTaxRegistrationDocument", input);
+  }
   listSupplementalTaxRegistrations(
     input: ListSupplementalTaxRegistrationsRequest,
   ): Effect.Effect<
@@ -91,7 +109,9 @@ export declare class TaxSettings extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListSupplementalTaxRegistrations", input);
+  }
   listTaxExemptions(
     input: ListTaxExemptionsRequest,
   ): Effect.Effect<
@@ -100,7 +120,9 @@ export declare class TaxSettings extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTaxExemptions", input);
+  }
   listTaxRegistrations(
     input: ListTaxRegistrationsRequest,
   ): Effect.Effect<
@@ -109,7 +131,9 @@ export declare class TaxSettings extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTaxRegistrations", input);
+  }
   putSupplementalTaxRegistration(
     input: PutSupplementalTaxRegistrationRequest,
   ): Effect.Effect<
@@ -118,7 +142,9 @@ export declare class TaxSettings extends AWSServiceClient {
     | InternalServerException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutSupplementalTaxRegistration", input);
+  }
   putTaxExemption(
     input: PutTaxExemptionRequest,
   ): Effect.Effect<
@@ -130,7 +156,9 @@ export declare class TaxSettings extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutTaxExemption", input);
+  }
   putTaxInheritance(
     input: PutTaxInheritanceRequest,
   ): Effect.Effect<
@@ -140,7 +168,9 @@ export declare class TaxSettings extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutTaxInheritance", input);
+  }
   putTaxRegistration(
     input: PutTaxRegistrationRequest,
   ): Effect.Effect<
@@ -149,10 +179,14 @@ export declare class TaxSettings extends AWSServiceClient {
     | InternalServerException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutTaxRegistration", input);
+  }
 }
 
-export declare class Taxsettings extends TaxSettings {}
+export class Taxsettings extends TaxSettings {}
+
+export default TaxSettings;
 
 export declare class AccessDeniedException extends EffectData.TaggedError(
   "AccessDeniedException",

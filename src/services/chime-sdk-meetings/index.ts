@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class ChimeSDKMeetings extends AWSServiceClient {
+export class ChimeSDKMeetings extends AWSServiceClient {
   batchCreateAttendee(
     input: BatchCreateAttendeeRequest,
   ): Effect.Effect<
@@ -17,7 +17,9 @@ export declare class ChimeSDKMeetings extends AWSServiceClient {
     | UnauthorizedException
     | UnprocessableEntityException
     | CommonAwsError
-  >;
+  > {
+    return this.call("BatchCreateAttendee", input);
+  }
   batchUpdateAttendeeCapabilitiesExcept(
     input: BatchUpdateAttendeeCapabilitiesExceptRequest,
   ): Effect.Effect<
@@ -31,7 +33,9 @@ export declare class ChimeSDKMeetings extends AWSServiceClient {
     | ThrottlingException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("BatchUpdateAttendeeCapabilitiesExcept", input);
+  }
   createAttendee(
     input: CreateAttendeeRequest,
   ): Effect.Effect<
@@ -46,7 +50,9 @@ export declare class ChimeSDKMeetings extends AWSServiceClient {
     | UnauthorizedException
     | UnprocessableEntityException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateAttendee", input);
+  }
   createMeeting(
     input: CreateMeetingRequest,
   ): Effect.Effect<
@@ -60,7 +66,9 @@ export declare class ChimeSDKMeetings extends AWSServiceClient {
     | ThrottlingException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateMeeting", input);
+  }
   createMeetingWithAttendees(
     input: CreateMeetingWithAttendeesRequest,
   ): Effect.Effect<
@@ -74,7 +82,9 @@ export declare class ChimeSDKMeetings extends AWSServiceClient {
     | ThrottlingException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateMeetingWithAttendees", input);
+  }
   deleteAttendee(
     input: DeleteAttendeeRequest,
   ): Effect.Effect<
@@ -87,7 +97,9 @@ export declare class ChimeSDKMeetings extends AWSServiceClient {
     | ThrottlingException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteAttendee", input);
+  }
   deleteMeeting(
     input: DeleteMeetingRequest,
   ): Effect.Effect<
@@ -100,7 +112,9 @@ export declare class ChimeSDKMeetings extends AWSServiceClient {
     | ThrottlingException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteMeeting", input);
+  }
   getAttendee(
     input: GetAttendeeRequest,
   ): Effect.Effect<
@@ -113,7 +127,9 @@ export declare class ChimeSDKMeetings extends AWSServiceClient {
     | ThrottlingException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetAttendee", input);
+  }
   getMeeting(
     input: GetMeetingRequest,
   ): Effect.Effect<
@@ -126,7 +142,9 @@ export declare class ChimeSDKMeetings extends AWSServiceClient {
     | ThrottlingException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetMeeting", input);
+  }
   listAttendees(
     input: ListAttendeesRequest,
   ): Effect.Effect<
@@ -139,7 +157,9 @@ export declare class ChimeSDKMeetings extends AWSServiceClient {
     | ThrottlingException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListAttendees", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
@@ -153,7 +173,9 @@ export declare class ChimeSDKMeetings extends AWSServiceClient {
     | ThrottlingException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   startMeetingTranscription(
     input: StartMeetingTranscriptionRequest,
   ): Effect.Effect<
@@ -168,7 +190,9 @@ export declare class ChimeSDKMeetings extends AWSServiceClient {
     | UnauthorizedException
     | UnprocessableEntityException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartMeetingTranscription", input);
+  }
   stopMeetingTranscription(
     input: StopMeetingTranscriptionRequest,
   ): Effect.Effect<
@@ -182,7 +206,9 @@ export declare class ChimeSDKMeetings extends AWSServiceClient {
     | UnauthorizedException
     | UnprocessableEntityException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StopMeetingTranscription", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -197,7 +223,9 @@ export declare class ChimeSDKMeetings extends AWSServiceClient {
     | TooManyTagsException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
@@ -211,7 +239,9 @@ export declare class ChimeSDKMeetings extends AWSServiceClient {
     | ThrottlingException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
   updateAttendeeCapabilities(
     input: UpdateAttendeeCapabilitiesRequest,
   ): Effect.Effect<
@@ -225,10 +255,14 @@ export declare class ChimeSDKMeetings extends AWSServiceClient {
     | ThrottlingException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateAttendeeCapabilities", input);
+  }
 }
 
-export declare class ChimeSdkMeetings extends ChimeSDKMeetings {}
+export class ChimeSdkMeetings extends ChimeSDKMeetings {}
+
+export default ChimeSDKMeetings;
 
 export type AmazonResourceName = string;
 

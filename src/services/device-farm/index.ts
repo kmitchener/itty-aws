@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class DeviceFarm extends AWSServiceClient {
+export class DeviceFarm extends AWSServiceClient {
   createDevicePool(
     input: CreateDevicePoolRequest,
   ): Effect.Effect<
@@ -12,7 +12,9 @@ export declare class DeviceFarm extends AWSServiceClient {
     | NotFoundException
     | ServiceAccountException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateDevicePool", input);
+  }
   createInstanceProfile(
     input: CreateInstanceProfileRequest,
   ): Effect.Effect<
@@ -22,7 +24,9 @@ export declare class DeviceFarm extends AWSServiceClient {
     | NotFoundException
     | ServiceAccountException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateInstanceProfile", input);
+  }
   createNetworkProfile(
     input: CreateNetworkProfileRequest,
   ): Effect.Effect<
@@ -32,7 +36,9 @@ export declare class DeviceFarm extends AWSServiceClient {
     | NotFoundException
     | ServiceAccountException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateNetworkProfile", input);
+  }
   createProject(
     input: CreateProjectRequest,
   ): Effect.Effect<
@@ -43,7 +49,9 @@ export declare class DeviceFarm extends AWSServiceClient {
     | ServiceAccountException
     | TagOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateProject", input);
+  }
   createRemoteAccessSession(
     input: CreateRemoteAccessSessionRequest,
   ): Effect.Effect<
@@ -53,7 +61,9 @@ export declare class DeviceFarm extends AWSServiceClient {
     | NotFoundException
     | ServiceAccountException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateRemoteAccessSession", input);
+  }
   createTestGridProject(
     input: CreateTestGridProjectRequest,
   ): Effect.Effect<
@@ -62,7 +72,9 @@ export declare class DeviceFarm extends AWSServiceClient {
     | InternalServiceException
     | LimitExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateTestGridProject", input);
+  }
   createTestGridUrl(
     input: CreateTestGridUrlRequest,
   ): Effect.Effect<
@@ -71,7 +83,9 @@ export declare class DeviceFarm extends AWSServiceClient {
     | InternalServiceException
     | NotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateTestGridUrl", input);
+  }
   createUpload(
     input: CreateUploadRequest,
   ): Effect.Effect<
@@ -81,7 +95,9 @@ export declare class DeviceFarm extends AWSServiceClient {
     | NotFoundException
     | ServiceAccountException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateUpload", input);
+  }
   createVPCEConfiguration(
     input: CreateVPCEConfigurationRequest,
   ): Effect.Effect<
@@ -90,7 +106,9 @@ export declare class DeviceFarm extends AWSServiceClient {
     | LimitExceededException
     | ServiceAccountException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateVPCEConfiguration", input);
+  }
   deleteDevicePool(
     input: DeleteDevicePoolRequest,
   ): Effect.Effect<
@@ -100,7 +118,9 @@ export declare class DeviceFarm extends AWSServiceClient {
     | NotFoundException
     | ServiceAccountException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteDevicePool", input);
+  }
   deleteInstanceProfile(
     input: DeleteInstanceProfileRequest,
   ): Effect.Effect<
@@ -110,7 +130,9 @@ export declare class DeviceFarm extends AWSServiceClient {
     | NotFoundException
     | ServiceAccountException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteInstanceProfile", input);
+  }
   deleteNetworkProfile(
     input: DeleteNetworkProfileRequest,
   ): Effect.Effect<
@@ -120,7 +142,9 @@ export declare class DeviceFarm extends AWSServiceClient {
     | NotFoundException
     | ServiceAccountException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteNetworkProfile", input);
+  }
   deleteProject(
     input: DeleteProjectRequest,
   ): Effect.Effect<
@@ -130,7 +154,9 @@ export declare class DeviceFarm extends AWSServiceClient {
     | NotFoundException
     | ServiceAccountException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteProject", input);
+  }
   deleteRemoteAccessSession(
     input: DeleteRemoteAccessSessionRequest,
   ): Effect.Effect<
@@ -140,7 +166,9 @@ export declare class DeviceFarm extends AWSServiceClient {
     | NotFoundException
     | ServiceAccountException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteRemoteAccessSession", input);
+  }
   deleteRun(
     input: DeleteRunRequest,
   ): Effect.Effect<
@@ -150,7 +178,9 @@ export declare class DeviceFarm extends AWSServiceClient {
     | NotFoundException
     | ServiceAccountException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteRun", input);
+  }
   deleteTestGridProject(
     input: DeleteTestGridProjectRequest,
   ): Effect.Effect<
@@ -160,7 +190,9 @@ export declare class DeviceFarm extends AWSServiceClient {
     | InternalServiceException
     | NotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteTestGridProject", input);
+  }
   deleteUpload(
     input: DeleteUploadRequest,
   ): Effect.Effect<
@@ -170,7 +202,9 @@ export declare class DeviceFarm extends AWSServiceClient {
     | NotFoundException
     | ServiceAccountException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteUpload", input);
+  }
   deleteVPCEConfiguration(
     input: DeleteVPCEConfigurationRequest,
   ): Effect.Effect<
@@ -180,7 +214,9 @@ export declare class DeviceFarm extends AWSServiceClient {
     | NotFoundException
     | ServiceAccountException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteVPCEConfiguration", input);
+  }
   getAccountSettings(
     input: GetAccountSettingsRequest,
   ): Effect.Effect<
@@ -190,7 +226,9 @@ export declare class DeviceFarm extends AWSServiceClient {
     | NotFoundException
     | ServiceAccountException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetAccountSettings", input);
+  }
   getDevice(
     input: GetDeviceRequest,
   ): Effect.Effect<
@@ -200,7 +238,9 @@ export declare class DeviceFarm extends AWSServiceClient {
     | NotFoundException
     | ServiceAccountException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetDevice", input);
+  }
   getDeviceInstance(
     input: GetDeviceInstanceRequest,
   ): Effect.Effect<
@@ -210,7 +250,9 @@ export declare class DeviceFarm extends AWSServiceClient {
     | NotFoundException
     | ServiceAccountException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetDeviceInstance", input);
+  }
   getDevicePool(
     input: GetDevicePoolRequest,
   ): Effect.Effect<
@@ -220,7 +262,9 @@ export declare class DeviceFarm extends AWSServiceClient {
     | NotFoundException
     | ServiceAccountException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetDevicePool", input);
+  }
   getDevicePoolCompatibility(
     input: GetDevicePoolCompatibilityRequest,
   ): Effect.Effect<
@@ -230,7 +274,9 @@ export declare class DeviceFarm extends AWSServiceClient {
     | NotFoundException
     | ServiceAccountException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetDevicePoolCompatibility", input);
+  }
   getInstanceProfile(
     input: GetInstanceProfileRequest,
   ): Effect.Effect<
@@ -240,7 +286,9 @@ export declare class DeviceFarm extends AWSServiceClient {
     | NotFoundException
     | ServiceAccountException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetInstanceProfile", input);
+  }
   getJob(
     input: GetJobRequest,
   ): Effect.Effect<
@@ -250,7 +298,9 @@ export declare class DeviceFarm extends AWSServiceClient {
     | NotFoundException
     | ServiceAccountException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetJob", input);
+  }
   getNetworkProfile(
     input: GetNetworkProfileRequest,
   ): Effect.Effect<
@@ -260,7 +310,9 @@ export declare class DeviceFarm extends AWSServiceClient {
     | NotFoundException
     | ServiceAccountException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetNetworkProfile", input);
+  }
   getOfferingStatus(
     input: GetOfferingStatusRequest,
   ): Effect.Effect<
@@ -271,7 +323,9 @@ export declare class DeviceFarm extends AWSServiceClient {
     | NotFoundException
     | ServiceAccountException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetOfferingStatus", input);
+  }
   getProject(
     input: GetProjectRequest,
   ): Effect.Effect<
@@ -281,7 +335,9 @@ export declare class DeviceFarm extends AWSServiceClient {
     | NotFoundException
     | ServiceAccountException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetProject", input);
+  }
   getRemoteAccessSession(
     input: GetRemoteAccessSessionRequest,
   ): Effect.Effect<
@@ -291,7 +347,9 @@ export declare class DeviceFarm extends AWSServiceClient {
     | NotFoundException
     | ServiceAccountException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetRemoteAccessSession", input);
+  }
   getRun(
     input: GetRunRequest,
   ): Effect.Effect<
@@ -301,7 +359,9 @@ export declare class DeviceFarm extends AWSServiceClient {
     | NotFoundException
     | ServiceAccountException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetRun", input);
+  }
   getSuite(
     input: GetSuiteRequest,
   ): Effect.Effect<
@@ -311,7 +371,9 @@ export declare class DeviceFarm extends AWSServiceClient {
     | NotFoundException
     | ServiceAccountException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetSuite", input);
+  }
   getTest(
     input: GetTestRequest,
   ): Effect.Effect<
@@ -321,7 +383,9 @@ export declare class DeviceFarm extends AWSServiceClient {
     | NotFoundException
     | ServiceAccountException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetTest", input);
+  }
   getTestGridProject(
     input: GetTestGridProjectRequest,
   ): Effect.Effect<
@@ -330,7 +394,9 @@ export declare class DeviceFarm extends AWSServiceClient {
     | InternalServiceException
     | NotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetTestGridProject", input);
+  }
   getTestGridSession(
     input: GetTestGridSessionRequest,
   ): Effect.Effect<
@@ -339,7 +405,9 @@ export declare class DeviceFarm extends AWSServiceClient {
     | InternalServiceException
     | NotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetTestGridSession", input);
+  }
   getUpload(
     input: GetUploadRequest,
   ): Effect.Effect<
@@ -349,7 +417,9 @@ export declare class DeviceFarm extends AWSServiceClient {
     | NotFoundException
     | ServiceAccountException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetUpload", input);
+  }
   getVPCEConfiguration(
     input: GetVPCEConfigurationRequest,
   ): Effect.Effect<
@@ -358,7 +428,9 @@ export declare class DeviceFarm extends AWSServiceClient {
     | NotFoundException
     | ServiceAccountException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetVPCEConfiguration", input);
+  }
   installToRemoteAccessSession(
     input: InstallToRemoteAccessSessionRequest,
   ): Effect.Effect<
@@ -368,7 +440,9 @@ export declare class DeviceFarm extends AWSServiceClient {
     | NotFoundException
     | ServiceAccountException
     | CommonAwsError
-  >;
+  > {
+    return this.call("InstallToRemoteAccessSession", input);
+  }
   listArtifacts(
     input: ListArtifactsRequest,
   ): Effect.Effect<
@@ -378,7 +452,9 @@ export declare class DeviceFarm extends AWSServiceClient {
     | NotFoundException
     | ServiceAccountException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListArtifacts", input);
+  }
   listDeviceInstances(
     input: ListDeviceInstancesRequest,
   ): Effect.Effect<
@@ -388,7 +464,9 @@ export declare class DeviceFarm extends AWSServiceClient {
     | NotFoundException
     | ServiceAccountException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListDeviceInstances", input);
+  }
   listDevicePools(
     input: ListDevicePoolsRequest,
   ): Effect.Effect<
@@ -398,7 +476,9 @@ export declare class DeviceFarm extends AWSServiceClient {
     | NotFoundException
     | ServiceAccountException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListDevicePools", input);
+  }
   listDevices(
     input: ListDevicesRequest,
   ): Effect.Effect<
@@ -408,7 +488,9 @@ export declare class DeviceFarm extends AWSServiceClient {
     | NotFoundException
     | ServiceAccountException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListDevices", input);
+  }
   listInstanceProfiles(
     input: ListInstanceProfilesRequest,
   ): Effect.Effect<
@@ -418,7 +500,9 @@ export declare class DeviceFarm extends AWSServiceClient {
     | NotFoundException
     | ServiceAccountException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListInstanceProfiles", input);
+  }
   listJobs(
     input: ListJobsRequest,
   ): Effect.Effect<
@@ -428,7 +512,9 @@ export declare class DeviceFarm extends AWSServiceClient {
     | NotFoundException
     | ServiceAccountException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListJobs", input);
+  }
   listNetworkProfiles(
     input: ListNetworkProfilesRequest,
   ): Effect.Effect<
@@ -438,7 +524,9 @@ export declare class DeviceFarm extends AWSServiceClient {
     | NotFoundException
     | ServiceAccountException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListNetworkProfiles", input);
+  }
   listOfferingPromotions(
     input: ListOfferingPromotionsRequest,
   ): Effect.Effect<
@@ -449,7 +537,9 @@ export declare class DeviceFarm extends AWSServiceClient {
     | NotFoundException
     | ServiceAccountException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListOfferingPromotions", input);
+  }
   listOfferings(
     input: ListOfferingsRequest,
   ): Effect.Effect<
@@ -460,7 +550,9 @@ export declare class DeviceFarm extends AWSServiceClient {
     | NotFoundException
     | ServiceAccountException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListOfferings", input);
+  }
   listOfferingTransactions(
     input: ListOfferingTransactionsRequest,
   ): Effect.Effect<
@@ -471,7 +563,9 @@ export declare class DeviceFarm extends AWSServiceClient {
     | NotFoundException
     | ServiceAccountException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListOfferingTransactions", input);
+  }
   listProjects(
     input: ListProjectsRequest,
   ): Effect.Effect<
@@ -481,7 +575,9 @@ export declare class DeviceFarm extends AWSServiceClient {
     | NotFoundException
     | ServiceAccountException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListProjects", input);
+  }
   listRemoteAccessSessions(
     input: ListRemoteAccessSessionsRequest,
   ): Effect.Effect<
@@ -491,7 +587,9 @@ export declare class DeviceFarm extends AWSServiceClient {
     | NotFoundException
     | ServiceAccountException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListRemoteAccessSessions", input);
+  }
   listRuns(
     input: ListRunsRequest,
   ): Effect.Effect<
@@ -501,7 +599,9 @@ export declare class DeviceFarm extends AWSServiceClient {
     | NotFoundException
     | ServiceAccountException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListRuns", input);
+  }
   listSamples(
     input: ListSamplesRequest,
   ): Effect.Effect<
@@ -511,7 +611,9 @@ export declare class DeviceFarm extends AWSServiceClient {
     | NotFoundException
     | ServiceAccountException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListSamples", input);
+  }
   listSuites(
     input: ListSuitesRequest,
   ): Effect.Effect<
@@ -521,7 +623,9 @@ export declare class DeviceFarm extends AWSServiceClient {
     | NotFoundException
     | ServiceAccountException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListSuites", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
@@ -530,13 +634,17 @@ export declare class DeviceFarm extends AWSServiceClient {
     | NotFoundException
     | TagOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   listTestGridProjects(
     input: ListTestGridProjectsRequest,
   ): Effect.Effect<
     ListTestGridProjectsResult,
     ArgumentException | InternalServiceException | CommonAwsError
-  >;
+  > {
+    return this.call("ListTestGridProjects", input);
+  }
   listTestGridSessionActions(
     input: ListTestGridSessionActionsRequest,
   ): Effect.Effect<
@@ -545,7 +653,9 @@ export declare class DeviceFarm extends AWSServiceClient {
     | InternalServiceException
     | NotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTestGridSessionActions", input);
+  }
   listTestGridSessionArtifacts(
     input: ListTestGridSessionArtifactsRequest,
   ): Effect.Effect<
@@ -554,7 +664,9 @@ export declare class DeviceFarm extends AWSServiceClient {
     | InternalServiceException
     | NotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTestGridSessionArtifacts", input);
+  }
   listTestGridSessions(
     input: ListTestGridSessionsRequest,
   ): Effect.Effect<
@@ -563,7 +675,9 @@ export declare class DeviceFarm extends AWSServiceClient {
     | InternalServiceException
     | NotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTestGridSessions", input);
+  }
   listTests(
     input: ListTestsRequest,
   ): Effect.Effect<
@@ -573,7 +687,9 @@ export declare class DeviceFarm extends AWSServiceClient {
     | NotFoundException
     | ServiceAccountException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTests", input);
+  }
   listUniqueProblems(
     input: ListUniqueProblemsRequest,
   ): Effect.Effect<
@@ -583,7 +699,9 @@ export declare class DeviceFarm extends AWSServiceClient {
     | NotFoundException
     | ServiceAccountException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListUniqueProblems", input);
+  }
   listUploads(
     input: ListUploadsRequest,
   ): Effect.Effect<
@@ -593,13 +711,17 @@ export declare class DeviceFarm extends AWSServiceClient {
     | NotFoundException
     | ServiceAccountException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListUploads", input);
+  }
   listVPCEConfigurations(
     input: ListVPCEConfigurationsRequest,
   ): Effect.Effect<
     ListVPCEConfigurationsResult,
     ArgumentException | ServiceAccountException | CommonAwsError
-  >;
+  > {
+    return this.call("ListVPCEConfigurations", input);
+  }
   purchaseOffering(
     input: PurchaseOfferingRequest,
   ): Effect.Effect<
@@ -610,7 +732,9 @@ export declare class DeviceFarm extends AWSServiceClient {
     | NotFoundException
     | ServiceAccountException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PurchaseOffering", input);
+  }
   renewOffering(
     input: RenewOfferingRequest,
   ): Effect.Effect<
@@ -621,7 +745,9 @@ export declare class DeviceFarm extends AWSServiceClient {
     | NotFoundException
     | ServiceAccountException
     | CommonAwsError
-  >;
+  > {
+    return this.call("RenewOffering", input);
+  }
   scheduleRun(
     input: ScheduleRunRequest,
   ): Effect.Effect<
@@ -632,7 +758,9 @@ export declare class DeviceFarm extends AWSServiceClient {
     | NotFoundException
     | ServiceAccountException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ScheduleRun", input);
+  }
   stopJob(
     input: StopJobRequest,
   ): Effect.Effect<
@@ -642,7 +770,9 @@ export declare class DeviceFarm extends AWSServiceClient {
     | NotFoundException
     | ServiceAccountException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StopJob", input);
+  }
   stopRemoteAccessSession(
     input: StopRemoteAccessSessionRequest,
   ): Effect.Effect<
@@ -652,7 +782,9 @@ export declare class DeviceFarm extends AWSServiceClient {
     | NotFoundException
     | ServiceAccountException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StopRemoteAccessSession", input);
+  }
   stopRun(
     input: StopRunRequest,
   ): Effect.Effect<
@@ -662,7 +794,9 @@ export declare class DeviceFarm extends AWSServiceClient {
     | NotFoundException
     | ServiceAccountException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StopRun", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -673,7 +807,9 @@ export declare class DeviceFarm extends AWSServiceClient {
     | TagPolicyException
     | TooManyTagsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
@@ -682,7 +818,9 @@ export declare class DeviceFarm extends AWSServiceClient {
     | NotFoundException
     | TagOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
   updateDeviceInstance(
     input: UpdateDeviceInstanceRequest,
   ): Effect.Effect<
@@ -692,7 +830,9 @@ export declare class DeviceFarm extends AWSServiceClient {
     | NotFoundException
     | ServiceAccountException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateDeviceInstance", input);
+  }
   updateDevicePool(
     input: UpdateDevicePoolRequest,
   ): Effect.Effect<
@@ -702,7 +842,9 @@ export declare class DeviceFarm extends AWSServiceClient {
     | NotFoundException
     | ServiceAccountException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateDevicePool", input);
+  }
   updateInstanceProfile(
     input: UpdateInstanceProfileRequest,
   ): Effect.Effect<
@@ -712,7 +854,9 @@ export declare class DeviceFarm extends AWSServiceClient {
     | NotFoundException
     | ServiceAccountException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateInstanceProfile", input);
+  }
   updateNetworkProfile(
     input: UpdateNetworkProfileRequest,
   ): Effect.Effect<
@@ -722,7 +866,9 @@ export declare class DeviceFarm extends AWSServiceClient {
     | NotFoundException
     | ServiceAccountException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateNetworkProfile", input);
+  }
   updateProject(
     input: UpdateProjectRequest,
   ): Effect.Effect<
@@ -732,7 +878,9 @@ export declare class DeviceFarm extends AWSServiceClient {
     | NotFoundException
     | ServiceAccountException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateProject", input);
+  }
   updateTestGridProject(
     input: UpdateTestGridProjectRequest,
   ): Effect.Effect<
@@ -742,7 +890,9 @@ export declare class DeviceFarm extends AWSServiceClient {
     | LimitExceededException
     | NotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateTestGridProject", input);
+  }
   updateUpload(
     input: UpdateUploadRequest,
   ): Effect.Effect<
@@ -752,7 +902,9 @@ export declare class DeviceFarm extends AWSServiceClient {
     | NotFoundException
     | ServiceAccountException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateUpload", input);
+  }
   updateVPCEConfiguration(
     input: UpdateVPCEConfigurationRequest,
   ): Effect.Effect<
@@ -762,8 +914,12 @@ export declare class DeviceFarm extends AWSServiceClient {
     | NotFoundException
     | ServiceAccountException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateVPCEConfiguration", input);
+  }
 }
+
+export default DeviceFarm;
 
 export type AccountsCleanup = boolean;
 

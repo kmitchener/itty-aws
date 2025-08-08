@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class IoTTwinMaker extends AWSServiceClient {
+export class IoTTwinMaker extends AWSServiceClient {
   batchPutPropertyValues(
     input: BatchPutPropertyValuesRequest,
   ): Effect.Effect<
@@ -12,7 +12,9 @@ export declare class IoTTwinMaker extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("BatchPutPropertyValues", input);
+  }
   cancelMetadataTransferJob(
     input: CancelMetadataTransferJobRequest,
   ): Effect.Effect<
@@ -24,7 +26,9 @@ export declare class IoTTwinMaker extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CancelMetadataTransferJob", input);
+  }
   createComponentType(
     input: CreateComponentTypeRequest,
   ): Effect.Effect<
@@ -36,7 +40,9 @@ export declare class IoTTwinMaker extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateComponentType", input);
+  }
   createEntity(
     input: CreateEntityRequest,
   ): Effect.Effect<
@@ -48,7 +54,9 @@ export declare class IoTTwinMaker extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateEntity", input);
+  }
   createMetadataTransferJob(
     input: CreateMetadataTransferJobRequest,
   ): Effect.Effect<
@@ -61,7 +69,9 @@ export declare class IoTTwinMaker extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateMetadataTransferJob", input);
+  }
   createScene(
     input: CreateSceneRequest,
   ): Effect.Effect<
@@ -73,7 +83,9 @@ export declare class IoTTwinMaker extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateScene", input);
+  }
   createSyncJob(
     input: CreateSyncJobRequest,
   ): Effect.Effect<
@@ -85,7 +97,9 @@ export declare class IoTTwinMaker extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateSyncJob", input);
+  }
   createWorkspace(
     input: CreateWorkspaceRequest,
   ): Effect.Effect<
@@ -97,7 +111,9 @@ export declare class IoTTwinMaker extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateWorkspace", input);
+  }
   deleteComponentType(
     input: DeleteComponentTypeRequest,
   ): Effect.Effect<
@@ -108,7 +124,9 @@ export declare class IoTTwinMaker extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteComponentType", input);
+  }
   deleteEntity(
     input: DeleteEntityRequest,
   ): Effect.Effect<
@@ -119,7 +137,9 @@ export declare class IoTTwinMaker extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteEntity", input);
+  }
   deleteScene(
     input: DeleteSceneRequest,
   ): Effect.Effect<
@@ -130,7 +150,9 @@ export declare class IoTTwinMaker extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteScene", input);
+  }
   deleteSyncJob(
     input: DeleteSyncJobRequest,
   ): Effect.Effect<
@@ -142,7 +164,9 @@ export declare class IoTTwinMaker extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteSyncJob", input);
+  }
   deleteWorkspace(
     input: DeleteWorkspaceRequest,
   ): Effect.Effect<
@@ -153,7 +177,9 @@ export declare class IoTTwinMaker extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteWorkspace", input);
+  }
   executeQuery(
     input: ExecuteQueryRequest,
   ): Effect.Effect<
@@ -165,7 +191,9 @@ export declare class IoTTwinMaker extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ExecuteQuery", input);
+  }
   getComponentType(
     input: GetComponentTypeRequest,
   ): Effect.Effect<
@@ -176,7 +204,9 @@ export declare class IoTTwinMaker extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetComponentType", input);
+  }
   getEntity(
     input: GetEntityRequest,
   ): Effect.Effect<
@@ -187,7 +217,9 @@ export declare class IoTTwinMaker extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetEntity", input);
+  }
   getMetadataTransferJob(
     input: GetMetadataTransferJobRequest,
   ): Effect.Effect<
@@ -198,7 +230,9 @@ export declare class IoTTwinMaker extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetMetadataTransferJob", input);
+  }
   getPricingPlan(
     input: GetPricingPlanRequest,
   ): Effect.Effect<
@@ -208,7 +242,9 @@ export declare class IoTTwinMaker extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetPricingPlan", input);
+  }
   getPropertyValue(
     input: GetPropertyValueRequest,
   ): Effect.Effect<
@@ -221,7 +257,9 @@ export declare class IoTTwinMaker extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetPropertyValue", input);
+  }
   getPropertyValueHistory(
     input: GetPropertyValueHistoryRequest,
   ): Effect.Effect<
@@ -234,7 +272,9 @@ export declare class IoTTwinMaker extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetPropertyValueHistory", input);
+  }
   getScene(
     input: GetSceneRequest,
   ): Effect.Effect<
@@ -245,7 +285,9 @@ export declare class IoTTwinMaker extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetScene", input);
+  }
   getSyncJob(
     input: GetSyncJobRequest,
   ): Effect.Effect<
@@ -257,7 +299,9 @@ export declare class IoTTwinMaker extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetSyncJob", input);
+  }
   getWorkspace(
     input: GetWorkspaceRequest,
   ): Effect.Effect<
@@ -268,7 +312,9 @@ export declare class IoTTwinMaker extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetWorkspace", input);
+  }
   listComponents(
     input: ListComponentsRequest,
   ): Effect.Effect<
@@ -279,7 +325,9 @@ export declare class IoTTwinMaker extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListComponents", input);
+  }
   listComponentTypes(
     input: ListComponentTypesRequest,
   ): Effect.Effect<
@@ -289,7 +337,9 @@ export declare class IoTTwinMaker extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListComponentTypes", input);
+  }
   listEntities(
     input: ListEntitiesRequest,
   ): Effect.Effect<
@@ -299,7 +349,9 @@ export declare class IoTTwinMaker extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListEntities", input);
+  }
   listMetadataTransferJobs(
     input: ListMetadataTransferJobsRequest,
   ): Effect.Effect<
@@ -309,7 +361,9 @@ export declare class IoTTwinMaker extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListMetadataTransferJobs", input);
+  }
   listProperties(
     input: ListPropertiesRequest,
   ): Effect.Effect<
@@ -320,7 +374,9 @@ export declare class IoTTwinMaker extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListProperties", input);
+  }
   listScenes(
     input: ListScenesRequest,
   ): Effect.Effect<
@@ -330,7 +386,9 @@ export declare class IoTTwinMaker extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListScenes", input);
+  }
   listSyncJobs(
     input: ListSyncJobsRequest,
   ): Effect.Effect<
@@ -341,7 +399,9 @@ export declare class IoTTwinMaker extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListSyncJobs", input);
+  }
   listSyncResources(
     input: ListSyncResourcesRequest,
   ): Effect.Effect<
@@ -352,13 +412,17 @@ export declare class IoTTwinMaker extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListSyncResources", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
     AccessDeniedException | ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   listWorkspaces(
     input: ListWorkspacesRequest,
   ): Effect.Effect<
@@ -368,7 +432,9 @@ export declare class IoTTwinMaker extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListWorkspaces", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -377,13 +443,17 @@ export declare class IoTTwinMaker extends AWSServiceClient {
     | ResourceNotFoundException
     | TooManyTagsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
     AccessDeniedException | ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
   updateComponentType(
     input: UpdateComponentTypeRequest,
   ): Effect.Effect<
@@ -395,7 +465,9 @@ export declare class IoTTwinMaker extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateComponentType", input);
+  }
   updateEntity(
     input: UpdateEntityRequest,
   ): Effect.Effect<
@@ -408,7 +480,9 @@ export declare class IoTTwinMaker extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateEntity", input);
+  }
   updatePricingPlan(
     input: UpdatePricingPlanRequest,
   ): Effect.Effect<
@@ -418,7 +492,9 @@ export declare class IoTTwinMaker extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdatePricingPlan", input);
+  }
   updateScene(
     input: UpdateSceneRequest,
   ): Effect.Effect<
@@ -429,7 +505,9 @@ export declare class IoTTwinMaker extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateScene", input);
+  }
   updateWorkspace(
     input: UpdateWorkspaceRequest,
   ): Effect.Effect<
@@ -441,10 +519,14 @@ export declare class IoTTwinMaker extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateWorkspace", input);
+  }
 }
 
-export declare class Iottwinmaker extends IoTTwinMaker {}
+export class Iottwinmaker extends IoTTwinMaker {}
+
+export default IoTTwinMaker;
 
 export declare class AccessDeniedException extends EffectData.TaggedError(
   "AccessDeniedException",

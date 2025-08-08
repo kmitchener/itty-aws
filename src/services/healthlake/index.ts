@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class HealthLake extends AWSServiceClient {
+export class HealthLake extends AWSServiceClient {
   createFHIRDatastore(
     input: CreateFHIRDatastoreRequest,
   ): Effect.Effect<
@@ -12,7 +12,9 @@ export declare class HealthLake extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateFHIRDatastore", input);
+  }
   deleteFHIRDatastore(
     input: DeleteFHIRDatastoreRequest,
   ): Effect.Effect<
@@ -24,7 +26,9 @@ export declare class HealthLake extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteFHIRDatastore", input);
+  }
   describeFHIRDatastore(
     input: DescribeFHIRDatastoreRequest,
   ): Effect.Effect<
@@ -34,7 +38,9 @@ export declare class HealthLake extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeFHIRDatastore", input);
+  }
   describeFHIRExportJob(
     input: DescribeFHIRExportJobRequest,
   ): Effect.Effect<
@@ -44,7 +50,9 @@ export declare class HealthLake extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeFHIRExportJob", input);
+  }
   describeFHIRImportJob(
     input: DescribeFHIRImportJobRequest,
   ): Effect.Effect<
@@ -54,7 +62,9 @@ export declare class HealthLake extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeFHIRImportJob", input);
+  }
   listFHIRDatastores(
     input: ListFHIRDatastoresRequest,
   ): Effect.Effect<
@@ -63,7 +73,9 @@ export declare class HealthLake extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListFHIRDatastores", input);
+  }
   listFHIRExportJobs(
     input: ListFHIRExportJobsRequest,
   ): Effect.Effect<
@@ -74,7 +86,9 @@ export declare class HealthLake extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListFHIRExportJobs", input);
+  }
   listFHIRImportJobs(
     input: ListFHIRImportJobsRequest,
   ): Effect.Effect<
@@ -85,13 +99,17 @@ export declare class HealthLake extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListFHIRImportJobs", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
     ResourceNotFoundException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   startFHIRExportJob(
     input: StartFHIRExportJobRequest,
   ): Effect.Effect<
@@ -102,7 +120,9 @@ export declare class HealthLake extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartFHIRExportJob", input);
+  }
   startFHIRImportJob(
     input: StartFHIRImportJobRequest,
   ): Effect.Effect<
@@ -113,22 +133,30 @@ export declare class HealthLake extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartFHIRImportJob", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
     ResourceNotFoundException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
     ResourceNotFoundException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
 }
 
-export declare class Healthlake extends HealthLake {}
+export class Healthlake extends HealthLake {}
+
+export default HealthLake;
 
 export declare class AccessDeniedException extends EffectData.TaggedError(
   "AccessDeniedException",

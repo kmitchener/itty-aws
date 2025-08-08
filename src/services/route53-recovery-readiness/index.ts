@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class Route53RecoveryReadiness extends AWSServiceClient {
+export class Route53RecoveryReadiness extends AWSServiceClient {
   createCell(
     input: CreateCellRequest,
   ): Effect.Effect<
@@ -13,7 +13,9 @@ export declare class Route53RecoveryReadiness extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateCell", input);
+  }
   createCrossAccountAuthorization(
     input: CreateCrossAccountAuthorizationRequest,
   ): Effect.Effect<
@@ -24,7 +26,9 @@ export declare class Route53RecoveryReadiness extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateCrossAccountAuthorization", input);
+  }
   createReadinessCheck(
     input: CreateReadinessCheckRequest,
   ): Effect.Effect<
@@ -35,7 +39,9 @@ export declare class Route53RecoveryReadiness extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateReadinessCheck", input);
+  }
   createRecoveryGroup(
     input: CreateRecoveryGroupRequest,
   ): Effect.Effect<
@@ -46,7 +52,9 @@ export declare class Route53RecoveryReadiness extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateRecoveryGroup", input);
+  }
   createResourceSet(
     input: CreateResourceSetRequest,
   ): Effect.Effect<
@@ -57,7 +65,9 @@ export declare class Route53RecoveryReadiness extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateResourceSet", input);
+  }
   deleteCell(
     input: DeleteCellRequest,
   ): Effect.Effect<
@@ -68,7 +78,9 @@ export declare class Route53RecoveryReadiness extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteCell", input);
+  }
   deleteCrossAccountAuthorization(
     input: DeleteCrossAccountAuthorizationRequest,
   ): Effect.Effect<
@@ -78,7 +90,9 @@ export declare class Route53RecoveryReadiness extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteCrossAccountAuthorization", input);
+  }
   deleteReadinessCheck(
     input: DeleteReadinessCheckRequest,
   ): Effect.Effect<
@@ -89,7 +103,9 @@ export declare class Route53RecoveryReadiness extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteReadinessCheck", input);
+  }
   deleteRecoveryGroup(
     input: DeleteRecoveryGroupRequest,
   ): Effect.Effect<
@@ -100,7 +116,9 @@ export declare class Route53RecoveryReadiness extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteRecoveryGroup", input);
+  }
   deleteResourceSet(
     input: DeleteResourceSetRequest,
   ): Effect.Effect<
@@ -111,7 +129,9 @@ export declare class Route53RecoveryReadiness extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteResourceSet", input);
+  }
   getArchitectureRecommendations(
     input: GetArchitectureRecommendationsRequest,
   ): Effect.Effect<
@@ -122,7 +142,9 @@ export declare class Route53RecoveryReadiness extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetArchitectureRecommendations", input);
+  }
   getCell(
     input: GetCellRequest,
   ): Effect.Effect<
@@ -133,7 +155,9 @@ export declare class Route53RecoveryReadiness extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetCell", input);
+  }
   getCellReadinessSummary(
     input: GetCellReadinessSummaryRequest,
   ): Effect.Effect<
@@ -144,7 +168,9 @@ export declare class Route53RecoveryReadiness extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetCellReadinessSummary", input);
+  }
   getReadinessCheck(
     input: GetReadinessCheckRequest,
   ): Effect.Effect<
@@ -155,7 +181,9 @@ export declare class Route53RecoveryReadiness extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetReadinessCheck", input);
+  }
   getReadinessCheckResourceStatus(
     input: GetReadinessCheckResourceStatusRequest,
   ): Effect.Effect<
@@ -166,7 +194,9 @@ export declare class Route53RecoveryReadiness extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetReadinessCheckResourceStatus", input);
+  }
   getReadinessCheckStatus(
     input: GetReadinessCheckStatusRequest,
   ): Effect.Effect<
@@ -177,7 +207,9 @@ export declare class Route53RecoveryReadiness extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetReadinessCheckStatus", input);
+  }
   getRecoveryGroup(
     input: GetRecoveryGroupRequest,
   ): Effect.Effect<
@@ -188,7 +220,9 @@ export declare class Route53RecoveryReadiness extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetRecoveryGroup", input);
+  }
   getRecoveryGroupReadinessSummary(
     input: GetRecoveryGroupReadinessSummaryRequest,
   ): Effect.Effect<
@@ -199,7 +233,9 @@ export declare class Route53RecoveryReadiness extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetRecoveryGroupReadinessSummary", input);
+  }
   getResourceSet(
     input: GetResourceSetRequest,
   ): Effect.Effect<
@@ -210,7 +246,9 @@ export declare class Route53RecoveryReadiness extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetResourceSet", input);
+  }
   listCells(
     input: ListCellsRequest,
   ): Effect.Effect<
@@ -220,7 +258,9 @@ export declare class Route53RecoveryReadiness extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListCells", input);
+  }
   listCrossAccountAuthorizations(
     input: ListCrossAccountAuthorizationsRequest,
   ): Effect.Effect<
@@ -230,7 +270,9 @@ export declare class Route53RecoveryReadiness extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListCrossAccountAuthorizations", input);
+  }
   listReadinessChecks(
     input: ListReadinessChecksRequest,
   ): Effect.Effect<
@@ -240,7 +282,9 @@ export declare class Route53RecoveryReadiness extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListReadinessChecks", input);
+  }
   listRecoveryGroups(
     input: ListRecoveryGroupsRequest,
   ): Effect.Effect<
@@ -250,7 +294,9 @@ export declare class Route53RecoveryReadiness extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListRecoveryGroups", input);
+  }
   listResourceSets(
     input: ListResourceSetsRequest,
   ): Effect.Effect<
@@ -260,7 +306,9 @@ export declare class Route53RecoveryReadiness extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListResourceSets", input);
+  }
   listRules(
     input: ListRulesRequest,
   ): Effect.Effect<
@@ -270,7 +318,9 @@ export declare class Route53RecoveryReadiness extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListRules", input);
+  }
   listTagsForResources(
     input: ListTagsForResourcesRequest,
   ): Effect.Effect<
@@ -279,7 +329,9 @@ export declare class Route53RecoveryReadiness extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResources", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -288,7 +340,9 @@ export declare class Route53RecoveryReadiness extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
@@ -297,7 +351,9 @@ export declare class Route53RecoveryReadiness extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
   updateCell(
     input: UpdateCellRequest,
   ): Effect.Effect<
@@ -308,7 +364,9 @@ export declare class Route53RecoveryReadiness extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateCell", input);
+  }
   updateReadinessCheck(
     input: UpdateReadinessCheckRequest,
   ): Effect.Effect<
@@ -319,7 +377,9 @@ export declare class Route53RecoveryReadiness extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateReadinessCheck", input);
+  }
   updateRecoveryGroup(
     input: UpdateRecoveryGroupRequest,
   ): Effect.Effect<
@@ -330,7 +390,9 @@ export declare class Route53RecoveryReadiness extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateRecoveryGroup", input);
+  }
   updateResourceSet(
     input: UpdateResourceSetRequest,
   ): Effect.Effect<
@@ -341,8 +403,12 @@ export declare class Route53RecoveryReadiness extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateResourceSet", input);
+  }
 }
+
+export default Route53RecoveryReadiness;
 
 export type __listOf__string = Array<string>;
 export type __listOfCellOutput = Array<CellOutput>;

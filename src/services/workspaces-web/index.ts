@@ -2,7 +2,7 @@ import type { Effect, Stream, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class WorkSpacesWeb extends AWSServiceClient {
+export class WorkSpacesWeb extends AWSServiceClient {
   expireSession(
     input: ExpireSessionRequest,
   ): Effect.Effect<
@@ -13,7 +13,9 @@ export declare class WorkSpacesWeb extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ExpireSession", input);
+  }
   getSession(
     input: GetSessionRequest,
   ): Effect.Effect<
@@ -24,7 +26,9 @@ export declare class WorkSpacesWeb extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetSession", input);
+  }
   listSessions(
     input: ListSessionsRequest,
   ): Effect.Effect<
@@ -35,7 +39,9 @@ export declare class WorkSpacesWeb extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListSessions", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
@@ -46,7 +52,9 @@ export declare class WorkSpacesWeb extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -58,7 +66,9 @@ export declare class WorkSpacesWeb extends AWSServiceClient {
     | TooManyTagsException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
@@ -69,10 +79,14 @@ export declare class WorkSpacesWeb extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
 }
 
-export declare class WorkspacesWeb extends WorkSpacesWeb {}
+export class WorkspacesWeb extends WorkSpacesWeb {}
+
+export default WorkSpacesWeb;
 
 export declare class AccessDeniedException extends EffectData.TaggedError(
   "AccessDeniedException",

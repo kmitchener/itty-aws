@@ -2,13 +2,15 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class DynamoDBStreams extends AWSServiceClient {
+export class DynamoDBStreams extends AWSServiceClient {
   describeStream(
     input: DescribeStreamInput,
   ): Effect.Effect<
     DescribeStreamOutput,
     InternalServerError | ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeStream", input);
+  }
   getRecords(
     input: GetRecordsInput,
   ): Effect.Effect<
@@ -19,7 +21,9 @@ export declare class DynamoDBStreams extends AWSServiceClient {
     | ResourceNotFoundException
     | TrimmedDataAccessException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetRecords", input);
+  }
   getShardIterator(
     input: GetShardIteratorInput,
   ): Effect.Effect<
@@ -28,16 +32,22 @@ export declare class DynamoDBStreams extends AWSServiceClient {
     | ResourceNotFoundException
     | TrimmedDataAccessException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetShardIterator", input);
+  }
   listStreams(
     input: ListStreamsInput,
   ): Effect.Effect<
     ListStreamsOutput,
     InternalServerError | ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("ListStreams", input);
+  }
 }
 
-export declare class DynamodbStreams extends DynamoDBStreams {}
+export class DynamodbStreams extends DynamoDBStreams {}
+
+export default DynamoDBStreams;
 
 export type AttributeMap = Record<string, AttributeValue>;
 export type AttributeName = string;

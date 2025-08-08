@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class LicenseManagerLinuxSubscriptions extends AWSServiceClient {
+export class LicenseManagerLinuxSubscriptions extends AWSServiceClient {
   deregisterSubscriptionProvider(
     input: DeregisterSubscriptionProviderRequest,
   ): Effect.Effect<
@@ -12,7 +12,9 @@ export declare class LicenseManagerLinuxSubscriptions extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeregisterSubscriptionProvider", input);
+  }
   getRegisteredSubscriptionProvider(
     input: GetRegisteredSubscriptionProviderRequest,
   ): Effect.Effect<
@@ -22,7 +24,9 @@ export declare class LicenseManagerLinuxSubscriptions extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetRegisteredSubscriptionProvider", input);
+  }
   getServiceSettings(
     input: GetServiceSettingsRequest,
   ): Effect.Effect<
@@ -31,7 +35,9 @@ export declare class LicenseManagerLinuxSubscriptions extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetServiceSettings", input);
+  }
   listLinuxSubscriptionInstances(
     input: ListLinuxSubscriptionInstancesRequest,
   ): Effect.Effect<
@@ -40,7 +46,9 @@ export declare class LicenseManagerLinuxSubscriptions extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListLinuxSubscriptionInstances", input);
+  }
   listLinuxSubscriptions(
     input: ListLinuxSubscriptionsRequest,
   ): Effect.Effect<
@@ -49,7 +57,9 @@ export declare class LicenseManagerLinuxSubscriptions extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListLinuxSubscriptions", input);
+  }
   listRegisteredSubscriptionProviders(
     input: ListRegisteredSubscriptionProvidersRequest,
   ): Effect.Effect<
@@ -58,7 +68,9 @@ export declare class LicenseManagerLinuxSubscriptions extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListRegisteredSubscriptionProviders", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
@@ -67,7 +79,9 @@ export declare class LicenseManagerLinuxSubscriptions extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   registerSubscriptionProvider(
     input: RegisterSubscriptionProviderRequest,
   ): Effect.Effect<
@@ -76,7 +90,9 @@ export declare class LicenseManagerLinuxSubscriptions extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("RegisterSubscriptionProvider", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -85,13 +101,17 @@ export declare class LicenseManagerLinuxSubscriptions extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
     InternalServerException | ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
   updateServiceSettings(
     input: UpdateServiceSettingsRequest,
   ): Effect.Effect<
@@ -100,8 +120,12 @@ export declare class LicenseManagerLinuxSubscriptions extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateServiceSettings", input);
+  }
 }
+
+export default LicenseManagerLinuxSubscriptions;
 
 export type BoxInteger = number;
 

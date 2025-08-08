@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class TimestreamWrite extends AWSServiceClient {
+export class TimestreamWrite extends AWSServiceClient {
   createBatchLoadTask(
     input: CreateBatchLoadTaskRequest,
   ): Effect.Effect<
@@ -16,7 +16,9 @@ export declare class TimestreamWrite extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateBatchLoadTask", input);
+  }
   createDatabase(
     input: CreateDatabaseRequest,
   ): Effect.Effect<
@@ -29,7 +31,9 @@ export declare class TimestreamWrite extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateDatabase", input);
+  }
   createTable(
     input: CreateTableRequest,
   ): Effect.Effect<
@@ -43,7 +47,9 @@ export declare class TimestreamWrite extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateTable", input);
+  }
   deleteDatabase(
     input: DeleteDatabaseRequest,
   ): Effect.Effect<
@@ -55,7 +61,9 @@ export declare class TimestreamWrite extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteDatabase", input);
+  }
   deleteTable(
     input: DeleteTableRequest,
   ): Effect.Effect<
@@ -67,7 +75,9 @@ export declare class TimestreamWrite extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteTable", input);
+  }
   describeBatchLoadTask(
     input: DescribeBatchLoadTaskRequest,
   ): Effect.Effect<
@@ -78,7 +88,9 @@ export declare class TimestreamWrite extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeBatchLoadTask", input);
+  }
   describeDatabase(
     input: DescribeDatabaseRequest,
   ): Effect.Effect<
@@ -90,7 +102,9 @@ export declare class TimestreamWrite extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeDatabase", input);
+  }
   describeEndpoints(
     input: DescribeEndpointsRequest,
   ): Effect.Effect<
@@ -99,7 +113,9 @@ export declare class TimestreamWrite extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeEndpoints", input);
+  }
   describeTable(
     input: DescribeTableRequest,
   ): Effect.Effect<
@@ -111,7 +127,9 @@ export declare class TimestreamWrite extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeTable", input);
+  }
   listBatchLoadTasks(
     input: ListBatchLoadTasksRequest,
   ): Effect.Effect<
@@ -122,7 +140,9 @@ export declare class TimestreamWrite extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListBatchLoadTasks", input);
+  }
   listDatabases(
     input: ListDatabasesRequest,
   ): Effect.Effect<
@@ -133,7 +153,9 @@ export declare class TimestreamWrite extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListDatabases", input);
+  }
   listTables(
     input: ListTablesRequest,
   ): Effect.Effect<
@@ -145,7 +167,9 @@ export declare class TimestreamWrite extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTables", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
@@ -155,7 +179,9 @@ export declare class TimestreamWrite extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   resumeBatchLoadTask(
     input: ResumeBatchLoadTaskRequest,
   ): Effect.Effect<
@@ -167,7 +193,9 @@ export declare class TimestreamWrite extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ResumeBatchLoadTask", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -178,7 +206,9 @@ export declare class TimestreamWrite extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
@@ -189,7 +219,9 @@ export declare class TimestreamWrite extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
   updateDatabase(
     input: UpdateDatabaseRequest,
   ): Effect.Effect<
@@ -202,7 +234,9 @@ export declare class TimestreamWrite extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateDatabase", input);
+  }
   updateTable(
     input: UpdateTableRequest,
   ): Effect.Effect<
@@ -214,7 +248,9 @@ export declare class TimestreamWrite extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateTable", input);
+  }
   writeRecords(
     input: WriteRecordsRequest,
   ): Effect.Effect<
@@ -227,8 +263,12 @@ export declare class TimestreamWrite extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("WriteRecords", input);
+  }
 }
+
+export default TimestreamWrite;
 
 export declare class AccessDeniedException extends EffectData.TaggedError(
   "AccessDeniedException",

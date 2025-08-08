@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class AccessAnalyzer extends AWSServiceClient {
+export class AccessAnalyzer extends AWSServiceClient {
   applyArchiveRule(
     input: ApplyArchiveRuleRequest,
   ): Effect.Effect<
@@ -13,7 +13,9 @@ export declare class AccessAnalyzer extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ApplyArchiveRule", input);
+  }
   cancelPolicyGeneration(
     input: CancelPolicyGenerationRequest,
   ): Effect.Effect<
@@ -23,7 +25,9 @@ export declare class AccessAnalyzer extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CancelPolicyGeneration", input);
+  }
   checkAccessNotGranted(
     input: CheckAccessNotGrantedRequest,
   ): Effect.Effect<
@@ -35,7 +39,9 @@ export declare class AccessAnalyzer extends AWSServiceClient {
     | UnprocessableEntityException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CheckAccessNotGranted", input);
+  }
   checkNoNewAccess(
     input: CheckNoNewAccessRequest,
   ): Effect.Effect<
@@ -47,7 +53,9 @@ export declare class AccessAnalyzer extends AWSServiceClient {
     | UnprocessableEntityException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CheckNoNewAccess", input);
+  }
   checkNoPublicAccess(
     input: CheckNoPublicAccessRequest,
   ): Effect.Effect<
@@ -59,7 +67,9 @@ export declare class AccessAnalyzer extends AWSServiceClient {
     | UnprocessableEntityException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CheckNoPublicAccess", input);
+  }
   createAccessPreview(
     input: CreateAccessPreviewRequest,
   ): Effect.Effect<
@@ -72,7 +82,9 @@ export declare class AccessAnalyzer extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateAccessPreview", input);
+  }
   generateFindingRecommendation(
     input: GenerateFindingRecommendationRequest,
   ): Effect.Effect<
@@ -82,7 +94,9 @@ export declare class AccessAnalyzer extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GenerateFindingRecommendation", input);
+  }
   getAccessPreview(
     input: GetAccessPreviewRequest,
   ): Effect.Effect<
@@ -93,7 +107,9 @@ export declare class AccessAnalyzer extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetAccessPreview", input);
+  }
   getAnalyzedResource(
     input: GetAnalyzedResourceRequest,
   ): Effect.Effect<
@@ -104,7 +120,9 @@ export declare class AccessAnalyzer extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetAnalyzedResource", input);
+  }
   getFinding(
     input: GetFindingRequest,
   ): Effect.Effect<
@@ -115,7 +133,9 @@ export declare class AccessAnalyzer extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetFinding", input);
+  }
   getFindingRecommendation(
     input: GetFindingRecommendationRequest,
   ): Effect.Effect<
@@ -126,7 +146,9 @@ export declare class AccessAnalyzer extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetFindingRecommendation", input);
+  }
   getFindingsStatistics(
     input: GetFindingsStatisticsRequest,
   ): Effect.Effect<
@@ -137,7 +159,9 @@ export declare class AccessAnalyzer extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetFindingsStatistics", input);
+  }
   getFindingV2(
     input: GetFindingV2Request,
   ): Effect.Effect<
@@ -148,7 +172,9 @@ export declare class AccessAnalyzer extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetFindingV2", input);
+  }
   getGeneratedPolicy(
     input: GetGeneratedPolicyRequest,
   ): Effect.Effect<
@@ -158,7 +184,9 @@ export declare class AccessAnalyzer extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetGeneratedPolicy", input);
+  }
   listAccessPreviewFindings(
     input: ListAccessPreviewFindingsRequest,
   ): Effect.Effect<
@@ -170,7 +198,9 @@ export declare class AccessAnalyzer extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListAccessPreviewFindings", input);
+  }
   listAccessPreviews(
     input: ListAccessPreviewsRequest,
   ): Effect.Effect<
@@ -181,7 +211,9 @@ export declare class AccessAnalyzer extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListAccessPreviews", input);
+  }
   listAnalyzedResources(
     input: ListAnalyzedResourcesRequest,
   ): Effect.Effect<
@@ -192,7 +224,9 @@ export declare class AccessAnalyzer extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListAnalyzedResources", input);
+  }
   listFindings(
     input: ListFindingsRequest,
   ): Effect.Effect<
@@ -203,7 +237,9 @@ export declare class AccessAnalyzer extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListFindings", input);
+  }
   listFindingsV2(
     input: ListFindingsV2Request,
   ): Effect.Effect<
@@ -214,7 +250,9 @@ export declare class AccessAnalyzer extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListFindingsV2", input);
+  }
   listPolicyGenerations(
     input: ListPolicyGenerationsRequest,
   ): Effect.Effect<
@@ -224,7 +262,9 @@ export declare class AccessAnalyzer extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListPolicyGenerations", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
@@ -235,7 +275,9 @@ export declare class AccessAnalyzer extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   startPolicyGeneration(
     input: StartPolicyGenerationRequest,
   ): Effect.Effect<
@@ -247,7 +289,9 @@ export declare class AccessAnalyzer extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartPolicyGeneration", input);
+  }
   startResourceScan(
     input: StartResourceScanRequest,
   ): Effect.Effect<
@@ -258,7 +302,9 @@ export declare class AccessAnalyzer extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartResourceScan", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -269,7 +315,9 @@ export declare class AccessAnalyzer extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
@@ -280,7 +328,9 @@ export declare class AccessAnalyzer extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
   updateFindings(
     input: UpdateFindingsRequest,
   ): Effect.Effect<
@@ -291,7 +341,9 @@ export declare class AccessAnalyzer extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateFindings", input);
+  }
   validatePolicy(
     input: ValidatePolicyRequest,
   ): Effect.Effect<
@@ -301,10 +353,14 @@ export declare class AccessAnalyzer extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ValidatePolicy", input);
+  }
 }
 
-export declare class Accessanalyzer extends AccessAnalyzer {}
+export class Accessanalyzer extends AccessAnalyzer {}
+
+export default AccessAnalyzer;
 
 export interface Access {
   actions?: Array<string>;

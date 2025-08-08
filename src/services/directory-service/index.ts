@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class DirectoryService extends AWSServiceClient {
+export class DirectoryService extends AWSServiceClient {
   acceptSharedDirectory(
     input: AcceptSharedDirectoryRequest,
   ): Effect.Effect<
@@ -13,7 +13,9 @@ export declare class DirectoryService extends AWSServiceClient {
     | InvalidParameterException
     | ServiceException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AcceptSharedDirectory", input);
+  }
   addIpRoutes(
     input: AddIpRoutesRequest,
   ): Effect.Effect<
@@ -26,7 +28,9 @@ export declare class DirectoryService extends AWSServiceClient {
     | IpRouteLimitExceededException
     | ServiceException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AddIpRoutes", input);
+  }
   addRegion(
     input: AddRegionRequest,
   ): Effect.Effect<
@@ -42,7 +46,9 @@ export declare class DirectoryService extends AWSServiceClient {
     | ServiceException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AddRegion", input);
+  }
   addTagsToResource(
     input: AddTagsToResourceRequest,
   ): Effect.Effect<
@@ -53,7 +59,9 @@ export declare class DirectoryService extends AWSServiceClient {
     | ServiceException
     | TagLimitExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AddTagsToResource", input);
+  }
   cancelSchemaExtension(
     input: CancelSchemaExtensionRequest,
   ): Effect.Effect<
@@ -62,7 +70,9 @@ export declare class DirectoryService extends AWSServiceClient {
     | EntityDoesNotExistException
     | ServiceException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CancelSchemaExtension", input);
+  }
   connectDirectory(
     input: ConnectDirectoryRequest,
   ): Effect.Effect<
@@ -72,7 +82,9 @@ export declare class DirectoryService extends AWSServiceClient {
     | InvalidParameterException
     | ServiceException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ConnectDirectory", input);
+  }
   createAlias(
     input: CreateAliasRequest,
   ): Effect.Effect<
@@ -83,7 +95,9 @@ export declare class DirectoryService extends AWSServiceClient {
     | InvalidParameterException
     | ServiceException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateAlias", input);
+  }
   createComputer(
     input: CreateComputerRequest,
   ): Effect.Effect<
@@ -97,7 +111,9 @@ export declare class DirectoryService extends AWSServiceClient {
     | ServiceException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateComputer", input);
+  }
   createConditionalForwarder(
     input: CreateConditionalForwarderRequest,
   ): Effect.Effect<
@@ -110,7 +126,9 @@ export declare class DirectoryService extends AWSServiceClient {
     | ServiceException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateConditionalForwarder", input);
+  }
   createDirectory(
     input: CreateDirectoryRequest,
   ): Effect.Effect<
@@ -120,7 +138,9 @@ export declare class DirectoryService extends AWSServiceClient {
     | InvalidParameterException
     | ServiceException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateDirectory", input);
+  }
   createHybridAD(
     input: CreateHybridADRequest,
   ): Effect.Effect<
@@ -133,7 +153,9 @@ export declare class DirectoryService extends AWSServiceClient {
     | ServiceException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateHybridAD", input);
+  }
   createLogSubscription(
     input: CreateLogSubscriptionRequest,
   ): Effect.Effect<
@@ -145,7 +167,9 @@ export declare class DirectoryService extends AWSServiceClient {
     | ServiceException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateLogSubscription", input);
+  }
   createMicrosoftAD(
     input: CreateMicrosoftADRequest,
   ): Effect.Effect<
@@ -156,7 +180,9 @@ export declare class DirectoryService extends AWSServiceClient {
     | ServiceException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateMicrosoftAD", input);
+  }
   createSnapshot(
     input: CreateSnapshotRequest,
   ): Effect.Effect<
@@ -167,7 +193,9 @@ export declare class DirectoryService extends AWSServiceClient {
     | ServiceException
     | SnapshotLimitExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateSnapshot", input);
+  }
   createTrust(
     input: CreateTrustRequest,
   ): Effect.Effect<
@@ -179,7 +207,9 @@ export declare class DirectoryService extends AWSServiceClient {
     | ServiceException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateTrust", input);
+  }
   deleteADAssessment(
     input: DeleteADAssessmentRequest,
   ): Effect.Effect<
@@ -190,7 +220,9 @@ export declare class DirectoryService extends AWSServiceClient {
     | ServiceException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteADAssessment", input);
+  }
   deleteConditionalForwarder(
     input: DeleteConditionalForwarderRequest,
   ): Effect.Effect<
@@ -202,7 +234,9 @@ export declare class DirectoryService extends AWSServiceClient {
     | ServiceException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteConditionalForwarder", input);
+  }
   deleteDirectory(
     input: DeleteDirectoryRequest,
   ): Effect.Effect<
@@ -211,7 +245,9 @@ export declare class DirectoryService extends AWSServiceClient {
     | EntityDoesNotExistException
     | ServiceException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteDirectory", input);
+  }
   deleteLogSubscription(
     input: DeleteLogSubscriptionRequest,
   ): Effect.Effect<
@@ -221,7 +257,9 @@ export declare class DirectoryService extends AWSServiceClient {
     | ServiceException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteLogSubscription", input);
+  }
   deleteSnapshot(
     input: DeleteSnapshotRequest,
   ): Effect.Effect<
@@ -231,7 +269,9 @@ export declare class DirectoryService extends AWSServiceClient {
     | InvalidParameterException
     | ServiceException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteSnapshot", input);
+  }
   deleteTrust(
     input: DeleteTrustRequest,
   ): Effect.Effect<
@@ -242,7 +282,9 @@ export declare class DirectoryService extends AWSServiceClient {
     | ServiceException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteTrust", input);
+  }
   deregisterCertificate(
     input: DeregisterCertificateRequest,
   ): Effect.Effect<
@@ -256,7 +298,9 @@ export declare class DirectoryService extends AWSServiceClient {
     | ServiceException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeregisterCertificate", input);
+  }
   deregisterEventTopic(
     input: DeregisterEventTopicRequest,
   ): Effect.Effect<
@@ -266,7 +310,9 @@ export declare class DirectoryService extends AWSServiceClient {
     | InvalidParameterException
     | ServiceException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeregisterEventTopic", input);
+  }
   describeADAssessment(
     input: DescribeADAssessmentRequest,
   ): Effect.Effect<
@@ -277,7 +323,9 @@ export declare class DirectoryService extends AWSServiceClient {
     | ServiceException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeADAssessment", input);
+  }
   describeCertificate(
     input: DescribeCertificateRequest,
   ): Effect.Effect<
@@ -289,7 +337,9 @@ export declare class DirectoryService extends AWSServiceClient {
     | ServiceException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeCertificate", input);
+  }
   describeClientAuthenticationSettings(
     input: DescribeClientAuthenticationSettingsRequest,
   ): Effect.Effect<
@@ -301,7 +351,9 @@ export declare class DirectoryService extends AWSServiceClient {
     | ServiceException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeClientAuthenticationSettings", input);
+  }
   describeConditionalForwarders(
     input: DescribeConditionalForwardersRequest,
   ): Effect.Effect<
@@ -313,7 +365,9 @@ export declare class DirectoryService extends AWSServiceClient {
     | ServiceException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeConditionalForwarders", input);
+  }
   describeDirectories(
     input: DescribeDirectoriesRequest,
   ): Effect.Effect<
@@ -324,7 +378,9 @@ export declare class DirectoryService extends AWSServiceClient {
     | InvalidParameterException
     | ServiceException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeDirectories", input);
+  }
   describeDirectoryDataAccess(
     input: DescribeDirectoryDataAccessRequest,
   ): Effect.Effect<
@@ -335,7 +391,9 @@ export declare class DirectoryService extends AWSServiceClient {
     | ServiceException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeDirectoryDataAccess", input);
+  }
   describeDomainControllers(
     input: DescribeDomainControllersRequest,
   ): Effect.Effect<
@@ -347,7 +405,9 @@ export declare class DirectoryService extends AWSServiceClient {
     | ServiceException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeDomainControllers", input);
+  }
   describeEventTopics(
     input: DescribeEventTopicsRequest,
   ): Effect.Effect<
@@ -357,7 +417,9 @@ export declare class DirectoryService extends AWSServiceClient {
     | InvalidParameterException
     | ServiceException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeEventTopics", input);
+  }
   describeHybridADUpdate(
     input: DescribeHybridADUpdateRequest,
   ): Effect.Effect<
@@ -369,7 +431,9 @@ export declare class DirectoryService extends AWSServiceClient {
     | ServiceException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeHybridADUpdate", input);
+  }
   describeLDAPSSettings(
     input: DescribeLDAPSSettingsRequest,
   ): Effect.Effect<
@@ -381,7 +445,9 @@ export declare class DirectoryService extends AWSServiceClient {
     | ServiceException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeLDAPSSettings", input);
+  }
   describeRegions(
     input: DescribeRegionsRequest,
   ): Effect.Effect<
@@ -394,7 +460,9 @@ export declare class DirectoryService extends AWSServiceClient {
     | ServiceException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeRegions", input);
+  }
   describeSettings(
     input: DescribeSettingsRequest,
   ): Effect.Effect<
@@ -406,7 +474,9 @@ export declare class DirectoryService extends AWSServiceClient {
     | ServiceException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeSettings", input);
+  }
   describeSharedDirectories(
     input: DescribeSharedDirectoriesRequest,
   ): Effect.Effect<
@@ -418,7 +488,9 @@ export declare class DirectoryService extends AWSServiceClient {
     | ServiceException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeSharedDirectories", input);
+  }
   describeSnapshots(
     input: DescribeSnapshotsRequest,
   ): Effect.Effect<
@@ -429,7 +501,9 @@ export declare class DirectoryService extends AWSServiceClient {
     | InvalidParameterException
     | ServiceException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeSnapshots", input);
+  }
   describeTrusts(
     input: DescribeTrustsRequest,
   ): Effect.Effect<
@@ -441,7 +515,9 @@ export declare class DirectoryService extends AWSServiceClient {
     | ServiceException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeTrusts", input);
+  }
   describeUpdateDirectory(
     input: DescribeUpdateDirectoryRequest,
   ): Effect.Effect<
@@ -453,7 +529,9 @@ export declare class DirectoryService extends AWSServiceClient {
     | InvalidParameterException
     | ServiceException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeUpdateDirectory", input);
+  }
   disableClientAuthentication(
     input: DisableClientAuthenticationRequest,
   ): Effect.Effect<
@@ -465,7 +543,9 @@ export declare class DirectoryService extends AWSServiceClient {
     | ServiceException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DisableClientAuthentication", input);
+  }
   disableDirectoryDataAccess(
     input: DisableDirectoryDataAccessRequest,
   ): Effect.Effect<
@@ -478,7 +558,9 @@ export declare class DirectoryService extends AWSServiceClient {
     | ServiceException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DisableDirectoryDataAccess", input);
+  }
   disableLDAPS(
     input: DisableLDAPSRequest,
   ): Effect.Effect<
@@ -491,7 +573,9 @@ export declare class DirectoryService extends AWSServiceClient {
     | ServiceException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DisableLDAPS", input);
+  }
   disableRadius(
     input: DisableRadiusRequest,
   ): Effect.Effect<
@@ -500,7 +584,9 @@ export declare class DirectoryService extends AWSServiceClient {
     | EntityDoesNotExistException
     | ServiceException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DisableRadius", input);
+  }
   disableSso(
     input: DisableSsoRequest,
   ): Effect.Effect<
@@ -511,7 +597,9 @@ export declare class DirectoryService extends AWSServiceClient {
     | InsufficientPermissionsException
     | ServiceException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DisableSso", input);
+  }
   enableClientAuthentication(
     input: EnableClientAuthenticationRequest,
   ): Effect.Effect<
@@ -524,7 +612,9 @@ export declare class DirectoryService extends AWSServiceClient {
     | ServiceException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("EnableClientAuthentication", input);
+  }
   enableDirectoryDataAccess(
     input: EnableDirectoryDataAccessRequest,
   ): Effect.Effect<
@@ -537,7 +627,9 @@ export declare class DirectoryService extends AWSServiceClient {
     | ServiceException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("EnableDirectoryDataAccess", input);
+  }
   enableLDAPS(
     input: EnableLDAPSRequest,
   ): Effect.Effect<
@@ -551,7 +643,9 @@ export declare class DirectoryService extends AWSServiceClient {
     | ServiceException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("EnableLDAPS", input);
+  }
   enableRadius(
     input: EnableRadiusRequest,
   ): Effect.Effect<
@@ -562,7 +656,9 @@ export declare class DirectoryService extends AWSServiceClient {
     | InvalidParameterException
     | ServiceException
     | CommonAwsError
-  >;
+  > {
+    return this.call("EnableRadius", input);
+  }
   enableSso(
     input: EnableSsoRequest,
   ): Effect.Effect<
@@ -573,7 +669,9 @@ export declare class DirectoryService extends AWSServiceClient {
     | InsufficientPermissionsException
     | ServiceException
     | CommonAwsError
-  >;
+  > {
+    return this.call("EnableSso", input);
+  }
   getDirectoryLimits(
     input: GetDirectoryLimitsRequest,
   ): Effect.Effect<
@@ -582,7 +680,9 @@ export declare class DirectoryService extends AWSServiceClient {
     | EntityDoesNotExistException
     | ServiceException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetDirectoryLimits", input);
+  }
   getSnapshotLimits(
     input: GetSnapshotLimitsRequest,
   ): Effect.Effect<
@@ -591,7 +691,9 @@ export declare class DirectoryService extends AWSServiceClient {
     | EntityDoesNotExistException
     | ServiceException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetSnapshotLimits", input);
+  }
   listADAssessments(
     input: ListADAssessmentsRequest,
   ): Effect.Effect<
@@ -602,7 +704,9 @@ export declare class DirectoryService extends AWSServiceClient {
     | ServiceException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListADAssessments", input);
+  }
   listCertificates(
     input: ListCertificatesRequest,
   ): Effect.Effect<
@@ -614,7 +718,9 @@ export declare class DirectoryService extends AWSServiceClient {
     | ServiceException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListCertificates", input);
+  }
   listIpRoutes(
     input: ListIpRoutesRequest,
   ): Effect.Effect<
@@ -625,7 +731,9 @@ export declare class DirectoryService extends AWSServiceClient {
     | InvalidParameterException
     | ServiceException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListIpRoutes", input);
+  }
   listLogSubscriptions(
     input: ListLogSubscriptionsRequest,
   ): Effect.Effect<
@@ -635,7 +743,9 @@ export declare class DirectoryService extends AWSServiceClient {
     | InvalidNextTokenException
     | ServiceException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListLogSubscriptions", input);
+  }
   listSchemaExtensions(
     input: ListSchemaExtensionsRequest,
   ): Effect.Effect<
@@ -645,7 +755,9 @@ export declare class DirectoryService extends AWSServiceClient {
     | InvalidNextTokenException
     | ServiceException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListSchemaExtensions", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
@@ -656,7 +768,9 @@ export declare class DirectoryService extends AWSServiceClient {
     | InvalidParameterException
     | ServiceException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   registerCertificate(
     input: RegisterCertificateRequest,
   ): Effect.Effect<
@@ -671,7 +785,9 @@ export declare class DirectoryService extends AWSServiceClient {
     | ServiceException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("RegisterCertificate", input);
+  }
   registerEventTopic(
     input: RegisterEventTopicRequest,
   ): Effect.Effect<
@@ -681,7 +797,9 @@ export declare class DirectoryService extends AWSServiceClient {
     | InvalidParameterException
     | ServiceException
     | CommonAwsError
-  >;
+  > {
+    return this.call("RegisterEventTopic", input);
+  }
   rejectSharedDirectory(
     input: RejectSharedDirectoryRequest,
   ): Effect.Effect<
@@ -692,7 +810,9 @@ export declare class DirectoryService extends AWSServiceClient {
     | InvalidParameterException
     | ServiceException
     | CommonAwsError
-  >;
+  > {
+    return this.call("RejectSharedDirectory", input);
+  }
   removeIpRoutes(
     input: RemoveIpRoutesRequest,
   ): Effect.Effect<
@@ -703,7 +823,9 @@ export declare class DirectoryService extends AWSServiceClient {
     | InvalidParameterException
     | ServiceException
     | CommonAwsError
-  >;
+  > {
+    return this.call("RemoveIpRoutes", input);
+  }
   removeRegion(
     input: RemoveRegionRequest,
   ): Effect.Effect<
@@ -715,7 +837,9 @@ export declare class DirectoryService extends AWSServiceClient {
     | ServiceException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("RemoveRegion", input);
+  }
   removeTagsFromResource(
     input: RemoveTagsFromResourceRequest,
   ): Effect.Effect<
@@ -725,7 +849,9 @@ export declare class DirectoryService extends AWSServiceClient {
     | InvalidParameterException
     | ServiceException
     | CommonAwsError
-  >;
+  > {
+    return this.call("RemoveTagsFromResource", input);
+  }
   resetUserPassword(
     input: ResetUserPasswordRequest,
   ): Effect.Effect<
@@ -738,7 +864,9 @@ export declare class DirectoryService extends AWSServiceClient {
     | UnsupportedOperationException
     | UserDoesNotExistException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ResetUserPassword", input);
+  }
   restoreFromSnapshot(
     input: RestoreFromSnapshotRequest,
   ): Effect.Effect<
@@ -748,7 +876,9 @@ export declare class DirectoryService extends AWSServiceClient {
     | InvalidParameterException
     | ServiceException
     | CommonAwsError
-  >;
+  > {
+    return this.call("RestoreFromSnapshot", input);
+  }
   shareDirectory(
     input: ShareDirectoryRequest,
   ): Effect.Effect<
@@ -764,7 +894,9 @@ export declare class DirectoryService extends AWSServiceClient {
     | ShareLimitExceededException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ShareDirectory", input);
+  }
   startADAssessment(
     input: StartADAssessmentRequest,
   ): Effect.Effect<
@@ -776,7 +908,9 @@ export declare class DirectoryService extends AWSServiceClient {
     | ServiceException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartADAssessment", input);
+  }
   startSchemaExtension(
     input: StartSchemaExtensionRequest,
   ): Effect.Effect<
@@ -788,7 +922,9 @@ export declare class DirectoryService extends AWSServiceClient {
     | ServiceException
     | SnapshotLimitExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartSchemaExtension", input);
+  }
   unshareDirectory(
     input: UnshareDirectoryRequest,
   ): Effect.Effect<
@@ -799,7 +935,9 @@ export declare class DirectoryService extends AWSServiceClient {
     | InvalidTargetException
     | ServiceException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UnshareDirectory", input);
+  }
   updateConditionalForwarder(
     input: UpdateConditionalForwarderRequest,
   ): Effect.Effect<
@@ -811,7 +949,9 @@ export declare class DirectoryService extends AWSServiceClient {
     | ServiceException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateConditionalForwarder", input);
+  }
   updateDirectorySetup(
     input: UpdateDirectorySetupRequest,
   ): Effect.Effect<
@@ -826,7 +966,9 @@ export declare class DirectoryService extends AWSServiceClient {
     | SnapshotLimitExceededException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateDirectorySetup", input);
+  }
   updateHybridAD(
     input: UpdateHybridADRequest,
   ): Effect.Effect<
@@ -838,7 +980,9 @@ export declare class DirectoryService extends AWSServiceClient {
     | ServiceException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateHybridAD", input);
+  }
   updateNumberOfDomainControllers(
     input: UpdateNumberOfDomainControllersRequest,
   ): Effect.Effect<
@@ -851,7 +995,9 @@ export declare class DirectoryService extends AWSServiceClient {
     | ServiceException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateNumberOfDomainControllers", input);
+  }
   updateRadius(
     input: UpdateRadiusRequest,
   ): Effect.Effect<
@@ -861,7 +1007,9 @@ export declare class DirectoryService extends AWSServiceClient {
     | InvalidParameterException
     | ServiceException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateRadius", input);
+  }
   updateSettings(
     input: UpdateSettingsRequest,
   ): Effect.Effect<
@@ -875,7 +1023,9 @@ export declare class DirectoryService extends AWSServiceClient {
     | UnsupportedOperationException
     | UnsupportedSettingsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateSettings", input);
+  }
   updateTrust(
     input: UpdateTrustRequest,
   ): Effect.Effect<
@@ -885,7 +1035,9 @@ export declare class DirectoryService extends AWSServiceClient {
     | InvalidParameterException
     | ServiceException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateTrust", input);
+  }
   verifyTrust(
     input: VerifyTrustRequest,
   ): Effect.Effect<
@@ -896,8 +1048,12 @@ export declare class DirectoryService extends AWSServiceClient {
     | ServiceException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("VerifyTrust", input);
+  }
 }
+
+export default DirectoryService;
 
 export interface AcceptSharedDirectoryRequest {
   SharedDirectoryId: string;

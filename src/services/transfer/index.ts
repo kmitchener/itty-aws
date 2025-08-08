@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class Transfer extends AWSServiceClient {
+export class Transfer extends AWSServiceClient {
   createAccess(
     input: CreateAccessRequest,
   ): Effect.Effect<
@@ -13,7 +13,9 @@ export declare class Transfer extends AWSServiceClient {
     | ResourceNotFoundException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateAccess", input);
+  }
   deleteAccess(
     input: DeleteAccessRequest,
   ): Effect.Effect<
@@ -23,7 +25,9 @@ export declare class Transfer extends AWSServiceClient {
     | ResourceNotFoundException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteAccess", input);
+  }
   deleteHostKey(
     input: DeleteHostKeyRequest,
   ): Effect.Effect<
@@ -34,7 +38,9 @@ export declare class Transfer extends AWSServiceClient {
     | ServiceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteHostKey", input);
+  }
   deleteSshPublicKey(
     input: DeleteSshPublicKeyRequest,
   ): Effect.Effect<
@@ -45,7 +51,9 @@ export declare class Transfer extends AWSServiceClient {
     | ServiceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteSshPublicKey", input);
+  }
   describeAccess(
     input: DescribeAccessRequest,
   ): Effect.Effect<
@@ -55,7 +63,9 @@ export declare class Transfer extends AWSServiceClient {
     | ResourceNotFoundException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeAccess", input);
+  }
   describeExecution(
     input: DescribeExecutionRequest,
   ): Effect.Effect<
@@ -65,7 +75,9 @@ export declare class Transfer extends AWSServiceClient {
     | ResourceNotFoundException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeExecution", input);
+  }
   describeHostKey(
     input: DescribeHostKeyRequest,
   ): Effect.Effect<
@@ -75,7 +87,9 @@ export declare class Transfer extends AWSServiceClient {
     | ResourceNotFoundException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeHostKey", input);
+  }
   describeSecurityPolicy(
     input: DescribeSecurityPolicyRequest,
   ): Effect.Effect<
@@ -85,7 +99,9 @@ export declare class Transfer extends AWSServiceClient {
     | ResourceNotFoundException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeSecurityPolicy", input);
+  }
   importHostKey(
     input: ImportHostKeyRequest,
   ): Effect.Effect<
@@ -97,7 +113,9 @@ export declare class Transfer extends AWSServiceClient {
     | ServiceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ImportHostKey", input);
+  }
   importSshPublicKey(
     input: ImportSshPublicKeyRequest,
   ): Effect.Effect<
@@ -109,7 +127,9 @@ export declare class Transfer extends AWSServiceClient {
     | ServiceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ImportSshPublicKey", input);
+  }
   listAccesses(
     input: ListAccessesRequest,
   ): Effect.Effect<
@@ -120,7 +140,9 @@ export declare class Transfer extends AWSServiceClient {
     | ResourceNotFoundException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListAccesses", input);
+  }
   listExecutions(
     input: ListExecutionsRequest,
   ): Effect.Effect<
@@ -131,7 +153,9 @@ export declare class Transfer extends AWSServiceClient {
     | ResourceNotFoundException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListExecutions", input);
+  }
   listFileTransferResults(
     input: ListFileTransferResultsRequest,
   ): Effect.Effect<
@@ -141,7 +165,9 @@ export declare class Transfer extends AWSServiceClient {
     | ResourceNotFoundException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListFileTransferResults", input);
+  }
   listHostKeys(
     input: ListHostKeysRequest,
   ): Effect.Effect<
@@ -152,7 +178,9 @@ export declare class Transfer extends AWSServiceClient {
     | ResourceNotFoundException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListHostKeys", input);
+  }
   listSecurityPolicies(
     input: ListSecurityPoliciesRequest,
   ): Effect.Effect<
@@ -162,7 +190,9 @@ export declare class Transfer extends AWSServiceClient {
     | InvalidRequestException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListSecurityPolicies", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
@@ -172,7 +202,9 @@ export declare class Transfer extends AWSServiceClient {
     | InvalidRequestException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   sendWorkflowStepState(
     input: SendWorkflowStepStateRequest,
   ): Effect.Effect<
@@ -184,7 +216,9 @@ export declare class Transfer extends AWSServiceClient {
     | ServiceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("SendWorkflowStepState", input);
+  }
   startDirectoryListing(
     input: StartDirectoryListingRequest,
   ): Effect.Effect<
@@ -195,7 +229,9 @@ export declare class Transfer extends AWSServiceClient {
     | ServiceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartDirectoryListing", input);
+  }
   startFileTransfer(
     input: StartFileTransferRequest,
   ): Effect.Effect<
@@ -206,7 +242,9 @@ export declare class Transfer extends AWSServiceClient {
     | ServiceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartFileTransfer", input);
+  }
   startRemoteDelete(
     input: StartRemoteDeleteRequest,
   ): Effect.Effect<
@@ -217,7 +255,9 @@ export declare class Transfer extends AWSServiceClient {
     | ServiceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartRemoteDelete", input);
+  }
   startRemoteMove(
     input: StartRemoteMoveRequest,
   ): Effect.Effect<
@@ -228,7 +268,9 @@ export declare class Transfer extends AWSServiceClient {
     | ServiceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartRemoteMove", input);
+  }
   startServer(
     input: StartServerRequest,
   ): Effect.Effect<
@@ -239,7 +281,9 @@ export declare class Transfer extends AWSServiceClient {
     | ServiceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartServer", input);
+  }
   stopServer(
     input: StopServerRequest,
   ): Effect.Effect<
@@ -250,7 +294,9 @@ export declare class Transfer extends AWSServiceClient {
     | ServiceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StopServer", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -260,7 +306,9 @@ export declare class Transfer extends AWSServiceClient {
     | ResourceNotFoundException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   testConnection(
     input: TestConnectionRequest,
   ): Effect.Effect<
@@ -270,7 +318,9 @@ export declare class Transfer extends AWSServiceClient {
     | ResourceNotFoundException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TestConnection", input);
+  }
   testIdentityProvider(
     input: TestIdentityProviderRequest,
   ): Effect.Effect<
@@ -280,7 +330,9 @@ export declare class Transfer extends AWSServiceClient {
     | ResourceNotFoundException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TestIdentityProvider", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
@@ -290,7 +342,9 @@ export declare class Transfer extends AWSServiceClient {
     | ResourceNotFoundException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
   updateAccess(
     input: UpdateAccessRequest,
   ): Effect.Effect<
@@ -302,7 +356,9 @@ export declare class Transfer extends AWSServiceClient {
     | ServiceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateAccess", input);
+  }
   updateHostKey(
     input: UpdateHostKeyRequest,
   ): Effect.Effect<
@@ -313,8 +369,12 @@ export declare class Transfer extends AWSServiceClient {
     | ServiceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateHostKey", input);
+  }
 }
+
+export default Transfer;
 
 export declare class AccessDeniedException extends EffectData.TaggedError(
   "AccessDeniedException",

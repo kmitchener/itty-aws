@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class EMRServerless extends AWSServiceClient {
+export class EMRServerless extends AWSServiceClient {
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
@@ -11,7 +11,9 @@ export declare class EMRServerless extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -20,7 +22,9 @@ export declare class EMRServerless extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
@@ -29,10 +33,14 @@ export declare class EMRServerless extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
 }
 
-export declare class EmrServerless extends EMRServerless {}
+export class EmrServerless extends EMRServerless {}
+
+export default EMRServerless;
 
 export interface Application {
   applicationId: string;

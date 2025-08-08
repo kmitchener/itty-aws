@@ -3,7 +3,7 @@ import type { Buffer } from "node:buffer";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class signer extends AWSServiceClient {
+export class signer extends AWSServiceClient {
   addProfilePermission(
     input: AddProfilePermissionRequest,
   ): Effect.Effect<
@@ -16,7 +16,9 @@ export declare class signer extends AWSServiceClient {
     | TooManyRequestsException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AddProfilePermission", input);
+  }
   cancelSigningProfile(
     input: CancelSigningProfileRequest,
   ): Effect.Effect<
@@ -26,7 +28,9 @@ export declare class signer extends AWSServiceClient {
     | ResourceNotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CancelSigningProfile", input);
+  }
   describeSigningJob(
     input: DescribeSigningJobRequest,
   ): Effect.Effect<
@@ -36,7 +40,9 @@ export declare class signer extends AWSServiceClient {
     | ResourceNotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeSigningJob", input);
+  }
   getRevocationStatus(
     input: GetRevocationStatusRequest,
   ): Effect.Effect<
@@ -46,7 +52,9 @@ export declare class signer extends AWSServiceClient {
     | TooManyRequestsException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetRevocationStatus", input);
+  }
   getSigningPlatform(
     input: GetSigningPlatformRequest,
   ): Effect.Effect<
@@ -56,7 +64,9 @@ export declare class signer extends AWSServiceClient {
     | ResourceNotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetSigningPlatform", input);
+  }
   getSigningProfile(
     input: GetSigningProfileRequest,
   ): Effect.Effect<
@@ -66,7 +76,9 @@ export declare class signer extends AWSServiceClient {
     | ResourceNotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetSigningProfile", input);
+  }
   listProfilePermissions(
     input: ListProfilePermissionsRequest,
   ): Effect.Effect<
@@ -77,7 +89,9 @@ export declare class signer extends AWSServiceClient {
     | TooManyRequestsException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListProfilePermissions", input);
+  }
   listSigningJobs(
     input: ListSigningJobsRequest,
   ): Effect.Effect<
@@ -87,7 +101,9 @@ export declare class signer extends AWSServiceClient {
     | TooManyRequestsException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListSigningJobs", input);
+  }
   listSigningPlatforms(
     input: ListSigningPlatformsRequest,
   ): Effect.Effect<
@@ -97,7 +113,9 @@ export declare class signer extends AWSServiceClient {
     | TooManyRequestsException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListSigningPlatforms", input);
+  }
   listSigningProfiles(
     input: ListSigningProfilesRequest,
   ): Effect.Effect<
@@ -106,7 +124,9 @@ export declare class signer extends AWSServiceClient {
     | InternalServiceErrorException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListSigningProfiles", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
@@ -116,7 +136,9 @@ export declare class signer extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   putSigningProfile(
     input: PutSigningProfileRequest,
   ): Effect.Effect<
@@ -127,7 +149,9 @@ export declare class signer extends AWSServiceClient {
     | TooManyRequestsException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutSigningProfile", input);
+  }
   removeProfilePermission(
     input: RemoveProfilePermissionRequest,
   ): Effect.Effect<
@@ -139,7 +163,9 @@ export declare class signer extends AWSServiceClient {
     | TooManyRequestsException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("RemoveProfilePermission", input);
+  }
   revokeSignature(
     input: RevokeSignatureRequest,
   ): Effect.Effect<
@@ -150,7 +176,9 @@ export declare class signer extends AWSServiceClient {
     | TooManyRequestsException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("RevokeSignature", input);
+  }
   revokeSigningProfile(
     input: RevokeSigningProfileRequest,
   ): Effect.Effect<
@@ -161,7 +189,9 @@ export declare class signer extends AWSServiceClient {
     | TooManyRequestsException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("RevokeSigningProfile", input);
+  }
   signPayload(
     input: SignPayloadRequest,
   ): Effect.Effect<
@@ -172,7 +202,9 @@ export declare class signer extends AWSServiceClient {
     | TooManyRequestsException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("SignPayload", input);
+  }
   startSigningJob(
     input: StartSigningJobRequest,
   ): Effect.Effect<
@@ -184,7 +216,9 @@ export declare class signer extends AWSServiceClient {
     | TooManyRequestsException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartSigningJob", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -194,7 +228,9 @@ export declare class signer extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
@@ -204,10 +240,14 @@ export declare class signer extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
 }
 
-export declare class Signer extends signer {}
+export class Signer extends signer {}
+
+export default signer;
 
 export declare class AccessDeniedException extends EffectData.TaggedError(
   "AccessDeniedException",

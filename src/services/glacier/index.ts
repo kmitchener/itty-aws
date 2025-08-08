@@ -4,7 +4,7 @@ import type { Buffer } from "node:buffer";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class Glacier extends AWSServiceClient {
+export class Glacier extends AWSServiceClient {
   abortMultipartUpload(
     input: AbortMultipartUploadInput,
   ): Effect.Effect<
@@ -14,7 +14,9 @@ export declare class Glacier extends AWSServiceClient {
     | ResourceNotFoundException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AbortMultipartUpload", input);
+  }
   abortVaultLock(
     input: AbortVaultLockInput,
   ): Effect.Effect<
@@ -24,7 +26,9 @@ export declare class Glacier extends AWSServiceClient {
     | ResourceNotFoundException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AbortVaultLock", input);
+  }
   addTagsToVault(
     input: AddTagsToVaultInput,
   ): Effect.Effect<
@@ -35,7 +39,9 @@ export declare class Glacier extends AWSServiceClient {
     | ResourceNotFoundException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AddTagsToVault", input);
+  }
   completeMultipartUpload(
     input: CompleteMultipartUploadInput,
   ): Effect.Effect<
@@ -45,7 +51,9 @@ export declare class Glacier extends AWSServiceClient {
     | ResourceNotFoundException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CompleteMultipartUpload", input);
+  }
   completeVaultLock(
     input: CompleteVaultLockInput,
   ): Effect.Effect<
@@ -55,7 +63,9 @@ export declare class Glacier extends AWSServiceClient {
     | ResourceNotFoundException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CompleteVaultLock", input);
+  }
   createVault(
     input: CreateVaultInput,
   ): Effect.Effect<
@@ -65,7 +75,9 @@ export declare class Glacier extends AWSServiceClient {
     | MissingParameterValueException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateVault", input);
+  }
   deleteArchive(
     input: DeleteArchiveInput,
   ): Effect.Effect<
@@ -75,7 +87,9 @@ export declare class Glacier extends AWSServiceClient {
     | ResourceNotFoundException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteArchive", input);
+  }
   deleteVault(
     input: DeleteVaultInput,
   ): Effect.Effect<
@@ -85,7 +99,9 @@ export declare class Glacier extends AWSServiceClient {
     | ResourceNotFoundException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteVault", input);
+  }
   deleteVaultAccessPolicy(
     input: DeleteVaultAccessPolicyInput,
   ): Effect.Effect<
@@ -95,7 +111,9 @@ export declare class Glacier extends AWSServiceClient {
     | ResourceNotFoundException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteVaultAccessPolicy", input);
+  }
   deleteVaultNotifications(
     input: DeleteVaultNotificationsInput,
   ): Effect.Effect<
@@ -105,7 +123,9 @@ export declare class Glacier extends AWSServiceClient {
     | ResourceNotFoundException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteVaultNotifications", input);
+  }
   describeJob(
     input: DescribeJobInput,
   ): Effect.Effect<
@@ -115,7 +135,9 @@ export declare class Glacier extends AWSServiceClient {
     | ResourceNotFoundException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeJob", input);
+  }
   describeVault(
     input: DescribeVaultInput,
   ): Effect.Effect<
@@ -125,7 +147,9 @@ export declare class Glacier extends AWSServiceClient {
     | ResourceNotFoundException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeVault", input);
+  }
   getDataRetrievalPolicy(
     input: GetDataRetrievalPolicyInput,
   ): Effect.Effect<
@@ -134,7 +158,9 @@ export declare class Glacier extends AWSServiceClient {
     | MissingParameterValueException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetDataRetrievalPolicy", input);
+  }
   getJobOutput(
     input: GetJobOutputInput,
   ): Effect.Effect<
@@ -144,7 +170,9 @@ export declare class Glacier extends AWSServiceClient {
     | ResourceNotFoundException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetJobOutput", input);
+  }
   getVaultAccessPolicy(
     input: GetVaultAccessPolicyInput,
   ): Effect.Effect<
@@ -154,7 +182,9 @@ export declare class Glacier extends AWSServiceClient {
     | ResourceNotFoundException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetVaultAccessPolicy", input);
+  }
   getVaultLock(
     input: GetVaultLockInput,
   ): Effect.Effect<
@@ -164,7 +194,9 @@ export declare class Glacier extends AWSServiceClient {
     | ResourceNotFoundException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetVaultLock", input);
+  }
   getVaultNotifications(
     input: GetVaultNotificationsInput,
   ): Effect.Effect<
@@ -174,7 +206,9 @@ export declare class Glacier extends AWSServiceClient {
     | ResourceNotFoundException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetVaultNotifications", input);
+  }
   initiateJob(
     input: InitiateJobInput,
   ): Effect.Effect<
@@ -186,7 +220,9 @@ export declare class Glacier extends AWSServiceClient {
     | ResourceNotFoundException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("InitiateJob", input);
+  }
   initiateMultipartUpload(
     input: InitiateMultipartUploadInput,
   ): Effect.Effect<
@@ -196,7 +232,9 @@ export declare class Glacier extends AWSServiceClient {
     | ResourceNotFoundException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("InitiateMultipartUpload", input);
+  }
   initiateVaultLock(
     input: InitiateVaultLockInput,
   ): Effect.Effect<
@@ -206,7 +244,9 @@ export declare class Glacier extends AWSServiceClient {
     | ResourceNotFoundException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("InitiateVaultLock", input);
+  }
   listJobs(
     input: ListJobsInput,
   ): Effect.Effect<
@@ -216,7 +256,9 @@ export declare class Glacier extends AWSServiceClient {
     | ResourceNotFoundException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListJobs", input);
+  }
   listMultipartUploads(
     input: ListMultipartUploadsInput,
   ): Effect.Effect<
@@ -226,7 +268,9 @@ export declare class Glacier extends AWSServiceClient {
     | ResourceNotFoundException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListMultipartUploads", input);
+  }
   listParts(
     input: ListPartsInput,
   ): Effect.Effect<
@@ -236,7 +280,9 @@ export declare class Glacier extends AWSServiceClient {
     | ResourceNotFoundException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListParts", input);
+  }
   listProvisionedCapacity(
     input: ListProvisionedCapacityInput,
   ): Effect.Effect<
@@ -245,7 +291,9 @@ export declare class Glacier extends AWSServiceClient {
     | MissingParameterValueException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListProvisionedCapacity", input);
+  }
   listTagsForVault(
     input: ListTagsForVaultInput,
   ): Effect.Effect<
@@ -255,7 +303,9 @@ export declare class Glacier extends AWSServiceClient {
     | ResourceNotFoundException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForVault", input);
+  }
   listVaults(
     input: ListVaultsInput,
   ): Effect.Effect<
@@ -265,7 +315,9 @@ export declare class Glacier extends AWSServiceClient {
     | ResourceNotFoundException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListVaults", input);
+  }
   purchaseProvisionedCapacity(
     input: PurchaseProvisionedCapacityInput,
   ): Effect.Effect<
@@ -275,7 +327,9 @@ export declare class Glacier extends AWSServiceClient {
     | MissingParameterValueException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PurchaseProvisionedCapacity", input);
+  }
   removeTagsFromVault(
     input: RemoveTagsFromVaultInput,
   ): Effect.Effect<
@@ -285,7 +339,9 @@ export declare class Glacier extends AWSServiceClient {
     | ResourceNotFoundException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("RemoveTagsFromVault", input);
+  }
   setDataRetrievalPolicy(
     input: SetDataRetrievalPolicyInput,
   ): Effect.Effect<
@@ -294,7 +350,9 @@ export declare class Glacier extends AWSServiceClient {
     | MissingParameterValueException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("SetDataRetrievalPolicy", input);
+  }
   setVaultAccessPolicy(
     input: SetVaultAccessPolicyInput,
   ): Effect.Effect<
@@ -304,7 +362,9 @@ export declare class Glacier extends AWSServiceClient {
     | ResourceNotFoundException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("SetVaultAccessPolicy", input);
+  }
   setVaultNotifications(
     input: SetVaultNotificationsInput,
   ): Effect.Effect<
@@ -314,7 +374,9 @@ export declare class Glacier extends AWSServiceClient {
     | ResourceNotFoundException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("SetVaultNotifications", input);
+  }
   uploadArchive(
     input: UploadArchiveInput,
   ): Effect.Effect<
@@ -325,7 +387,9 @@ export declare class Glacier extends AWSServiceClient {
     | ResourceNotFoundException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UploadArchive", input);
+  }
   uploadMultipartPart(
     input: UploadMultipartPartInput,
   ): Effect.Effect<
@@ -336,8 +400,12 @@ export declare class Glacier extends AWSServiceClient {
     | ResourceNotFoundException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UploadMultipartPart", input);
+  }
 }
+
+export default Glacier;
 
 export interface AbortMultipartUploadInput {
   accountId: string;

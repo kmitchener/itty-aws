@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class MarketplaceMetering extends AWSServiceClient {
+export class MarketplaceMetering extends AWSServiceClient {
   batchMeterUsage(
     input: BatchMeterUsageRequest,
   ): Effect.Effect<
@@ -17,7 +17,9 @@ export declare class MarketplaceMetering extends AWSServiceClient {
     | ThrottlingException
     | TimestampOutOfBoundsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("BatchMeterUsage", input);
+  }
   meterUsage(
     input: MeterUsageRequest,
   ): Effect.Effect<
@@ -33,7 +35,9 @@ export declare class MarketplaceMetering extends AWSServiceClient {
     | ThrottlingException
     | TimestampOutOfBoundsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("MeterUsage", input);
+  }
   registerUsage(
     input: RegisterUsageRequest,
   ): Effect.Effect<
@@ -47,7 +51,9 @@ export declare class MarketplaceMetering extends AWSServiceClient {
     | PlatformNotSupportedException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("RegisterUsage", input);
+  }
   resolveCustomer(
     input: ResolveCustomerRequest,
   ): Effect.Effect<
@@ -58,8 +64,12 @@ export declare class MarketplaceMetering extends AWSServiceClient {
     | InvalidTokenException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ResolveCustomer", input);
+  }
 }
+
+export default MarketplaceMetering;
 
 export type AllocatedUsageQuantity = number;
 

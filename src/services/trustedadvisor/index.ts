@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class TrustedAdvisor extends AWSServiceClient {
+export class TrustedAdvisor extends AWSServiceClient {
   batchUpdateRecommendationResourceExclusion(
     input: BatchUpdateRecommendationResourceExclusionRequest,
   ): Effect.Effect<
@@ -13,7 +13,9 @@ export declare class TrustedAdvisor extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("BatchUpdateRecommendationResourceExclusion", input);
+  }
   getOrganizationRecommendation(
     input: GetOrganizationRecommendationRequest,
   ): Effect.Effect<
@@ -24,7 +26,9 @@ export declare class TrustedAdvisor extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetOrganizationRecommendation", input);
+  }
   getRecommendation(
     input: GetRecommendationRequest,
   ): Effect.Effect<
@@ -35,7 +39,9 @@ export declare class TrustedAdvisor extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetRecommendation", input);
+  }
   listChecks(
     input: ListChecksRequest,
   ): Effect.Effect<
@@ -45,7 +51,9 @@ export declare class TrustedAdvisor extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListChecks", input);
+  }
   listOrganizationRecommendationAccounts(
     input: ListOrganizationRecommendationAccountsRequest,
   ): Effect.Effect<
@@ -56,7 +64,9 @@ export declare class TrustedAdvisor extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListOrganizationRecommendationAccounts", input);
+  }
   listOrganizationRecommendationResources(
     input: ListOrganizationRecommendationResourcesRequest,
   ): Effect.Effect<
@@ -67,7 +77,9 @@ export declare class TrustedAdvisor extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListOrganizationRecommendationResources", input);
+  }
   listOrganizationRecommendations(
     input: ListOrganizationRecommendationsRequest,
   ): Effect.Effect<
@@ -77,7 +89,9 @@ export declare class TrustedAdvisor extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListOrganizationRecommendations", input);
+  }
   listRecommendationResources(
     input: ListRecommendationResourcesRequest,
   ): Effect.Effect<
@@ -88,7 +102,9 @@ export declare class TrustedAdvisor extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListRecommendationResources", input);
+  }
   listRecommendations(
     input: ListRecommendationsRequest,
   ): Effect.Effect<
@@ -98,7 +114,9 @@ export declare class TrustedAdvisor extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListRecommendations", input);
+  }
   updateOrganizationRecommendationLifecycle(
     input: UpdateOrganizationRecommendationLifecycleRequest,
   ): Effect.Effect<
@@ -110,7 +128,9 @@ export declare class TrustedAdvisor extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateOrganizationRecommendationLifecycle", input);
+  }
   updateRecommendationLifecycle(
     input: UpdateRecommendationLifecycleRequest,
   ): Effect.Effect<
@@ -122,10 +142,14 @@ export declare class TrustedAdvisor extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateRecommendationLifecycle", input);
+  }
 }
 
-export declare class Trustedadvisor extends TrustedAdvisor {}
+export class Trustedadvisor extends TrustedAdvisor {}
+
+export default TrustedAdvisor;
 
 export declare class AccessDeniedException extends EffectData.TaggedError(
   "AccessDeniedException",

@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class DataBrew extends AWSServiceClient {
+export class DataBrew extends AWSServiceClient {
   batchDeleteRecipeVersion(
     input: BatchDeleteRecipeVersionRequest,
   ): Effect.Effect<
@@ -11,7 +11,9 @@ export declare class DataBrew extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("BatchDeleteRecipeVersion", input);
+  }
   createDataset(
     input: CreateDatasetRequest,
   ): Effect.Effect<
@@ -21,7 +23,9 @@ export declare class DataBrew extends AWSServiceClient {
     | ServiceQuotaExceededException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateDataset", input);
+  }
   createProfileJob(
     input: CreateProfileJobRequest,
   ): Effect.Effect<
@@ -32,7 +36,9 @@ export declare class DataBrew extends AWSServiceClient {
     | ServiceQuotaExceededException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateProfileJob", input);
+  }
   createProject(
     input: CreateProjectRequest,
   ): Effect.Effect<
@@ -42,7 +48,9 @@ export declare class DataBrew extends AWSServiceClient {
     | ServiceQuotaExceededException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateProject", input);
+  }
   createRecipe(
     input: CreateRecipeRequest,
   ): Effect.Effect<
@@ -51,7 +59,9 @@ export declare class DataBrew extends AWSServiceClient {
     | ServiceQuotaExceededException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateRecipe", input);
+  }
   createRecipeJob(
     input: CreateRecipeJobRequest,
   ): Effect.Effect<
@@ -62,7 +72,9 @@ export declare class DataBrew extends AWSServiceClient {
     | ServiceQuotaExceededException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateRecipeJob", input);
+  }
   createRuleset(
     input: CreateRulesetRequest,
   ): Effect.Effect<
@@ -71,7 +83,9 @@ export declare class DataBrew extends AWSServiceClient {
     | ServiceQuotaExceededException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateRuleset", input);
+  }
   createSchedule(
     input: CreateScheduleRequest,
   ): Effect.Effect<
@@ -80,7 +94,9 @@ export declare class DataBrew extends AWSServiceClient {
     | ServiceQuotaExceededException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateSchedule", input);
+  }
   deleteDataset(
     input: DeleteDatasetRequest,
   ): Effect.Effect<
@@ -89,7 +105,9 @@ export declare class DataBrew extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteDataset", input);
+  }
   deleteJob(
     input: DeleteJobRequest,
   ): Effect.Effect<
@@ -98,7 +116,9 @@ export declare class DataBrew extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteJob", input);
+  }
   deleteProject(
     input: DeleteProjectRequest,
   ): Effect.Effect<
@@ -107,7 +127,9 @@ export declare class DataBrew extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteProject", input);
+  }
   deleteRecipeVersion(
     input: DeleteRecipeVersionRequest,
   ): Effect.Effect<
@@ -116,7 +138,9 @@ export declare class DataBrew extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteRecipeVersion", input);
+  }
   deleteRuleset(
     input: DeleteRulesetRequest,
   ): Effect.Effect<
@@ -125,88 +149,125 @@ export declare class DataBrew extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteRuleset", input);
+  }
   deleteSchedule(
     input: DeleteScheduleRequest,
   ): Effect.Effect<
     DeleteScheduleResponse,
     ResourceNotFoundException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteSchedule", input);
+  }
   describeDataset(
     input: DescribeDatasetRequest,
   ): Effect.Effect<
     DescribeDatasetResponse,
     ResourceNotFoundException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeDataset", input);
+  }
   describeJob(
     input: DescribeJobRequest,
   ): Effect.Effect<
     DescribeJobResponse,
     ResourceNotFoundException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeJob", input);
+  }
   describeJobRun(
     input: DescribeJobRunRequest,
   ): Effect.Effect<
     DescribeJobRunResponse,
     ResourceNotFoundException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeJobRun", input);
+  }
   describeProject(
     input: DescribeProjectRequest,
   ): Effect.Effect<
     DescribeProjectResponse,
     ResourceNotFoundException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeProject", input);
+  }
   describeRecipe(
     input: DescribeRecipeRequest,
   ): Effect.Effect<
     DescribeRecipeResponse,
     ResourceNotFoundException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeRecipe", input);
+  }
   describeRuleset(
     input: DescribeRulesetRequest,
   ): Effect.Effect<
     DescribeRulesetResponse,
     ResourceNotFoundException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeRuleset", input);
+  }
   describeSchedule(
     input: DescribeScheduleRequest,
   ): Effect.Effect<
     DescribeScheduleResponse,
     ResourceNotFoundException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeSchedule", input);
+  }
   listDatasets(
     input: ListDatasetsRequest,
-  ): Effect.Effect<ListDatasetsResponse, ValidationException | CommonAwsError>;
+  ): Effect.Effect<ListDatasetsResponse, ValidationException | CommonAwsError> {
+    return this.call("ListDatasets", input);
+  }
   listJobRuns(
     input: ListJobRunsRequest,
   ): Effect.Effect<
     ListJobRunsResponse,
     ResourceNotFoundException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("ListJobRuns", input);
+  }
   listJobs(
     input: ListJobsRequest,
-  ): Effect.Effect<ListJobsResponse, ValidationException | CommonAwsError>;
+  ): Effect.Effect<ListJobsResponse, ValidationException | CommonAwsError> {
+    return this.call("ListJobs", input);
+  }
   listProjects(
     input: ListProjectsRequest,
-  ): Effect.Effect<ListProjectsResponse, ValidationException | CommonAwsError>;
+  ): Effect.Effect<ListProjectsResponse, ValidationException | CommonAwsError> {
+    return this.call("ListProjects", input);
+  }
   listRecipes(
     input: ListRecipesRequest,
-  ): Effect.Effect<ListRecipesResponse, ValidationException | CommonAwsError>;
+  ): Effect.Effect<ListRecipesResponse, ValidationException | CommonAwsError> {
+    return this.call("ListRecipes", input);
+  }
   listRecipeVersions(
     input: ListRecipeVersionsRequest,
   ): Effect.Effect<
     ListRecipeVersionsResponse,
     ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("ListRecipeVersions", input);
+  }
   listRulesets(
     input: ListRulesetsRequest,
   ): Effect.Effect<
     ListRulesetsResponse,
     ResourceNotFoundException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("ListRulesets", input);
+  }
   listSchedules(
     input: ListSchedulesRequest,
-  ): Effect.Effect<ListSchedulesResponse, ValidationException | CommonAwsError>;
+  ): Effect.Effect<
+    ListSchedulesResponse,
+    ValidationException | CommonAwsError
+  > {
+    return this.call("ListSchedules", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
@@ -215,7 +276,9 @@ export declare class DataBrew extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   publishRecipe(
     input: PublishRecipeRequest,
   ): Effect.Effect<
@@ -224,7 +287,9 @@ export declare class DataBrew extends AWSServiceClient {
     | ServiceQuotaExceededException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PublishRecipe", input);
+  }
   sendProjectSessionAction(
     input: SendProjectSessionActionRequest,
   ): Effect.Effect<
@@ -233,7 +298,9 @@ export declare class DataBrew extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("SendProjectSessionAction", input);
+  }
   startJobRun(
     input: StartJobRunRequest,
   ): Effect.Effect<
@@ -243,7 +310,9 @@ export declare class DataBrew extends AWSServiceClient {
     | ServiceQuotaExceededException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartJobRun", input);
+  }
   startProjectSession(
     input: StartProjectSessionRequest,
   ): Effect.Effect<
@@ -253,13 +322,17 @@ export declare class DataBrew extends AWSServiceClient {
     | ServiceQuotaExceededException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartProjectSession", input);
+  }
   stopJobRun(
     input: StopJobRunRequest,
   ): Effect.Effect<
     StopJobRunResponse,
     ResourceNotFoundException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("StopJobRun", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -268,7 +341,9 @@ export declare class DataBrew extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
@@ -277,7 +352,9 @@ export declare class DataBrew extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
   updateDataset(
     input: UpdateDatasetRequest,
   ): Effect.Effect<
@@ -286,7 +363,9 @@ export declare class DataBrew extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateDataset", input);
+  }
   updateProfileJob(
     input: UpdateProfileJobRequest,
   ): Effect.Effect<
@@ -295,19 +374,25 @@ export declare class DataBrew extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateProfileJob", input);
+  }
   updateProject(
     input: UpdateProjectRequest,
   ): Effect.Effect<
     UpdateProjectResponse,
     ResourceNotFoundException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateProject", input);
+  }
   updateRecipe(
     input: UpdateRecipeRequest,
   ): Effect.Effect<
     UpdateRecipeResponse,
     ResourceNotFoundException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateRecipe", input);
+  }
   updateRecipeJob(
     input: UpdateRecipeJobRequest,
   ): Effect.Effect<
@@ -316,13 +401,17 @@ export declare class DataBrew extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateRecipeJob", input);
+  }
   updateRuleset(
     input: UpdateRulesetRequest,
   ): Effect.Effect<
     UpdateRulesetResponse,
     ResourceNotFoundException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateRuleset", input);
+  }
   updateSchedule(
     input: UpdateScheduleRequest,
   ): Effect.Effect<
@@ -331,10 +420,14 @@ export declare class DataBrew extends AWSServiceClient {
     | ServiceQuotaExceededException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateSchedule", input);
+  }
 }
 
-export declare class Databrew extends DataBrew {}
+export class Databrew extends DataBrew {}
+
+export default DataBrew;
 
 export declare class AccessDeniedException extends EffectData.TaggedError(
   "AccessDeniedException",

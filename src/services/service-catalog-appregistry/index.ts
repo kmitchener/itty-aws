@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class ServiceCatalogAppRegistry extends AWSServiceClient {
+export class ServiceCatalogAppRegistry extends AWSServiceClient {
   associateAttributeGroup(
     input: AssociateAttributeGroupRequest,
   ): Effect.Effect<
@@ -13,7 +13,9 @@ export declare class ServiceCatalogAppRegistry extends AWSServiceClient {
     | ServiceQuotaExceededException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AssociateAttributeGroup", input);
+  }
   associateResource(
     input: AssociateResourceRequest,
   ): Effect.Effect<
@@ -25,7 +27,9 @@ export declare class ServiceCatalogAppRegistry extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AssociateResource", input);
+  }
   createApplication(
     input: CreateApplicationRequest,
   ): Effect.Effect<
@@ -36,7 +40,9 @@ export declare class ServiceCatalogAppRegistry extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateApplication", input);
+  }
   createAttributeGroup(
     input: CreateAttributeGroupRequest,
   ): Effect.Effect<
@@ -46,7 +52,9 @@ export declare class ServiceCatalogAppRegistry extends AWSServiceClient {
     | ServiceQuotaExceededException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateAttributeGroup", input);
+  }
   deleteApplication(
     input: DeleteApplicationRequest,
   ): Effect.Effect<
@@ -55,7 +63,9 @@ export declare class ServiceCatalogAppRegistry extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteApplication", input);
+  }
   deleteAttributeGroup(
     input: DeleteAttributeGroupRequest,
   ): Effect.Effect<
@@ -64,7 +74,9 @@ export declare class ServiceCatalogAppRegistry extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteAttributeGroup", input);
+  }
   disassociateAttributeGroup(
     input: DisassociateAttributeGroupRequest,
   ): Effect.Effect<
@@ -73,7 +85,9 @@ export declare class ServiceCatalogAppRegistry extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DisassociateAttributeGroup", input);
+  }
   disassociateResource(
     input: DisassociateResourceRequest,
   ): Effect.Effect<
@@ -83,7 +97,9 @@ export declare class ServiceCatalogAppRegistry extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DisassociateResource", input);
+  }
   getApplication(
     input: GetApplicationRequest,
   ): Effect.Effect<
@@ -93,7 +109,9 @@ export declare class ServiceCatalogAppRegistry extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetApplication", input);
+  }
   getAssociatedResource(
     input: GetAssociatedResourceRequest,
   ): Effect.Effect<
@@ -102,7 +120,9 @@ export declare class ServiceCatalogAppRegistry extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetAssociatedResource", input);
+  }
   getAttributeGroup(
     input: GetAttributeGroupRequest,
   ): Effect.Effect<
@@ -112,17 +132,23 @@ export declare class ServiceCatalogAppRegistry extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetAttributeGroup", input);
+  }
   getConfiguration(input: {}): Effect.Effect<
     GetConfigurationResponse,
     InternalServerException | CommonAwsError
-  >;
+  > {
+    return this.call("GetConfiguration", input);
+  }
   listApplications(
     input: ListApplicationsRequest,
   ): Effect.Effect<
     ListApplicationsResponse,
     InternalServerException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("ListApplications", input);
+  }
   listAssociatedAttributeGroups(
     input: ListAssociatedAttributeGroupsRequest,
   ): Effect.Effect<
@@ -131,7 +157,9 @@ export declare class ServiceCatalogAppRegistry extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListAssociatedAttributeGroups", input);
+  }
   listAssociatedResources(
     input: ListAssociatedResourcesRequest,
   ): Effect.Effect<
@@ -140,13 +168,17 @@ export declare class ServiceCatalogAppRegistry extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListAssociatedResources", input);
+  }
   listAttributeGroups(
     input: ListAttributeGroupsRequest,
   ): Effect.Effect<
     ListAttributeGroupsResponse,
     InternalServerException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("ListAttributeGroups", input);
+  }
   listAttributeGroupsForApplication(
     input: ListAttributeGroupsForApplicationRequest,
   ): Effect.Effect<
@@ -155,7 +187,9 @@ export declare class ServiceCatalogAppRegistry extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListAttributeGroupsForApplication", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
@@ -164,7 +198,9 @@ export declare class ServiceCatalogAppRegistry extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   putConfiguration(
     input: PutConfigurationRequest,
   ): Effect.Effect<
@@ -173,7 +209,9 @@ export declare class ServiceCatalogAppRegistry extends AWSServiceClient {
     | InternalServerException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutConfiguration", input);
+  }
   syncResource(
     input: SyncResourceRequest,
   ): Effect.Effect<
@@ -184,7 +222,9 @@ export declare class ServiceCatalogAppRegistry extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("SyncResource", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -193,7 +233,9 @@ export declare class ServiceCatalogAppRegistry extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
@@ -202,7 +244,9 @@ export declare class ServiceCatalogAppRegistry extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
   updateApplication(
     input: UpdateApplicationRequest,
   ): Effect.Effect<
@@ -213,7 +257,9 @@ export declare class ServiceCatalogAppRegistry extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateApplication", input);
+  }
   updateAttributeGroup(
     input: UpdateAttributeGroupRequest,
   ): Effect.Effect<
@@ -223,10 +269,14 @@ export declare class ServiceCatalogAppRegistry extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateAttributeGroup", input);
+  }
 }
 
-export declare class ServiceCatalogAppregistry extends ServiceCatalogAppRegistry {}
+export class ServiceCatalogAppregistry extends ServiceCatalogAppRegistry {}
+
+export default ServiceCatalogAppRegistry;
 
 export interface Application {
   id?: string;

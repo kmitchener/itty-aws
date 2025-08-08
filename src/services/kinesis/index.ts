@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class Kinesis extends AWSServiceClient {
+export class Kinesis extends AWSServiceClient {
   addTagsToStream(
     input: AddTagsToStreamInput,
   ): Effect.Effect<
@@ -13,7 +13,9 @@ export declare class Kinesis extends AWSServiceClient {
     | ResourceInUseException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AddTagsToStream", input);
+  }
   createStream(
     input: CreateStreamInput,
   ): Effect.Effect<
@@ -22,7 +24,9 @@ export declare class Kinesis extends AWSServiceClient {
     | LimitExceededException
     | ResourceInUseException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateStream", input);
+  }
   decreaseStreamRetentionPeriod(
     input: DecreaseStreamRetentionPeriodInput,
   ): Effect.Effect<
@@ -33,7 +37,9 @@ export declare class Kinesis extends AWSServiceClient {
     | ResourceInUseException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DecreaseStreamRetentionPeriod", input);
+  }
   deleteResourcePolicy(
     input: DeleteResourcePolicyInput,
   ): Effect.Effect<
@@ -44,7 +50,9 @@ export declare class Kinesis extends AWSServiceClient {
     | ResourceInUseException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteResourcePolicy", input);
+  }
   deleteStream(
     input: DeleteStreamInput,
   ): Effect.Effect<
@@ -55,7 +63,9 @@ export declare class Kinesis extends AWSServiceClient {
     | ResourceInUseException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteStream", input);
+  }
   deregisterStreamConsumer(
     input: DeregisterStreamConsumerInput,
   ): Effect.Effect<
@@ -64,13 +74,17 @@ export declare class Kinesis extends AWSServiceClient {
     | LimitExceededException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeregisterStreamConsumer", input);
+  }
   describeLimits(
     input: DescribeLimitsInput,
   ): Effect.Effect<
     DescribeLimitsOutput,
     LimitExceededException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeLimits", input);
+  }
   describeStream(
     input: DescribeStreamInput,
   ): Effect.Effect<
@@ -80,7 +94,9 @@ export declare class Kinesis extends AWSServiceClient {
     | LimitExceededException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeStream", input);
+  }
   describeStreamConsumer(
     input: DescribeStreamConsumerInput,
   ): Effect.Effect<
@@ -89,7 +105,9 @@ export declare class Kinesis extends AWSServiceClient {
     | LimitExceededException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeStreamConsumer", input);
+  }
   describeStreamSummary(
     input: DescribeStreamSummaryInput,
   ): Effect.Effect<
@@ -99,7 +117,9 @@ export declare class Kinesis extends AWSServiceClient {
     | LimitExceededException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeStreamSummary", input);
+  }
   disableEnhancedMonitoring(
     input: DisableEnhancedMonitoringInput,
   ): Effect.Effect<
@@ -110,7 +130,9 @@ export declare class Kinesis extends AWSServiceClient {
     | ResourceInUseException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DisableEnhancedMonitoring", input);
+  }
   enableEnhancedMonitoring(
     input: EnableEnhancedMonitoringInput,
   ): Effect.Effect<
@@ -121,7 +143,9 @@ export declare class Kinesis extends AWSServiceClient {
     | ResourceInUseException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("EnableEnhancedMonitoring", input);
+  }
   getRecords(
     input: GetRecordsInput,
   ): Effect.Effect<
@@ -139,7 +163,9 @@ export declare class Kinesis extends AWSServiceClient {
     | ProvisionedThroughputExceededException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetRecords", input);
+  }
   getResourcePolicy(
     input: GetResourcePolicyInput,
   ): Effect.Effect<
@@ -150,7 +176,9 @@ export declare class Kinesis extends AWSServiceClient {
     | ResourceInUseException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetResourcePolicy", input);
+  }
   getShardIterator(
     input: GetShardIteratorInput,
   ): Effect.Effect<
@@ -161,7 +189,9 @@ export declare class Kinesis extends AWSServiceClient {
     | ProvisionedThroughputExceededException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetShardIterator", input);
+  }
   increaseStreamRetentionPeriod(
     input: IncreaseStreamRetentionPeriodInput,
   ): Effect.Effect<
@@ -172,7 +202,9 @@ export declare class Kinesis extends AWSServiceClient {
     | ResourceInUseException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("IncreaseStreamRetentionPeriod", input);
+  }
   listShards(
     input: ListShardsInput,
   ): Effect.Effect<
@@ -184,7 +216,9 @@ export declare class Kinesis extends AWSServiceClient {
     | ResourceInUseException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListShards", input);
+  }
   listStreamConsumers(
     input: ListStreamConsumersInput,
   ): Effect.Effect<
@@ -195,7 +229,9 @@ export declare class Kinesis extends AWSServiceClient {
     | ResourceInUseException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListStreamConsumers", input);
+  }
   listStreams(
     input: ListStreamsInput,
   ): Effect.Effect<
@@ -204,7 +240,9 @@ export declare class Kinesis extends AWSServiceClient {
     | InvalidArgumentException
     | LimitExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListStreams", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceInput,
   ): Effect.Effect<
@@ -215,7 +253,9 @@ export declare class Kinesis extends AWSServiceClient {
     | ResourceInUseException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   listTagsForStream(
     input: ListTagsForStreamInput,
   ): Effect.Effect<
@@ -225,7 +265,9 @@ export declare class Kinesis extends AWSServiceClient {
     | LimitExceededException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForStream", input);
+  }
   mergeShards(
     input: MergeShardsInput,
   ): Effect.Effect<
@@ -237,7 +279,9 @@ export declare class Kinesis extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("MergeShards", input);
+  }
   putRecord(
     input: PutRecordInput,
   ): Effect.Effect<
@@ -254,7 +298,9 @@ export declare class Kinesis extends AWSServiceClient {
     | ProvisionedThroughputExceededException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutRecord", input);
+  }
   putRecords(
     input: PutRecordsInput,
   ): Effect.Effect<
@@ -271,7 +317,9 @@ export declare class Kinesis extends AWSServiceClient {
     | ProvisionedThroughputExceededException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutRecords", input);
+  }
   putResourcePolicy(
     input: PutResourcePolicyInput,
   ): Effect.Effect<
@@ -282,7 +330,9 @@ export declare class Kinesis extends AWSServiceClient {
     | ResourceInUseException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutResourcePolicy", input);
+  }
   registerStreamConsumer(
     input: RegisterStreamConsumerInput,
   ): Effect.Effect<
@@ -292,7 +342,9 @@ export declare class Kinesis extends AWSServiceClient {
     | ResourceInUseException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("RegisterStreamConsumer", input);
+  }
   removeTagsFromStream(
     input: RemoveTagsFromStreamInput,
   ): Effect.Effect<
@@ -303,7 +355,9 @@ export declare class Kinesis extends AWSServiceClient {
     | ResourceInUseException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("RemoveTagsFromStream", input);
+  }
   splitShard(
     input: SplitShardInput,
   ): Effect.Effect<
@@ -315,7 +369,9 @@ export declare class Kinesis extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("SplitShard", input);
+  }
   startStreamEncryption(
     input: StartStreamEncryptionInput,
   ): Effect.Effect<
@@ -332,7 +388,9 @@ export declare class Kinesis extends AWSServiceClient {
     | ResourceInUseException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartStreamEncryption", input);
+  }
   stopStreamEncryption(
     input: StopStreamEncryptionInput,
   ): Effect.Effect<
@@ -343,7 +401,9 @@ export declare class Kinesis extends AWSServiceClient {
     | ResourceInUseException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StopStreamEncryption", input);
+  }
   subscribeToShard(
     input: SubscribeToShardInput,
   ): Effect.Effect<
@@ -354,7 +414,9 @@ export declare class Kinesis extends AWSServiceClient {
     | ResourceInUseException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("SubscribeToShard", input);
+  }
   tagResource(
     input: TagResourceInput,
   ): Effect.Effect<
@@ -365,7 +427,9 @@ export declare class Kinesis extends AWSServiceClient {
     | ResourceInUseException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceInput,
   ): Effect.Effect<
@@ -376,7 +440,9 @@ export declare class Kinesis extends AWSServiceClient {
     | ResourceInUseException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
   updateShardCount(
     input: UpdateShardCountInput,
   ): Effect.Effect<
@@ -388,7 +454,9 @@ export declare class Kinesis extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateShardCount", input);
+  }
   updateStreamMode(
     input: UpdateStreamModeInput,
   ): Effect.Effect<
@@ -398,8 +466,12 @@ export declare class Kinesis extends AWSServiceClient {
     | ResourceInUseException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateStreamMode", input);
+  }
 }
+
+export default Kinesis;
 
 export declare class AccessDeniedException extends EffectData.TaggedError(
   "AccessDeniedException",

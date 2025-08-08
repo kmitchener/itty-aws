@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class LexModelsV2 extends AWSServiceClient {
+export class LexModelsV2 extends AWSServiceClient {
   batchCreateCustomVocabularyItem(
     input: BatchCreateCustomVocabularyItemRequest,
   ): Effect.Effect<
@@ -13,7 +13,9 @@ export declare class LexModelsV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("BatchCreateCustomVocabularyItem", input);
+  }
   batchDeleteCustomVocabularyItem(
     input: BatchDeleteCustomVocabularyItemRequest,
   ): Effect.Effect<
@@ -24,7 +26,9 @@ export declare class LexModelsV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("BatchDeleteCustomVocabularyItem", input);
+  }
   batchUpdateCustomVocabularyItem(
     input: BatchUpdateCustomVocabularyItemRequest,
   ): Effect.Effect<
@@ -35,7 +39,9 @@ export declare class LexModelsV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("BatchUpdateCustomVocabularyItem", input);
+  }
   buildBotLocale(
     input: BuildBotLocaleRequest,
   ): Effect.Effect<
@@ -47,7 +53,9 @@ export declare class LexModelsV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("BuildBotLocale", input);
+  }
   createBot(
     input: CreateBotRequest,
   ): Effect.Effect<
@@ -59,7 +67,9 @@ export declare class LexModelsV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateBot", input);
+  }
   createBotAlias(
     input: CreateBotAliasRequest,
   ): Effect.Effect<
@@ -71,7 +81,9 @@ export declare class LexModelsV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateBotAlias", input);
+  }
   createBotLocale(
     input: CreateBotLocaleRequest,
   ): Effect.Effect<
@@ -83,7 +95,9 @@ export declare class LexModelsV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateBotLocale", input);
+  }
   createBotReplica(
     input: CreateBotReplicaRequest,
   ): Effect.Effect<
@@ -95,7 +109,9 @@ export declare class LexModelsV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateBotReplica", input);
+  }
   createBotVersion(
     input: CreateBotVersionRequest,
   ): Effect.Effect<
@@ -107,7 +123,9 @@ export declare class LexModelsV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateBotVersion", input);
+  }
   createExport(
     input: CreateExportRequest,
   ): Effect.Effect<
@@ -119,7 +137,9 @@ export declare class LexModelsV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateExport", input);
+  }
   createIntent(
     input: CreateIntentRequest,
   ): Effect.Effect<
@@ -131,7 +151,9 @@ export declare class LexModelsV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateIntent", input);
+  }
   createResourcePolicy(
     input: CreateResourcePolicyRequest,
   ): Effect.Effect<
@@ -143,7 +165,9 @@ export declare class LexModelsV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateResourcePolicy", input);
+  }
   createResourcePolicyStatement(
     input: CreateResourcePolicyStatementRequest,
   ): Effect.Effect<
@@ -156,7 +180,9 @@ export declare class LexModelsV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateResourcePolicyStatement", input);
+  }
   createSlot(
     input: CreateSlotRequest,
   ): Effect.Effect<
@@ -168,7 +194,9 @@ export declare class LexModelsV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateSlot", input);
+  }
   createSlotType(
     input: CreateSlotTypeRequest,
   ): Effect.Effect<
@@ -180,7 +208,9 @@ export declare class LexModelsV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateSlotType", input);
+  }
   createTestSetDiscrepancyReport(
     input: CreateTestSetDiscrepancyReportRequest,
   ): Effect.Effect<
@@ -192,7 +222,9 @@ export declare class LexModelsV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateTestSetDiscrepancyReport", input);
+  }
   createUploadUrl(
     input: CreateUploadUrlRequest,
   ): Effect.Effect<
@@ -203,7 +235,9 @@ export declare class LexModelsV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateUploadUrl", input);
+  }
   deleteBot(
     input: DeleteBotRequest,
   ): Effect.Effect<
@@ -215,7 +249,9 @@ export declare class LexModelsV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteBot", input);
+  }
   deleteBotAlias(
     input: DeleteBotAliasRequest,
   ): Effect.Effect<
@@ -227,7 +263,9 @@ export declare class LexModelsV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteBotAlias", input);
+  }
   deleteBotLocale(
     input: DeleteBotLocaleRequest,
   ): Effect.Effect<
@@ -239,7 +277,9 @@ export declare class LexModelsV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteBotLocale", input);
+  }
   deleteBotReplica(
     input: DeleteBotReplicaRequest,
   ): Effect.Effect<
@@ -251,7 +291,9 @@ export declare class LexModelsV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteBotReplica", input);
+  }
   deleteBotVersion(
     input: DeleteBotVersionRequest,
   ): Effect.Effect<
@@ -263,7 +305,9 @@ export declare class LexModelsV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteBotVersion", input);
+  }
   deleteCustomVocabulary(
     input: DeleteCustomVocabularyRequest,
   ): Effect.Effect<
@@ -275,7 +319,9 @@ export declare class LexModelsV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteCustomVocabulary", input);
+  }
   deleteExport(
     input: DeleteExportRequest,
   ): Effect.Effect<
@@ -286,7 +332,9 @@ export declare class LexModelsV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteExport", input);
+  }
   deleteImport(
     input: DeleteImportRequest,
   ): Effect.Effect<
@@ -297,7 +345,9 @@ export declare class LexModelsV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteImport", input);
+  }
   deleteIntent(
     input: DeleteIntentRequest,
   ): Effect.Effect<
@@ -309,7 +359,9 @@ export declare class LexModelsV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteIntent", input);
+  }
   deleteResourcePolicy(
     input: DeleteResourcePolicyRequest,
   ): Effect.Effect<
@@ -319,7 +371,9 @@ export declare class LexModelsV2 extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteResourcePolicy", input);
+  }
   deleteResourcePolicyStatement(
     input: DeleteResourcePolicyStatementRequest,
   ): Effect.Effect<
@@ -329,7 +383,9 @@ export declare class LexModelsV2 extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteResourcePolicyStatement", input);
+  }
   deleteSlot(
     input: DeleteSlotRequest,
   ): Effect.Effect<
@@ -341,7 +397,9 @@ export declare class LexModelsV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteSlot", input);
+  }
   deleteSlotType(
     input: DeleteSlotTypeRequest,
   ): Effect.Effect<
@@ -353,7 +411,9 @@ export declare class LexModelsV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteSlotType", input);
+  }
   deleteTestSet(
     input: DeleteTestSetRequest,
   ): Effect.Effect<
@@ -365,7 +425,9 @@ export declare class LexModelsV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteTestSet", input);
+  }
   deleteUtterances(
     input: DeleteUtterancesRequest,
   ): Effect.Effect<
@@ -374,7 +436,9 @@ export declare class LexModelsV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteUtterances", input);
+  }
   describeBot(
     input: DescribeBotRequest,
   ): Effect.Effect<
@@ -385,7 +449,9 @@ export declare class LexModelsV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeBot", input);
+  }
   describeBotAlias(
     input: DescribeBotAliasRequest,
   ): Effect.Effect<
@@ -396,7 +462,9 @@ export declare class LexModelsV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeBotAlias", input);
+  }
   describeBotLocale(
     input: DescribeBotLocaleRequest,
   ): Effect.Effect<
@@ -407,7 +475,9 @@ export declare class LexModelsV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeBotLocale", input);
+  }
   describeBotRecommendation(
     input: DescribeBotRecommendationRequest,
   ): Effect.Effect<
@@ -417,7 +487,9 @@ export declare class LexModelsV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeBotRecommendation", input);
+  }
   describeBotReplica(
     input: DescribeBotReplicaRequest,
   ): Effect.Effect<
@@ -428,7 +500,9 @@ export declare class LexModelsV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeBotReplica", input);
+  }
   describeBotResourceGeneration(
     input: DescribeBotResourceGenerationRequest,
   ): Effect.Effect<
@@ -438,7 +512,9 @@ export declare class LexModelsV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeBotResourceGeneration", input);
+  }
   describeBotVersion(
     input: DescribeBotVersionRequest,
   ): Effect.Effect<
@@ -449,7 +525,9 @@ export declare class LexModelsV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeBotVersion", input);
+  }
   describeCustomVocabularyMetadata(
     input: DescribeCustomVocabularyMetadataRequest,
   ): Effect.Effect<
@@ -460,7 +538,9 @@ export declare class LexModelsV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeCustomVocabularyMetadata", input);
+  }
   describeExport(
     input: DescribeExportRequest,
   ): Effect.Effect<
@@ -470,7 +550,9 @@ export declare class LexModelsV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeExport", input);
+  }
   describeImport(
     input: DescribeImportRequest,
   ): Effect.Effect<
@@ -480,7 +562,9 @@ export declare class LexModelsV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeImport", input);
+  }
   describeIntent(
     input: DescribeIntentRequest,
   ): Effect.Effect<
@@ -491,7 +575,9 @@ export declare class LexModelsV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeIntent", input);
+  }
   describeResourcePolicy(
     input: DescribeResourcePolicyRequest,
   ): Effect.Effect<
@@ -500,7 +586,9 @@ export declare class LexModelsV2 extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeResourcePolicy", input);
+  }
   describeSlot(
     input: DescribeSlotRequest,
   ): Effect.Effect<
@@ -511,7 +599,9 @@ export declare class LexModelsV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeSlot", input);
+  }
   describeSlotType(
     input: DescribeSlotTypeRequest,
   ): Effect.Effect<
@@ -522,7 +612,9 @@ export declare class LexModelsV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeSlotType", input);
+  }
   describeTestExecution(
     input: DescribeTestExecutionRequest,
   ): Effect.Effect<
@@ -533,7 +625,9 @@ export declare class LexModelsV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeTestExecution", input);
+  }
   describeTestSet(
     input: DescribeTestSetRequest,
   ): Effect.Effect<
@@ -544,7 +638,9 @@ export declare class LexModelsV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeTestSet", input);
+  }
   describeTestSetDiscrepancyReport(
     input: DescribeTestSetDiscrepancyReportRequest,
   ): Effect.Effect<
@@ -555,7 +651,9 @@ export declare class LexModelsV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeTestSetDiscrepancyReport", input);
+  }
   describeTestSetGeneration(
     input: DescribeTestSetGenerationRequest,
   ): Effect.Effect<
@@ -566,7 +664,9 @@ export declare class LexModelsV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeTestSetGeneration", input);
+  }
   generateBotElement(
     input: GenerateBotElementRequest,
   ): Effect.Effect<
@@ -579,7 +679,9 @@ export declare class LexModelsV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GenerateBotElement", input);
+  }
   getTestExecutionArtifactsUrl(
     input: GetTestExecutionArtifactsUrlRequest,
   ): Effect.Effect<
@@ -590,7 +692,9 @@ export declare class LexModelsV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetTestExecutionArtifactsUrl", input);
+  }
   listAggregatedUtterances(
     input: ListAggregatedUtterancesRequest,
   ): Effect.Effect<
@@ -600,7 +704,9 @@ export declare class LexModelsV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListAggregatedUtterances", input);
+  }
   listBotAliases(
     input: ListBotAliasesRequest,
   ): Effect.Effect<
@@ -610,7 +716,9 @@ export declare class LexModelsV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListBotAliases", input);
+  }
   listBotAliasReplicas(
     input: ListBotAliasReplicasRequest,
   ): Effect.Effect<
@@ -620,7 +728,9 @@ export declare class LexModelsV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListBotAliasReplicas", input);
+  }
   listBotLocales(
     input: ListBotLocalesRequest,
   ): Effect.Effect<
@@ -630,7 +740,9 @@ export declare class LexModelsV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListBotLocales", input);
+  }
   listBotRecommendations(
     input: ListBotRecommendationsRequest,
   ): Effect.Effect<
@@ -640,7 +752,9 @@ export declare class LexModelsV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListBotRecommendations", input);
+  }
   listBotReplicas(
     input: ListBotReplicasRequest,
   ): Effect.Effect<
@@ -650,7 +764,9 @@ export declare class LexModelsV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListBotReplicas", input);
+  }
   listBotResourceGenerations(
     input: ListBotResourceGenerationsRequest,
   ): Effect.Effect<
@@ -660,7 +776,9 @@ export declare class LexModelsV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListBotResourceGenerations", input);
+  }
   listBots(
     input: ListBotsRequest,
   ): Effect.Effect<
@@ -670,7 +788,9 @@ export declare class LexModelsV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListBots", input);
+  }
   listBotVersionReplicas(
     input: ListBotVersionReplicasRequest,
   ): Effect.Effect<
@@ -680,7 +800,9 @@ export declare class LexModelsV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListBotVersionReplicas", input);
+  }
   listBotVersions(
     input: ListBotVersionsRequest,
   ): Effect.Effect<
@@ -690,7 +812,9 @@ export declare class LexModelsV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListBotVersions", input);
+  }
   listBuiltInIntents(
     input: ListBuiltInIntentsRequest,
   ): Effect.Effect<
@@ -700,7 +824,9 @@ export declare class LexModelsV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListBuiltInIntents", input);
+  }
   listBuiltInSlotTypes(
     input: ListBuiltInSlotTypesRequest,
   ): Effect.Effect<
@@ -710,7 +836,9 @@ export declare class LexModelsV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListBuiltInSlotTypes", input);
+  }
   listCustomVocabularyItems(
     input: ListCustomVocabularyItemsRequest,
   ): Effect.Effect<
@@ -721,7 +849,9 @@ export declare class LexModelsV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListCustomVocabularyItems", input);
+  }
   listExports(
     input: ListExportsRequest,
   ): Effect.Effect<
@@ -730,7 +860,9 @@ export declare class LexModelsV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListExports", input);
+  }
   listImports(
     input: ListImportsRequest,
   ): Effect.Effect<
@@ -739,7 +871,9 @@ export declare class LexModelsV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListImports", input);
+  }
   listIntentMetrics(
     input: ListIntentMetricsRequest,
   ): Effect.Effect<
@@ -750,7 +884,9 @@ export declare class LexModelsV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListIntentMetrics", input);
+  }
   listIntentPaths(
     input: ListIntentPathsRequest,
   ): Effect.Effect<
@@ -761,7 +897,9 @@ export declare class LexModelsV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListIntentPaths", input);
+  }
   listIntents(
     input: ListIntentsRequest,
   ): Effect.Effect<
@@ -771,7 +909,9 @@ export declare class LexModelsV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListIntents", input);
+  }
   listIntentStageMetrics(
     input: ListIntentStageMetricsRequest,
   ): Effect.Effect<
@@ -782,7 +922,9 @@ export declare class LexModelsV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListIntentStageMetrics", input);
+  }
   listRecommendedIntents(
     input: ListRecommendedIntentsRequest,
   ): Effect.Effect<
@@ -793,7 +935,9 @@ export declare class LexModelsV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListRecommendedIntents", input);
+  }
   listSessionAnalyticsData(
     input: ListSessionAnalyticsDataRequest,
   ): Effect.Effect<
@@ -804,7 +948,9 @@ export declare class LexModelsV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListSessionAnalyticsData", input);
+  }
   listSessionMetrics(
     input: ListSessionMetricsRequest,
   ): Effect.Effect<
@@ -815,7 +961,9 @@ export declare class LexModelsV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListSessionMetrics", input);
+  }
   listSlots(
     input: ListSlotsRequest,
   ): Effect.Effect<
@@ -825,7 +973,9 @@ export declare class LexModelsV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListSlots", input);
+  }
   listSlotTypes(
     input: ListSlotTypesRequest,
   ): Effect.Effect<
@@ -835,7 +985,9 @@ export declare class LexModelsV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListSlotTypes", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
@@ -845,7 +997,9 @@ export declare class LexModelsV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   listTestExecutionResultItems(
     input: ListTestExecutionResultItemsRequest,
   ): Effect.Effect<
@@ -856,7 +1010,9 @@ export declare class LexModelsV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTestExecutionResultItems", input);
+  }
   listTestExecutions(
     input: ListTestExecutionsRequest,
   ): Effect.Effect<
@@ -866,7 +1022,9 @@ export declare class LexModelsV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTestExecutions", input);
+  }
   listTestSetRecords(
     input: ListTestSetRecordsRequest,
   ): Effect.Effect<
@@ -877,7 +1035,9 @@ export declare class LexModelsV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTestSetRecords", input);
+  }
   listTestSets(
     input: ListTestSetsRequest,
   ): Effect.Effect<
@@ -887,7 +1047,9 @@ export declare class LexModelsV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTestSets", input);
+  }
   listUtteranceAnalyticsData(
     input: ListUtteranceAnalyticsDataRequest,
   ): Effect.Effect<
@@ -898,7 +1060,9 @@ export declare class LexModelsV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListUtteranceAnalyticsData", input);
+  }
   listUtteranceMetrics(
     input: ListUtteranceMetricsRequest,
   ): Effect.Effect<
@@ -909,7 +1073,9 @@ export declare class LexModelsV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListUtteranceMetrics", input);
+  }
   searchAssociatedTranscripts(
     input: SearchAssociatedTranscriptsRequest,
   ): Effect.Effect<
@@ -920,7 +1086,9 @@ export declare class LexModelsV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("SearchAssociatedTranscripts", input);
+  }
   startBotRecommendation(
     input: StartBotRecommendationRequest,
   ): Effect.Effect<
@@ -933,7 +1101,9 @@ export declare class LexModelsV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartBotRecommendation", input);
+  }
   startBotResourceGeneration(
     input: StartBotResourceGenerationRequest,
   ): Effect.Effect<
@@ -945,7 +1115,9 @@ export declare class LexModelsV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartBotResourceGeneration", input);
+  }
   startImport(
     input: StartImportRequest,
   ): Effect.Effect<
@@ -957,7 +1129,9 @@ export declare class LexModelsV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartImport", input);
+  }
   startTestExecution(
     input: StartTestExecutionRequest,
   ): Effect.Effect<
@@ -969,7 +1143,9 @@ export declare class LexModelsV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartTestExecution", input);
+  }
   startTestSetGeneration(
     input: StartTestSetGenerationRequest,
   ): Effect.Effect<
@@ -981,7 +1157,9 @@ export declare class LexModelsV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartTestSetGeneration", input);
+  }
   stopBotRecommendation(
     input: StopBotRecommendationRequest,
   ): Effect.Effect<
@@ -994,7 +1172,9 @@ export declare class LexModelsV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StopBotRecommendation", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -1004,7 +1184,9 @@ export declare class LexModelsV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
@@ -1014,7 +1196,9 @@ export declare class LexModelsV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
   updateBot(
     input: UpdateBotRequest,
   ): Effect.Effect<
@@ -1026,7 +1210,9 @@ export declare class LexModelsV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateBot", input);
+  }
   updateBotAlias(
     input: UpdateBotAliasRequest,
   ): Effect.Effect<
@@ -1038,7 +1224,9 @@ export declare class LexModelsV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateBotAlias", input);
+  }
   updateBotLocale(
     input: UpdateBotLocaleRequest,
   ): Effect.Effect<
@@ -1050,7 +1238,9 @@ export declare class LexModelsV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateBotLocale", input);
+  }
   updateBotRecommendation(
     input: UpdateBotRecommendationRequest,
   ): Effect.Effect<
@@ -1063,7 +1253,9 @@ export declare class LexModelsV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateBotRecommendation", input);
+  }
   updateExport(
     input: UpdateExportRequest,
   ): Effect.Effect<
@@ -1075,7 +1267,9 @@ export declare class LexModelsV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateExport", input);
+  }
   updateIntent(
     input: UpdateIntentRequest,
   ): Effect.Effect<
@@ -1087,7 +1281,9 @@ export declare class LexModelsV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateIntent", input);
+  }
   updateResourcePolicy(
     input: UpdateResourcePolicyRequest,
   ): Effect.Effect<
@@ -1099,7 +1295,9 @@ export declare class LexModelsV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateResourcePolicy", input);
+  }
   updateSlot(
     input: UpdateSlotRequest,
   ): Effect.Effect<
@@ -1111,7 +1309,9 @@ export declare class LexModelsV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateSlot", input);
+  }
   updateSlotType(
     input: UpdateSlotTypeRequest,
   ): Effect.Effect<
@@ -1123,7 +1323,9 @@ export declare class LexModelsV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateSlotType", input);
+  }
   updateTestSet(
     input: UpdateTestSetRequest,
   ): Effect.Effect<
@@ -1135,8 +1337,12 @@ export declare class LexModelsV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateTestSet", input);
+  }
 }
+
+export default LexModelsV2;
 
 export interface ActiveContext {
   name: string;

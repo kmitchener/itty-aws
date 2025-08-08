@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class DevOpsGuru extends AWSServiceClient {
+export class DevOpsGuru extends AWSServiceClient {
   addNotificationChannel(
     input: AddNotificationChannelRequest,
   ): Effect.Effect<
@@ -15,7 +15,9 @@ export declare class DevOpsGuru extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AddNotificationChannel", input);
+  }
   deleteInsight(
     input: DeleteInsightRequest,
   ): Effect.Effect<
@@ -27,7 +29,9 @@ export declare class DevOpsGuru extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteInsight", input);
+  }
   describeAccountHealth(
     input: DescribeAccountHealthRequest,
   ): Effect.Effect<
@@ -37,7 +41,9 @@ export declare class DevOpsGuru extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeAccountHealth", input);
+  }
   describeAccountOverview(
     input: DescribeAccountOverviewRequest,
   ): Effect.Effect<
@@ -47,7 +53,9 @@ export declare class DevOpsGuru extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeAccountOverview", input);
+  }
   describeAnomaly(
     input: DescribeAnomalyRequest,
   ): Effect.Effect<
@@ -58,7 +66,9 @@ export declare class DevOpsGuru extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeAnomaly", input);
+  }
   describeEventSourcesConfig(
     input: DescribeEventSourcesConfigRequest,
   ): Effect.Effect<
@@ -68,7 +78,9 @@ export declare class DevOpsGuru extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeEventSourcesConfig", input);
+  }
   describeFeedback(
     input: DescribeFeedbackRequest,
   ): Effect.Effect<
@@ -79,7 +91,9 @@ export declare class DevOpsGuru extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeFeedback", input);
+  }
   describeInsight(
     input: DescribeInsightRequest,
   ): Effect.Effect<
@@ -90,7 +104,9 @@ export declare class DevOpsGuru extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeInsight", input);
+  }
   describeOrganizationHealth(
     input: DescribeOrganizationHealthRequest,
   ): Effect.Effect<
@@ -100,7 +116,9 @@ export declare class DevOpsGuru extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeOrganizationHealth", input);
+  }
   describeOrganizationOverview(
     input: DescribeOrganizationOverviewRequest,
   ): Effect.Effect<
@@ -110,7 +128,9 @@ export declare class DevOpsGuru extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeOrganizationOverview", input);
+  }
   describeOrganizationResourceCollectionHealth(
     input: DescribeOrganizationResourceCollectionHealthRequest,
   ): Effect.Effect<
@@ -120,7 +140,9 @@ export declare class DevOpsGuru extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeOrganizationResourceCollectionHealth", input);
+  }
   describeResourceCollectionHealth(
     input: DescribeResourceCollectionHealthRequest,
   ): Effect.Effect<
@@ -130,7 +152,9 @@ export declare class DevOpsGuru extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeResourceCollectionHealth", input);
+  }
   describeServiceIntegration(
     input: DescribeServiceIntegrationRequest,
   ): Effect.Effect<
@@ -141,7 +165,9 @@ export declare class DevOpsGuru extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeServiceIntegration", input);
+  }
   getCostEstimation(
     input: GetCostEstimationRequest,
   ): Effect.Effect<
@@ -152,7 +178,9 @@ export declare class DevOpsGuru extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetCostEstimation", input);
+  }
   getResourceCollection(
     input: GetResourceCollectionRequest,
   ): Effect.Effect<
@@ -163,7 +191,9 @@ export declare class DevOpsGuru extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetResourceCollection", input);
+  }
   listAnomaliesForInsight(
     input: ListAnomaliesForInsightRequest,
   ): Effect.Effect<
@@ -174,7 +204,9 @@ export declare class DevOpsGuru extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListAnomaliesForInsight", input);
+  }
   listAnomalousLogGroups(
     input: ListAnomalousLogGroupsRequest,
   ): Effect.Effect<
@@ -185,7 +217,9 @@ export declare class DevOpsGuru extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListAnomalousLogGroups", input);
+  }
   listEvents(
     input: ListEventsRequest,
   ): Effect.Effect<
@@ -196,7 +230,9 @@ export declare class DevOpsGuru extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListEvents", input);
+  }
   listInsights(
     input: ListInsightsRequest,
   ): Effect.Effect<
@@ -206,7 +242,9 @@ export declare class DevOpsGuru extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListInsights", input);
+  }
   listMonitoredResources(
     input: ListMonitoredResourcesRequest,
   ): Effect.Effect<
@@ -216,7 +254,9 @@ export declare class DevOpsGuru extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListMonitoredResources", input);
+  }
   listNotificationChannels(
     input: ListNotificationChannelsRequest,
   ): Effect.Effect<
@@ -226,7 +266,9 @@ export declare class DevOpsGuru extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListNotificationChannels", input);
+  }
   listOrganizationInsights(
     input: ListOrganizationInsightsRequest,
   ): Effect.Effect<
@@ -236,7 +278,9 @@ export declare class DevOpsGuru extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListOrganizationInsights", input);
+  }
   listRecommendations(
     input: ListRecommendationsRequest,
   ): Effect.Effect<
@@ -247,7 +291,9 @@ export declare class DevOpsGuru extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListRecommendations", input);
+  }
   putFeedback(
     input: PutFeedbackRequest,
   ): Effect.Effect<
@@ -259,7 +305,9 @@ export declare class DevOpsGuru extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutFeedback", input);
+  }
   removeNotificationChannel(
     input: RemoveNotificationChannelRequest,
   ): Effect.Effect<
@@ -271,7 +319,9 @@ export declare class DevOpsGuru extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("RemoveNotificationChannel", input);
+  }
   searchInsights(
     input: SearchInsightsRequest,
   ): Effect.Effect<
@@ -281,7 +331,9 @@ export declare class DevOpsGuru extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("SearchInsights", input);
+  }
   searchOrganizationInsights(
     input: SearchOrganizationInsightsRequest,
   ): Effect.Effect<
@@ -291,7 +343,9 @@ export declare class DevOpsGuru extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("SearchOrganizationInsights", input);
+  }
   startCostEstimation(
     input: StartCostEstimationRequest,
   ): Effect.Effect<
@@ -303,7 +357,9 @@ export declare class DevOpsGuru extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartCostEstimation", input);
+  }
   updateEventSourcesConfig(
     input: UpdateEventSourcesConfigRequest,
   ): Effect.Effect<
@@ -313,7 +369,9 @@ export declare class DevOpsGuru extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateEventSourcesConfig", input);
+  }
   updateResourceCollection(
     input: UpdateResourceCollectionRequest,
   ): Effect.Effect<
@@ -324,7 +382,9 @@ export declare class DevOpsGuru extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateResourceCollection", input);
+  }
   updateServiceIntegration(
     input: UpdateServiceIntegrationRequest,
   ): Effect.Effect<
@@ -335,10 +395,14 @@ export declare class DevOpsGuru extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateServiceIntegration", input);
+  }
 }
 
-export declare class DevopsGuru extends DevOpsGuru {}
+export class DevopsGuru extends DevOpsGuru {}
+
+export default DevOpsGuru;
 
 export declare class AccessDeniedException extends EffectData.TaggedError(
   "AccessDeniedException",

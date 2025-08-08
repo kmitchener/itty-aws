@@ -2,7 +2,7 @@ import type { Effect, Stream, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class QuickSight extends AWSServiceClient {
+export class QuickSight extends AWSServiceClient {
   batchCreateTopicReviewedAnswer(
     input: BatchCreateTopicReviewedAnswerRequest,
   ): Effect.Effect<
@@ -13,7 +13,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("BatchCreateTopicReviewedAnswer", input);
+  }
   batchDeleteTopicReviewedAnswer(
     input: BatchDeleteTopicReviewedAnswerRequest,
   ): Effect.Effect<
@@ -25,7 +27,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("BatchDeleteTopicReviewedAnswer", input);
+  }
   cancelIngestion(
     input: CancelIngestionRequest,
   ): Effect.Effect<
@@ -37,7 +41,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CancelIngestion", input);
+  }
   createAccountCustomization(
     input: CreateAccountCustomizationRequest,
   ): Effect.Effect<
@@ -51,7 +57,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ResourceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateAccountCustomization", input);
+  }
   createAccountSubscription(
     input: CreateAccountSubscriptionRequest,
   ): Effect.Effect<
@@ -66,7 +74,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ResourceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateAccountSubscription", input);
+  }
   createAnalysis(
     input: CreateAnalysisRequest,
   ): Effect.Effect<
@@ -80,7 +90,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ThrottlingException
     | UnsupportedUserEditionException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateAnalysis", input);
+  }
   createBrand(
     input: CreateBrandRequest,
   ): Effect.Effect<
@@ -92,7 +104,9 @@ export declare class QuickSight extends AWSServiceClient {
     | LimitExceededException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateBrand", input);
+  }
   createCustomPermissions(
     input: CreateCustomPermissionsRequest,
   ): Effect.Effect<
@@ -108,7 +122,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ResourceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateCustomPermissions", input);
+  }
   createDashboard(
     input: CreateDashboardRequest,
   ): Effect.Effect<
@@ -122,7 +138,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ThrottlingException
     | UnsupportedUserEditionException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateDashboard", input);
+  }
   createDataSet(
     input: CreateDataSetRequest,
   ): Effect.Effect<
@@ -137,7 +155,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ThrottlingException
     | UnsupportedUserEditionException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateDataSet", input);
+  }
   createDataSource(
     input: CreateDataSourceRequest,
   ): Effect.Effect<
@@ -152,7 +172,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateDataSource", input);
+  }
   createFolder(
     input: CreateFolderRequest,
   ): Effect.Effect<
@@ -167,7 +189,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ThrottlingException
     | UnsupportedUserEditionException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateFolder", input);
+  }
   createFolderMembership(
     input: CreateFolderMembershipRequest,
   ): Effect.Effect<
@@ -181,7 +205,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ThrottlingException
     | UnsupportedUserEditionException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateFolderMembership", input);
+  }
   createGroup(
     input: CreateGroupRequest,
   ): Effect.Effect<
@@ -196,7 +222,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ResourceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateGroup", input);
+  }
   createGroupMembership(
     input: CreateGroupMembershipRequest,
   ): Effect.Effect<
@@ -209,7 +237,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ResourceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateGroupMembership", input);
+  }
   createIAMPolicyAssignment(
     input: CreateIAMPolicyAssignmentRequest,
   ): Effect.Effect<
@@ -222,7 +252,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateIAMPolicyAssignment", input);
+  }
   createIngestion(
     input: CreateIngestionRequest,
   ): Effect.Effect<
@@ -235,7 +267,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateIngestion", input);
+  }
   createNamespace(
     input: CreateNamespaceRequest,
   ): Effect.Effect<
@@ -251,7 +285,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ResourceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateNamespace", input);
+  }
   createRefreshSchedule(
     input: CreateRefreshScheduleRequest,
   ): Effect.Effect<
@@ -265,7 +301,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateRefreshSchedule", input);
+  }
   createRoleMembership(
     input: CreateRoleMembershipRequest,
   ): Effect.Effect<
@@ -278,7 +316,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ResourceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateRoleMembership", input);
+  }
   createTemplate(
     input: CreateTemplateRequest,
   ): Effect.Effect<
@@ -293,7 +333,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ThrottlingException
     | UnsupportedUserEditionException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateTemplate", input);
+  }
   createTemplateAlias(
     input: CreateTemplateAliasRequest,
   ): Effect.Effect<
@@ -306,7 +348,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ThrottlingException
     | UnsupportedUserEditionException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateTemplateAlias", input);
+  }
   createTheme(
     input: CreateThemeRequest,
   ): Effect.Effect<
@@ -320,7 +364,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ThrottlingException
     | UnsupportedUserEditionException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateTheme", input);
+  }
   createThemeAlias(
     input: CreateThemeAliasRequest,
   ): Effect.Effect<
@@ -334,7 +380,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ThrottlingException
     | UnsupportedUserEditionException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateThemeAlias", input);
+  }
   createTopic(
     input: CreateTopicRequest,
   ): Effect.Effect<
@@ -348,7 +396,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateTopic", input);
+  }
   createTopicRefreshSchedule(
     input: CreateTopicRefreshScheduleRequest,
   ): Effect.Effect<
@@ -362,7 +412,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateTopicRefreshSchedule", input);
+  }
   createVPCConnection(
     input: CreateVPCConnectionRequest,
   ): Effect.Effect<
@@ -376,7 +428,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ThrottlingException
     | UnsupportedUserEditionException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateVPCConnection", input);
+  }
   deleteAccountCustomization(
     input: DeleteAccountCustomizationRequest,
   ): Effect.Effect<
@@ -391,7 +445,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ResourceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteAccountCustomization", input);
+  }
   deleteAccountSubscription(
     input: DeleteAccountSubscriptionRequest,
   ): Effect.Effect<
@@ -404,7 +460,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ResourceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteAccountSubscription", input);
+  }
   deleteAnalysis(
     input: DeleteAnalysisRequest,
   ): Effect.Effect<
@@ -416,7 +474,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ThrottlingException
     | UnsupportedUserEditionException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteAnalysis", input);
+  }
   deleteBrand(
     input: DeleteBrandRequest,
   ): Effect.Effect<
@@ -428,7 +488,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteBrand", input);
+  }
   deleteBrandAssignment(
     input: DeleteBrandAssignmentRequest,
   ): Effect.Effect<
@@ -440,7 +502,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteBrandAssignment", input);
+  }
   deleteCustomPermissions(
     input: DeleteCustomPermissionsRequest,
   ): Effect.Effect<
@@ -455,7 +519,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ResourceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteCustomPermissions", input);
+  }
   deleteDashboard(
     input: DeleteDashboardRequest,
   ): Effect.Effect<
@@ -467,7 +533,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ThrottlingException
     | UnsupportedUserEditionException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteDashboard", input);
+  }
   deleteDataSet(
     input: DeleteDataSetRequest,
   ): Effect.Effect<
@@ -478,7 +546,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteDataSet", input);
+  }
   deleteDataSetRefreshProperties(
     input: DeleteDataSetRefreshPropertiesRequest,
   ): Effect.Effect<
@@ -491,7 +561,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteDataSetRefreshProperties", input);
+  }
   deleteDataSource(
     input: DeleteDataSourceRequest,
   ): Effect.Effect<
@@ -502,7 +574,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteDataSource", input);
+  }
   deleteDefaultQBusinessApplication(
     input: DeleteDefaultQBusinessApplicationRequest,
   ): Effect.Effect<
@@ -513,7 +587,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteDefaultQBusinessApplication", input);
+  }
   deleteFolder(
     input: DeleteFolderRequest,
   ): Effect.Effect<
@@ -527,7 +603,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ThrottlingException
     | UnsupportedUserEditionException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteFolder", input);
+  }
   deleteFolderMembership(
     input: DeleteFolderMembershipRequest,
   ): Effect.Effect<
@@ -539,7 +617,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ThrottlingException
     | UnsupportedUserEditionException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteFolderMembership", input);
+  }
   deleteGroup(
     input: DeleteGroupRequest,
   ): Effect.Effect<
@@ -552,7 +632,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ResourceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteGroup", input);
+  }
   deleteGroupMembership(
     input: DeleteGroupMembershipRequest,
   ): Effect.Effect<
@@ -565,7 +647,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ResourceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteGroupMembership", input);
+  }
   deleteIAMPolicyAssignment(
     input: DeleteIAMPolicyAssignmentRequest,
   ): Effect.Effect<
@@ -578,7 +662,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteIAMPolicyAssignment", input);
+  }
   deleteIdentityPropagationConfig(
     input: DeleteIdentityPropagationConfigRequest,
   ): Effect.Effect<
@@ -589,7 +675,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteIdentityPropagationConfig", input);
+  }
   deleteNamespace(
     input: DeleteNamespaceRequest,
   ): Effect.Effect<
@@ -602,7 +690,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ResourceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteNamespace", input);
+  }
   deleteRefreshSchedule(
     input: DeleteRefreshScheduleRequest,
   ): Effect.Effect<
@@ -614,7 +704,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteRefreshSchedule", input);
+  }
   deleteRoleCustomPermission(
     input: DeleteRoleCustomPermissionRequest,
   ): Effect.Effect<
@@ -627,7 +719,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ResourceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteRoleCustomPermission", input);
+  }
   deleteRoleMembership(
     input: DeleteRoleMembershipRequest,
   ): Effect.Effect<
@@ -640,7 +734,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ResourceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteRoleMembership", input);
+  }
   deleteTemplate(
     input: DeleteTemplateRequest,
   ): Effect.Effect<
@@ -653,7 +749,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ThrottlingException
     | UnsupportedUserEditionException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteTemplate", input);
+  }
   deleteTemplateAlias(
     input: DeleteTemplateAliasRequest,
   ): Effect.Effect<
@@ -664,7 +762,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ThrottlingException
     | UnsupportedUserEditionException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteTemplateAlias", input);
+  }
   deleteTheme(
     input: DeleteThemeRequest,
   ): Effect.Effect<
@@ -677,7 +777,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ThrottlingException
     | UnsupportedUserEditionException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteTheme", input);
+  }
   deleteThemeAlias(
     input: DeleteThemeAliasRequest,
   ): Effect.Effect<
@@ -689,7 +791,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ThrottlingException
     | UnsupportedUserEditionException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteThemeAlias", input);
+  }
   deleteTopic(
     input: DeleteTopicRequest,
   ): Effect.Effect<
@@ -701,7 +805,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteTopic", input);
+  }
   deleteTopicRefreshSchedule(
     input: DeleteTopicRefreshScheduleRequest,
   ): Effect.Effect<
@@ -715,7 +821,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteTopicRefreshSchedule", input);
+  }
   deleteUser(
     input: DeleteUserRequest,
   ): Effect.Effect<
@@ -728,7 +836,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ResourceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteUser", input);
+  }
   deleteUserByPrincipalId(
     input: DeleteUserByPrincipalIdRequest,
   ): Effect.Effect<
@@ -741,7 +851,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ResourceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteUserByPrincipalId", input);
+  }
   deleteUserCustomPermission(
     input: DeleteUserCustomPermissionRequest,
   ): Effect.Effect<
@@ -755,7 +867,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ResourceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteUserCustomPermission", input);
+  }
   deleteVPCConnection(
     input: DeleteVPCConnectionRequest,
   ): Effect.Effect<
@@ -768,7 +882,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ThrottlingException
     | UnsupportedUserEditionException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteVPCConnection", input);
+  }
   describeAccountCustomization(
     input: DescribeAccountCustomizationRequest,
   ): Effect.Effect<
@@ -780,7 +896,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ResourceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeAccountCustomization", input);
+  }
   describeAccountSettings(
     input: DescribeAccountSettingsRequest,
   ): Effect.Effect<
@@ -792,7 +910,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ResourceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeAccountSettings", input);
+  }
   describeAccountSubscription(
     input: DescribeAccountSubscriptionRequest,
   ): Effect.Effect<
@@ -804,7 +924,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ResourceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeAccountSubscription", input);
+  }
   describeAnalysis(
     input: DescribeAnalysisRequest,
   ): Effect.Effect<
@@ -816,7 +938,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ThrottlingException
     | UnsupportedUserEditionException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeAnalysis", input);
+  }
   describeAnalysisDefinition(
     input: DescribeAnalysisDefinitionRequest,
   ): Effect.Effect<
@@ -830,7 +954,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ThrottlingException
     | UnsupportedUserEditionException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeAnalysisDefinition", input);
+  }
   describeAnalysisPermissions(
     input: DescribeAnalysisPermissionsRequest,
   ): Effect.Effect<
@@ -841,7 +967,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ThrottlingException
     | UnsupportedUserEditionException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeAnalysisPermissions", input);
+  }
   describeAssetBundleExportJob(
     input: DescribeAssetBundleExportJobRequest,
   ): Effect.Effect<
@@ -850,7 +978,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ThrottlingException
     | UnsupportedUserEditionException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeAssetBundleExportJob", input);
+  }
   describeAssetBundleImportJob(
     input: DescribeAssetBundleImportJobRequest,
   ): Effect.Effect<
@@ -859,7 +989,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ThrottlingException
     | UnsupportedUserEditionException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeAssetBundleImportJob", input);
+  }
   describeBrand(
     input: DescribeBrandRequest,
   ): Effect.Effect<
@@ -871,7 +1003,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeBrand", input);
+  }
   describeBrandAssignment(
     input: DescribeBrandAssignmentRequest,
   ): Effect.Effect<
@@ -883,7 +1017,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeBrandAssignment", input);
+  }
   describeBrandPublishedVersion(
     input: DescribeBrandPublishedVersionRequest,
   ): Effect.Effect<
@@ -895,7 +1031,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeBrandPublishedVersion", input);
+  }
   describeCustomPermissions(
     input: DescribeCustomPermissionsRequest,
   ): Effect.Effect<
@@ -908,7 +1046,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ResourceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeCustomPermissions", input);
+  }
   describeDashboard(
     input: DescribeDashboardRequest,
   ): Effect.Effect<
@@ -920,7 +1060,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ThrottlingException
     | UnsupportedUserEditionException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeDashboard", input);
+  }
   describeDashboardDefinition(
     input: DescribeDashboardDefinitionRequest,
   ): Effect.Effect<
@@ -934,7 +1076,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ThrottlingException
     | UnsupportedUserEditionException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeDashboardDefinition", input);
+  }
   describeDashboardPermissions(
     input: DescribeDashboardPermissionsRequest,
   ): Effect.Effect<
@@ -945,7 +1089,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ThrottlingException
     | UnsupportedUserEditionException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeDashboardPermissions", input);
+  }
   describeDashboardSnapshotJob(
     input: DescribeDashboardSnapshotJobRequest,
   ): Effect.Effect<
@@ -956,7 +1102,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ThrottlingException
     | UnsupportedUserEditionException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeDashboardSnapshotJob", input);
+  }
   describeDashboardSnapshotJobResult(
     input: DescribeDashboardSnapshotJobResultRequest,
   ): Effect.Effect<
@@ -969,7 +1117,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ThrottlingException
     | UnsupportedUserEditionException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeDashboardSnapshotJobResult", input);
+  }
   describeDashboardsQAConfiguration(
     input: DescribeDashboardsQAConfigurationRequest,
   ): Effect.Effect<
@@ -981,7 +1131,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeDashboardsQAConfiguration", input);
+  }
   describeDataSet(
     input: DescribeDataSetRequest,
   ): Effect.Effect<
@@ -992,7 +1144,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeDataSet", input);
+  }
   describeDataSetPermissions(
     input: DescribeDataSetPermissionsRequest,
   ): Effect.Effect<
@@ -1003,7 +1157,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeDataSetPermissions", input);
+  }
   describeDataSetRefreshProperties(
     input: DescribeDataSetRefreshPropertiesRequest,
   ): Effect.Effect<
@@ -1016,7 +1172,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeDataSetRefreshProperties", input);
+  }
   describeDataSource(
     input: DescribeDataSourceRequest,
   ): Effect.Effect<
@@ -1027,7 +1185,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeDataSource", input);
+  }
   describeDataSourcePermissions(
     input: DescribeDataSourcePermissionsRequest,
   ): Effect.Effect<
@@ -1038,7 +1198,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeDataSourcePermissions", input);
+  }
   describeDefaultQBusinessApplication(
     input: DescribeDefaultQBusinessApplicationRequest,
   ): Effect.Effect<
@@ -1049,7 +1211,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeDefaultQBusinessApplication", input);
+  }
   describeFolder(
     input: DescribeFolderRequest,
   ): Effect.Effect<
@@ -1061,7 +1225,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ThrottlingException
     | UnsupportedUserEditionException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeFolder", input);
+  }
   describeFolderPermissions(
     input: DescribeFolderPermissionsRequest,
   ): Effect.Effect<
@@ -1074,7 +1240,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ThrottlingException
     | UnsupportedUserEditionException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeFolderPermissions", input);
+  }
   describeFolderResolvedPermissions(
     input: DescribeFolderResolvedPermissionsRequest,
   ): Effect.Effect<
@@ -1087,7 +1255,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ThrottlingException
     | UnsupportedUserEditionException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeFolderResolvedPermissions", input);
+  }
   describeGroup(
     input: DescribeGroupRequest,
   ): Effect.Effect<
@@ -1100,7 +1270,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ResourceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeGroup", input);
+  }
   describeGroupMembership(
     input: DescribeGroupMembershipRequest,
   ): Effect.Effect<
@@ -1113,7 +1285,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ResourceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeGroupMembership", input);
+  }
   describeIAMPolicyAssignment(
     input: DescribeIAMPolicyAssignmentRequest,
   ): Effect.Effect<
@@ -1125,7 +1299,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeIAMPolicyAssignment", input);
+  }
   describeIngestion(
     input: DescribeIngestionRequest,
   ): Effect.Effect<
@@ -1137,7 +1313,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeIngestion", input);
+  }
   describeIpRestriction(
     input: DescribeIpRestrictionRequest,
   ): Effect.Effect<
@@ -1148,7 +1326,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeIpRestriction", input);
+  }
   describeKeyRegistration(
     input: DescribeKeyRegistrationRequest,
   ): Effect.Effect<
@@ -1158,7 +1338,9 @@ export declare class QuickSight extends AWSServiceClient {
     | InvalidParameterValueException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeKeyRegistration", input);
+  }
   describeNamespace(
     input: DescribeNamespaceRequest,
   ): Effect.Effect<
@@ -1170,7 +1352,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ResourceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeNamespace", input);
+  }
   describeQPersonalizationConfiguration(
     input: DescribeQPersonalizationConfigurationRequest,
   ): Effect.Effect<
@@ -1182,7 +1366,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeQPersonalizationConfiguration", input);
+  }
   describeQuickSightQSearchConfiguration(
     input: DescribeQuickSightQSearchConfigurationRequest,
   ): Effect.Effect<
@@ -1194,7 +1380,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeQuickSightQSearchConfiguration", input);
+  }
   describeRefreshSchedule(
     input: DescribeRefreshScheduleRequest,
   ): Effect.Effect<
@@ -1206,7 +1394,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeRefreshSchedule", input);
+  }
   describeRoleCustomPermission(
     input: DescribeRoleCustomPermissionRequest,
   ): Effect.Effect<
@@ -1219,7 +1409,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ResourceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeRoleCustomPermission", input);
+  }
   describeTemplate(
     input: DescribeTemplateRequest,
   ): Effect.Effect<
@@ -1233,7 +1425,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ThrottlingException
     | UnsupportedUserEditionException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeTemplate", input);
+  }
   describeTemplateAlias(
     input: DescribeTemplateAliasRequest,
   ): Effect.Effect<
@@ -1243,7 +1437,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ThrottlingException
     | UnsupportedUserEditionException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeTemplateAlias", input);
+  }
   describeTemplateDefinition(
     input: DescribeTemplateDefinitionRequest,
   ): Effect.Effect<
@@ -1257,7 +1453,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ThrottlingException
     | UnsupportedUserEditionException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeTemplateDefinition", input);
+  }
   describeTemplatePermissions(
     input: DescribeTemplatePermissionsRequest,
   ): Effect.Effect<
@@ -1269,7 +1467,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ThrottlingException
     | UnsupportedUserEditionException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeTemplatePermissions", input);
+  }
   describeTheme(
     input: DescribeThemeRequest,
   ): Effect.Effect<
@@ -1282,7 +1482,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ThrottlingException
     | UnsupportedUserEditionException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeTheme", input);
+  }
   describeThemeAlias(
     input: DescribeThemeAliasRequest,
   ): Effect.Effect<
@@ -1294,7 +1496,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ThrottlingException
     | UnsupportedUserEditionException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeThemeAlias", input);
+  }
   describeThemePermissions(
     input: DescribeThemePermissionsRequest,
   ): Effect.Effect<
@@ -1306,7 +1510,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ThrottlingException
     | UnsupportedUserEditionException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeThemePermissions", input);
+  }
   describeTopic(
     input: DescribeTopicRequest,
   ): Effect.Effect<
@@ -1317,7 +1523,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeTopic", input);
+  }
   describeTopicPermissions(
     input: DescribeTopicPermissionsRequest,
   ): Effect.Effect<
@@ -1328,7 +1536,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeTopicPermissions", input);
+  }
   describeTopicRefresh(
     input: DescribeTopicRefreshRequest,
   ): Effect.Effect<
@@ -1339,7 +1549,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeTopicRefresh", input);
+  }
   describeTopicRefreshSchedule(
     input: DescribeTopicRefreshScheduleRequest,
   ): Effect.Effect<
@@ -1353,7 +1565,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeTopicRefreshSchedule", input);
+  }
   describeUser(
     input: DescribeUserRequest,
   ): Effect.Effect<
@@ -1366,7 +1580,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ResourceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeUser", input);
+  }
   describeVPCConnection(
     input: DescribeVPCConnectionRequest,
   ): Effect.Effect<
@@ -1378,7 +1594,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ThrottlingException
     | UnsupportedUserEditionException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeVPCConnection", input);
+  }
   generateEmbedUrlForAnonymousUser(
     input: GenerateEmbedUrlForAnonymousUserRequest,
   ): Effect.Effect<
@@ -1392,7 +1610,9 @@ export declare class QuickSight extends AWSServiceClient {
     | UnsupportedPricingPlanException
     | UnsupportedUserEditionException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GenerateEmbedUrlForAnonymousUser", input);
+  }
   generateEmbedUrlForRegisteredUser(
     input: GenerateEmbedUrlForRegisteredUserRequest,
   ): Effect.Effect<
@@ -1407,7 +1627,9 @@ export declare class QuickSight extends AWSServiceClient {
     | UnsupportedPricingPlanException
     | UnsupportedUserEditionException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GenerateEmbedUrlForRegisteredUser", input);
+  }
   generateEmbedUrlForRegisteredUserWithIdentity(
     input: GenerateEmbedUrlForRegisteredUserWithIdentityRequest,
   ): Effect.Effect<
@@ -1422,7 +1644,9 @@ export declare class QuickSight extends AWSServiceClient {
     | UnsupportedPricingPlanException
     | UnsupportedUserEditionException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GenerateEmbedUrlForRegisteredUserWithIdentity", input);
+  }
   getDashboardEmbedUrl(
     input: GetDashboardEmbedUrlRequest,
   ): Effect.Effect<
@@ -1440,7 +1664,9 @@ export declare class QuickSight extends AWSServiceClient {
     | UnsupportedPricingPlanException
     | UnsupportedUserEditionException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetDashboardEmbedUrl", input);
+  }
   getSessionEmbedUrl(
     input: GetSessionEmbedUrlRequest,
   ): Effect.Effect<
@@ -1455,7 +1681,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ThrottlingException
     | UnsupportedUserEditionException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetSessionEmbedUrl", input);
+  }
   listAnalyses(
     input: ListAnalysesRequest,
   ): Effect.Effect<
@@ -1465,7 +1693,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ThrottlingException
     | UnsupportedUserEditionException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListAnalyses", input);
+  }
   listAssetBundleExportJobs(
     input: ListAssetBundleExportJobsRequest,
   ): Effect.Effect<
@@ -1476,7 +1706,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ThrottlingException
     | UnsupportedUserEditionException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListAssetBundleExportJobs", input);
+  }
   listAssetBundleImportJobs(
     input: ListAssetBundleImportJobsRequest,
   ): Effect.Effect<
@@ -1487,7 +1719,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ThrottlingException
     | UnsupportedUserEditionException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListAssetBundleImportJobs", input);
+  }
   listBrands(
     input: ListBrandsRequest,
   ): Effect.Effect<
@@ -1497,7 +1731,9 @@ export declare class QuickSight extends AWSServiceClient {
     | InvalidRequestException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListBrands", input);
+  }
   listCustomPermissions(
     input: ListCustomPermissionsRequest,
   ): Effect.Effect<
@@ -1510,7 +1746,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ResourceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListCustomPermissions", input);
+  }
   listDashboards(
     input: ListDashboardsRequest,
   ): Effect.Effect<
@@ -1520,7 +1758,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ThrottlingException
     | UnsupportedUserEditionException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListDashboards", input);
+  }
   listDashboardVersions(
     input: ListDashboardVersionsRequest,
   ): Effect.Effect<
@@ -1532,7 +1772,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ThrottlingException
     | UnsupportedUserEditionException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListDashboardVersions", input);
+  }
   listDataSets(
     input: ListDataSetsRequest,
   ): Effect.Effect<
@@ -1543,7 +1785,9 @@ export declare class QuickSight extends AWSServiceClient {
     | InvalidParameterValueException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListDataSets", input);
+  }
   listDataSources(
     input: ListDataSourcesRequest,
   ): Effect.Effect<
@@ -1554,7 +1798,9 @@ export declare class QuickSight extends AWSServiceClient {
     | InvalidParameterValueException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListDataSources", input);
+  }
   listFolderMembers(
     input: ListFolderMembersRequest,
   ): Effect.Effect<
@@ -1567,7 +1813,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ThrottlingException
     | UnsupportedUserEditionException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListFolderMembers", input);
+  }
   listFolders(
     input: ListFoldersRequest,
   ): Effect.Effect<
@@ -1580,7 +1828,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ThrottlingException
     | UnsupportedUserEditionException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListFolders", input);
+  }
   listFoldersForResource(
     input: ListFoldersForResourceRequest,
   ): Effect.Effect<
@@ -1593,7 +1843,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ThrottlingException
     | UnsupportedUserEditionException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListFoldersForResource", input);
+  }
   listGroupMemberships(
     input: ListGroupMembershipsRequest,
   ): Effect.Effect<
@@ -1607,7 +1859,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ResourceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListGroupMemberships", input);
+  }
   listGroups(
     input: ListGroupsRequest,
   ): Effect.Effect<
@@ -1621,7 +1875,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ResourceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListGroups", input);
+  }
   listIAMPolicyAssignments(
     input: ListIAMPolicyAssignmentsRequest,
   ): Effect.Effect<
@@ -1633,7 +1889,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListIAMPolicyAssignments", input);
+  }
   listIAMPolicyAssignmentsForUser(
     input: ListIAMPolicyAssignmentsForUserRequest,
   ): Effect.Effect<
@@ -1646,7 +1904,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListIAMPolicyAssignmentsForUser", input);
+  }
   listIdentityPropagationConfigs(
     input: ListIdentityPropagationConfigsRequest,
   ): Effect.Effect<
@@ -1657,7 +1917,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListIdentityPropagationConfigs", input);
+  }
   listIngestions(
     input: ListIngestionsRequest,
   ): Effect.Effect<
@@ -1670,7 +1932,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListIngestions", input);
+  }
   listNamespaces(
     input: ListNamespacesRequest,
   ): Effect.Effect<
@@ -1684,7 +1948,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ResourceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListNamespaces", input);
+  }
   listRefreshSchedules(
     input: ListRefreshSchedulesRequest,
   ): Effect.Effect<
@@ -1696,7 +1962,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListRefreshSchedules", input);
+  }
   listRoleMemberships(
     input: ListRoleMembershipsRequest,
   ): Effect.Effect<
@@ -1711,7 +1979,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ResourceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListRoleMemberships", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
@@ -1722,7 +1992,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   listTemplateAliases(
     input: ListTemplateAliasesRequest,
   ): Effect.Effect<
@@ -1733,7 +2005,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ThrottlingException
     | UnsupportedUserEditionException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTemplateAliases", input);
+  }
   listTemplates(
     input: ListTemplatesRequest,
   ): Effect.Effect<
@@ -1745,7 +2019,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ThrottlingException
     | UnsupportedUserEditionException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTemplates", input);
+  }
   listTemplateVersions(
     input: ListTemplateVersionsRequest,
   ): Effect.Effect<
@@ -1757,7 +2033,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ThrottlingException
     | UnsupportedUserEditionException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTemplateVersions", input);
+  }
   listThemeAliases(
     input: ListThemeAliasesRequest,
   ): Effect.Effect<
@@ -1770,7 +2048,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ThrottlingException
     | UnsupportedUserEditionException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListThemeAliases", input);
+  }
   listThemes(
     input: ListThemesRequest,
   ): Effect.Effect<
@@ -1783,7 +2063,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ThrottlingException
     | UnsupportedUserEditionException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListThemes", input);
+  }
   listThemeVersions(
     input: ListThemeVersionsRequest,
   ): Effect.Effect<
@@ -1796,7 +2078,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ThrottlingException
     | UnsupportedUserEditionException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListThemeVersions", input);
+  }
   listTopicRefreshSchedules(
     input: ListTopicRefreshSchedulesRequest,
   ): Effect.Effect<
@@ -1810,7 +2094,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTopicRefreshSchedules", input);
+  }
   listTopicReviewedAnswers(
     input: ListTopicReviewedAnswersRequest,
   ): Effect.Effect<
@@ -1821,7 +2107,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTopicReviewedAnswers", input);
+  }
   listTopics(
     input: ListTopicsRequest,
   ): Effect.Effect<
@@ -1832,7 +2120,9 @@ export declare class QuickSight extends AWSServiceClient {
     | InvalidParameterValueException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTopics", input);
+  }
   listUserGroups(
     input: ListUserGroupsRequest,
   ): Effect.Effect<
@@ -1845,7 +2135,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ResourceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListUserGroups", input);
+  }
   listUsers(
     input: ListUsersRequest,
   ): Effect.Effect<
@@ -1859,7 +2151,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ResourceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListUsers", input);
+  }
   listVPCConnections(
     input: ListVPCConnectionsRequest,
   ): Effect.Effect<
@@ -1871,7 +2165,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ThrottlingException
     | UnsupportedUserEditionException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListVPCConnections", input);
+  }
   predictQAResults(
     input: PredictQAResultsRequest,
   ): Effect.Effect<
@@ -1881,7 +2177,9 @@ export declare class QuickSight extends AWSServiceClient {
     | InvalidParameterValueException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PredictQAResults", input);
+  }
   putDataSetRefreshProperties(
     input: PutDataSetRefreshPropertiesRequest,
   ): Effect.Effect<
@@ -1895,7 +2193,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutDataSetRefreshProperties", input);
+  }
   registerUser(
     input: RegisterUserRequest,
   ): Effect.Effect<
@@ -1910,7 +2210,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ResourceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("RegisterUser", input);
+  }
   restoreAnalysis(
     input: RestoreAnalysisRequest,
   ): Effect.Effect<
@@ -1924,7 +2226,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ThrottlingException
     | UnsupportedUserEditionException
     | CommonAwsError
-  >;
+  > {
+    return this.call("RestoreAnalysis", input);
+  }
   searchAnalyses(
     input: SearchAnalysesRequest,
   ): Effect.Effect<
@@ -1936,7 +2240,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ThrottlingException
     | UnsupportedUserEditionException
     | CommonAwsError
-  >;
+  > {
+    return this.call("SearchAnalyses", input);
+  }
   searchDashboards(
     input: SearchDashboardsRequest,
   ): Effect.Effect<
@@ -1948,7 +2254,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ThrottlingException
     | UnsupportedUserEditionException
     | CommonAwsError
-  >;
+  > {
+    return this.call("SearchDashboards", input);
+  }
   searchDataSets(
     input: SearchDataSetsRequest,
   ): Effect.Effect<
@@ -1960,7 +2268,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("SearchDataSets", input);
+  }
   searchDataSources(
     input: SearchDataSourcesRequest,
   ): Effect.Effect<
@@ -1972,7 +2282,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("SearchDataSources", input);
+  }
   searchFolders(
     input: SearchFoldersRequest,
   ): Effect.Effect<
@@ -1986,7 +2298,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ThrottlingException
     | UnsupportedUserEditionException
     | CommonAwsError
-  >;
+  > {
+    return this.call("SearchFolders", input);
+  }
   searchGroups(
     input: SearchGroupsRequest,
   ): Effect.Effect<
@@ -2000,7 +2314,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ResourceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("SearchGroups", input);
+  }
   searchTopics(
     input: SearchTopicsRequest,
   ): Effect.Effect<
@@ -2012,7 +2328,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ThrottlingException
     | UnsupportedUserEditionException
     | CommonAwsError
-  >;
+  > {
+    return this.call("SearchTopics", input);
+  }
   startAssetBundleExportJob(
     input: StartAssetBundleExportJobRequest,
   ): Effect.Effect<
@@ -2025,7 +2343,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ThrottlingException
     | UnsupportedUserEditionException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartAssetBundleExportJob", input);
+  }
   startAssetBundleImportJob(
     input: StartAssetBundleImportJobRequest,
   ): Effect.Effect<
@@ -2038,7 +2358,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ThrottlingException
     | UnsupportedUserEditionException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartAssetBundleImportJob", input);
+  }
   startDashboardSnapshotJob(
     input: StartDashboardSnapshotJobRequest,
   ): Effect.Effect<
@@ -2053,7 +2375,9 @@ export declare class QuickSight extends AWSServiceClient {
     | UnsupportedPricingPlanException
     | UnsupportedUserEditionException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartDashboardSnapshotJob", input);
+  }
   startDashboardSnapshotJobSchedule(
     input: StartDashboardSnapshotJobScheduleRequest,
   ): Effect.Effect<
@@ -2066,7 +2390,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ThrottlingException
     | UnsupportedUserEditionException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartDashboardSnapshotJobSchedule", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -2078,7 +2404,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
@@ -2089,7 +2417,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
   updateAccountCustomization(
     input: UpdateAccountCustomizationRequest,
   ): Effect.Effect<
@@ -2102,7 +2432,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ResourceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateAccountCustomization", input);
+  }
   updateAccountSettings(
     input: UpdateAccountSettingsRequest,
   ): Effect.Effect<
@@ -2114,7 +2446,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ResourceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateAccountSettings", input);
+  }
   updateAnalysis(
     input: UpdateAnalysisRequest,
   ): Effect.Effect<
@@ -2127,7 +2461,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ThrottlingException
     | UnsupportedUserEditionException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateAnalysis", input);
+  }
   updateAnalysisPermissions(
     input: UpdateAnalysisPermissionsRequest,
   ): Effect.Effect<
@@ -2140,7 +2476,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ThrottlingException
     | UnsupportedUserEditionException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateAnalysisPermissions", input);
+  }
   updateApplicationWithTokenExchangeGrant(
     input: UpdateApplicationWithTokenExchangeGrantRequest,
   ): Effect.Effect<
@@ -2153,7 +2491,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateApplicationWithTokenExchangeGrant", input);
+  }
   updateBrand(
     input: UpdateBrandRequest,
   ): Effect.Effect<
@@ -2165,7 +2505,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateBrand", input);
+  }
   updateBrandAssignment(
     input: UpdateBrandAssignmentRequest,
   ): Effect.Effect<
@@ -2177,7 +2519,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateBrandAssignment", input);
+  }
   updateBrandPublishedVersion(
     input: UpdateBrandPublishedVersionRequest,
   ): Effect.Effect<
@@ -2189,7 +2533,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateBrandPublishedVersion", input);
+  }
   updateCustomPermissions(
     input: UpdateCustomPermissionsRequest,
   ): Effect.Effect<
@@ -2203,7 +2549,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ResourceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateCustomPermissions", input);
+  }
   updateDashboard(
     input: UpdateDashboardRequest,
   ): Effect.Effect<
@@ -2216,7 +2564,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ThrottlingException
     | UnsupportedUserEditionException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateDashboard", input);
+  }
   updateDashboardLinks(
     input: UpdateDashboardLinksRequest,
   ): Effect.Effect<
@@ -2229,7 +2579,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ThrottlingException
     | UnsupportedUserEditionException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateDashboardLinks", input);
+  }
   updateDashboardPermissions(
     input: UpdateDashboardPermissionsRequest,
   ): Effect.Effect<
@@ -2242,7 +2594,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ThrottlingException
     | UnsupportedUserEditionException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateDashboardPermissions", input);
+  }
   updateDashboardPublishedVersion(
     input: UpdateDashboardPublishedVersionRequest,
   ): Effect.Effect<
@@ -2254,7 +2608,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ThrottlingException
     | UnsupportedUserEditionException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateDashboardPublishedVersion", input);
+  }
   updateDashboardsQAConfiguration(
     input: UpdateDashboardsQAConfigurationRequest,
   ): Effect.Effect<
@@ -2266,7 +2622,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateDashboardsQAConfiguration", input);
+  }
   updateDataSet(
     input: UpdateDataSetRequest,
   ): Effect.Effect<
@@ -2280,7 +2638,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ThrottlingException
     | UnsupportedUserEditionException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateDataSet", input);
+  }
   updateDataSetPermissions(
     input: UpdateDataSetPermissionsRequest,
   ): Effect.Effect<
@@ -2292,7 +2652,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateDataSetPermissions", input);
+  }
   updateDataSource(
     input: UpdateDataSourceRequest,
   ): Effect.Effect<
@@ -2305,7 +2667,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateDataSource", input);
+  }
   updateDataSourcePermissions(
     input: UpdateDataSourcePermissionsRequest,
   ): Effect.Effect<
@@ -2317,7 +2681,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateDataSourcePermissions", input);
+  }
   updateDefaultQBusinessApplication(
     input: UpdateDefaultQBusinessApplicationRequest,
   ): Effect.Effect<
@@ -2329,7 +2695,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateDefaultQBusinessApplication", input);
+  }
   updateFolder(
     input: UpdateFolderRequest,
   ): Effect.Effect<
@@ -2343,7 +2711,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ThrottlingException
     | UnsupportedUserEditionException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateFolder", input);
+  }
   updateFolderPermissions(
     input: UpdateFolderPermissionsRequest,
   ): Effect.Effect<
@@ -2356,7 +2726,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ThrottlingException
     | UnsupportedUserEditionException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateFolderPermissions", input);
+  }
   updateGroup(
     input: UpdateGroupRequest,
   ): Effect.Effect<
@@ -2369,7 +2741,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ResourceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateGroup", input);
+  }
   updateIAMPolicyAssignment(
     input: UpdateIAMPolicyAssignmentRequest,
   ): Effect.Effect<
@@ -2382,7 +2756,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateIAMPolicyAssignment", input);
+  }
   updateIdentityPropagationConfig(
     input: UpdateIdentityPropagationConfigRequest,
   ): Effect.Effect<
@@ -2393,7 +2769,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateIdentityPropagationConfig", input);
+  }
   updateIpRestriction(
     input: UpdateIpRestrictionRequest,
   ): Effect.Effect<
@@ -2405,7 +2783,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateIpRestriction", input);
+  }
   updateKeyRegistration(
     input: UpdateKeyRegistrationRequest,
   ): Effect.Effect<
@@ -2415,7 +2795,9 @@ export declare class QuickSight extends AWSServiceClient {
     | InvalidParameterValueException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateKeyRegistration", input);
+  }
   updatePublicSharingSettings(
     input: UpdatePublicSharingSettingsRequest,
   ): Effect.Effect<
@@ -2427,7 +2809,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ThrottlingException
     | UnsupportedPricingPlanException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdatePublicSharingSettings", input);
+  }
   updateQPersonalizationConfiguration(
     input: UpdateQPersonalizationConfigurationRequest,
   ): Effect.Effect<
@@ -2440,7 +2824,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ResourceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateQPersonalizationConfiguration", input);
+  }
   updateQuickSightQSearchConfiguration(
     input: UpdateQuickSightQSearchConfigurationRequest,
   ): Effect.Effect<
@@ -2452,7 +2838,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateQuickSightQSearchConfiguration", input);
+  }
   updateRefreshSchedule(
     input: UpdateRefreshScheduleRequest,
   ): Effect.Effect<
@@ -2465,7 +2853,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateRefreshSchedule", input);
+  }
   updateRoleCustomPermission(
     input: UpdateRoleCustomPermissionRequest,
   ): Effect.Effect<
@@ -2478,7 +2868,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ResourceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateRoleCustomPermission", input);
+  }
   updateSPICECapacityConfiguration(
     input: UpdateSPICECapacityConfigurationRequest,
   ): Effect.Effect<
@@ -2489,7 +2881,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateSPICECapacityConfiguration", input);
+  }
   updateTemplate(
     input: UpdateTemplateRequest,
   ): Effect.Effect<
@@ -2503,7 +2897,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ThrottlingException
     | UnsupportedUserEditionException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateTemplate", input);
+  }
   updateTemplateAlias(
     input: UpdateTemplateAliasRequest,
   ): Effect.Effect<
@@ -2514,7 +2910,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ThrottlingException
     | UnsupportedUserEditionException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateTemplateAlias", input);
+  }
   updateTemplatePermissions(
     input: UpdateTemplatePermissionsRequest,
   ): Effect.Effect<
@@ -2527,7 +2925,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ThrottlingException
     | UnsupportedUserEditionException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateTemplatePermissions", input);
+  }
   updateTheme(
     input: UpdateThemeRequest,
   ): Effect.Effect<
@@ -2541,7 +2941,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ThrottlingException
     | UnsupportedUserEditionException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateTheme", input);
+  }
   updateThemeAlias(
     input: UpdateThemeAliasRequest,
   ): Effect.Effect<
@@ -2554,7 +2956,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ThrottlingException
     | UnsupportedUserEditionException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateThemeAlias", input);
+  }
   updateThemePermissions(
     input: UpdateThemePermissionsRequest,
   ): Effect.Effect<
@@ -2567,7 +2971,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ThrottlingException
     | UnsupportedUserEditionException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateThemePermissions", input);
+  }
   updateTopic(
     input: UpdateTopicRequest,
   ): Effect.Effect<
@@ -2581,7 +2987,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateTopic", input);
+  }
   updateTopicPermissions(
     input: UpdateTopicPermissionsRequest,
   ): Effect.Effect<
@@ -2595,7 +3003,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ThrottlingException
     | UnsupportedUserEditionException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateTopicPermissions", input);
+  }
   updateTopicRefreshSchedule(
     input: UpdateTopicRefreshScheduleRequest,
   ): Effect.Effect<
@@ -2609,7 +3019,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateTopicRefreshSchedule", input);
+  }
   updateUser(
     input: UpdateUserRequest,
   ): Effect.Effect<
@@ -2622,7 +3034,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ResourceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateUser", input);
+  }
   updateUserCustomPermission(
     input: UpdateUserCustomPermissionRequest,
   ): Effect.Effect<
@@ -2636,7 +3050,9 @@ export declare class QuickSight extends AWSServiceClient {
     | ResourceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateUserCustomPermission", input);
+  }
   updateVPCConnection(
     input: UpdateVPCConnectionRequest,
   ): Effect.Effect<
@@ -2650,10 +3066,14 @@ export declare class QuickSight extends AWSServiceClient {
     | ThrottlingException
     | UnsupportedUserEditionException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateVPCConnection", input);
+  }
 }
 
-export declare class Quicksight extends QuickSight {}
+export class Quicksight extends QuickSight {}
+
+export default QuickSight;
 
 export declare class AccessDeniedException extends EffectData.TaggedError(
   "AccessDeniedException",

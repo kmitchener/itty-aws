@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class EventBridge extends AWSServiceClient {
+export class EventBridge extends AWSServiceClient {
   activateEventSource(
     input: ActivateEventSourceRequest,
   ): Effect.Effect<
@@ -13,7 +13,9 @@ export declare class EventBridge extends AWSServiceClient {
     | OperationDisabledException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ActivateEventSource", input);
+  }
   cancelReplay(
     input: CancelReplayRequest,
   ): Effect.Effect<
@@ -23,7 +25,9 @@ export declare class EventBridge extends AWSServiceClient {
     | InternalException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CancelReplay", input);
+  }
   createApiDestination(
     input: CreateApiDestinationRequest,
   ): Effect.Effect<
@@ -33,7 +37,9 @@ export declare class EventBridge extends AWSServiceClient {
     | ResourceAlreadyExistsException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateApiDestination", input);
+  }
   createArchive(
     input: CreateArchiveRequest,
   ): Effect.Effect<
@@ -45,7 +51,9 @@ export declare class EventBridge extends AWSServiceClient {
     | ResourceAlreadyExistsException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateArchive", input);
+  }
   createConnection(
     input: CreateConnectionRequest,
   ): Effect.Effect<
@@ -57,7 +65,9 @@ export declare class EventBridge extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateConnection", input);
+  }
   createEndpoint(
     input: CreateEndpointRequest,
   ): Effect.Effect<
@@ -66,7 +76,9 @@ export declare class EventBridge extends AWSServiceClient {
     | LimitExceededException
     | ResourceAlreadyExistsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateEndpoint", input);
+  }
   createEventBus(
     input: CreateEventBusRequest,
   ): Effect.Effect<
@@ -79,7 +91,9 @@ export declare class EventBridge extends AWSServiceClient {
     | ResourceAlreadyExistsException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateEventBus", input);
+  }
   createPartnerEventSource(
     input: CreatePartnerEventSourceRequest,
   ): Effect.Effect<
@@ -90,7 +104,9 @@ export declare class EventBridge extends AWSServiceClient {
     | OperationDisabledException
     | ResourceAlreadyExistsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreatePartnerEventSource", input);
+  }
   deactivateEventSource(
     input: DeactivateEventSourceRequest,
   ): Effect.Effect<
@@ -101,7 +117,9 @@ export declare class EventBridge extends AWSServiceClient {
     | OperationDisabledException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeactivateEventSource", input);
+  }
   deauthorizeConnection(
     input: DeauthorizeConnectionRequest,
   ): Effect.Effect<
@@ -110,7 +128,9 @@ export declare class EventBridge extends AWSServiceClient {
     | InternalException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeauthorizeConnection", input);
+  }
   deleteApiDestination(
     input: DeleteApiDestinationRequest,
   ): Effect.Effect<
@@ -119,7 +139,9 @@ export declare class EventBridge extends AWSServiceClient {
     | InternalException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteApiDestination", input);
+  }
   deleteArchive(
     input: DeleteArchiveRequest,
   ): Effect.Effect<
@@ -128,7 +150,9 @@ export declare class EventBridge extends AWSServiceClient {
     | InternalException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteArchive", input);
+  }
   deleteConnection(
     input: DeleteConnectionRequest,
   ): Effect.Effect<
@@ -137,7 +161,9 @@ export declare class EventBridge extends AWSServiceClient {
     | InternalException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteConnection", input);
+  }
   deleteEndpoint(
     input: DeleteEndpointRequest,
   ): Effect.Effect<
@@ -146,13 +172,17 @@ export declare class EventBridge extends AWSServiceClient {
     | InternalException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteEndpoint", input);
+  }
   deleteEventBus(
     input: DeleteEventBusRequest,
   ): Effect.Effect<
     {},
     ConcurrentModificationException | InternalException | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteEventBus", input);
+  }
   deletePartnerEventSource(
     input: DeletePartnerEventSourceRequest,
   ): Effect.Effect<
@@ -161,7 +191,9 @@ export declare class EventBridge extends AWSServiceClient {
     | InternalException
     | OperationDisabledException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeletePartnerEventSource", input);
+  }
   deleteRule(
     input: DeleteRuleRequest,
   ): Effect.Effect<
@@ -171,13 +203,17 @@ export declare class EventBridge extends AWSServiceClient {
     | ManagedRuleException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteRule", input);
+  }
   describeApiDestination(
     input: DescribeApiDestinationRequest,
   ): Effect.Effect<
     DescribeApiDestinationResponse,
     InternalException | ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeApiDestination", input);
+  }
   describeArchive(
     input: DescribeArchiveRequest,
   ): Effect.Effect<
@@ -186,25 +222,33 @@ export declare class EventBridge extends AWSServiceClient {
     | ResourceAlreadyExistsException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeArchive", input);
+  }
   describeConnection(
     input: DescribeConnectionRequest,
   ): Effect.Effect<
     DescribeConnectionResponse,
     InternalException | ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeConnection", input);
+  }
   describeEndpoint(
     input: DescribeEndpointRequest,
   ): Effect.Effect<
     DescribeEndpointResponse,
     InternalException | ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeEndpoint", input);
+  }
   describeEventBus(
     input: DescribeEventBusRequest,
   ): Effect.Effect<
     DescribeEventBusResponse,
     InternalException | ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeEventBus", input);
+  }
   describeEventSource(
     input: DescribeEventSourceRequest,
   ): Effect.Effect<
@@ -213,7 +257,9 @@ export declare class EventBridge extends AWSServiceClient {
     | OperationDisabledException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeEventSource", input);
+  }
   describePartnerEventSource(
     input: DescribePartnerEventSourceRequest,
   ): Effect.Effect<
@@ -222,19 +268,25 @@ export declare class EventBridge extends AWSServiceClient {
     | OperationDisabledException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribePartnerEventSource", input);
+  }
   describeReplay(
     input: DescribeReplayRequest,
   ): Effect.Effect<
     DescribeReplayResponse,
     InternalException | ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeReplay", input);
+  }
   describeRule(
     input: DescribeRuleRequest,
   ): Effect.Effect<
     DescribeRuleResponse,
     InternalException | ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeRule", input);
+  }
   disableRule(
     input: DisableRuleRequest,
   ): Effect.Effect<
@@ -244,7 +296,9 @@ export declare class EventBridge extends AWSServiceClient {
     | ManagedRuleException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DisableRule", input);
+  }
   enableRule(
     input: EnableRuleRequest,
   ): Effect.Effect<
@@ -254,34 +308,51 @@ export declare class EventBridge extends AWSServiceClient {
     | ManagedRuleException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("EnableRule", input);
+  }
   listApiDestinations(
     input: ListApiDestinationsRequest,
   ): Effect.Effect<
     ListApiDestinationsResponse,
     InternalException | CommonAwsError
-  >;
+  > {
+    return this.call("ListApiDestinations", input);
+  }
   listArchives(
     input: ListArchivesRequest,
   ): Effect.Effect<
     ListArchivesResponse,
     InternalException | ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("ListArchives", input);
+  }
   listConnections(
     input: ListConnectionsRequest,
-  ): Effect.Effect<ListConnectionsResponse, InternalException | CommonAwsError>;
+  ): Effect.Effect<
+    ListConnectionsResponse,
+    InternalException | CommonAwsError
+  > {
+    return this.call("ListConnections", input);
+  }
   listEndpoints(
     input: ListEndpointsRequest,
-  ): Effect.Effect<ListEndpointsResponse, InternalException | CommonAwsError>;
+  ): Effect.Effect<ListEndpointsResponse, InternalException | CommonAwsError> {
+    return this.call("ListEndpoints", input);
+  }
   listEventBuses(
     input: ListEventBusesRequest,
-  ): Effect.Effect<ListEventBusesResponse, InternalException | CommonAwsError>;
+  ): Effect.Effect<ListEventBusesResponse, InternalException | CommonAwsError> {
+    return this.call("ListEventBuses", input);
+  }
   listEventSources(
     input: ListEventSourcesRequest,
   ): Effect.Effect<
     ListEventSourcesResponse,
     InternalException | OperationDisabledException | CommonAwsError
-  >;
+  > {
+    return this.call("ListEventSources", input);
+  }
   listPartnerEventSourceAccounts(
     input: ListPartnerEventSourceAccountsRequest,
   ): Effect.Effect<
@@ -290,49 +361,67 @@ export declare class EventBridge extends AWSServiceClient {
     | OperationDisabledException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListPartnerEventSourceAccounts", input);
+  }
   listPartnerEventSources(
     input: ListPartnerEventSourcesRequest,
   ): Effect.Effect<
     ListPartnerEventSourcesResponse,
     InternalException | OperationDisabledException | CommonAwsError
-  >;
+  > {
+    return this.call("ListPartnerEventSources", input);
+  }
   listReplays(
     input: ListReplaysRequest,
-  ): Effect.Effect<ListReplaysResponse, InternalException | CommonAwsError>;
+  ): Effect.Effect<ListReplaysResponse, InternalException | CommonAwsError> {
+    return this.call("ListReplays", input);
+  }
   listRuleNamesByTarget(
     input: ListRuleNamesByTargetRequest,
   ): Effect.Effect<
     ListRuleNamesByTargetResponse,
     InternalException | ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("ListRuleNamesByTarget", input);
+  }
   listRules(
     input: ListRulesRequest,
   ): Effect.Effect<
     ListRulesResponse,
     InternalException | ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("ListRules", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
     InternalException | ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   listTargetsByRule(
     input: ListTargetsByRuleRequest,
   ): Effect.Effect<
     ListTargetsByRuleResponse,
     InternalException | ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("ListTargetsByRule", input);
+  }
   putEvents(
     input: PutEventsRequest,
-  ): Effect.Effect<PutEventsResponse, InternalException | CommonAwsError>;
+  ): Effect.Effect<PutEventsResponse, InternalException | CommonAwsError> {
+    return this.call("PutEvents", input);
+  }
   putPartnerEvents(
     input: PutPartnerEventsRequest,
   ): Effect.Effect<
     PutPartnerEventsResponse,
     InternalException | OperationDisabledException | CommonAwsError
-  >;
+  > {
+    return this.call("PutPartnerEvents", input);
+  }
   putPermission(
     input: PutPermissionRequest,
   ): Effect.Effect<
@@ -343,7 +432,9 @@ export declare class EventBridge extends AWSServiceClient {
     | PolicyLengthExceededException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutPermission", input);
+  }
   putRule(
     input: PutRuleRequest,
   ): Effect.Effect<
@@ -355,7 +446,9 @@ export declare class EventBridge extends AWSServiceClient {
     | ManagedRuleException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutRule", input);
+  }
   putTargets(
     input: PutTargetsRequest,
   ): Effect.Effect<
@@ -366,7 +459,9 @@ export declare class EventBridge extends AWSServiceClient {
     | ManagedRuleException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutTargets", input);
+  }
   removePermission(
     input: RemovePermissionRequest,
   ): Effect.Effect<
@@ -376,7 +471,9 @@ export declare class EventBridge extends AWSServiceClient {
     | OperationDisabledException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("RemovePermission", input);
+  }
   removeTargets(
     input: RemoveTargetsRequest,
   ): Effect.Effect<
@@ -386,7 +483,9 @@ export declare class EventBridge extends AWSServiceClient {
     | ManagedRuleException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("RemoveTargets", input);
+  }
   startReplay(
     input: StartReplayRequest,
   ): Effect.Effect<
@@ -397,7 +496,9 @@ export declare class EventBridge extends AWSServiceClient {
     | ResourceAlreadyExistsException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartReplay", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -407,13 +508,17 @@ export declare class EventBridge extends AWSServiceClient {
     | ManagedRuleException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   testEventPattern(
     input: TestEventPatternRequest,
   ): Effect.Effect<
     TestEventPatternResponse,
     InternalException | InvalidEventPatternException | CommonAwsError
-  >;
+  > {
+    return this.call("TestEventPattern", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
@@ -423,7 +528,9 @@ export declare class EventBridge extends AWSServiceClient {
     | ManagedRuleException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
   updateApiDestination(
     input: UpdateApiDestinationRequest,
   ): Effect.Effect<
@@ -433,7 +540,9 @@ export declare class EventBridge extends AWSServiceClient {
     | LimitExceededException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateApiDestination", input);
+  }
   updateArchive(
     input: UpdateArchiveRequest,
   ): Effect.Effect<
@@ -444,7 +553,9 @@ export declare class EventBridge extends AWSServiceClient {
     | LimitExceededException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateArchive", input);
+  }
   updateConnection(
     input: UpdateConnectionRequest,
   ): Effect.Effect<
@@ -456,7 +567,9 @@ export declare class EventBridge extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateConnection", input);
+  }
   updateEndpoint(
     input: UpdateEndpointRequest,
   ): Effect.Effect<
@@ -465,7 +578,9 @@ export declare class EventBridge extends AWSServiceClient {
     | InternalException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateEndpoint", input);
+  }
   updateEventBus(
     input: UpdateEventBusRequest,
   ): Effect.Effect<
@@ -475,10 +590,14 @@ export declare class EventBridge extends AWSServiceClient {
     | OperationDisabledException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateEventBus", input);
+  }
 }
 
-export declare class Eventbridge extends EventBridge {}
+export class Eventbridge extends EventBridge {}
+
+export default EventBridge;
 
 export declare class AccessDeniedException extends EffectData.TaggedError(
   "AccessDeniedException",

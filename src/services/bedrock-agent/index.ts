@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class BedrockAgent extends AWSServiceClient {
+export class BedrockAgent extends AWSServiceClient {
   validateFlowDefinition(
     input: ValidateFlowDefinitionRequest,
   ): Effect.Effect<
@@ -12,8 +12,12 @@ export declare class BedrockAgent extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ValidateFlowDefinition", input);
+  }
 }
+
+export default BedrockAgent;
 
 export declare class AccessDeniedException extends EffectData.TaggedError(
   "AccessDeniedException",

@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class DirectoryServiceData extends AWSServiceClient {
+export class DirectoryServiceData extends AWSServiceClient {
   addGroupMember(
     input: AddGroupMemberRequest,
   ): Effect.Effect<
@@ -15,7 +15,9 @@ export declare class DirectoryServiceData extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AddGroupMember", input);
+  }
   createGroup(
     input: CreateGroupRequest,
   ): Effect.Effect<
@@ -27,7 +29,9 @@ export declare class DirectoryServiceData extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateGroup", input);
+  }
   createUser(
     input: CreateUserRequest,
   ): Effect.Effect<
@@ -39,7 +43,9 @@ export declare class DirectoryServiceData extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateUser", input);
+  }
   deleteGroup(
     input: DeleteGroupRequest,
   ): Effect.Effect<
@@ -52,7 +58,9 @@ export declare class DirectoryServiceData extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteGroup", input);
+  }
   deleteUser(
     input: DeleteUserRequest,
   ): Effect.Effect<
@@ -65,7 +73,9 @@ export declare class DirectoryServiceData extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteUser", input);
+  }
   describeGroup(
     input: DescribeGroupRequest,
   ): Effect.Effect<
@@ -77,7 +87,9 @@ export declare class DirectoryServiceData extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeGroup", input);
+  }
   describeUser(
     input: DescribeUserRequest,
   ): Effect.Effect<
@@ -89,7 +101,9 @@ export declare class DirectoryServiceData extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeUser", input);
+  }
   disableUser(
     input: DisableUserRequest,
   ): Effect.Effect<
@@ -102,7 +116,9 @@ export declare class DirectoryServiceData extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DisableUser", input);
+  }
   listGroupMembers(
     input: ListGroupMembersRequest,
   ): Effect.Effect<
@@ -114,7 +130,9 @@ export declare class DirectoryServiceData extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListGroupMembers", input);
+  }
   listGroups(
     input: ListGroupsRequest,
   ): Effect.Effect<
@@ -125,7 +143,9 @@ export declare class DirectoryServiceData extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListGroups", input);
+  }
   listGroupsForMember(
     input: ListGroupsForMemberRequest,
   ): Effect.Effect<
@@ -137,7 +157,9 @@ export declare class DirectoryServiceData extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListGroupsForMember", input);
+  }
   listUsers(
     input: ListUsersRequest,
   ): Effect.Effect<
@@ -148,7 +170,9 @@ export declare class DirectoryServiceData extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListUsers", input);
+  }
   removeGroupMember(
     input: RemoveGroupMemberRequest,
   ): Effect.Effect<
@@ -161,7 +185,9 @@ export declare class DirectoryServiceData extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("RemoveGroupMember", input);
+  }
   searchGroups(
     input: SearchGroupsRequest,
   ): Effect.Effect<
@@ -172,7 +198,9 @@ export declare class DirectoryServiceData extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("SearchGroups", input);
+  }
   searchUsers(
     input: SearchUsersRequest,
   ): Effect.Effect<
@@ -183,7 +211,9 @@ export declare class DirectoryServiceData extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("SearchUsers", input);
+  }
   updateGroup(
     input: UpdateGroupRequest,
   ): Effect.Effect<
@@ -196,7 +226,9 @@ export declare class DirectoryServiceData extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateGroup", input);
+  }
   updateUser(
     input: UpdateUserRequest,
   ): Effect.Effect<
@@ -209,8 +241,12 @@ export declare class DirectoryServiceData extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateUser", input);
+  }
 }
+
+export default DirectoryServiceData;
 
 export declare class AccessDeniedException extends EffectData.TaggedError(
   "AccessDeniedException",

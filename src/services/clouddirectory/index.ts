@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class CloudDirectory extends AWSServiceClient {
+export class CloudDirectory extends AWSServiceClient {
   addFacetToObject(
     input: AddFacetToObjectRequest,
   ): Effect.Effect<
@@ -17,7 +17,9 @@ export declare class CloudDirectory extends AWSServiceClient {
     | RetryableConflictException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AddFacetToObject", input);
+  }
   applySchema(
     input: ApplySchemaRequest,
   ): Effect.Effect<
@@ -32,7 +34,9 @@ export declare class CloudDirectory extends AWSServiceClient {
     | SchemaAlreadyExistsException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ApplySchema", input);
+  }
   attachObject(
     input: AttachObjectRequest,
   ): Effect.Effect<
@@ -49,7 +53,9 @@ export declare class CloudDirectory extends AWSServiceClient {
     | RetryableConflictException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AttachObject", input);
+  }
   attachPolicy(
     input: AttachPolicyRequest,
   ): Effect.Effect<
@@ -64,7 +70,9 @@ export declare class CloudDirectory extends AWSServiceClient {
     | RetryableConflictException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AttachPolicy", input);
+  }
   attachToIndex(
     input: AttachToIndexRequest,
   ): Effect.Effect<
@@ -82,7 +90,9 @@ export declare class CloudDirectory extends AWSServiceClient {
     | RetryableConflictException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AttachToIndex", input);
+  }
   attachTypedLink(
     input: AttachTypedLinkRequest,
   ): Effect.Effect<
@@ -98,7 +108,9 @@ export declare class CloudDirectory extends AWSServiceClient {
     | RetryableConflictException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AttachTypedLink", input);
+  }
   batchRead(
     input: BatchReadRequest,
   ): Effect.Effect<
@@ -111,7 +123,9 @@ export declare class CloudDirectory extends AWSServiceClient {
     | RetryableConflictException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("BatchRead", input);
+  }
   batchWrite(
     input: BatchWriteRequest,
   ): Effect.Effect<
@@ -125,7 +139,9 @@ export declare class CloudDirectory extends AWSServiceClient {
     | RetryableConflictException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("BatchWrite", input);
+  }
   createDirectory(
     input: CreateDirectoryRequest,
   ): Effect.Effect<
@@ -139,7 +155,9 @@ export declare class CloudDirectory extends AWSServiceClient {
     | RetryableConflictException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateDirectory", input);
+  }
   createFacet(
     input: CreateFacetRequest,
   ): Effect.Effect<
@@ -155,7 +173,9 @@ export declare class CloudDirectory extends AWSServiceClient {
     | RetryableConflictException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateFacet", input);
+  }
   createIndex(
     input: CreateIndexRequest,
   ): Effect.Effect<
@@ -172,7 +192,9 @@ export declare class CloudDirectory extends AWSServiceClient {
     | UnsupportedIndexTypeException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateIndex", input);
+  }
   createObject(
     input: CreateObjectRequest,
   ): Effect.Effect<
@@ -189,7 +211,9 @@ export declare class CloudDirectory extends AWSServiceClient {
     | UnsupportedIndexTypeException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateObject", input);
+  }
   createSchema(
     input: CreateSchemaRequest,
   ): Effect.Effect<
@@ -202,7 +226,9 @@ export declare class CloudDirectory extends AWSServiceClient {
     | SchemaAlreadyExistsException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateSchema", input);
+  }
   createTypedLinkFacet(
     input: CreateTypedLinkFacetRequest,
   ): Effect.Effect<
@@ -218,7 +244,9 @@ export declare class CloudDirectory extends AWSServiceClient {
     | RetryableConflictException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateTypedLinkFacet", input);
+  }
   deleteDirectory(
     input: DeleteDirectoryRequest,
   ): Effect.Effect<
@@ -233,7 +261,9 @@ export declare class CloudDirectory extends AWSServiceClient {
     | RetryableConflictException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteDirectory", input);
+  }
   deleteFacet(
     input: DeleteFacetRequest,
   ): Effect.Effect<
@@ -248,7 +278,9 @@ export declare class CloudDirectory extends AWSServiceClient {
     | RetryableConflictException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteFacet", input);
+  }
   deleteObject(
     input: DeleteObjectRequest,
   ): Effect.Effect<
@@ -263,7 +295,9 @@ export declare class CloudDirectory extends AWSServiceClient {
     | RetryableConflictException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteObject", input);
+  }
   deleteSchema(
     input: DeleteSchemaRequest,
   ): Effect.Effect<
@@ -277,7 +311,9 @@ export declare class CloudDirectory extends AWSServiceClient {
     | StillContainsLinksException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteSchema", input);
+  }
   deleteTypedLinkFacet(
     input: DeleteTypedLinkFacetRequest,
   ): Effect.Effect<
@@ -291,7 +327,9 @@ export declare class CloudDirectory extends AWSServiceClient {
     | RetryableConflictException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteTypedLinkFacet", input);
+  }
   detachFromIndex(
     input: DetachFromIndexRequest,
   ): Effect.Effect<
@@ -307,7 +345,9 @@ export declare class CloudDirectory extends AWSServiceClient {
     | RetryableConflictException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DetachFromIndex", input);
+  }
   detachObject(
     input: DetachObjectRequest,
   ): Effect.Effect<
@@ -322,7 +362,9 @@ export declare class CloudDirectory extends AWSServiceClient {
     | RetryableConflictException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DetachObject", input);
+  }
   detachPolicy(
     input: DetachPolicyRequest,
   ): Effect.Effect<
@@ -337,7 +379,9 @@ export declare class CloudDirectory extends AWSServiceClient {
     | RetryableConflictException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DetachPolicy", input);
+  }
   detachTypedLink(
     input: DetachTypedLinkRequest,
   ): Effect.Effect<
@@ -352,7 +396,9 @@ export declare class CloudDirectory extends AWSServiceClient {
     | RetryableConflictException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DetachTypedLink", input);
+  }
   disableDirectory(
     input: DisableDirectoryRequest,
   ): Effect.Effect<
@@ -366,7 +412,9 @@ export declare class CloudDirectory extends AWSServiceClient {
     | RetryableConflictException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DisableDirectory", input);
+  }
   enableDirectory(
     input: EnableDirectoryRequest,
   ): Effect.Effect<
@@ -380,7 +428,9 @@ export declare class CloudDirectory extends AWSServiceClient {
     | RetryableConflictException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("EnableDirectory", input);
+  }
   getAppliedSchemaVersion(
     input: GetAppliedSchemaVersionRequest,
   ): Effect.Effect<
@@ -393,7 +443,9 @@ export declare class CloudDirectory extends AWSServiceClient {
     | RetryableConflictException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetAppliedSchemaVersion", input);
+  }
   getDirectory(
     input: GetDirectoryRequest,
   ): Effect.Effect<
@@ -405,7 +457,9 @@ export declare class CloudDirectory extends AWSServiceClient {
     | RetryableConflictException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetDirectory", input);
+  }
   getFacet(
     input: GetFacetRequest,
   ): Effect.Effect<
@@ -419,7 +473,9 @@ export declare class CloudDirectory extends AWSServiceClient {
     | RetryableConflictException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetFacet", input);
+  }
   getLinkAttributes(
     input: GetLinkAttributesRequest,
   ): Effect.Effect<
@@ -434,7 +490,9 @@ export declare class CloudDirectory extends AWSServiceClient {
     | RetryableConflictException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetLinkAttributes", input);
+  }
   getObjectAttributes(
     input: GetObjectAttributesRequest,
   ): Effect.Effect<
@@ -449,7 +507,9 @@ export declare class CloudDirectory extends AWSServiceClient {
     | RetryableConflictException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetObjectAttributes", input);
+  }
   getObjectInformation(
     input: GetObjectInformationRequest,
   ): Effect.Effect<
@@ -463,7 +523,9 @@ export declare class CloudDirectory extends AWSServiceClient {
     | RetryableConflictException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetObjectInformation", input);
+  }
   getSchemaAsJson(
     input: GetSchemaAsJsonRequest,
   ): Effect.Effect<
@@ -476,7 +538,9 @@ export declare class CloudDirectory extends AWSServiceClient {
     | RetryableConflictException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetSchemaAsJson", input);
+  }
   getTypedLinkFacetInformation(
     input: GetTypedLinkFacetInformationRequest,
   ): Effect.Effect<
@@ -491,7 +555,9 @@ export declare class CloudDirectory extends AWSServiceClient {
     | RetryableConflictException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetTypedLinkFacetInformation", input);
+  }
   listAppliedSchemaArns(
     input: ListAppliedSchemaArnsRequest,
   ): Effect.Effect<
@@ -505,7 +571,9 @@ export declare class CloudDirectory extends AWSServiceClient {
     | RetryableConflictException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListAppliedSchemaArns", input);
+  }
   listAttachedIndices(
     input: ListAttachedIndicesRequest,
   ): Effect.Effect<
@@ -519,7 +587,9 @@ export declare class CloudDirectory extends AWSServiceClient {
     | RetryableConflictException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListAttachedIndices", input);
+  }
   listDevelopmentSchemaArns(
     input: ListDevelopmentSchemaArnsRequest,
   ): Effect.Effect<
@@ -533,7 +603,9 @@ export declare class CloudDirectory extends AWSServiceClient {
     | RetryableConflictException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListDevelopmentSchemaArns", input);
+  }
   listDirectories(
     input: ListDirectoriesRequest,
   ): Effect.Effect<
@@ -546,7 +618,9 @@ export declare class CloudDirectory extends AWSServiceClient {
     | RetryableConflictException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListDirectories", input);
+  }
   listFacetAttributes(
     input: ListFacetAttributesRequest,
   ): Effect.Effect<
@@ -561,7 +635,9 @@ export declare class CloudDirectory extends AWSServiceClient {
     | RetryableConflictException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListFacetAttributes", input);
+  }
   listFacetNames(
     input: ListFacetNamesRequest,
   ): Effect.Effect<
@@ -575,7 +651,9 @@ export declare class CloudDirectory extends AWSServiceClient {
     | RetryableConflictException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListFacetNames", input);
+  }
   listIncomingTypedLinks(
     input: ListIncomingTypedLinksRequest,
   ): Effect.Effect<
@@ -591,7 +669,9 @@ export declare class CloudDirectory extends AWSServiceClient {
     | RetryableConflictException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListIncomingTypedLinks", input);
+  }
   listIndex(
     input: ListIndexRequest,
   ): Effect.Effect<
@@ -608,7 +688,9 @@ export declare class CloudDirectory extends AWSServiceClient {
     | RetryableConflictException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListIndex", input);
+  }
   listManagedSchemaArns(
     input: ListManagedSchemaArnsRequest,
   ): Effect.Effect<
@@ -620,7 +702,9 @@ export declare class CloudDirectory extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListManagedSchemaArns", input);
+  }
   listObjectAttributes(
     input: ListObjectAttributesRequest,
   ): Effect.Effect<
@@ -636,7 +720,9 @@ export declare class CloudDirectory extends AWSServiceClient {
     | RetryableConflictException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListObjectAttributes", input);
+  }
   listObjectChildren(
     input: ListObjectChildrenRequest,
   ): Effect.Effect<
@@ -652,7 +738,9 @@ export declare class CloudDirectory extends AWSServiceClient {
     | RetryableConflictException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListObjectChildren", input);
+  }
   listObjectParentPaths(
     input: ListObjectParentPathsRequest,
   ): Effect.Effect<
@@ -667,7 +755,9 @@ export declare class CloudDirectory extends AWSServiceClient {
     | RetryableConflictException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListObjectParentPaths", input);
+  }
   listObjectParents(
     input: ListObjectParentsRequest,
   ): Effect.Effect<
@@ -683,7 +773,9 @@ export declare class CloudDirectory extends AWSServiceClient {
     | RetryableConflictException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListObjectParents", input);
+  }
   listObjectPolicies(
     input: ListObjectPoliciesRequest,
   ): Effect.Effect<
@@ -698,7 +790,9 @@ export declare class CloudDirectory extends AWSServiceClient {
     | RetryableConflictException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListObjectPolicies", input);
+  }
   listOutgoingTypedLinks(
     input: ListOutgoingTypedLinksRequest,
   ): Effect.Effect<
@@ -714,7 +808,9 @@ export declare class CloudDirectory extends AWSServiceClient {
     | RetryableConflictException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListOutgoingTypedLinks", input);
+  }
   listPolicyAttachments(
     input: ListPolicyAttachmentsRequest,
   ): Effect.Effect<
@@ -730,7 +826,9 @@ export declare class CloudDirectory extends AWSServiceClient {
     | RetryableConflictException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListPolicyAttachments", input);
+  }
   listPublishedSchemaArns(
     input: ListPublishedSchemaArnsRequest,
   ): Effect.Effect<
@@ -744,7 +842,9 @@ export declare class CloudDirectory extends AWSServiceClient {
     | RetryableConflictException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListPublishedSchemaArns", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
@@ -758,7 +858,9 @@ export declare class CloudDirectory extends AWSServiceClient {
     | RetryableConflictException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   listTypedLinkFacetAttributes(
     input: ListTypedLinkFacetAttributesRequest,
   ): Effect.Effect<
@@ -773,7 +875,9 @@ export declare class CloudDirectory extends AWSServiceClient {
     | RetryableConflictException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTypedLinkFacetAttributes", input);
+  }
   listTypedLinkFacetNames(
     input: ListTypedLinkFacetNamesRequest,
   ): Effect.Effect<
@@ -787,7 +891,9 @@ export declare class CloudDirectory extends AWSServiceClient {
     | RetryableConflictException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTypedLinkFacetNames", input);
+  }
   lookupPolicy(
     input: LookupPolicyRequest,
   ): Effect.Effect<
@@ -802,7 +908,9 @@ export declare class CloudDirectory extends AWSServiceClient {
     | RetryableConflictException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("LookupPolicy", input);
+  }
   publishSchema(
     input: PublishSchemaRequest,
   ): Effect.Effect<
@@ -816,7 +924,9 @@ export declare class CloudDirectory extends AWSServiceClient {
     | SchemaAlreadyPublishedException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PublishSchema", input);
+  }
   putSchemaFromJson(
     input: PutSchemaFromJsonRequest,
   ): Effect.Effect<
@@ -830,7 +940,9 @@ export declare class CloudDirectory extends AWSServiceClient {
     | RetryableConflictException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutSchemaFromJson", input);
+  }
   removeFacetFromObject(
     input: RemoveFacetFromObjectRequest,
   ): Effect.Effect<
@@ -845,7 +957,9 @@ export declare class CloudDirectory extends AWSServiceClient {
     | RetryableConflictException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("RemoveFacetFromObject", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -859,7 +973,9 @@ export declare class CloudDirectory extends AWSServiceClient {
     | RetryableConflictException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
@@ -873,7 +989,9 @@ export declare class CloudDirectory extends AWSServiceClient {
     | RetryableConflictException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
   updateFacet(
     input: UpdateFacetRequest,
   ): Effect.Effect<
@@ -890,7 +1008,9 @@ export declare class CloudDirectory extends AWSServiceClient {
     | RetryableConflictException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateFacet", input);
+  }
   updateLinkAttributes(
     input: UpdateLinkAttributesRequest,
   ): Effect.Effect<
@@ -905,7 +1025,9 @@ export declare class CloudDirectory extends AWSServiceClient {
     | RetryableConflictException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateLinkAttributes", input);
+  }
   updateObjectAttributes(
     input: UpdateObjectAttributesRequest,
   ): Effect.Effect<
@@ -921,7 +1043,9 @@ export declare class CloudDirectory extends AWSServiceClient {
     | RetryableConflictException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateObjectAttributes", input);
+  }
   updateSchema(
     input: UpdateSchemaRequest,
   ): Effect.Effect<
@@ -934,7 +1058,9 @@ export declare class CloudDirectory extends AWSServiceClient {
     | RetryableConflictException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateSchema", input);
+  }
   updateTypedLinkFacet(
     input: UpdateTypedLinkFacetRequest,
   ): Effect.Effect<
@@ -951,7 +1077,9 @@ export declare class CloudDirectory extends AWSServiceClient {
     | RetryableConflictException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateTypedLinkFacet", input);
+  }
   upgradeAppliedSchema(
     input: UpgradeAppliedSchemaRequest,
   ): Effect.Effect<
@@ -966,7 +1094,9 @@ export declare class CloudDirectory extends AWSServiceClient {
     | SchemaAlreadyExistsException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpgradeAppliedSchema", input);
+  }
   upgradePublishedSchema(
     input: UpgradePublishedSchemaRequest,
   ): Effect.Effect<
@@ -981,10 +1111,14 @@ export declare class CloudDirectory extends AWSServiceClient {
     | RetryableConflictException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpgradePublishedSchema", input);
+  }
 }
 
-export declare class Clouddirectory extends CloudDirectory {}
+export class Clouddirectory extends CloudDirectory {}
+
+export default CloudDirectory;
 
 export declare class AccessDeniedException extends EffectData.TaggedError(
   "AccessDeniedException",

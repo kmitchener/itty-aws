@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class EKS extends AWSServiceClient {
+export class EKS extends AWSServiceClient {
   associateAccessPolicy(
     input: AssociateAccessPolicyRequest,
   ): Effect.Effect<
@@ -12,7 +12,9 @@ export declare class EKS extends AWSServiceClient {
     | ResourceNotFoundException
     | ServerException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AssociateAccessPolicy", input);
+  }
   associateEncryptionConfig(
     input: AssociateEncryptionConfigRequest,
   ): Effect.Effect<
@@ -25,7 +27,9 @@ export declare class EKS extends AWSServiceClient {
     | ServerException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AssociateEncryptionConfig", input);
+  }
   associateIdentityProviderConfig(
     input: AssociateIdentityProviderConfigRequest,
   ): Effect.Effect<
@@ -38,7 +42,9 @@ export declare class EKS extends AWSServiceClient {
     | ServerException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AssociateIdentityProviderConfig", input);
+  }
   createAccessEntry(
     input: CreateAccessEntryRequest,
   ): Effect.Effect<
@@ -50,7 +56,9 @@ export declare class EKS extends AWSServiceClient {
     | ResourceNotFoundException
     | ServerException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateAccessEntry", input);
+  }
   createAddon(
     input: CreateAddonRequest,
   ): Effect.Effect<
@@ -62,7 +70,9 @@ export declare class EKS extends AWSServiceClient {
     | ResourceNotFoundException
     | ServerException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateAddon", input);
+  }
   createCluster(
     input: CreateClusterRequest,
   ): Effect.Effect<
@@ -75,7 +85,9 @@ export declare class EKS extends AWSServiceClient {
     | ServiceUnavailableException
     | UnsupportedAvailabilityZoneException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateCluster", input);
+  }
   createEksAnywhereSubscription(
     input: CreateEksAnywhereSubscriptionRequest,
   ): Effect.Effect<
@@ -86,7 +98,9 @@ export declare class EKS extends AWSServiceClient {
     | ServerException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateEksAnywhereSubscription", input);
+  }
   createFargateProfile(
     input: CreateFargateProfileRequest,
   ): Effect.Effect<
@@ -98,7 +112,9 @@ export declare class EKS extends AWSServiceClient {
     | ServerException
     | UnsupportedAvailabilityZoneException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateFargateProfile", input);
+  }
   createNodegroup(
     input: CreateNodegroupRequest,
   ): Effect.Effect<
@@ -111,7 +127,9 @@ export declare class EKS extends AWSServiceClient {
     | ServerException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateNodegroup", input);
+  }
   createPodIdentityAssociation(
     input: CreatePodIdentityAssociationRequest,
   ): Effect.Effect<
@@ -123,7 +141,9 @@ export declare class EKS extends AWSServiceClient {
     | ResourceNotFoundException
     | ServerException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreatePodIdentityAssociation", input);
+  }
   deleteAccessEntry(
     input: DeleteAccessEntryRequest,
   ): Effect.Effect<
@@ -132,7 +152,9 @@ export declare class EKS extends AWSServiceClient {
     | ResourceNotFoundException
     | ServerException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteAccessEntry", input);
+  }
   deleteAddon(
     input: DeleteAddonRequest,
   ): Effect.Effect<
@@ -143,7 +165,9 @@ export declare class EKS extends AWSServiceClient {
     | ResourceNotFoundException
     | ServerException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteAddon", input);
+  }
   deleteCluster(
     input: DeleteClusterRequest,
   ): Effect.Effect<
@@ -154,7 +178,9 @@ export declare class EKS extends AWSServiceClient {
     | ServerException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteCluster", input);
+  }
   deleteEksAnywhereSubscription(
     input: DeleteEksAnywhereSubscriptionRequest,
   ): Effect.Effect<
@@ -164,7 +190,9 @@ export declare class EKS extends AWSServiceClient {
     | ResourceNotFoundException
     | ServerException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteEksAnywhereSubscription", input);
+  }
   deleteFargateProfile(
     input: DeleteFargateProfileRequest,
   ): Effect.Effect<
@@ -174,7 +202,9 @@ export declare class EKS extends AWSServiceClient {
     | ResourceNotFoundException
     | ServerException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteFargateProfile", input);
+  }
   deleteNodegroup(
     input: DeleteNodegroupRequest,
   ): Effect.Effect<
@@ -186,7 +216,9 @@ export declare class EKS extends AWSServiceClient {
     | ServerException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteNodegroup", input);
+  }
   deletePodIdentityAssociation(
     input: DeletePodIdentityAssociationRequest,
   ): Effect.Effect<
@@ -196,7 +228,9 @@ export declare class EKS extends AWSServiceClient {
     | ResourceNotFoundException
     | ServerException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeletePodIdentityAssociation", input);
+  }
   deregisterCluster(
     input: DeregisterClusterRequest,
   ): Effect.Effect<
@@ -208,7 +242,9 @@ export declare class EKS extends AWSServiceClient {
     | ServerException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeregisterCluster", input);
+  }
   describeAccessEntry(
     input: DescribeAccessEntryRequest,
   ): Effect.Effect<
@@ -217,7 +253,9 @@ export declare class EKS extends AWSServiceClient {
     | ResourceNotFoundException
     | ServerException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeAccessEntry", input);
+  }
   describeAddon(
     input: DescribeAddonRequest,
   ): Effect.Effect<
@@ -228,7 +266,9 @@ export declare class EKS extends AWSServiceClient {
     | ResourceNotFoundException
     | ServerException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeAddon", input);
+  }
   describeAddonConfiguration(
     input: DescribeAddonConfigurationRequest,
   ): Effect.Effect<
@@ -237,7 +277,9 @@ export declare class EKS extends AWSServiceClient {
     | ResourceNotFoundException
     | ServerException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeAddonConfiguration", input);
+  }
   describeAddonVersions(
     input: DescribeAddonVersionsRequest,
   ): Effect.Effect<
@@ -246,7 +288,9 @@ export declare class EKS extends AWSServiceClient {
     | ResourceNotFoundException
     | ServerException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeAddonVersions", input);
+  }
   describeCluster(
     input: DescribeClusterRequest,
   ): Effect.Effect<
@@ -256,7 +300,9 @@ export declare class EKS extends AWSServiceClient {
     | ServerException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeCluster", input);
+  }
   describeClusterVersions(
     input: DescribeClusterVersionsRequest,
   ): Effect.Effect<
@@ -265,7 +311,9 @@ export declare class EKS extends AWSServiceClient {
     | InvalidRequestException
     | ServerException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeClusterVersions", input);
+  }
   describeEksAnywhereSubscription(
     input: DescribeEksAnywhereSubscriptionRequest,
   ): Effect.Effect<
@@ -275,7 +323,9 @@ export declare class EKS extends AWSServiceClient {
     | ServerException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeEksAnywhereSubscription", input);
+  }
   describeFargateProfile(
     input: DescribeFargateProfileRequest,
   ): Effect.Effect<
@@ -285,7 +335,9 @@ export declare class EKS extends AWSServiceClient {
     | ResourceNotFoundException
     | ServerException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeFargateProfile", input);
+  }
   describeIdentityProviderConfig(
     input: DescribeIdentityProviderConfigRequest,
   ): Effect.Effect<
@@ -296,7 +348,9 @@ export declare class EKS extends AWSServiceClient {
     | ServerException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeIdentityProviderConfig", input);
+  }
   describeInsight(
     input: DescribeInsightRequest,
   ): Effect.Effect<
@@ -306,7 +360,9 @@ export declare class EKS extends AWSServiceClient {
     | ResourceNotFoundException
     | ServerException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeInsight", input);
+  }
   describeNodegroup(
     input: DescribeNodegroupRequest,
   ): Effect.Effect<
@@ -317,7 +373,9 @@ export declare class EKS extends AWSServiceClient {
     | ServerException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeNodegroup", input);
+  }
   describePodIdentityAssociation(
     input: DescribePodIdentityAssociationRequest,
   ): Effect.Effect<
@@ -327,7 +385,9 @@ export declare class EKS extends AWSServiceClient {
     | ResourceNotFoundException
     | ServerException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribePodIdentityAssociation", input);
+  }
   describeUpdate(
     input: DescribeUpdateRequest,
   ): Effect.Effect<
@@ -337,7 +397,9 @@ export declare class EKS extends AWSServiceClient {
     | ResourceNotFoundException
     | ServerException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeUpdate", input);
+  }
   disassociateAccessPolicy(
     input: DisassociateAccessPolicyRequest,
   ): Effect.Effect<
@@ -346,7 +408,9 @@ export declare class EKS extends AWSServiceClient {
     | ResourceNotFoundException
     | ServerException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DisassociateAccessPolicy", input);
+  }
   disassociateIdentityProviderConfig(
     input: DisassociateIdentityProviderConfigRequest,
   ): Effect.Effect<
@@ -359,7 +423,9 @@ export declare class EKS extends AWSServiceClient {
     | ServerException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DisassociateIdentityProviderConfig", input);
+  }
   listAccessEntries(
     input: ListAccessEntriesRequest,
   ): Effect.Effect<
@@ -369,13 +435,17 @@ export declare class EKS extends AWSServiceClient {
     | ResourceNotFoundException
     | ServerException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListAccessEntries", input);
+  }
   listAccessPolicies(
     input: ListAccessPoliciesRequest,
   ): Effect.Effect<
     ListAccessPoliciesResponse,
     ServerException | CommonAwsError
-  >;
+  > {
+    return this.call("ListAccessPolicies", input);
+  }
   listAddons(
     input: ListAddonsRequest,
   ): Effect.Effect<
@@ -386,7 +456,9 @@ export declare class EKS extends AWSServiceClient {
     | ResourceNotFoundException
     | ServerException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListAddons", input);
+  }
   listAssociatedAccessPolicies(
     input: ListAssociatedAccessPoliciesRequest,
   ): Effect.Effect<
@@ -395,7 +467,9 @@ export declare class EKS extends AWSServiceClient {
     | ResourceNotFoundException
     | ServerException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListAssociatedAccessPolicies", input);
+  }
   listClusters(
     input: ListClustersRequest,
   ): Effect.Effect<
@@ -405,7 +479,9 @@ export declare class EKS extends AWSServiceClient {
     | ServerException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListClusters", input);
+  }
   listEksAnywhereSubscriptions(
     input: ListEksAnywhereSubscriptionsRequest,
   ): Effect.Effect<
@@ -415,7 +491,9 @@ export declare class EKS extends AWSServiceClient {
     | ServerException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListEksAnywhereSubscriptions", input);
+  }
   listFargateProfiles(
     input: ListFargateProfilesRequest,
   ): Effect.Effect<
@@ -425,7 +503,9 @@ export declare class EKS extends AWSServiceClient {
     | ResourceNotFoundException
     | ServerException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListFargateProfiles", input);
+  }
   listIdentityProviderConfigs(
     input: ListIdentityProviderConfigsRequest,
   ): Effect.Effect<
@@ -436,7 +516,9 @@ export declare class EKS extends AWSServiceClient {
     | ServerException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListIdentityProviderConfigs", input);
+  }
   listInsights(
     input: ListInsightsRequest,
   ): Effect.Effect<
@@ -446,7 +528,9 @@ export declare class EKS extends AWSServiceClient {
     | ResourceNotFoundException
     | ServerException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListInsights", input);
+  }
   listNodegroups(
     input: ListNodegroupsRequest,
   ): Effect.Effect<
@@ -457,7 +541,9 @@ export declare class EKS extends AWSServiceClient {
     | ServerException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListNodegroups", input);
+  }
   listPodIdentityAssociations(
     input: ListPodIdentityAssociationsRequest,
   ): Effect.Effect<
@@ -467,13 +553,17 @@ export declare class EKS extends AWSServiceClient {
     | ResourceNotFoundException
     | ServerException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListPodIdentityAssociations", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
     BadRequestException | NotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   listUpdates(
     input: ListUpdatesRequest,
   ): Effect.Effect<
@@ -483,7 +573,9 @@ export declare class EKS extends AWSServiceClient {
     | ResourceNotFoundException
     | ServerException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListUpdates", input);
+  }
   registerCluster(
     input: RegisterClusterRequest,
   ): Effect.Effect<
@@ -497,19 +589,25 @@ export declare class EKS extends AWSServiceClient {
     | ServerException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("RegisterCluster", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
     BadRequestException | NotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
     BadRequestException | NotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
   updateAccessEntry(
     input: UpdateAccessEntryRequest,
   ): Effect.Effect<
@@ -519,7 +617,9 @@ export declare class EKS extends AWSServiceClient {
     | ResourceNotFoundException
     | ServerException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateAccessEntry", input);
+  }
   updateAddon(
     input: UpdateAddonRequest,
   ): Effect.Effect<
@@ -531,7 +631,9 @@ export declare class EKS extends AWSServiceClient {
     | ResourceNotFoundException
     | ServerException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateAddon", input);
+  }
   updateClusterConfig(
     input: UpdateClusterConfigRequest,
   ): Effect.Effect<
@@ -544,7 +646,9 @@ export declare class EKS extends AWSServiceClient {
     | ServerException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateClusterConfig", input);
+  }
   updateClusterVersion(
     input: UpdateClusterVersionRequest,
   ): Effect.Effect<
@@ -558,7 +662,9 @@ export declare class EKS extends AWSServiceClient {
     | ServerException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateClusterVersion", input);
+  }
   updateEksAnywhereSubscription(
     input: UpdateEksAnywhereSubscriptionRequest,
   ): Effect.Effect<
@@ -569,7 +675,9 @@ export declare class EKS extends AWSServiceClient {
     | ResourceNotFoundException
     | ServerException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateEksAnywhereSubscription", input);
+  }
   updateNodegroupConfig(
     input: UpdateNodegroupConfigRequest,
   ): Effect.Effect<
@@ -581,7 +689,9 @@ export declare class EKS extends AWSServiceClient {
     | ResourceNotFoundException
     | ServerException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateNodegroupConfig", input);
+  }
   updateNodegroupVersion(
     input: UpdateNodegroupVersionRequest,
   ): Effect.Effect<
@@ -593,7 +703,9 @@ export declare class EKS extends AWSServiceClient {
     | ResourceNotFoundException
     | ServerException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateNodegroupVersion", input);
+  }
   updatePodIdentityAssociation(
     input: UpdatePodIdentityAssociationRequest,
   ): Effect.Effect<
@@ -603,10 +715,14 @@ export declare class EKS extends AWSServiceClient {
     | ResourceNotFoundException
     | ServerException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdatePodIdentityAssociation", input);
+  }
 }
 
-export declare class Eks extends EKS {}
+export class Eks extends EKS {}
+
+export default EKS;
 
 export interface AccessConfigResponse {
   bootstrapClusterCreatorAdminPermissions?: boolean;

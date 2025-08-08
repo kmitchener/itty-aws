@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class MPA extends AWSServiceClient {
+export class MPA extends AWSServiceClient {
   getPolicyVersion(
     input: GetPolicyVersionRequest,
   ): Effect.Effect<
@@ -13,7 +13,9 @@ export declare class MPA extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetPolicyVersion", input);
+  }
   getResourcePolicy(
     input: GetResourcePolicyRequest,
   ): Effect.Effect<
@@ -24,7 +26,9 @@ export declare class MPA extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetResourcePolicy", input);
+  }
   listPolicies(
     input: ListPoliciesRequest,
   ): Effect.Effect<
@@ -34,7 +38,9 @@ export declare class MPA extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListPolicies", input);
+  }
   listPolicyVersions(
     input: ListPolicyVersionsRequest,
   ): Effect.Effect<
@@ -45,7 +51,9 @@ export declare class MPA extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListPolicyVersions", input);
+  }
   listResourcePolicies(
     input: ListResourcePoliciesRequest,
   ): Effect.Effect<
@@ -56,7 +64,9 @@ export declare class MPA extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListResourcePolicies", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
@@ -67,7 +77,9 @@ export declare class MPA extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -79,7 +91,9 @@ export declare class MPA extends AWSServiceClient {
     | TooManyTagsException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
@@ -90,10 +104,14 @@ export declare class MPA extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
 }
 
-export declare class Mpa extends MPA {}
+export class Mpa extends MPA {}
+
+export default MPA;
 
 export declare class AccessDeniedException extends EffectData.TaggedError(
   "AccessDeniedException",

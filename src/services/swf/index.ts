@@ -2,31 +2,39 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class SWF extends AWSServiceClient {
+export class SWF extends AWSServiceClient {
   countClosedWorkflowExecutions(
     input: CountClosedWorkflowExecutionsInput,
   ): Effect.Effect<
     WorkflowExecutionCount,
     OperationNotPermittedFault | UnknownResourceFault | CommonAwsError
-  >;
+  > {
+    return this.call("CountClosedWorkflowExecutions", input);
+  }
   countOpenWorkflowExecutions(
     input: CountOpenWorkflowExecutionsInput,
   ): Effect.Effect<
     WorkflowExecutionCount,
     OperationNotPermittedFault | UnknownResourceFault | CommonAwsError
-  >;
+  > {
+    return this.call("CountOpenWorkflowExecutions", input);
+  }
   countPendingActivityTasks(
     input: CountPendingActivityTasksInput,
   ): Effect.Effect<
     PendingTaskCount,
     OperationNotPermittedFault | UnknownResourceFault | CommonAwsError
-  >;
+  > {
+    return this.call("CountPendingActivityTasks", input);
+  }
   countPendingDecisionTasks(
     input: CountPendingDecisionTasksInput,
   ): Effect.Effect<
     PendingTaskCount,
     OperationNotPermittedFault | UnknownResourceFault | CommonAwsError
-  >;
+  > {
+    return this.call("CountPendingDecisionTasks", input);
+  }
   deleteActivityType(
     input: DeleteActivityTypeInput,
   ): Effect.Effect<
@@ -35,7 +43,9 @@ export declare class SWF extends AWSServiceClient {
     | TypeNotDeprecatedFault
     | UnknownResourceFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteActivityType", input);
+  }
   deleteWorkflowType(
     input: DeleteWorkflowTypeInput,
   ): Effect.Effect<
@@ -44,7 +54,9 @@ export declare class SWF extends AWSServiceClient {
     | TypeNotDeprecatedFault
     | UnknownResourceFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteWorkflowType", input);
+  }
   deprecateActivityType(
     input: DeprecateActivityTypeInput,
   ): Effect.Effect<
@@ -53,7 +65,9 @@ export declare class SWF extends AWSServiceClient {
     | TypeDeprecatedFault
     | UnknownResourceFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeprecateActivityType", input);
+  }
   deprecateDomain(
     input: DeprecateDomainInput,
   ): Effect.Effect<
@@ -62,7 +76,9 @@ export declare class SWF extends AWSServiceClient {
     | OperationNotPermittedFault
     | UnknownResourceFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeprecateDomain", input);
+  }
   deprecateWorkflowType(
     input: DeprecateWorkflowTypeInput,
   ): Effect.Effect<
@@ -71,58 +87,78 @@ export declare class SWF extends AWSServiceClient {
     | TypeDeprecatedFault
     | UnknownResourceFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeprecateWorkflowType", input);
+  }
   describeActivityType(
     input: DescribeActivityTypeInput,
   ): Effect.Effect<
     ActivityTypeDetail,
     OperationNotPermittedFault | UnknownResourceFault | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeActivityType", input);
+  }
   describeDomain(
     input: DescribeDomainInput,
   ): Effect.Effect<
     DomainDetail,
     OperationNotPermittedFault | UnknownResourceFault | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeDomain", input);
+  }
   describeWorkflowExecution(
     input: DescribeWorkflowExecutionInput,
   ): Effect.Effect<
     WorkflowExecutionDetail,
     OperationNotPermittedFault | UnknownResourceFault | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeWorkflowExecution", input);
+  }
   describeWorkflowType(
     input: DescribeWorkflowTypeInput,
   ): Effect.Effect<
     WorkflowTypeDetail,
     OperationNotPermittedFault | UnknownResourceFault | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeWorkflowType", input);
+  }
   getWorkflowExecutionHistory(
     input: GetWorkflowExecutionHistoryInput,
   ): Effect.Effect<
     History,
     OperationNotPermittedFault | UnknownResourceFault | CommonAwsError
-  >;
+  > {
+    return this.call("GetWorkflowExecutionHistory", input);
+  }
   listActivityTypes(
     input: ListActivityTypesInput,
   ): Effect.Effect<
     ActivityTypeInfos,
     OperationNotPermittedFault | UnknownResourceFault | CommonAwsError
-  >;
+  > {
+    return this.call("ListActivityTypes", input);
+  }
   listClosedWorkflowExecutions(
     input: ListClosedWorkflowExecutionsInput,
   ): Effect.Effect<
     WorkflowExecutionInfos,
     OperationNotPermittedFault | UnknownResourceFault | CommonAwsError
-  >;
+  > {
+    return this.call("ListClosedWorkflowExecutions", input);
+  }
   listDomains(
     input: ListDomainsInput,
-  ): Effect.Effect<DomainInfos, OperationNotPermittedFault | CommonAwsError>;
+  ): Effect.Effect<DomainInfos, OperationNotPermittedFault | CommonAwsError> {
+    return this.call("ListDomains", input);
+  }
   listOpenWorkflowExecutions(
     input: ListOpenWorkflowExecutionsInput,
   ): Effect.Effect<
     WorkflowExecutionInfos,
     OperationNotPermittedFault | UnknownResourceFault | CommonAwsError
-  >;
+  > {
+    return this.call("ListOpenWorkflowExecutions", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceInput,
   ): Effect.Effect<
@@ -131,13 +167,17 @@ export declare class SWF extends AWSServiceClient {
     | OperationNotPermittedFault
     | UnknownResourceFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   listWorkflowTypes(
     input: ListWorkflowTypesInput,
   ): Effect.Effect<
     WorkflowTypeInfos,
     OperationNotPermittedFault | UnknownResourceFault | CommonAwsError
-  >;
+  > {
+    return this.call("ListWorkflowTypes", input);
+  }
   pollForActivityTask(
     input: PollForActivityTaskInput,
   ): Effect.Effect<
@@ -146,7 +186,9 @@ export declare class SWF extends AWSServiceClient {
     | OperationNotPermittedFault
     | UnknownResourceFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("PollForActivityTask", input);
+  }
   pollForDecisionTask(
     input: PollForDecisionTaskInput,
   ): Effect.Effect<
@@ -155,13 +197,17 @@ export declare class SWF extends AWSServiceClient {
     | OperationNotPermittedFault
     | UnknownResourceFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("PollForDecisionTask", input);
+  }
   recordActivityTaskHeartbeat(
     input: RecordActivityTaskHeartbeatInput,
   ): Effect.Effect<
     ActivityTaskStatus,
     OperationNotPermittedFault | UnknownResourceFault | CommonAwsError
-  >;
+  > {
+    return this.call("RecordActivityTaskHeartbeat", input);
+  }
   registerActivityType(
     input: RegisterActivityTypeInput,
   ): Effect.Effect<
@@ -171,7 +217,9 @@ export declare class SWF extends AWSServiceClient {
     | TypeAlreadyExistsFault
     | UnknownResourceFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("RegisterActivityType", input);
+  }
   registerDomain(
     input: RegisterDomainInput,
   ): Effect.Effect<
@@ -181,7 +229,9 @@ export declare class SWF extends AWSServiceClient {
     | OperationNotPermittedFault
     | TooManyTagsFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("RegisterDomain", input);
+  }
   registerWorkflowType(
     input: RegisterWorkflowTypeInput,
   ): Effect.Effect<
@@ -191,43 +241,57 @@ export declare class SWF extends AWSServiceClient {
     | TypeAlreadyExistsFault
     | UnknownResourceFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("RegisterWorkflowType", input);
+  }
   requestCancelWorkflowExecution(
     input: RequestCancelWorkflowExecutionInput,
   ): Effect.Effect<
     {},
     OperationNotPermittedFault | UnknownResourceFault | CommonAwsError
-  >;
+  > {
+    return this.call("RequestCancelWorkflowExecution", input);
+  }
   respondActivityTaskCanceled(
     input: RespondActivityTaskCanceledInput,
   ): Effect.Effect<
     {},
     OperationNotPermittedFault | UnknownResourceFault | CommonAwsError
-  >;
+  > {
+    return this.call("RespondActivityTaskCanceled", input);
+  }
   respondActivityTaskCompleted(
     input: RespondActivityTaskCompletedInput,
   ): Effect.Effect<
     {},
     OperationNotPermittedFault | UnknownResourceFault | CommonAwsError
-  >;
+  > {
+    return this.call("RespondActivityTaskCompleted", input);
+  }
   respondActivityTaskFailed(
     input: RespondActivityTaskFailedInput,
   ): Effect.Effect<
     {},
     OperationNotPermittedFault | UnknownResourceFault | CommonAwsError
-  >;
+  > {
+    return this.call("RespondActivityTaskFailed", input);
+  }
   respondDecisionTaskCompleted(
     input: RespondDecisionTaskCompletedInput,
   ): Effect.Effect<
     {},
     OperationNotPermittedFault | UnknownResourceFault | CommonAwsError
-  >;
+  > {
+    return this.call("RespondDecisionTaskCompleted", input);
+  }
   signalWorkflowExecution(
     input: SignalWorkflowExecutionInput,
   ): Effect.Effect<
     {},
     OperationNotPermittedFault | UnknownResourceFault | CommonAwsError
-  >;
+  > {
+    return this.call("SignalWorkflowExecution", input);
+  }
   startWorkflowExecution(
     input: StartWorkflowExecutionInput,
   ): Effect.Effect<
@@ -239,7 +303,9 @@ export declare class SWF extends AWSServiceClient {
     | UnknownResourceFault
     | WorkflowExecutionAlreadyStartedFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartWorkflowExecution", input);
+  }
   tagResource(
     input: TagResourceInput,
   ): Effect.Effect<
@@ -249,13 +315,17 @@ export declare class SWF extends AWSServiceClient {
     | TooManyTagsFault
     | UnknownResourceFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   terminateWorkflowExecution(
     input: TerminateWorkflowExecutionInput,
   ): Effect.Effect<
     {},
     OperationNotPermittedFault | UnknownResourceFault | CommonAwsError
-  >;
+  > {
+    return this.call("TerminateWorkflowExecution", input);
+  }
   undeprecateActivityType(
     input: UndeprecateActivityTypeInput,
   ): Effect.Effect<
@@ -264,7 +334,9 @@ export declare class SWF extends AWSServiceClient {
     | TypeAlreadyExistsFault
     | UnknownResourceFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("UndeprecateActivityType", input);
+  }
   undeprecateDomain(
     input: UndeprecateDomainInput,
   ): Effect.Effect<
@@ -273,7 +345,9 @@ export declare class SWF extends AWSServiceClient {
     | OperationNotPermittedFault
     | UnknownResourceFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("UndeprecateDomain", input);
+  }
   undeprecateWorkflowType(
     input: UndeprecateWorkflowTypeInput,
   ): Effect.Effect<
@@ -282,7 +356,9 @@ export declare class SWF extends AWSServiceClient {
     | TypeAlreadyExistsFault
     | UnknownResourceFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("UndeprecateWorkflowType", input);
+  }
   untagResource(
     input: UntagResourceInput,
   ): Effect.Effect<
@@ -291,10 +367,14 @@ export declare class SWF extends AWSServiceClient {
     | OperationNotPermittedFault
     | UnknownResourceFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
 }
 
-export declare class Swf extends SWF {}
+export class Swf extends SWF {}
+
+export default SWF;
 
 export type ActivityId = string;
 

@@ -2,13 +2,15 @@ import type { Effect, Stream, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class Lambda extends AWSServiceClient {
+export class Lambda extends AWSServiceClient {
   getAccountSettings(
     input: GetAccountSettingsRequest,
   ): Effect.Effect<
     GetAccountSettingsResponse,
     ServiceException | TooManyRequestsException | CommonAwsError
-  >;
+  > {
+    return this.call("GetAccountSettings", input);
+  }
   listTags(
     input: ListTagsRequest,
   ): Effect.Effect<
@@ -18,7 +20,9 @@ export declare class Lambda extends AWSServiceClient {
     | ServiceException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTags", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -29,7 +33,9 @@ export declare class Lambda extends AWSServiceClient {
     | ServiceException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
@@ -40,8 +46,12 @@ export declare class Lambda extends AWSServiceClient {
     | ServiceException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
 }
+
+export default Lambda;
 
 export interface AccountLimit {
   TotalCodeSize?: number;

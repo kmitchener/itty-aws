@@ -2,518 +2,704 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class Greengrass extends AWSServiceClient {
+export class Greengrass extends AWSServiceClient {
   associateRoleToGroup(
     input: AssociateRoleToGroupRequest,
   ): Effect.Effect<
     AssociateRoleToGroupResponse,
     BadRequestException | InternalServerErrorException | CommonAwsError
-  >;
+  > {
+    return this.call("AssociateRoleToGroup", input);
+  }
   associateServiceRoleToAccount(
     input: AssociateServiceRoleToAccountRequest,
   ): Effect.Effect<
     AssociateServiceRoleToAccountResponse,
     BadRequestException | InternalServerErrorException | CommonAwsError
-  >;
+  > {
+    return this.call("AssociateServiceRoleToAccount", input);
+  }
   createConnectorDefinition(
     input: CreateConnectorDefinitionRequest,
   ): Effect.Effect<
     CreateConnectorDefinitionResponse,
     BadRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("CreateConnectorDefinition", input);
+  }
   createConnectorDefinitionVersion(
     input: CreateConnectorDefinitionVersionRequest,
   ): Effect.Effect<
     CreateConnectorDefinitionVersionResponse,
     BadRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("CreateConnectorDefinitionVersion", input);
+  }
   createCoreDefinition(
     input: CreateCoreDefinitionRequest,
   ): Effect.Effect<
     CreateCoreDefinitionResponse,
     BadRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("CreateCoreDefinition", input);
+  }
   createCoreDefinitionVersion(
     input: CreateCoreDefinitionVersionRequest,
   ): Effect.Effect<
     CreateCoreDefinitionVersionResponse,
     BadRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("CreateCoreDefinitionVersion", input);
+  }
   createDeployment(
     input: CreateDeploymentRequest,
   ): Effect.Effect<
     CreateDeploymentResponse,
     BadRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("CreateDeployment", input);
+  }
   createDeviceDefinition(
     input: CreateDeviceDefinitionRequest,
   ): Effect.Effect<
     CreateDeviceDefinitionResponse,
     BadRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("CreateDeviceDefinition", input);
+  }
   createDeviceDefinitionVersion(
     input: CreateDeviceDefinitionVersionRequest,
   ): Effect.Effect<
     CreateDeviceDefinitionVersionResponse,
     BadRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("CreateDeviceDefinitionVersion", input);
+  }
   createFunctionDefinition(
     input: CreateFunctionDefinitionRequest,
   ): Effect.Effect<
     CreateFunctionDefinitionResponse,
     BadRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("CreateFunctionDefinition", input);
+  }
   createFunctionDefinitionVersion(
     input: CreateFunctionDefinitionVersionRequest,
   ): Effect.Effect<
     CreateFunctionDefinitionVersionResponse,
     BadRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("CreateFunctionDefinitionVersion", input);
+  }
   createGroup(
     input: CreateGroupRequest,
-  ): Effect.Effect<CreateGroupResponse, BadRequestException | CommonAwsError>;
+  ): Effect.Effect<CreateGroupResponse, BadRequestException | CommonAwsError> {
+    return this.call("CreateGroup", input);
+  }
   createGroupCertificateAuthority(
     input: CreateGroupCertificateAuthorityRequest,
   ): Effect.Effect<
     CreateGroupCertificateAuthorityResponse,
     BadRequestException | InternalServerErrorException | CommonAwsError
-  >;
+  > {
+    return this.call("CreateGroupCertificateAuthority", input);
+  }
   createGroupVersion(
     input: CreateGroupVersionRequest,
   ): Effect.Effect<
     CreateGroupVersionResponse,
     BadRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("CreateGroupVersion", input);
+  }
   createLoggerDefinition(
     input: CreateLoggerDefinitionRequest,
   ): Effect.Effect<
     CreateLoggerDefinitionResponse,
     BadRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("CreateLoggerDefinition", input);
+  }
   createLoggerDefinitionVersion(
     input: CreateLoggerDefinitionVersionRequest,
   ): Effect.Effect<
     CreateLoggerDefinitionVersionResponse,
     BadRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("CreateLoggerDefinitionVersion", input);
+  }
   createResourceDefinition(
     input: CreateResourceDefinitionRequest,
   ): Effect.Effect<
     CreateResourceDefinitionResponse,
     BadRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("CreateResourceDefinition", input);
+  }
   createResourceDefinitionVersion(
     input: CreateResourceDefinitionVersionRequest,
   ): Effect.Effect<
     CreateResourceDefinitionVersionResponse,
     BadRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("CreateResourceDefinitionVersion", input);
+  }
   createSoftwareUpdateJob(
     input: CreateSoftwareUpdateJobRequest,
   ): Effect.Effect<
     CreateSoftwareUpdateJobResponse,
     BadRequestException | InternalServerErrorException | CommonAwsError
-  >;
+  > {
+    return this.call("CreateSoftwareUpdateJob", input);
+  }
   createSubscriptionDefinition(
     input: CreateSubscriptionDefinitionRequest,
   ): Effect.Effect<
     CreateSubscriptionDefinitionResponse,
     BadRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("CreateSubscriptionDefinition", input);
+  }
   createSubscriptionDefinitionVersion(
     input: CreateSubscriptionDefinitionVersionRequest,
   ): Effect.Effect<
     CreateSubscriptionDefinitionVersionResponse,
     BadRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("CreateSubscriptionDefinitionVersion", input);
+  }
   deleteConnectorDefinition(
     input: DeleteConnectorDefinitionRequest,
   ): Effect.Effect<
     DeleteConnectorDefinitionResponse,
     BadRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteConnectorDefinition", input);
+  }
   deleteCoreDefinition(
     input: DeleteCoreDefinitionRequest,
   ): Effect.Effect<
     DeleteCoreDefinitionResponse,
     BadRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteCoreDefinition", input);
+  }
   deleteDeviceDefinition(
     input: DeleteDeviceDefinitionRequest,
   ): Effect.Effect<
     DeleteDeviceDefinitionResponse,
     BadRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteDeviceDefinition", input);
+  }
   deleteFunctionDefinition(
     input: DeleteFunctionDefinitionRequest,
   ): Effect.Effect<
     DeleteFunctionDefinitionResponse,
     BadRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteFunctionDefinition", input);
+  }
   deleteGroup(
     input: DeleteGroupRequest,
-  ): Effect.Effect<DeleteGroupResponse, BadRequestException | CommonAwsError>;
+  ): Effect.Effect<DeleteGroupResponse, BadRequestException | CommonAwsError> {
+    return this.call("DeleteGroup", input);
+  }
   deleteLoggerDefinition(
     input: DeleteLoggerDefinitionRequest,
   ): Effect.Effect<
     DeleteLoggerDefinitionResponse,
     BadRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteLoggerDefinition", input);
+  }
   deleteResourceDefinition(
     input: DeleteResourceDefinitionRequest,
   ): Effect.Effect<
     DeleteResourceDefinitionResponse,
     BadRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteResourceDefinition", input);
+  }
   deleteSubscriptionDefinition(
     input: DeleteSubscriptionDefinitionRequest,
   ): Effect.Effect<
     DeleteSubscriptionDefinitionResponse,
     BadRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteSubscriptionDefinition", input);
+  }
   disassociateRoleFromGroup(
     input: DisassociateRoleFromGroupRequest,
   ): Effect.Effect<
     DisassociateRoleFromGroupResponse,
     BadRequestException | InternalServerErrorException | CommonAwsError
-  >;
+  > {
+    return this.call("DisassociateRoleFromGroup", input);
+  }
   disassociateServiceRoleFromAccount(
     input: DisassociateServiceRoleFromAccountRequest,
   ): Effect.Effect<
     DisassociateServiceRoleFromAccountResponse,
     InternalServerErrorException | CommonAwsError
-  >;
+  > {
+    return this.call("DisassociateServiceRoleFromAccount", input);
+  }
   getAssociatedRole(
     input: GetAssociatedRoleRequest,
   ): Effect.Effect<
     GetAssociatedRoleResponse,
     BadRequestException | InternalServerErrorException | CommonAwsError
-  >;
+  > {
+    return this.call("GetAssociatedRole", input);
+  }
   getBulkDeploymentStatus(
     input: GetBulkDeploymentStatusRequest,
   ): Effect.Effect<
     GetBulkDeploymentStatusResponse,
     BadRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("GetBulkDeploymentStatus", input);
+  }
   getConnectivityInfo(
     input: GetConnectivityInfoRequest,
   ): Effect.Effect<
     GetConnectivityInfoResponse,
     BadRequestException | InternalServerErrorException | CommonAwsError
-  >;
+  > {
+    return this.call("GetConnectivityInfo", input);
+  }
   getConnectorDefinition(
     input: GetConnectorDefinitionRequest,
   ): Effect.Effect<
     GetConnectorDefinitionResponse,
     BadRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("GetConnectorDefinition", input);
+  }
   getConnectorDefinitionVersion(
     input: GetConnectorDefinitionVersionRequest,
   ): Effect.Effect<
     GetConnectorDefinitionVersionResponse,
     BadRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("GetConnectorDefinitionVersion", input);
+  }
   getCoreDefinition(
     input: GetCoreDefinitionRequest,
   ): Effect.Effect<
     GetCoreDefinitionResponse,
     BadRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("GetCoreDefinition", input);
+  }
   getCoreDefinitionVersion(
     input: GetCoreDefinitionVersionRequest,
   ): Effect.Effect<
     GetCoreDefinitionVersionResponse,
     BadRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("GetCoreDefinitionVersion", input);
+  }
   getDeploymentStatus(
     input: GetDeploymentStatusRequest,
   ): Effect.Effect<
     GetDeploymentStatusResponse,
     BadRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("GetDeploymentStatus", input);
+  }
   getDeviceDefinition(
     input: GetDeviceDefinitionRequest,
   ): Effect.Effect<
     GetDeviceDefinitionResponse,
     BadRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("GetDeviceDefinition", input);
+  }
   getDeviceDefinitionVersion(
     input: GetDeviceDefinitionVersionRequest,
   ): Effect.Effect<
     GetDeviceDefinitionVersionResponse,
     BadRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("GetDeviceDefinitionVersion", input);
+  }
   getFunctionDefinition(
     input: GetFunctionDefinitionRequest,
   ): Effect.Effect<
     GetFunctionDefinitionResponse,
     BadRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("GetFunctionDefinition", input);
+  }
   getFunctionDefinitionVersion(
     input: GetFunctionDefinitionVersionRequest,
   ): Effect.Effect<
     GetFunctionDefinitionVersionResponse,
     BadRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("GetFunctionDefinitionVersion", input);
+  }
   getGroup(
     input: GetGroupRequest,
-  ): Effect.Effect<GetGroupResponse, BadRequestException | CommonAwsError>;
+  ): Effect.Effect<GetGroupResponse, BadRequestException | CommonAwsError> {
+    return this.call("GetGroup", input);
+  }
   getGroupCertificateAuthority(
     input: GetGroupCertificateAuthorityRequest,
   ): Effect.Effect<
     GetGroupCertificateAuthorityResponse,
     BadRequestException | InternalServerErrorException | CommonAwsError
-  >;
+  > {
+    return this.call("GetGroupCertificateAuthority", input);
+  }
   getGroupCertificateConfiguration(
     input: GetGroupCertificateConfigurationRequest,
   ): Effect.Effect<
     GetGroupCertificateConfigurationResponse,
     BadRequestException | InternalServerErrorException | CommonAwsError
-  >;
+  > {
+    return this.call("GetGroupCertificateConfiguration", input);
+  }
   getGroupVersion(
     input: GetGroupVersionRequest,
   ): Effect.Effect<
     GetGroupVersionResponse,
     BadRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("GetGroupVersion", input);
+  }
   getLoggerDefinition(
     input: GetLoggerDefinitionRequest,
   ): Effect.Effect<
     GetLoggerDefinitionResponse,
     BadRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("GetLoggerDefinition", input);
+  }
   getLoggerDefinitionVersion(
     input: GetLoggerDefinitionVersionRequest,
   ): Effect.Effect<
     GetLoggerDefinitionVersionResponse,
     BadRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("GetLoggerDefinitionVersion", input);
+  }
   getResourceDefinition(
     input: GetResourceDefinitionRequest,
   ): Effect.Effect<
     GetResourceDefinitionResponse,
     BadRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("GetResourceDefinition", input);
+  }
   getResourceDefinitionVersion(
     input: GetResourceDefinitionVersionRequest,
   ): Effect.Effect<
     GetResourceDefinitionVersionResponse,
     BadRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("GetResourceDefinitionVersion", input);
+  }
   getServiceRoleForAccount(
     input: GetServiceRoleForAccountRequest,
   ): Effect.Effect<
     GetServiceRoleForAccountResponse,
     InternalServerErrorException | CommonAwsError
-  >;
+  > {
+    return this.call("GetServiceRoleForAccount", input);
+  }
   getSubscriptionDefinition(
     input: GetSubscriptionDefinitionRequest,
   ): Effect.Effect<
     GetSubscriptionDefinitionResponse,
     BadRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("GetSubscriptionDefinition", input);
+  }
   getSubscriptionDefinitionVersion(
     input: GetSubscriptionDefinitionVersionRequest,
   ): Effect.Effect<
     GetSubscriptionDefinitionVersionResponse,
     BadRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("GetSubscriptionDefinitionVersion", input);
+  }
   getThingRuntimeConfiguration(
     input: GetThingRuntimeConfigurationRequest,
   ): Effect.Effect<
     GetThingRuntimeConfigurationResponse,
     BadRequestException | InternalServerErrorException | CommonAwsError
-  >;
+  > {
+    return this.call("GetThingRuntimeConfiguration", input);
+  }
   listBulkDeploymentDetailedReports(
     input: ListBulkDeploymentDetailedReportsRequest,
   ): Effect.Effect<
     ListBulkDeploymentDetailedReportsResponse,
     BadRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("ListBulkDeploymentDetailedReports", input);
+  }
   listBulkDeployments(
     input: ListBulkDeploymentsRequest,
   ): Effect.Effect<
     ListBulkDeploymentsResponse,
     BadRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("ListBulkDeployments", input);
+  }
   listConnectorDefinitions(
     input: ListConnectorDefinitionsRequest,
-  ): Effect.Effect<ListConnectorDefinitionsResponse, CommonAwsError>;
+  ): Effect.Effect<ListConnectorDefinitionsResponse, CommonAwsError> {
+    return this.call("ListConnectorDefinitions", input);
+  }
   listConnectorDefinitionVersions(
     input: ListConnectorDefinitionVersionsRequest,
   ): Effect.Effect<
     ListConnectorDefinitionVersionsResponse,
     BadRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("ListConnectorDefinitionVersions", input);
+  }
   listCoreDefinitions(
     input: ListCoreDefinitionsRequest,
-  ): Effect.Effect<ListCoreDefinitionsResponse, CommonAwsError>;
+  ): Effect.Effect<ListCoreDefinitionsResponse, CommonAwsError> {
+    return this.call("ListCoreDefinitions", input);
+  }
   listCoreDefinitionVersions(
     input: ListCoreDefinitionVersionsRequest,
   ): Effect.Effect<
     ListCoreDefinitionVersionsResponse,
     BadRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("ListCoreDefinitionVersions", input);
+  }
   listDeployments(
     input: ListDeploymentsRequest,
   ): Effect.Effect<
     ListDeploymentsResponse,
     BadRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("ListDeployments", input);
+  }
   listDeviceDefinitions(
     input: ListDeviceDefinitionsRequest,
-  ): Effect.Effect<ListDeviceDefinitionsResponse, CommonAwsError>;
+  ): Effect.Effect<ListDeviceDefinitionsResponse, CommonAwsError> {
+    return this.call("ListDeviceDefinitions", input);
+  }
   listDeviceDefinitionVersions(
     input: ListDeviceDefinitionVersionsRequest,
   ): Effect.Effect<
     ListDeviceDefinitionVersionsResponse,
     BadRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("ListDeviceDefinitionVersions", input);
+  }
   listFunctionDefinitions(
     input: ListFunctionDefinitionsRequest,
-  ): Effect.Effect<ListFunctionDefinitionsResponse, CommonAwsError>;
+  ): Effect.Effect<ListFunctionDefinitionsResponse, CommonAwsError> {
+    return this.call("ListFunctionDefinitions", input);
+  }
   listFunctionDefinitionVersions(
     input: ListFunctionDefinitionVersionsRequest,
   ): Effect.Effect<
     ListFunctionDefinitionVersionsResponse,
     BadRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("ListFunctionDefinitionVersions", input);
+  }
   listGroupCertificateAuthorities(
     input: ListGroupCertificateAuthoritiesRequest,
   ): Effect.Effect<
     ListGroupCertificateAuthoritiesResponse,
     BadRequestException | InternalServerErrorException | CommonAwsError
-  >;
+  > {
+    return this.call("ListGroupCertificateAuthorities", input);
+  }
   listGroups(
     input: ListGroupsRequest,
-  ): Effect.Effect<ListGroupsResponse, CommonAwsError>;
+  ): Effect.Effect<ListGroupsResponse, CommonAwsError> {
+    return this.call("ListGroups", input);
+  }
   listGroupVersions(
     input: ListGroupVersionsRequest,
   ): Effect.Effect<
     ListGroupVersionsResponse,
     BadRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("ListGroupVersions", input);
+  }
   listLoggerDefinitions(
     input: ListLoggerDefinitionsRequest,
-  ): Effect.Effect<ListLoggerDefinitionsResponse, CommonAwsError>;
+  ): Effect.Effect<ListLoggerDefinitionsResponse, CommonAwsError> {
+    return this.call("ListLoggerDefinitions", input);
+  }
   listLoggerDefinitionVersions(
     input: ListLoggerDefinitionVersionsRequest,
   ): Effect.Effect<
     ListLoggerDefinitionVersionsResponse,
     BadRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("ListLoggerDefinitionVersions", input);
+  }
   listResourceDefinitions(
     input: ListResourceDefinitionsRequest,
-  ): Effect.Effect<ListResourceDefinitionsResponse, CommonAwsError>;
+  ): Effect.Effect<ListResourceDefinitionsResponse, CommonAwsError> {
+    return this.call("ListResourceDefinitions", input);
+  }
   listResourceDefinitionVersions(
     input: ListResourceDefinitionVersionsRequest,
   ): Effect.Effect<
     ListResourceDefinitionVersionsResponse,
     BadRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("ListResourceDefinitionVersions", input);
+  }
   listSubscriptionDefinitions(
     input: ListSubscriptionDefinitionsRequest,
-  ): Effect.Effect<ListSubscriptionDefinitionsResponse, CommonAwsError>;
+  ): Effect.Effect<ListSubscriptionDefinitionsResponse, CommonAwsError> {
+    return this.call("ListSubscriptionDefinitions", input);
+  }
   listSubscriptionDefinitionVersions(
     input: ListSubscriptionDefinitionVersionsRequest,
   ): Effect.Effect<
     ListSubscriptionDefinitionVersionsResponse,
     BadRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("ListSubscriptionDefinitionVersions", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
     BadRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   resetDeployments(
     input: ResetDeploymentsRequest,
   ): Effect.Effect<
     ResetDeploymentsResponse,
     BadRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("ResetDeployments", input);
+  }
   startBulkDeployment(
     input: StartBulkDeploymentRequest,
   ): Effect.Effect<
     StartBulkDeploymentResponse,
     BadRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("StartBulkDeployment", input);
+  }
   stopBulkDeployment(
     input: StopBulkDeploymentRequest,
   ): Effect.Effect<
     StopBulkDeploymentResponse,
     BadRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("StopBulkDeployment", input);
+  }
   tagResource(
     input: TagResourceRequest,
-  ): Effect.Effect<{}, BadRequestException | CommonAwsError>;
+  ): Effect.Effect<{}, BadRequestException | CommonAwsError> {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceRequest,
-  ): Effect.Effect<{}, BadRequestException | CommonAwsError>;
+  ): Effect.Effect<{}, BadRequestException | CommonAwsError> {
+    return this.call("UntagResource", input);
+  }
   updateConnectivityInfo(
     input: UpdateConnectivityInfoRequest,
   ): Effect.Effect<
     UpdateConnectivityInfoResponse,
     BadRequestException | InternalServerErrorException | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateConnectivityInfo", input);
+  }
   updateConnectorDefinition(
     input: UpdateConnectorDefinitionRequest,
   ): Effect.Effect<
     UpdateConnectorDefinitionResponse,
     BadRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateConnectorDefinition", input);
+  }
   updateCoreDefinition(
     input: UpdateCoreDefinitionRequest,
   ): Effect.Effect<
     UpdateCoreDefinitionResponse,
     BadRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateCoreDefinition", input);
+  }
   updateDeviceDefinition(
     input: UpdateDeviceDefinitionRequest,
   ): Effect.Effect<
     UpdateDeviceDefinitionResponse,
     BadRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateDeviceDefinition", input);
+  }
   updateFunctionDefinition(
     input: UpdateFunctionDefinitionRequest,
   ): Effect.Effect<
     UpdateFunctionDefinitionResponse,
     BadRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateFunctionDefinition", input);
+  }
   updateGroup(
     input: UpdateGroupRequest,
-  ): Effect.Effect<UpdateGroupResponse, BadRequestException | CommonAwsError>;
+  ): Effect.Effect<UpdateGroupResponse, BadRequestException | CommonAwsError> {
+    return this.call("UpdateGroup", input);
+  }
   updateGroupCertificateConfiguration(
     input: UpdateGroupCertificateConfigurationRequest,
   ): Effect.Effect<
     UpdateGroupCertificateConfigurationResponse,
     BadRequestException | InternalServerErrorException | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateGroupCertificateConfiguration", input);
+  }
   updateLoggerDefinition(
     input: UpdateLoggerDefinitionRequest,
   ): Effect.Effect<
     UpdateLoggerDefinitionResponse,
     BadRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateLoggerDefinition", input);
+  }
   updateResourceDefinition(
     input: UpdateResourceDefinitionRequest,
   ): Effect.Effect<
     UpdateResourceDefinitionResponse,
     BadRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateResourceDefinition", input);
+  }
   updateSubscriptionDefinition(
     input: UpdateSubscriptionDefinitionRequest,
   ): Effect.Effect<
     UpdateSubscriptionDefinitionResponse,
     BadRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateSubscriptionDefinition", input);
+  }
   updateThingRuntimeConfiguration(
     input: UpdateThingRuntimeConfigurationRequest,
   ): Effect.Effect<
     UpdateThingRuntimeConfigurationResponse,
     BadRequestException | InternalServerErrorException | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateThingRuntimeConfiguration", input);
+  }
 }
+
+export default Greengrass;
 
 export type __boolean = boolean;
 

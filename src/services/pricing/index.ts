@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class Pricing extends AWSServiceClient {
+export class Pricing extends AWSServiceClient {
   describeServices(
     input: DescribeServicesRequest,
   ): Effect.Effect<
@@ -14,7 +14,9 @@ export declare class Pricing extends AWSServiceClient {
     | NotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeServices", input);
+  }
   getAttributeValues(
     input: GetAttributeValuesRequest,
   ): Effect.Effect<
@@ -26,7 +28,9 @@ export declare class Pricing extends AWSServiceClient {
     | NotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetAttributeValues", input);
+  }
   getPriceListFileUrl(
     input: GetPriceListFileUrlRequest,
   ): Effect.Effect<
@@ -38,7 +42,9 @@ export declare class Pricing extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetPriceListFileUrl", input);
+  }
   getProducts(
     input: GetProductsRequest,
   ): Effect.Effect<
@@ -50,7 +56,9 @@ export declare class Pricing extends AWSServiceClient {
     | NotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetProducts", input);
+  }
   listPriceLists(
     input: ListPriceListsRequest,
   ): Effect.Effect<
@@ -64,8 +72,12 @@ export declare class Pricing extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListPriceLists", input);
+  }
 }
+
+export default Pricing;
 
 export declare class AccessDeniedException extends EffectData.TaggedError(
   "AccessDeniedException",

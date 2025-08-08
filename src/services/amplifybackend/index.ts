@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class AmplifyBackend extends AWSServiceClient {
+export class AmplifyBackend extends AWSServiceClient {
   cloneBackend(
     input: CloneBackendRequest,
   ): Effect.Effect<
@@ -12,7 +12,9 @@ export declare class AmplifyBackend extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CloneBackend", input);
+  }
   createBackend(
     input: CreateBackendRequest,
   ): Effect.Effect<
@@ -22,7 +24,9 @@ export declare class AmplifyBackend extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateBackend", input);
+  }
   createBackendAPI(
     input: CreateBackendAPIRequest,
   ): Effect.Effect<
@@ -32,7 +36,9 @@ export declare class AmplifyBackend extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateBackendAPI", input);
+  }
   createBackendAuth(
     input: CreateBackendAuthRequest,
   ): Effect.Effect<
@@ -42,7 +48,9 @@ export declare class AmplifyBackend extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateBackendAuth", input);
+  }
   createBackendConfig(
     input: CreateBackendConfigRequest,
   ): Effect.Effect<
@@ -52,7 +60,9 @@ export declare class AmplifyBackend extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateBackendConfig", input);
+  }
   createBackendStorage(
     input: CreateBackendStorageRequest,
   ): Effect.Effect<
@@ -62,7 +72,9 @@ export declare class AmplifyBackend extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateBackendStorage", input);
+  }
   createToken(
     input: CreateTokenRequest,
   ): Effect.Effect<
@@ -72,7 +84,9 @@ export declare class AmplifyBackend extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateToken", input);
+  }
   deleteBackend(
     input: DeleteBackendRequest,
   ): Effect.Effect<
@@ -82,7 +96,9 @@ export declare class AmplifyBackend extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteBackend", input);
+  }
   deleteBackendAPI(
     input: DeleteBackendAPIRequest,
   ): Effect.Effect<
@@ -92,7 +108,9 @@ export declare class AmplifyBackend extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteBackendAPI", input);
+  }
   deleteBackendAuth(
     input: DeleteBackendAuthRequest,
   ): Effect.Effect<
@@ -102,7 +120,9 @@ export declare class AmplifyBackend extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteBackendAuth", input);
+  }
   deleteBackendStorage(
     input: DeleteBackendStorageRequest,
   ): Effect.Effect<
@@ -112,7 +132,9 @@ export declare class AmplifyBackend extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteBackendStorage", input);
+  }
   deleteToken(
     input: DeleteTokenRequest,
   ): Effect.Effect<
@@ -122,7 +144,9 @@ export declare class AmplifyBackend extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteToken", input);
+  }
   generateBackendAPIModels(
     input: GenerateBackendAPIModelsRequest,
   ): Effect.Effect<
@@ -132,7 +156,9 @@ export declare class AmplifyBackend extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GenerateBackendAPIModels", input);
+  }
   getBackend(
     input: GetBackendRequest,
   ): Effect.Effect<
@@ -142,7 +168,9 @@ export declare class AmplifyBackend extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetBackend", input);
+  }
   getBackendAPI(
     input: GetBackendAPIRequest,
   ): Effect.Effect<
@@ -152,7 +180,9 @@ export declare class AmplifyBackend extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetBackendAPI", input);
+  }
   getBackendAPIModels(
     input: GetBackendAPIModelsRequest,
   ): Effect.Effect<
@@ -162,7 +192,9 @@ export declare class AmplifyBackend extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetBackendAPIModels", input);
+  }
   getBackendAuth(
     input: GetBackendAuthRequest,
   ): Effect.Effect<
@@ -172,7 +204,9 @@ export declare class AmplifyBackend extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetBackendAuth", input);
+  }
   getBackendJob(
     input: GetBackendJobRequest,
   ): Effect.Effect<
@@ -182,7 +216,9 @@ export declare class AmplifyBackend extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetBackendJob", input);
+  }
   getBackendStorage(
     input: GetBackendStorageRequest,
   ): Effect.Effect<
@@ -192,7 +228,9 @@ export declare class AmplifyBackend extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetBackendStorage", input);
+  }
   getToken(
     input: GetTokenRequest,
   ): Effect.Effect<
@@ -202,7 +240,9 @@ export declare class AmplifyBackend extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetToken", input);
+  }
   importBackendAuth(
     input: ImportBackendAuthRequest,
   ): Effect.Effect<
@@ -212,7 +252,9 @@ export declare class AmplifyBackend extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ImportBackendAuth", input);
+  }
   importBackendStorage(
     input: ImportBackendStorageRequest,
   ): Effect.Effect<
@@ -222,7 +264,9 @@ export declare class AmplifyBackend extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ImportBackendStorage", input);
+  }
   listBackendJobs(
     input: ListBackendJobsRequest,
   ): Effect.Effect<
@@ -232,7 +276,9 @@ export declare class AmplifyBackend extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListBackendJobs", input);
+  }
   listS3Buckets(
     input: ListS3BucketsRequest,
   ): Effect.Effect<
@@ -242,7 +288,9 @@ export declare class AmplifyBackend extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListS3Buckets", input);
+  }
   removeAllBackends(
     input: RemoveAllBackendsRequest,
   ): Effect.Effect<
@@ -252,7 +300,9 @@ export declare class AmplifyBackend extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("RemoveAllBackends", input);
+  }
   removeBackendConfig(
     input: RemoveBackendConfigRequest,
   ): Effect.Effect<
@@ -262,7 +312,9 @@ export declare class AmplifyBackend extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("RemoveBackendConfig", input);
+  }
   updateBackendAPI(
     input: UpdateBackendAPIRequest,
   ): Effect.Effect<
@@ -272,7 +324,9 @@ export declare class AmplifyBackend extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateBackendAPI", input);
+  }
   updateBackendAuth(
     input: UpdateBackendAuthRequest,
   ): Effect.Effect<
@@ -282,7 +336,9 @@ export declare class AmplifyBackend extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateBackendAuth", input);
+  }
   updateBackendConfig(
     input: UpdateBackendConfigRequest,
   ): Effect.Effect<
@@ -292,7 +348,9 @@ export declare class AmplifyBackend extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateBackendConfig", input);
+  }
   updateBackendJob(
     input: UpdateBackendJobRequest,
   ): Effect.Effect<
@@ -302,7 +360,9 @@ export declare class AmplifyBackend extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateBackendJob", input);
+  }
   updateBackendStorage(
     input: UpdateBackendStorageRequest,
   ): Effect.Effect<
@@ -312,10 +372,14 @@ export declare class AmplifyBackend extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateBackendStorage", input);
+  }
 }
 
-export declare class Amplifybackend extends AmplifyBackend {}
+export class Amplifybackend extends AmplifyBackend {}
+
+export default AmplifyBackend;
 
 export type __boolean = boolean;
 

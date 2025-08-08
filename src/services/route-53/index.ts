@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class Route53 extends AWSServiceClient {
+export class Route53 extends AWSServiceClient {
   activateKeySigningKey(
     input: ActivateKeySigningKeyRequest,
   ): Effect.Effect<
@@ -14,7 +14,9 @@ export declare class Route53 extends AWSServiceClient {
     | InvalidSigningStatus
     | NoSuchKeySigningKey
     | CommonAwsError
-  >;
+  > {
+    return this.call("ActivateKeySigningKey", input);
+  }
   associateVPCWithHostedZone(
     input: AssociateVPCWithHostedZoneRequest,
   ): Effect.Effect<
@@ -28,7 +30,9 @@ export declare class Route53 extends AWSServiceClient {
     | PriorRequestNotComplete
     | PublicZoneVPCAssociation
     | CommonAwsError
-  >;
+  > {
+    return this.call("AssociateVPCWithHostedZone", input);
+  }
   changeCidrCollection(
     input: ChangeCidrCollectionRequest,
   ): Effect.Effect<
@@ -40,7 +44,9 @@ export declare class Route53 extends AWSServiceClient {
     | LimitsExceeded
     | NoSuchCidrCollectionException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ChangeCidrCollection", input);
+  }
   changeResourceRecordSets(
     input: ChangeResourceRecordSetsRequest,
   ): Effect.Effect<
@@ -51,7 +57,9 @@ export declare class Route53 extends AWSServiceClient {
     | NoSuchHostedZone
     | PriorRequestNotComplete
     | CommonAwsError
-  >;
+  > {
+    return this.call("ChangeResourceRecordSets", input);
+  }
   changeTagsForResource(
     input: ChangeTagsForResourceRequest,
   ): Effect.Effect<
@@ -62,7 +70,9 @@ export declare class Route53 extends AWSServiceClient {
     | PriorRequestNotComplete
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ChangeTagsForResource", input);
+  }
   createCidrCollection(
     input: CreateCidrCollectionRequest,
   ): Effect.Effect<
@@ -72,7 +82,9 @@ export declare class Route53 extends AWSServiceClient {
     | InvalidInput
     | LimitsExceeded
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateCidrCollection", input);
+  }
   createHealthCheck(
     input: CreateHealthCheckRequest,
   ): Effect.Effect<
@@ -81,7 +93,9 @@ export declare class Route53 extends AWSServiceClient {
     | InvalidInput
     | TooManyHealthChecks
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateHealthCheck", input);
+  }
   createHostedZone(
     input: CreateHostedZoneRequest,
   ): Effect.Effect<
@@ -96,7 +110,9 @@ export declare class Route53 extends AWSServiceClient {
     | NoSuchDelegationSet
     | TooManyHostedZones
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateHostedZone", input);
+  }
   createKeySigningKey(
     input: CreateKeySigningKeyRequest,
   ): Effect.Effect<
@@ -112,7 +128,9 @@ export declare class Route53 extends AWSServiceClient {
     | NoSuchHostedZone
     | TooManyKeySigningKeys
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateKeySigningKey", input);
+  }
   createQueryLoggingConfig(
     input: CreateQueryLoggingConfigRequest,
   ): Effect.Effect<
@@ -124,7 +142,9 @@ export declare class Route53 extends AWSServiceClient {
     | NoSuchHostedZone
     | QueryLoggingConfigAlreadyExists
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateQueryLoggingConfig", input);
+  }
   createReusableDelegationSet(
     input: CreateReusableDelegationSetRequest,
   ): Effect.Effect<
@@ -137,7 +157,9 @@ export declare class Route53 extends AWSServiceClient {
     | InvalidInput
     | LimitsExceeded
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateReusableDelegationSet", input);
+  }
   createTrafficPolicy(
     input: CreateTrafficPolicyRequest,
   ): Effect.Effect<
@@ -147,7 +169,9 @@ export declare class Route53 extends AWSServiceClient {
     | TooManyTrafficPolicies
     | TrafficPolicyAlreadyExists
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateTrafficPolicy", input);
+  }
   createTrafficPolicyInstance(
     input: CreateTrafficPolicyInstanceRequest,
   ): Effect.Effect<
@@ -158,7 +182,9 @@ export declare class Route53 extends AWSServiceClient {
     | TooManyTrafficPolicyInstances
     | TrafficPolicyInstanceAlreadyExists
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateTrafficPolicyInstance", input);
+  }
   createTrafficPolicyVersion(
     input: CreateTrafficPolicyVersionRequest,
   ): Effect.Effect<
@@ -169,7 +195,9 @@ export declare class Route53 extends AWSServiceClient {
     | NoSuchTrafficPolicy
     | TooManyTrafficPolicyVersionsForCurrentPolicy
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateTrafficPolicyVersion", input);
+  }
   createVPCAssociationAuthorization(
     input: CreateVPCAssociationAuthorizationRequest,
   ): Effect.Effect<
@@ -180,7 +208,9 @@ export declare class Route53 extends AWSServiceClient {
     | NoSuchHostedZone
     | TooManyVPCAssociationAuthorizations
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateVPCAssociationAuthorization", input);
+  }
   deactivateKeySigningKey(
     input: DeactivateKeySigningKeyRequest,
   ): Effect.Effect<
@@ -193,7 +223,9 @@ export declare class Route53 extends AWSServiceClient {
     | KeySigningKeyInUse
     | NoSuchKeySigningKey
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeactivateKeySigningKey", input);
+  }
   deleteCidrCollection(
     input: DeleteCidrCollectionRequest,
   ): Effect.Effect<
@@ -203,13 +235,17 @@ export declare class Route53 extends AWSServiceClient {
     | InvalidInput
     | NoSuchCidrCollectionException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteCidrCollection", input);
+  }
   deleteHealthCheck(
     input: DeleteHealthCheckRequest,
   ): Effect.Effect<
     DeleteHealthCheckResponse,
     HealthCheckInUse | InvalidInput | NoSuchHealthCheck | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteHealthCheck", input);
+  }
   deleteHostedZone(
     input: DeleteHostedZoneRequest,
   ): Effect.Effect<
@@ -220,7 +256,9 @@ export declare class Route53 extends AWSServiceClient {
     | NoSuchHostedZone
     | PriorRequestNotComplete
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteHostedZone", input);
+  }
   deleteKeySigningKey(
     input: DeleteKeySigningKeyRequest,
   ): Effect.Effect<
@@ -232,7 +270,9 @@ export declare class Route53 extends AWSServiceClient {
     | InvalidSigningStatus
     | NoSuchKeySigningKey
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteKeySigningKey", input);
+  }
   deleteQueryLoggingConfig(
     input: DeleteQueryLoggingConfigRequest,
   ): Effect.Effect<
@@ -241,7 +281,9 @@ export declare class Route53 extends AWSServiceClient {
     | InvalidInput
     | NoSuchQueryLoggingConfig
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteQueryLoggingConfig", input);
+  }
   deleteReusableDelegationSet(
     input: DeleteReusableDelegationSetRequest,
   ): Effect.Effect<
@@ -251,7 +293,9 @@ export declare class Route53 extends AWSServiceClient {
     | InvalidInput
     | NoSuchDelegationSet
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteReusableDelegationSet", input);
+  }
   deleteTrafficPolicy(
     input: DeleteTrafficPolicyRequest,
   ): Effect.Effect<
@@ -261,7 +305,9 @@ export declare class Route53 extends AWSServiceClient {
     | NoSuchTrafficPolicy
     | TrafficPolicyInUse
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteTrafficPolicy", input);
+  }
   deleteTrafficPolicyInstance(
     input: DeleteTrafficPolicyInstanceRequest,
   ): Effect.Effect<
@@ -270,7 +316,9 @@ export declare class Route53 extends AWSServiceClient {
     | NoSuchTrafficPolicyInstance
     | PriorRequestNotComplete
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteTrafficPolicyInstance", input);
+  }
   deleteVPCAssociationAuthorization(
     input: DeleteVPCAssociationAuthorizationRequest,
   ): Effect.Effect<
@@ -281,7 +329,9 @@ export declare class Route53 extends AWSServiceClient {
     | NoSuchHostedZone
     | VPCAssociationAuthorizationNotFound
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteVPCAssociationAuthorization", input);
+  }
   disableHostedZoneDNSSEC(
     input: DisableHostedZoneDNSSECRequest,
   ): Effect.Effect<
@@ -295,7 +345,9 @@ export declare class Route53 extends AWSServiceClient {
     | KeySigningKeyInParentDSRecord
     | NoSuchHostedZone
     | CommonAwsError
-  >;
+  > {
+    return this.call("DisableHostedZoneDNSSEC", input);
+  }
   disassociateVPCFromHostedZone(
     input: DisassociateVPCFromHostedZoneRequest,
   ): Effect.Effect<
@@ -306,7 +358,9 @@ export declare class Route53 extends AWSServiceClient {
     | NoSuchHostedZone
     | VPCAssociationNotFound
     | CommonAwsError
-  >;
+  > {
+    return this.call("DisassociateVPCFromHostedZone", input);
+  }
   enableHostedZoneDNSSEC(
     input: EnableHostedZoneDNSSECRequest,
   ): Effect.Effect<
@@ -321,73 +375,101 @@ export declare class Route53 extends AWSServiceClient {
     | KeySigningKeyWithActiveStatusNotFound
     | NoSuchHostedZone
     | CommonAwsError
-  >;
+  > {
+    return this.call("EnableHostedZoneDNSSEC", input);
+  }
   getAccountLimit(
     input: GetAccountLimitRequest,
-  ): Effect.Effect<GetAccountLimitResponse, InvalidInput | CommonAwsError>;
+  ): Effect.Effect<GetAccountLimitResponse, InvalidInput | CommonAwsError> {
+    return this.call("GetAccountLimit", input);
+  }
   getChange(
     input: GetChangeRequest,
   ): Effect.Effect<
     GetChangeResponse,
     InvalidInput | NoSuchChange | CommonAwsError
-  >;
+  > {
+    return this.call("GetChange", input);
+  }
   getCheckerIpRanges(
     input: GetCheckerIpRangesRequest,
-  ): Effect.Effect<GetCheckerIpRangesResponse, CommonAwsError>;
+  ): Effect.Effect<GetCheckerIpRangesResponse, CommonAwsError> {
+    return this.call("GetCheckerIpRanges", input);
+  }
   getDNSSEC(
     input: GetDNSSECRequest,
   ): Effect.Effect<
     GetDNSSECResponse,
     InvalidArgument | InvalidInput | NoSuchHostedZone | CommonAwsError
-  >;
+  > {
+    return this.call("GetDNSSEC", input);
+  }
   getGeoLocation(
     input: GetGeoLocationRequest,
   ): Effect.Effect<
     GetGeoLocationResponse,
     InvalidInput | NoSuchGeoLocation | CommonAwsError
-  >;
+  > {
+    return this.call("GetGeoLocation", input);
+  }
   getHealthCheck(
     input: GetHealthCheckRequest,
   ): Effect.Effect<
     GetHealthCheckResponse,
     IncompatibleVersion | InvalidInput | NoSuchHealthCheck | CommonAwsError
-  >;
+  > {
+    return this.call("GetHealthCheck", input);
+  }
   getHealthCheckCount(
     input: GetHealthCheckCountRequest,
-  ): Effect.Effect<GetHealthCheckCountResponse, CommonAwsError>;
+  ): Effect.Effect<GetHealthCheckCountResponse, CommonAwsError> {
+    return this.call("GetHealthCheckCount", input);
+  }
   getHealthCheckLastFailureReason(
     input: GetHealthCheckLastFailureReasonRequest,
   ): Effect.Effect<
     GetHealthCheckLastFailureReasonResponse,
     InvalidInput | NoSuchHealthCheck | CommonAwsError
-  >;
+  > {
+    return this.call("GetHealthCheckLastFailureReason", input);
+  }
   getHealthCheckStatus(
     input: GetHealthCheckStatusRequest,
   ): Effect.Effect<
     GetHealthCheckStatusResponse,
     InvalidInput | NoSuchHealthCheck | CommonAwsError
-  >;
+  > {
+    return this.call("GetHealthCheckStatus", input);
+  }
   getHostedZone(
     input: GetHostedZoneRequest,
   ): Effect.Effect<
     GetHostedZoneResponse,
     InvalidInput | NoSuchHostedZone | CommonAwsError
-  >;
+  > {
+    return this.call("GetHostedZone", input);
+  }
   getHostedZoneCount(
     input: GetHostedZoneCountRequest,
-  ): Effect.Effect<GetHostedZoneCountResponse, InvalidInput | CommonAwsError>;
+  ): Effect.Effect<GetHostedZoneCountResponse, InvalidInput | CommonAwsError> {
+    return this.call("GetHostedZoneCount", input);
+  }
   getHostedZoneLimit(
     input: GetHostedZoneLimitRequest,
   ): Effect.Effect<
     GetHostedZoneLimitResponse,
     HostedZoneNotPrivate | InvalidInput | NoSuchHostedZone | CommonAwsError
-  >;
+  > {
+    return this.call("GetHostedZoneLimit", input);
+  }
   getQueryLoggingConfig(
     input: GetQueryLoggingConfigRequest,
   ): Effect.Effect<
     GetQueryLoggingConfigResponse,
     InvalidInput | NoSuchQueryLoggingConfig | CommonAwsError
-  >;
+  > {
+    return this.call("GetQueryLoggingConfig", input);
+  }
   getReusableDelegationSet(
     input: GetReusableDelegationSetRequest,
   ): Effect.Effect<
@@ -396,28 +478,38 @@ export declare class Route53 extends AWSServiceClient {
     | InvalidInput
     | NoSuchDelegationSet
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetReusableDelegationSet", input);
+  }
   getReusableDelegationSetLimit(
     input: GetReusableDelegationSetLimitRequest,
   ): Effect.Effect<
     GetReusableDelegationSetLimitResponse,
     InvalidInput | NoSuchDelegationSet | CommonAwsError
-  >;
+  > {
+    return this.call("GetReusableDelegationSetLimit", input);
+  }
   getTrafficPolicy(
     input: GetTrafficPolicyRequest,
   ): Effect.Effect<
     GetTrafficPolicyResponse,
     InvalidInput | NoSuchTrafficPolicy | CommonAwsError
-  >;
+  > {
+    return this.call("GetTrafficPolicy", input);
+  }
   getTrafficPolicyInstance(
     input: GetTrafficPolicyInstanceRequest,
   ): Effect.Effect<
     GetTrafficPolicyInstanceResponse,
     InvalidInput | NoSuchTrafficPolicyInstance | CommonAwsError
-  >;
+  > {
+    return this.call("GetTrafficPolicyInstance", input);
+  }
   getTrafficPolicyInstanceCount(
     input: GetTrafficPolicyInstanceCountRequest,
-  ): Effect.Effect<GetTrafficPolicyInstanceCountResponse, CommonAwsError>;
+  ): Effect.Effect<GetTrafficPolicyInstanceCountResponse, CommonAwsError> {
+    return this.call("GetTrafficPolicyInstanceCount", input);
+  }
   listCidrBlocks(
     input: ListCidrBlocksRequest,
   ): Effect.Effect<
@@ -426,25 +518,35 @@ export declare class Route53 extends AWSServiceClient {
     | NoSuchCidrCollectionException
     | NoSuchCidrLocationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListCidrBlocks", input);
+  }
   listCidrCollections(
     input: ListCidrCollectionsRequest,
-  ): Effect.Effect<ListCidrCollectionsResponse, InvalidInput | CommonAwsError>;
+  ): Effect.Effect<ListCidrCollectionsResponse, InvalidInput | CommonAwsError> {
+    return this.call("ListCidrCollections", input);
+  }
   listCidrLocations(
     input: ListCidrLocationsRequest,
   ): Effect.Effect<
     ListCidrLocationsResponse,
     InvalidInput | NoSuchCidrCollectionException | CommonAwsError
-  >;
+  > {
+    return this.call("ListCidrLocations", input);
+  }
   listGeoLocations(
     input: ListGeoLocationsRequest,
-  ): Effect.Effect<ListGeoLocationsResponse, InvalidInput | CommonAwsError>;
+  ): Effect.Effect<ListGeoLocationsResponse, InvalidInput | CommonAwsError> {
+    return this.call("ListGeoLocations", input);
+  }
   listHealthChecks(
     input: ListHealthChecksRequest,
   ): Effect.Effect<
     ListHealthChecksResponse,
     IncompatibleVersion | InvalidInput | CommonAwsError
-  >;
+  > {
+    return this.call("ListHealthChecks", input);
+  }
   listHostedZones(
     input: ListHostedZonesRequest,
   ): Effect.Effect<
@@ -453,37 +555,49 @@ export declare class Route53 extends AWSServiceClient {
     | InvalidInput
     | NoSuchDelegationSet
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListHostedZones", input);
+  }
   listHostedZonesByName(
     input: ListHostedZonesByNameRequest,
   ): Effect.Effect<
     ListHostedZonesByNameResponse,
     InvalidDomainName | InvalidInput | CommonAwsError
-  >;
+  > {
+    return this.call("ListHostedZonesByName", input);
+  }
   listHostedZonesByVPC(
     input: ListHostedZonesByVPCRequest,
   ): Effect.Effect<
     ListHostedZonesByVPCResponse,
     InvalidInput | InvalidPaginationToken | CommonAwsError
-  >;
+  > {
+    return this.call("ListHostedZonesByVPC", input);
+  }
   listQueryLoggingConfigs(
     input: ListQueryLoggingConfigsRequest,
   ): Effect.Effect<
     ListQueryLoggingConfigsResponse,
     InvalidInput | InvalidPaginationToken | NoSuchHostedZone | CommonAwsError
-  >;
+  > {
+    return this.call("ListQueryLoggingConfigs", input);
+  }
   listResourceRecordSets(
     input: ListResourceRecordSetsRequest,
   ): Effect.Effect<
     ListResourceRecordSetsResponse,
     InvalidInput | NoSuchHostedZone | CommonAwsError
-  >;
+  > {
+    return this.call("ListResourceRecordSets", input);
+  }
   listReusableDelegationSets(
     input: ListReusableDelegationSetsRequest,
   ): Effect.Effect<
     ListReusableDelegationSetsResponse,
     InvalidInput | CommonAwsError
-  >;
+  > {
+    return this.call("ListReusableDelegationSets", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
@@ -494,7 +608,9 @@ export declare class Route53 extends AWSServiceClient {
     | PriorRequestNotComplete
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   listTagsForResources(
     input: ListTagsForResourcesRequest,
   ): Effect.Effect<
@@ -505,16 +621,22 @@ export declare class Route53 extends AWSServiceClient {
     | PriorRequestNotComplete
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResources", input);
+  }
   listTrafficPolicies(
     input: ListTrafficPoliciesRequest,
-  ): Effect.Effect<ListTrafficPoliciesResponse, InvalidInput | CommonAwsError>;
+  ): Effect.Effect<ListTrafficPoliciesResponse, InvalidInput | CommonAwsError> {
+    return this.call("ListTrafficPolicies", input);
+  }
   listTrafficPolicyInstances(
     input: ListTrafficPolicyInstancesRequest,
   ): Effect.Effect<
     ListTrafficPolicyInstancesResponse,
     InvalidInput | NoSuchTrafficPolicyInstance | CommonAwsError
-  >;
+  > {
+    return this.call("ListTrafficPolicyInstances", input);
+  }
   listTrafficPolicyInstancesByHostedZone(
     input: ListTrafficPolicyInstancesByHostedZoneRequest,
   ): Effect.Effect<
@@ -523,7 +645,9 @@ export declare class Route53 extends AWSServiceClient {
     | NoSuchHostedZone
     | NoSuchTrafficPolicyInstance
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTrafficPolicyInstancesByHostedZone", input);
+  }
   listTrafficPolicyInstancesByPolicy(
     input: ListTrafficPolicyInstancesByPolicyRequest,
   ): Effect.Effect<
@@ -532,25 +656,33 @@ export declare class Route53 extends AWSServiceClient {
     | NoSuchTrafficPolicy
     | NoSuchTrafficPolicyInstance
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTrafficPolicyInstancesByPolicy", input);
+  }
   listTrafficPolicyVersions(
     input: ListTrafficPolicyVersionsRequest,
   ): Effect.Effect<
     ListTrafficPolicyVersionsResponse,
     InvalidInput | NoSuchTrafficPolicy | CommonAwsError
-  >;
+  > {
+    return this.call("ListTrafficPolicyVersions", input);
+  }
   listVPCAssociationAuthorizations(
     input: ListVPCAssociationAuthorizationsRequest,
   ): Effect.Effect<
     ListVPCAssociationAuthorizationsResponse,
     InvalidInput | InvalidPaginationToken | NoSuchHostedZone | CommonAwsError
-  >;
+  > {
+    return this.call("ListVPCAssociationAuthorizations", input);
+  }
   testDNSAnswer(
     input: TestDNSAnswerRequest,
   ): Effect.Effect<
     TestDNSAnswerResponse,
     InvalidInput | NoSuchHostedZone | CommonAwsError
-  >;
+  > {
+    return this.call("TestDNSAnswer", input);
+  }
   updateHealthCheck(
     input: UpdateHealthCheckRequest,
   ): Effect.Effect<
@@ -559,19 +691,25 @@ export declare class Route53 extends AWSServiceClient {
     | InvalidInput
     | NoSuchHealthCheck
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateHealthCheck", input);
+  }
   updateHostedZoneComment(
     input: UpdateHostedZoneCommentRequest,
   ): Effect.Effect<
     UpdateHostedZoneCommentResponse,
     InvalidInput | NoSuchHostedZone | PriorRequestNotComplete | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateHostedZoneComment", input);
+  }
   updateTrafficPolicyComment(
     input: UpdateTrafficPolicyCommentRequest,
   ): Effect.Effect<
     UpdateTrafficPolicyCommentResponse,
     ConcurrentModification | InvalidInput | NoSuchTrafficPolicy | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateTrafficPolicyComment", input);
+  }
   updateTrafficPolicyInstance(
     input: UpdateTrafficPolicyInstanceRequest,
   ): Effect.Effect<
@@ -582,8 +720,12 @@ export declare class Route53 extends AWSServiceClient {
     | NoSuchTrafficPolicyInstance
     | PriorRequestNotComplete
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateTrafficPolicyInstance", input);
+  }
 }
+
+export default Route53;
 
 export interface AccountLimit {
   Type: AccountLimitType;

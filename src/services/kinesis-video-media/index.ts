@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class KinesisVideoMedia extends AWSServiceClient {
+export class KinesisVideoMedia extends AWSServiceClient {
   getMedia(
     input: GetMediaInput,
   ): Effect.Effect<
@@ -14,8 +14,12 @@ export declare class KinesisVideoMedia extends AWSServiceClient {
     | NotAuthorizedException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetMedia", input);
+  }
 }
+
+export default KinesisVideoMedia;
 
 export declare class ClientLimitExceededException extends EffectData.TaggedError(
   "ClientLimitExceededException",

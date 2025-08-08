@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class WorkspacesInstances extends AWSServiceClient {
+export class WorkspacesInstances extends AWSServiceClient {
   associateVolume(
     input: AssociateVolumeRequest,
   ): Effect.Effect<
@@ -14,7 +14,9 @@ export declare class WorkspacesInstances extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AssociateVolume", input);
+  }
   createVolume(
     input: CreateVolumeRequest,
   ): Effect.Effect<
@@ -26,7 +28,9 @@ export declare class WorkspacesInstances extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateVolume", input);
+  }
   createWorkspaceInstance(
     input: CreateWorkspaceInstanceRequest,
   ): Effect.Effect<
@@ -38,7 +42,9 @@ export declare class WorkspacesInstances extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateWorkspaceInstance", input);
+  }
   deleteVolume(
     input: DeleteVolumeRequest,
   ): Effect.Effect<
@@ -50,7 +56,9 @@ export declare class WorkspacesInstances extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteVolume", input);
+  }
   deleteWorkspaceInstance(
     input: DeleteWorkspaceInstanceRequest,
   ): Effect.Effect<
@@ -62,7 +70,9 @@ export declare class WorkspacesInstances extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteWorkspaceInstance", input);
+  }
   disassociateVolume(
     input: DisassociateVolumeRequest,
   ): Effect.Effect<
@@ -74,7 +84,9 @@ export declare class WorkspacesInstances extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DisassociateVolume", input);
+  }
   getWorkspaceInstance(
     input: GetWorkspaceInstanceRequest,
   ): Effect.Effect<
@@ -85,7 +97,9 @@ export declare class WorkspacesInstances extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetWorkspaceInstance", input);
+  }
   listInstanceTypes(
     input: ListInstanceTypesRequest,
   ): Effect.Effect<
@@ -95,7 +109,9 @@ export declare class WorkspacesInstances extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListInstanceTypes", input);
+  }
   listRegions(
     input: ListRegionsRequest,
   ): Effect.Effect<
@@ -105,7 +121,9 @@ export declare class WorkspacesInstances extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListRegions", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
@@ -116,7 +134,9 @@ export declare class WorkspacesInstances extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   listWorkspaceInstances(
     input: ListWorkspaceInstancesRequest,
   ): Effect.Effect<
@@ -126,7 +146,9 @@ export declare class WorkspacesInstances extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListWorkspaceInstances", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -137,7 +159,9 @@ export declare class WorkspacesInstances extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
@@ -148,8 +172,12 @@ export declare class WorkspacesInstances extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
 }
+
+export default WorkspacesInstances;
 
 export declare class AccessDeniedException extends EffectData.TaggedError(
   "AccessDeniedException",

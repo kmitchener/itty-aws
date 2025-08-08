@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class MigrationHubConfig extends AWSServiceClient {
+export class MigrationHubConfig extends AWSServiceClient {
   createHomeRegionControl(
     input: CreateHomeRegionControlRequest,
   ): Effect.Effect<
@@ -14,7 +14,9 @@ export declare class MigrationHubConfig extends AWSServiceClient {
     | ServiceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateHomeRegionControl", input);
+  }
   deleteHomeRegionControl(
     input: DeleteHomeRegionControlRequest,
   ): Effect.Effect<
@@ -25,7 +27,9 @@ export declare class MigrationHubConfig extends AWSServiceClient {
     | ServiceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteHomeRegionControl", input);
+  }
   describeHomeRegionControls(
     input: DescribeHomeRegionControlsRequest,
   ): Effect.Effect<
@@ -36,7 +40,9 @@ export declare class MigrationHubConfig extends AWSServiceClient {
     | ServiceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeHomeRegionControls", input);
+  }
   getHomeRegion(
     input: GetHomeRegionRequest,
   ): Effect.Effect<
@@ -47,10 +53,14 @@ export declare class MigrationHubConfig extends AWSServiceClient {
     | ServiceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetHomeRegion", input);
+  }
 }
 
-export declare class MigrationhubConfig extends MigrationHubConfig {}
+export class MigrationhubConfig extends MigrationHubConfig {}
+
+export default MigrationHubConfig;
 
 export declare class AccessDeniedException extends EffectData.TaggedError(
   "AccessDeniedException",

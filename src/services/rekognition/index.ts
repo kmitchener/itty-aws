@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class Rekognition extends AWSServiceClient {
+export class Rekognition extends AWSServiceClient {
   associateFaces(
     input: AssociateFacesRequest,
   ): Effect.Effect<
@@ -17,7 +17,9 @@ export declare class Rekognition extends AWSServiceClient {
     | ServiceQuotaExceededException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AssociateFaces", input);
+  }
   compareFaces(
     input: CompareFacesRequest,
   ): Effect.Effect<
@@ -31,7 +33,9 @@ export declare class Rekognition extends AWSServiceClient {
     | ProvisionedThroughputExceededException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CompareFaces", input);
+  }
   copyProjectVersion(
     input: CopyProjectVersionRequest,
   ): Effect.Effect<
@@ -46,7 +50,9 @@ export declare class Rekognition extends AWSServiceClient {
     | ServiceQuotaExceededException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CopyProjectVersion", input);
+  }
   createCollection(
     input: CreateCollectionRequest,
   ): Effect.Effect<
@@ -59,7 +65,9 @@ export declare class Rekognition extends AWSServiceClient {
     | ServiceQuotaExceededException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateCollection", input);
+  }
   createDataset(
     input: CreateDatasetRequest,
   ): Effect.Effect<
@@ -74,7 +82,9 @@ export declare class Rekognition extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateDataset", input);
+  }
   createFaceLivenessSession(
     input: CreateFaceLivenessSessionRequest,
   ): Effect.Effect<
@@ -85,7 +95,9 @@ export declare class Rekognition extends AWSServiceClient {
     | ProvisionedThroughputExceededException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateFaceLivenessSession", input);
+  }
   createProject(
     input: CreateProjectRequest,
   ): Effect.Effect<
@@ -98,7 +110,9 @@ export declare class Rekognition extends AWSServiceClient {
     | ResourceInUseException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateProject", input);
+  }
   createProjectVersion(
     input: CreateProjectVersionRequest,
   ): Effect.Effect<
@@ -113,7 +127,9 @@ export declare class Rekognition extends AWSServiceClient {
     | ServiceQuotaExceededException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateProjectVersion", input);
+  }
   createStreamProcessor(
     input: CreateStreamProcessorRequest,
   ): Effect.Effect<
@@ -127,7 +143,9 @@ export declare class Rekognition extends AWSServiceClient {
     | ServiceQuotaExceededException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateStreamProcessor", input);
+  }
   createUser(
     input: CreateUserRequest,
   ): Effect.Effect<
@@ -142,7 +160,9 @@ export declare class Rekognition extends AWSServiceClient {
     | ServiceQuotaExceededException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateUser", input);
+  }
   deleteCollection(
     input: DeleteCollectionRequest,
   ): Effect.Effect<
@@ -154,7 +174,9 @@ export declare class Rekognition extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteCollection", input);
+  }
   deleteDataset(
     input: DeleteDatasetRequest,
   ): Effect.Effect<
@@ -168,7 +190,9 @@ export declare class Rekognition extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteDataset", input);
+  }
   deleteFaces(
     input: DeleteFacesRequest,
   ): Effect.Effect<
@@ -180,7 +204,9 @@ export declare class Rekognition extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteFaces", input);
+  }
   deleteProject(
     input: DeleteProjectRequest,
   ): Effect.Effect<
@@ -193,7 +219,9 @@ export declare class Rekognition extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteProject", input);
+  }
   deleteProjectPolicy(
     input: DeleteProjectPolicyRequest,
   ): Effect.Effect<
@@ -206,7 +234,9 @@ export declare class Rekognition extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteProjectPolicy", input);
+  }
   deleteProjectVersion(
     input: DeleteProjectVersionRequest,
   ): Effect.Effect<
@@ -219,7 +249,9 @@ export declare class Rekognition extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteProjectVersion", input);
+  }
   deleteStreamProcessor(
     input: DeleteStreamProcessorRequest,
   ): Effect.Effect<
@@ -232,7 +264,9 @@ export declare class Rekognition extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteStreamProcessor", input);
+  }
   deleteUser(
     input: DeleteUserRequest,
   ): Effect.Effect<
@@ -246,7 +280,9 @@ export declare class Rekognition extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteUser", input);
+  }
   describeCollection(
     input: DescribeCollectionRequest,
   ): Effect.Effect<
@@ -258,7 +294,9 @@ export declare class Rekognition extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeCollection", input);
+  }
   describeDataset(
     input: DescribeDatasetRequest,
   ): Effect.Effect<
@@ -270,7 +308,9 @@ export declare class Rekognition extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeDataset", input);
+  }
   describeProjects(
     input: DescribeProjectsRequest,
   ): Effect.Effect<
@@ -282,7 +322,9 @@ export declare class Rekognition extends AWSServiceClient {
     | ProvisionedThroughputExceededException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeProjects", input);
+  }
   describeProjectVersions(
     input: DescribeProjectVersionsRequest,
   ): Effect.Effect<
@@ -295,7 +337,9 @@ export declare class Rekognition extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeProjectVersions", input);
+  }
   describeStreamProcessor(
     input: DescribeStreamProcessorRequest,
   ): Effect.Effect<
@@ -307,7 +351,9 @@ export declare class Rekognition extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeStreamProcessor", input);
+  }
   detectCustomLabels(
     input: DetectCustomLabelsRequest,
   ): Effect.Effect<
@@ -324,7 +370,9 @@ export declare class Rekognition extends AWSServiceClient {
     | ResourceNotReadyException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DetectCustomLabels", input);
+  }
   detectFaces(
     input: DetectFacesRequest,
   ): Effect.Effect<
@@ -338,7 +386,9 @@ export declare class Rekognition extends AWSServiceClient {
     | ProvisionedThroughputExceededException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DetectFaces", input);
+  }
   detectLabels(
     input: DetectLabelsRequest,
   ): Effect.Effect<
@@ -352,7 +402,9 @@ export declare class Rekognition extends AWSServiceClient {
     | ProvisionedThroughputExceededException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DetectLabels", input);
+  }
   detectModerationLabels(
     input: DetectModerationLabelsRequest,
   ): Effect.Effect<
@@ -369,7 +421,9 @@ export declare class Rekognition extends AWSServiceClient {
     | ResourceNotReadyException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DetectModerationLabels", input);
+  }
   detectProtectiveEquipment(
     input: DetectProtectiveEquipmentRequest,
   ): Effect.Effect<
@@ -383,7 +437,9 @@ export declare class Rekognition extends AWSServiceClient {
     | ProvisionedThroughputExceededException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DetectProtectiveEquipment", input);
+  }
   detectText(
     input: DetectTextRequest,
   ): Effect.Effect<
@@ -397,7 +453,9 @@ export declare class Rekognition extends AWSServiceClient {
     | ProvisionedThroughputExceededException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DetectText", input);
+  }
   disassociateFaces(
     input: DisassociateFacesRequest,
   ): Effect.Effect<
@@ -411,7 +469,9 @@ export declare class Rekognition extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DisassociateFaces", input);
+  }
   distributeDatasetEntries(
     input: DistributeDatasetEntriesRequest,
   ): Effect.Effect<
@@ -424,7 +484,9 @@ export declare class Rekognition extends AWSServiceClient {
     | ResourceNotReadyException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DistributeDatasetEntries", input);
+  }
   getCelebrityInfo(
     input: GetCelebrityInfoRequest,
   ): Effect.Effect<
@@ -436,7 +498,9 @@ export declare class Rekognition extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetCelebrityInfo", input);
+  }
   getCelebrityRecognition(
     input: GetCelebrityRecognitionRequest,
   ): Effect.Effect<
@@ -449,7 +513,9 @@ export declare class Rekognition extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetCelebrityRecognition", input);
+  }
   getContentModeration(
     input: GetContentModerationRequest,
   ): Effect.Effect<
@@ -462,7 +528,9 @@ export declare class Rekognition extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetContentModeration", input);
+  }
   getFaceDetection(
     input: GetFaceDetectionRequest,
   ): Effect.Effect<
@@ -475,7 +543,9 @@ export declare class Rekognition extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetFaceDetection", input);
+  }
   getFaceLivenessSessionResults(
     input: GetFaceLivenessSessionResultsRequest,
   ): Effect.Effect<
@@ -487,7 +557,9 @@ export declare class Rekognition extends AWSServiceClient {
     | SessionNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetFaceLivenessSessionResults", input);
+  }
   getFaceSearch(
     input: GetFaceSearchRequest,
   ): Effect.Effect<
@@ -500,7 +572,9 @@ export declare class Rekognition extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetFaceSearch", input);
+  }
   getLabelDetection(
     input: GetLabelDetectionRequest,
   ): Effect.Effect<
@@ -513,7 +587,9 @@ export declare class Rekognition extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetLabelDetection", input);
+  }
   getMediaAnalysisJob(
     input: GetMediaAnalysisJobRequest,
   ): Effect.Effect<
@@ -525,7 +601,9 @@ export declare class Rekognition extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetMediaAnalysisJob", input);
+  }
   getPersonTracking(
     input: GetPersonTrackingRequest,
   ): Effect.Effect<
@@ -538,7 +616,9 @@ export declare class Rekognition extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetPersonTracking", input);
+  }
   getSegmentDetection(
     input: GetSegmentDetectionRequest,
   ): Effect.Effect<
@@ -551,7 +631,9 @@ export declare class Rekognition extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetSegmentDetection", input);
+  }
   getTextDetection(
     input: GetTextDetectionRequest,
   ): Effect.Effect<
@@ -564,7 +646,9 @@ export declare class Rekognition extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetTextDetection", input);
+  }
   indexFaces(
     input: IndexFacesRequest,
   ): Effect.Effect<
@@ -580,7 +664,9 @@ export declare class Rekognition extends AWSServiceClient {
     | ServiceQuotaExceededException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("IndexFaces", input);
+  }
   listCollections(
     input: ListCollectionsRequest,
   ): Effect.Effect<
@@ -593,7 +679,9 @@ export declare class Rekognition extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListCollections", input);
+  }
   listDatasetEntries(
     input: ListDatasetEntriesRequest,
   ): Effect.Effect<
@@ -608,7 +696,9 @@ export declare class Rekognition extends AWSServiceClient {
     | ResourceNotReadyException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListDatasetEntries", input);
+  }
   listDatasetLabels(
     input: ListDatasetLabelsRequest,
   ): Effect.Effect<
@@ -623,7 +713,9 @@ export declare class Rekognition extends AWSServiceClient {
     | ResourceNotReadyException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListDatasetLabels", input);
+  }
   listFaces(
     input: ListFacesRequest,
   ): Effect.Effect<
@@ -636,7 +728,9 @@ export declare class Rekognition extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListFaces", input);
+  }
   listMediaAnalysisJobs(
     input: ListMediaAnalysisJobsRequest,
   ): Effect.Effect<
@@ -648,7 +742,9 @@ export declare class Rekognition extends AWSServiceClient {
     | ProvisionedThroughputExceededException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListMediaAnalysisJobs", input);
+  }
   listProjectPolicies(
     input: ListProjectPoliciesRequest,
   ): Effect.Effect<
@@ -661,7 +757,9 @@ export declare class Rekognition extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListProjectPolicies", input);
+  }
   listStreamProcessors(
     input: ListStreamProcessorsRequest,
   ): Effect.Effect<
@@ -673,7 +771,9 @@ export declare class Rekognition extends AWSServiceClient {
     | ProvisionedThroughputExceededException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListStreamProcessors", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
@@ -685,7 +785,9 @@ export declare class Rekognition extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   listUsers(
     input: ListUsersRequest,
   ): Effect.Effect<
@@ -698,7 +800,9 @@ export declare class Rekognition extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListUsers", input);
+  }
   putProjectPolicy(
     input: PutProjectPolicyRequest,
   ): Effect.Effect<
@@ -715,7 +819,9 @@ export declare class Rekognition extends AWSServiceClient {
     | ServiceQuotaExceededException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutProjectPolicy", input);
+  }
   recognizeCelebrities(
     input: RecognizeCelebritiesRequest,
   ): Effect.Effect<
@@ -729,7 +835,9 @@ export declare class Rekognition extends AWSServiceClient {
     | ProvisionedThroughputExceededException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("RecognizeCelebrities", input);
+  }
   searchFaces(
     input: SearchFacesRequest,
   ): Effect.Effect<
@@ -741,7 +849,9 @@ export declare class Rekognition extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("SearchFaces", input);
+  }
   searchFacesByImage(
     input: SearchFacesByImageRequest,
   ): Effect.Effect<
@@ -756,7 +866,9 @@ export declare class Rekognition extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("SearchFacesByImage", input);
+  }
   searchUsers(
     input: SearchUsersRequest,
   ): Effect.Effect<
@@ -768,7 +880,9 @@ export declare class Rekognition extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("SearchUsers", input);
+  }
   searchUsersByImage(
     input: SearchUsersByImageRequest,
   ): Effect.Effect<
@@ -783,7 +897,9 @@ export declare class Rekognition extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("SearchUsersByImage", input);
+  }
   startCelebrityRecognition(
     input: StartCelebrityRecognitionRequest,
   ): Effect.Effect<
@@ -798,7 +914,9 @@ export declare class Rekognition extends AWSServiceClient {
     | ThrottlingException
     | VideoTooLargeException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartCelebrityRecognition", input);
+  }
   startContentModeration(
     input: StartContentModerationRequest,
   ): Effect.Effect<
@@ -813,7 +931,9 @@ export declare class Rekognition extends AWSServiceClient {
     | ThrottlingException
     | VideoTooLargeException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartContentModeration", input);
+  }
   startFaceDetection(
     input: StartFaceDetectionRequest,
   ): Effect.Effect<
@@ -828,7 +948,9 @@ export declare class Rekognition extends AWSServiceClient {
     | ThrottlingException
     | VideoTooLargeException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartFaceDetection", input);
+  }
   startFaceSearch(
     input: StartFaceSearchRequest,
   ): Effect.Effect<
@@ -844,7 +966,9 @@ export declare class Rekognition extends AWSServiceClient {
     | ThrottlingException
     | VideoTooLargeException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartFaceSearch", input);
+  }
   startLabelDetection(
     input: StartLabelDetectionRequest,
   ): Effect.Effect<
@@ -859,7 +983,9 @@ export declare class Rekognition extends AWSServiceClient {
     | ThrottlingException
     | VideoTooLargeException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartLabelDetection", input);
+  }
   startMediaAnalysisJob(
     input: StartMediaAnalysisJobRequest,
   ): Effect.Effect<
@@ -876,7 +1002,9 @@ export declare class Rekognition extends AWSServiceClient {
     | ResourceNotReadyException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartMediaAnalysisJob", input);
+  }
   startPersonTracking(
     input: StartPersonTrackingRequest,
   ): Effect.Effect<
@@ -891,7 +1019,9 @@ export declare class Rekognition extends AWSServiceClient {
     | ThrottlingException
     | VideoTooLargeException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartPersonTracking", input);
+  }
   startProjectVersion(
     input: StartProjectVersionRequest,
   ): Effect.Effect<
@@ -905,7 +1035,9 @@ export declare class Rekognition extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartProjectVersion", input);
+  }
   startSegmentDetection(
     input: StartSegmentDetectionRequest,
   ): Effect.Effect<
@@ -920,7 +1052,9 @@ export declare class Rekognition extends AWSServiceClient {
     | ThrottlingException
     | VideoTooLargeException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartSegmentDetection", input);
+  }
   startStreamProcessor(
     input: StartStreamProcessorRequest,
   ): Effect.Effect<
@@ -933,7 +1067,9 @@ export declare class Rekognition extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartStreamProcessor", input);
+  }
   startTextDetection(
     input: StartTextDetectionRequest,
   ): Effect.Effect<
@@ -948,7 +1084,9 @@ export declare class Rekognition extends AWSServiceClient {
     | ThrottlingException
     | VideoTooLargeException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartTextDetection", input);
+  }
   stopProjectVersion(
     input: StopProjectVersionRequest,
   ): Effect.Effect<
@@ -961,7 +1099,9 @@ export declare class Rekognition extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StopProjectVersion", input);
+  }
   stopStreamProcessor(
     input: StopStreamProcessorRequest,
   ): Effect.Effect<
@@ -974,7 +1114,9 @@ export declare class Rekognition extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StopStreamProcessor", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -987,7 +1129,9 @@ export declare class Rekognition extends AWSServiceClient {
     | ServiceQuotaExceededException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
@@ -999,7 +1143,9 @@ export declare class Rekognition extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
   updateDatasetEntries(
     input: UpdateDatasetEntriesRequest,
   ): Effect.Effect<
@@ -1013,7 +1159,9 @@ export declare class Rekognition extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateDatasetEntries", input);
+  }
   updateStreamProcessor(
     input: UpdateStreamProcessorRequest,
   ): Effect.Effect<
@@ -1026,8 +1174,12 @@ export declare class Rekognition extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateStreamProcessor", input);
+  }
 }
+
+export default Rekognition;
 
 export declare class AccessDeniedException extends EffectData.TaggedError(
   "AccessDeniedException",

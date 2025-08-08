@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class DataZone extends AWSServiceClient {
+export class DataZone extends AWSServiceClient {
   acceptPredictions(
     input: AcceptPredictionsInput,
   ): Effect.Effect<
@@ -14,7 +14,9 @@ export declare class DataZone extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AcceptPredictions", input);
+  }
   acceptSubscriptionRequest(
     input: AcceptSubscriptionRequestInput,
   ): Effect.Effect<
@@ -26,7 +28,9 @@ export declare class DataZone extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AcceptSubscriptionRequest", input);
+  }
   addEntityOwner(
     input: AddEntityOwnerInput,
   ): Effect.Effect<
@@ -39,7 +43,9 @@ export declare class DataZone extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AddEntityOwner", input);
+  }
   addPolicyGrant(
     input: AddPolicyGrantInput,
   ): Effect.Effect<
@@ -51,7 +57,9 @@ export declare class DataZone extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AddPolicyGrant", input);
+  }
   associateEnvironmentRole(
     input: AssociateEnvironmentRoleInput,
   ): Effect.Effect<
@@ -63,7 +71,9 @@ export declare class DataZone extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AssociateEnvironmentRole", input);
+  }
   cancelSubscription(
     input: CancelSubscriptionInput,
   ): Effect.Effect<
@@ -75,7 +85,9 @@ export declare class DataZone extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CancelSubscription", input);
+  }
   createAssetFilter(
     input: CreateAssetFilterInput,
   ): Effect.Effect<
@@ -88,7 +100,9 @@ export declare class DataZone extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateAssetFilter", input);
+  }
   createConnection(
     input: CreateConnectionInput,
   ): Effect.Effect<
@@ -101,7 +115,9 @@ export declare class DataZone extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateConnection", input);
+  }
   createEnvironment(
     input: CreateEnvironmentInput,
   ): Effect.Effect<
@@ -113,7 +129,9 @@ export declare class DataZone extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateEnvironment", input);
+  }
   createEnvironmentAction(
     input: CreateEnvironmentActionInput,
   ): Effect.Effect<
@@ -125,7 +143,9 @@ export declare class DataZone extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateEnvironmentAction", input);
+  }
   createEnvironmentProfile(
     input: CreateEnvironmentProfileInput,
   ): Effect.Effect<
@@ -138,7 +158,9 @@ export declare class DataZone extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateEnvironmentProfile", input);
+  }
   createGroupProfile(
     input: CreateGroupProfileInput,
   ): Effect.Effect<
@@ -148,7 +170,9 @@ export declare class DataZone extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateGroupProfile", input);
+  }
   createListingChangeSet(
     input: CreateListingChangeSetInput,
   ): Effect.Effect<
@@ -161,7 +185,9 @@ export declare class DataZone extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateListingChangeSet", input);
+  }
   createProject(
     input: CreateProjectInput,
   ): Effect.Effect<
@@ -174,7 +200,9 @@ export declare class DataZone extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateProject", input);
+  }
   createProjectMembership(
     input: CreateProjectMembershipInput,
   ): Effect.Effect<
@@ -184,7 +212,9 @@ export declare class DataZone extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateProjectMembership", input);
+  }
   createProjectProfile(
     input: CreateProjectProfileInput,
   ): Effect.Effect<
@@ -197,7 +227,9 @@ export declare class DataZone extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateProjectProfile", input);
+  }
   createSubscriptionGrant(
     input: CreateSubscriptionGrantInput,
   ): Effect.Effect<
@@ -209,7 +241,9 @@ export declare class DataZone extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateSubscriptionGrant", input);
+  }
   createSubscriptionRequest(
     input: CreateSubscriptionRequestInput,
   ): Effect.Effect<
@@ -221,7 +255,9 @@ export declare class DataZone extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateSubscriptionRequest", input);
+  }
   createSubscriptionTarget(
     input: CreateSubscriptionTargetInput,
   ): Effect.Effect<
@@ -233,7 +269,9 @@ export declare class DataZone extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateSubscriptionTarget", input);
+  }
   createUserProfile(
     input: CreateUserProfileInput,
   ): Effect.Effect<
@@ -243,7 +281,9 @@ export declare class DataZone extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateUserProfile", input);
+  }
   deleteAssetFilter(
     input: DeleteAssetFilterInput,
   ): Effect.Effect<
@@ -255,7 +295,9 @@ export declare class DataZone extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteAssetFilter", input);
+  }
   deleteConnection(
     input: DeleteConnectionInput,
   ): Effect.Effect<
@@ -266,7 +308,9 @@ export declare class DataZone extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteConnection", input);
+  }
   deleteEnvironment(
     input: DeleteEnvironmentInput,
   ): Effect.Effect<
@@ -277,7 +321,9 @@ export declare class DataZone extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteEnvironment", input);
+  }
   deleteEnvironmentAction(
     input: DeleteEnvironmentActionInput,
   ): Effect.Effect<
@@ -289,7 +335,9 @@ export declare class DataZone extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteEnvironmentAction", input);
+  }
   deleteEnvironmentProfile(
     input: DeleteEnvironmentProfileInput,
   ): Effect.Effect<
@@ -300,7 +348,9 @@ export declare class DataZone extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteEnvironmentProfile", input);
+  }
   deleteProject(
     input: DeleteProjectInput,
   ): Effect.Effect<
@@ -311,7 +361,9 @@ export declare class DataZone extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteProject", input);
+  }
   deleteProjectMembership(
     input: DeleteProjectMembershipInput,
   ): Effect.Effect<
@@ -323,7 +375,9 @@ export declare class DataZone extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteProjectMembership", input);
+  }
   deleteProjectProfile(
     input: DeleteProjectProfileInput,
   ): Effect.Effect<
@@ -334,7 +388,9 @@ export declare class DataZone extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteProjectProfile", input);
+  }
   deleteSubscriptionGrant(
     input: DeleteSubscriptionGrantInput,
   ): Effect.Effect<
@@ -346,7 +402,9 @@ export declare class DataZone extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteSubscriptionGrant", input);
+  }
   deleteSubscriptionRequest(
     input: DeleteSubscriptionRequestInput,
   ): Effect.Effect<
@@ -358,7 +416,9 @@ export declare class DataZone extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteSubscriptionRequest", input);
+  }
   deleteSubscriptionTarget(
     input: DeleteSubscriptionTargetInput,
   ): Effect.Effect<
@@ -370,7 +430,9 @@ export declare class DataZone extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteSubscriptionTarget", input);
+  }
   deleteTimeSeriesDataPoints(
     input: DeleteTimeSeriesDataPointsInput,
   ): Effect.Effect<
@@ -381,7 +443,9 @@ export declare class DataZone extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteTimeSeriesDataPoints", input);
+  }
   disassociateEnvironmentRole(
     input: DisassociateEnvironmentRoleInput,
   ): Effect.Effect<
@@ -393,7 +457,9 @@ export declare class DataZone extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DisassociateEnvironmentRole", input);
+  }
   getAssetFilter(
     input: GetAssetFilterInput,
   ): Effect.Effect<
@@ -404,7 +470,9 @@ export declare class DataZone extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetAssetFilter", input);
+  }
   getConnection(
     input: GetConnectionInput,
   ): Effect.Effect<
@@ -415,7 +483,9 @@ export declare class DataZone extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetConnection", input);
+  }
   getEnvironment(
     input: GetEnvironmentInput,
   ): Effect.Effect<
@@ -426,7 +496,9 @@ export declare class DataZone extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetEnvironment", input);
+  }
   getEnvironmentAction(
     input: GetEnvironmentActionInput,
   ): Effect.Effect<
@@ -437,7 +509,9 @@ export declare class DataZone extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetEnvironmentAction", input);
+  }
   getEnvironmentBlueprint(
     input: GetEnvironmentBlueprintInput,
   ): Effect.Effect<
@@ -448,7 +522,9 @@ export declare class DataZone extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetEnvironmentBlueprint", input);
+  }
   getEnvironmentCredentials(
     input: GetEnvironmentCredentialsInput,
   ): Effect.Effect<
@@ -459,7 +535,9 @@ export declare class DataZone extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetEnvironmentCredentials", input);
+  }
   getEnvironmentProfile(
     input: GetEnvironmentProfileInput,
   ): Effect.Effect<
@@ -470,7 +548,9 @@ export declare class DataZone extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetEnvironmentProfile", input);
+  }
   getGroupProfile(
     input: GetGroupProfileInput,
   ): Effect.Effect<
@@ -480,7 +560,9 @@ export declare class DataZone extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetGroupProfile", input);
+  }
   getIamPortalLoginUrl(
     input: GetIamPortalLoginUrlInput,
   ): Effect.Effect<
@@ -492,7 +574,9 @@ export declare class DataZone extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetIamPortalLoginUrl", input);
+  }
   getJobRun(
     input: GetJobRunInput,
   ): Effect.Effect<
@@ -503,7 +587,9 @@ export declare class DataZone extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetJobRun", input);
+  }
   getLineageEvent(
     input: GetLineageEventInput,
   ): Effect.Effect<
@@ -514,7 +600,9 @@ export declare class DataZone extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetLineageEvent", input);
+  }
   getLineageNode(
     input: GetLineageNodeInput,
   ): Effect.Effect<
@@ -525,7 +613,9 @@ export declare class DataZone extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetLineageNode", input);
+  }
   getProject(
     input: GetProjectInput,
   ): Effect.Effect<
@@ -536,7 +626,9 @@ export declare class DataZone extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetProject", input);
+  }
   getProjectProfile(
     input: GetProjectProfileInput,
   ): Effect.Effect<
@@ -547,7 +639,9 @@ export declare class DataZone extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetProjectProfile", input);
+  }
   getSubscription(
     input: GetSubscriptionInput,
   ): Effect.Effect<
@@ -558,7 +652,9 @@ export declare class DataZone extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetSubscription", input);
+  }
   getSubscriptionGrant(
     input: GetSubscriptionGrantInput,
   ): Effect.Effect<
@@ -569,7 +665,9 @@ export declare class DataZone extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetSubscriptionGrant", input);
+  }
   getSubscriptionRequestDetails(
     input: GetSubscriptionRequestDetailsInput,
   ): Effect.Effect<
@@ -580,7 +678,9 @@ export declare class DataZone extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetSubscriptionRequestDetails", input);
+  }
   getSubscriptionTarget(
     input: GetSubscriptionTargetInput,
   ): Effect.Effect<
@@ -591,7 +691,9 @@ export declare class DataZone extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetSubscriptionTarget", input);
+  }
   getTimeSeriesDataPoint(
     input: GetTimeSeriesDataPointInput,
   ): Effect.Effect<
@@ -602,7 +704,9 @@ export declare class DataZone extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetTimeSeriesDataPoint", input);
+  }
   getUserProfile(
     input: GetUserProfileInput,
   ): Effect.Effect<
@@ -612,7 +716,9 @@ export declare class DataZone extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetUserProfile", input);
+  }
   listAssetFilters(
     input: ListAssetFiltersInput,
   ): Effect.Effect<
@@ -623,7 +729,9 @@ export declare class DataZone extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListAssetFilters", input);
+  }
   listAssetRevisions(
     input: ListAssetRevisionsInput,
   ): Effect.Effect<
@@ -634,7 +742,9 @@ export declare class DataZone extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListAssetRevisions", input);
+  }
   listConnections(
     input: ListConnectionsInput,
   ): Effect.Effect<
@@ -644,7 +754,9 @@ export declare class DataZone extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListConnections", input);
+  }
   listDataProductRevisions(
     input: ListDataProductRevisionsInput,
   ): Effect.Effect<
@@ -655,7 +767,9 @@ export declare class DataZone extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListDataProductRevisions", input);
+  }
   listDataSourceRunActivities(
     input: ListDataSourceRunActivitiesInput,
   ): Effect.Effect<
@@ -668,7 +782,9 @@ export declare class DataZone extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListDataSourceRunActivities", input);
+  }
   listEntityOwners(
     input: ListEntityOwnersInput,
   ): Effect.Effect<
@@ -678,7 +794,9 @@ export declare class DataZone extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListEntityOwners", input);
+  }
   listEnvironmentActions(
     input: ListEnvironmentActionsInput,
   ): Effect.Effect<
@@ -688,7 +806,9 @@ export declare class DataZone extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListEnvironmentActions", input);
+  }
   listEnvironmentBlueprints(
     input: ListEnvironmentBlueprintsInput,
   ): Effect.Effect<
@@ -699,7 +819,9 @@ export declare class DataZone extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListEnvironmentBlueprints", input);
+  }
   listEnvironmentProfiles(
     input: ListEnvironmentProfilesInput,
   ): Effect.Effect<
@@ -709,7 +831,9 @@ export declare class DataZone extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListEnvironmentProfiles", input);
+  }
   listEnvironments(
     input: ListEnvironmentsInput,
   ): Effect.Effect<
@@ -719,7 +843,9 @@ export declare class DataZone extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListEnvironments", input);
+  }
   listJobRuns(
     input: ListJobRunsInput,
   ): Effect.Effect<
@@ -730,7 +856,9 @@ export declare class DataZone extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListJobRuns", input);
+  }
   listLineageEvents(
     input: ListLineageEventsInput,
   ): Effect.Effect<
@@ -740,7 +868,9 @@ export declare class DataZone extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListLineageEvents", input);
+  }
   listLineageNodeHistory(
     input: ListLineageNodeHistoryInput,
   ): Effect.Effect<
@@ -751,7 +881,9 @@ export declare class DataZone extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListLineageNodeHistory", input);
+  }
   listNotifications(
     input: ListNotificationsInput,
   ): Effect.Effect<
@@ -761,7 +893,9 @@ export declare class DataZone extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListNotifications", input);
+  }
   listPolicyGrants(
     input: ListPolicyGrantsInput,
   ): Effect.Effect<
@@ -771,7 +905,9 @@ export declare class DataZone extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListPolicyGrants", input);
+  }
   listProjectMemberships(
     input: ListProjectMembershipsInput,
   ): Effect.Effect<
@@ -782,7 +918,9 @@ export declare class DataZone extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListProjectMemberships", input);
+  }
   listProjectProfiles(
     input: ListProjectProfilesInput,
   ): Effect.Effect<
@@ -792,7 +930,9 @@ export declare class DataZone extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListProjectProfiles", input);
+  }
   listProjects(
     input: ListProjectsInput,
   ): Effect.Effect<
@@ -802,7 +942,9 @@ export declare class DataZone extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListProjects", input);
+  }
   listSubscriptionGrants(
     input: ListSubscriptionGrantsInput,
   ): Effect.Effect<
@@ -813,7 +955,9 @@ export declare class DataZone extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListSubscriptionGrants", input);
+  }
   listSubscriptionRequests(
     input: ListSubscriptionRequestsInput,
   ): Effect.Effect<
@@ -824,7 +968,9 @@ export declare class DataZone extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListSubscriptionRequests", input);
+  }
   listSubscriptions(
     input: ListSubscriptionsInput,
   ): Effect.Effect<
@@ -835,7 +981,9 @@ export declare class DataZone extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListSubscriptions", input);
+  }
   listSubscriptionTargets(
     input: ListSubscriptionTargetsInput,
   ): Effect.Effect<
@@ -846,7 +994,9 @@ export declare class DataZone extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListSubscriptionTargets", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
@@ -855,7 +1005,9 @@ export declare class DataZone extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   listTimeSeriesDataPoints(
     input: ListTimeSeriesDataPointsInput,
   ): Effect.Effect<
@@ -866,7 +1018,9 @@ export declare class DataZone extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTimeSeriesDataPoints", input);
+  }
   postLineageEvent(
     input: PostLineageEventInput,
   ): Effect.Effect<
@@ -879,7 +1033,9 @@ export declare class DataZone extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PostLineageEvent", input);
+  }
   postTimeSeriesDataPoints(
     input: PostTimeSeriesDataPointsInput,
   ): Effect.Effect<
@@ -892,7 +1048,9 @@ export declare class DataZone extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PostTimeSeriesDataPoints", input);
+  }
   rejectPredictions(
     input: RejectPredictionsInput,
   ): Effect.Effect<
@@ -904,7 +1062,9 @@ export declare class DataZone extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("RejectPredictions", input);
+  }
   rejectSubscriptionRequest(
     input: RejectSubscriptionRequestInput,
   ): Effect.Effect<
@@ -916,7 +1076,9 @@ export declare class DataZone extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("RejectSubscriptionRequest", input);
+  }
   removeEntityOwner(
     input: RemoveEntityOwnerInput,
   ): Effect.Effect<
@@ -927,7 +1089,9 @@ export declare class DataZone extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("RemoveEntityOwner", input);
+  }
   removePolicyGrant(
     input: RemovePolicyGrantInput,
   ): Effect.Effect<
@@ -937,7 +1101,9 @@ export declare class DataZone extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("RemovePolicyGrant", input);
+  }
   revokeSubscription(
     input: RevokeSubscriptionInput,
   ): Effect.Effect<
@@ -949,7 +1115,9 @@ export declare class DataZone extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("RevokeSubscription", input);
+  }
   search(
     input: SearchInput,
   ): Effect.Effect<
@@ -959,7 +1127,9 @@ export declare class DataZone extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("Search", input);
+  }
   searchGroupProfiles(
     input: SearchGroupProfilesInput,
   ): Effect.Effect<
@@ -969,7 +1139,9 @@ export declare class DataZone extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("SearchGroupProfiles", input);
+  }
   searchListings(
     input: SearchListingsInput,
   ): Effect.Effect<
@@ -979,7 +1151,9 @@ export declare class DataZone extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("SearchListings", input);
+  }
   searchTypes(
     input: SearchTypesInput,
   ): Effect.Effect<
@@ -989,7 +1163,9 @@ export declare class DataZone extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("SearchTypes", input);
+  }
   searchUserProfiles(
     input: SearchUserProfilesInput,
   ): Effect.Effect<
@@ -999,7 +1175,9 @@ export declare class DataZone extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("SearchUserProfiles", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -1008,13 +1186,17 @@ export declare class DataZone extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
     InternalServerException | ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
   updateAssetFilter(
     input: UpdateAssetFilterInput,
   ): Effect.Effect<
@@ -1026,7 +1208,9 @@ export declare class DataZone extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateAssetFilter", input);
+  }
   updateConnection(
     input: UpdateConnectionInput,
   ): Effect.Effect<
@@ -1039,7 +1223,9 @@ export declare class DataZone extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateConnection", input);
+  }
   updateEnvironment(
     input: UpdateEnvironmentInput,
   ): Effect.Effect<
@@ -1051,7 +1237,9 @@ export declare class DataZone extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateEnvironment", input);
+  }
   updateEnvironmentAction(
     input: UpdateEnvironmentActionInput,
   ): Effect.Effect<
@@ -1063,7 +1251,9 @@ export declare class DataZone extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateEnvironmentAction", input);
+  }
   updateEnvironmentProfile(
     input: UpdateEnvironmentProfileInput,
   ): Effect.Effect<
@@ -1076,7 +1266,9 @@ export declare class DataZone extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateEnvironmentProfile", input);
+  }
   updateGroupProfile(
     input: UpdateGroupProfileInput,
   ): Effect.Effect<
@@ -1086,7 +1278,9 @@ export declare class DataZone extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateGroupProfile", input);
+  }
   updateProject(
     input: UpdateProjectInput,
   ): Effect.Effect<
@@ -1099,7 +1293,9 @@ export declare class DataZone extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateProject", input);
+  }
   updateProjectProfile(
     input: UpdateProjectProfileInput,
   ): Effect.Effect<
@@ -1112,7 +1308,9 @@ export declare class DataZone extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateProjectProfile", input);
+  }
   updateSubscriptionGrantStatus(
     input: UpdateSubscriptionGrantStatusInput,
   ): Effect.Effect<
@@ -1124,7 +1322,9 @@ export declare class DataZone extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateSubscriptionGrantStatus", input);
+  }
   updateSubscriptionRequest(
     input: UpdateSubscriptionRequestInput,
   ): Effect.Effect<
@@ -1136,7 +1336,9 @@ export declare class DataZone extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateSubscriptionRequest", input);
+  }
   updateSubscriptionTarget(
     input: UpdateSubscriptionTargetInput,
   ): Effect.Effect<
@@ -1148,7 +1350,9 @@ export declare class DataZone extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateSubscriptionTarget", input);
+  }
   updateUserProfile(
     input: UpdateUserProfileInput,
   ): Effect.Effect<
@@ -1158,10 +1362,14 @@ export declare class DataZone extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateUserProfile", input);
+  }
 }
 
-export declare class Datazone extends DataZone {}
+export class Datazone extends DataZone {}
+
+export default DataZone;
 
 export interface AcceptChoice {
   predictionTarget: string;

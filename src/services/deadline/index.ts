@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class deadline extends AWSServiceClient {
+export class deadline extends AWSServiceClient {
   createQueueFleetAssociation(
     input: CreateQueueFleetAssociationRequest,
   ): Effect.Effect<
@@ -13,7 +13,9 @@ export declare class deadline extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateQueueFleetAssociation", input);
+  }
   createQueueLimitAssociation(
     input: CreateQueueLimitAssociationRequest,
   ): Effect.Effect<
@@ -24,7 +26,9 @@ export declare class deadline extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateQueueLimitAssociation", input);
+  }
   deleteQueueFleetAssociation(
     input: DeleteQueueFleetAssociationRequest,
   ): Effect.Effect<
@@ -36,7 +40,9 @@ export declare class deadline extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteQueueFleetAssociation", input);
+  }
   deleteQueueLimitAssociation(
     input: DeleteQueueLimitAssociationRequest,
   ): Effect.Effect<
@@ -48,7 +54,9 @@ export declare class deadline extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteQueueLimitAssociation", input);
+  }
   getQueueFleetAssociation(
     input: GetQueueFleetAssociationRequest,
   ): Effect.Effect<
@@ -59,7 +67,9 @@ export declare class deadline extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetQueueFleetAssociation", input);
+  }
   getQueueLimitAssociation(
     input: GetQueueLimitAssociationRequest,
   ): Effect.Effect<
@@ -70,7 +80,9 @@ export declare class deadline extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetQueueLimitAssociation", input);
+  }
   getSessionsStatisticsAggregation(
     input: GetSessionsStatisticsAggregationRequest,
   ): Effect.Effect<
@@ -81,13 +93,17 @@ export declare class deadline extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetSessionsStatisticsAggregation", input);
+  }
   listAvailableMeteredProducts(
     input: ListAvailableMeteredProductsRequest,
   ): Effect.Effect<
     ListAvailableMeteredProductsResponse,
     InternalServerErrorException | ThrottlingException | CommonAwsError
-  >;
+  > {
+    return this.call("ListAvailableMeteredProducts", input);
+  }
   listQueueFleetAssociations(
     input: ListQueueFleetAssociationsRequest,
   ): Effect.Effect<
@@ -97,7 +113,9 @@ export declare class deadline extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListQueueFleetAssociations", input);
+  }
   listQueueLimitAssociations(
     input: ListQueueLimitAssociationsRequest,
   ): Effect.Effect<
@@ -107,7 +125,9 @@ export declare class deadline extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListQueueLimitAssociations", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
@@ -118,7 +138,9 @@ export declare class deadline extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   searchJobs(
     input: SearchJobsRequest,
   ): Effect.Effect<
@@ -129,7 +151,9 @@ export declare class deadline extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("SearchJobs", input);
+  }
   searchSteps(
     input: SearchStepsRequest,
   ): Effect.Effect<
@@ -140,7 +164,9 @@ export declare class deadline extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("SearchSteps", input);
+  }
   searchTasks(
     input: SearchTasksRequest,
   ): Effect.Effect<
@@ -151,7 +177,9 @@ export declare class deadline extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("SearchTasks", input);
+  }
   searchWorkers(
     input: SearchWorkersRequest,
   ): Effect.Effect<
@@ -162,7 +190,9 @@ export declare class deadline extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("SearchWorkers", input);
+  }
   startSessionsStatisticsAggregation(
     input: StartSessionsStatisticsAggregationRequest,
   ): Effect.Effect<
@@ -173,7 +203,9 @@ export declare class deadline extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartSessionsStatisticsAggregation", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -185,7 +217,9 @@ export declare class deadline extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
@@ -197,7 +231,9 @@ export declare class deadline extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
   updateQueueFleetAssociation(
     input: UpdateQueueFleetAssociationRequest,
   ): Effect.Effect<
@@ -208,7 +244,9 @@ export declare class deadline extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateQueueFleetAssociation", input);
+  }
   updateQueueLimitAssociation(
     input: UpdateQueueLimitAssociationRequest,
   ): Effect.Effect<
@@ -219,8 +257,12 @@ export declare class deadline extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateQueueLimitAssociation", input);
+  }
 }
+
+export default deadline;
 
 export interface AcceleratorCapabilities {
   selections: Array<AcceleratorSelection>;

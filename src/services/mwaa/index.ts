@@ -2,19 +2,23 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class MWAA extends AWSServiceClient {
+export class MWAA extends AWSServiceClient {
   createCliToken(
     input: CreateCliTokenRequest,
   ): Effect.Effect<
     CreateCliTokenResponse,
     ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("CreateCliToken", input);
+  }
   createEnvironment(
     input: CreateEnvironmentInput,
   ): Effect.Effect<
     CreateEnvironmentOutput,
     InternalServerException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("CreateEnvironment", input);
+  }
   createWebLoginToken(
     input: CreateWebLoginTokenRequest,
   ): Effect.Effect<
@@ -24,7 +28,9 @@ export declare class MWAA extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateWebLoginToken", input);
+  }
   deleteEnvironment(
     input: DeleteEnvironmentInput,
   ): Effect.Effect<
@@ -33,7 +39,9 @@ export declare class MWAA extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteEnvironment", input);
+  }
   getEnvironment(
     input: GetEnvironmentInput,
   ): Effect.Effect<
@@ -42,7 +50,9 @@ export declare class MWAA extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetEnvironment", input);
+  }
   invokeRestApi(
     input: InvokeRestApiRequest,
   ): Effect.Effect<
@@ -54,13 +64,17 @@ export declare class MWAA extends AWSServiceClient {
     | RestApiServerException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("InvokeRestApi", input);
+  }
   listEnvironments(
     input: ListEnvironmentsInput,
   ): Effect.Effect<
     ListEnvironmentsOutput,
     InternalServerException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("ListEnvironments", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceInput,
   ): Effect.Effect<
@@ -69,13 +83,17 @@ export declare class MWAA extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   publishMetrics(
     input: PublishMetricsInput,
   ): Effect.Effect<
     PublishMetricsOutput,
     InternalServerException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("PublishMetrics", input);
+  }
   tagResource(
     input: TagResourceInput,
   ): Effect.Effect<
@@ -84,7 +102,9 @@ export declare class MWAA extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceInput,
   ): Effect.Effect<
@@ -93,7 +113,9 @@ export declare class MWAA extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
   updateEnvironment(
     input: UpdateEnvironmentInput,
   ): Effect.Effect<
@@ -102,10 +124,14 @@ export declare class MWAA extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateEnvironment", input);
+  }
 }
 
-export declare class Mwaa extends MWAA {}
+export class Mwaa extends MWAA {}
+
+export default MWAA;
 
 export declare class AccessDeniedException extends EffectData.TaggedError(
   "AccessDeniedException",

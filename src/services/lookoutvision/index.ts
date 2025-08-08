@@ -3,7 +3,7 @@ import type { Buffer } from "node:buffer";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class LookoutVision extends AWSServiceClient {
+export class LookoutVision extends AWSServiceClient {
   createDataset(
     input: CreateDatasetRequest,
   ): Effect.Effect<
@@ -16,7 +16,9 @@ export declare class LookoutVision extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateDataset", input);
+  }
   createModel(
     input: CreateModelRequest,
   ): Effect.Effect<
@@ -29,7 +31,9 @@ export declare class LookoutVision extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateModel", input);
+  }
   createProject(
     input: CreateProjectRequest,
   ): Effect.Effect<
@@ -42,7 +46,9 @@ export declare class LookoutVision extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateProject", input);
+  }
   deleteDataset(
     input: DeleteDatasetRequest,
   ): Effect.Effect<
@@ -54,7 +60,9 @@ export declare class LookoutVision extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteDataset", input);
+  }
   deleteModel(
     input: DeleteModelRequest,
   ): Effect.Effect<
@@ -66,7 +74,9 @@ export declare class LookoutVision extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteModel", input);
+  }
   deleteProject(
     input: DeleteProjectRequest,
   ): Effect.Effect<
@@ -78,7 +88,9 @@ export declare class LookoutVision extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteProject", input);
+  }
   describeDataset(
     input: DescribeDatasetRequest,
   ): Effect.Effect<
@@ -90,7 +102,9 @@ export declare class LookoutVision extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeDataset", input);
+  }
   describeModel(
     input: DescribeModelRequest,
   ): Effect.Effect<
@@ -102,7 +116,9 @@ export declare class LookoutVision extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeModel", input);
+  }
   describeModelPackagingJob(
     input: DescribeModelPackagingJobRequest,
   ): Effect.Effect<
@@ -113,7 +129,9 @@ export declare class LookoutVision extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeModelPackagingJob", input);
+  }
   describeProject(
     input: DescribeProjectRequest,
   ): Effect.Effect<
@@ -125,7 +143,9 @@ export declare class LookoutVision extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeProject", input);
+  }
   detectAnomalies(
     input: DetectAnomaliesRequest,
   ): Effect.Effect<
@@ -137,7 +157,9 @@ export declare class LookoutVision extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DetectAnomalies", input);
+  }
   listDatasetEntries(
     input: ListDatasetEntriesRequest,
   ): Effect.Effect<
@@ -149,7 +171,9 @@ export declare class LookoutVision extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListDatasetEntries", input);
+  }
   listModelPackagingJobs(
     input: ListModelPackagingJobsRequest,
   ): Effect.Effect<
@@ -160,7 +184,9 @@ export declare class LookoutVision extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListModelPackagingJobs", input);
+  }
   listModels(
     input: ListModelsRequest,
   ): Effect.Effect<
@@ -172,7 +198,9 @@ export declare class LookoutVision extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListModels", input);
+  }
   listProjects(
     input: ListProjectsRequest,
   ): Effect.Effect<
@@ -184,7 +212,9 @@ export declare class LookoutVision extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListProjects", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
@@ -196,7 +226,9 @@ export declare class LookoutVision extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   startModel(
     input: StartModelRequest,
   ): Effect.Effect<
@@ -209,7 +241,9 @@ export declare class LookoutVision extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartModel", input);
+  }
   startModelPackagingJob(
     input: StartModelPackagingJobRequest,
   ): Effect.Effect<
@@ -222,7 +256,9 @@ export declare class LookoutVision extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartModelPackagingJob", input);
+  }
   stopModel(
     input: StopModelRequest,
   ): Effect.Effect<
@@ -234,7 +270,9 @@ export declare class LookoutVision extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StopModel", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -247,7 +285,9 @@ export declare class LookoutVision extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
@@ -259,7 +299,9 @@ export declare class LookoutVision extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
   updateDatasetEntries(
     input: UpdateDatasetEntriesRequest,
   ): Effect.Effect<
@@ -271,10 +313,14 @@ export declare class LookoutVision extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateDatasetEntries", input);
+  }
 }
 
-export declare class Lookoutvision extends LookoutVision {}
+export class Lookoutvision extends LookoutVision {}
+
+export default LookoutVision;
 
 export declare class AccessDeniedException extends EffectData.TaggedError(
   "AccessDeniedException",

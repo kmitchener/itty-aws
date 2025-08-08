@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class Glue extends AWSServiceClient {
+export class Glue extends AWSServiceClient {
   batchCreatePartition(
     input: BatchCreatePartitionRequest,
   ): Effect.Effect<
@@ -15,13 +15,17 @@ export declare class Glue extends AWSServiceClient {
     | OperationTimeoutException
     | ResourceNumberLimitExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("BatchCreatePartition", input);
+  }
   batchDeleteConnection(
     input: BatchDeleteConnectionRequest,
   ): Effect.Effect<
     BatchDeleteConnectionResponse,
     InternalServiceException | OperationTimeoutException | CommonAwsError
-  >;
+  > {
+    return this.call("BatchDeleteConnection", input);
+  }
   batchDeletePartition(
     input: BatchDeletePartitionRequest,
   ): Effect.Effect<
@@ -31,7 +35,9 @@ export declare class Glue extends AWSServiceClient {
     | InvalidInputException
     | OperationTimeoutException
     | CommonAwsError
-  >;
+  > {
+    return this.call("BatchDeletePartition", input);
+  }
   batchDeleteTable(
     input: BatchDeleteTableRequest,
   ): Effect.Effect<
@@ -43,7 +49,9 @@ export declare class Glue extends AWSServiceClient {
     | OperationTimeoutException
     | ResourceNotReadyException
     | CommonAwsError
-  >;
+  > {
+    return this.call("BatchDeleteTable", input);
+  }
   batchDeleteTableVersion(
     input: BatchDeleteTableVersionRequest,
   ): Effect.Effect<
@@ -53,7 +61,9 @@ export declare class Glue extends AWSServiceClient {
     | InvalidInputException
     | OperationTimeoutException
     | CommonAwsError
-  >;
+  > {
+    return this.call("BatchDeleteTableVersion", input);
+  }
   batchGetBlueprints(
     input: BatchGetBlueprintsRequest,
   ): Effect.Effect<
@@ -62,13 +72,17 @@ export declare class Glue extends AWSServiceClient {
     | InvalidInputException
     | OperationTimeoutException
     | CommonAwsError
-  >;
+  > {
+    return this.call("BatchGetBlueprints", input);
+  }
   batchGetCrawlers(
     input: BatchGetCrawlersRequest,
   ): Effect.Effect<
     BatchGetCrawlersResponse,
     InvalidInputException | OperationTimeoutException | CommonAwsError
-  >;
+  > {
+    return this.call("BatchGetCrawlers", input);
+  }
   batchGetCustomEntityTypes(
     input: BatchGetCustomEntityTypesRequest,
   ): Effect.Effect<
@@ -77,7 +91,9 @@ export declare class Glue extends AWSServiceClient {
     | InvalidInputException
     | OperationTimeoutException
     | CommonAwsError
-  >;
+  > {
+    return this.call("BatchGetCustomEntityTypes", input);
+  }
   batchGetDataQualityResult(
     input: BatchGetDataQualityResultRequest,
   ): Effect.Effect<
@@ -86,7 +102,9 @@ export declare class Glue extends AWSServiceClient {
     | InvalidInputException
     | OperationTimeoutException
     | CommonAwsError
-  >;
+  > {
+    return this.call("BatchGetDataQualityResult", input);
+  }
   batchGetDevEndpoints(
     input: BatchGetDevEndpointsRequest,
   ): Effect.Effect<
@@ -96,7 +114,9 @@ export declare class Glue extends AWSServiceClient {
     | InvalidInputException
     | OperationTimeoutException
     | CommonAwsError
-  >;
+  > {
+    return this.call("BatchGetDevEndpoints", input);
+  }
   batchGetJobs(
     input: BatchGetJobsRequest,
   ): Effect.Effect<
@@ -105,7 +125,9 @@ export declare class Glue extends AWSServiceClient {
     | InvalidInputException
     | OperationTimeoutException
     | CommonAwsError
-  >;
+  > {
+    return this.call("BatchGetJobs", input);
+  }
   batchGetPartition(
     input: BatchGetPartitionRequest,
   ): Effect.Effect<
@@ -119,7 +141,9 @@ export declare class Glue extends AWSServiceClient {
     | InvalidStateException
     | OperationTimeoutException
     | CommonAwsError
-  >;
+  > {
+    return this.call("BatchGetPartition", input);
+  }
   batchGetTableOptimizer(
     input: BatchGetTableOptimizerRequest,
   ): Effect.Effect<
@@ -130,7 +154,9 @@ export declare class Glue extends AWSServiceClient {
     | InvalidInputException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("BatchGetTableOptimizer", input);
+  }
   batchGetTriggers(
     input: BatchGetTriggersRequest,
   ): Effect.Effect<
@@ -139,7 +165,9 @@ export declare class Glue extends AWSServiceClient {
     | InvalidInputException
     | OperationTimeoutException
     | CommonAwsError
-  >;
+  > {
+    return this.call("BatchGetTriggers", input);
+  }
   batchGetWorkflows(
     input: BatchGetWorkflowsRequest,
   ): Effect.Effect<
@@ -148,7 +176,9 @@ export declare class Glue extends AWSServiceClient {
     | InvalidInputException
     | OperationTimeoutException
     | CommonAwsError
-  >;
+  > {
+    return this.call("BatchGetWorkflows", input);
+  }
   batchPutDataQualityStatisticAnnotation(
     input: BatchPutDataQualityStatisticAnnotationRequest,
   ): Effect.Effect<
@@ -158,7 +188,9 @@ export declare class Glue extends AWSServiceClient {
     | InvalidInputException
     | ResourceNumberLimitExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("BatchPutDataQualityStatisticAnnotation", input);
+  }
   batchStopJobRun(
     input: BatchStopJobRunRequest,
   ): Effect.Effect<
@@ -167,7 +199,9 @@ export declare class Glue extends AWSServiceClient {
     | InvalidInputException
     | OperationTimeoutException
     | CommonAwsError
-  >;
+  > {
+    return this.call("BatchStopJobRun", input);
+  }
   batchUpdatePartition(
     input: BatchUpdatePartitionRequest,
   ): Effect.Effect<
@@ -178,7 +212,9 @@ export declare class Glue extends AWSServiceClient {
     | InvalidInputException
     | OperationTimeoutException
     | CommonAwsError
-  >;
+  > {
+    return this.call("BatchUpdatePartition", input);
+  }
   cancelDataQualityRuleRecommendationRun(
     input: CancelDataQualityRuleRecommendationRunRequest,
   ): Effect.Effect<
@@ -188,7 +224,9 @@ export declare class Glue extends AWSServiceClient {
     | InvalidInputException
     | OperationTimeoutException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CancelDataQualityRuleRecommendationRun", input);
+  }
   cancelDataQualityRulesetEvaluationRun(
     input: CancelDataQualityRulesetEvaluationRunRequest,
   ): Effect.Effect<
@@ -198,7 +236,9 @@ export declare class Glue extends AWSServiceClient {
     | InvalidInputException
     | OperationTimeoutException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CancelDataQualityRulesetEvaluationRun", input);
+  }
   cancelMLTaskRun(
     input: CancelMLTaskRunRequest,
   ): Effect.Effect<
@@ -208,7 +248,9 @@ export declare class Glue extends AWSServiceClient {
     | InvalidInputException
     | OperationTimeoutException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CancelMLTaskRun", input);
+  }
   cancelStatement(
     input: CancelStatementRequest,
   ): Effect.Effect<
@@ -220,7 +262,9 @@ export declare class Glue extends AWSServiceClient {
     | InvalidInputException
     | OperationTimeoutException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CancelStatement", input);
+  }
   checkSchemaVersionValidity(
     input: CheckSchemaVersionValidityInput,
   ): Effect.Effect<
@@ -229,7 +273,9 @@ export declare class Glue extends AWSServiceClient {
     | InternalServiceException
     | InvalidInputException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CheckSchemaVersionValidity", input);
+  }
   createBlueprint(
     input: CreateBlueprintRequest,
   ): Effect.Effect<
@@ -240,7 +286,9 @@ export declare class Glue extends AWSServiceClient {
     | OperationTimeoutException
     | ResourceNumberLimitExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateBlueprint", input);
+  }
   createCatalog(
     input: CreateCatalogRequest,
   ): Effect.Effect<
@@ -257,7 +305,9 @@ export declare class Glue extends AWSServiceClient {
     | OperationTimeoutException
     | ResourceNumberLimitExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateCatalog", input);
+  }
   createClassifier(
     input: CreateClassifierRequest,
   ): Effect.Effect<
@@ -266,7 +316,9 @@ export declare class Glue extends AWSServiceClient {
     | InvalidInputException
     | OperationTimeoutException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateClassifier", input);
+  }
   createColumnStatisticsTaskSettings(
     input: CreateColumnStatisticsTaskSettingsRequest,
   ): Effect.Effect<
@@ -279,7 +331,9 @@ export declare class Glue extends AWSServiceClient {
     | OperationTimeoutException
     | ResourceNumberLimitExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateColumnStatisticsTaskSettings", input);
+  }
   createConnection(
     input: CreateConnectionRequest,
   ): Effect.Effect<
@@ -290,7 +344,9 @@ export declare class Glue extends AWSServiceClient {
     | OperationTimeoutException
     | ResourceNumberLimitExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateConnection", input);
+  }
   createCrawler(
     input: CreateCrawlerRequest,
   ): Effect.Effect<
@@ -300,7 +356,9 @@ export declare class Glue extends AWSServiceClient {
     | OperationTimeoutException
     | ResourceNumberLimitExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateCrawler", input);
+  }
   createCustomEntityType(
     input: CreateCustomEntityTypeRequest,
   ): Effect.Effect<
@@ -313,7 +371,9 @@ export declare class Glue extends AWSServiceClient {
     | OperationTimeoutException
     | ResourceNumberLimitExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateCustomEntityType", input);
+  }
   createDatabase(
     input: CreateDatabaseRequest,
   ): Effect.Effect<
@@ -329,7 +389,9 @@ export declare class Glue extends AWSServiceClient {
     | OperationTimeoutException
     | ResourceNumberLimitExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateDatabase", input);
+  }
   createDataQualityRuleset(
     input: CreateDataQualityRulesetRequest,
   ): Effect.Effect<
@@ -340,7 +402,9 @@ export declare class Glue extends AWSServiceClient {
     | OperationTimeoutException
     | ResourceNumberLimitExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateDataQualityRuleset", input);
+  }
   createDevEndpoint(
     input: CreateDevEndpointRequest,
   ): Effect.Effect<
@@ -354,7 +418,9 @@ export declare class Glue extends AWSServiceClient {
     | ResourceNumberLimitExceededException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateDevEndpoint", input);
+  }
   createIntegration(
     input: CreateIntegrationRequest,
   ): Effect.Effect<
@@ -372,7 +438,9 @@ export declare class Glue extends AWSServiceClient {
     | ResourceNumberLimitExceededException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateIntegration", input);
+  }
   createIntegrationResourceProperty(
     input: CreateIntegrationResourcePropertyRequest,
   ): Effect.Effect<
@@ -386,7 +454,9 @@ export declare class Glue extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateIntegrationResourceProperty", input);
+  }
   createIntegrationTableProperties(
     input: CreateIntegrationTablePropertiesRequest,
   ): Effect.Effect<
@@ -399,7 +469,9 @@ export declare class Glue extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateIntegrationTableProperties", input);
+  }
   createJob(
     input: CreateJobRequest,
   ): Effect.Effect<
@@ -412,7 +484,9 @@ export declare class Glue extends AWSServiceClient {
     | OperationTimeoutException
     | ResourceNumberLimitExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateJob", input);
+  }
   createMLTransform(
     input: CreateMLTransformRequest,
   ): Effect.Effect<
@@ -425,7 +499,9 @@ export declare class Glue extends AWSServiceClient {
     | OperationTimeoutException
     | ResourceNumberLimitExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateMLTransform", input);
+  }
   createPartition(
     input: CreatePartitionRequest,
   ): Effect.Effect<
@@ -438,7 +514,9 @@ export declare class Glue extends AWSServiceClient {
     | OperationTimeoutException
     | ResourceNumberLimitExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreatePartition", input);
+  }
   createPartitionIndex(
     input: CreatePartitionIndexRequest,
   ): Effect.Effect<
@@ -451,7 +529,9 @@ export declare class Glue extends AWSServiceClient {
     | OperationTimeoutException
     | ResourceNumberLimitExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreatePartitionIndex", input);
+  }
   createRegistry(
     input: CreateRegistryInput,
   ): Effect.Effect<
@@ -463,7 +543,9 @@ export declare class Glue extends AWSServiceClient {
     | InvalidInputException
     | ResourceNumberLimitExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateRegistry", input);
+  }
   createSchema(
     input: CreateSchemaInput,
   ): Effect.Effect<
@@ -476,7 +558,9 @@ export declare class Glue extends AWSServiceClient {
     | InvalidInputException
     | ResourceNumberLimitExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateSchema", input);
+  }
   createScript(
     input: CreateScriptRequest,
   ): Effect.Effect<
@@ -485,7 +569,9 @@ export declare class Glue extends AWSServiceClient {
     | InvalidInputException
     | OperationTimeoutException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateScript", input);
+  }
   createSecurityConfiguration(
     input: CreateSecurityConfigurationRequest,
   ): Effect.Effect<
@@ -496,7 +582,9 @@ export declare class Glue extends AWSServiceClient {
     | OperationTimeoutException
     | ResourceNumberLimitExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateSecurityConfiguration", input);
+  }
   createSession(
     input: CreateSessionRequest,
   ): Effect.Effect<
@@ -510,7 +598,9 @@ export declare class Glue extends AWSServiceClient {
     | ResourceNumberLimitExceededException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateSession", input);
+  }
   createTable(
     input: CreateTableRequest,
   ): Effect.Effect<
@@ -527,7 +617,9 @@ export declare class Glue extends AWSServiceClient {
     | ResourceNotReadyException
     | ResourceNumberLimitExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateTable", input);
+  }
   createTableOptimizer(
     input: CreateTableOptimizerRequest,
   ): Effect.Effect<
@@ -540,7 +632,9 @@ export declare class Glue extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateTableOptimizer", input);
+  }
   createTrigger(
     input: CreateTriggerRequest,
   ): Effect.Effect<
@@ -554,7 +648,9 @@ export declare class Glue extends AWSServiceClient {
     | OperationTimeoutException
     | ResourceNumberLimitExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateTrigger", input);
+  }
   createUsageProfile(
     input: CreateUsageProfileRequest,
   ): Effect.Effect<
@@ -566,7 +662,9 @@ export declare class Glue extends AWSServiceClient {
     | OperationTimeoutException
     | ResourceNumberLimitExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateUsageProfile", input);
+  }
   createUserDefinedFunction(
     input: CreateUserDefinedFunctionRequest,
   ): Effect.Effect<
@@ -579,7 +677,9 @@ export declare class Glue extends AWSServiceClient {
     | OperationTimeoutException
     | ResourceNumberLimitExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateUserDefinedFunction", input);
+  }
   createWorkflow(
     input: CreateWorkflowRequest,
   ): Effect.Effect<
@@ -591,7 +691,9 @@ export declare class Glue extends AWSServiceClient {
     | OperationTimeoutException
     | ResourceNumberLimitExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateWorkflow", input);
+  }
   deleteBlueprint(
     input: DeleteBlueprintRequest,
   ): Effect.Effect<
@@ -600,7 +702,9 @@ export declare class Glue extends AWSServiceClient {
     | InvalidInputException
     | OperationTimeoutException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteBlueprint", input);
+  }
   deleteCatalog(
     input: DeleteCatalogRequest,
   ): Effect.Effect<
@@ -614,13 +718,17 @@ export declare class Glue extends AWSServiceClient {
     | InvalidInputException
     | OperationTimeoutException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteCatalog", input);
+  }
   deleteClassifier(
     input: DeleteClassifierRequest,
   ): Effect.Effect<
     DeleteClassifierResponse,
     EntityNotFoundException | OperationTimeoutException | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteClassifier", input);
+  }
   deleteColumnStatisticsForPartition(
     input: DeleteColumnStatisticsForPartitionRequest,
   ): Effect.Effect<
@@ -631,7 +739,9 @@ export declare class Glue extends AWSServiceClient {
     | InvalidInputException
     | OperationTimeoutException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteColumnStatisticsForPartition", input);
+  }
   deleteColumnStatisticsForTable(
     input: DeleteColumnStatisticsForTableRequest,
   ): Effect.Effect<
@@ -642,7 +752,9 @@ export declare class Glue extends AWSServiceClient {
     | InvalidInputException
     | OperationTimeoutException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteColumnStatisticsForTable", input);
+  }
   deleteColumnStatisticsTaskSettings(
     input: DeleteColumnStatisticsTaskSettingsRequest,
   ): Effect.Effect<
@@ -651,13 +763,17 @@ export declare class Glue extends AWSServiceClient {
     | InvalidInputException
     | OperationTimeoutException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteColumnStatisticsTaskSettings", input);
+  }
   deleteConnection(
     input: DeleteConnectionRequest,
   ): Effect.Effect<
     DeleteConnectionResponse,
     EntityNotFoundException | OperationTimeoutException | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteConnection", input);
+  }
   deleteCrawler(
     input: DeleteCrawlerRequest,
   ): Effect.Effect<
@@ -667,7 +783,9 @@ export declare class Glue extends AWSServiceClient {
     | OperationTimeoutException
     | SchedulerTransitioningException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteCrawler", input);
+  }
   deleteCustomEntityType(
     input: DeleteCustomEntityTypeRequest,
   ): Effect.Effect<
@@ -678,7 +796,9 @@ export declare class Glue extends AWSServiceClient {
     | InvalidInputException
     | OperationTimeoutException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteCustomEntityType", input);
+  }
   deleteDatabase(
     input: DeleteDatabaseRequest,
   ): Effect.Effect<
@@ -691,7 +811,9 @@ export declare class Glue extends AWSServiceClient {
     | InvalidInputException
     | OperationTimeoutException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteDatabase", input);
+  }
   deleteDataQualityRuleset(
     input: DeleteDataQualityRulesetRequest,
   ): Effect.Effect<
@@ -701,7 +823,9 @@ export declare class Glue extends AWSServiceClient {
     | InvalidInputException
     | OperationTimeoutException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteDataQualityRuleset", input);
+  }
   deleteDevEndpoint(
     input: DeleteDevEndpointRequest,
   ): Effect.Effect<
@@ -711,7 +835,9 @@ export declare class Glue extends AWSServiceClient {
     | InvalidInputException
     | OperationTimeoutException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteDevEndpoint", input);
+  }
   deleteIntegration(
     input: DeleteIntegrationRequest,
   ): Effect.Effect<
@@ -728,7 +854,9 @@ export declare class Glue extends AWSServiceClient {
     | InvalidStateException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteIntegration", input);
+  }
   deleteIntegrationTableProperties(
     input: DeleteIntegrationTablePropertiesRequest,
   ): Effect.Effect<
@@ -741,7 +869,9 @@ export declare class Glue extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteIntegrationTableProperties", input);
+  }
   deleteJob(
     input: DeleteJobRequest,
   ): Effect.Effect<
@@ -750,7 +880,9 @@ export declare class Glue extends AWSServiceClient {
     | InvalidInputException
     | OperationTimeoutException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteJob", input);
+  }
   deleteMLTransform(
     input: DeleteMLTransformRequest,
   ): Effect.Effect<
@@ -760,7 +892,9 @@ export declare class Glue extends AWSServiceClient {
     | InvalidInputException
     | OperationTimeoutException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteMLTransform", input);
+  }
   deletePartition(
     input: DeletePartitionRequest,
   ): Effect.Effect<
@@ -770,7 +904,9 @@ export declare class Glue extends AWSServiceClient {
     | InvalidInputException
     | OperationTimeoutException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeletePartition", input);
+  }
   deletePartitionIndex(
     input: DeletePartitionIndexRequest,
   ): Effect.Effect<
@@ -782,7 +918,9 @@ export declare class Glue extends AWSServiceClient {
     | InvalidInputException
     | OperationTimeoutException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeletePartitionIndex", input);
+  }
   deleteRegistry(
     input: DeleteRegistryInput,
   ): Effect.Effect<
@@ -792,7 +930,9 @@ export declare class Glue extends AWSServiceClient {
     | EntityNotFoundException
     | InvalidInputException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteRegistry", input);
+  }
   deleteResourcePolicy(
     input: DeleteResourcePolicyRequest,
   ): Effect.Effect<
@@ -803,7 +943,9 @@ export declare class Glue extends AWSServiceClient {
     | InvalidInputException
     | OperationTimeoutException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteResourcePolicy", input);
+  }
   deleteSchema(
     input: DeleteSchemaInput,
   ): Effect.Effect<
@@ -813,7 +955,9 @@ export declare class Glue extends AWSServiceClient {
     | EntityNotFoundException
     | InvalidInputException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteSchema", input);
+  }
   deleteSchemaVersions(
     input: DeleteSchemaVersionsInput,
   ): Effect.Effect<
@@ -823,7 +967,9 @@ export declare class Glue extends AWSServiceClient {
     | EntityNotFoundException
     | InvalidInputException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteSchemaVersions", input);
+  }
   deleteSecurityConfiguration(
     input: DeleteSecurityConfigurationRequest,
   ): Effect.Effect<
@@ -833,7 +979,9 @@ export declare class Glue extends AWSServiceClient {
     | InvalidInputException
     | OperationTimeoutException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteSecurityConfiguration", input);
+  }
   deleteSession(
     input: DeleteSessionRequest,
   ): Effect.Effect<
@@ -845,7 +993,9 @@ export declare class Glue extends AWSServiceClient {
     | InvalidInputException
     | OperationTimeoutException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteSession", input);
+  }
   deleteTable(
     input: DeleteTableRequest,
   ): Effect.Effect<
@@ -859,7 +1009,9 @@ export declare class Glue extends AWSServiceClient {
     | OperationTimeoutException
     | ResourceNotReadyException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteTable", input);
+  }
   deleteTableOptimizer(
     input: DeleteTableOptimizerRequest,
   ): Effect.Effect<
@@ -870,7 +1022,9 @@ export declare class Glue extends AWSServiceClient {
     | InvalidInputException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteTableOptimizer", input);
+  }
   deleteTableVersion(
     input: DeleteTableVersionRequest,
   ): Effect.Effect<
@@ -880,7 +1034,9 @@ export declare class Glue extends AWSServiceClient {
     | InvalidInputException
     | OperationTimeoutException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteTableVersion", input);
+  }
   deleteTrigger(
     input: DeleteTriggerRequest,
   ): Effect.Effect<
@@ -890,7 +1046,9 @@ export declare class Glue extends AWSServiceClient {
     | InvalidInputException
     | OperationTimeoutException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteTrigger", input);
+  }
   deleteUsageProfile(
     input: DeleteUsageProfileRequest,
   ): Effect.Effect<
@@ -900,7 +1058,9 @@ export declare class Glue extends AWSServiceClient {
     | OperationNotSupportedException
     | OperationTimeoutException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteUsageProfile", input);
+  }
   deleteUserDefinedFunction(
     input: DeleteUserDefinedFunctionRequest,
   ): Effect.Effect<
@@ -910,7 +1070,9 @@ export declare class Glue extends AWSServiceClient {
     | InvalidInputException
     | OperationTimeoutException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteUserDefinedFunction", input);
+  }
   deleteWorkflow(
     input: DeleteWorkflowRequest,
   ): Effect.Effect<
@@ -920,7 +1082,9 @@ export declare class Glue extends AWSServiceClient {
     | InvalidInputException
     | OperationTimeoutException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteWorkflow", input);
+  }
   describeConnectionType(
     input: DescribeConnectionTypeRequest,
   ): Effect.Effect<
@@ -930,7 +1094,9 @@ export declare class Glue extends AWSServiceClient {
     | InvalidInputException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeConnectionType", input);
+  }
   describeEntity(
     input: DescribeEntityRequest,
   ): Effect.Effect<
@@ -943,7 +1109,9 @@ export declare class Glue extends AWSServiceClient {
     | OperationTimeoutException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeEntity", input);
+  }
   describeInboundIntegrations(
     input: DescribeInboundIntegrationsRequest,
   ): Effect.Effect<
@@ -958,7 +1126,9 @@ export declare class Glue extends AWSServiceClient {
     | TargetResourceNotFound
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeInboundIntegrations", input);
+  }
   describeIntegrations(
     input: DescribeIntegrationsRequest,
   ): Effect.Effect<
@@ -971,7 +1141,9 @@ export declare class Glue extends AWSServiceClient {
     | InvalidInputException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeIntegrations", input);
+  }
   getBlueprint(
     input: GetBlueprintRequest,
   ): Effect.Effect<
@@ -981,7 +1153,9 @@ export declare class Glue extends AWSServiceClient {
     | InvalidInputException
     | OperationTimeoutException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetBlueprint", input);
+  }
   getBlueprintRun(
     input: GetBlueprintRunRequest,
   ): Effect.Effect<
@@ -990,7 +1164,9 @@ export declare class Glue extends AWSServiceClient {
     | InternalServiceException
     | OperationTimeoutException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetBlueprintRun", input);
+  }
   getBlueprintRuns(
     input: GetBlueprintRunsRequest,
   ): Effect.Effect<
@@ -1000,7 +1176,9 @@ export declare class Glue extends AWSServiceClient {
     | InvalidInputException
     | OperationTimeoutException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetBlueprintRuns", input);
+  }
   getCatalog(
     input: GetCatalogRequest,
   ): Effect.Effect<
@@ -1014,13 +1192,17 @@ export declare class Glue extends AWSServiceClient {
     | InvalidInputException
     | OperationTimeoutException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetCatalog", input);
+  }
   getCatalogImportStatus(
     input: GetCatalogImportStatusRequest,
   ): Effect.Effect<
     GetCatalogImportStatusResponse,
     InternalServiceException | OperationTimeoutException | CommonAwsError
-  >;
+  > {
+    return this.call("GetCatalogImportStatus", input);
+  }
   getCatalogs(
     input: GetCatalogsRequest,
   ): Effect.Effect<
@@ -1034,19 +1216,25 @@ export declare class Glue extends AWSServiceClient {
     | InvalidInputException
     | OperationTimeoutException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetCatalogs", input);
+  }
   getClassifier(
     input: GetClassifierRequest,
   ): Effect.Effect<
     GetClassifierResponse,
     EntityNotFoundException | OperationTimeoutException | CommonAwsError
-  >;
+  > {
+    return this.call("GetClassifier", input);
+  }
   getClassifiers(
     input: GetClassifiersRequest,
   ): Effect.Effect<
     GetClassifiersResponse,
     OperationTimeoutException | CommonAwsError
-  >;
+  > {
+    return this.call("GetClassifiers", input);
+  }
   getColumnStatisticsForPartition(
     input: GetColumnStatisticsForPartitionRequest,
   ): Effect.Effect<
@@ -1057,7 +1245,9 @@ export declare class Glue extends AWSServiceClient {
     | InvalidInputException
     | OperationTimeoutException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetColumnStatisticsForPartition", input);
+  }
   getColumnStatisticsForTable(
     input: GetColumnStatisticsForTableRequest,
   ): Effect.Effect<
@@ -1068,7 +1258,9 @@ export declare class Glue extends AWSServiceClient {
     | InvalidInputException
     | OperationTimeoutException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetColumnStatisticsForTable", input);
+  }
   getColumnStatisticsTaskRun(
     input: GetColumnStatisticsTaskRunRequest,
   ): Effect.Effect<
@@ -1077,13 +1269,17 @@ export declare class Glue extends AWSServiceClient {
     | InvalidInputException
     | OperationTimeoutException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetColumnStatisticsTaskRun", input);
+  }
   getColumnStatisticsTaskRuns(
     input: GetColumnStatisticsTaskRunsRequest,
   ): Effect.Effect<
     GetColumnStatisticsTaskRunsResponse,
     OperationTimeoutException | CommonAwsError
-  >;
+  > {
+    return this.call("GetColumnStatisticsTaskRuns", input);
+  }
   getColumnStatisticsTaskSettings(
     input: GetColumnStatisticsTaskSettingsRequest,
   ): Effect.Effect<
@@ -1092,7 +1288,9 @@ export declare class Glue extends AWSServiceClient {
     | InvalidInputException
     | OperationTimeoutException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetColumnStatisticsTaskSettings", input);
+  }
   getConnection(
     input: GetConnectionRequest,
   ): Effect.Effect<
@@ -1102,7 +1300,9 @@ export declare class Glue extends AWSServiceClient {
     | InvalidInputException
     | OperationTimeoutException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetConnection", input);
+  }
   getConnections(
     input: GetConnectionsRequest,
   ): Effect.Effect<
@@ -1112,25 +1312,33 @@ export declare class Glue extends AWSServiceClient {
     | InvalidInputException
     | OperationTimeoutException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetConnections", input);
+  }
   getCrawler(
     input: GetCrawlerRequest,
   ): Effect.Effect<
     GetCrawlerResponse,
     EntityNotFoundException | OperationTimeoutException | CommonAwsError
-  >;
+  > {
+    return this.call("GetCrawler", input);
+  }
   getCrawlerMetrics(
     input: GetCrawlerMetricsRequest,
   ): Effect.Effect<
     GetCrawlerMetricsResponse,
     OperationTimeoutException | CommonAwsError
-  >;
+  > {
+    return this.call("GetCrawlerMetrics", input);
+  }
   getCrawlers(
     input: GetCrawlersRequest,
   ): Effect.Effect<
     GetCrawlersResponse,
     OperationTimeoutException | CommonAwsError
-  >;
+  > {
+    return this.call("GetCrawlers", input);
+  }
   getCustomEntityType(
     input: GetCustomEntityTypeRequest,
   ): Effect.Effect<
@@ -1141,7 +1349,9 @@ export declare class Glue extends AWSServiceClient {
     | InvalidInputException
     | OperationTimeoutException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetCustomEntityType", input);
+  }
   getDatabase(
     input: GetDatabaseRequest,
   ): Effect.Effect<
@@ -1154,7 +1364,9 @@ export declare class Glue extends AWSServiceClient {
     | InvalidInputException
     | OperationTimeoutException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetDatabase", input);
+  }
   getDatabases(
     input: GetDatabasesRequest,
   ): Effect.Effect<
@@ -1167,7 +1379,9 @@ export declare class Glue extends AWSServiceClient {
     | InvalidInputException
     | OperationTimeoutException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetDatabases", input);
+  }
   getDataCatalogEncryptionSettings(
     input: GetDataCatalogEncryptionSettingsRequest,
   ): Effect.Effect<
@@ -1176,7 +1390,9 @@ export declare class Glue extends AWSServiceClient {
     | InvalidInputException
     | OperationTimeoutException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetDataCatalogEncryptionSettings", input);
+  }
   getDataflowGraph(
     input: GetDataflowGraphRequest,
   ): Effect.Effect<
@@ -1185,7 +1401,9 @@ export declare class Glue extends AWSServiceClient {
     | InvalidInputException
     | OperationTimeoutException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetDataflowGraph", input);
+  }
   getDataQualityModel(
     input: GetDataQualityModelRequest,
   ): Effect.Effect<
@@ -1195,7 +1413,9 @@ export declare class Glue extends AWSServiceClient {
     | InvalidInputException
     | OperationTimeoutException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetDataQualityModel", input);
+  }
   getDataQualityModelResult(
     input: GetDataQualityModelResultRequest,
   ): Effect.Effect<
@@ -1205,7 +1425,9 @@ export declare class Glue extends AWSServiceClient {
     | InvalidInputException
     | OperationTimeoutException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetDataQualityModelResult", input);
+  }
   getDataQualityResult(
     input: GetDataQualityResultRequest,
   ): Effect.Effect<
@@ -1215,7 +1437,9 @@ export declare class Glue extends AWSServiceClient {
     | InvalidInputException
     | OperationTimeoutException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetDataQualityResult", input);
+  }
   getDataQualityRuleRecommendationRun(
     input: GetDataQualityRuleRecommendationRunRequest,
   ): Effect.Effect<
@@ -1225,7 +1449,9 @@ export declare class Glue extends AWSServiceClient {
     | InvalidInputException
     | OperationTimeoutException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetDataQualityRuleRecommendationRun", input);
+  }
   getDataQualityRuleset(
     input: GetDataQualityRulesetRequest,
   ): Effect.Effect<
@@ -1235,7 +1461,9 @@ export declare class Glue extends AWSServiceClient {
     | InvalidInputException
     | OperationTimeoutException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetDataQualityRuleset", input);
+  }
   getDataQualityRulesetEvaluationRun(
     input: GetDataQualityRulesetEvaluationRunRequest,
   ): Effect.Effect<
@@ -1245,7 +1473,9 @@ export declare class Glue extends AWSServiceClient {
     | InvalidInputException
     | OperationTimeoutException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetDataQualityRulesetEvaluationRun", input);
+  }
   getDevEndpoint(
     input: GetDevEndpointRequest,
   ): Effect.Effect<
@@ -1255,7 +1485,9 @@ export declare class Glue extends AWSServiceClient {
     | InvalidInputException
     | OperationTimeoutException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetDevEndpoint", input);
+  }
   getDevEndpoints(
     input: GetDevEndpointsRequest,
   ): Effect.Effect<
@@ -1265,7 +1497,9 @@ export declare class Glue extends AWSServiceClient {
     | InvalidInputException
     | OperationTimeoutException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetDevEndpoints", input);
+  }
   getEntityRecords(
     input: GetEntityRecordsRequest,
   ): Effect.Effect<
@@ -1278,7 +1512,9 @@ export declare class Glue extends AWSServiceClient {
     | OperationTimeoutException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetEntityRecords", input);
+  }
   getIntegrationResourceProperty(
     input: GetIntegrationResourcePropertyRequest,
   ): Effect.Effect<
@@ -1291,7 +1527,9 @@ export declare class Glue extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetIntegrationResourceProperty", input);
+  }
   getIntegrationTableProperties(
     input: GetIntegrationTablePropertiesRequest,
   ): Effect.Effect<
@@ -1304,7 +1542,9 @@ export declare class Glue extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetIntegrationTableProperties", input);
+  }
   getJob(
     input: GetJobRequest,
   ): Effect.Effect<
@@ -1314,7 +1554,9 @@ export declare class Glue extends AWSServiceClient {
     | InvalidInputException
     | OperationTimeoutException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetJob", input);
+  }
   getJobBookmark(
     input: GetJobBookmarkRequest,
   ): Effect.Effect<
@@ -1325,7 +1567,9 @@ export declare class Glue extends AWSServiceClient {
     | OperationTimeoutException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetJobBookmark", input);
+  }
   getJobRun(
     input: GetJobRunRequest,
   ): Effect.Effect<
@@ -1335,7 +1579,9 @@ export declare class Glue extends AWSServiceClient {
     | InvalidInputException
     | OperationTimeoutException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetJobRun", input);
+  }
   getJobRuns(
     input: GetJobRunsRequest,
   ): Effect.Effect<
@@ -1345,7 +1591,9 @@ export declare class Glue extends AWSServiceClient {
     | InvalidInputException
     | OperationTimeoutException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetJobRuns", input);
+  }
   getJobs(
     input: GetJobsRequest,
   ): Effect.Effect<
@@ -1355,7 +1603,9 @@ export declare class Glue extends AWSServiceClient {
     | InvalidInputException
     | OperationTimeoutException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetJobs", input);
+  }
   getMapping(
     input: GetMappingRequest,
   ): Effect.Effect<
@@ -1365,7 +1615,9 @@ export declare class Glue extends AWSServiceClient {
     | InvalidInputException
     | OperationTimeoutException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetMapping", input);
+  }
   getMLTaskRun(
     input: GetMLTaskRunRequest,
   ): Effect.Effect<
@@ -1375,7 +1627,9 @@ export declare class Glue extends AWSServiceClient {
     | InvalidInputException
     | OperationTimeoutException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetMLTaskRun", input);
+  }
   getMLTaskRuns(
     input: GetMLTaskRunsRequest,
   ): Effect.Effect<
@@ -1385,7 +1639,9 @@ export declare class Glue extends AWSServiceClient {
     | InvalidInputException
     | OperationTimeoutException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetMLTaskRuns", input);
+  }
   getMLTransform(
     input: GetMLTransformRequest,
   ): Effect.Effect<
@@ -1395,7 +1651,9 @@ export declare class Glue extends AWSServiceClient {
     | InvalidInputException
     | OperationTimeoutException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetMLTransform", input);
+  }
   getMLTransforms(
     input: GetMLTransformsRequest,
   ): Effect.Effect<
@@ -1405,7 +1663,9 @@ export declare class Glue extends AWSServiceClient {
     | InvalidInputException
     | OperationTimeoutException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetMLTransforms", input);
+  }
   getPartition(
     input: GetPartitionRequest,
   ): Effect.Effect<
@@ -1418,7 +1678,9 @@ export declare class Glue extends AWSServiceClient {
     | InvalidInputException
     | OperationTimeoutException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetPartition", input);
+  }
   getPartitionIndexes(
     input: GetPartitionIndexesRequest,
   ): Effect.Effect<
@@ -1429,7 +1691,9 @@ export declare class Glue extends AWSServiceClient {
     | InvalidInputException
     | OperationTimeoutException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetPartitionIndexes", input);
+  }
   getPartitions(
     input: GetPartitionsRequest,
   ): Effect.Effect<
@@ -1444,7 +1708,9 @@ export declare class Glue extends AWSServiceClient {
     | OperationTimeoutException
     | ResourceNotReadyException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetPartitions", input);
+  }
   getPlan(
     input: GetPlanRequest,
   ): Effect.Effect<
@@ -1453,7 +1719,9 @@ export declare class Glue extends AWSServiceClient {
     | InvalidInputException
     | OperationTimeoutException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetPlan", input);
+  }
   getRegistry(
     input: GetRegistryInput,
   ): Effect.Effect<
@@ -1463,7 +1731,9 @@ export declare class Glue extends AWSServiceClient {
     | InternalServiceException
     | InvalidInputException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetRegistry", input);
+  }
   getResourcePolicies(
     input: GetResourcePoliciesRequest,
   ): Effect.Effect<
@@ -1473,7 +1743,9 @@ export declare class Glue extends AWSServiceClient {
     | InvalidInputException
     | OperationTimeoutException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetResourcePolicies", input);
+  }
   getResourcePolicy(
     input: GetResourcePolicyRequest,
   ): Effect.Effect<
@@ -1483,7 +1755,9 @@ export declare class Glue extends AWSServiceClient {
     | InvalidInputException
     | OperationTimeoutException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetResourcePolicy", input);
+  }
   getSchema(
     input: GetSchemaInput,
   ): Effect.Effect<
@@ -1493,7 +1767,9 @@ export declare class Glue extends AWSServiceClient {
     | InternalServiceException
     | InvalidInputException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetSchema", input);
+  }
   getSchemaByDefinition(
     input: GetSchemaByDefinitionInput,
   ): Effect.Effect<
@@ -1503,7 +1779,9 @@ export declare class Glue extends AWSServiceClient {
     | InternalServiceException
     | InvalidInputException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetSchemaByDefinition", input);
+  }
   getSchemaVersion(
     input: GetSchemaVersionInput,
   ): Effect.Effect<
@@ -1513,7 +1791,9 @@ export declare class Glue extends AWSServiceClient {
     | InternalServiceException
     | InvalidInputException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetSchemaVersion", input);
+  }
   getSchemaVersionsDiff(
     input: GetSchemaVersionsDiffInput,
   ): Effect.Effect<
@@ -1523,7 +1803,9 @@ export declare class Glue extends AWSServiceClient {
     | InternalServiceException
     | InvalidInputException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetSchemaVersionsDiff", input);
+  }
   getSecurityConfiguration(
     input: GetSecurityConfigurationRequest,
   ): Effect.Effect<
@@ -1533,7 +1815,9 @@ export declare class Glue extends AWSServiceClient {
     | InvalidInputException
     | OperationTimeoutException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetSecurityConfiguration", input);
+  }
   getSecurityConfigurations(
     input: GetSecurityConfigurationsRequest,
   ): Effect.Effect<
@@ -1543,7 +1827,9 @@ export declare class Glue extends AWSServiceClient {
     | InvalidInputException
     | OperationTimeoutException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetSecurityConfigurations", input);
+  }
   getSession(
     input: GetSessionRequest,
   ): Effect.Effect<
@@ -1554,7 +1840,9 @@ export declare class Glue extends AWSServiceClient {
     | InvalidInputException
     | OperationTimeoutException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetSession", input);
+  }
   getStatement(
     input: GetStatementRequest,
   ): Effect.Effect<
@@ -1566,7 +1854,9 @@ export declare class Glue extends AWSServiceClient {
     | InvalidInputException
     | OperationTimeoutException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetStatement", input);
+  }
   getTable(
     input: GetTableRequest,
   ): Effect.Effect<
@@ -1580,7 +1870,9 @@ export declare class Glue extends AWSServiceClient {
     | OperationTimeoutException
     | ResourceNotReadyException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetTable", input);
+  }
   getTableOptimizer(
     input: GetTableOptimizerRequest,
   ): Effect.Effect<
@@ -1591,7 +1883,9 @@ export declare class Glue extends AWSServiceClient {
     | InvalidInputException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetTableOptimizer", input);
+  }
   getTables(
     input: GetTablesRequest,
   ): Effect.Effect<
@@ -1604,7 +1898,9 @@ export declare class Glue extends AWSServiceClient {
     | InvalidInputException
     | OperationTimeoutException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetTables", input);
+  }
   getTableVersion(
     input: GetTableVersionRequest,
   ): Effect.Effect<
@@ -1615,7 +1911,9 @@ export declare class Glue extends AWSServiceClient {
     | InvalidInputException
     | OperationTimeoutException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetTableVersion", input);
+  }
   getTableVersions(
     input: GetTableVersionsRequest,
   ): Effect.Effect<
@@ -1626,7 +1924,9 @@ export declare class Glue extends AWSServiceClient {
     | InvalidInputException
     | OperationTimeoutException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetTableVersions", input);
+  }
   getTags(
     input: GetTagsRequest,
   ): Effect.Effect<
@@ -1636,7 +1936,9 @@ export declare class Glue extends AWSServiceClient {
     | InvalidInputException
     | OperationTimeoutException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetTags", input);
+  }
   getTrigger(
     input: GetTriggerRequest,
   ): Effect.Effect<
@@ -1646,7 +1948,9 @@ export declare class Glue extends AWSServiceClient {
     | InvalidInputException
     | OperationTimeoutException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetTrigger", input);
+  }
   getTriggers(
     input: GetTriggersRequest,
   ): Effect.Effect<
@@ -1656,7 +1960,9 @@ export declare class Glue extends AWSServiceClient {
     | InvalidInputException
     | OperationTimeoutException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetTriggers", input);
+  }
   getUnfilteredPartitionMetadata(
     input: GetUnfilteredPartitionMetadataRequest,
   ): Effect.Effect<
@@ -1670,7 +1976,9 @@ export declare class Glue extends AWSServiceClient {
     | OperationTimeoutException
     | PermissionTypeMismatchException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetUnfilteredPartitionMetadata", input);
+  }
   getUnfilteredPartitionsMetadata(
     input: GetUnfilteredPartitionsMetadataRequest,
   ): Effect.Effect<
@@ -1684,7 +1992,9 @@ export declare class Glue extends AWSServiceClient {
     | OperationTimeoutException
     | PermissionTypeMismatchException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetUnfilteredPartitionsMetadata", input);
+  }
   getUnfilteredTableMetadata(
     input: GetUnfilteredTableMetadataRequest,
   ): Effect.Effect<
@@ -1698,7 +2008,9 @@ export declare class Glue extends AWSServiceClient {
     | OperationTimeoutException
     | PermissionTypeMismatchException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetUnfilteredTableMetadata", input);
+  }
   getUsageProfile(
     input: GetUsageProfileRequest,
   ): Effect.Effect<
@@ -1709,7 +2021,9 @@ export declare class Glue extends AWSServiceClient {
     | OperationNotSupportedException
     | OperationTimeoutException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetUsageProfile", input);
+  }
   getUserDefinedFunction(
     input: GetUserDefinedFunctionRequest,
   ): Effect.Effect<
@@ -1720,7 +2034,9 @@ export declare class Glue extends AWSServiceClient {
     | InvalidInputException
     | OperationTimeoutException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetUserDefinedFunction", input);
+  }
   getUserDefinedFunctions(
     input: GetUserDefinedFunctionsRequest,
   ): Effect.Effect<
@@ -1731,7 +2047,9 @@ export declare class Glue extends AWSServiceClient {
     | InvalidInputException
     | OperationTimeoutException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetUserDefinedFunctions", input);
+  }
   getWorkflow(
     input: GetWorkflowRequest,
   ): Effect.Effect<
@@ -1741,7 +2059,9 @@ export declare class Glue extends AWSServiceClient {
     | InvalidInputException
     | OperationTimeoutException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetWorkflow", input);
+  }
   getWorkflowRun(
     input: GetWorkflowRunRequest,
   ): Effect.Effect<
@@ -1751,7 +2071,9 @@ export declare class Glue extends AWSServiceClient {
     | InvalidInputException
     | OperationTimeoutException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetWorkflowRun", input);
+  }
   getWorkflowRunProperties(
     input: GetWorkflowRunPropertiesRequest,
   ): Effect.Effect<
@@ -1761,7 +2083,9 @@ export declare class Glue extends AWSServiceClient {
     | InvalidInputException
     | OperationTimeoutException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetWorkflowRunProperties", input);
+  }
   getWorkflowRuns(
     input: GetWorkflowRunsRequest,
   ): Effect.Effect<
@@ -1771,13 +2095,17 @@ export declare class Glue extends AWSServiceClient {
     | InvalidInputException
     | OperationTimeoutException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetWorkflowRuns", input);
+  }
   importCatalogToGlue(
     input: ImportCatalogToGlueRequest,
   ): Effect.Effect<
     ImportCatalogToGlueResponse,
     InternalServiceException | OperationTimeoutException | CommonAwsError
-  >;
+  > {
+    return this.call("ImportCatalogToGlue", input);
+  }
   listBlueprints(
     input: ListBlueprintsRequest,
   ): Effect.Effect<
@@ -1786,25 +2114,33 @@ export declare class Glue extends AWSServiceClient {
     | InvalidInputException
     | OperationTimeoutException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListBlueprints", input);
+  }
   listColumnStatisticsTaskRuns(
     input: ListColumnStatisticsTaskRunsRequest,
   ): Effect.Effect<
     ListColumnStatisticsTaskRunsResponse,
     OperationTimeoutException | CommonAwsError
-  >;
+  > {
+    return this.call("ListColumnStatisticsTaskRuns", input);
+  }
   listConnectionTypes(
     input: ListConnectionTypesRequest,
   ): Effect.Effect<
     ListConnectionTypesResponse,
     AccessDeniedException | InternalServiceException | CommonAwsError
-  >;
+  > {
+    return this.call("ListConnectionTypes", input);
+  }
   listCrawlers(
     input: ListCrawlersRequest,
   ): Effect.Effect<
     ListCrawlersResponse,
     OperationTimeoutException | CommonAwsError
-  >;
+  > {
+    return this.call("ListCrawlers", input);
+  }
   listCrawls(
     input: ListCrawlsRequest,
   ): Effect.Effect<
@@ -1813,7 +2149,9 @@ export declare class Glue extends AWSServiceClient {
     | InvalidInputException
     | OperationTimeoutException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListCrawls", input);
+  }
   listCustomEntityTypes(
     input: ListCustomEntityTypesRequest,
   ): Effect.Effect<
@@ -1822,7 +2160,9 @@ export declare class Glue extends AWSServiceClient {
     | InvalidInputException
     | OperationTimeoutException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListCustomEntityTypes", input);
+  }
   listDataQualityResults(
     input: ListDataQualityResultsRequest,
   ): Effect.Effect<
@@ -1831,7 +2171,9 @@ export declare class Glue extends AWSServiceClient {
     | InvalidInputException
     | OperationTimeoutException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListDataQualityResults", input);
+  }
   listDataQualityRuleRecommendationRuns(
     input: ListDataQualityRuleRecommendationRunsRequest,
   ): Effect.Effect<
@@ -1840,7 +2182,9 @@ export declare class Glue extends AWSServiceClient {
     | InvalidInputException
     | OperationTimeoutException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListDataQualityRuleRecommendationRuns", input);
+  }
   listDataQualityRulesetEvaluationRuns(
     input: ListDataQualityRulesetEvaluationRunsRequest,
   ): Effect.Effect<
@@ -1849,7 +2193,9 @@ export declare class Glue extends AWSServiceClient {
     | InvalidInputException
     | OperationTimeoutException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListDataQualityRulesetEvaluationRuns", input);
+  }
   listDataQualityRulesets(
     input: ListDataQualityRulesetsRequest,
   ): Effect.Effect<
@@ -1859,13 +2205,17 @@ export declare class Glue extends AWSServiceClient {
     | InvalidInputException
     | OperationTimeoutException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListDataQualityRulesets", input);
+  }
   listDataQualityStatisticAnnotations(
     input: ListDataQualityStatisticAnnotationsRequest,
   ): Effect.Effect<
     ListDataQualityStatisticAnnotationsResponse,
     InternalServiceException | InvalidInputException | CommonAwsError
-  >;
+  > {
+    return this.call("ListDataQualityStatisticAnnotations", input);
+  }
   listDataQualityStatistics(
     input: ListDataQualityStatisticsRequest,
   ): Effect.Effect<
@@ -1874,7 +2224,9 @@ export declare class Glue extends AWSServiceClient {
     | InternalServiceException
     | InvalidInputException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListDataQualityStatistics", input);
+  }
   listDevEndpoints(
     input: ListDevEndpointsRequest,
   ): Effect.Effect<
@@ -1884,7 +2236,9 @@ export declare class Glue extends AWSServiceClient {
     | InvalidInputException
     | OperationTimeoutException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListDevEndpoints", input);
+  }
   listEntities(
     input: ListEntitiesRequest,
   ): Effect.Effect<
@@ -1897,7 +2251,9 @@ export declare class Glue extends AWSServiceClient {
     | OperationTimeoutException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListEntities", input);
+  }
   listJobs(
     input: ListJobsRequest,
   ): Effect.Effect<
@@ -1907,7 +2263,9 @@ export declare class Glue extends AWSServiceClient {
     | InvalidInputException
     | OperationTimeoutException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListJobs", input);
+  }
   listMLTransforms(
     input: ListMLTransformsRequest,
   ): Effect.Effect<
@@ -1917,7 +2275,9 @@ export declare class Glue extends AWSServiceClient {
     | InvalidInputException
     | OperationTimeoutException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListMLTransforms", input);
+  }
   listRegistries(
     input: ListRegistriesInput,
   ): Effect.Effect<
@@ -1926,7 +2286,9 @@ export declare class Glue extends AWSServiceClient {
     | InternalServiceException
     | InvalidInputException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListRegistries", input);
+  }
   listSchemas(
     input: ListSchemasInput,
   ): Effect.Effect<
@@ -1936,7 +2298,9 @@ export declare class Glue extends AWSServiceClient {
     | InternalServiceException
     | InvalidInputException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListSchemas", input);
+  }
   listSchemaVersions(
     input: ListSchemaVersionsInput,
   ): Effect.Effect<
@@ -1946,7 +2310,9 @@ export declare class Glue extends AWSServiceClient {
     | InternalServiceException
     | InvalidInputException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListSchemaVersions", input);
+  }
   listSessions(
     input: ListSessionsRequest,
   ): Effect.Effect<
@@ -1956,7 +2322,9 @@ export declare class Glue extends AWSServiceClient {
     | InvalidInputException
     | OperationTimeoutException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListSessions", input);
+  }
   listStatements(
     input: ListStatementsRequest,
   ): Effect.Effect<
@@ -1968,7 +2336,9 @@ export declare class Glue extends AWSServiceClient {
     | InvalidInputException
     | OperationTimeoutException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListStatements", input);
+  }
   listTableOptimizerRuns(
     input: ListTableOptimizerRunsRequest,
   ): Effect.Effect<
@@ -1980,7 +2350,9 @@ export declare class Glue extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTableOptimizerRuns", input);
+  }
   listTriggers(
     input: ListTriggersRequest,
   ): Effect.Effect<
@@ -1990,7 +2362,9 @@ export declare class Glue extends AWSServiceClient {
     | InvalidInputException
     | OperationTimeoutException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTriggers", input);
+  }
   listUsageProfiles(
     input: ListUsageProfilesRequest,
   ): Effect.Effect<
@@ -2000,7 +2374,9 @@ export declare class Glue extends AWSServiceClient {
     | OperationNotSupportedException
     | OperationTimeoutException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListUsageProfiles", input);
+  }
   listWorkflows(
     input: ListWorkflowsRequest,
   ): Effect.Effect<
@@ -2009,7 +2385,9 @@ export declare class Glue extends AWSServiceClient {
     | InvalidInputException
     | OperationTimeoutException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListWorkflows", input);
+  }
   modifyIntegration(
     input: ModifyIntegrationRequest,
   ): Effect.Effect<
@@ -2026,7 +2404,9 @@ export declare class Glue extends AWSServiceClient {
     | InvalidStateException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ModifyIntegration", input);
+  }
   putDataCatalogEncryptionSettings(
     input: PutDataCatalogEncryptionSettingsRequest,
   ): Effect.Effect<
@@ -2035,7 +2415,9 @@ export declare class Glue extends AWSServiceClient {
     | InvalidInputException
     | OperationTimeoutException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutDataCatalogEncryptionSettings", input);
+  }
   putDataQualityProfileAnnotation(
     input: PutDataQualityProfileAnnotationRequest,
   ): Effect.Effect<
@@ -2044,7 +2426,9 @@ export declare class Glue extends AWSServiceClient {
     | InternalServiceException
     | InvalidInputException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutDataQualityProfileAnnotation", input);
+  }
   putResourcePolicy(
     input: PutResourcePolicyRequest,
   ): Effect.Effect<
@@ -2055,7 +2439,9 @@ export declare class Glue extends AWSServiceClient {
     | InvalidInputException
     | OperationTimeoutException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutResourcePolicy", input);
+  }
   putSchemaVersionMetadata(
     input: PutSchemaVersionMetadataInput,
   ): Effect.Effect<
@@ -2066,7 +2452,9 @@ export declare class Glue extends AWSServiceClient {
     | InvalidInputException
     | ResourceNumberLimitExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutSchemaVersionMetadata", input);
+  }
   putWorkflowRunProperties(
     input: PutWorkflowRunPropertiesRequest,
   ): Effect.Effect<
@@ -2079,7 +2467,9 @@ export declare class Glue extends AWSServiceClient {
     | OperationTimeoutException
     | ResourceNumberLimitExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutWorkflowRunProperties", input);
+  }
   querySchemaVersionMetadata(
     input: QuerySchemaVersionMetadataInput,
   ): Effect.Effect<
@@ -2088,7 +2478,9 @@ export declare class Glue extends AWSServiceClient {
     | EntityNotFoundException
     | InvalidInputException
     | CommonAwsError
-  >;
+  > {
+    return this.call("QuerySchemaVersionMetadata", input);
+  }
   registerSchemaVersion(
     input: RegisterSchemaVersionInput,
   ): Effect.Effect<
@@ -2100,7 +2492,9 @@ export declare class Glue extends AWSServiceClient {
     | InvalidInputException
     | ResourceNumberLimitExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("RegisterSchemaVersion", input);
+  }
   removeSchemaVersionMetadata(
     input: RemoveSchemaVersionMetadataInput,
   ): Effect.Effect<
@@ -2109,7 +2503,9 @@ export declare class Glue extends AWSServiceClient {
     | EntityNotFoundException
     | InvalidInputException
     | CommonAwsError
-  >;
+  > {
+    return this.call("RemoveSchemaVersionMetadata", input);
+  }
   resetJobBookmark(
     input: ResetJobBookmarkRequest,
   ): Effect.Effect<
@@ -2119,7 +2515,9 @@ export declare class Glue extends AWSServiceClient {
     | InvalidInputException
     | OperationTimeoutException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ResetJobBookmark", input);
+  }
   resumeWorkflowRun(
     input: ResumeWorkflowRunRequest,
   ): Effect.Effect<
@@ -2131,7 +2529,9 @@ export declare class Glue extends AWSServiceClient {
     | InvalidInputException
     | OperationTimeoutException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ResumeWorkflowRun", input);
+  }
   runStatement(
     input: RunStatementRequest,
   ): Effect.Effect<
@@ -2145,7 +2545,9 @@ export declare class Glue extends AWSServiceClient {
     | ResourceNumberLimitExceededException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("RunStatement", input);
+  }
   searchTables(
     input: SearchTablesRequest,
   ): Effect.Effect<
@@ -2154,7 +2556,9 @@ export declare class Glue extends AWSServiceClient {
     | InvalidInputException
     | OperationTimeoutException
     | CommonAwsError
-  >;
+  > {
+    return this.call("SearchTables", input);
+  }
   startBlueprintRun(
     input: StartBlueprintRunRequest,
   ): Effect.Effect<
@@ -2166,7 +2570,9 @@ export declare class Glue extends AWSServiceClient {
     | OperationTimeoutException
     | ResourceNumberLimitExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartBlueprintRun", input);
+  }
   startColumnStatisticsTaskRun(
     input: StartColumnStatisticsTaskRunRequest,
   ): Effect.Effect<
@@ -2178,7 +2584,9 @@ export declare class Glue extends AWSServiceClient {
     | OperationTimeoutException
     | ResourceNumberLimitExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartColumnStatisticsTaskRun", input);
+  }
   startColumnStatisticsTaskRunSchedule(
     input: StartColumnStatisticsTaskRunScheduleRequest,
   ): Effect.Effect<
@@ -2188,7 +2596,9 @@ export declare class Glue extends AWSServiceClient {
     | InvalidInputException
     | OperationTimeoutException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartColumnStatisticsTaskRunSchedule", input);
+  }
   startCrawler(
     input: StartCrawlerRequest,
   ): Effect.Effect<
@@ -2197,7 +2607,9 @@ export declare class Glue extends AWSServiceClient {
     | EntityNotFoundException
     | OperationTimeoutException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartCrawler", input);
+  }
   startCrawlerSchedule(
     input: StartCrawlerScheduleRequest,
   ): Effect.Effect<
@@ -2208,7 +2620,9 @@ export declare class Glue extends AWSServiceClient {
     | SchedulerRunningException
     | SchedulerTransitioningException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartCrawlerSchedule", input);
+  }
   startDataQualityRuleRecommendationRun(
     input: StartDataQualityRuleRecommendationRunRequest,
   ): Effect.Effect<
@@ -2218,7 +2632,9 @@ export declare class Glue extends AWSServiceClient {
     | InvalidInputException
     | OperationTimeoutException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartDataQualityRuleRecommendationRun", input);
+  }
   startDataQualityRulesetEvaluationRun(
     input: StartDataQualityRulesetEvaluationRunRequest,
   ): Effect.Effect<
@@ -2229,7 +2645,9 @@ export declare class Glue extends AWSServiceClient {
     | InvalidInputException
     | OperationTimeoutException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartDataQualityRulesetEvaluationRun", input);
+  }
   startExportLabelsTaskRun(
     input: StartExportLabelsTaskRunRequest,
   ): Effect.Effect<
@@ -2239,7 +2657,9 @@ export declare class Glue extends AWSServiceClient {
     | InvalidInputException
     | OperationTimeoutException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartExportLabelsTaskRun", input);
+  }
   startImportLabelsTaskRun(
     input: StartImportLabelsTaskRunRequest,
   ): Effect.Effect<
@@ -2250,7 +2670,9 @@ export declare class Glue extends AWSServiceClient {
     | OperationTimeoutException
     | ResourceNumberLimitExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartImportLabelsTaskRun", input);
+  }
   startJobRun(
     input: StartJobRunRequest,
   ): Effect.Effect<
@@ -2262,7 +2684,9 @@ export declare class Glue extends AWSServiceClient {
     | OperationTimeoutException
     | ResourceNumberLimitExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartJobRun", input);
+  }
   startMLEvaluationTaskRun(
     input: StartMLEvaluationTaskRunRequest,
   ): Effect.Effect<
@@ -2274,7 +2698,9 @@ export declare class Glue extends AWSServiceClient {
     | MLTransformNotReadyException
     | OperationTimeoutException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartMLEvaluationTaskRun", input);
+  }
   startMLLabelingSetGenerationTaskRun(
     input: StartMLLabelingSetGenerationTaskRunRequest,
   ): Effect.Effect<
@@ -2285,7 +2711,9 @@ export declare class Glue extends AWSServiceClient {
     | InvalidInputException
     | OperationTimeoutException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartMLLabelingSetGenerationTaskRun", input);
+  }
   startTrigger(
     input: StartTriggerRequest,
   ): Effect.Effect<
@@ -2297,7 +2725,9 @@ export declare class Glue extends AWSServiceClient {
     | OperationTimeoutException
     | ResourceNumberLimitExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartTrigger", input);
+  }
   startWorkflowRun(
     input: StartWorkflowRunRequest,
   ): Effect.Effect<
@@ -2309,7 +2739,9 @@ export declare class Glue extends AWSServiceClient {
     | OperationTimeoutException
     | ResourceNumberLimitExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartWorkflowRun", input);
+  }
   stopColumnStatisticsTaskRun(
     input: StopColumnStatisticsTaskRunRequest,
   ): Effect.Effect<
@@ -2319,7 +2751,9 @@ export declare class Glue extends AWSServiceClient {
     | EntityNotFoundException
     | OperationTimeoutException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StopColumnStatisticsTaskRun", input);
+  }
   stopColumnStatisticsTaskRunSchedule(
     input: StopColumnStatisticsTaskRunScheduleRequest,
   ): Effect.Effect<
@@ -2328,7 +2762,9 @@ export declare class Glue extends AWSServiceClient {
     | InvalidInputException
     | OperationTimeoutException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StopColumnStatisticsTaskRunSchedule", input);
+  }
   stopCrawler(
     input: StopCrawlerRequest,
   ): Effect.Effect<
@@ -2338,7 +2774,9 @@ export declare class Glue extends AWSServiceClient {
     | EntityNotFoundException
     | OperationTimeoutException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StopCrawler", input);
+  }
   stopCrawlerSchedule(
     input: StopCrawlerScheduleRequest,
   ): Effect.Effect<
@@ -2348,7 +2786,9 @@ export declare class Glue extends AWSServiceClient {
     | SchedulerNotRunningException
     | SchedulerTransitioningException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StopCrawlerSchedule", input);
+  }
   stopSession(
     input: StopSessionRequest,
   ): Effect.Effect<
@@ -2360,7 +2800,9 @@ export declare class Glue extends AWSServiceClient {
     | InvalidInputException
     | OperationTimeoutException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StopSession", input);
+  }
   stopTrigger(
     input: StopTriggerRequest,
   ): Effect.Effect<
@@ -2371,7 +2813,9 @@ export declare class Glue extends AWSServiceClient {
     | InvalidInputException
     | OperationTimeoutException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StopTrigger", input);
+  }
   stopWorkflowRun(
     input: StopWorkflowRunRequest,
   ): Effect.Effect<
@@ -2382,7 +2826,9 @@ export declare class Glue extends AWSServiceClient {
     | InvalidInputException
     | OperationTimeoutException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StopWorkflowRun", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -2392,7 +2838,9 @@ export declare class Glue extends AWSServiceClient {
     | InvalidInputException
     | OperationTimeoutException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   testConnection(
     input: TestConnectionRequest,
   ): Effect.Effect<
@@ -2407,7 +2855,9 @@ export declare class Glue extends AWSServiceClient {
     | OperationTimeoutException
     | ResourceNumberLimitExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TestConnection", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
@@ -2417,7 +2867,9 @@ export declare class Glue extends AWSServiceClient {
     | InvalidInputException
     | OperationTimeoutException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
   updateBlueprint(
     input: UpdateBlueprintRequest,
   ): Effect.Effect<
@@ -2429,7 +2881,9 @@ export declare class Glue extends AWSServiceClient {
     | InvalidInputException
     | OperationTimeoutException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateBlueprint", input);
+  }
   updateCatalog(
     input: UpdateCatalogRequest,
   ): Effect.Effect<
@@ -2443,7 +2897,9 @@ export declare class Glue extends AWSServiceClient {
     | InvalidInputException
     | OperationTimeoutException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateCatalog", input);
+  }
   updateClassifier(
     input: UpdateClassifierRequest,
   ): Effect.Effect<
@@ -2453,7 +2909,9 @@ export declare class Glue extends AWSServiceClient {
     | OperationTimeoutException
     | VersionMismatchException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateClassifier", input);
+  }
   updateColumnStatisticsForPartition(
     input: UpdateColumnStatisticsForPartitionRequest,
   ): Effect.Effect<
@@ -2464,7 +2922,9 @@ export declare class Glue extends AWSServiceClient {
     | InvalidInputException
     | OperationTimeoutException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateColumnStatisticsForPartition", input);
+  }
   updateColumnStatisticsForTable(
     input: UpdateColumnStatisticsForTableRequest,
   ): Effect.Effect<
@@ -2475,7 +2935,9 @@ export declare class Glue extends AWSServiceClient {
     | InvalidInputException
     | OperationTimeoutException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateColumnStatisticsForTable", input);
+  }
   updateColumnStatisticsTaskSettings(
     input: UpdateColumnStatisticsTaskSettingsRequest,
   ): Effect.Effect<
@@ -2486,7 +2948,9 @@ export declare class Glue extends AWSServiceClient {
     | OperationTimeoutException
     | VersionMismatchException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateColumnStatisticsTaskSettings", input);
+  }
   updateConnection(
     input: UpdateConnectionRequest,
   ): Effect.Effect<
@@ -2496,7 +2960,9 @@ export declare class Glue extends AWSServiceClient {
     | InvalidInputException
     | OperationTimeoutException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateConnection", input);
+  }
   updateCrawler(
     input: UpdateCrawlerRequest,
   ): Effect.Effect<
@@ -2507,7 +2973,9 @@ export declare class Glue extends AWSServiceClient {
     | OperationTimeoutException
     | VersionMismatchException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateCrawler", input);
+  }
   updateCrawlerSchedule(
     input: UpdateCrawlerScheduleRequest,
   ): Effect.Effect<
@@ -2518,7 +2986,9 @@ export declare class Glue extends AWSServiceClient {
     | SchedulerTransitioningException
     | VersionMismatchException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateCrawlerSchedule", input);
+  }
   updateDatabase(
     input: UpdateDatabaseRequest,
   ): Effect.Effect<
@@ -2533,7 +3003,9 @@ export declare class Glue extends AWSServiceClient {
     | InvalidInputException
     | OperationTimeoutException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateDatabase", input);
+  }
   updateDataQualityRuleset(
     input: UpdateDataQualityRulesetRequest,
   ): Effect.Effect<
@@ -2546,7 +3018,9 @@ export declare class Glue extends AWSServiceClient {
     | OperationTimeoutException
     | ResourceNumberLimitExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateDataQualityRuleset", input);
+  }
   updateDevEndpoint(
     input: UpdateDevEndpointRequest,
   ): Effect.Effect<
@@ -2557,7 +3031,9 @@ export declare class Glue extends AWSServiceClient {
     | OperationTimeoutException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateDevEndpoint", input);
+  }
   updateIntegrationResourceProperty(
     input: UpdateIntegrationResourcePropertyRequest,
   ): Effect.Effect<
@@ -2570,7 +3046,9 @@ export declare class Glue extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateIntegrationResourceProperty", input);
+  }
   updateIntegrationTableProperties(
     input: UpdateIntegrationTablePropertiesRequest,
   ): Effect.Effect<
@@ -2583,7 +3061,9 @@ export declare class Glue extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateIntegrationTableProperties", input);
+  }
   updateJob(
     input: UpdateJobRequest,
   ): Effect.Effect<
@@ -2594,7 +3074,9 @@ export declare class Glue extends AWSServiceClient {
     | InvalidInputException
     | OperationTimeoutException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateJob", input);
+  }
   updateJobFromSourceControl(
     input: UpdateJobFromSourceControlRequest,
   ): Effect.Effect<
@@ -2607,7 +3089,9 @@ export declare class Glue extends AWSServiceClient {
     | OperationTimeoutException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateJobFromSourceControl", input);
+  }
   updateMLTransform(
     input: UpdateMLTransformRequest,
   ): Effect.Effect<
@@ -2618,7 +3102,9 @@ export declare class Glue extends AWSServiceClient {
     | InvalidInputException
     | OperationTimeoutException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateMLTransform", input);
+  }
   updatePartition(
     input: UpdatePartitionRequest,
   ): Effect.Effect<
@@ -2629,7 +3115,9 @@ export declare class Glue extends AWSServiceClient {
     | InvalidInputException
     | OperationTimeoutException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdatePartition", input);
+  }
   updateRegistry(
     input: UpdateRegistryInput,
   ): Effect.Effect<
@@ -2640,7 +3128,9 @@ export declare class Glue extends AWSServiceClient {
     | InternalServiceException
     | InvalidInputException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateRegistry", input);
+  }
   updateSchema(
     input: UpdateSchemaInput,
   ): Effect.Effect<
@@ -2651,7 +3141,9 @@ export declare class Glue extends AWSServiceClient {
     | InternalServiceException
     | InvalidInputException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateSchema", input);
+  }
   updateSourceControlFromJob(
     input: UpdateSourceControlFromJobRequest,
   ): Effect.Effect<
@@ -2664,7 +3156,9 @@ export declare class Glue extends AWSServiceClient {
     | OperationTimeoutException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateSourceControlFromJob", input);
+  }
   updateTable(
     input: UpdateTableRequest,
   ): Effect.Effect<
@@ -2681,7 +3175,9 @@ export declare class Glue extends AWSServiceClient {
     | ResourceNotReadyException
     | ResourceNumberLimitExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateTable", input);
+  }
   updateTableOptimizer(
     input: UpdateTableOptimizerRequest,
   ): Effect.Effect<
@@ -2694,7 +3190,9 @@ export declare class Glue extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateTableOptimizer", input);
+  }
   updateTrigger(
     input: UpdateTriggerRequest,
   ): Effect.Effect<
@@ -2705,7 +3203,9 @@ export declare class Glue extends AWSServiceClient {
     | InvalidInputException
     | OperationTimeoutException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateTrigger", input);
+  }
   updateUsageProfile(
     input: UpdateUsageProfileRequest,
   ): Effect.Effect<
@@ -2717,7 +3217,9 @@ export declare class Glue extends AWSServiceClient {
     | OperationNotSupportedException
     | OperationTimeoutException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateUsageProfile", input);
+  }
   updateUserDefinedFunction(
     input: UpdateUserDefinedFunctionRequest,
   ): Effect.Effect<
@@ -2728,7 +3230,9 @@ export declare class Glue extends AWSServiceClient {
     | InvalidInputException
     | OperationTimeoutException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateUserDefinedFunction", input);
+  }
   updateWorkflow(
     input: UpdateWorkflowRequest,
   ): Effect.Effect<
@@ -2739,8 +3243,12 @@ export declare class Glue extends AWSServiceClient {
     | InvalidInputException
     | OperationTimeoutException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateWorkflow", input);
+  }
 }
+
+export default Glue;
 
 export declare class AccessDeniedException extends EffectData.TaggedError(
   "AccessDeniedException",

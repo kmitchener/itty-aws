@@ -2,31 +2,45 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class S3Control extends AWSServiceClient {
+export class S3Control extends AWSServiceClient {
   associateAccessGrantsIdentityCenter(
     input: AssociateAccessGrantsIdentityCenterRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, CommonAwsError> {
+    return this.call("AssociateAccessGrantsIdentityCenter", input);
+  }
   createAccessGrant(
     input: CreateAccessGrantRequest,
-  ): Effect.Effect<CreateAccessGrantResult, CommonAwsError>;
+  ): Effect.Effect<CreateAccessGrantResult, CommonAwsError> {
+    return this.call("CreateAccessGrant", input);
+  }
   createAccessGrantsInstance(
     input: CreateAccessGrantsInstanceRequest,
-  ): Effect.Effect<CreateAccessGrantsInstanceResult, CommonAwsError>;
+  ): Effect.Effect<CreateAccessGrantsInstanceResult, CommonAwsError> {
+    return this.call("CreateAccessGrantsInstance", input);
+  }
   createAccessGrantsLocation(
     input: CreateAccessGrantsLocationRequest,
-  ): Effect.Effect<CreateAccessGrantsLocationResult, CommonAwsError>;
+  ): Effect.Effect<CreateAccessGrantsLocationResult, CommonAwsError> {
+    return this.call("CreateAccessGrantsLocation", input);
+  }
   createAccessPoint(
     input: CreateAccessPointRequest,
-  ): Effect.Effect<CreateAccessPointResult, CommonAwsError>;
+  ): Effect.Effect<CreateAccessPointResult, CommonAwsError> {
+    return this.call("CreateAccessPoint", input);
+  }
   createAccessPointForObjectLambda(
     input: CreateAccessPointForObjectLambdaRequest,
-  ): Effect.Effect<CreateAccessPointForObjectLambdaResult, CommonAwsError>;
+  ): Effect.Effect<CreateAccessPointForObjectLambdaResult, CommonAwsError> {
+    return this.call("CreateAccessPointForObjectLambda", input);
+  }
   createBucket(
     input: CreateBucketRequest,
   ): Effect.Effect<
     CreateBucketResult,
     BucketAlreadyExists | BucketAlreadyOwnedByYou | CommonAwsError
-  >;
+  > {
+    return this.call("CreateBucket", input);
+  }
   createJob(
     input: CreateJobRequest,
   ): Effect.Effect<
@@ -36,53 +50,87 @@ export declare class S3Control extends AWSServiceClient {
     | InternalServiceException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateJob", input);
+  }
   createMultiRegionAccessPoint(
     input: CreateMultiRegionAccessPointRequest,
-  ): Effect.Effect<CreateMultiRegionAccessPointResult, CommonAwsError>;
+  ): Effect.Effect<CreateMultiRegionAccessPointResult, CommonAwsError> {
+    return this.call("CreateMultiRegionAccessPoint", input);
+  }
   createStorageLensGroup(
     input: CreateStorageLensGroupRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, CommonAwsError> {
+    return this.call("CreateStorageLensGroup", input);
+  }
   deleteAccessGrant(
     input: DeleteAccessGrantRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, CommonAwsError> {
+    return this.call("DeleteAccessGrant", input);
+  }
   deleteAccessGrantsInstance(
     input: DeleteAccessGrantsInstanceRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, CommonAwsError> {
+    return this.call("DeleteAccessGrantsInstance", input);
+  }
   deleteAccessGrantsInstanceResourcePolicy(
     input: DeleteAccessGrantsInstanceResourcePolicyRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, CommonAwsError> {
+    return this.call("DeleteAccessGrantsInstanceResourcePolicy", input);
+  }
   deleteAccessGrantsLocation(
     input: DeleteAccessGrantsLocationRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, CommonAwsError> {
+    return this.call("DeleteAccessGrantsLocation", input);
+  }
   deleteAccessPoint(
     input: DeleteAccessPointRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, CommonAwsError> {
+    return this.call("DeleteAccessPoint", input);
+  }
   deleteAccessPointForObjectLambda(
     input: DeleteAccessPointForObjectLambdaRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, CommonAwsError> {
+    return this.call("DeleteAccessPointForObjectLambda", input);
+  }
   deleteAccessPointPolicy(
     input: DeleteAccessPointPolicyRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, CommonAwsError> {
+    return this.call("DeleteAccessPointPolicy", input);
+  }
   deleteAccessPointPolicyForObjectLambda(
     input: DeleteAccessPointPolicyForObjectLambdaRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, CommonAwsError> {
+    return this.call("DeleteAccessPointPolicyForObjectLambda", input);
+  }
   deleteAccessPointScope(
     input: DeleteAccessPointScopeRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
-  deleteBucket(input: DeleteBucketRequest): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, CommonAwsError> {
+    return this.call("DeleteAccessPointScope", input);
+  }
+  deleteBucket(input: DeleteBucketRequest): Effect.Effect<{}, CommonAwsError> {
+    return this.call("DeleteBucket", input);
+  }
   deleteBucketLifecycleConfiguration(
     input: DeleteBucketLifecycleConfigurationRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, CommonAwsError> {
+    return this.call("DeleteBucketLifecycleConfiguration", input);
+  }
   deleteBucketPolicy(
     input: DeleteBucketPolicyRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, CommonAwsError> {
+    return this.call("DeleteBucketPolicy", input);
+  }
   deleteBucketReplication(
     input: DeleteBucketReplicationRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, CommonAwsError> {
+    return this.call("DeleteBucketReplication", input);
+  }
   deleteBucketTagging(
     input: DeleteBucketTaggingRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, CommonAwsError> {
+    return this.call("DeleteBucketTagging", input);
+  }
   deleteJobTagging(
     input: DeleteJobTaggingRequest,
   ): Effect.Effect<
@@ -91,22 +139,37 @@ export declare class S3Control extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteJobTagging", input);
+  }
   deleteMultiRegionAccessPoint(
     input: DeleteMultiRegionAccessPointRequest,
-  ): Effect.Effect<DeleteMultiRegionAccessPointResult, CommonAwsError>;
+  ): Effect.Effect<DeleteMultiRegionAccessPointResult, CommonAwsError> {
+    return this.call("DeleteMultiRegionAccessPoint", input);
+  }
   deletePublicAccessBlock(
     input: DeletePublicAccessBlockRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, CommonAwsError> {
+    return this.call("DeletePublicAccessBlock", input);
+  }
   deleteStorageLensConfiguration(
     input: DeleteStorageLensConfigurationRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, CommonAwsError> {
+    return this.call("DeleteStorageLensConfiguration", input);
+  }
   deleteStorageLensConfigurationTagging(
     input: DeleteStorageLensConfigurationTaggingRequest,
-  ): Effect.Effect<DeleteStorageLensConfigurationTaggingResult, CommonAwsError>;
+  ): Effect.Effect<
+    DeleteStorageLensConfigurationTaggingResult,
+    CommonAwsError
+  > {
+    return this.call("DeleteStorageLensConfigurationTagging", input);
+  }
   deleteStorageLensGroup(
     input: DeleteStorageLensGroupRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, CommonAwsError> {
+    return this.call("DeleteStorageLensGroup", input);
+  }
   describeJob(
     input: DescribeJobRequest,
   ): Effect.Effect<
@@ -116,82 +179,131 @@ export declare class S3Control extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeJob", input);
+  }
   describeMultiRegionAccessPointOperation(
     input: DescribeMultiRegionAccessPointOperationRequest,
   ): Effect.Effect<
     DescribeMultiRegionAccessPointOperationResult,
     CommonAwsError
-  >;
+  > {
+    return this.call("DescribeMultiRegionAccessPointOperation", input);
+  }
   dissociateAccessGrantsIdentityCenter(
     input: DissociateAccessGrantsIdentityCenterRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, CommonAwsError> {
+    return this.call("DissociateAccessGrantsIdentityCenter", input);
+  }
   getAccessGrant(
     input: GetAccessGrantRequest,
-  ): Effect.Effect<GetAccessGrantResult, CommonAwsError>;
+  ): Effect.Effect<GetAccessGrantResult, CommonAwsError> {
+    return this.call("GetAccessGrant", input);
+  }
   getAccessGrantsInstance(
     input: GetAccessGrantsInstanceRequest,
-  ): Effect.Effect<GetAccessGrantsInstanceResult, CommonAwsError>;
+  ): Effect.Effect<GetAccessGrantsInstanceResult, CommonAwsError> {
+    return this.call("GetAccessGrantsInstance", input);
+  }
   getAccessGrantsInstanceForPrefix(
     input: GetAccessGrantsInstanceForPrefixRequest,
-  ): Effect.Effect<GetAccessGrantsInstanceForPrefixResult, CommonAwsError>;
+  ): Effect.Effect<GetAccessGrantsInstanceForPrefixResult, CommonAwsError> {
+    return this.call("GetAccessGrantsInstanceForPrefix", input);
+  }
   getAccessGrantsInstanceResourcePolicy(
     input: GetAccessGrantsInstanceResourcePolicyRequest,
-  ): Effect.Effect<GetAccessGrantsInstanceResourcePolicyResult, CommonAwsError>;
+  ): Effect.Effect<
+    GetAccessGrantsInstanceResourcePolicyResult,
+    CommonAwsError
+  > {
+    return this.call("GetAccessGrantsInstanceResourcePolicy", input);
+  }
   getAccessGrantsLocation(
     input: GetAccessGrantsLocationRequest,
-  ): Effect.Effect<GetAccessGrantsLocationResult, CommonAwsError>;
+  ): Effect.Effect<GetAccessGrantsLocationResult, CommonAwsError> {
+    return this.call("GetAccessGrantsLocation", input);
+  }
   getAccessPoint(
     input: GetAccessPointRequest,
-  ): Effect.Effect<GetAccessPointResult, CommonAwsError>;
+  ): Effect.Effect<GetAccessPointResult, CommonAwsError> {
+    return this.call("GetAccessPoint", input);
+  }
   getAccessPointConfigurationForObjectLambda(
     input: GetAccessPointConfigurationForObjectLambdaRequest,
   ): Effect.Effect<
     GetAccessPointConfigurationForObjectLambdaResult,
     CommonAwsError
-  >;
+  > {
+    return this.call("GetAccessPointConfigurationForObjectLambda", input);
+  }
   getAccessPointForObjectLambda(
     input: GetAccessPointForObjectLambdaRequest,
-  ): Effect.Effect<GetAccessPointForObjectLambdaResult, CommonAwsError>;
+  ): Effect.Effect<GetAccessPointForObjectLambdaResult, CommonAwsError> {
+    return this.call("GetAccessPointForObjectLambda", input);
+  }
   getAccessPointPolicy(
     input: GetAccessPointPolicyRequest,
-  ): Effect.Effect<GetAccessPointPolicyResult, CommonAwsError>;
+  ): Effect.Effect<GetAccessPointPolicyResult, CommonAwsError> {
+    return this.call("GetAccessPointPolicy", input);
+  }
   getAccessPointPolicyForObjectLambda(
     input: GetAccessPointPolicyForObjectLambdaRequest,
-  ): Effect.Effect<GetAccessPointPolicyForObjectLambdaResult, CommonAwsError>;
+  ): Effect.Effect<GetAccessPointPolicyForObjectLambdaResult, CommonAwsError> {
+    return this.call("GetAccessPointPolicyForObjectLambda", input);
+  }
   getAccessPointPolicyStatus(
     input: GetAccessPointPolicyStatusRequest,
-  ): Effect.Effect<GetAccessPointPolicyStatusResult, CommonAwsError>;
+  ): Effect.Effect<GetAccessPointPolicyStatusResult, CommonAwsError> {
+    return this.call("GetAccessPointPolicyStatus", input);
+  }
   getAccessPointPolicyStatusForObjectLambda(
     input: GetAccessPointPolicyStatusForObjectLambdaRequest,
   ): Effect.Effect<
     GetAccessPointPolicyStatusForObjectLambdaResult,
     CommonAwsError
-  >;
+  > {
+    return this.call("GetAccessPointPolicyStatusForObjectLambda", input);
+  }
   getAccessPointScope(
     input: GetAccessPointScopeRequest,
-  ): Effect.Effect<GetAccessPointScopeResult, CommonAwsError>;
+  ): Effect.Effect<GetAccessPointScopeResult, CommonAwsError> {
+    return this.call("GetAccessPointScope", input);
+  }
   getBucket(
     input: GetBucketRequest,
-  ): Effect.Effect<GetBucketResult, CommonAwsError>;
+  ): Effect.Effect<GetBucketResult, CommonAwsError> {
+    return this.call("GetBucket", input);
+  }
   getBucketLifecycleConfiguration(
     input: GetBucketLifecycleConfigurationRequest,
-  ): Effect.Effect<GetBucketLifecycleConfigurationResult, CommonAwsError>;
+  ): Effect.Effect<GetBucketLifecycleConfigurationResult, CommonAwsError> {
+    return this.call("GetBucketLifecycleConfiguration", input);
+  }
   getBucketPolicy(
     input: GetBucketPolicyRequest,
-  ): Effect.Effect<GetBucketPolicyResult, CommonAwsError>;
+  ): Effect.Effect<GetBucketPolicyResult, CommonAwsError> {
+    return this.call("GetBucketPolicy", input);
+  }
   getBucketReplication(
     input: GetBucketReplicationRequest,
-  ): Effect.Effect<GetBucketReplicationResult, CommonAwsError>;
+  ): Effect.Effect<GetBucketReplicationResult, CommonAwsError> {
+    return this.call("GetBucketReplication", input);
+  }
   getBucketTagging(
     input: GetBucketTaggingRequest,
-  ): Effect.Effect<GetBucketTaggingResult, CommonAwsError>;
+  ): Effect.Effect<GetBucketTaggingResult, CommonAwsError> {
+    return this.call("GetBucketTagging", input);
+  }
   getBucketVersioning(
     input: GetBucketVersioningRequest,
-  ): Effect.Effect<GetBucketVersioningResult, CommonAwsError>;
+  ): Effect.Effect<GetBucketVersioningResult, CommonAwsError> {
+    return this.call("GetBucketVersioning", input);
+  }
   getDataAccess(
     input: GetDataAccessRequest,
-  ): Effect.Effect<GetDataAccessResult, CommonAwsError>;
+  ): Effect.Effect<GetDataAccessResult, CommonAwsError> {
+    return this.call("GetDataAccess", input);
+  }
   getJobTagging(
     input: GetJobTaggingRequest,
   ): Effect.Effect<
@@ -200,55 +312,90 @@ export declare class S3Control extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetJobTagging", input);
+  }
   getMultiRegionAccessPoint(
     input: GetMultiRegionAccessPointRequest,
-  ): Effect.Effect<GetMultiRegionAccessPointResult, CommonAwsError>;
+  ): Effect.Effect<GetMultiRegionAccessPointResult, CommonAwsError> {
+    return this.call("GetMultiRegionAccessPoint", input);
+  }
   getMultiRegionAccessPointPolicy(
     input: GetMultiRegionAccessPointPolicyRequest,
-  ): Effect.Effect<GetMultiRegionAccessPointPolicyResult, CommonAwsError>;
+  ): Effect.Effect<GetMultiRegionAccessPointPolicyResult, CommonAwsError> {
+    return this.call("GetMultiRegionAccessPointPolicy", input);
+  }
   getMultiRegionAccessPointPolicyStatus(
     input: GetMultiRegionAccessPointPolicyStatusRequest,
-  ): Effect.Effect<GetMultiRegionAccessPointPolicyStatusResult, CommonAwsError>;
+  ): Effect.Effect<
+    GetMultiRegionAccessPointPolicyStatusResult,
+    CommonAwsError
+  > {
+    return this.call("GetMultiRegionAccessPointPolicyStatus", input);
+  }
   getMultiRegionAccessPointRoutes(
     input: GetMultiRegionAccessPointRoutesRequest,
-  ): Effect.Effect<GetMultiRegionAccessPointRoutesResult, CommonAwsError>;
+  ): Effect.Effect<GetMultiRegionAccessPointRoutesResult, CommonAwsError> {
+    return this.call("GetMultiRegionAccessPointRoutes", input);
+  }
   getPublicAccessBlock(
     input: GetPublicAccessBlockRequest,
   ): Effect.Effect<
     GetPublicAccessBlockOutput,
     NoSuchPublicAccessBlockConfiguration | CommonAwsError
-  >;
+  > {
+    return this.call("GetPublicAccessBlock", input);
+  }
   getStorageLensConfiguration(
     input: GetStorageLensConfigurationRequest,
-  ): Effect.Effect<GetStorageLensConfigurationResult, CommonAwsError>;
+  ): Effect.Effect<GetStorageLensConfigurationResult, CommonAwsError> {
+    return this.call("GetStorageLensConfiguration", input);
+  }
   getStorageLensConfigurationTagging(
     input: GetStorageLensConfigurationTaggingRequest,
-  ): Effect.Effect<GetStorageLensConfigurationTaggingResult, CommonAwsError>;
+  ): Effect.Effect<GetStorageLensConfigurationTaggingResult, CommonAwsError> {
+    return this.call("GetStorageLensConfigurationTagging", input);
+  }
   getStorageLensGroup(
     input: GetStorageLensGroupRequest,
-  ): Effect.Effect<GetStorageLensGroupResult, CommonAwsError>;
+  ): Effect.Effect<GetStorageLensGroupResult, CommonAwsError> {
+    return this.call("GetStorageLensGroup", input);
+  }
   listAccessGrants(
     input: ListAccessGrantsRequest,
-  ): Effect.Effect<ListAccessGrantsResult, CommonAwsError>;
+  ): Effect.Effect<ListAccessGrantsResult, CommonAwsError> {
+    return this.call("ListAccessGrants", input);
+  }
   listAccessGrantsInstances(
     input: ListAccessGrantsInstancesRequest,
-  ): Effect.Effect<ListAccessGrantsInstancesResult, CommonAwsError>;
+  ): Effect.Effect<ListAccessGrantsInstancesResult, CommonAwsError> {
+    return this.call("ListAccessGrantsInstances", input);
+  }
   listAccessGrantsLocations(
     input: ListAccessGrantsLocationsRequest,
-  ): Effect.Effect<ListAccessGrantsLocationsResult, CommonAwsError>;
+  ): Effect.Effect<ListAccessGrantsLocationsResult, CommonAwsError> {
+    return this.call("ListAccessGrantsLocations", input);
+  }
   listAccessPoints(
     input: ListAccessPointsRequest,
-  ): Effect.Effect<ListAccessPointsResult, CommonAwsError>;
+  ): Effect.Effect<ListAccessPointsResult, CommonAwsError> {
+    return this.call("ListAccessPoints", input);
+  }
   listAccessPointsForDirectoryBuckets(
     input: ListAccessPointsForDirectoryBucketsRequest,
-  ): Effect.Effect<ListAccessPointsForDirectoryBucketsResult, CommonAwsError>;
+  ): Effect.Effect<ListAccessPointsForDirectoryBucketsResult, CommonAwsError> {
+    return this.call("ListAccessPointsForDirectoryBuckets", input);
+  }
   listAccessPointsForObjectLambda(
     input: ListAccessPointsForObjectLambdaRequest,
-  ): Effect.Effect<ListAccessPointsForObjectLambdaResult, CommonAwsError>;
+  ): Effect.Effect<ListAccessPointsForObjectLambdaResult, CommonAwsError> {
+    return this.call("ListAccessPointsForObjectLambda", input);
+  }
   listCallerAccessGrants(
     input: ListCallerAccessGrantsRequest,
-  ): Effect.Effect<ListCallerAccessGrantsResult, CommonAwsError>;
+  ): Effect.Effect<ListCallerAccessGrantsResult, CommonAwsError> {
+    return this.call("ListCallerAccessGrants", input);
+  }
   listJobs(
     input: ListJobsRequest,
   ): Effect.Effect<
@@ -257,52 +404,87 @@ export declare class S3Control extends AWSServiceClient {
     | InvalidNextTokenException
     | InvalidRequestException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListJobs", input);
+  }
   listMultiRegionAccessPoints(
     input: ListMultiRegionAccessPointsRequest,
-  ): Effect.Effect<ListMultiRegionAccessPointsResult, CommonAwsError>;
+  ): Effect.Effect<ListMultiRegionAccessPointsResult, CommonAwsError> {
+    return this.call("ListMultiRegionAccessPoints", input);
+  }
   listRegionalBuckets(
     input: ListRegionalBucketsRequest,
-  ): Effect.Effect<ListRegionalBucketsResult, CommonAwsError>;
+  ): Effect.Effect<ListRegionalBucketsResult, CommonAwsError> {
+    return this.call("ListRegionalBuckets", input);
+  }
   listStorageLensConfigurations(
     input: ListStorageLensConfigurationsRequest,
-  ): Effect.Effect<ListStorageLensConfigurationsResult, CommonAwsError>;
+  ): Effect.Effect<ListStorageLensConfigurationsResult, CommonAwsError> {
+    return this.call("ListStorageLensConfigurations", input);
+  }
   listStorageLensGroups(
     input: ListStorageLensGroupsRequest,
-  ): Effect.Effect<ListStorageLensGroupsResult, CommonAwsError>;
+  ): Effect.Effect<ListStorageLensGroupsResult, CommonAwsError> {
+    return this.call("ListStorageLensGroups", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
-  ): Effect.Effect<ListTagsForResourceResult, CommonAwsError>;
+  ): Effect.Effect<ListTagsForResourceResult, CommonAwsError> {
+    return this.call("ListTagsForResource", input);
+  }
   putAccessGrantsInstanceResourcePolicy(
     input: PutAccessGrantsInstanceResourcePolicyRequest,
-  ): Effect.Effect<PutAccessGrantsInstanceResourcePolicyResult, CommonAwsError>;
+  ): Effect.Effect<
+    PutAccessGrantsInstanceResourcePolicyResult,
+    CommonAwsError
+  > {
+    return this.call("PutAccessGrantsInstanceResourcePolicy", input);
+  }
   putAccessPointConfigurationForObjectLambda(
     input: PutAccessPointConfigurationForObjectLambdaRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, CommonAwsError> {
+    return this.call("PutAccessPointConfigurationForObjectLambda", input);
+  }
   putAccessPointPolicy(
     input: PutAccessPointPolicyRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, CommonAwsError> {
+    return this.call("PutAccessPointPolicy", input);
+  }
   putAccessPointPolicyForObjectLambda(
     input: PutAccessPointPolicyForObjectLambdaRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, CommonAwsError> {
+    return this.call("PutAccessPointPolicyForObjectLambda", input);
+  }
   putAccessPointScope(
     input: PutAccessPointScopeRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, CommonAwsError> {
+    return this.call("PutAccessPointScope", input);
+  }
   putBucketLifecycleConfiguration(
     input: PutBucketLifecycleConfigurationRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, CommonAwsError> {
+    return this.call("PutBucketLifecycleConfiguration", input);
+  }
   putBucketPolicy(
     input: PutBucketPolicyRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, CommonAwsError> {
+    return this.call("PutBucketPolicy", input);
+  }
   putBucketReplication(
     input: PutBucketReplicationRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, CommonAwsError> {
+    return this.call("PutBucketReplication", input);
+  }
   putBucketTagging(
     input: PutBucketTaggingRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, CommonAwsError> {
+    return this.call("PutBucketTagging", input);
+  }
   putBucketVersioning(
     input: PutBucketVersioningRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, CommonAwsError> {
+    return this.call("PutBucketVersioning", input);
+  }
   putJobTagging(
     input: PutJobTaggingRequest,
   ): Effect.Effect<
@@ -312,31 +494,49 @@ export declare class S3Control extends AWSServiceClient {
     | TooManyRequestsException
     | TooManyTagsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutJobTagging", input);
+  }
   putMultiRegionAccessPointPolicy(
     input: PutMultiRegionAccessPointPolicyRequest,
-  ): Effect.Effect<PutMultiRegionAccessPointPolicyResult, CommonAwsError>;
+  ): Effect.Effect<PutMultiRegionAccessPointPolicyResult, CommonAwsError> {
+    return this.call("PutMultiRegionAccessPointPolicy", input);
+  }
   putPublicAccessBlock(
     input: PutPublicAccessBlockRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, CommonAwsError> {
+    return this.call("PutPublicAccessBlock", input);
+  }
   putStorageLensConfiguration(
     input: PutStorageLensConfigurationRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, CommonAwsError> {
+    return this.call("PutStorageLensConfiguration", input);
+  }
   putStorageLensConfigurationTagging(
     input: PutStorageLensConfigurationTaggingRequest,
-  ): Effect.Effect<PutStorageLensConfigurationTaggingResult, CommonAwsError>;
+  ): Effect.Effect<PutStorageLensConfigurationTaggingResult, CommonAwsError> {
+    return this.call("PutStorageLensConfigurationTagging", input);
+  }
   submitMultiRegionAccessPointRoutes(
     input: SubmitMultiRegionAccessPointRoutesRequest,
-  ): Effect.Effect<SubmitMultiRegionAccessPointRoutesResult, CommonAwsError>;
+  ): Effect.Effect<SubmitMultiRegionAccessPointRoutesResult, CommonAwsError> {
+    return this.call("SubmitMultiRegionAccessPointRoutes", input);
+  }
   tagResource(
     input: TagResourceRequest,
-  ): Effect.Effect<TagResourceResult, CommonAwsError>;
+  ): Effect.Effect<TagResourceResult, CommonAwsError> {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceRequest,
-  ): Effect.Effect<UntagResourceResult, CommonAwsError>;
+  ): Effect.Effect<UntagResourceResult, CommonAwsError> {
+    return this.call("UntagResource", input);
+  }
   updateAccessGrantsLocation(
     input: UpdateAccessGrantsLocationRequest,
-  ): Effect.Effect<UpdateAccessGrantsLocationResult, CommonAwsError>;
+  ): Effect.Effect<UpdateAccessGrantsLocationResult, CommonAwsError> {
+    return this.call("UpdateAccessGrantsLocation", input);
+  }
   updateJobPriority(
     input: UpdateJobPriorityRequest,
   ): Effect.Effect<
@@ -346,7 +546,9 @@ export declare class S3Control extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateJobPriority", input);
+  }
   updateJobStatus(
     input: UpdateJobStatusRequest,
   ): Effect.Effect<
@@ -357,11 +559,17 @@ export declare class S3Control extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateJobStatus", input);
+  }
   updateStorageLensGroup(
     input: UpdateStorageLensGroupRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, CommonAwsError> {
+    return this.call("UpdateStorageLensGroup", input);
+  }
 }
+
+export default S3Control;
 
 export interface AbortIncompleteMultipartUpload {
   DaysAfterInitiation?: number;

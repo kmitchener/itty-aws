@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class CloudControl extends AWSServiceClient {
+export class CloudControl extends AWSServiceClient {
   cancelResourceRequest(
     input: CancelResourceRequestInput,
   ): Effect.Effect<
@@ -10,7 +10,9 @@ export declare class CloudControl extends AWSServiceClient {
     | ConcurrentModificationException
     | RequestTokenNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CancelResourceRequest", input);
+  }
   createResource(
     input: CreateResourceInput,
   ): Effect.Effect<
@@ -35,7 +37,9 @@ export declare class CloudControl extends AWSServiceClient {
     | TypeNotFoundException
     | UnsupportedActionException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateResource", input);
+  }
   deleteResource(
     input: DeleteResourceInput,
   ): Effect.Effect<
@@ -60,7 +64,9 @@ export declare class CloudControl extends AWSServiceClient {
     | TypeNotFoundException
     | UnsupportedActionException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteResource", input);
+  }
   getResource(
     input: GetResourceInput,
   ): Effect.Effect<
@@ -83,16 +89,22 @@ export declare class CloudControl extends AWSServiceClient {
     | TypeNotFoundException
     | UnsupportedActionException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetResource", input);
+  }
   getResourceRequestStatus(
     input: GetResourceRequestStatusInput,
   ): Effect.Effect<
     GetResourceRequestStatusOutput,
     RequestTokenNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("GetResourceRequestStatus", input);
+  }
   listResourceRequests(
     input: ListResourceRequestsInput,
-  ): Effect.Effect<ListResourceRequestsOutput, CommonAwsError>;
+  ): Effect.Effect<ListResourceRequestsOutput, CommonAwsError> {
+    return this.call("ListResourceRequests", input);
+  }
   listResources(
     input: ListResourcesInput,
   ): Effect.Effect<
@@ -115,7 +127,9 @@ export declare class CloudControl extends AWSServiceClient {
     | TypeNotFoundException
     | UnsupportedActionException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListResources", input);
+  }
   updateResource(
     input: UpdateResourceInput,
   ): Effect.Effect<
@@ -140,10 +154,14 @@ export declare class CloudControl extends AWSServiceClient {
     | TypeNotFoundException
     | UnsupportedActionException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateResource", input);
+  }
 }
 
-export declare class Cloudcontrol extends CloudControl {}
+export class Cloudcontrol extends CloudControl {}
+
+export default CloudControl;
 
 export declare class AlreadyExistsException extends EffectData.TaggedError(
   "AlreadyExistsException",

@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class QApps extends AWSServiceClient {
+export class QApps extends AWSServiceClient {
   associateLibraryItemReview(
     input: AssociateLibraryItemReviewInput,
   ): Effect.Effect<
@@ -16,7 +16,9 @@ export declare class QApps extends AWSServiceClient {
     | UnauthorizedException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AssociateLibraryItemReview", input);
+  }
   associateQAppWithUser(
     input: AssociateQAppWithUserInput,
   ): Effect.Effect<
@@ -29,7 +31,9 @@ export declare class QApps extends AWSServiceClient {
     | UnauthorizedException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AssociateQAppWithUser", input);
+  }
   batchCreateCategory(
     input: BatchCreateCategoryInput,
   ): Effect.Effect<
@@ -42,7 +46,9 @@ export declare class QApps extends AWSServiceClient {
     | UnauthorizedException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("BatchCreateCategory", input);
+  }
   batchDeleteCategory(
     input: BatchDeleteCategoryInput,
   ): Effect.Effect<
@@ -55,7 +61,9 @@ export declare class QApps extends AWSServiceClient {
     | UnauthorizedException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("BatchDeleteCategory", input);
+  }
   batchUpdateCategory(
     input: BatchUpdateCategoryInput,
   ): Effect.Effect<
@@ -68,7 +76,9 @@ export declare class QApps extends AWSServiceClient {
     | UnauthorizedException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("BatchUpdateCategory", input);
+  }
   createLibraryItem(
     input: CreateLibraryItemInput,
   ): Effect.Effect<
@@ -81,7 +91,9 @@ export declare class QApps extends AWSServiceClient {
     | UnauthorizedException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateLibraryItem", input);
+  }
   createPresignedUrl(
     input: CreatePresignedUrlInput,
   ): Effect.Effect<
@@ -92,7 +104,9 @@ export declare class QApps extends AWSServiceClient {
     | UnauthorizedException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreatePresignedUrl", input);
+  }
   createQApp(
     input: CreateQAppInput,
   ): Effect.Effect<
@@ -106,7 +120,9 @@ export declare class QApps extends AWSServiceClient {
     | UnauthorizedException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateQApp", input);
+  }
   deleteLibraryItem(
     input: DeleteLibraryItemInput,
   ): Effect.Effect<
@@ -119,7 +135,9 @@ export declare class QApps extends AWSServiceClient {
     | UnauthorizedException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteLibraryItem", input);
+  }
   deleteQApp(
     input: DeleteQAppInput,
   ): Effect.Effect<
@@ -131,7 +149,9 @@ export declare class QApps extends AWSServiceClient {
     | UnauthorizedException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteQApp", input);
+  }
   describeQAppPermissions(
     input: DescribeQAppPermissionsInput,
   ): Effect.Effect<
@@ -143,7 +163,9 @@ export declare class QApps extends AWSServiceClient {
     | UnauthorizedException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeQAppPermissions", input);
+  }
   disassociateLibraryItemReview(
     input: DisassociateLibraryItemReviewInput,
   ): Effect.Effect<
@@ -157,7 +179,9 @@ export declare class QApps extends AWSServiceClient {
     | UnauthorizedException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DisassociateLibraryItemReview", input);
+  }
   disassociateQAppFromUser(
     input: DisassociateQAppFromUserInput,
   ): Effect.Effect<
@@ -169,7 +193,9 @@ export declare class QApps extends AWSServiceClient {
     | UnauthorizedException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DisassociateQAppFromUser", input);
+  }
   exportQAppSessionData(
     input: ExportQAppSessionDataInput,
   ): Effect.Effect<
@@ -183,7 +209,9 @@ export declare class QApps extends AWSServiceClient {
     | UnauthorizedException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ExportQAppSessionData", input);
+  }
   getLibraryItem(
     input: GetLibraryItemInput,
   ): Effect.Effect<
@@ -195,7 +223,9 @@ export declare class QApps extends AWSServiceClient {
     | UnauthorizedException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetLibraryItem", input);
+  }
   getQApp(
     input: GetQAppInput,
   ): Effect.Effect<
@@ -207,7 +237,9 @@ export declare class QApps extends AWSServiceClient {
     | UnauthorizedException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetQApp", input);
+  }
   getQAppSession(
     input: GetQAppSessionInput,
   ): Effect.Effect<
@@ -220,7 +252,9 @@ export declare class QApps extends AWSServiceClient {
     | UnauthorizedException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetQAppSession", input);
+  }
   getQAppSessionMetadata(
     input: GetQAppSessionMetadataInput,
   ): Effect.Effect<
@@ -233,7 +267,9 @@ export declare class QApps extends AWSServiceClient {
     | UnauthorizedException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetQAppSessionMetadata", input);
+  }
   importDocument(
     input: ImportDocumentInput,
   ): Effect.Effect<
@@ -247,7 +283,9 @@ export declare class QApps extends AWSServiceClient {
     | UnauthorizedException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ImportDocument", input);
+  }
   listCategories(
     input: ListCategoriesInput,
   ): Effect.Effect<
@@ -259,7 +297,9 @@ export declare class QApps extends AWSServiceClient {
     | UnauthorizedException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListCategories", input);
+  }
   listLibraryItems(
     input: ListLibraryItemsInput,
   ): Effect.Effect<
@@ -271,7 +311,9 @@ export declare class QApps extends AWSServiceClient {
     | UnauthorizedException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListLibraryItems", input);
+  }
   listQApps(
     input: ListQAppsInput,
   ): Effect.Effect<
@@ -282,7 +324,9 @@ export declare class QApps extends AWSServiceClient {
     | UnauthorizedException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListQApps", input);
+  }
   listQAppSessionData(
     input: ListQAppSessionDataInput,
   ): Effect.Effect<
@@ -295,7 +339,9 @@ export declare class QApps extends AWSServiceClient {
     | UnauthorizedException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListQAppSessionData", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
@@ -306,7 +352,9 @@ export declare class QApps extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   predictQApp(
     input: PredictQAppInput,
   ): Effect.Effect<
@@ -317,7 +365,9 @@ export declare class QApps extends AWSServiceClient {
     | UnauthorizedException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PredictQApp", input);
+  }
   startQAppSession(
     input: StartQAppSessionInput,
   ): Effect.Effect<
@@ -330,7 +380,9 @@ export declare class QApps extends AWSServiceClient {
     | UnauthorizedException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartQAppSession", input);
+  }
   stopQAppSession(
     input: StopQAppSessionInput,
   ): Effect.Effect<
@@ -343,7 +395,9 @@ export declare class QApps extends AWSServiceClient {
     | UnauthorizedException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StopQAppSession", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -355,7 +409,9 @@ export declare class QApps extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
@@ -366,7 +422,9 @@ export declare class QApps extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
   updateLibraryItem(
     input: UpdateLibraryItemInput,
   ): Effect.Effect<
@@ -379,7 +437,9 @@ export declare class QApps extends AWSServiceClient {
     | UnauthorizedException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateLibraryItem", input);
+  }
   updateLibraryItemMetadata(
     input: UpdateLibraryItemMetadataInput,
   ): Effect.Effect<
@@ -392,7 +452,9 @@ export declare class QApps extends AWSServiceClient {
     | UnauthorizedException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateLibraryItemMetadata", input);
+  }
   updateQApp(
     input: UpdateQAppInput,
   ): Effect.Effect<
@@ -405,7 +467,9 @@ export declare class QApps extends AWSServiceClient {
     | UnauthorizedException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateQApp", input);
+  }
   updateQAppPermissions(
     input: UpdateQAppPermissionsInput,
   ): Effect.Effect<
@@ -417,7 +481,9 @@ export declare class QApps extends AWSServiceClient {
     | UnauthorizedException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateQAppPermissions", input);
+  }
   updateQAppSession(
     input: UpdateQAppSessionInput,
   ): Effect.Effect<
@@ -430,7 +496,9 @@ export declare class QApps extends AWSServiceClient {
     | UnauthorizedException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateQAppSession", input);
+  }
   updateQAppSessionMetadata(
     input: UpdateQAppSessionMetadataInput,
   ): Effect.Effect<
@@ -443,10 +511,14 @@ export declare class QApps extends AWSServiceClient {
     | UnauthorizedException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateQAppSessionMetadata", input);
+  }
 }
 
-export declare class Qapps extends QApps {}
+export class Qapps extends QApps {}
+
+export default QApps;
 
 export declare class AccessDeniedException extends EffectData.TaggedError(
   "AccessDeniedException",

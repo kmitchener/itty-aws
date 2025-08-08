@@ -2,55 +2,71 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class CostExplorer extends AWSServiceClient {
+export class CostExplorer extends AWSServiceClient {
   createAnomalyMonitor(
     input: CreateAnomalyMonitorRequest,
   ): Effect.Effect<
     CreateAnomalyMonitorResponse,
     LimitExceededException | CommonAwsError
-  >;
+  > {
+    return this.call("CreateAnomalyMonitor", input);
+  }
   createAnomalySubscription(
     input: CreateAnomalySubscriptionRequest,
   ): Effect.Effect<
     CreateAnomalySubscriptionResponse,
     LimitExceededException | UnknownMonitorException | CommonAwsError
-  >;
+  > {
+    return this.call("CreateAnomalySubscription", input);
+  }
   createCostCategoryDefinition(
     input: CreateCostCategoryDefinitionRequest,
   ): Effect.Effect<
     CreateCostCategoryDefinitionResponse,
     LimitExceededException | ServiceQuotaExceededException | CommonAwsError
-  >;
+  > {
+    return this.call("CreateCostCategoryDefinition", input);
+  }
   deleteAnomalyMonitor(
     input: DeleteAnomalyMonitorRequest,
   ): Effect.Effect<
     DeleteAnomalyMonitorResponse,
     LimitExceededException | UnknownMonitorException | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteAnomalyMonitor", input);
+  }
   deleteAnomalySubscription(
     input: DeleteAnomalySubscriptionRequest,
   ): Effect.Effect<
     DeleteAnomalySubscriptionResponse,
     LimitExceededException | UnknownSubscriptionException | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteAnomalySubscription", input);
+  }
   deleteCostCategoryDefinition(
     input: DeleteCostCategoryDefinitionRequest,
   ): Effect.Effect<
     DeleteCostCategoryDefinitionResponse,
     LimitExceededException | ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteCostCategoryDefinition", input);
+  }
   describeCostCategoryDefinition(
     input: DescribeCostCategoryDefinitionRequest,
   ): Effect.Effect<
     DescribeCostCategoryDefinitionResponse,
     LimitExceededException | ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeCostCategoryDefinition", input);
+  }
   getAnomalies(
     input: GetAnomaliesRequest,
   ): Effect.Effect<
     GetAnomaliesResponse,
     InvalidNextTokenException | LimitExceededException | CommonAwsError
-  >;
+  > {
+    return this.call("GetAnomalies", input);
+  }
   getAnomalyMonitors(
     input: GetAnomalyMonitorsRequest,
   ): Effect.Effect<
@@ -59,7 +75,9 @@ export declare class CostExplorer extends AWSServiceClient {
     | LimitExceededException
     | UnknownMonitorException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetAnomalyMonitors", input);
+  }
   getAnomalySubscriptions(
     input: GetAnomalySubscriptionsRequest,
   ): Effect.Effect<
@@ -68,13 +86,17 @@ export declare class CostExplorer extends AWSServiceClient {
     | LimitExceededException
     | UnknownSubscriptionException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetAnomalySubscriptions", input);
+  }
   getApproximateUsageRecords(
     input: GetApproximateUsageRecordsRequest,
   ): Effect.Effect<
     GetApproximateUsageRecordsResponse,
     DataUnavailableException | LimitExceededException | CommonAwsError
-  >;
+  > {
+    return this.call("GetApproximateUsageRecords", input);
+  }
   getCommitmentPurchaseAnalysis(
     input: GetCommitmentPurchaseAnalysisRequest,
   ): Effect.Effect<
@@ -83,7 +105,9 @@ export declare class CostExplorer extends AWSServiceClient {
     | DataUnavailableException
     | LimitExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetCommitmentPurchaseAnalysis", input);
+  }
   getCostAndUsage(
     input: GetCostAndUsageRequest,
   ): Effect.Effect<
@@ -95,7 +119,9 @@ export declare class CostExplorer extends AWSServiceClient {
     | RequestChangedException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetCostAndUsage", input);
+  }
   getCostAndUsageComparisons(
     input: GetCostAndUsageComparisonsRequest,
   ): Effect.Effect<
@@ -105,7 +131,9 @@ export declare class CostExplorer extends AWSServiceClient {
     | LimitExceededException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetCostAndUsageComparisons", input);
+  }
   getCostAndUsageWithResources(
     input: GetCostAndUsageWithResourcesRequest,
   ): Effect.Effect<
@@ -117,7 +145,9 @@ export declare class CostExplorer extends AWSServiceClient {
     | RequestChangedException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetCostAndUsageWithResources", input);
+  }
   getCostCategories(
     input: GetCostCategoriesRequest,
   ): Effect.Effect<
@@ -129,7 +159,9 @@ export declare class CostExplorer extends AWSServiceClient {
     | RequestChangedException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetCostCategories", input);
+  }
   getCostComparisonDrivers(
     input: GetCostComparisonDriversRequest,
   ): Effect.Effect<
@@ -139,7 +171,9 @@ export declare class CostExplorer extends AWSServiceClient {
     | LimitExceededException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetCostComparisonDrivers", input);
+  }
   getCostForecast(
     input: GetCostForecastRequest,
   ): Effect.Effect<
@@ -148,7 +182,9 @@ export declare class CostExplorer extends AWSServiceClient {
     | LimitExceededException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetCostForecast", input);
+  }
   getDimensionValues(
     input: GetDimensionValuesRequest,
   ): Effect.Effect<
@@ -160,7 +196,9 @@ export declare class CostExplorer extends AWSServiceClient {
     | RequestChangedException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetDimensionValues", input);
+  }
   getReservationCoverage(
     input: GetReservationCoverageRequest,
   ): Effect.Effect<
@@ -169,7 +207,9 @@ export declare class CostExplorer extends AWSServiceClient {
     | InvalidNextTokenException
     | LimitExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetReservationCoverage", input);
+  }
   getReservationPurchaseRecommendation(
     input: GetReservationPurchaseRecommendationRequest,
   ): Effect.Effect<
@@ -178,7 +218,9 @@ export declare class CostExplorer extends AWSServiceClient {
     | InvalidNextTokenException
     | LimitExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetReservationPurchaseRecommendation", input);
+  }
   getReservationUtilization(
     input: GetReservationUtilizationRequest,
   ): Effect.Effect<
@@ -187,19 +229,25 @@ export declare class CostExplorer extends AWSServiceClient {
     | InvalidNextTokenException
     | LimitExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetReservationUtilization", input);
+  }
   getRightsizingRecommendation(
     input: GetRightsizingRecommendationRequest,
   ): Effect.Effect<
     GetRightsizingRecommendationResponse,
     InvalidNextTokenException | LimitExceededException | CommonAwsError
-  >;
+  > {
+    return this.call("GetRightsizingRecommendation", input);
+  }
   getSavingsPlanPurchaseRecommendationDetails(
     input: GetSavingsPlanPurchaseRecommendationDetailsRequest,
   ): Effect.Effect<
     GetSavingsPlanPurchaseRecommendationDetailsResponse,
     DataUnavailableException | LimitExceededException | CommonAwsError
-  >;
+  > {
+    return this.call("GetSavingsPlanPurchaseRecommendationDetails", input);
+  }
   getSavingsPlansCoverage(
     input: GetSavingsPlansCoverageRequest,
   ): Effect.Effect<
@@ -208,19 +256,25 @@ export declare class CostExplorer extends AWSServiceClient {
     | InvalidNextTokenException
     | LimitExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetSavingsPlansCoverage", input);
+  }
   getSavingsPlansPurchaseRecommendation(
     input: GetSavingsPlansPurchaseRecommendationRequest,
   ): Effect.Effect<
     GetSavingsPlansPurchaseRecommendationResponse,
     InvalidNextTokenException | LimitExceededException | CommonAwsError
-  >;
+  > {
+    return this.call("GetSavingsPlansPurchaseRecommendation", input);
+  }
   getSavingsPlansUtilization(
     input: GetSavingsPlansUtilizationRequest,
   ): Effect.Effect<
     GetSavingsPlansUtilizationResponse,
     DataUnavailableException | LimitExceededException | CommonAwsError
-  >;
+  > {
+    return this.call("GetSavingsPlansUtilization", input);
+  }
   getSavingsPlansUtilizationDetails(
     input: GetSavingsPlansUtilizationDetailsRequest,
   ): Effect.Effect<
@@ -229,7 +283,9 @@ export declare class CostExplorer extends AWSServiceClient {
     | InvalidNextTokenException
     | LimitExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetSavingsPlansUtilizationDetails", input);
+  }
   getTags(
     input: GetTagsRequest,
   ): Effect.Effect<
@@ -241,7 +297,9 @@ export declare class CostExplorer extends AWSServiceClient {
     | RequestChangedException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetTags", input);
+  }
   getUsageForecast(
     input: GetUsageForecastRequest,
   ): Effect.Effect<
@@ -251,7 +309,9 @@ export declare class CostExplorer extends AWSServiceClient {
     | ResourceNotFoundException
     | UnresolvableUsageUnitException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetUsageForecast", input);
+  }
   listCommitmentPurchaseAnalyses(
     input: ListCommitmentPurchaseAnalysesRequest,
   ): Effect.Effect<
@@ -260,25 +320,33 @@ export declare class CostExplorer extends AWSServiceClient {
     | InvalidNextTokenException
     | LimitExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListCommitmentPurchaseAnalyses", input);
+  }
   listCostAllocationTagBackfillHistory(
     input: ListCostAllocationTagBackfillHistoryRequest,
   ): Effect.Effect<
     ListCostAllocationTagBackfillHistoryResponse,
     InvalidNextTokenException | LimitExceededException | CommonAwsError
-  >;
+  > {
+    return this.call("ListCostAllocationTagBackfillHistory", input);
+  }
   listCostAllocationTags(
     input: ListCostAllocationTagsRequest,
   ): Effect.Effect<
     ListCostAllocationTagsResponse,
     InvalidNextTokenException | LimitExceededException | CommonAwsError
-  >;
+  > {
+    return this.call("ListCostAllocationTags", input);
+  }
   listCostCategoryDefinitions(
     input: ListCostCategoryDefinitionsRequest,
   ): Effect.Effect<
     ListCostCategoryDefinitionsResponse,
     LimitExceededException | CommonAwsError
-  >;
+  > {
+    return this.call("ListCostCategoryDefinitions", input);
+  }
   listSavingsPlansPurchaseRecommendationGeneration(
     input: ListSavingsPlansPurchaseRecommendationGenerationRequest,
   ): Effect.Effect<
@@ -287,19 +355,25 @@ export declare class CostExplorer extends AWSServiceClient {
     | InvalidNextTokenException
     | LimitExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListSavingsPlansPurchaseRecommendationGeneration", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
     LimitExceededException | ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   provideAnomalyFeedback(
     input: ProvideAnomalyFeedbackRequest,
   ): Effect.Effect<
     ProvideAnomalyFeedbackResponse,
     LimitExceededException | CommonAwsError
-  >;
+  > {
+    return this.call("ProvideAnomalyFeedback", input);
+  }
   startCommitmentPurchaseAnalysis(
     input: StartCommitmentPurchaseAnalysisRequest,
   ): Effect.Effect<
@@ -309,13 +383,17 @@ export declare class CostExplorer extends AWSServiceClient {
     | LimitExceededException
     | ServiceQuotaExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartCommitmentPurchaseAnalysis", input);
+  }
   startCostAllocationTagBackfill(
     input: StartCostAllocationTagBackfillRequest,
   ): Effect.Effect<
     StartCostAllocationTagBackfillResponse,
     BackfillLimitExceededException | LimitExceededException | CommonAwsError
-  >;
+  > {
+    return this.call("StartCostAllocationTagBackfill", input);
+  }
   startSavingsPlansPurchaseRecommendationGeneration(
     input: StartSavingsPlansPurchaseRecommendationGenerationRequest,
   ): Effect.Effect<
@@ -325,7 +403,12 @@ export declare class CostExplorer extends AWSServiceClient {
     | LimitExceededException
     | ServiceQuotaExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call(
+      "StartSavingsPlansPurchaseRecommendationGeneration",
+      input,
+    );
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -334,19 +417,25 @@ export declare class CostExplorer extends AWSServiceClient {
     | ResourceNotFoundException
     | TooManyTagsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
     LimitExceededException | ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
   updateAnomalyMonitor(
     input: UpdateAnomalyMonitorRequest,
   ): Effect.Effect<
     UpdateAnomalyMonitorResponse,
     LimitExceededException | UnknownMonitorException | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateAnomalyMonitor", input);
+  }
   updateAnomalySubscription(
     input: UpdateAnomalySubscriptionRequest,
   ): Effect.Effect<
@@ -355,13 +444,17 @@ export declare class CostExplorer extends AWSServiceClient {
     | UnknownMonitorException
     | UnknownSubscriptionException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateAnomalySubscription", input);
+  }
   updateCostAllocationTagsStatus(
     input: UpdateCostAllocationTagsStatusRequest,
   ): Effect.Effect<
     UpdateCostAllocationTagsStatusResponse,
     LimitExceededException | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateCostAllocationTagsStatus", input);
+  }
   updateCostCategoryDefinition(
     input: UpdateCostCategoryDefinitionRequest,
   ): Effect.Effect<
@@ -370,8 +463,12 @@ export declare class CostExplorer extends AWSServiceClient {
     | ResourceNotFoundException
     | ServiceQuotaExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateCostCategoryDefinition", input);
+  }
 }
+
+export default CostExplorer;
 
 export type AccountId = string;
 

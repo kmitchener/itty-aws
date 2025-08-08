@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class imagebuilder extends AWSServiceClient {
+export class imagebuilder extends AWSServiceClient {
   cancelImageCreation(
     input: CancelImageCreationRequest,
   ): Effect.Effect<
@@ -16,7 +16,9 @@ export declare class imagebuilder extends AWSServiceClient {
     | ServiceException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CancelImageCreation", input);
+  }
   cancelLifecycleExecution(
     input: CancelLifecycleExecutionRequest,
   ): Effect.Effect<
@@ -30,7 +32,9 @@ export declare class imagebuilder extends AWSServiceClient {
     | ServiceException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CancelLifecycleExecution", input);
+  }
   createComponent(
     input: CreateComponentRequest,
   ): Effect.Effect<
@@ -47,7 +51,9 @@ export declare class imagebuilder extends AWSServiceClient {
     | ServiceQuotaExceededException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateComponent", input);
+  }
   createContainerRecipe(
     input: CreateContainerRecipeRequest,
   ): Effect.Effect<
@@ -64,7 +70,9 @@ export declare class imagebuilder extends AWSServiceClient {
     | ServiceQuotaExceededException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateContainerRecipe", input);
+  }
   createDistributionConfiguration(
     input: CreateDistributionConfigurationRequest,
   ): Effect.Effect<
@@ -81,7 +89,9 @@ export declare class imagebuilder extends AWSServiceClient {
     | ServiceQuotaExceededException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateDistributionConfiguration", input);
+  }
   createImage(
     input: CreateImageRequest,
   ): Effect.Effect<
@@ -96,7 +106,9 @@ export declare class imagebuilder extends AWSServiceClient {
     | ServiceQuotaExceededException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateImage", input);
+  }
   createImagePipeline(
     input: CreateImagePipelineRequest,
   ): Effect.Effect<
@@ -112,7 +124,9 @@ export declare class imagebuilder extends AWSServiceClient {
     | ServiceQuotaExceededException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateImagePipeline", input);
+  }
   createImageRecipe(
     input: CreateImageRecipeRequest,
   ): Effect.Effect<
@@ -129,7 +143,9 @@ export declare class imagebuilder extends AWSServiceClient {
     | ServiceQuotaExceededException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateImageRecipe", input);
+  }
   createInfrastructureConfiguration(
     input: CreateInfrastructureConfigurationRequest,
   ): Effect.Effect<
@@ -145,7 +161,9 @@ export declare class imagebuilder extends AWSServiceClient {
     | ServiceQuotaExceededException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateInfrastructureConfiguration", input);
+  }
   createLifecyclePolicy(
     input: CreateLifecyclePolicyRequest,
   ): Effect.Effect<
@@ -161,7 +179,9 @@ export declare class imagebuilder extends AWSServiceClient {
     | ServiceQuotaExceededException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateLifecyclePolicy", input);
+  }
   createWorkflow(
     input: CreateWorkflowRequest,
   ): Effect.Effect<
@@ -178,7 +198,9 @@ export declare class imagebuilder extends AWSServiceClient {
     | ServiceQuotaExceededException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateWorkflow", input);
+  }
   deleteComponent(
     input: DeleteComponentRequest,
   ): Effect.Effect<
@@ -191,7 +213,9 @@ export declare class imagebuilder extends AWSServiceClient {
     | ServiceException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteComponent", input);
+  }
   deleteContainerRecipe(
     input: DeleteContainerRecipeRequest,
   ): Effect.Effect<
@@ -204,7 +228,9 @@ export declare class imagebuilder extends AWSServiceClient {
     | ServiceException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteContainerRecipe", input);
+  }
   deleteDistributionConfiguration(
     input: DeleteDistributionConfigurationRequest,
   ): Effect.Effect<
@@ -217,7 +243,9 @@ export declare class imagebuilder extends AWSServiceClient {
     | ServiceException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteDistributionConfiguration", input);
+  }
   deleteImage(
     input: DeleteImageRequest,
   ): Effect.Effect<
@@ -230,7 +258,9 @@ export declare class imagebuilder extends AWSServiceClient {
     | ServiceException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteImage", input);
+  }
   deleteImagePipeline(
     input: DeleteImagePipelineRequest,
   ): Effect.Effect<
@@ -243,7 +273,9 @@ export declare class imagebuilder extends AWSServiceClient {
     | ServiceException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteImagePipeline", input);
+  }
   deleteImageRecipe(
     input: DeleteImageRecipeRequest,
   ): Effect.Effect<
@@ -256,7 +288,9 @@ export declare class imagebuilder extends AWSServiceClient {
     | ServiceException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteImageRecipe", input);
+  }
   deleteInfrastructureConfiguration(
     input: DeleteInfrastructureConfigurationRequest,
   ): Effect.Effect<
@@ -269,7 +303,9 @@ export declare class imagebuilder extends AWSServiceClient {
     | ServiceException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteInfrastructureConfiguration", input);
+  }
   deleteLifecyclePolicy(
     input: DeleteLifecyclePolicyRequest,
   ): Effect.Effect<
@@ -282,7 +318,9 @@ export declare class imagebuilder extends AWSServiceClient {
     | ServiceException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteLifecyclePolicy", input);
+  }
   deleteWorkflow(
     input: DeleteWorkflowRequest,
   ): Effect.Effect<
@@ -295,7 +333,9 @@ export declare class imagebuilder extends AWSServiceClient {
     | ServiceException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteWorkflow", input);
+  }
   getComponent(
     input: GetComponentRequest,
   ): Effect.Effect<
@@ -307,7 +347,9 @@ export declare class imagebuilder extends AWSServiceClient {
     | ServiceException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetComponent", input);
+  }
   getComponentPolicy(
     input: GetComponentPolicyRequest,
   ): Effect.Effect<
@@ -319,7 +361,9 @@ export declare class imagebuilder extends AWSServiceClient {
     | ServiceException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetComponentPolicy", input);
+  }
   getContainerRecipe(
     input: GetContainerRecipeRequest,
   ): Effect.Effect<
@@ -331,7 +375,9 @@ export declare class imagebuilder extends AWSServiceClient {
     | ServiceException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetContainerRecipe", input);
+  }
   getContainerRecipePolicy(
     input: GetContainerRecipePolicyRequest,
   ): Effect.Effect<
@@ -343,7 +389,9 @@ export declare class imagebuilder extends AWSServiceClient {
     | ServiceException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetContainerRecipePolicy", input);
+  }
   getDistributionConfiguration(
     input: GetDistributionConfigurationRequest,
   ): Effect.Effect<
@@ -355,7 +403,9 @@ export declare class imagebuilder extends AWSServiceClient {
     | ServiceException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetDistributionConfiguration", input);
+  }
   getImage(
     input: GetImageRequest,
   ): Effect.Effect<
@@ -367,7 +417,9 @@ export declare class imagebuilder extends AWSServiceClient {
     | ServiceException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetImage", input);
+  }
   getImagePipeline(
     input: GetImagePipelineRequest,
   ): Effect.Effect<
@@ -379,7 +431,9 @@ export declare class imagebuilder extends AWSServiceClient {
     | ServiceException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetImagePipeline", input);
+  }
   getImagePolicy(
     input: GetImagePolicyRequest,
   ): Effect.Effect<
@@ -391,7 +445,9 @@ export declare class imagebuilder extends AWSServiceClient {
     | ServiceException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetImagePolicy", input);
+  }
   getImageRecipe(
     input: GetImageRecipeRequest,
   ): Effect.Effect<
@@ -403,7 +459,9 @@ export declare class imagebuilder extends AWSServiceClient {
     | ServiceException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetImageRecipe", input);
+  }
   getImageRecipePolicy(
     input: GetImageRecipePolicyRequest,
   ): Effect.Effect<
@@ -415,7 +473,9 @@ export declare class imagebuilder extends AWSServiceClient {
     | ServiceException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetImageRecipePolicy", input);
+  }
   getInfrastructureConfiguration(
     input: GetInfrastructureConfigurationRequest,
   ): Effect.Effect<
@@ -427,7 +487,9 @@ export declare class imagebuilder extends AWSServiceClient {
     | ServiceException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetInfrastructureConfiguration", input);
+  }
   getLifecycleExecution(
     input: GetLifecycleExecutionRequest,
   ): Effect.Effect<
@@ -439,7 +501,9 @@ export declare class imagebuilder extends AWSServiceClient {
     | ServiceException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetLifecycleExecution", input);
+  }
   getLifecyclePolicy(
     input: GetLifecyclePolicyRequest,
   ): Effect.Effect<
@@ -451,7 +515,9 @@ export declare class imagebuilder extends AWSServiceClient {
     | ServiceException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetLifecyclePolicy", input);
+  }
   getMarketplaceResource(
     input: GetMarketplaceResourceRequest,
   ): Effect.Effect<
@@ -463,7 +529,9 @@ export declare class imagebuilder extends AWSServiceClient {
     | ServiceException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetMarketplaceResource", input);
+  }
   getWorkflow(
     input: GetWorkflowRequest,
   ): Effect.Effect<
@@ -475,7 +543,9 @@ export declare class imagebuilder extends AWSServiceClient {
     | ServiceException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetWorkflow", input);
+  }
   getWorkflowExecution(
     input: GetWorkflowExecutionRequest,
   ): Effect.Effect<
@@ -487,7 +557,9 @@ export declare class imagebuilder extends AWSServiceClient {
     | ServiceException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetWorkflowExecution", input);
+  }
   getWorkflowStepExecution(
     input: GetWorkflowStepExecutionRequest,
   ): Effect.Effect<
@@ -499,7 +571,9 @@ export declare class imagebuilder extends AWSServiceClient {
     | ServiceException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetWorkflowStepExecution", input);
+  }
   importComponent(
     input: ImportComponentRequest,
   ): Effect.Effect<
@@ -515,7 +589,9 @@ export declare class imagebuilder extends AWSServiceClient {
     | ServiceException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ImportComponent", input);
+  }
   importDiskImage(
     input: ImportDiskImageRequest,
   ): Effect.Effect<
@@ -524,7 +600,9 @@ export declare class imagebuilder extends AWSServiceClient {
     | ServiceException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ImportDiskImage", input);
+  }
   importVmImage(
     input: ImportVmImageRequest,
   ): Effect.Effect<
@@ -533,7 +611,9 @@ export declare class imagebuilder extends AWSServiceClient {
     | ServiceException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ImportVmImage", input);
+  }
   listComponentBuildVersions(
     input: ListComponentBuildVersionsRequest,
   ): Effect.Effect<
@@ -546,7 +626,9 @@ export declare class imagebuilder extends AWSServiceClient {
     | ServiceException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListComponentBuildVersions", input);
+  }
   listComponents(
     input: ListComponentsRequest,
   ): Effect.Effect<
@@ -559,7 +641,9 @@ export declare class imagebuilder extends AWSServiceClient {
     | ServiceException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListComponents", input);
+  }
   listContainerRecipes(
     input: ListContainerRecipesRequest,
   ): Effect.Effect<
@@ -572,7 +656,9 @@ export declare class imagebuilder extends AWSServiceClient {
     | ServiceException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListContainerRecipes", input);
+  }
   listDistributionConfigurations(
     input: ListDistributionConfigurationsRequest,
   ): Effect.Effect<
@@ -585,7 +671,9 @@ export declare class imagebuilder extends AWSServiceClient {
     | ServiceException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListDistributionConfigurations", input);
+  }
   listImageBuildVersions(
     input: ListImageBuildVersionsRequest,
   ): Effect.Effect<
@@ -598,7 +686,9 @@ export declare class imagebuilder extends AWSServiceClient {
     | ServiceException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListImageBuildVersions", input);
+  }
   listImagePackages(
     input: ListImagePackagesRequest,
   ): Effect.Effect<
@@ -612,7 +702,9 @@ export declare class imagebuilder extends AWSServiceClient {
     | ServiceException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListImagePackages", input);
+  }
   listImagePipelineImages(
     input: ListImagePipelineImagesRequest,
   ): Effect.Effect<
@@ -626,7 +718,9 @@ export declare class imagebuilder extends AWSServiceClient {
     | ServiceException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListImagePipelineImages", input);
+  }
   listImagePipelines(
     input: ListImagePipelinesRequest,
   ): Effect.Effect<
@@ -639,7 +733,9 @@ export declare class imagebuilder extends AWSServiceClient {
     | ServiceException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListImagePipelines", input);
+  }
   listImageRecipes(
     input: ListImageRecipesRequest,
   ): Effect.Effect<
@@ -652,7 +748,9 @@ export declare class imagebuilder extends AWSServiceClient {
     | ServiceException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListImageRecipes", input);
+  }
   listImages(
     input: ListImagesRequest,
   ): Effect.Effect<
@@ -665,7 +763,9 @@ export declare class imagebuilder extends AWSServiceClient {
     | ServiceException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListImages", input);
+  }
   listImageScanFindingAggregations(
     input: ListImageScanFindingAggregationsRequest,
   ): Effect.Effect<
@@ -678,7 +778,9 @@ export declare class imagebuilder extends AWSServiceClient {
     | ServiceException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListImageScanFindingAggregations", input);
+  }
   listImageScanFindings(
     input: ListImageScanFindingsRequest,
   ): Effect.Effect<
@@ -691,7 +793,9 @@ export declare class imagebuilder extends AWSServiceClient {
     | ServiceException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListImageScanFindings", input);
+  }
   listInfrastructureConfigurations(
     input: ListInfrastructureConfigurationsRequest,
   ): Effect.Effect<
@@ -704,7 +808,9 @@ export declare class imagebuilder extends AWSServiceClient {
     | ServiceException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListInfrastructureConfigurations", input);
+  }
   listLifecycleExecutionResources(
     input: ListLifecycleExecutionResourcesRequest,
   ): Effect.Effect<
@@ -717,7 +823,9 @@ export declare class imagebuilder extends AWSServiceClient {
     | ServiceException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListLifecycleExecutionResources", input);
+  }
   listLifecycleExecutions(
     input: ListLifecycleExecutionsRequest,
   ): Effect.Effect<
@@ -730,7 +838,9 @@ export declare class imagebuilder extends AWSServiceClient {
     | ServiceException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListLifecycleExecutions", input);
+  }
   listLifecyclePolicies(
     input: ListLifecyclePoliciesRequest,
   ): Effect.Effect<
@@ -743,7 +853,9 @@ export declare class imagebuilder extends AWSServiceClient {
     | ServiceException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListLifecyclePolicies", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
@@ -752,7 +864,9 @@ export declare class imagebuilder extends AWSServiceClient {
     | ResourceNotFoundException
     | ServiceException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   listWaitingWorkflowSteps(
     input: ListWaitingWorkflowStepsRequest,
   ): Effect.Effect<
@@ -765,7 +879,9 @@ export declare class imagebuilder extends AWSServiceClient {
     | ServiceException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListWaitingWorkflowSteps", input);
+  }
   listWorkflowBuildVersions(
     input: ListWorkflowBuildVersionsRequest,
   ): Effect.Effect<
@@ -778,7 +894,9 @@ export declare class imagebuilder extends AWSServiceClient {
     | ServiceException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListWorkflowBuildVersions", input);
+  }
   listWorkflowExecutions(
     input: ListWorkflowExecutionsRequest,
   ): Effect.Effect<
@@ -791,7 +909,9 @@ export declare class imagebuilder extends AWSServiceClient {
     | ServiceException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListWorkflowExecutions", input);
+  }
   listWorkflows(
     input: ListWorkflowsRequest,
   ): Effect.Effect<
@@ -804,7 +924,9 @@ export declare class imagebuilder extends AWSServiceClient {
     | ServiceException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListWorkflows", input);
+  }
   listWorkflowStepExecutions(
     input: ListWorkflowStepExecutionsRequest,
   ): Effect.Effect<
@@ -817,7 +939,9 @@ export declare class imagebuilder extends AWSServiceClient {
     | ServiceException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListWorkflowStepExecutions", input);
+  }
   putComponentPolicy(
     input: PutComponentPolicyRequest,
   ): Effect.Effect<
@@ -831,7 +955,9 @@ export declare class imagebuilder extends AWSServiceClient {
     | ServiceException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutComponentPolicy", input);
+  }
   putContainerRecipePolicy(
     input: PutContainerRecipePolicyRequest,
   ): Effect.Effect<
@@ -845,7 +971,9 @@ export declare class imagebuilder extends AWSServiceClient {
     | ServiceException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutContainerRecipePolicy", input);
+  }
   putImagePolicy(
     input: PutImagePolicyRequest,
   ): Effect.Effect<
@@ -859,7 +987,9 @@ export declare class imagebuilder extends AWSServiceClient {
     | ServiceException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutImagePolicy", input);
+  }
   putImageRecipePolicy(
     input: PutImageRecipePolicyRequest,
   ): Effect.Effect<
@@ -873,7 +1003,9 @@ export declare class imagebuilder extends AWSServiceClient {
     | ServiceException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutImageRecipePolicy", input);
+  }
   sendWorkflowStepAction(
     input: SendWorkflowStepActionRequest,
   ): Effect.Effect<
@@ -889,7 +1021,9 @@ export declare class imagebuilder extends AWSServiceClient {
     | ServiceException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("SendWorkflowStepAction", input);
+  }
   startImagePipelineExecution(
     input: StartImagePipelineExecutionRequest,
   ): Effect.Effect<
@@ -904,7 +1038,9 @@ export declare class imagebuilder extends AWSServiceClient {
     | ServiceException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartImagePipelineExecution", input);
+  }
   startResourceStateUpdate(
     input: StartResourceStateUpdateRequest,
   ): Effect.Effect<
@@ -919,7 +1055,9 @@ export declare class imagebuilder extends AWSServiceClient {
     | ServiceException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartResourceStateUpdate", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -928,7 +1066,9 @@ export declare class imagebuilder extends AWSServiceClient {
     | ResourceNotFoundException
     | ServiceException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
@@ -937,7 +1077,9 @@ export declare class imagebuilder extends AWSServiceClient {
     | ResourceNotFoundException
     | ServiceException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
   updateDistributionConfiguration(
     input: UpdateDistributionConfigurationRequest,
   ): Effect.Effect<
@@ -952,7 +1094,9 @@ export declare class imagebuilder extends AWSServiceClient {
     | ServiceException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateDistributionConfiguration", input);
+  }
   updateImagePipeline(
     input: UpdateImagePipelineRequest,
   ): Effect.Effect<
@@ -966,7 +1110,9 @@ export declare class imagebuilder extends AWSServiceClient {
     | ServiceException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateImagePipeline", input);
+  }
   updateInfrastructureConfiguration(
     input: UpdateInfrastructureConfigurationRequest,
   ): Effect.Effect<
@@ -980,7 +1126,9 @@ export declare class imagebuilder extends AWSServiceClient {
     | ServiceException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateInfrastructureConfiguration", input);
+  }
   updateLifecyclePolicy(
     input: UpdateLifecyclePolicyRequest,
   ): Effect.Effect<
@@ -995,10 +1143,14 @@ export declare class imagebuilder extends AWSServiceClient {
     | ServiceException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateLifecyclePolicy", input);
+  }
 }
 
-export declare class Imagebuilder extends imagebuilder {}
+export class Imagebuilder extends imagebuilder {}
+
+export default imagebuilder;
 
 export interface AccountAggregation {
   accountId?: string;

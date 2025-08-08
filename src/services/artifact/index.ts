@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class Artifact extends AWSServiceClient {
+export class Artifact extends AWSServiceClient {
   getAccountSettings(
     input: GetAccountSettingsRequest,
   ): Effect.Effect<
@@ -15,7 +15,9 @@ export declare class Artifact extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetAccountSettings", input);
+  }
   getReport(
     input: GetReportRequest,
   ): Effect.Effect<
@@ -28,7 +30,9 @@ export declare class Artifact extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetReport", input);
+  }
   getReportMetadata(
     input: GetReportMetadataRequest,
   ): Effect.Effect<
@@ -40,7 +44,9 @@ export declare class Artifact extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetReportMetadata", input);
+  }
   getTermForReport(
     input: GetTermForReportRequest,
   ): Effect.Effect<
@@ -53,7 +59,9 @@ export declare class Artifact extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetTermForReport", input);
+  }
   listCustomerAgreements(
     input: ListCustomerAgreementsRequest,
   ): Effect.Effect<
@@ -63,7 +71,9 @@ export declare class Artifact extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListCustomerAgreements", input);
+  }
   listReports(
     input: ListReportsRequest,
   ): Effect.Effect<
@@ -75,7 +85,9 @@ export declare class Artifact extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListReports", input);
+  }
   putAccountSettings(
     input: PutAccountSettingsRequest,
   ): Effect.Effect<
@@ -88,8 +100,12 @@ export declare class Artifact extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutAccountSettings", input);
+  }
 }
+
+export default Artifact;
 
 export type AcceptanceType = "PASSTHROUGH" | "EXPLICIT";
 export declare class AccessDeniedException extends EffectData.TaggedError(

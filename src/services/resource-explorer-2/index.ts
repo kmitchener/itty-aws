@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class ResourceExplorer2 extends AWSServiceClient {
+export class ResourceExplorer2 extends AWSServiceClient {
   batchGetView(
     input: BatchGetViewInput,
   ): Effect.Effect<
@@ -13,7 +13,9 @@ export declare class ResourceExplorer2 extends AWSServiceClient {
     | UnauthorizedException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("BatchGetView", input);
+  }
   disassociateDefaultView(input: {}): Effect.Effect<
     {},
     | AccessDeniedException
@@ -22,7 +24,9 @@ export declare class ResourceExplorer2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DisassociateDefaultView", input);
+  }
   getAccountLevelServiceConfiguration(input: {}): Effect.Effect<
     GetAccountLevelServiceConfigurationOutput,
     | AccessDeniedException
@@ -30,7 +34,9 @@ export declare class ResourceExplorer2 extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetAccountLevelServiceConfiguration", input);
+  }
   getDefaultView(input: {}): Effect.Effect<
     GetDefaultViewOutput,
     | AccessDeniedException
@@ -39,7 +45,9 @@ export declare class ResourceExplorer2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetDefaultView", input);
+  }
   getIndex(input: {}): Effect.Effect<
     GetIndexOutput,
     | AccessDeniedException
@@ -48,7 +56,9 @@ export declare class ResourceExplorer2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetIndex", input);
+  }
   getManagedView(
     input: GetManagedViewInput,
   ): Effect.Effect<
@@ -60,7 +70,9 @@ export declare class ResourceExplorer2 extends AWSServiceClient {
     | UnauthorizedException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetManagedView", input);
+  }
   listIndexesForMembers(
     input: ListIndexesForMembersInput,
   ): Effect.Effect<
@@ -70,7 +82,9 @@ export declare class ResourceExplorer2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListIndexesForMembers", input);
+  }
   listManagedViews(
     input: ListManagedViewsInput,
   ): Effect.Effect<
@@ -81,7 +95,9 @@ export declare class ResourceExplorer2 extends AWSServiceClient {
     | UnauthorizedException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListManagedViews", input);
+  }
   listResources(
     input: ListResourcesInput,
   ): Effect.Effect<
@@ -93,7 +109,9 @@ export declare class ResourceExplorer2 extends AWSServiceClient {
     | UnauthorizedException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListResources", input);
+  }
   listSupportedResourceTypes(
     input: ListSupportedResourceTypesInput,
   ): Effect.Effect<
@@ -103,7 +121,9 @@ export declare class ResourceExplorer2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListSupportedResourceTypes", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceInput,
   ): Effect.Effect<
@@ -115,7 +135,9 @@ export declare class ResourceExplorer2 extends AWSServiceClient {
     | UnauthorizedException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   search(
     input: SearchInput,
   ): Effect.Effect<
@@ -127,7 +149,9 @@ export declare class ResourceExplorer2 extends AWSServiceClient {
     | UnauthorizedException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("Search", input);
+  }
   tagResource(
     input: TagResourceInput,
   ): Effect.Effect<
@@ -139,7 +163,9 @@ export declare class ResourceExplorer2 extends AWSServiceClient {
     | UnauthorizedException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceInput,
   ): Effect.Effect<
@@ -151,8 +177,12 @@ export declare class ResourceExplorer2 extends AWSServiceClient {
     | UnauthorizedException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
 }
+
+export default ResourceExplorer2;
 
 export declare class AccessDeniedException extends EffectData.TaggedError(
   "AccessDeniedException",

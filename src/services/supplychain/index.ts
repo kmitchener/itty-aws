@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class SupplyChain extends AWSServiceClient {
+export class SupplyChain extends AWSServiceClient {
   getDataIntegrationEvent(
     input: GetDataIntegrationEventRequest,
   ): Effect.Effect<
@@ -13,7 +13,9 @@ export declare class SupplyChain extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetDataIntegrationEvent", input);
+  }
   getDataIntegrationFlowExecution(
     input: GetDataIntegrationFlowExecutionRequest,
   ): Effect.Effect<
@@ -24,7 +26,9 @@ export declare class SupplyChain extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetDataIntegrationFlowExecution", input);
+  }
   listDataIntegrationEvents(
     input: ListDataIntegrationEventsRequest,
   ): Effect.Effect<
@@ -34,7 +38,9 @@ export declare class SupplyChain extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListDataIntegrationEvents", input);
+  }
   listDataIntegrationFlowExecutions(
     input: ListDataIntegrationFlowExecutionsRequest,
   ): Effect.Effect<
@@ -45,7 +51,9 @@ export declare class SupplyChain extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListDataIntegrationFlowExecutions", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
@@ -56,7 +64,9 @@ export declare class SupplyChain extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   sendDataIntegrationEvent(
     input: SendDataIntegrationEventRequest,
   ): Effect.Effect<
@@ -69,7 +79,9 @@ export declare class SupplyChain extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("SendDataIntegrationEvent", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -80,7 +92,9 @@ export declare class SupplyChain extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
@@ -91,10 +105,14 @@ export declare class SupplyChain extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
 }
 
-export declare class Supplychain extends SupplyChain {}
+export class Supplychain extends SupplyChain {}
+
+export default SupplyChain;
 
 export declare class AccessDeniedException extends EffectData.TaggedError(
   "AccessDeniedException",

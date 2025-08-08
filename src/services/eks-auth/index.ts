@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class EKSAuth extends AWSServiceClient {
+export class EKSAuth extends AWSServiceClient {
   assumeRoleForPodIdentity(
     input: AssumeRoleForPodIdentityRequest,
   ): Effect.Effect<
@@ -17,10 +17,14 @@ export declare class EKSAuth extends AWSServiceClient {
     | ServiceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AssumeRoleForPodIdentity", input);
+  }
 }
 
-export declare class EksAuth extends EKSAuth {}
+export class EksAuth extends EKSAuth {}
+
+export default EKSAuth;
 
 export declare class AccessDeniedException extends EffectData.TaggedError(
   "AccessDeniedException",

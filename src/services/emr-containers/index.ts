@@ -2,13 +2,15 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class EMRcontainers extends AWSServiceClient {
+export class EMRcontainers extends AWSServiceClient {
   cancelJobRun(
     input: CancelJobRunRequest,
   ): Effect.Effect<
     CancelJobRunResponse,
     InternalServerException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("CancelJobRun", input);
+  }
   createJobTemplate(
     input: CreateJobTemplateRequest,
   ): Effect.Effect<
@@ -17,7 +19,9 @@ export declare class EMRcontainers extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateJobTemplate", input);
+  }
   createManagedEndpoint(
     input: CreateManagedEndpointRequest,
   ): Effect.Effect<
@@ -26,13 +30,17 @@ export declare class EMRcontainers extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateManagedEndpoint", input);
+  }
   createSecurityConfiguration(
     input: CreateSecurityConfigurationRequest,
   ): Effect.Effect<
     CreateSecurityConfigurationResponse,
     InternalServerException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("CreateSecurityConfiguration", input);
+  }
   createVirtualCluster(
     input: CreateVirtualClusterRequest,
   ): Effect.Effect<
@@ -42,25 +50,33 @@ export declare class EMRcontainers extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateVirtualCluster", input);
+  }
   deleteJobTemplate(
     input: DeleteJobTemplateRequest,
   ): Effect.Effect<
     DeleteJobTemplateResponse,
     InternalServerException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteJobTemplate", input);
+  }
   deleteManagedEndpoint(
     input: DeleteManagedEndpointRequest,
   ): Effect.Effect<
     DeleteManagedEndpointResponse,
     InternalServerException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteManagedEndpoint", input);
+  }
   deleteVirtualCluster(
     input: DeleteVirtualClusterRequest,
   ): Effect.Effect<
     DeleteVirtualClusterResponse,
     InternalServerException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteVirtualCluster", input);
+  }
   describeJobRun(
     input: DescribeJobRunRequest,
   ): Effect.Effect<
@@ -69,7 +85,9 @@ export declare class EMRcontainers extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeJobRun", input);
+  }
   describeJobTemplate(
     input: DescribeJobTemplateRequest,
   ): Effect.Effect<
@@ -78,7 +96,9 @@ export declare class EMRcontainers extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeJobTemplate", input);
+  }
   describeManagedEndpoint(
     input: DescribeManagedEndpointRequest,
   ): Effect.Effect<
@@ -87,7 +107,9 @@ export declare class EMRcontainers extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeManagedEndpoint", input);
+  }
   describeSecurityConfiguration(
     input: DescribeSecurityConfigurationRequest,
   ): Effect.Effect<
@@ -96,7 +118,9 @@ export declare class EMRcontainers extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeSecurityConfiguration", input);
+  }
   describeVirtualCluster(
     input: DescribeVirtualClusterRequest,
   ): Effect.Effect<
@@ -105,7 +129,9 @@ export declare class EMRcontainers extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeVirtualCluster", input);
+  }
   getManagedEndpointSessionCredentials(
     input: GetManagedEndpointSessionCredentialsRequest,
   ): Effect.Effect<
@@ -115,31 +141,41 @@ export declare class EMRcontainers extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetManagedEndpointSessionCredentials", input);
+  }
   listJobRuns(
     input: ListJobRunsRequest,
   ): Effect.Effect<
     ListJobRunsResponse,
     InternalServerException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("ListJobRuns", input);
+  }
   listJobTemplates(
     input: ListJobTemplatesRequest,
   ): Effect.Effect<
     ListJobTemplatesResponse,
     InternalServerException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("ListJobTemplates", input);
+  }
   listManagedEndpoints(
     input: ListManagedEndpointsRequest,
   ): Effect.Effect<
     ListManagedEndpointsResponse,
     InternalServerException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("ListManagedEndpoints", input);
+  }
   listSecurityConfigurations(
     input: ListSecurityConfigurationsRequest,
   ): Effect.Effect<
     ListSecurityConfigurationsResponse,
     InternalServerException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("ListSecurityConfigurations", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
@@ -148,13 +184,17 @@ export declare class EMRcontainers extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   listVirtualClusters(
     input: ListVirtualClustersRequest,
   ): Effect.Effect<
     ListVirtualClustersResponse,
     InternalServerException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("ListVirtualClusters", input);
+  }
   startJobRun(
     input: StartJobRunRequest,
   ): Effect.Effect<
@@ -163,7 +203,9 @@ export declare class EMRcontainers extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartJobRun", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -172,7 +214,9 @@ export declare class EMRcontainers extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
@@ -181,10 +225,14 @@ export declare class EMRcontainers extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
 }
 
-export declare class EmrContainers extends EMRcontainers {}
+export class EmrContainers extends EMRcontainers {}
+
+export default EMRcontainers;
 
 export type ACMCertArn = string;
 

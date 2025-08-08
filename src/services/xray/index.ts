@@ -2,13 +2,15 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class XRay extends AWSServiceClient {
+export class XRay extends AWSServiceClient {
   batchGetTraces(
     input: BatchGetTracesRequest,
   ): Effect.Effect<
     BatchGetTracesResult,
     InvalidRequestException | ThrottledException | CommonAwsError
-  >;
+  > {
+    return this.call("BatchGetTraces", input);
+  }
   cancelTraceRetrieval(
     input: CancelTraceRetrievalRequest,
   ): Effect.Effect<
@@ -17,13 +19,17 @@ export declare class XRay extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottledException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CancelTraceRetrieval", input);
+  }
   createGroup(
     input: CreateGroupRequest,
   ): Effect.Effect<
     CreateGroupResult,
     InvalidRequestException | ThrottledException | CommonAwsError
-  >;
+  > {
+    return this.call("CreateGroup", input);
+  }
   createSamplingRule(
     input: CreateSamplingRuleRequest,
   ): Effect.Effect<
@@ -32,13 +38,17 @@ export declare class XRay extends AWSServiceClient {
     | RuleLimitExceededException
     | ThrottledException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateSamplingRule", input);
+  }
   deleteGroup(
     input: DeleteGroupRequest,
   ): Effect.Effect<
     DeleteGroupResult,
     InvalidRequestException | ThrottledException | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteGroup", input);
+  }
   deleteResourcePolicy(
     input: DeleteResourcePolicyRequest,
   ): Effect.Effect<
@@ -47,61 +57,81 @@ export declare class XRay extends AWSServiceClient {
     | InvalidRequestException
     | ThrottledException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteResourcePolicy", input);
+  }
   deleteSamplingRule(
     input: DeleteSamplingRuleRequest,
   ): Effect.Effect<
     DeleteSamplingRuleResult,
     InvalidRequestException | ThrottledException | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteSamplingRule", input);
+  }
   getEncryptionConfig(
     input: GetEncryptionConfigRequest,
   ): Effect.Effect<
     GetEncryptionConfigResult,
     InvalidRequestException | ThrottledException | CommonAwsError
-  >;
+  > {
+    return this.call("GetEncryptionConfig", input);
+  }
   getGroup(
     input: GetGroupRequest,
   ): Effect.Effect<
     GetGroupResult,
     InvalidRequestException | ThrottledException | CommonAwsError
-  >;
+  > {
+    return this.call("GetGroup", input);
+  }
   getGroups(
     input: GetGroupsRequest,
   ): Effect.Effect<
     GetGroupsResult,
     InvalidRequestException | ThrottledException | CommonAwsError
-  >;
+  > {
+    return this.call("GetGroups", input);
+  }
   getIndexingRules(
     input: GetIndexingRulesRequest,
   ): Effect.Effect<
     GetIndexingRulesResult,
     InvalidRequestException | ThrottledException | CommonAwsError
-  >;
+  > {
+    return this.call("GetIndexingRules", input);
+  }
   getInsight(
     input: GetInsightRequest,
   ): Effect.Effect<
     GetInsightResult,
     InvalidRequestException | ThrottledException | CommonAwsError
-  >;
+  > {
+    return this.call("GetInsight", input);
+  }
   getInsightEvents(
     input: GetInsightEventsRequest,
   ): Effect.Effect<
     GetInsightEventsResult,
     InvalidRequestException | ThrottledException | CommonAwsError
-  >;
+  > {
+    return this.call("GetInsightEvents", input);
+  }
   getInsightImpactGraph(
     input: GetInsightImpactGraphRequest,
   ): Effect.Effect<
     GetInsightImpactGraphResult,
     InvalidRequestException | ThrottledException | CommonAwsError
-  >;
+  > {
+    return this.call("GetInsightImpactGraph", input);
+  }
   getInsightSummaries(
     input: GetInsightSummariesRequest,
   ): Effect.Effect<
     GetInsightSummariesResult,
     InvalidRequestException | ThrottledException | CommonAwsError
-  >;
+  > {
+    return this.call("GetInsightSummaries", input);
+  }
   getRetrievedTracesGraph(
     input: GetRetrievedTracesGraphRequest,
   ): Effect.Effect<
@@ -110,61 +140,81 @@ export declare class XRay extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottledException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetRetrievedTracesGraph", input);
+  }
   getSamplingRules(
     input: GetSamplingRulesRequest,
   ): Effect.Effect<
     GetSamplingRulesResult,
     InvalidRequestException | ThrottledException | CommonAwsError
-  >;
+  > {
+    return this.call("GetSamplingRules", input);
+  }
   getSamplingStatisticSummaries(
     input: GetSamplingStatisticSummariesRequest,
   ): Effect.Effect<
     GetSamplingStatisticSummariesResult,
     InvalidRequestException | ThrottledException | CommonAwsError
-  >;
+  > {
+    return this.call("GetSamplingStatisticSummaries", input);
+  }
   getSamplingTargets(
     input: GetSamplingTargetsRequest,
   ): Effect.Effect<
     GetSamplingTargetsResult,
     InvalidRequestException | ThrottledException | CommonAwsError
-  >;
+  > {
+    return this.call("GetSamplingTargets", input);
+  }
   getServiceGraph(
     input: GetServiceGraphRequest,
   ): Effect.Effect<
     GetServiceGraphResult,
     InvalidRequestException | ThrottledException | CommonAwsError
-  >;
+  > {
+    return this.call("GetServiceGraph", input);
+  }
   getTimeSeriesServiceStatistics(
     input: GetTimeSeriesServiceStatisticsRequest,
   ): Effect.Effect<
     GetTimeSeriesServiceStatisticsResult,
     InvalidRequestException | ThrottledException | CommonAwsError
-  >;
+  > {
+    return this.call("GetTimeSeriesServiceStatistics", input);
+  }
   getTraceGraph(
     input: GetTraceGraphRequest,
   ): Effect.Effect<
     GetTraceGraphResult,
     InvalidRequestException | ThrottledException | CommonAwsError
-  >;
+  > {
+    return this.call("GetTraceGraph", input);
+  }
   getTraceSegmentDestination(
     input: GetTraceSegmentDestinationRequest,
   ): Effect.Effect<
     GetTraceSegmentDestinationResult,
     InvalidRequestException | ThrottledException | CommonAwsError
-  >;
+  > {
+    return this.call("GetTraceSegmentDestination", input);
+  }
   getTraceSummaries(
     input: GetTraceSummariesRequest,
   ): Effect.Effect<
     GetTraceSummariesResult,
     InvalidRequestException | ThrottledException | CommonAwsError
-  >;
+  > {
+    return this.call("GetTraceSummaries", input);
+  }
   listResourcePolicies(
     input: ListResourcePoliciesRequest,
   ): Effect.Effect<
     ListResourcePoliciesResult,
     InvalidRequestException | ThrottledException | CommonAwsError
-  >;
+  > {
+    return this.call("ListResourcePolicies", input);
+  }
   listRetrievedTraces(
     input: ListRetrievedTracesRequest,
   ): Effect.Effect<
@@ -173,7 +223,9 @@ export declare class XRay extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottledException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListRetrievedTraces", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
@@ -182,13 +234,17 @@ export declare class XRay extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottledException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   putEncryptionConfig(
     input: PutEncryptionConfigRequest,
   ): Effect.Effect<
     PutEncryptionConfigResult,
     InvalidRequestException | ThrottledException | CommonAwsError
-  >;
+  > {
+    return this.call("PutEncryptionConfig", input);
+  }
   putResourcePolicy(
     input: PutResourcePolicyRequest,
   ): Effect.Effect<
@@ -200,19 +256,25 @@ export declare class XRay extends AWSServiceClient {
     | PolicySizeLimitExceededException
     | ThrottledException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutResourcePolicy", input);
+  }
   putTelemetryRecords(
     input: PutTelemetryRecordsRequest,
   ): Effect.Effect<
     PutTelemetryRecordsResult,
     InvalidRequestException | ThrottledException | CommonAwsError
-  >;
+  > {
+    return this.call("PutTelemetryRecords", input);
+  }
   putTraceSegments(
     input: PutTraceSegmentsRequest,
   ): Effect.Effect<
     PutTraceSegmentsResult,
     InvalidRequestException | ThrottledException | CommonAwsError
-  >;
+  > {
+    return this.call("PutTraceSegments", input);
+  }
   startTraceRetrieval(
     input: StartTraceRetrievalRequest,
   ): Effect.Effect<
@@ -221,7 +283,9 @@ export declare class XRay extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottledException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartTraceRetrieval", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -231,7 +295,9 @@ export declare class XRay extends AWSServiceClient {
     | ThrottledException
     | TooManyTagsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
@@ -240,13 +306,17 @@ export declare class XRay extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottledException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
   updateGroup(
     input: UpdateGroupRequest,
   ): Effect.Effect<
     UpdateGroupResult,
     InvalidRequestException | ThrottledException | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateGroup", input);
+  }
   updateIndexingRule(
     input: UpdateIndexingRuleRequest,
   ): Effect.Effect<
@@ -255,22 +325,30 @@ export declare class XRay extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottledException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateIndexingRule", input);
+  }
   updateSamplingRule(
     input: UpdateSamplingRuleRequest,
   ): Effect.Effect<
     UpdateSamplingRuleResult,
     InvalidRequestException | ThrottledException | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateSamplingRule", input);
+  }
   updateTraceSegmentDestination(
     input: UpdateTraceSegmentDestinationRequest,
   ): Effect.Effect<
     UpdateTraceSegmentDestinationResult,
     InvalidRequestException | ThrottledException | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateTraceSegmentDestination", input);
+  }
 }
 
-export declare class Xray extends XRay {}
+export class Xray extends XRay {}
+
+export default XRay;
 
 export interface Alias {
   Name?: string;

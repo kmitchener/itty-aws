@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class BedrockAgentRuntime extends AWSServiceClient {
+export class BedrockAgentRuntime extends AWSServiceClient {
   createInvocation(
     input: CreateInvocationRequest,
   ): Effect.Effect<
@@ -15,7 +15,9 @@ export declare class BedrockAgentRuntime extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateInvocation", input);
+  }
   createSession(
     input: CreateSessionRequest,
   ): Effect.Effect<
@@ -27,7 +29,9 @@ export declare class BedrockAgentRuntime extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateSession", input);
+  }
   deleteAgentMemory(
     input: DeleteAgentMemoryRequest,
   ): Effect.Effect<
@@ -42,7 +46,9 @@ export declare class BedrockAgentRuntime extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteAgentMemory", input);
+  }
   deleteSession(
     input: DeleteSessionRequest,
   ): Effect.Effect<
@@ -54,7 +60,9 @@ export declare class BedrockAgentRuntime extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteSession", input);
+  }
   endSession(
     input: EndSessionRequest,
   ): Effect.Effect<
@@ -66,7 +74,9 @@ export declare class BedrockAgentRuntime extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("EndSession", input);
+  }
   generateQuery(
     input: GenerateQueryRequest,
   ): Effect.Effect<
@@ -81,7 +91,9 @@ export declare class BedrockAgentRuntime extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GenerateQuery", input);
+  }
   getAgentMemory(
     input: GetAgentMemoryRequest,
   ): Effect.Effect<
@@ -96,7 +108,9 @@ export declare class BedrockAgentRuntime extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetAgentMemory", input);
+  }
   getExecutionFlowSnapshot(
     input: GetExecutionFlowSnapshotRequest,
   ): Effect.Effect<
@@ -107,7 +121,9 @@ export declare class BedrockAgentRuntime extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetExecutionFlowSnapshot", input);
+  }
   getFlowExecution(
     input: GetFlowExecutionRequest,
   ): Effect.Effect<
@@ -118,7 +134,9 @@ export declare class BedrockAgentRuntime extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetFlowExecution", input);
+  }
   getInvocationStep(
     input: GetInvocationStepRequest,
   ): Effect.Effect<
@@ -129,7 +147,9 @@ export declare class BedrockAgentRuntime extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetInvocationStep", input);
+  }
   getSession(
     input: GetSessionRequest,
   ): Effect.Effect<
@@ -140,7 +160,9 @@ export declare class BedrockAgentRuntime extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetSession", input);
+  }
   invokeAgent(
     input: InvokeAgentRequest,
   ): Effect.Effect<
@@ -156,7 +178,9 @@ export declare class BedrockAgentRuntime extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("InvokeAgent", input);
+  }
   invokeFlow(
     input: InvokeFlowRequest,
   ): Effect.Effect<
@@ -171,7 +195,9 @@ export declare class BedrockAgentRuntime extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("InvokeFlow", input);
+  }
   invokeInlineAgent(
     input: InvokeInlineAgentRequest,
   ): Effect.Effect<
@@ -186,7 +212,9 @@ export declare class BedrockAgentRuntime extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("InvokeInlineAgent", input);
+  }
   listFlowExecutionEvents(
     input: ListFlowExecutionEventsRequest,
   ): Effect.Effect<
@@ -197,7 +225,9 @@ export declare class BedrockAgentRuntime extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListFlowExecutionEvents", input);
+  }
   listFlowExecutions(
     input: ListFlowExecutionsRequest,
   ): Effect.Effect<
@@ -208,7 +238,9 @@ export declare class BedrockAgentRuntime extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListFlowExecutions", input);
+  }
   listInvocationSteps(
     input: ListInvocationStepsRequest,
   ): Effect.Effect<
@@ -219,7 +251,9 @@ export declare class BedrockAgentRuntime extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListInvocationSteps", input);
+  }
   listInvocations(
     input: ListInvocationsRequest,
   ): Effect.Effect<
@@ -230,7 +264,9 @@ export declare class BedrockAgentRuntime extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListInvocations", input);
+  }
   listSessions(
     input: ListSessionsRequest,
   ): Effect.Effect<
@@ -240,7 +276,9 @@ export declare class BedrockAgentRuntime extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListSessions", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
@@ -251,7 +289,9 @@ export declare class BedrockAgentRuntime extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   optimizePrompt(
     input: OptimizePromptRequest,
   ): Effect.Effect<
@@ -263,7 +303,9 @@ export declare class BedrockAgentRuntime extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("OptimizePrompt", input);
+  }
   putInvocationStep(
     input: PutInvocationStepRequest,
   ): Effect.Effect<
@@ -276,7 +318,9 @@ export declare class BedrockAgentRuntime extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutInvocationStep", input);
+  }
   rerank(
     input: RerankRequest,
   ): Effect.Effect<
@@ -291,7 +335,9 @@ export declare class BedrockAgentRuntime extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("Rerank", input);
+  }
   retrieve(
     input: RetrieveRequest,
   ): Effect.Effect<
@@ -306,7 +352,9 @@ export declare class BedrockAgentRuntime extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("Retrieve", input);
+  }
   retrieveAndGenerate(
     input: RetrieveAndGenerateRequest,
   ): Effect.Effect<
@@ -321,7 +369,9 @@ export declare class BedrockAgentRuntime extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("RetrieveAndGenerate", input);
+  }
   retrieveAndGenerateStream(
     input: RetrieveAndGenerateStreamRequest,
   ): Effect.Effect<
@@ -336,7 +386,9 @@ export declare class BedrockAgentRuntime extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("RetrieveAndGenerateStream", input);
+  }
   startFlowExecution(
     input: StartFlowExecutionRequest,
   ): Effect.Effect<
@@ -351,7 +403,9 @@ export declare class BedrockAgentRuntime extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartFlowExecution", input);
+  }
   stopFlowExecution(
     input: StopFlowExecutionRequest,
   ): Effect.Effect<
@@ -365,7 +419,9 @@ export declare class BedrockAgentRuntime extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StopFlowExecution", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -377,7 +433,9 @@ export declare class BedrockAgentRuntime extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
@@ -388,7 +446,9 @@ export declare class BedrockAgentRuntime extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
   updateSession(
     input: UpdateSessionRequest,
   ): Effect.Effect<
@@ -400,8 +460,12 @@ export declare class BedrockAgentRuntime extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateSession", input);
+  }
 }
+
+export default BedrockAgentRuntime;
 
 export declare class AccessDeniedException extends EffectData.TaggedError(
   "AccessDeniedException",

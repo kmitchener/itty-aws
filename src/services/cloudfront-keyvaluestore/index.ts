@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class CloudFrontKeyValueStore extends AWSServiceClient {
+export class CloudFrontKeyValueStore extends AWSServiceClient {
   deleteKey(
     input: DeleteKeyRequest,
   ): Effect.Effect<
@@ -14,7 +14,9 @@ export declare class CloudFrontKeyValueStore extends AWSServiceClient {
     | ServiceQuotaExceededException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteKey", input);
+  }
   describeKeyValueStore(
     input: DescribeKeyValueStoreRequest,
   ): Effect.Effect<
@@ -24,7 +26,9 @@ export declare class CloudFrontKeyValueStore extends AWSServiceClient {
     | InternalServerException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeKeyValueStore", input);
+  }
   getKey(
     input: GetKeyRequest,
   ): Effect.Effect<
@@ -34,7 +38,9 @@ export declare class CloudFrontKeyValueStore extends AWSServiceClient {
     | InternalServerException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetKey", input);
+  }
   listKeys(
     input: ListKeysRequest,
   ): Effect.Effect<
@@ -45,7 +51,9 @@ export declare class CloudFrontKeyValueStore extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListKeys", input);
+  }
   putKey(
     input: PutKeyRequest,
   ): Effect.Effect<
@@ -57,7 +65,9 @@ export declare class CloudFrontKeyValueStore extends AWSServiceClient {
     | ServiceQuotaExceededException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutKey", input);
+  }
   updateKeys(
     input: UpdateKeysRequest,
   ): Effect.Effect<
@@ -69,10 +79,14 @@ export declare class CloudFrontKeyValueStore extends AWSServiceClient {
     | ServiceQuotaExceededException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateKeys", input);
+  }
 }
 
-export declare class CloudfrontKeyvaluestore extends CloudFrontKeyValueStore {}
+export class CloudfrontKeyvaluestore extends CloudFrontKeyValueStore {}
+
+export default CloudFrontKeyValueStore;
 
 export declare class AccessDeniedException extends EffectData.TaggedError(
   "AccessDeniedException",

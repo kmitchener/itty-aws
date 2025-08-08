@@ -3,7 +3,7 @@ import type { Buffer } from "node:buffer";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class LexModelBuildingService extends AWSServiceClient {
+export class LexModelBuildingService extends AWSServiceClient {
   createBotVersion(
     input: CreateBotVersionRequest,
   ): Effect.Effect<
@@ -15,7 +15,9 @@ export declare class LexModelBuildingService extends AWSServiceClient {
     | NotFoundException
     | PreconditionFailedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateBotVersion", input);
+  }
   createIntentVersion(
     input: CreateIntentVersionRequest,
   ): Effect.Effect<
@@ -27,7 +29,9 @@ export declare class LexModelBuildingService extends AWSServiceClient {
     | NotFoundException
     | PreconditionFailedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateIntentVersion", input);
+  }
   createSlotTypeVersion(
     input: CreateSlotTypeVersionRequest,
   ): Effect.Effect<
@@ -39,7 +43,9 @@ export declare class LexModelBuildingService extends AWSServiceClient {
     | NotFoundException
     | PreconditionFailedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateSlotTypeVersion", input);
+  }
   deleteBot(
     input: DeleteBotRequest,
   ): Effect.Effect<
@@ -51,7 +57,9 @@ export declare class LexModelBuildingService extends AWSServiceClient {
     | NotFoundException
     | ResourceInUseException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteBot", input);
+  }
   deleteBotAlias(
     input: DeleteBotAliasRequest,
   ): Effect.Effect<
@@ -63,7 +71,9 @@ export declare class LexModelBuildingService extends AWSServiceClient {
     | NotFoundException
     | ResourceInUseException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteBotAlias", input);
+  }
   deleteBotChannelAssociation(
     input: DeleteBotChannelAssociationRequest,
   ): Effect.Effect<
@@ -74,7 +84,9 @@ export declare class LexModelBuildingService extends AWSServiceClient {
     | LimitExceededException
     | NotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteBotChannelAssociation", input);
+  }
   deleteBotVersion(
     input: DeleteBotVersionRequest,
   ): Effect.Effect<
@@ -86,7 +98,9 @@ export declare class LexModelBuildingService extends AWSServiceClient {
     | NotFoundException
     | ResourceInUseException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteBotVersion", input);
+  }
   deleteIntent(
     input: DeleteIntentRequest,
   ): Effect.Effect<
@@ -98,7 +112,9 @@ export declare class LexModelBuildingService extends AWSServiceClient {
     | NotFoundException
     | ResourceInUseException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteIntent", input);
+  }
   deleteIntentVersion(
     input: DeleteIntentVersionRequest,
   ): Effect.Effect<
@@ -110,7 +126,9 @@ export declare class LexModelBuildingService extends AWSServiceClient {
     | NotFoundException
     | ResourceInUseException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteIntentVersion", input);
+  }
   deleteSlotType(
     input: DeleteSlotTypeRequest,
   ): Effect.Effect<
@@ -122,7 +140,9 @@ export declare class LexModelBuildingService extends AWSServiceClient {
     | NotFoundException
     | ResourceInUseException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteSlotType", input);
+  }
   deleteSlotTypeVersion(
     input: DeleteSlotTypeVersionRequest,
   ): Effect.Effect<
@@ -134,7 +154,9 @@ export declare class LexModelBuildingService extends AWSServiceClient {
     | NotFoundException
     | ResourceInUseException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteSlotTypeVersion", input);
+  }
   deleteUtterances(
     input: DeleteUtterancesRequest,
   ): Effect.Effect<
@@ -144,7 +166,9 @@ export declare class LexModelBuildingService extends AWSServiceClient {
     | LimitExceededException
     | NotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteUtterances", input);
+  }
   getBot(
     input: GetBotRequest,
   ): Effect.Effect<
@@ -154,7 +178,9 @@ export declare class LexModelBuildingService extends AWSServiceClient {
     | LimitExceededException
     | NotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetBot", input);
+  }
   getBotAlias(
     input: GetBotAliasRequest,
   ): Effect.Effect<
@@ -164,7 +190,9 @@ export declare class LexModelBuildingService extends AWSServiceClient {
     | LimitExceededException
     | NotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetBotAlias", input);
+  }
   getBotAliases(
     input: GetBotAliasesRequest,
   ): Effect.Effect<
@@ -173,7 +201,9 @@ export declare class LexModelBuildingService extends AWSServiceClient {
     | InternalFailureException
     | LimitExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetBotAliases", input);
+  }
   getBotChannelAssociation(
     input: GetBotChannelAssociationRequest,
   ): Effect.Effect<
@@ -183,7 +213,9 @@ export declare class LexModelBuildingService extends AWSServiceClient {
     | LimitExceededException
     | NotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetBotChannelAssociation", input);
+  }
   getBotChannelAssociations(
     input: GetBotChannelAssociationsRequest,
   ): Effect.Effect<
@@ -192,7 +224,9 @@ export declare class LexModelBuildingService extends AWSServiceClient {
     | InternalFailureException
     | LimitExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetBotChannelAssociations", input);
+  }
   getBots(
     input: GetBotsRequest,
   ): Effect.Effect<
@@ -202,7 +236,9 @@ export declare class LexModelBuildingService extends AWSServiceClient {
     | LimitExceededException
     | NotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetBots", input);
+  }
   getBotVersions(
     input: GetBotVersionsRequest,
   ): Effect.Effect<
@@ -212,7 +248,9 @@ export declare class LexModelBuildingService extends AWSServiceClient {
     | LimitExceededException
     | NotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetBotVersions", input);
+  }
   getBuiltinIntent(
     input: GetBuiltinIntentRequest,
   ): Effect.Effect<
@@ -222,7 +260,9 @@ export declare class LexModelBuildingService extends AWSServiceClient {
     | LimitExceededException
     | NotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetBuiltinIntent", input);
+  }
   getBuiltinIntents(
     input: GetBuiltinIntentsRequest,
   ): Effect.Effect<
@@ -231,7 +271,9 @@ export declare class LexModelBuildingService extends AWSServiceClient {
     | InternalFailureException
     | LimitExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetBuiltinIntents", input);
+  }
   getBuiltinSlotTypes(
     input: GetBuiltinSlotTypesRequest,
   ): Effect.Effect<
@@ -240,7 +282,9 @@ export declare class LexModelBuildingService extends AWSServiceClient {
     | InternalFailureException
     | LimitExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetBuiltinSlotTypes", input);
+  }
   getExport(
     input: GetExportRequest,
   ): Effect.Effect<
@@ -250,7 +294,9 @@ export declare class LexModelBuildingService extends AWSServiceClient {
     | LimitExceededException
     | NotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetExport", input);
+  }
   getImport(
     input: GetImportRequest,
   ): Effect.Effect<
@@ -260,7 +306,9 @@ export declare class LexModelBuildingService extends AWSServiceClient {
     | LimitExceededException
     | NotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetImport", input);
+  }
   getIntent(
     input: GetIntentRequest,
   ): Effect.Effect<
@@ -270,7 +318,9 @@ export declare class LexModelBuildingService extends AWSServiceClient {
     | LimitExceededException
     | NotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetIntent", input);
+  }
   getIntents(
     input: GetIntentsRequest,
   ): Effect.Effect<
@@ -280,7 +330,9 @@ export declare class LexModelBuildingService extends AWSServiceClient {
     | LimitExceededException
     | NotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetIntents", input);
+  }
   getIntentVersions(
     input: GetIntentVersionsRequest,
   ): Effect.Effect<
@@ -290,7 +342,9 @@ export declare class LexModelBuildingService extends AWSServiceClient {
     | LimitExceededException
     | NotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetIntentVersions", input);
+  }
   getMigration(
     input: GetMigrationRequest,
   ): Effect.Effect<
@@ -300,7 +354,9 @@ export declare class LexModelBuildingService extends AWSServiceClient {
     | LimitExceededException
     | NotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetMigration", input);
+  }
   getMigrations(
     input: GetMigrationsRequest,
   ): Effect.Effect<
@@ -309,7 +365,9 @@ export declare class LexModelBuildingService extends AWSServiceClient {
     | InternalFailureException
     | LimitExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetMigrations", input);
+  }
   getSlotType(
     input: GetSlotTypeRequest,
   ): Effect.Effect<
@@ -319,7 +377,9 @@ export declare class LexModelBuildingService extends AWSServiceClient {
     | LimitExceededException
     | NotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetSlotType", input);
+  }
   getSlotTypes(
     input: GetSlotTypesRequest,
   ): Effect.Effect<
@@ -329,7 +389,9 @@ export declare class LexModelBuildingService extends AWSServiceClient {
     | LimitExceededException
     | NotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetSlotTypes", input);
+  }
   getSlotTypeVersions(
     input: GetSlotTypeVersionsRequest,
   ): Effect.Effect<
@@ -339,7 +401,9 @@ export declare class LexModelBuildingService extends AWSServiceClient {
     | LimitExceededException
     | NotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetSlotTypeVersions", input);
+  }
   getUtterancesView(
     input: GetUtterancesViewRequest,
   ): Effect.Effect<
@@ -348,7 +412,9 @@ export declare class LexModelBuildingService extends AWSServiceClient {
     | InternalFailureException
     | LimitExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetUtterancesView", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
@@ -358,7 +424,9 @@ export declare class LexModelBuildingService extends AWSServiceClient {
     | LimitExceededException
     | NotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   putBot(
     input: PutBotRequest,
   ): Effect.Effect<
@@ -369,7 +437,9 @@ export declare class LexModelBuildingService extends AWSServiceClient {
     | LimitExceededException
     | PreconditionFailedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutBot", input);
+  }
   putBotAlias(
     input: PutBotAliasRequest,
   ): Effect.Effect<
@@ -380,7 +450,9 @@ export declare class LexModelBuildingService extends AWSServiceClient {
     | LimitExceededException
     | PreconditionFailedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutBotAlias", input);
+  }
   putIntent(
     input: PutIntentRequest,
   ): Effect.Effect<
@@ -391,7 +463,9 @@ export declare class LexModelBuildingService extends AWSServiceClient {
     | LimitExceededException
     | PreconditionFailedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutIntent", input);
+  }
   putSlotType(
     input: PutSlotTypeRequest,
   ): Effect.Effect<
@@ -402,7 +476,9 @@ export declare class LexModelBuildingService extends AWSServiceClient {
     | LimitExceededException
     | PreconditionFailedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutSlotType", input);
+  }
   startImport(
     input: StartImportRequest,
   ): Effect.Effect<
@@ -411,7 +487,9 @@ export declare class LexModelBuildingService extends AWSServiceClient {
     | InternalFailureException
     | LimitExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartImport", input);
+  }
   startMigration(
     input: StartMigrationRequest,
   ): Effect.Effect<
@@ -422,7 +500,9 @@ export declare class LexModelBuildingService extends AWSServiceClient {
     | LimitExceededException
     | NotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartMigration", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -433,7 +513,9 @@ export declare class LexModelBuildingService extends AWSServiceClient {
     | LimitExceededException
     | NotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
@@ -444,8 +526,12 @@ export declare class LexModelBuildingService extends AWSServiceClient {
     | LimitExceededException
     | NotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
 }
+
+export default LexModelBuildingService;
 
 export declare class AccessDeniedException extends EffectData.TaggedError(
   "AccessDeniedException",

@@ -4,283 +4,463 @@ import type { Buffer } from "node:buffer";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class S3 extends AWSServiceClient {
+export class S3 extends AWSServiceClient {
   abortMultipartUpload(
     input: AbortMultipartUploadRequest,
-  ): Effect.Effect<AbortMultipartUploadOutput, NoSuchUpload | CommonAwsError>;
+  ): Effect.Effect<AbortMultipartUploadOutput, NoSuchUpload | CommonAwsError> {
+    return this.call("AbortMultipartUpload", input);
+  }
   completeMultipartUpload(
     input: CompleteMultipartUploadRequest,
-  ): Effect.Effect<CompleteMultipartUploadOutput, CommonAwsError>;
+  ): Effect.Effect<CompleteMultipartUploadOutput, CommonAwsError> {
+    return this.call("CompleteMultipartUpload", input);
+  }
   copyObject(
     input: CopyObjectRequest,
   ): Effect.Effect<
     CopyObjectOutput,
     ObjectNotInActiveTierError | CommonAwsError
-  >;
+  > {
+    return this.call("CopyObject", input);
+  }
   createBucket(
     input: CreateBucketRequest,
   ): Effect.Effect<
     CreateBucketOutput,
     BucketAlreadyExists | BucketAlreadyOwnedByYou | CommonAwsError
-  >;
+  > {
+    return this.call("CreateBucket", input);
+  }
   createBucketMetadataConfiguration(
     input: CreateBucketMetadataConfigurationRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, CommonAwsError> {
+    return this.call("CreateBucketMetadataConfiguration", input);
+  }
   createBucketMetadataTableConfiguration(
     input: CreateBucketMetadataTableConfigurationRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, CommonAwsError> {
+    return this.call("CreateBucketMetadataTableConfiguration", input);
+  }
   createMultipartUpload(
     input: CreateMultipartUploadRequest,
-  ): Effect.Effect<CreateMultipartUploadOutput, CommonAwsError>;
+  ): Effect.Effect<CreateMultipartUploadOutput, CommonAwsError> {
+    return this.call("CreateMultipartUpload", input);
+  }
   createSession(
     input: CreateSessionRequest,
-  ): Effect.Effect<CreateSessionOutput, NoSuchBucket | CommonAwsError>;
-  deleteBucket(input: DeleteBucketRequest): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<CreateSessionOutput, NoSuchBucket | CommonAwsError> {
+    return this.call("CreateSession", input);
+  }
+  deleteBucket(input: DeleteBucketRequest): Effect.Effect<{}, CommonAwsError> {
+    return this.call("DeleteBucket", input);
+  }
   deleteBucketAnalyticsConfiguration(
     input: DeleteBucketAnalyticsConfigurationRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, CommonAwsError> {
+    return this.call("DeleteBucketAnalyticsConfiguration", input);
+  }
   deleteBucketCors(
     input: DeleteBucketCorsRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, CommonAwsError> {
+    return this.call("DeleteBucketCors", input);
+  }
   deleteBucketEncryption(
     input: DeleteBucketEncryptionRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, CommonAwsError> {
+    return this.call("DeleteBucketEncryption", input);
+  }
   deleteBucketIntelligentTieringConfiguration(
     input: DeleteBucketIntelligentTieringConfigurationRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, CommonAwsError> {
+    return this.call("DeleteBucketIntelligentTieringConfiguration", input);
+  }
   deleteBucketInventoryConfiguration(
     input: DeleteBucketInventoryConfigurationRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, CommonAwsError> {
+    return this.call("DeleteBucketInventoryConfiguration", input);
+  }
   deleteBucketLifecycle(
     input: DeleteBucketLifecycleRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, CommonAwsError> {
+    return this.call("DeleteBucketLifecycle", input);
+  }
   deleteBucketMetadataConfiguration(
     input: DeleteBucketMetadataConfigurationRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, CommonAwsError> {
+    return this.call("DeleteBucketMetadataConfiguration", input);
+  }
   deleteBucketMetadataTableConfiguration(
     input: DeleteBucketMetadataTableConfigurationRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, CommonAwsError> {
+    return this.call("DeleteBucketMetadataTableConfiguration", input);
+  }
   deleteBucketMetricsConfiguration(
     input: DeleteBucketMetricsConfigurationRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, CommonAwsError> {
+    return this.call("DeleteBucketMetricsConfiguration", input);
+  }
   deleteBucketOwnershipControls(
     input: DeleteBucketOwnershipControlsRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, CommonAwsError> {
+    return this.call("DeleteBucketOwnershipControls", input);
+  }
   deleteBucketPolicy(
     input: DeleteBucketPolicyRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, CommonAwsError> {
+    return this.call("DeleteBucketPolicy", input);
+  }
   deleteBucketReplication(
     input: DeleteBucketReplicationRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, CommonAwsError> {
+    return this.call("DeleteBucketReplication", input);
+  }
   deleteBucketTagging(
     input: DeleteBucketTaggingRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, CommonAwsError> {
+    return this.call("DeleteBucketTagging", input);
+  }
   deleteBucketWebsite(
     input: DeleteBucketWebsiteRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, CommonAwsError> {
+    return this.call("DeleteBucketWebsite", input);
+  }
   deleteObject(
     input: DeleteObjectRequest,
-  ): Effect.Effect<DeleteObjectOutput, CommonAwsError>;
+  ): Effect.Effect<DeleteObjectOutput, CommonAwsError> {
+    return this.call("DeleteObject", input);
+  }
   deleteObjects(
     input: DeleteObjectsRequest,
-  ): Effect.Effect<DeleteObjectsOutput, CommonAwsError>;
+  ): Effect.Effect<DeleteObjectsOutput, CommonAwsError> {
+    return this.call("DeleteObjects", input);
+  }
   deleteObjectTagging(
     input: DeleteObjectTaggingRequest,
-  ): Effect.Effect<DeleteObjectTaggingOutput, CommonAwsError>;
+  ): Effect.Effect<DeleteObjectTaggingOutput, CommonAwsError> {
+    return this.call("DeleteObjectTagging", input);
+  }
   deletePublicAccessBlock(
     input: DeletePublicAccessBlockRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, CommonAwsError> {
+    return this.call("DeletePublicAccessBlock", input);
+  }
   getBucketAccelerateConfiguration(
     input: GetBucketAccelerateConfigurationRequest,
-  ): Effect.Effect<GetBucketAccelerateConfigurationOutput, CommonAwsError>;
+  ): Effect.Effect<GetBucketAccelerateConfigurationOutput, CommonAwsError> {
+    return this.call("GetBucketAccelerateConfiguration", input);
+  }
   getBucketAcl(
     input: GetBucketAclRequest,
-  ): Effect.Effect<GetBucketAclOutput, CommonAwsError>;
+  ): Effect.Effect<GetBucketAclOutput, CommonAwsError> {
+    return this.call("GetBucketAcl", input);
+  }
   getBucketAnalyticsConfiguration(
     input: GetBucketAnalyticsConfigurationRequest,
-  ): Effect.Effect<GetBucketAnalyticsConfigurationOutput, CommonAwsError>;
+  ): Effect.Effect<GetBucketAnalyticsConfigurationOutput, CommonAwsError> {
+    return this.call("GetBucketAnalyticsConfiguration", input);
+  }
   getBucketCors(
     input: GetBucketCorsRequest,
-  ): Effect.Effect<GetBucketCorsOutput, CommonAwsError>;
+  ): Effect.Effect<GetBucketCorsOutput, CommonAwsError> {
+    return this.call("GetBucketCors", input);
+  }
   getBucketEncryption(
     input: GetBucketEncryptionRequest,
-  ): Effect.Effect<GetBucketEncryptionOutput, CommonAwsError>;
+  ): Effect.Effect<GetBucketEncryptionOutput, CommonAwsError> {
+    return this.call("GetBucketEncryption", input);
+  }
   getBucketIntelligentTieringConfiguration(
     input: GetBucketIntelligentTieringConfigurationRequest,
   ): Effect.Effect<
     GetBucketIntelligentTieringConfigurationOutput,
     CommonAwsError
-  >;
+  > {
+    return this.call("GetBucketIntelligentTieringConfiguration", input);
+  }
   getBucketInventoryConfiguration(
     input: GetBucketInventoryConfigurationRequest,
-  ): Effect.Effect<GetBucketInventoryConfigurationOutput, CommonAwsError>;
+  ): Effect.Effect<GetBucketInventoryConfigurationOutput, CommonAwsError> {
+    return this.call("GetBucketInventoryConfiguration", input);
+  }
   getBucketLifecycleConfiguration(
     input: GetBucketLifecycleConfigurationRequest,
-  ): Effect.Effect<GetBucketLifecycleConfigurationOutput, CommonAwsError>;
+  ): Effect.Effect<GetBucketLifecycleConfigurationOutput, CommonAwsError> {
+    return this.call("GetBucketLifecycleConfiguration", input);
+  }
   getBucketLocation(
     input: GetBucketLocationRequest,
-  ): Effect.Effect<GetBucketLocationOutput, CommonAwsError>;
+  ): Effect.Effect<GetBucketLocationOutput, CommonAwsError> {
+    return this.call("GetBucketLocation", input);
+  }
   getBucketLogging(
     input: GetBucketLoggingRequest,
-  ): Effect.Effect<GetBucketLoggingOutput, CommonAwsError>;
+  ): Effect.Effect<GetBucketLoggingOutput, CommonAwsError> {
+    return this.call("GetBucketLogging", input);
+  }
   getBucketMetadataConfiguration(
     input: GetBucketMetadataConfigurationRequest,
-  ): Effect.Effect<GetBucketMetadataConfigurationOutput, CommonAwsError>;
+  ): Effect.Effect<GetBucketMetadataConfigurationOutput, CommonAwsError> {
+    return this.call("GetBucketMetadataConfiguration", input);
+  }
   getBucketMetadataTableConfiguration(
     input: GetBucketMetadataTableConfigurationRequest,
-  ): Effect.Effect<GetBucketMetadataTableConfigurationOutput, CommonAwsError>;
+  ): Effect.Effect<GetBucketMetadataTableConfigurationOutput, CommonAwsError> {
+    return this.call("GetBucketMetadataTableConfiguration", input);
+  }
   getBucketMetricsConfiguration(
     input: GetBucketMetricsConfigurationRequest,
-  ): Effect.Effect<GetBucketMetricsConfigurationOutput, CommonAwsError>;
+  ): Effect.Effect<GetBucketMetricsConfigurationOutput, CommonAwsError> {
+    return this.call("GetBucketMetricsConfiguration", input);
+  }
   getBucketNotificationConfiguration(
     input: GetBucketNotificationConfigurationRequest,
-  ): Effect.Effect<NotificationConfiguration, CommonAwsError>;
+  ): Effect.Effect<NotificationConfiguration, CommonAwsError> {
+    return this.call("GetBucketNotificationConfiguration", input);
+  }
   getBucketOwnershipControls(
     input: GetBucketOwnershipControlsRequest,
-  ): Effect.Effect<GetBucketOwnershipControlsOutput, CommonAwsError>;
+  ): Effect.Effect<GetBucketOwnershipControlsOutput, CommonAwsError> {
+    return this.call("GetBucketOwnershipControls", input);
+  }
   getBucketPolicy(
     input: GetBucketPolicyRequest,
-  ): Effect.Effect<GetBucketPolicyOutput, CommonAwsError>;
+  ): Effect.Effect<GetBucketPolicyOutput, CommonAwsError> {
+    return this.call("GetBucketPolicy", input);
+  }
   getBucketPolicyStatus(
     input: GetBucketPolicyStatusRequest,
-  ): Effect.Effect<GetBucketPolicyStatusOutput, CommonAwsError>;
+  ): Effect.Effect<GetBucketPolicyStatusOutput, CommonAwsError> {
+    return this.call("GetBucketPolicyStatus", input);
+  }
   getBucketReplication(
     input: GetBucketReplicationRequest,
-  ): Effect.Effect<GetBucketReplicationOutput, CommonAwsError>;
+  ): Effect.Effect<GetBucketReplicationOutput, CommonAwsError> {
+    return this.call("GetBucketReplication", input);
+  }
   getBucketRequestPayment(
     input: GetBucketRequestPaymentRequest,
-  ): Effect.Effect<GetBucketRequestPaymentOutput, CommonAwsError>;
+  ): Effect.Effect<GetBucketRequestPaymentOutput, CommonAwsError> {
+    return this.call("GetBucketRequestPayment", input);
+  }
   getBucketTagging(
     input: GetBucketTaggingRequest,
-  ): Effect.Effect<GetBucketTaggingOutput, CommonAwsError>;
+  ): Effect.Effect<GetBucketTaggingOutput, CommonAwsError> {
+    return this.call("GetBucketTagging", input);
+  }
   getBucketVersioning(
     input: GetBucketVersioningRequest,
-  ): Effect.Effect<GetBucketVersioningOutput, CommonAwsError>;
+  ): Effect.Effect<GetBucketVersioningOutput, CommonAwsError> {
+    return this.call("GetBucketVersioning", input);
+  }
   getBucketWebsite(
     input: GetBucketWebsiteRequest,
-  ): Effect.Effect<GetBucketWebsiteOutput, CommonAwsError>;
+  ): Effect.Effect<GetBucketWebsiteOutput, CommonAwsError> {
+    return this.call("GetBucketWebsite", input);
+  }
   getObject(
     input: GetObjectRequest,
   ): Effect.Effect<
     GetObjectOutput,
     InvalidObjectState | NoSuchKey | CommonAwsError
-  >;
+  > {
+    return this.call("GetObject", input);
+  }
   getObjectAcl(
     input: GetObjectAclRequest,
-  ): Effect.Effect<GetObjectAclOutput, NoSuchKey | CommonAwsError>;
+  ): Effect.Effect<GetObjectAclOutput, NoSuchKey | CommonAwsError> {
+    return this.call("GetObjectAcl", input);
+  }
   getObjectAttributes(
     input: GetObjectAttributesRequest,
-  ): Effect.Effect<GetObjectAttributesOutput, NoSuchKey | CommonAwsError>;
+  ): Effect.Effect<GetObjectAttributesOutput, NoSuchKey | CommonAwsError> {
+    return this.call("GetObjectAttributes", input);
+  }
   getObjectLegalHold(
     input: GetObjectLegalHoldRequest,
-  ): Effect.Effect<GetObjectLegalHoldOutput, CommonAwsError>;
+  ): Effect.Effect<GetObjectLegalHoldOutput, CommonAwsError> {
+    return this.call("GetObjectLegalHold", input);
+  }
   getObjectLockConfiguration(
     input: GetObjectLockConfigurationRequest,
-  ): Effect.Effect<GetObjectLockConfigurationOutput, CommonAwsError>;
+  ): Effect.Effect<GetObjectLockConfigurationOutput, CommonAwsError> {
+    return this.call("GetObjectLockConfiguration", input);
+  }
   getObjectRetention(
     input: GetObjectRetentionRequest,
-  ): Effect.Effect<GetObjectRetentionOutput, CommonAwsError>;
+  ): Effect.Effect<GetObjectRetentionOutput, CommonAwsError> {
+    return this.call("GetObjectRetention", input);
+  }
   getObjectTagging(
     input: GetObjectTaggingRequest,
-  ): Effect.Effect<GetObjectTaggingOutput, CommonAwsError>;
+  ): Effect.Effect<GetObjectTaggingOutput, CommonAwsError> {
+    return this.call("GetObjectTagging", input);
+  }
   getObjectTorrent(
     input: GetObjectTorrentRequest,
-  ): Effect.Effect<GetObjectTorrentOutput, CommonAwsError>;
+  ): Effect.Effect<GetObjectTorrentOutput, CommonAwsError> {
+    return this.call("GetObjectTorrent", input);
+  }
   getPublicAccessBlock(
     input: GetPublicAccessBlockRequest,
-  ): Effect.Effect<GetPublicAccessBlockOutput, CommonAwsError>;
+  ): Effect.Effect<GetPublicAccessBlockOutput, CommonAwsError> {
+    return this.call("GetPublicAccessBlock", input);
+  }
   headBucket(
     input: HeadBucketRequest,
-  ): Effect.Effect<HeadBucketOutput, NotFound | CommonAwsError>;
+  ): Effect.Effect<HeadBucketOutput, NotFound | CommonAwsError> {
+    return this.call("HeadBucket", input);
+  }
   headObject(
     input: HeadObjectRequest,
-  ): Effect.Effect<HeadObjectOutput, NotFound | CommonAwsError>;
+  ): Effect.Effect<HeadObjectOutput, NotFound | CommonAwsError> {
+    return this.call("HeadObject", input);
+  }
   listBucketAnalyticsConfigurations(
     input: ListBucketAnalyticsConfigurationsRequest,
-  ): Effect.Effect<ListBucketAnalyticsConfigurationsOutput, CommonAwsError>;
+  ): Effect.Effect<ListBucketAnalyticsConfigurationsOutput, CommonAwsError> {
+    return this.call("ListBucketAnalyticsConfigurations", input);
+  }
   listBucketIntelligentTieringConfigurations(
     input: ListBucketIntelligentTieringConfigurationsRequest,
   ): Effect.Effect<
     ListBucketIntelligentTieringConfigurationsOutput,
     CommonAwsError
-  >;
+  > {
+    return this.call("ListBucketIntelligentTieringConfigurations", input);
+  }
   listBucketInventoryConfigurations(
     input: ListBucketInventoryConfigurationsRequest,
-  ): Effect.Effect<ListBucketInventoryConfigurationsOutput, CommonAwsError>;
+  ): Effect.Effect<ListBucketInventoryConfigurationsOutput, CommonAwsError> {
+    return this.call("ListBucketInventoryConfigurations", input);
+  }
   listBucketMetricsConfigurations(
     input: ListBucketMetricsConfigurationsRequest,
-  ): Effect.Effect<ListBucketMetricsConfigurationsOutput, CommonAwsError>;
+  ): Effect.Effect<ListBucketMetricsConfigurationsOutput, CommonAwsError> {
+    return this.call("ListBucketMetricsConfigurations", input);
+  }
   listBuckets(
     input: ListBucketsRequest,
-  ): Effect.Effect<ListBucketsOutput, CommonAwsError>;
+  ): Effect.Effect<ListBucketsOutput, CommonAwsError> {
+    return this.call("ListBuckets", input);
+  }
   listDirectoryBuckets(
     input: ListDirectoryBucketsRequest,
-  ): Effect.Effect<ListDirectoryBucketsOutput, CommonAwsError>;
+  ): Effect.Effect<ListDirectoryBucketsOutput, CommonAwsError> {
+    return this.call("ListDirectoryBuckets", input);
+  }
   listMultipartUploads(
     input: ListMultipartUploadsRequest,
-  ): Effect.Effect<ListMultipartUploadsOutput, CommonAwsError>;
+  ): Effect.Effect<ListMultipartUploadsOutput, CommonAwsError> {
+    return this.call("ListMultipartUploads", input);
+  }
   listObjects(
     input: ListObjectsRequest,
-  ): Effect.Effect<ListObjectsOutput, NoSuchBucket | CommonAwsError>;
+  ): Effect.Effect<ListObjectsOutput, NoSuchBucket | CommonAwsError> {
+    return this.call("ListObjects", input);
+  }
   listObjectsV2(
     input: ListObjectsV2Request,
-  ): Effect.Effect<ListObjectsV2Output, NoSuchBucket | CommonAwsError>;
+  ): Effect.Effect<ListObjectsV2Output, NoSuchBucket | CommonAwsError> {
+    return this.call("ListObjectsV2", input);
+  }
   listObjectVersions(
     input: ListObjectVersionsRequest,
-  ): Effect.Effect<ListObjectVersionsOutput, CommonAwsError>;
+  ): Effect.Effect<ListObjectVersionsOutput, CommonAwsError> {
+    return this.call("ListObjectVersions", input);
+  }
   listParts(
     input: ListPartsRequest,
-  ): Effect.Effect<ListPartsOutput, CommonAwsError>;
+  ): Effect.Effect<ListPartsOutput, CommonAwsError> {
+    return this.call("ListParts", input);
+  }
   putBucketAccelerateConfiguration(
     input: PutBucketAccelerateConfigurationRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
-  putBucketAcl(input: PutBucketAclRequest): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, CommonAwsError> {
+    return this.call("PutBucketAccelerateConfiguration", input);
+  }
+  putBucketAcl(input: PutBucketAclRequest): Effect.Effect<{}, CommonAwsError> {
+    return this.call("PutBucketAcl", input);
+  }
   putBucketAnalyticsConfiguration(
     input: PutBucketAnalyticsConfigurationRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
-  putBucketCors(input: PutBucketCorsRequest): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, CommonAwsError> {
+    return this.call("PutBucketAnalyticsConfiguration", input);
+  }
+  putBucketCors(
+    input: PutBucketCorsRequest,
+  ): Effect.Effect<{}, CommonAwsError> {
+    return this.call("PutBucketCors", input);
+  }
   putBucketEncryption(
     input: PutBucketEncryptionRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, CommonAwsError> {
+    return this.call("PutBucketEncryption", input);
+  }
   putBucketIntelligentTieringConfiguration(
     input: PutBucketIntelligentTieringConfigurationRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, CommonAwsError> {
+    return this.call("PutBucketIntelligentTieringConfiguration", input);
+  }
   putBucketInventoryConfiguration(
     input: PutBucketInventoryConfigurationRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, CommonAwsError> {
+    return this.call("PutBucketInventoryConfiguration", input);
+  }
   putBucketLifecycleConfiguration(
     input: PutBucketLifecycleConfigurationRequest,
-  ): Effect.Effect<PutBucketLifecycleConfigurationOutput, CommonAwsError>;
+  ): Effect.Effect<PutBucketLifecycleConfigurationOutput, CommonAwsError> {
+    return this.call("PutBucketLifecycleConfiguration", input);
+  }
   putBucketLogging(
     input: PutBucketLoggingRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, CommonAwsError> {
+    return this.call("PutBucketLogging", input);
+  }
   putBucketMetricsConfiguration(
     input: PutBucketMetricsConfigurationRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, CommonAwsError> {
+    return this.call("PutBucketMetricsConfiguration", input);
+  }
   putBucketNotificationConfiguration(
     input: PutBucketNotificationConfigurationRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, CommonAwsError> {
+    return this.call("PutBucketNotificationConfiguration", input);
+  }
   putBucketOwnershipControls(
     input: PutBucketOwnershipControlsRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, CommonAwsError> {
+    return this.call("PutBucketOwnershipControls", input);
+  }
   putBucketPolicy(
     input: PutBucketPolicyRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, CommonAwsError> {
+    return this.call("PutBucketPolicy", input);
+  }
   putBucketReplication(
     input: PutBucketReplicationRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, CommonAwsError> {
+    return this.call("PutBucketReplication", input);
+  }
   putBucketRequestPayment(
     input: PutBucketRequestPaymentRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, CommonAwsError> {
+    return this.call("PutBucketRequestPayment", input);
+  }
   putBucketTagging(
     input: PutBucketTaggingRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, CommonAwsError> {
+    return this.call("PutBucketTagging", input);
+  }
   putBucketVersioning(
     input: PutBucketVersioningRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, CommonAwsError> {
+    return this.call("PutBucketVersioning", input);
+  }
   putBucketWebsite(
     input: PutBucketWebsiteRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, CommonAwsError> {
+    return this.call("PutBucketWebsite", input);
+  }
   putObject(
     input: PutObjectRequest,
   ): Effect.Effect<
@@ -290,56 +470,88 @@ export declare class S3 extends AWSServiceClient {
     | InvalidWriteOffset
     | TooManyParts
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutObject", input);
+  }
   putObjectAcl(
     input: PutObjectAclRequest,
-  ): Effect.Effect<PutObjectAclOutput, NoSuchKey | CommonAwsError>;
+  ): Effect.Effect<PutObjectAclOutput, NoSuchKey | CommonAwsError> {
+    return this.call("PutObjectAcl", input);
+  }
   putObjectLegalHold(
     input: PutObjectLegalHoldRequest,
-  ): Effect.Effect<PutObjectLegalHoldOutput, CommonAwsError>;
+  ): Effect.Effect<PutObjectLegalHoldOutput, CommonAwsError> {
+    return this.call("PutObjectLegalHold", input);
+  }
   putObjectLockConfiguration(
     input: PutObjectLockConfigurationRequest,
-  ): Effect.Effect<PutObjectLockConfigurationOutput, CommonAwsError>;
+  ): Effect.Effect<PutObjectLockConfigurationOutput, CommonAwsError> {
+    return this.call("PutObjectLockConfiguration", input);
+  }
   putObjectRetention(
     input: PutObjectRetentionRequest,
-  ): Effect.Effect<PutObjectRetentionOutput, CommonAwsError>;
+  ): Effect.Effect<PutObjectRetentionOutput, CommonAwsError> {
+    return this.call("PutObjectRetention", input);
+  }
   putObjectTagging(
     input: PutObjectTaggingRequest,
-  ): Effect.Effect<PutObjectTaggingOutput, CommonAwsError>;
+  ): Effect.Effect<PutObjectTaggingOutput, CommonAwsError> {
+    return this.call("PutObjectTagging", input);
+  }
   putPublicAccessBlock(
     input: PutPublicAccessBlockRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, CommonAwsError> {
+    return this.call("PutPublicAccessBlock", input);
+  }
   renameObject(
     input: RenameObjectRequest,
   ): Effect.Effect<
     RenameObjectOutput,
     IdempotencyParameterMismatch | CommonAwsError
-  >;
+  > {
+    return this.call("RenameObject", input);
+  }
   restoreObject(
     input: RestoreObjectRequest,
   ): Effect.Effect<
     RestoreObjectOutput,
     ObjectAlreadyInActiveTierError | CommonAwsError
-  >;
+  > {
+    return this.call("RestoreObject", input);
+  }
   selectObjectContent(
     input: SelectObjectContentRequest,
-  ): Effect.Effect<SelectObjectContentOutput, CommonAwsError>;
+  ): Effect.Effect<SelectObjectContentOutput, CommonAwsError> {
+    return this.call("SelectObjectContent", input);
+  }
   updateBucketMetadataInventoryTableConfiguration(
     input: UpdateBucketMetadataInventoryTableConfigurationRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, CommonAwsError> {
+    return this.call("UpdateBucketMetadataInventoryTableConfiguration", input);
+  }
   updateBucketMetadataJournalTableConfiguration(
     input: UpdateBucketMetadataJournalTableConfigurationRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, CommonAwsError> {
+    return this.call("UpdateBucketMetadataJournalTableConfiguration", input);
+  }
   uploadPart(
     input: UploadPartRequest,
-  ): Effect.Effect<UploadPartOutput, CommonAwsError>;
+  ): Effect.Effect<UploadPartOutput, CommonAwsError> {
+    return this.call("UploadPart", input);
+  }
   uploadPartCopy(
     input: UploadPartCopyRequest,
-  ): Effect.Effect<UploadPartCopyOutput, CommonAwsError>;
+  ): Effect.Effect<UploadPartCopyOutput, CommonAwsError> {
+    return this.call("UploadPartCopy", input);
+  }
   writeGetObjectResponse(
     input: WriteGetObjectResponseRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, CommonAwsError> {
+    return this.call("WriteGetObjectResponse", input);
+  }
 }
+
+export default S3;
 
 export type AbortDate = Date | string;
 

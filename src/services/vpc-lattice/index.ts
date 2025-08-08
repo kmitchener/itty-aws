@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class VPCLattice extends AWSServiceClient {
+export class VPCLattice extends AWSServiceClient {
   batchUpdateRule(
     input: BatchUpdateRuleRequest,
   ): Effect.Effect<
@@ -14,7 +14,9 @@ export declare class VPCLattice extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("BatchUpdateRule", input);
+  }
   deleteAuthPolicy(
     input: DeleteAuthPolicyRequest,
   ): Effect.Effect<
@@ -25,7 +27,9 @@ export declare class VPCLattice extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteAuthPolicy", input);
+  }
   deleteResourcePolicy(
     input: DeleteResourcePolicyRequest,
   ): Effect.Effect<
@@ -36,7 +40,9 @@ export declare class VPCLattice extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteResourcePolicy", input);
+  }
   getAuthPolicy(
     input: GetAuthPolicyRequest,
   ): Effect.Effect<
@@ -47,7 +53,9 @@ export declare class VPCLattice extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetAuthPolicy", input);
+  }
   getResourcePolicy(
     input: GetResourcePolicyRequest,
   ): Effect.Effect<
@@ -58,7 +66,9 @@ export declare class VPCLattice extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetResourcePolicy", input);
+  }
   listServiceNetworkVpcEndpointAssociations(
     input: ListServiceNetworkVpcEndpointAssociationsRequest,
   ): Effect.Effect<
@@ -68,7 +78,9 @@ export declare class VPCLattice extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListServiceNetworkVpcEndpointAssociations", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
@@ -78,7 +90,9 @@ export declare class VPCLattice extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   putAuthPolicy(
     input: PutAuthPolicyRequest,
   ): Effect.Effect<
@@ -89,7 +103,9 @@ export declare class VPCLattice extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutAuthPolicy", input);
+  }
   putResourcePolicy(
     input: PutResourcePolicyRequest,
   ): Effect.Effect<
@@ -100,7 +116,9 @@ export declare class VPCLattice extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutResourcePolicy", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -111,7 +129,9 @@ export declare class VPCLattice extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
@@ -121,10 +141,14 @@ export declare class VPCLattice extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
 }
 
-export declare class VpcLattice extends VPCLattice {}
+export class VpcLattice extends VPCLattice {}
+
+export default VPCLattice;
 
 export declare class AccessDeniedException extends EffectData.TaggedError(
   "AccessDeniedException",

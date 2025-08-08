@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class S3Outposts extends AWSServiceClient {
+export class S3Outposts extends AWSServiceClient {
   createEndpoint(
     input: CreateEndpointRequest,
   ): Effect.Effect<
@@ -15,7 +15,9 @@ export declare class S3Outposts extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateEndpoint", input);
+  }
   deleteEndpoint(
     input: DeleteEndpointRequest,
   ): Effect.Effect<
@@ -27,7 +29,9 @@ export declare class S3Outposts extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteEndpoint", input);
+  }
   listEndpoints(
     input: ListEndpointsRequest,
   ): Effect.Effect<
@@ -38,7 +42,9 @@ export declare class S3Outposts extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListEndpoints", input);
+  }
   listOutpostsWithS3(
     input: ListOutpostsWithS3Request,
   ): Effect.Effect<
@@ -48,7 +54,9 @@ export declare class S3Outposts extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListOutpostsWithS3", input);
+  }
   listSharedEndpoints(
     input: ListSharedEndpointsRequest,
   ): Effect.Effect<
@@ -59,10 +67,14 @@ export declare class S3Outposts extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListSharedEndpoints", input);
+  }
 }
 
-export declare class S3outposts extends S3Outposts {}
+export class S3outposts extends S3Outposts {}
+
+export default S3Outposts;
 
 export declare class AccessDeniedException extends EffectData.TaggedError(
   "AccessDeniedException",

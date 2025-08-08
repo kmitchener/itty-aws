@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class RDSData extends AWSServiceClient {
+export class RDSData extends AWSServiceClient {
   batchExecuteStatement(
     input: BatchExecuteStatementRequest,
   ): Effect.Effect<
@@ -23,7 +23,9 @@ export declare class RDSData extends AWSServiceClient {
     | StatementTimeoutException
     | TransactionNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("BatchExecuteStatement", input);
+  }
   beginTransaction(
     input: BeginTransactionRequest,
   ): Effect.Effect<
@@ -44,7 +46,9 @@ export declare class RDSData extends AWSServiceClient {
     | StatementTimeoutException
     | TransactionNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("BeginTransaction", input);
+  }
   commitTransaction(
     input: CommitTransactionRequest,
   ): Effect.Effect<
@@ -65,7 +69,9 @@ export declare class RDSData extends AWSServiceClient {
     | StatementTimeoutException
     | TransactionNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CommitTransaction", input);
+  }
   executeSql(
     input: ExecuteSqlRequest,
   ): Effect.Effect<
@@ -76,7 +82,9 @@ export declare class RDSData extends AWSServiceClient {
     | InternalServerErrorException
     | ServiceUnavailableError
     | CommonAwsError
-  >;
+  > {
+    return this.call("ExecuteSql", input);
+  }
   executeStatement(
     input: ExecuteStatementRequest,
   ): Effect.Effect<
@@ -98,7 +106,9 @@ export declare class RDSData extends AWSServiceClient {
     | TransactionNotFoundException
     | UnsupportedResultException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ExecuteStatement", input);
+  }
   rollbackTransaction(
     input: RollbackTransactionRequest,
   ): Effect.Effect<
@@ -119,10 +129,14 @@ export declare class RDSData extends AWSServiceClient {
     | StatementTimeoutException
     | TransactionNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("RollbackTransaction", input);
+  }
 }
 
-export declare class RdsData extends RDSData {}
+export class RdsData extends RDSData {}
+
+export default RDSData;
 
 export declare class AccessDeniedException extends EffectData.TaggedError(
   "AccessDeniedException",

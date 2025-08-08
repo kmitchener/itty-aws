@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class SNS extends AWSServiceClient {
+export class SNS extends AWSServiceClient {
   addPermission(
     input: AddPermissionInput,
   ): Effect.Effect<
@@ -12,7 +12,9 @@ export declare class SNS extends AWSServiceClient {
     | InvalidParameterException
     | NotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AddPermission", input);
+  }
   checkIfPhoneNumberIsOptedOut(
     input: CheckIfPhoneNumberIsOptedOutInput,
   ): Effect.Effect<
@@ -22,7 +24,9 @@ export declare class SNS extends AWSServiceClient {
     | InvalidParameterException
     | ThrottledException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CheckIfPhoneNumberIsOptedOut", input);
+  }
   confirmSubscription(
     input: ConfirmSubscriptionInput,
   ): Effect.Effect<
@@ -35,7 +39,9 @@ export declare class SNS extends AWSServiceClient {
     | ReplayLimitExceededException
     | SubscriptionLimitExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ConfirmSubscription", input);
+  }
   createPlatformApplication(
     input: CreatePlatformApplicationInput,
   ): Effect.Effect<
@@ -44,7 +50,9 @@ export declare class SNS extends AWSServiceClient {
     | InternalErrorException
     | InvalidParameterException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreatePlatformApplication", input);
+  }
   createPlatformEndpoint(
     input: CreatePlatformEndpointInput,
   ): Effect.Effect<
@@ -54,7 +62,9 @@ export declare class SNS extends AWSServiceClient {
     | InvalidParameterException
     | NotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreatePlatformEndpoint", input);
+  }
   createSMSSandboxPhoneNumber(
     input: CreateSMSSandboxPhoneNumberInput,
   ): Effect.Effect<
@@ -66,7 +76,9 @@ export declare class SNS extends AWSServiceClient {
     | ThrottledException
     | UserErrorException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateSMSSandboxPhoneNumber", input);
+  }
   createTopic(
     input: CreateTopicInput,
   ): Effect.Effect<
@@ -81,7 +93,9 @@ export declare class SNS extends AWSServiceClient {
     | TagPolicyException
     | TopicLimitExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateTopic", input);
+  }
   deleteEndpoint(
     input: DeleteEndpointInput,
   ): Effect.Effect<
@@ -90,7 +104,9 @@ export declare class SNS extends AWSServiceClient {
     | InternalErrorException
     | InvalidParameterException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteEndpoint", input);
+  }
   deletePlatformApplication(
     input: DeletePlatformApplicationInput,
   ): Effect.Effect<
@@ -99,7 +115,9 @@ export declare class SNS extends AWSServiceClient {
     | InternalErrorException
     | InvalidParameterException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeletePlatformApplication", input);
+  }
   deleteSMSSandboxPhoneNumber(
     input: DeleteSMSSandboxPhoneNumberInput,
   ): Effect.Effect<
@@ -111,7 +129,9 @@ export declare class SNS extends AWSServiceClient {
     | ThrottledException
     | UserErrorException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteSMSSandboxPhoneNumber", input);
+  }
   deleteTopic(
     input: DeleteTopicInput,
   ): Effect.Effect<
@@ -125,7 +145,9 @@ export declare class SNS extends AWSServiceClient {
     | StaleTagException
     | TagPolicyException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteTopic", input);
+  }
   getDataProtectionPolicy(
     input: GetDataProtectionPolicyInput,
   ): Effect.Effect<
@@ -136,7 +158,9 @@ export declare class SNS extends AWSServiceClient {
     | InvalidSecurityException
     | NotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetDataProtectionPolicy", input);
+  }
   getEndpointAttributes(
     input: GetEndpointAttributesInput,
   ): Effect.Effect<
@@ -146,7 +170,9 @@ export declare class SNS extends AWSServiceClient {
     | InvalidParameterException
     | NotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetEndpointAttributes", input);
+  }
   getPlatformApplicationAttributes(
     input: GetPlatformApplicationAttributesInput,
   ): Effect.Effect<
@@ -156,7 +182,9 @@ export declare class SNS extends AWSServiceClient {
     | InvalidParameterException
     | NotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetPlatformApplicationAttributes", input);
+  }
   getSMSAttributes(
     input: GetSMSAttributesInput,
   ): Effect.Effect<
@@ -166,7 +194,9 @@ export declare class SNS extends AWSServiceClient {
     | InvalidParameterException
     | ThrottledException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetSMSAttributes", input);
+  }
   getSMSSandboxAccountStatus(
     input: GetSMSSandboxAccountStatusInput,
   ): Effect.Effect<
@@ -175,7 +205,9 @@ export declare class SNS extends AWSServiceClient {
     | InternalErrorException
     | ThrottledException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetSMSSandboxAccountStatus", input);
+  }
   getSubscriptionAttributes(
     input: GetSubscriptionAttributesInput,
   ): Effect.Effect<
@@ -185,7 +217,9 @@ export declare class SNS extends AWSServiceClient {
     | InvalidParameterException
     | NotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetSubscriptionAttributes", input);
+  }
   getTopicAttributes(
     input: GetTopicAttributesInput,
   ): Effect.Effect<
@@ -196,7 +230,9 @@ export declare class SNS extends AWSServiceClient {
     | InvalidSecurityException
     | NotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetTopicAttributes", input);
+  }
   listEndpointsByPlatformApplication(
     input: ListEndpointsByPlatformApplicationInput,
   ): Effect.Effect<
@@ -206,7 +242,9 @@ export declare class SNS extends AWSServiceClient {
     | InvalidParameterException
     | NotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListEndpointsByPlatformApplication", input);
+  }
   listOriginationNumbers(
     input: ListOriginationNumbersRequest,
   ): Effect.Effect<
@@ -217,7 +255,9 @@ export declare class SNS extends AWSServiceClient {
     | ThrottledException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListOriginationNumbers", input);
+  }
   listPhoneNumbersOptedOut(
     input: ListPhoneNumbersOptedOutInput,
   ): Effect.Effect<
@@ -227,7 +267,9 @@ export declare class SNS extends AWSServiceClient {
     | InvalidParameterException
     | ThrottledException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListPhoneNumbersOptedOut", input);
+  }
   listPlatformApplications(
     input: ListPlatformApplicationsInput,
   ): Effect.Effect<
@@ -236,7 +278,9 @@ export declare class SNS extends AWSServiceClient {
     | InternalErrorException
     | InvalidParameterException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListPlatformApplications", input);
+  }
   listSMSSandboxPhoneNumbers(
     input: ListSMSSandboxPhoneNumbersInput,
   ): Effect.Effect<
@@ -247,7 +291,9 @@ export declare class SNS extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottledException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListSMSSandboxPhoneNumbers", input);
+  }
   listSubscriptions(
     input: ListSubscriptionsInput,
   ): Effect.Effect<
@@ -256,7 +302,9 @@ export declare class SNS extends AWSServiceClient {
     | InternalErrorException
     | InvalidParameterException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListSubscriptions", input);
+  }
   listSubscriptionsByTopic(
     input: ListSubscriptionsByTopicInput,
   ): Effect.Effect<
@@ -266,7 +314,9 @@ export declare class SNS extends AWSServiceClient {
     | InvalidParameterException
     | NotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListSubscriptionsByTopic", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
@@ -277,7 +327,9 @@ export declare class SNS extends AWSServiceClient {
     | ResourceNotFoundException
     | TagPolicyException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   listTopics(
     input: ListTopicsInput,
   ): Effect.Effect<
@@ -286,7 +338,9 @@ export declare class SNS extends AWSServiceClient {
     | InternalErrorException
     | InvalidParameterException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTopics", input);
+  }
   optInPhoneNumber(
     input: OptInPhoneNumberInput,
   ): Effect.Effect<
@@ -296,7 +350,9 @@ export declare class SNS extends AWSServiceClient {
     | InvalidParameterException
     | ThrottledException
     | CommonAwsError
-  >;
+  > {
+    return this.call("OptInPhoneNumber", input);
+  }
   publish(
     input: PublishInput,
   ): Effect.Effect<
@@ -317,7 +373,9 @@ export declare class SNS extends AWSServiceClient {
     | PlatformApplicationDisabledException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("Publish", input);
+  }
   publishBatch(
     input: PublishBatchInput,
   ): Effect.Effect<
@@ -343,7 +401,9 @@ export declare class SNS extends AWSServiceClient {
     | TooManyEntriesInBatchRequestException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PublishBatch", input);
+  }
   putDataProtectionPolicy(
     input: PutDataProtectionPolicyInput,
   ): Effect.Effect<
@@ -354,7 +414,9 @@ export declare class SNS extends AWSServiceClient {
     | InvalidSecurityException
     | NotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutDataProtectionPolicy", input);
+  }
   removePermission(
     input: RemovePermissionInput,
   ): Effect.Effect<
@@ -364,7 +426,9 @@ export declare class SNS extends AWSServiceClient {
     | InvalidParameterException
     | NotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("RemovePermission", input);
+  }
   setEndpointAttributes(
     input: SetEndpointAttributesInput,
   ): Effect.Effect<
@@ -374,7 +438,9 @@ export declare class SNS extends AWSServiceClient {
     | InvalidParameterException
     | NotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("SetEndpointAttributes", input);
+  }
   setPlatformApplicationAttributes(
     input: SetPlatformApplicationAttributesInput,
   ): Effect.Effect<
@@ -384,7 +450,9 @@ export declare class SNS extends AWSServiceClient {
     | InvalidParameterException
     | NotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("SetPlatformApplicationAttributes", input);
+  }
   setSMSAttributes(
     input: SetSMSAttributesInput,
   ): Effect.Effect<
@@ -394,7 +462,9 @@ export declare class SNS extends AWSServiceClient {
     | InvalidParameterException
     | ThrottledException
     | CommonAwsError
-  >;
+  > {
+    return this.call("SetSMSAttributes", input);
+  }
   setSubscriptionAttributes(
     input: SetSubscriptionAttributesInput,
   ): Effect.Effect<
@@ -406,7 +476,9 @@ export declare class SNS extends AWSServiceClient {
     | NotFoundException
     | ReplayLimitExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("SetSubscriptionAttributes", input);
+  }
   setTopicAttributes(
     input: SetTopicAttributesInput,
   ): Effect.Effect<
@@ -417,7 +489,9 @@ export declare class SNS extends AWSServiceClient {
     | InvalidSecurityException
     | NotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("SetTopicAttributes", input);
+  }
   subscribe(
     input: SubscribeInput,
   ): Effect.Effect<
@@ -431,7 +505,9 @@ export declare class SNS extends AWSServiceClient {
     | ReplayLimitExceededException
     | SubscriptionLimitExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("Subscribe", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -444,7 +520,9 @@ export declare class SNS extends AWSServiceClient {
     | TagLimitExceededException
     | TagPolicyException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   unsubscribe(
     input: UnsubscribeInput,
   ): Effect.Effect<
@@ -455,7 +533,9 @@ export declare class SNS extends AWSServiceClient {
     | InvalidSecurityException
     | NotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("Unsubscribe", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
@@ -468,7 +548,9 @@ export declare class SNS extends AWSServiceClient {
     | TagLimitExceededException
     | TagPolicyException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
   verifySMSSandboxPhoneNumber(
     input: VerifySMSSandboxPhoneNumberInput,
   ): Effect.Effect<
@@ -480,10 +562,14 @@ export declare class SNS extends AWSServiceClient {
     | ThrottledException
     | VerificationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("VerifySMSSandboxPhoneNumber", input);
+  }
 }
 
-export declare class Sns extends SNS {}
+export class Sns extends SNS {}
+
+export default SNS;
 
 export type account = string;
 

@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class STS extends AWSServiceClient {
+export class STS extends AWSServiceClient {
   assumeRole(
     input: AssumeRoleRequest,
   ): Effect.Effect<
@@ -12,7 +12,9 @@ export declare class STS extends AWSServiceClient {
     | PackedPolicyTooLargeException
     | RegionDisabledException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AssumeRole", input);
+  }
   assumeRoleWithSAML(
     input: AssumeRoleWithSAMLRequest,
   ): Effect.Effect<
@@ -24,7 +26,9 @@ export declare class STS extends AWSServiceClient {
     | PackedPolicyTooLargeException
     | RegionDisabledException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AssumeRoleWithSAML", input);
+  }
   assumeRoleWithWebIdentity(
     input: AssumeRoleWithWebIdentityRequest,
   ): Effect.Effect<
@@ -37,25 +41,35 @@ export declare class STS extends AWSServiceClient {
     | PackedPolicyTooLargeException
     | RegionDisabledException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AssumeRoleWithWebIdentity", input);
+  }
   assumeRoot(
     input: AssumeRootRequest,
   ): Effect.Effect<
     AssumeRootResponse,
     ExpiredTokenException | RegionDisabledException | CommonAwsError
-  >;
+  > {
+    return this.call("AssumeRoot", input);
+  }
   decodeAuthorizationMessage(
     input: DecodeAuthorizationMessageRequest,
   ): Effect.Effect<
     DecodeAuthorizationMessageResponse,
     InvalidAuthorizationMessageException | CommonAwsError
-  >;
+  > {
+    return this.call("DecodeAuthorizationMessage", input);
+  }
   getAccessKeyInfo(
     input: GetAccessKeyInfoRequest,
-  ): Effect.Effect<GetAccessKeyInfoResponse, CommonAwsError>;
+  ): Effect.Effect<GetAccessKeyInfoResponse, CommonAwsError> {
+    return this.call("GetAccessKeyInfo", input);
+  }
   getCallerIdentity(
     input: GetCallerIdentityRequest,
-  ): Effect.Effect<GetCallerIdentityResponse, CommonAwsError>;
+  ): Effect.Effect<GetCallerIdentityResponse, CommonAwsError> {
+    return this.call("GetCallerIdentity", input);
+  }
   getFederationToken(
     input: GetFederationTokenRequest,
   ): Effect.Effect<
@@ -64,16 +78,22 @@ export declare class STS extends AWSServiceClient {
     | PackedPolicyTooLargeException
     | RegionDisabledException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetFederationToken", input);
+  }
   getSessionToken(
     input: GetSessionTokenRequest,
   ): Effect.Effect<
     GetSessionTokenResponse,
     RegionDisabledException | CommonAwsError
-  >;
+  > {
+    return this.call("GetSessionToken", input);
+  }
 }
 
-export declare class Sts extends STS {}
+export class Sts extends STS {}
+
+export default STS;
 
 export type accessKeyIdType = string;
 

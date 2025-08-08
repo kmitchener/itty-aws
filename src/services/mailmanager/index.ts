@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class MailManager extends AWSServiceClient {
+export class MailManager extends AWSServiceClient {
   createAddressListImportJob(
     input: CreateAddressListImportJobRequest,
   ): Effect.Effect<
@@ -12,7 +12,9 @@ export declare class MailManager extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateAddressListImportJob", input);
+  }
   deregisterMemberFromAddressList(
     input: DeregisterMemberFromAddressListRequest,
   ): Effect.Effect<
@@ -22,7 +24,9 @@ export declare class MailManager extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeregisterMemberFromAddressList", input);
+  }
   getAddressListImportJob(
     input: GetAddressListImportJobRequest,
   ): Effect.Effect<
@@ -32,7 +36,9 @@ export declare class MailManager extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetAddressListImportJob", input);
+  }
   getArchiveExport(
     input: GetArchiveExportRequest,
   ): Effect.Effect<
@@ -41,7 +47,9 @@ export declare class MailManager extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetArchiveExport", input);
+  }
   getArchiveMessage(
     input: GetArchiveMessageRequest,
   ): Effect.Effect<
@@ -50,7 +58,9 @@ export declare class MailManager extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetArchiveMessage", input);
+  }
   getArchiveMessageContent(
     input: GetArchiveMessageContentRequest,
   ): Effect.Effect<
@@ -59,7 +69,9 @@ export declare class MailManager extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetArchiveMessageContent", input);
+  }
   getArchiveSearch(
     input: GetArchiveSearchRequest,
   ): Effect.Effect<
@@ -68,7 +80,9 @@ export declare class MailManager extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetArchiveSearch", input);
+  }
   getArchiveSearchResults(
     input: GetArchiveSearchResultsRequest,
   ): Effect.Effect<
@@ -78,7 +92,9 @@ export declare class MailManager extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetArchiveSearchResults", input);
+  }
   getMemberOfAddressList(
     input: GetMemberOfAddressListRequest,
   ): Effect.Effect<
@@ -88,7 +104,9 @@ export declare class MailManager extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetMemberOfAddressList", input);
+  }
   listAddressListImportJobs(
     input: ListAddressListImportJobsRequest,
   ): Effect.Effect<
@@ -98,7 +116,9 @@ export declare class MailManager extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListAddressListImportJobs", input);
+  }
   listArchiveExports(
     input: ListArchiveExportsRequest,
   ): Effect.Effect<
@@ -108,7 +128,9 @@ export declare class MailManager extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListArchiveExports", input);
+  }
   listArchiveSearches(
     input: ListArchiveSearchesRequest,
   ): Effect.Effect<
@@ -118,7 +140,9 @@ export declare class MailManager extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListArchiveSearches", input);
+  }
   listMembersOfAddressList(
     input: ListMembersOfAddressListRequest,
   ): Effect.Effect<
@@ -128,13 +152,17 @@ export declare class MailManager extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListMembersOfAddressList", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
     ResourceNotFoundException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   registerMemberToAddressList(
     input: RegisterMemberToAddressListRequest,
   ): Effect.Effect<
@@ -145,7 +173,9 @@ export declare class MailManager extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("RegisterMemberToAddressList", input);
+  }
   startAddressListImportJob(
     input: StartAddressListImportJobRequest,
   ): Effect.Effect<
@@ -157,7 +187,9 @@ export declare class MailManager extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartAddressListImportJob", input);
+  }
   startArchiveExport(
     input: StartArchiveExportRequest,
   ): Effect.Effect<
@@ -168,7 +200,9 @@ export declare class MailManager extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartArchiveExport", input);
+  }
   startArchiveSearch(
     input: StartArchiveSearchRequest,
   ): Effect.Effect<
@@ -180,7 +214,9 @@ export declare class MailManager extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartArchiveSearch", input);
+  }
   stopAddressListImportJob(
     input: StopAddressListImportJobRequest,
   ): Effect.Effect<
@@ -191,7 +227,9 @@ export declare class MailManager extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StopAddressListImportJob", input);
+  }
   stopArchiveExport(
     input: StopArchiveExportRequest,
   ): Effect.Effect<
@@ -200,7 +238,9 @@ export declare class MailManager extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StopArchiveExport", input);
+  }
   stopArchiveSearch(
     input: StopArchiveSearchRequest,
   ): Effect.Effect<
@@ -209,7 +249,9 @@ export declare class MailManager extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StopArchiveSearch", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -219,7 +261,9 @@ export declare class MailManager extends AWSServiceClient {
     | ServiceQuotaExceededException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
@@ -228,10 +272,14 @@ export declare class MailManager extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
 }
 
-export declare class Mailmanager extends MailManager {}
+export class Mailmanager extends MailManager {}
+
+export default MailManager;
 
 export type AcceptAction = "ALLOW" | "DENY";
 export declare class AccessDeniedException extends EffectData.TaggedError(

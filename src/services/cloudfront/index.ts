@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class CloudFront extends AWSServiceClient {
+export class CloudFront extends AWSServiceClient {
   associateAlias(
     input: AssociateAliasRequest,
   ): Effect.Effect<
@@ -13,7 +13,9 @@ export declare class CloudFront extends AWSServiceClient {
     | NoSuchDistribution
     | TooManyDistributionCNAMEs
     | CommonAwsError
-  >;
+  > {
+    return this.call("AssociateAlias", input);
+  }
   associateDistributionTenantWebACL(
     input: AssociateDistributionTenantWebACLRequest,
   ): Effect.Effect<
@@ -24,7 +26,9 @@ export declare class CloudFront extends AWSServiceClient {
     | InvalidIfMatchVersion
     | PreconditionFailed
     | CommonAwsError
-  >;
+  > {
+    return this.call("AssociateDistributionTenantWebACL", input);
+  }
   associateDistributionWebACL(
     input: AssociateDistributionWebACLRequest,
   ): Effect.Effect<
@@ -35,7 +39,9 @@ export declare class CloudFront extends AWSServiceClient {
     | InvalidIfMatchVersion
     | PreconditionFailed
     | CommonAwsError
-  >;
+  > {
+    return this.call("AssociateDistributionWebACL", input);
+  }
   copyDistribution(
     input: CopyDistributionRequest,
   ): Effect.Effect<
@@ -105,7 +111,9 @@ export declare class CloudFront extends AWSServiceClient {
     | TrustedKeyGroupDoesNotExist
     | TrustedSignerDoesNotExist
     | CommonAwsError
-  >;
+  > {
+    return this.call("CopyDistribution", input);
+  }
   createAnycastIpList(
     input: CreateAnycastIpListRequest,
   ): Effect.Effect<
@@ -117,7 +125,9 @@ export declare class CloudFront extends AWSServiceClient {
     | InvalidTagging
     | UnsupportedOperation
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateAnycastIpList", input);
+  }
   createCachePolicy(
     input: CreateCachePolicyRequest,
   ): Effect.Effect<
@@ -131,7 +141,9 @@ export declare class CloudFront extends AWSServiceClient {
     | TooManyHeadersInCachePolicy
     | TooManyQueryStringsInCachePolicy
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateCachePolicy", input);
+  }
   createCloudFrontOriginAccessIdentity(
     input: CreateCloudFrontOriginAccessIdentityRequest,
   ): Effect.Effect<
@@ -142,7 +154,9 @@ export declare class CloudFront extends AWSServiceClient {
     | MissingBody
     | TooManyCloudFrontOriginAccessIdentities
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateCloudFrontOriginAccessIdentity", input);
+  }
   createConnectionGroup(
     input: CreateConnectionGroupRequest,
   ): Effect.Effect<
@@ -154,7 +168,9 @@ export declare class CloudFront extends AWSServiceClient {
     | InvalidArgument
     | InvalidTagging
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateConnectionGroup", input);
+  }
   createContinuousDeploymentPolicy(
     input: CreateContinuousDeploymentPolicyRequest,
   ): Effect.Effect<
@@ -166,7 +182,9 @@ export declare class CloudFront extends AWSServiceClient {
     | StagingDistributionInUse
     | TooManyContinuousDeploymentPolicies
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateContinuousDeploymentPolicy", input);
+  }
   createDistribution(
     input: CreateDistributionRequest,
   ): Effect.Effect<
@@ -239,7 +257,9 @@ export declare class CloudFront extends AWSServiceClient {
     | TrustedKeyGroupDoesNotExist
     | TrustedSignerDoesNotExist
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateDistribution", input);
+  }
   createDistributionTenant(
     input: CreateDistributionTenantRequest,
   ): Effect.Effect<
@@ -253,7 +273,9 @@ export declare class CloudFront extends AWSServiceClient {
     | InvalidAssociation
     | InvalidTagging
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateDistributionTenant", input);
+  }
   createDistributionWithTags(
     input: CreateDistributionWithTagsRequest,
   ): Effect.Effect<
@@ -326,7 +348,9 @@ export declare class CloudFront extends AWSServiceClient {
     | TrustedKeyGroupDoesNotExist
     | TrustedSignerDoesNotExist
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateDistributionWithTags", input);
+  }
   createFieldLevelEncryptionConfig(
     input: CreateFieldLevelEncryptionConfigRequest,
   ): Effect.Effect<
@@ -340,7 +364,9 @@ export declare class CloudFront extends AWSServiceClient {
     | TooManyFieldLevelEncryptionContentTypeProfiles
     | TooManyFieldLevelEncryptionQueryArgProfiles
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateFieldLevelEncryptionConfig", input);
+  }
   createFieldLevelEncryptionProfile(
     input: CreateFieldLevelEncryptionProfileRequest,
   ): Effect.Effect<
@@ -354,7 +380,9 @@ export declare class CloudFront extends AWSServiceClient {
     | TooManyFieldLevelEncryptionFieldPatterns
     | TooManyFieldLevelEncryptionProfiles
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateFieldLevelEncryptionProfile", input);
+  }
   createFunction(
     input: CreateFunctionRequest,
   ): Effect.Effect<
@@ -365,7 +393,9 @@ export declare class CloudFront extends AWSServiceClient {
     | TooManyFunctions
     | UnsupportedOperation
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateFunction", input);
+  }
   createInvalidation(
     input: CreateInvalidationRequest,
   ): Effect.Effect<
@@ -378,7 +408,9 @@ export declare class CloudFront extends AWSServiceClient {
     | NoSuchDistribution
     | TooManyInvalidationsInProgress
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateInvalidation", input);
+  }
   createInvalidationForDistributionTenant(
     input: CreateInvalidationForDistributionTenantRequest,
   ): Effect.Effect<
@@ -391,7 +423,9 @@ export declare class CloudFront extends AWSServiceClient {
     | MissingBody
     | TooManyInvalidationsInProgress
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateInvalidationForDistributionTenant", input);
+  }
   createKeyGroup(
     input: CreateKeyGroupRequest,
   ): Effect.Effect<
@@ -401,7 +435,9 @@ export declare class CloudFront extends AWSServiceClient {
     | TooManyKeyGroups
     | TooManyPublicKeysInKeyGroup
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateKeyGroup", input);
+  }
   createKeyValueStore(
     input: CreateKeyValueStoreRequest,
   ): Effect.Effect<
@@ -413,7 +449,9 @@ export declare class CloudFront extends AWSServiceClient {
     | InvalidArgument
     | UnsupportedOperation
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateKeyValueStore", input);
+  }
   createMonitoringSubscription(
     input: CreateMonitoringSubscriptionRequest,
   ): Effect.Effect<
@@ -423,7 +461,9 @@ export declare class CloudFront extends AWSServiceClient {
     | NoSuchDistribution
     | UnsupportedOperation
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateMonitoringSubscription", input);
+  }
   createOriginAccessControl(
     input: CreateOriginAccessControlRequest,
   ): Effect.Effect<
@@ -432,7 +472,9 @@ export declare class CloudFront extends AWSServiceClient {
     | OriginAccessControlAlreadyExists
     | TooManyOriginAccessControls
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateOriginAccessControl", input);
+  }
   createOriginRequestPolicy(
     input: CreateOriginRequestPolicyRequest,
   ): Effect.Effect<
@@ -446,7 +488,9 @@ export declare class CloudFront extends AWSServiceClient {
     | TooManyOriginRequestPolicies
     | TooManyQueryStringsInOriginRequestPolicy
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateOriginRequestPolicy", input);
+  }
   createPublicKey(
     input: CreatePublicKeyRequest,
   ): Effect.Effect<
@@ -455,7 +499,9 @@ export declare class CloudFront extends AWSServiceClient {
     | PublicKeyAlreadyExists
     | TooManyPublicKeys
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreatePublicKey", input);
+  }
   createRealtimeLogConfig(
     input: CreateRealtimeLogConfigRequest,
   ): Effect.Effect<
@@ -465,7 +511,9 @@ export declare class CloudFront extends AWSServiceClient {
     | RealtimeLogConfigAlreadyExists
     | TooManyRealtimeLogConfigs
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateRealtimeLogConfig", input);
+  }
   createResponseHeadersPolicy(
     input: CreateResponseHeadersPolicyRequest,
   ): Effect.Effect<
@@ -479,7 +527,9 @@ export declare class CloudFront extends AWSServiceClient {
     | TooManyRemoveHeadersInResponseHeadersPolicy
     | TooManyResponseHeadersPolicies
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateResponseHeadersPolicy", input);
+  }
   createStreamingDistribution(
     input: CreateStreamingDistributionRequest,
   ): Effect.Effect<
@@ -498,7 +548,9 @@ export declare class CloudFront extends AWSServiceClient {
     | TooManyTrustedSigners
     | TrustedSignerDoesNotExist
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateStreamingDistribution", input);
+  }
   createStreamingDistributionWithTags(
     input: CreateStreamingDistributionWithTagsRequest,
   ): Effect.Effect<
@@ -518,7 +570,9 @@ export declare class CloudFront extends AWSServiceClient {
     | TooManyTrustedSigners
     | TrustedSignerDoesNotExist
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateStreamingDistributionWithTags", input);
+  }
   createVpcOrigin(
     input: CreateVpcOriginRequest,
   ): Effect.Effect<
@@ -531,7 +585,9 @@ export declare class CloudFront extends AWSServiceClient {
     | InvalidTagging
     | UnsupportedOperation
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateVpcOrigin", input);
+  }
   deleteAnycastIpList(
     input: DeleteAnycastIpListRequest,
   ): Effect.Effect<
@@ -545,7 +601,9 @@ export declare class CloudFront extends AWSServiceClient {
     | PreconditionFailed
     | UnsupportedOperation
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteAnycastIpList", input);
+  }
   deleteCachePolicy(
     input: DeleteCachePolicyRequest,
   ): Effect.Effect<
@@ -557,7 +615,9 @@ export declare class CloudFront extends AWSServiceClient {
     | NoSuchCachePolicy
     | PreconditionFailed
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteCachePolicy", input);
+  }
   deleteCloudFrontOriginAccessIdentity(
     input: DeleteCloudFrontOriginAccessIdentityRequest,
   ): Effect.Effect<
@@ -568,7 +628,9 @@ export declare class CloudFront extends AWSServiceClient {
     | NoSuchCloudFrontOriginAccessIdentity
     | PreconditionFailed
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteCloudFrontOriginAccessIdentity", input);
+  }
   deleteConnectionGroup(
     input: DeleteConnectionGroupRequest,
   ): Effect.Effect<
@@ -580,7 +642,9 @@ export declare class CloudFront extends AWSServiceClient {
     | PreconditionFailed
     | ResourceNotDisabled
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteConnectionGroup", input);
+  }
   deleteContinuousDeploymentPolicy(
     input: DeleteContinuousDeploymentPolicyRequest,
   ): Effect.Effect<
@@ -592,7 +656,9 @@ export declare class CloudFront extends AWSServiceClient {
     | NoSuchContinuousDeploymentPolicy
     | PreconditionFailed
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteContinuousDeploymentPolicy", input);
+  }
   deleteDistribution(
     input: DeleteDistributionRequest,
   ): Effect.Effect<
@@ -604,7 +670,9 @@ export declare class CloudFront extends AWSServiceClient {
     | PreconditionFailed
     | ResourceInUse
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteDistribution", input);
+  }
   deleteDistributionTenant(
     input: DeleteDistributionTenantRequest,
   ): Effect.Effect<
@@ -615,7 +683,9 @@ export declare class CloudFront extends AWSServiceClient {
     | PreconditionFailed
     | ResourceNotDisabled
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteDistributionTenant", input);
+  }
   deleteFieldLevelEncryptionConfig(
     input: DeleteFieldLevelEncryptionConfigRequest,
   ): Effect.Effect<
@@ -626,7 +696,9 @@ export declare class CloudFront extends AWSServiceClient {
     | NoSuchFieldLevelEncryptionConfig
     | PreconditionFailed
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteFieldLevelEncryptionConfig", input);
+  }
   deleteFieldLevelEncryptionProfile(
     input: DeleteFieldLevelEncryptionProfileRequest,
   ): Effect.Effect<
@@ -637,7 +709,9 @@ export declare class CloudFront extends AWSServiceClient {
     | NoSuchFieldLevelEncryptionProfile
     | PreconditionFailed
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteFieldLevelEncryptionProfile", input);
+  }
   deleteFunction(
     input: DeleteFunctionRequest,
   ): Effect.Effect<
@@ -648,7 +722,9 @@ export declare class CloudFront extends AWSServiceClient {
     | PreconditionFailed
     | UnsupportedOperation
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteFunction", input);
+  }
   deleteKeyGroup(
     input: DeleteKeyGroupRequest,
   ): Effect.Effect<
@@ -658,7 +734,9 @@ export declare class CloudFront extends AWSServiceClient {
     | PreconditionFailed
     | ResourceInUse
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteKeyGroup", input);
+  }
   deleteKeyValueStore(
     input: DeleteKeyValueStoreRequest,
   ): Effect.Effect<
@@ -670,7 +748,9 @@ export declare class CloudFront extends AWSServiceClient {
     | PreconditionFailed
     | UnsupportedOperation
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteKeyValueStore", input);
+  }
   deleteMonitoringSubscription(
     input: DeleteMonitoringSubscriptionRequest,
   ): Effect.Effect<
@@ -680,7 +760,9 @@ export declare class CloudFront extends AWSServiceClient {
     | NoSuchMonitoringSubscription
     | UnsupportedOperation
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteMonitoringSubscription", input);
+  }
   deleteOriginAccessControl(
     input: DeleteOriginAccessControlRequest,
   ): Effect.Effect<
@@ -691,7 +773,9 @@ export declare class CloudFront extends AWSServiceClient {
     | OriginAccessControlInUse
     | PreconditionFailed
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteOriginAccessControl", input);
+  }
   deleteOriginRequestPolicy(
     input: DeleteOriginRequestPolicyRequest,
   ): Effect.Effect<
@@ -703,7 +787,9 @@ export declare class CloudFront extends AWSServiceClient {
     | OriginRequestPolicyInUse
     | PreconditionFailed
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteOriginRequestPolicy", input);
+  }
   deletePublicKey(
     input: DeletePublicKeyRequest,
   ): Effect.Effect<
@@ -714,7 +800,9 @@ export declare class CloudFront extends AWSServiceClient {
     | PreconditionFailed
     | PublicKeyInUse
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeletePublicKey", input);
+  }
   deleteRealtimeLogConfig(
     input: DeleteRealtimeLogConfigRequest,
   ): Effect.Effect<
@@ -724,7 +812,9 @@ export declare class CloudFront extends AWSServiceClient {
     | NoSuchRealtimeLogConfig
     | RealtimeLogConfigInUse
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteRealtimeLogConfig", input);
+  }
   deleteResponseHeadersPolicy(
     input: DeleteResponseHeadersPolicyRequest,
   ): Effect.Effect<
@@ -736,7 +826,9 @@ export declare class CloudFront extends AWSServiceClient {
     | PreconditionFailed
     | ResponseHeadersPolicyInUse
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteResponseHeadersPolicy", input);
+  }
   deleteStreamingDistribution(
     input: DeleteStreamingDistributionRequest,
   ): Effect.Effect<
@@ -747,7 +839,9 @@ export declare class CloudFront extends AWSServiceClient {
     | PreconditionFailed
     | StreamingDistributionNotDisabled
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteStreamingDistribution", input);
+  }
   deleteVpcOrigin(
     input: DeleteVpcOriginRequest,
   ): Effect.Effect<
@@ -761,13 +855,17 @@ export declare class CloudFront extends AWSServiceClient {
     | PreconditionFailed
     | UnsupportedOperation
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteVpcOrigin", input);
+  }
   describeFunction(
     input: DescribeFunctionRequest,
   ): Effect.Effect<
     DescribeFunctionResult,
     NoSuchFunctionExists | UnsupportedOperation | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeFunction", input);
+  }
   describeKeyValueStore(
     input: DescribeKeyValueStoreRequest,
   ): Effect.Effect<
@@ -777,7 +875,9 @@ export declare class CloudFront extends AWSServiceClient {
     | InvalidArgument
     | UnsupportedOperation
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeKeyValueStore", input);
+  }
   disassociateDistributionTenantWebACL(
     input: DisassociateDistributionTenantWebACLRequest,
   ): Effect.Effect<
@@ -788,7 +888,9 @@ export declare class CloudFront extends AWSServiceClient {
     | InvalidIfMatchVersion
     | PreconditionFailed
     | CommonAwsError
-  >;
+  > {
+    return this.call("DisassociateDistributionTenantWebACL", input);
+  }
   disassociateDistributionWebACL(
     input: DisassociateDistributionWebACLRequest,
   ): Effect.Effect<
@@ -799,7 +901,9 @@ export declare class CloudFront extends AWSServiceClient {
     | InvalidIfMatchVersion
     | PreconditionFailed
     | CommonAwsError
-  >;
+  > {
+    return this.call("DisassociateDistributionWebACL", input);
+  }
   getAnycastIpList(
     input: GetAnycastIpListRequest,
   ): Effect.Effect<
@@ -809,133 +913,179 @@ export declare class CloudFront extends AWSServiceClient {
     | InvalidArgument
     | UnsupportedOperation
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetAnycastIpList", input);
+  }
   getCachePolicy(
     input: GetCachePolicyRequest,
   ): Effect.Effect<
     GetCachePolicyResult,
     AccessDenied | NoSuchCachePolicy | CommonAwsError
-  >;
+  > {
+    return this.call("GetCachePolicy", input);
+  }
   getCachePolicyConfig(
     input: GetCachePolicyConfigRequest,
   ): Effect.Effect<
     GetCachePolicyConfigResult,
     AccessDenied | NoSuchCachePolicy | CommonAwsError
-  >;
+  > {
+    return this.call("GetCachePolicyConfig", input);
+  }
   getCloudFrontOriginAccessIdentity(
     input: GetCloudFrontOriginAccessIdentityRequest,
   ): Effect.Effect<
     GetCloudFrontOriginAccessIdentityResult,
     AccessDenied | NoSuchCloudFrontOriginAccessIdentity | CommonAwsError
-  >;
+  > {
+    return this.call("GetCloudFrontOriginAccessIdentity", input);
+  }
   getCloudFrontOriginAccessIdentityConfig(
     input: GetCloudFrontOriginAccessIdentityConfigRequest,
   ): Effect.Effect<
     GetCloudFrontOriginAccessIdentityConfigResult,
     AccessDenied | NoSuchCloudFrontOriginAccessIdentity | CommonAwsError
-  >;
+  > {
+    return this.call("GetCloudFrontOriginAccessIdentityConfig", input);
+  }
   getConnectionGroup(
     input: GetConnectionGroupRequest,
   ): Effect.Effect<
     GetConnectionGroupResult,
     AccessDenied | EntityNotFound | CommonAwsError
-  >;
+  > {
+    return this.call("GetConnectionGroup", input);
+  }
   getConnectionGroupByRoutingEndpoint(
     input: GetConnectionGroupByRoutingEndpointRequest,
   ): Effect.Effect<
     GetConnectionGroupByRoutingEndpointResult,
     AccessDenied | EntityNotFound | CommonAwsError
-  >;
+  > {
+    return this.call("GetConnectionGroupByRoutingEndpoint", input);
+  }
   getContinuousDeploymentPolicy(
     input: GetContinuousDeploymentPolicyRequest,
   ): Effect.Effect<
     GetContinuousDeploymentPolicyResult,
     AccessDenied | NoSuchContinuousDeploymentPolicy | CommonAwsError
-  >;
+  > {
+    return this.call("GetContinuousDeploymentPolicy", input);
+  }
   getContinuousDeploymentPolicyConfig(
     input: GetContinuousDeploymentPolicyConfigRequest,
   ): Effect.Effect<
     GetContinuousDeploymentPolicyConfigResult,
     AccessDenied | NoSuchContinuousDeploymentPolicy | CommonAwsError
-  >;
+  > {
+    return this.call("GetContinuousDeploymentPolicyConfig", input);
+  }
   getDistribution(
     input: GetDistributionRequest,
   ): Effect.Effect<
     GetDistributionResult,
     AccessDenied | NoSuchDistribution | CommonAwsError
-  >;
+  > {
+    return this.call("GetDistribution", input);
+  }
   getDistributionConfig(
     input: GetDistributionConfigRequest,
   ): Effect.Effect<
     GetDistributionConfigResult,
     AccessDenied | NoSuchDistribution | CommonAwsError
-  >;
+  > {
+    return this.call("GetDistributionConfig", input);
+  }
   getDistributionTenant(
     input: GetDistributionTenantRequest,
   ): Effect.Effect<
     GetDistributionTenantResult,
     AccessDenied | EntityNotFound | CommonAwsError
-  >;
+  > {
+    return this.call("GetDistributionTenant", input);
+  }
   getDistributionTenantByDomain(
     input: GetDistributionTenantByDomainRequest,
   ): Effect.Effect<
     GetDistributionTenantByDomainResult,
     AccessDenied | EntityNotFound | CommonAwsError
-  >;
+  > {
+    return this.call("GetDistributionTenantByDomain", input);
+  }
   getFieldLevelEncryption(
     input: GetFieldLevelEncryptionRequest,
   ): Effect.Effect<
     GetFieldLevelEncryptionResult,
     AccessDenied | NoSuchFieldLevelEncryptionConfig | CommonAwsError
-  >;
+  > {
+    return this.call("GetFieldLevelEncryption", input);
+  }
   getFieldLevelEncryptionConfig(
     input: GetFieldLevelEncryptionConfigRequest,
   ): Effect.Effect<
     GetFieldLevelEncryptionConfigResult,
     AccessDenied | NoSuchFieldLevelEncryptionConfig | CommonAwsError
-  >;
+  > {
+    return this.call("GetFieldLevelEncryptionConfig", input);
+  }
   getFieldLevelEncryptionProfile(
     input: GetFieldLevelEncryptionProfileRequest,
   ): Effect.Effect<
     GetFieldLevelEncryptionProfileResult,
     AccessDenied | NoSuchFieldLevelEncryptionProfile | CommonAwsError
-  >;
+  > {
+    return this.call("GetFieldLevelEncryptionProfile", input);
+  }
   getFieldLevelEncryptionProfileConfig(
     input: GetFieldLevelEncryptionProfileConfigRequest,
   ): Effect.Effect<
     GetFieldLevelEncryptionProfileConfigResult,
     AccessDenied | NoSuchFieldLevelEncryptionProfile | CommonAwsError
-  >;
+  > {
+    return this.call("GetFieldLevelEncryptionProfileConfig", input);
+  }
   getFunction(
     input: GetFunctionRequest,
   ): Effect.Effect<
     GetFunctionResult,
     NoSuchFunctionExists | UnsupportedOperation | CommonAwsError
-  >;
+  > {
+    return this.call("GetFunction", input);
+  }
   getInvalidation(
     input: GetInvalidationRequest,
   ): Effect.Effect<
     GetInvalidationResult,
     AccessDenied | NoSuchDistribution | NoSuchInvalidation | CommonAwsError
-  >;
+  > {
+    return this.call("GetInvalidation", input);
+  }
   getInvalidationForDistributionTenant(
     input: GetInvalidationForDistributionTenantRequest,
   ): Effect.Effect<
     GetInvalidationForDistributionTenantResult,
     AccessDenied | EntityNotFound | NoSuchInvalidation | CommonAwsError
-  >;
+  > {
+    return this.call("GetInvalidationForDistributionTenant", input);
+  }
   getKeyGroup(
     input: GetKeyGroupRequest,
-  ): Effect.Effect<GetKeyGroupResult, NoSuchResource | CommonAwsError>;
+  ): Effect.Effect<GetKeyGroupResult, NoSuchResource | CommonAwsError> {
+    return this.call("GetKeyGroup", input);
+  }
   getKeyGroupConfig(
     input: GetKeyGroupConfigRequest,
-  ): Effect.Effect<GetKeyGroupConfigResult, NoSuchResource | CommonAwsError>;
+  ): Effect.Effect<GetKeyGroupConfigResult, NoSuchResource | CommonAwsError> {
+    return this.call("GetKeyGroupConfig", input);
+  }
   getManagedCertificateDetails(
     input: GetManagedCertificateDetailsRequest,
   ): Effect.Effect<
     GetManagedCertificateDetailsResult,
     AccessDenied | EntityNotFound | CommonAwsError
-  >;
+  > {
+    return this.call("GetManagedCertificateDetails", input);
+  }
   getMonitoringSubscription(
     input: GetMonitoringSubscriptionRequest,
   ): Effect.Effect<
@@ -945,73 +1095,97 @@ export declare class CloudFront extends AWSServiceClient {
     | NoSuchMonitoringSubscription
     | UnsupportedOperation
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetMonitoringSubscription", input);
+  }
   getOriginAccessControl(
     input: GetOriginAccessControlRequest,
   ): Effect.Effect<
     GetOriginAccessControlResult,
     AccessDenied | NoSuchOriginAccessControl | CommonAwsError
-  >;
+  > {
+    return this.call("GetOriginAccessControl", input);
+  }
   getOriginAccessControlConfig(
     input: GetOriginAccessControlConfigRequest,
   ): Effect.Effect<
     GetOriginAccessControlConfigResult,
     AccessDenied | NoSuchOriginAccessControl | CommonAwsError
-  >;
+  > {
+    return this.call("GetOriginAccessControlConfig", input);
+  }
   getOriginRequestPolicy(
     input: GetOriginRequestPolicyRequest,
   ): Effect.Effect<
     GetOriginRequestPolicyResult,
     AccessDenied | NoSuchOriginRequestPolicy | CommonAwsError
-  >;
+  > {
+    return this.call("GetOriginRequestPolicy", input);
+  }
   getOriginRequestPolicyConfig(
     input: GetOriginRequestPolicyConfigRequest,
   ): Effect.Effect<
     GetOriginRequestPolicyConfigResult,
     AccessDenied | NoSuchOriginRequestPolicy | CommonAwsError
-  >;
+  > {
+    return this.call("GetOriginRequestPolicyConfig", input);
+  }
   getPublicKey(
     input: GetPublicKeyRequest,
   ): Effect.Effect<
     GetPublicKeyResult,
     AccessDenied | NoSuchPublicKey | CommonAwsError
-  >;
+  > {
+    return this.call("GetPublicKey", input);
+  }
   getPublicKeyConfig(
     input: GetPublicKeyConfigRequest,
   ): Effect.Effect<
     GetPublicKeyConfigResult,
     AccessDenied | NoSuchPublicKey | CommonAwsError
-  >;
+  > {
+    return this.call("GetPublicKeyConfig", input);
+  }
   getRealtimeLogConfig(
     input: GetRealtimeLogConfigRequest,
   ): Effect.Effect<
     GetRealtimeLogConfigResult,
     AccessDenied | InvalidArgument | NoSuchRealtimeLogConfig | CommonAwsError
-  >;
+  > {
+    return this.call("GetRealtimeLogConfig", input);
+  }
   getResponseHeadersPolicy(
     input: GetResponseHeadersPolicyRequest,
   ): Effect.Effect<
     GetResponseHeadersPolicyResult,
     AccessDenied | NoSuchResponseHeadersPolicy | CommonAwsError
-  >;
+  > {
+    return this.call("GetResponseHeadersPolicy", input);
+  }
   getResponseHeadersPolicyConfig(
     input: GetResponseHeadersPolicyConfigRequest,
   ): Effect.Effect<
     GetResponseHeadersPolicyConfigResult,
     AccessDenied | NoSuchResponseHeadersPolicy | CommonAwsError
-  >;
+  > {
+    return this.call("GetResponseHeadersPolicyConfig", input);
+  }
   getStreamingDistribution(
     input: GetStreamingDistributionRequest,
   ): Effect.Effect<
     GetStreamingDistributionResult,
     AccessDenied | NoSuchStreamingDistribution | CommonAwsError
-  >;
+  > {
+    return this.call("GetStreamingDistribution", input);
+  }
   getStreamingDistributionConfig(
     input: GetStreamingDistributionConfigRequest,
   ): Effect.Effect<
     GetStreamingDistributionConfigResult,
     AccessDenied | NoSuchStreamingDistribution | CommonAwsError
-  >;
+  > {
+    return this.call("GetStreamingDistributionConfig", input);
+  }
   getVpcOrigin(
     input: GetVpcOriginRequest,
   ): Effect.Effect<
@@ -1021,7 +1195,9 @@ export declare class CloudFront extends AWSServiceClient {
     | InvalidArgument
     | UnsupportedOperation
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetVpcOrigin", input);
+  }
   listAnycastIpLists(
     input: ListAnycastIpListsRequest,
   ): Effect.Effect<
@@ -1031,31 +1207,41 @@ export declare class CloudFront extends AWSServiceClient {
     | InvalidArgument
     | UnsupportedOperation
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListAnycastIpLists", input);
+  }
   listCachePolicies(
     input: ListCachePoliciesRequest,
   ): Effect.Effect<
     ListCachePoliciesResult,
     AccessDenied | InvalidArgument | NoSuchCachePolicy | CommonAwsError
-  >;
+  > {
+    return this.call("ListCachePolicies", input);
+  }
   listCloudFrontOriginAccessIdentities(
     input: ListCloudFrontOriginAccessIdentitiesRequest,
   ): Effect.Effect<
     ListCloudFrontOriginAccessIdentitiesResult,
     InvalidArgument | CommonAwsError
-  >;
+  > {
+    return this.call("ListCloudFrontOriginAccessIdentities", input);
+  }
   listConflictingAliases(
     input: ListConflictingAliasesRequest,
   ): Effect.Effect<
     ListConflictingAliasesResult,
     InvalidArgument | NoSuchDistribution | CommonAwsError
-  >;
+  > {
+    return this.call("ListConflictingAliases", input);
+  }
   listConnectionGroups(
     input: ListConnectionGroupsRequest,
   ): Effect.Effect<
     ListConnectionGroupsResult,
     AccessDenied | EntityNotFound | InvalidArgument | CommonAwsError
-  >;
+  > {
+    return this.call("ListConnectionGroups", input);
+  }
   listContinuousDeploymentPolicies(
     input: ListContinuousDeploymentPoliciesRequest,
   ): Effect.Effect<
@@ -1064,10 +1250,14 @@ export declare class CloudFront extends AWSServiceClient {
     | InvalidArgument
     | NoSuchContinuousDeploymentPolicy
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListContinuousDeploymentPolicies", input);
+  }
   listDistributions(
     input: ListDistributionsRequest,
-  ): Effect.Effect<ListDistributionsResult, InvalidArgument | CommonAwsError>;
+  ): Effect.Effect<ListDistributionsResult, InvalidArgument | CommonAwsError> {
+    return this.call("ListDistributions", input);
+  }
   listDistributionsByAnycastIpListId(
     input: ListDistributionsByAnycastIpListIdRequest,
   ): Effect.Effect<
@@ -1077,37 +1267,49 @@ export declare class CloudFront extends AWSServiceClient {
     | InvalidArgument
     | UnsupportedOperation
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListDistributionsByAnycastIpListId", input);
+  }
   listDistributionsByCachePolicyId(
     input: ListDistributionsByCachePolicyIdRequest,
   ): Effect.Effect<
     ListDistributionsByCachePolicyIdResult,
     AccessDenied | InvalidArgument | NoSuchCachePolicy | CommonAwsError
-  >;
+  > {
+    return this.call("ListDistributionsByCachePolicyId", input);
+  }
   listDistributionsByConnectionMode(
     input: ListDistributionsByConnectionModeRequest,
   ): Effect.Effect<
     ListDistributionsByConnectionModeResult,
     AccessDenied | InvalidArgument | CommonAwsError
-  >;
+  > {
+    return this.call("ListDistributionsByConnectionMode", input);
+  }
   listDistributionsByKeyGroup(
     input: ListDistributionsByKeyGroupRequest,
   ): Effect.Effect<
     ListDistributionsByKeyGroupResult,
     InvalidArgument | NoSuchResource | CommonAwsError
-  >;
+  > {
+    return this.call("ListDistributionsByKeyGroup", input);
+  }
   listDistributionsByOriginRequestPolicyId(
     input: ListDistributionsByOriginRequestPolicyIdRequest,
   ): Effect.Effect<
     ListDistributionsByOriginRequestPolicyIdResult,
     AccessDenied | InvalidArgument | NoSuchOriginRequestPolicy | CommonAwsError
-  >;
+  > {
+    return this.call("ListDistributionsByOriginRequestPolicyId", input);
+  }
   listDistributionsByRealtimeLogConfig(
     input: ListDistributionsByRealtimeLogConfigRequest,
   ): Effect.Effect<
     ListDistributionsByRealtimeLogConfigResult,
     InvalidArgument | CommonAwsError
-  >;
+  > {
+    return this.call("ListDistributionsByRealtimeLogConfig", input);
+  }
   listDistributionsByResponseHeadersPolicyId(
     input: ListDistributionsByResponseHeadersPolicyIdRequest,
   ): Effect.Effect<
@@ -1116,7 +1318,9 @@ export declare class CloudFront extends AWSServiceClient {
     | InvalidArgument
     | NoSuchResponseHeadersPolicy
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListDistributionsByResponseHeadersPolicyId", input);
+  }
   listDistributionsByVpcOriginId(
     input: ListDistributionsByVpcOriginIdRequest,
   ): Effect.Effect<
@@ -1126,91 +1330,123 @@ export declare class CloudFront extends AWSServiceClient {
     | InvalidArgument
     | UnsupportedOperation
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListDistributionsByVpcOriginId", input);
+  }
   listDistributionsByWebACLId(
     input: ListDistributionsByWebACLIdRequest,
   ): Effect.Effect<
     ListDistributionsByWebACLIdResult,
     InvalidArgument | InvalidWebACLId | CommonAwsError
-  >;
+  > {
+    return this.call("ListDistributionsByWebACLId", input);
+  }
   listDistributionTenants(
     input: ListDistributionTenantsRequest,
   ): Effect.Effect<
     ListDistributionTenantsResult,
     AccessDenied | EntityNotFound | InvalidArgument | CommonAwsError
-  >;
+  > {
+    return this.call("ListDistributionTenants", input);
+  }
   listDistributionTenantsByCustomization(
     input: ListDistributionTenantsByCustomizationRequest,
   ): Effect.Effect<
     ListDistributionTenantsByCustomizationResult,
     AccessDenied | EntityNotFound | InvalidArgument | CommonAwsError
-  >;
+  > {
+    return this.call("ListDistributionTenantsByCustomization", input);
+  }
   listDomainConflicts(
     input: ListDomainConflictsRequest,
   ): Effect.Effect<
     ListDomainConflictsResult,
     AccessDenied | EntityNotFound | InvalidArgument | CommonAwsError
-  >;
+  > {
+    return this.call("ListDomainConflicts", input);
+  }
   listFieldLevelEncryptionConfigs(
     input: ListFieldLevelEncryptionConfigsRequest,
   ): Effect.Effect<
     ListFieldLevelEncryptionConfigsResult,
     InvalidArgument | CommonAwsError
-  >;
+  > {
+    return this.call("ListFieldLevelEncryptionConfigs", input);
+  }
   listFieldLevelEncryptionProfiles(
     input: ListFieldLevelEncryptionProfilesRequest,
   ): Effect.Effect<
     ListFieldLevelEncryptionProfilesResult,
     InvalidArgument | CommonAwsError
-  >;
+  > {
+    return this.call("ListFieldLevelEncryptionProfiles", input);
+  }
   listFunctions(
     input: ListFunctionsRequest,
   ): Effect.Effect<
     ListFunctionsResult,
     InvalidArgument | UnsupportedOperation | CommonAwsError
-  >;
+  > {
+    return this.call("ListFunctions", input);
+  }
   listInvalidations(
     input: ListInvalidationsRequest,
   ): Effect.Effect<
     ListInvalidationsResult,
     AccessDenied | InvalidArgument | NoSuchDistribution | CommonAwsError
-  >;
+  > {
+    return this.call("ListInvalidations", input);
+  }
   listInvalidationsForDistributionTenant(
     input: ListInvalidationsForDistributionTenantRequest,
   ): Effect.Effect<
     ListInvalidationsForDistributionTenantResult,
     AccessDenied | EntityNotFound | InvalidArgument | CommonAwsError
-  >;
+  > {
+    return this.call("ListInvalidationsForDistributionTenant", input);
+  }
   listKeyGroups(
     input: ListKeyGroupsRequest,
-  ): Effect.Effect<ListKeyGroupsResult, InvalidArgument | CommonAwsError>;
+  ): Effect.Effect<ListKeyGroupsResult, InvalidArgument | CommonAwsError> {
+    return this.call("ListKeyGroups", input);
+  }
   listKeyValueStores(
     input: ListKeyValueStoresRequest,
   ): Effect.Effect<
     ListKeyValueStoresResult,
     AccessDenied | InvalidArgument | UnsupportedOperation | CommonAwsError
-  >;
+  > {
+    return this.call("ListKeyValueStores", input);
+  }
   listOriginAccessControls(
     input: ListOriginAccessControlsRequest,
   ): Effect.Effect<
     ListOriginAccessControlsResult,
     InvalidArgument | CommonAwsError
-  >;
+  > {
+    return this.call("ListOriginAccessControls", input);
+  }
   listOriginRequestPolicies(
     input: ListOriginRequestPoliciesRequest,
   ): Effect.Effect<
     ListOriginRequestPoliciesResult,
     AccessDenied | InvalidArgument | NoSuchOriginRequestPolicy | CommonAwsError
-  >;
+  > {
+    return this.call("ListOriginRequestPolicies", input);
+  }
   listPublicKeys(
     input: ListPublicKeysRequest,
-  ): Effect.Effect<ListPublicKeysResult, InvalidArgument | CommonAwsError>;
+  ): Effect.Effect<ListPublicKeysResult, InvalidArgument | CommonAwsError> {
+    return this.call("ListPublicKeys", input);
+  }
   listRealtimeLogConfigs(
     input: ListRealtimeLogConfigsRequest,
   ): Effect.Effect<
     ListRealtimeLogConfigsResult,
     AccessDenied | InvalidArgument | NoSuchRealtimeLogConfig | CommonAwsError
-  >;
+  > {
+    return this.call("ListRealtimeLogConfigs", input);
+  }
   listResponseHeadersPolicies(
     input: ListResponseHeadersPoliciesRequest,
   ): Effect.Effect<
@@ -1219,13 +1455,17 @@ export declare class CloudFront extends AWSServiceClient {
     | InvalidArgument
     | NoSuchResponseHeadersPolicy
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListResponseHeadersPolicies", input);
+  }
   listStreamingDistributions(
     input: ListStreamingDistributionsRequest,
   ): Effect.Effect<
     ListStreamingDistributionsResult,
     InvalidArgument | CommonAwsError
-  >;
+  > {
+    return this.call("ListStreamingDistributions", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
@@ -1235,7 +1475,9 @@ export declare class CloudFront extends AWSServiceClient {
     | InvalidTagging
     | NoSuchResource
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   listVpcOrigins(
     input: ListVpcOriginsRequest,
   ): Effect.Effect<
@@ -1245,7 +1487,9 @@ export declare class CloudFront extends AWSServiceClient {
     | InvalidArgument
     | UnsupportedOperation
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListVpcOrigins", input);
+  }
   publishFunction(
     input: PublishFunctionRequest,
   ): Effect.Effect<
@@ -1256,7 +1500,9 @@ export declare class CloudFront extends AWSServiceClient {
     | PreconditionFailed
     | UnsupportedOperation
     | CommonAwsError
-  >;
+  > {
+    return this.call("PublishFunction", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -1266,7 +1512,9 @@ export declare class CloudFront extends AWSServiceClient {
     | InvalidTagging
     | NoSuchResource
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   testFunction(
     input: TestFunctionRequest,
   ): Effect.Effect<
@@ -1277,7 +1525,9 @@ export declare class CloudFront extends AWSServiceClient {
     | TestFunctionFailed
     | UnsupportedOperation
     | CommonAwsError
-  >;
+  > {
+    return this.call("TestFunction", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
@@ -1287,7 +1537,9 @@ export declare class CloudFront extends AWSServiceClient {
     | InvalidTagging
     | NoSuchResource
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
   updateCachePolicy(
     input: UpdateCachePolicyRequest,
   ): Effect.Effect<
@@ -1304,7 +1556,9 @@ export declare class CloudFront extends AWSServiceClient {
     | TooManyHeadersInCachePolicy
     | TooManyQueryStringsInCachePolicy
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateCachePolicy", input);
+  }
   updateCloudFrontOriginAccessIdentity(
     input: UpdateCloudFrontOriginAccessIdentityRequest,
   ): Effect.Effect<
@@ -1318,7 +1572,9 @@ export declare class CloudFront extends AWSServiceClient {
     | NoSuchCloudFrontOriginAccessIdentity
     | PreconditionFailed
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateCloudFrontOriginAccessIdentity", input);
+  }
   updateConnectionGroup(
     input: UpdateConnectionGroupRequest,
   ): Effect.Effect<
@@ -1332,7 +1588,9 @@ export declare class CloudFront extends AWSServiceClient {
     | PreconditionFailed
     | ResourceInUse
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateConnectionGroup", input);
+  }
   updateContinuousDeploymentPolicy(
     input: UpdateContinuousDeploymentPolicyRequest,
   ): Effect.Effect<
@@ -1345,7 +1603,9 @@ export declare class CloudFront extends AWSServiceClient {
     | PreconditionFailed
     | StagingDistributionInUse
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateContinuousDeploymentPolicy", input);
+  }
   updateDistribution(
     input: UpdateDistributionRequest,
   ): Effect.Effect<
@@ -1418,7 +1678,9 @@ export declare class CloudFront extends AWSServiceClient {
     | TrustedKeyGroupDoesNotExist
     | TrustedSignerDoesNotExist
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateDistribution", input);
+  }
   updateDistributionTenant(
     input: UpdateDistributionTenantRequest,
   ): Effect.Effect<
@@ -1433,7 +1695,9 @@ export declare class CloudFront extends AWSServiceClient {
     | InvalidIfMatchVersion
     | PreconditionFailed
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateDistributionTenant", input);
+  }
   updateDistributionWithStagingConfig(
     input: UpdateDistributionWithStagingConfigRequest,
   ): Effect.Effect<
@@ -1501,7 +1765,9 @@ export declare class CloudFront extends AWSServiceClient {
     | TrustedKeyGroupDoesNotExist
     | TrustedSignerDoesNotExist
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateDistributionWithStagingConfig", input);
+  }
   updateDomainAssociation(
     input: UpdateDomainAssociationRequest,
   ): Effect.Effect<
@@ -1513,7 +1779,9 @@ export declare class CloudFront extends AWSServiceClient {
     | InvalidIfMatchVersion
     | PreconditionFailed
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateDomainAssociation", input);
+  }
   updateFieldLevelEncryptionConfig(
     input: UpdateFieldLevelEncryptionConfigRequest,
   ): Effect.Effect<
@@ -1530,7 +1798,9 @@ export declare class CloudFront extends AWSServiceClient {
     | TooManyFieldLevelEncryptionContentTypeProfiles
     | TooManyFieldLevelEncryptionQueryArgProfiles
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateFieldLevelEncryptionConfig", input);
+  }
   updateFieldLevelEncryptionProfile(
     input: UpdateFieldLevelEncryptionProfileRequest,
   ): Effect.Effect<
@@ -1548,7 +1818,9 @@ export declare class CloudFront extends AWSServiceClient {
     | TooManyFieldLevelEncryptionEncryptionEntities
     | TooManyFieldLevelEncryptionFieldPatterns
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateFieldLevelEncryptionProfile", input);
+  }
   updateFunction(
     input: UpdateFunctionRequest,
   ): Effect.Effect<
@@ -1560,7 +1832,9 @@ export declare class CloudFront extends AWSServiceClient {
     | PreconditionFailed
     | UnsupportedOperation
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateFunction", input);
+  }
   updateKeyGroup(
     input: UpdateKeyGroupRequest,
   ): Effect.Effect<
@@ -1572,7 +1846,9 @@ export declare class CloudFront extends AWSServiceClient {
     | PreconditionFailed
     | TooManyPublicKeysInKeyGroup
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateKeyGroup", input);
+  }
   updateKeyValueStore(
     input: UpdateKeyValueStoreRequest,
   ): Effect.Effect<
@@ -1584,7 +1860,9 @@ export declare class CloudFront extends AWSServiceClient {
     | PreconditionFailed
     | UnsupportedOperation
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateKeyValueStore", input);
+  }
   updateOriginAccessControl(
     input: UpdateOriginAccessControlRequest,
   ): Effect.Effect<
@@ -1597,7 +1875,9 @@ export declare class CloudFront extends AWSServiceClient {
     | OriginAccessControlAlreadyExists
     | PreconditionFailed
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateOriginAccessControl", input);
+  }
   updateOriginRequestPolicy(
     input: UpdateOriginRequestPolicyRequest,
   ): Effect.Effect<
@@ -1614,7 +1894,9 @@ export declare class CloudFront extends AWSServiceClient {
     | TooManyHeadersInOriginRequestPolicy
     | TooManyQueryStringsInOriginRequestPolicy
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateOriginRequestPolicy", input);
+  }
   updatePublicKey(
     input: UpdatePublicKeyRequest,
   ): Effect.Effect<
@@ -1627,13 +1909,17 @@ export declare class CloudFront extends AWSServiceClient {
     | NoSuchPublicKey
     | PreconditionFailed
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdatePublicKey", input);
+  }
   updateRealtimeLogConfig(
     input: UpdateRealtimeLogConfigRequest,
   ): Effect.Effect<
     UpdateRealtimeLogConfigResult,
     AccessDenied | InvalidArgument | NoSuchRealtimeLogConfig | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateRealtimeLogConfig", input);
+  }
   updateResponseHeadersPolicy(
     input: UpdateResponseHeadersPolicyRequest,
   ): Effect.Effect<
@@ -1650,7 +1936,9 @@ export declare class CloudFront extends AWSServiceClient {
     | TooManyCustomHeadersInResponseHeadersPolicy
     | TooManyRemoveHeadersInResponseHeadersPolicy
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateResponseHeadersPolicy", input);
+  }
   updateStreamingDistribution(
     input: UpdateStreamingDistributionRequest,
   ): Effect.Effect<
@@ -1670,7 +1958,9 @@ export declare class CloudFront extends AWSServiceClient {
     | TooManyTrustedSigners
     | TrustedSignerDoesNotExist
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateStreamingDistribution", input);
+  }
   updateVpcOrigin(
     input: UpdateVpcOriginRequest,
   ): Effect.Effect<
@@ -1687,16 +1977,22 @@ export declare class CloudFront extends AWSServiceClient {
     | PreconditionFailed
     | UnsupportedOperation
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateVpcOrigin", input);
+  }
   verifyDnsConfiguration(
     input: VerifyDnsConfigurationRequest,
   ): Effect.Effect<
     VerifyDnsConfigurationResult,
     AccessDenied | EntityNotFound | InvalidArgument | CommonAwsError
-  >;
+  > {
+    return this.call("VerifyDnsConfiguration", input);
+  }
 }
 
-export declare class Cloudfront extends CloudFront {}
+export class Cloudfront extends CloudFront {}
+
+export default CloudFront;
 
 export type AccessControlAllowHeadersList = Array<string>;
 export type AccessControlAllowMethodsList =

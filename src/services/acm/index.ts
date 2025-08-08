@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class ACM extends AWSServiceClient {
+export class ACM extends AWSServiceClient {
   addTagsToCertificate(
     input: AddTagsToCertificateRequest,
   ): Effect.Effect<
@@ -15,7 +15,9 @@ export declare class ACM extends AWSServiceClient {
     | ThrottlingException
     | TooManyTagsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AddTagsToCertificate", input);
+  }
   deleteCertificate(
     input: DeleteCertificateRequest,
   ): Effect.Effect<
@@ -27,13 +29,17 @@ export declare class ACM extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteCertificate", input);
+  }
   describeCertificate(
     input: DescribeCertificateRequest,
   ): Effect.Effect<
     DescribeCertificateResponse,
     InvalidArnException | ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeCertificate", input);
+  }
   exportCertificate(
     input: ExportCertificateRequest,
   ): Effect.Effect<
@@ -42,11 +48,15 @@ export declare class ACM extends AWSServiceClient {
     | RequestInProgressException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ExportCertificate", input);
+  }
   getAccountConfiguration(input: {}): Effect.Effect<
     GetAccountConfigurationResponse,
     AccessDeniedException | ThrottlingException | CommonAwsError
-  >;
+  > {
+    return this.call("GetAccountConfiguration", input);
+  }
   getCertificate(
     input: GetCertificateRequest,
   ): Effect.Effect<
@@ -55,7 +65,9 @@ export declare class ACM extends AWSServiceClient {
     | RequestInProgressException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetCertificate", input);
+  }
   importCertificate(
     input: ImportCertificateRequest,
   ): Effect.Effect<
@@ -68,19 +80,25 @@ export declare class ACM extends AWSServiceClient {
     | TagPolicyException
     | TooManyTagsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ImportCertificate", input);
+  }
   listCertificates(
     input: ListCertificatesRequest,
   ): Effect.Effect<
     ListCertificatesResponse,
     InvalidArgsException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("ListCertificates", input);
+  }
   listTagsForCertificate(
     input: ListTagsForCertificateRequest,
   ): Effect.Effect<
     ListTagsForCertificateResponse,
     InvalidArnException | ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForCertificate", input);
+  }
   putAccountConfiguration(
     input: PutAccountConfigurationRequest,
   ): Effect.Effect<
@@ -90,7 +108,9 @@ export declare class ACM extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutAccountConfiguration", input);
+  }
   removeTagsFromCertificate(
     input: RemoveTagsFromCertificateRequest,
   ): Effect.Effect<
@@ -102,7 +122,9 @@ export declare class ACM extends AWSServiceClient {
     | TagPolicyException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("RemoveTagsFromCertificate", input);
+  }
   renewCertificate(
     input: RenewCertificateRequest,
   ): Effect.Effect<
@@ -111,7 +133,9 @@ export declare class ACM extends AWSServiceClient {
     | RequestInProgressException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("RenewCertificate", input);
+  }
   requestCertificate(
     input: RequestCertificateRequest,
   ): Effect.Effect<
@@ -124,7 +148,9 @@ export declare class ACM extends AWSServiceClient {
     | TagPolicyException
     | TooManyTagsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("RequestCertificate", input);
+  }
   resendValidationEmail(
     input: ResendValidationEmailRequest,
   ): Effect.Effect<
@@ -134,7 +160,9 @@ export declare class ACM extends AWSServiceClient {
     | InvalidStateException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ResendValidationEmail", input);
+  }
   revokeCertificate(
     input: RevokeCertificateRequest,
   ): Effect.Effect<
@@ -146,7 +174,9 @@ export declare class ACM extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("RevokeCertificate", input);
+  }
   updateCertificateOptions(
     input: UpdateCertificateOptionsRequest,
   ): Effect.Effect<
@@ -156,10 +186,14 @@ export declare class ACM extends AWSServiceClient {
     | LimitExceededException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateCertificateOptions", input);
+  }
 }
 
-export declare class Acm extends ACM {}
+export class Acm extends ACM {}
+
+export default ACM;
 
 export declare class AccessDeniedException extends EffectData.TaggedError(
   "AccessDeniedException",

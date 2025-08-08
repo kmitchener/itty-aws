@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class resiliencehub extends AWSServiceClient {
+export class resiliencehub extends AWSServiceClient {
   acceptResourceGroupingRecommendations(
     input: AcceptResourceGroupingRecommendationsRequest,
   ): Effect.Effect<
@@ -13,7 +13,9 @@ export declare class resiliencehub extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AcceptResourceGroupingRecommendations", input);
+  }
   addDraftAppVersionResourceMappings(
     input: AddDraftAppVersionResourceMappingsRequest,
   ): Effect.Effect<
@@ -26,7 +28,9 @@ export declare class resiliencehub extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AddDraftAppVersionResourceMappings", input);
+  }
   batchUpdateRecommendationStatus(
     input: BatchUpdateRecommendationStatusRequest,
   ): Effect.Effect<
@@ -37,7 +41,9 @@ export declare class resiliencehub extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("BatchUpdateRecommendationStatus", input);
+  }
   createApp(
     input: CreateAppRequest,
   ): Effect.Effect<
@@ -50,7 +56,9 @@ export declare class resiliencehub extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateApp", input);
+  }
   createAppVersionAppComponent(
     input: CreateAppVersionAppComponentRequest,
   ): Effect.Effect<
@@ -63,7 +71,9 @@ export declare class resiliencehub extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateAppVersionAppComponent", input);
+  }
   createAppVersionResource(
     input: CreateAppVersionResourceRequest,
   ): Effect.Effect<
@@ -76,7 +86,9 @@ export declare class resiliencehub extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateAppVersionResource", input);
+  }
   createRecommendationTemplate(
     input: CreateRecommendationTemplateRequest,
   ): Effect.Effect<
@@ -89,7 +101,9 @@ export declare class resiliencehub extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateRecommendationTemplate", input);
+  }
   createResiliencyPolicy(
     input: CreateResiliencyPolicyRequest,
   ): Effect.Effect<
@@ -101,7 +115,9 @@ export declare class resiliencehub extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateResiliencyPolicy", input);
+  }
   deleteApp(
     input: DeleteAppRequest,
   ): Effect.Effect<
@@ -112,7 +128,9 @@ export declare class resiliencehub extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteApp", input);
+  }
   deleteAppAssessment(
     input: DeleteAppAssessmentRequest,
   ): Effect.Effect<
@@ -124,7 +142,9 @@ export declare class resiliencehub extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteAppAssessment", input);
+  }
   deleteAppInputSource(
     input: DeleteAppInputSourceRequest,
   ): Effect.Effect<
@@ -136,7 +156,9 @@ export declare class resiliencehub extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteAppInputSource", input);
+  }
   deleteAppVersionAppComponent(
     input: DeleteAppVersionAppComponentRequest,
   ): Effect.Effect<
@@ -148,7 +170,9 @@ export declare class resiliencehub extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteAppVersionAppComponent", input);
+  }
   deleteAppVersionResource(
     input: DeleteAppVersionResourceRequest,
   ): Effect.Effect<
@@ -160,7 +184,9 @@ export declare class resiliencehub extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteAppVersionResource", input);
+  }
   deleteRecommendationTemplate(
     input: DeleteRecommendationTemplateRequest,
   ): Effect.Effect<
@@ -171,7 +197,9 @@ export declare class resiliencehub extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteRecommendationTemplate", input);
+  }
   deleteResiliencyPolicy(
     input: DeleteResiliencyPolicyRequest,
   ): Effect.Effect<
@@ -183,7 +211,9 @@ export declare class resiliencehub extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteResiliencyPolicy", input);
+  }
   describeApp(
     input: DescribeAppRequest,
   ): Effect.Effect<
@@ -194,7 +224,9 @@ export declare class resiliencehub extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeApp", input);
+  }
   describeAppAssessment(
     input: DescribeAppAssessmentRequest,
   ): Effect.Effect<
@@ -205,7 +237,9 @@ export declare class resiliencehub extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeAppAssessment", input);
+  }
   describeAppVersion(
     input: DescribeAppVersionRequest,
   ): Effect.Effect<
@@ -216,7 +250,9 @@ export declare class resiliencehub extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeAppVersion", input);
+  }
   describeAppVersionAppComponent(
     input: DescribeAppVersionAppComponentRequest,
   ): Effect.Effect<
@@ -228,7 +264,9 @@ export declare class resiliencehub extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeAppVersionAppComponent", input);
+  }
   describeAppVersionResource(
     input: DescribeAppVersionResourceRequest,
   ): Effect.Effect<
@@ -240,7 +278,9 @@ export declare class resiliencehub extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeAppVersionResource", input);
+  }
   describeAppVersionResourcesResolutionStatus(
     input: DescribeAppVersionResourcesResolutionStatusRequest,
   ): Effect.Effect<
@@ -251,7 +291,9 @@ export declare class resiliencehub extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeAppVersionResourcesResolutionStatus", input);
+  }
   describeAppVersionTemplate(
     input: DescribeAppVersionTemplateRequest,
   ): Effect.Effect<
@@ -262,7 +304,9 @@ export declare class resiliencehub extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeAppVersionTemplate", input);
+  }
   describeDraftAppVersionResourcesImportStatus(
     input: DescribeDraftAppVersionResourcesImportStatusRequest,
   ): Effect.Effect<
@@ -273,7 +317,9 @@ export declare class resiliencehub extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeDraftAppVersionResourcesImportStatus", input);
+  }
   describeMetricsExport(
     input: DescribeMetricsExportRequest,
   ): Effect.Effect<
@@ -284,7 +330,9 @@ export declare class resiliencehub extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeMetricsExport", input);
+  }
   describeResiliencyPolicy(
     input: DescribeResiliencyPolicyRequest,
   ): Effect.Effect<
@@ -295,7 +343,9 @@ export declare class resiliencehub extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeResiliencyPolicy", input);
+  }
   describeResourceGroupingRecommendationTask(
     input: DescribeResourceGroupingRecommendationTaskRequest,
   ): Effect.Effect<
@@ -306,7 +356,9 @@ export declare class resiliencehub extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeResourceGroupingRecommendationTask", input);
+  }
   importResourcesToDraftAppVersion(
     input: ImportResourcesToDraftAppVersionRequest,
   ): Effect.Effect<
@@ -319,7 +371,9 @@ export declare class resiliencehub extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ImportResourcesToDraftAppVersion", input);
+  }
   listAlarmRecommendations(
     input: ListAlarmRecommendationsRequest,
   ): Effect.Effect<
@@ -330,7 +384,9 @@ export declare class resiliencehub extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListAlarmRecommendations", input);
+  }
   listAppAssessmentComplianceDrifts(
     input: ListAppAssessmentComplianceDriftsRequest,
   ): Effect.Effect<
@@ -340,7 +396,9 @@ export declare class resiliencehub extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListAppAssessmentComplianceDrifts", input);
+  }
   listAppAssessmentResourceDrifts(
     input: ListAppAssessmentResourceDriftsRequest,
   ): Effect.Effect<
@@ -350,7 +408,9 @@ export declare class resiliencehub extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListAppAssessmentResourceDrifts", input);
+  }
   listAppAssessments(
     input: ListAppAssessmentsRequest,
   ): Effect.Effect<
@@ -361,7 +421,9 @@ export declare class resiliencehub extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListAppAssessments", input);
+  }
   listAppComponentCompliances(
     input: ListAppComponentCompliancesRequest,
   ): Effect.Effect<
@@ -372,7 +434,9 @@ export declare class resiliencehub extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListAppComponentCompliances", input);
+  }
   listAppComponentRecommendations(
     input: ListAppComponentRecommendationsRequest,
   ): Effect.Effect<
@@ -383,7 +447,9 @@ export declare class resiliencehub extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListAppComponentRecommendations", input);
+  }
   listAppInputSources(
     input: ListAppInputSourcesRequest,
   ): Effect.Effect<
@@ -394,7 +460,9 @@ export declare class resiliencehub extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListAppInputSources", input);
+  }
   listApps(
     input: ListAppsRequest,
   ): Effect.Effect<
@@ -404,7 +472,9 @@ export declare class resiliencehub extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListApps", input);
+  }
   listAppVersionAppComponents(
     input: ListAppVersionAppComponentsRequest,
   ): Effect.Effect<
@@ -416,7 +486,9 @@ export declare class resiliencehub extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListAppVersionAppComponents", input);
+  }
   listAppVersionResourceMappings(
     input: ListAppVersionResourceMappingsRequest,
   ): Effect.Effect<
@@ -427,7 +499,9 @@ export declare class resiliencehub extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListAppVersionResourceMappings", input);
+  }
   listAppVersionResources(
     input: ListAppVersionResourcesRequest,
   ): Effect.Effect<
@@ -439,7 +513,9 @@ export declare class resiliencehub extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListAppVersionResources", input);
+  }
   listAppVersions(
     input: ListAppVersionsRequest,
   ): Effect.Effect<
@@ -449,7 +525,9 @@ export declare class resiliencehub extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListAppVersions", input);
+  }
   listMetrics(
     input: ListMetricsRequest,
   ): Effect.Effect<
@@ -459,7 +537,9 @@ export declare class resiliencehub extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListMetrics", input);
+  }
   listRecommendationTemplates(
     input: ListRecommendationTemplatesRequest,
   ): Effect.Effect<
@@ -469,7 +549,9 @@ export declare class resiliencehub extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListRecommendationTemplates", input);
+  }
   listResiliencyPolicies(
     input: ListResiliencyPoliciesRequest,
   ): Effect.Effect<
@@ -480,7 +562,9 @@ export declare class resiliencehub extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListResiliencyPolicies", input);
+  }
   listResourceGroupingRecommendations(
     input: ListResourceGroupingRecommendationsRequest,
   ): Effect.Effect<
@@ -491,7 +575,9 @@ export declare class resiliencehub extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListResourceGroupingRecommendations", input);
+  }
   listSopRecommendations(
     input: ListSopRecommendationsRequest,
   ): Effect.Effect<
@@ -503,7 +589,9 @@ export declare class resiliencehub extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListSopRecommendations", input);
+  }
   listSuggestedResiliencyPolicies(
     input: ListSuggestedResiliencyPoliciesRequest,
   ): Effect.Effect<
@@ -514,7 +602,9 @@ export declare class resiliencehub extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListSuggestedResiliencyPolicies", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
@@ -525,7 +615,9 @@ export declare class resiliencehub extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   listTestRecommendations(
     input: ListTestRecommendationsRequest,
   ): Effect.Effect<
@@ -537,7 +629,9 @@ export declare class resiliencehub extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTestRecommendations", input);
+  }
   listUnsupportedAppVersionResources(
     input: ListUnsupportedAppVersionResourcesRequest,
   ): Effect.Effect<
@@ -549,7 +643,9 @@ export declare class resiliencehub extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListUnsupportedAppVersionResources", input);
+  }
   publishAppVersion(
     input: PublishAppVersionRequest,
   ): Effect.Effect<
@@ -561,7 +657,9 @@ export declare class resiliencehub extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PublishAppVersion", input);
+  }
   putDraftAppVersionTemplate(
     input: PutDraftAppVersionTemplateRequest,
   ): Effect.Effect<
@@ -573,7 +671,9 @@ export declare class resiliencehub extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutDraftAppVersionTemplate", input);
+  }
   rejectResourceGroupingRecommendations(
     input: RejectResourceGroupingRecommendationsRequest,
   ): Effect.Effect<
@@ -584,7 +684,9 @@ export declare class resiliencehub extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("RejectResourceGroupingRecommendations", input);
+  }
   removeDraftAppVersionResourceMappings(
     input: RemoveDraftAppVersionResourceMappingsRequest,
   ): Effect.Effect<
@@ -596,7 +698,9 @@ export declare class resiliencehub extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("RemoveDraftAppVersionResourceMappings", input);
+  }
   resolveAppVersionResources(
     input: ResolveAppVersionResourcesRequest,
   ): Effect.Effect<
@@ -608,7 +712,9 @@ export declare class resiliencehub extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ResolveAppVersionResources", input);
+  }
   startAppAssessment(
     input: StartAppAssessmentRequest,
   ): Effect.Effect<
@@ -621,7 +727,9 @@ export declare class resiliencehub extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartAppAssessment", input);
+  }
   startMetricsExport(
     input: StartMetricsExportRequest,
   ): Effect.Effect<
@@ -633,7 +741,9 @@ export declare class resiliencehub extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartMetricsExport", input);
+  }
   startResourceGroupingRecommendationTask(
     input: StartResourceGroupingRecommendationTaskRequest,
   ): Effect.Effect<
@@ -645,7 +755,9 @@ export declare class resiliencehub extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartResourceGroupingRecommendationTask", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -656,7 +768,9 @@ export declare class resiliencehub extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
@@ -667,7 +781,9 @@ export declare class resiliencehub extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
   updateApp(
     input: UpdateAppRequest,
   ): Effect.Effect<
@@ -679,7 +795,9 @@ export declare class resiliencehub extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateApp", input);
+  }
   updateAppVersion(
     input: UpdateAppVersionRequest,
   ): Effect.Effect<
@@ -691,7 +809,9 @@ export declare class resiliencehub extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateAppVersion", input);
+  }
   updateAppVersionAppComponent(
     input: UpdateAppVersionAppComponentRequest,
   ): Effect.Effect<
@@ -703,7 +823,9 @@ export declare class resiliencehub extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateAppVersionAppComponent", input);
+  }
   updateAppVersionResource(
     input: UpdateAppVersionResourceRequest,
   ): Effect.Effect<
@@ -716,7 +838,9 @@ export declare class resiliencehub extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateAppVersionResource", input);
+  }
   updateResiliencyPolicy(
     input: UpdateResiliencyPolicyRequest,
   ): Effect.Effect<
@@ -728,10 +852,14 @@ export declare class resiliencehub extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateResiliencyPolicy", input);
+  }
 }
 
-export declare class Resiliencehub extends resiliencehub {}
+export class Resiliencehub extends resiliencehub {}
+
+export default resiliencehub;
 
 export type AcceptGroupingRecommendationEntries =
   Array<AcceptGroupingRecommendationEntry>;

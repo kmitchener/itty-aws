@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class GameLiftStreams extends AWSServiceClient {
+export class GameLiftStreams extends AWSServiceClient {
   addStreamGroupLocations(
     input: AddStreamGroupLocationsInput,
   ): Effect.Effect<
@@ -14,7 +14,9 @@ export declare class GameLiftStreams extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AddStreamGroupLocations", input);
+  }
   associateApplications(
     input: AssociateApplicationsInput,
   ): Effect.Effect<
@@ -26,7 +28,9 @@ export declare class GameLiftStreams extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AssociateApplications", input);
+  }
   createStreamSessionConnection(
     input: CreateStreamSessionConnectionInput,
   ): Effect.Effect<
@@ -38,7 +42,9 @@ export declare class GameLiftStreams extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateStreamSessionConnection", input);
+  }
   disassociateApplications(
     input: DisassociateApplicationsInput,
   ): Effect.Effect<
@@ -49,7 +55,9 @@ export declare class GameLiftStreams extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DisassociateApplications", input);
+  }
   exportStreamSessionFiles(
     input: ExportStreamSessionFilesInput,
   ): Effect.Effect<
@@ -60,7 +68,9 @@ export declare class GameLiftStreams extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ExportStreamSessionFiles", input);
+  }
   getStreamSession(
     input: GetStreamSessionInput,
   ): Effect.Effect<
@@ -71,7 +81,9 @@ export declare class GameLiftStreams extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetStreamSession", input);
+  }
   listStreamSessions(
     input: ListStreamSessionsInput,
   ): Effect.Effect<
@@ -82,7 +94,9 @@ export declare class GameLiftStreams extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListStreamSessions", input);
+  }
   listStreamSessionsByAccount(
     input: ListStreamSessionsByAccountInput,
   ): Effect.Effect<
@@ -92,7 +106,9 @@ export declare class GameLiftStreams extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListStreamSessionsByAccount", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
@@ -102,7 +118,9 @@ export declare class GameLiftStreams extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   removeStreamGroupLocations(
     input: RemoveStreamGroupLocationsInput,
   ): Effect.Effect<
@@ -113,7 +131,9 @@ export declare class GameLiftStreams extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("RemoveStreamGroupLocations", input);
+  }
   startStreamSession(
     input: StartStreamSessionInput,
   ): Effect.Effect<
@@ -125,7 +145,9 @@ export declare class GameLiftStreams extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartStreamSession", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -135,7 +157,9 @@ export declare class GameLiftStreams extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   terminateStreamSession(
     input: TerminateStreamSessionInput,
   ): Effect.Effect<
@@ -146,7 +170,9 @@ export declare class GameLiftStreams extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TerminateStreamSession", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
@@ -156,10 +182,14 @@ export declare class GameLiftStreams extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
 }
 
-export declare class Gameliftstreams extends GameLiftStreams {}
+export class Gameliftstreams extends GameLiftStreams {}
+
+export default GameLiftStreams;
 
 export declare class AccessDeniedException extends EffectData.TaggedError(
   "AccessDeniedException",

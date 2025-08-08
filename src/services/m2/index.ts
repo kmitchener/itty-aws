@@ -2,14 +2,16 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class m2 extends AWSServiceClient {
+export class m2 extends AWSServiceClient {
   getSignedBluinsightsUrl(input: {}): Effect.Effect<
     GetSignedBluinsightsUrlResponse,
     | AccessDeniedException
     | InternalServerException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetSignedBluinsightsUrl", input);
+  }
   listEngineVersions(
     input: ListEngineVersionsRequest,
   ): Effect.Effect<
@@ -19,7 +21,9 @@ export declare class m2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListEngineVersions", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
@@ -30,7 +34,9 @@ export declare class m2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -42,7 +48,9 @@ export declare class m2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
@@ -53,10 +61,14 @@ export declare class m2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
 }
 
-export declare class M2 extends m2 {}
+export class M2 extends m2 {}
+
+export default m2;
 
 export declare class AccessDeniedException extends EffectData.TaggedError(
   "AccessDeniedException",

@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class SMS extends AWSServiceClient {
+export class SMS extends AWSServiceClient {
   createApp(
     input: CreateAppRequest,
   ): Effect.Effect<
@@ -13,7 +13,9 @@ export declare class SMS extends AWSServiceClient {
     | OperationNotPermittedException
     | UnauthorizedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateApp", input);
+  }
   createReplicationJob(
     input: CreateReplicationJobRequest,
   ): Effect.Effect<
@@ -28,7 +30,9 @@ export declare class SMS extends AWSServiceClient {
     | TemporarilyUnavailableException
     | UnauthorizedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateReplicationJob", input);
+  }
   deleteApp(
     input: DeleteAppRequest,
   ): Effect.Effect<
@@ -39,7 +43,9 @@ export declare class SMS extends AWSServiceClient {
     | OperationNotPermittedException
     | UnauthorizedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteApp", input);
+  }
   deleteAppLaunchConfiguration(
     input: DeleteAppLaunchConfigurationRequest,
   ): Effect.Effect<
@@ -50,7 +56,9 @@ export declare class SMS extends AWSServiceClient {
     | OperationNotPermittedException
     | UnauthorizedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteAppLaunchConfiguration", input);
+  }
   deleteAppReplicationConfiguration(
     input: DeleteAppReplicationConfigurationRequest,
   ): Effect.Effect<
@@ -61,7 +69,9 @@ export declare class SMS extends AWSServiceClient {
     | OperationNotPermittedException
     | UnauthorizedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteAppReplicationConfiguration", input);
+  }
   deleteAppValidationConfiguration(
     input: DeleteAppValidationConfigurationRequest,
   ): Effect.Effect<
@@ -72,7 +82,9 @@ export declare class SMS extends AWSServiceClient {
     | OperationNotPermittedException
     | UnauthorizedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteAppValidationConfiguration", input);
+  }
   deleteReplicationJob(
     input: DeleteReplicationJobRequest,
   ): Effect.Effect<
@@ -83,7 +95,9 @@ export declare class SMS extends AWSServiceClient {
     | ReplicationJobNotFoundException
     | UnauthorizedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteReplicationJob", input);
+  }
   deleteServerCatalog(
     input: DeleteServerCatalogRequest,
   ): Effect.Effect<
@@ -93,7 +107,9 @@ export declare class SMS extends AWSServiceClient {
     | OperationNotPermittedException
     | UnauthorizedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteServerCatalog", input);
+  }
   disassociateConnector(
     input: DisassociateConnectorRequest,
   ): Effect.Effect<
@@ -103,7 +119,9 @@ export declare class SMS extends AWSServiceClient {
     | OperationNotPermittedException
     | UnauthorizedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DisassociateConnector", input);
+  }
   generateChangeSet(
     input: GenerateChangeSetRequest,
   ): Effect.Effect<
@@ -114,7 +132,9 @@ export declare class SMS extends AWSServiceClient {
     | OperationNotPermittedException
     | UnauthorizedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GenerateChangeSet", input);
+  }
   generateTemplate(
     input: GenerateTemplateRequest,
   ): Effect.Effect<
@@ -125,7 +145,9 @@ export declare class SMS extends AWSServiceClient {
     | OperationNotPermittedException
     | UnauthorizedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GenerateTemplate", input);
+  }
   getApp(
     input: GetAppRequest,
   ): Effect.Effect<
@@ -136,7 +158,9 @@ export declare class SMS extends AWSServiceClient {
     | OperationNotPermittedException
     | UnauthorizedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetApp", input);
+  }
   getAppLaunchConfiguration(
     input: GetAppLaunchConfigurationRequest,
   ): Effect.Effect<
@@ -147,7 +171,9 @@ export declare class SMS extends AWSServiceClient {
     | OperationNotPermittedException
     | UnauthorizedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetAppLaunchConfiguration", input);
+  }
   getAppReplicationConfiguration(
     input: GetAppReplicationConfigurationRequest,
   ): Effect.Effect<
@@ -158,7 +184,9 @@ export declare class SMS extends AWSServiceClient {
     | OperationNotPermittedException
     | UnauthorizedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetAppReplicationConfiguration", input);
+  }
   getAppValidationConfiguration(
     input: GetAppValidationConfigurationRequest,
   ): Effect.Effect<
@@ -169,7 +197,9 @@ export declare class SMS extends AWSServiceClient {
     | OperationNotPermittedException
     | UnauthorizedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetAppValidationConfiguration", input);
+  }
   getAppValidationOutput(
     input: GetAppValidationOutputRequest,
   ): Effect.Effect<
@@ -180,13 +210,17 @@ export declare class SMS extends AWSServiceClient {
     | OperationNotPermittedException
     | UnauthorizedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetAppValidationOutput", input);
+  }
   getConnectors(
     input: GetConnectorsRequest,
   ): Effect.Effect<
     GetConnectorsResponse,
     UnauthorizedOperationException | CommonAwsError
-  >;
+  > {
+    return this.call("GetConnectors", input);
+  }
   getReplicationJobs(
     input: GetReplicationJobsRequest,
   ): Effect.Effect<
@@ -195,7 +229,9 @@ export declare class SMS extends AWSServiceClient {
     | MissingRequiredParameterException
     | UnauthorizedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetReplicationJobs", input);
+  }
   getReplicationRuns(
     input: GetReplicationRunsRequest,
   ): Effect.Effect<
@@ -204,7 +240,9 @@ export declare class SMS extends AWSServiceClient {
     | MissingRequiredParameterException
     | UnauthorizedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetReplicationRuns", input);
+  }
   getServers(
     input: GetServersRequest,
   ): Effect.Effect<
@@ -214,7 +252,9 @@ export declare class SMS extends AWSServiceClient {
     | MissingRequiredParameterException
     | UnauthorizedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetServers", input);
+  }
   importAppCatalog(
     input: ImportAppCatalogRequest,
   ): Effect.Effect<
@@ -225,7 +265,9 @@ export declare class SMS extends AWSServiceClient {
     | OperationNotPermittedException
     | UnauthorizedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ImportAppCatalog", input);
+  }
   importServerCatalog(
     input: ImportServerCatalogRequest,
   ): Effect.Effect<
@@ -236,7 +278,9 @@ export declare class SMS extends AWSServiceClient {
     | OperationNotPermittedException
     | UnauthorizedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ImportServerCatalog", input);
+  }
   launchApp(
     input: LaunchAppRequest,
   ): Effect.Effect<
@@ -247,7 +291,9 @@ export declare class SMS extends AWSServiceClient {
     | OperationNotPermittedException
     | UnauthorizedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("LaunchApp", input);
+  }
   listApps(
     input: ListAppsRequest,
   ): Effect.Effect<
@@ -258,7 +304,9 @@ export declare class SMS extends AWSServiceClient {
     | OperationNotPermittedException
     | UnauthorizedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListApps", input);
+  }
   notifyAppValidationOutput(
     input: NotifyAppValidationOutputRequest,
   ): Effect.Effect<
@@ -269,7 +317,9 @@ export declare class SMS extends AWSServiceClient {
     | OperationNotPermittedException
     | UnauthorizedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("NotifyAppValidationOutput", input);
+  }
   putAppLaunchConfiguration(
     input: PutAppLaunchConfigurationRequest,
   ): Effect.Effect<
@@ -280,7 +330,9 @@ export declare class SMS extends AWSServiceClient {
     | OperationNotPermittedException
     | UnauthorizedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutAppLaunchConfiguration", input);
+  }
   putAppReplicationConfiguration(
     input: PutAppReplicationConfigurationRequest,
   ): Effect.Effect<
@@ -291,7 +343,9 @@ export declare class SMS extends AWSServiceClient {
     | OperationNotPermittedException
     | UnauthorizedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutAppReplicationConfiguration", input);
+  }
   putAppValidationConfiguration(
     input: PutAppValidationConfigurationRequest,
   ): Effect.Effect<
@@ -302,7 +356,9 @@ export declare class SMS extends AWSServiceClient {
     | OperationNotPermittedException
     | UnauthorizedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutAppValidationConfiguration", input);
+  }
   startAppReplication(
     input: StartAppReplicationRequest,
   ): Effect.Effect<
@@ -313,7 +369,9 @@ export declare class SMS extends AWSServiceClient {
     | OperationNotPermittedException
     | UnauthorizedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartAppReplication", input);
+  }
   startOnDemandAppReplication(
     input: StartOnDemandAppReplicationRequest,
   ): Effect.Effect<
@@ -324,7 +382,9 @@ export declare class SMS extends AWSServiceClient {
     | OperationNotPermittedException
     | UnauthorizedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartOnDemandAppReplication", input);
+  }
   startOnDemandReplicationRun(
     input: StartOnDemandReplicationRunRequest,
   ): Effect.Effect<
@@ -336,7 +396,9 @@ export declare class SMS extends AWSServiceClient {
     | ReplicationRunLimitExceededException
     | UnauthorizedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartOnDemandReplicationRun", input);
+  }
   stopAppReplication(
     input: StopAppReplicationRequest,
   ): Effect.Effect<
@@ -347,7 +409,9 @@ export declare class SMS extends AWSServiceClient {
     | OperationNotPermittedException
     | UnauthorizedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StopAppReplication", input);
+  }
   terminateApp(
     input: TerminateAppRequest,
   ): Effect.Effect<
@@ -358,7 +422,9 @@ export declare class SMS extends AWSServiceClient {
     | OperationNotPermittedException
     | UnauthorizedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TerminateApp", input);
+  }
   updateApp(
     input: UpdateAppRequest,
   ): Effect.Effect<
@@ -369,7 +435,9 @@ export declare class SMS extends AWSServiceClient {
     | OperationNotPermittedException
     | UnauthorizedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateApp", input);
+  }
   updateReplicationJob(
     input: UpdateReplicationJobRequest,
   ): Effect.Effect<
@@ -383,10 +451,14 @@ export declare class SMS extends AWSServiceClient {
     | TemporarilyUnavailableException
     | UnauthorizedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateReplicationJob", input);
+  }
 }
 
-export declare class Sms extends SMS {}
+export class Sms extends SMS {}
+
+export default SMS;
 
 export type AmiId = string;
 

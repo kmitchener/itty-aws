@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class WorkSpaces extends AWSServiceClient {
+export class WorkSpaces extends AWSServiceClient {
   acceptAccountLinkInvitation(
     input: AcceptAccountLinkInvitationRequest,
   ): Effect.Effect<
@@ -13,7 +13,9 @@ export declare class WorkSpaces extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AcceptAccountLinkInvitation", input);
+  }
   associateConnectionAlias(
     input: AssociateConnectionAliasRequest,
   ): Effect.Effect<
@@ -25,7 +27,9 @@ export declare class WorkSpaces extends AWSServiceClient {
     | ResourceAssociatedException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AssociateConnectionAlias", input);
+  }
   associateIpGroups(
     input: AssociateIpGroupsRequest,
   ): Effect.Effect<
@@ -37,7 +41,9 @@ export declare class WorkSpaces extends AWSServiceClient {
     | ResourceLimitExceededException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AssociateIpGroups", input);
+  }
   associateWorkspaceApplication(
     input: AssociateWorkspaceApplicationRequest,
   ): Effect.Effect<
@@ -53,7 +59,9 @@ export declare class WorkSpaces extends AWSServiceClient {
     | ResourceInUseException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AssociateWorkspaceApplication", input);
+  }
   authorizeIpRules(
     input: AuthorizeIpRulesRequest,
   ): Effect.Effect<
@@ -64,7 +72,9 @@ export declare class WorkSpaces extends AWSServiceClient {
     | ResourceLimitExceededException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AuthorizeIpRules", input);
+  }
   copyWorkspaceImage(
     input: CopyWorkspaceImageRequest,
   ): Effect.Effect<
@@ -77,7 +87,9 @@ export declare class WorkSpaces extends AWSServiceClient {
     | ResourceNotFoundException
     | ResourceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CopyWorkspaceImage", input);
+  }
   createAccountLinkInvitation(
     input: CreateAccountLinkInvitationRequest,
   ): Effect.Effect<
@@ -87,7 +99,9 @@ export declare class WorkSpaces extends AWSServiceClient {
     | InternalServerException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateAccountLinkInvitation", input);
+  }
   createConnectClientAddIn(
     input: CreateConnectClientAddInRequest,
   ): Effect.Effect<
@@ -98,7 +112,9 @@ export declare class WorkSpaces extends AWSServiceClient {
     | ResourceCreationFailedException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateConnectClientAddIn", input);
+  }
   createConnectionAlias(
     input: CreateConnectionAliasRequest,
   ): Effect.Effect<
@@ -110,7 +126,9 @@ export declare class WorkSpaces extends AWSServiceClient {
     | ResourceAlreadyExistsException
     | ResourceLimitExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateConnectionAlias", input);
+  }
   createIpGroup(
     input: CreateIpGroupRequest,
   ): Effect.Effect<
@@ -121,7 +139,9 @@ export declare class WorkSpaces extends AWSServiceClient {
     | ResourceCreationFailedException
     | ResourceLimitExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateIpGroup", input);
+  }
   createStandbyWorkspaces(
     input: CreateStandbyWorkspacesRequest,
   ): Effect.Effect<
@@ -132,7 +152,9 @@ export declare class WorkSpaces extends AWSServiceClient {
     | ResourceLimitExceededException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateStandbyWorkspaces", input);
+  }
   createTags(
     input: CreateTagsRequest,
   ): Effect.Effect<
@@ -141,7 +163,9 @@ export declare class WorkSpaces extends AWSServiceClient {
     | ResourceLimitExceededException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateTags", input);
+  }
   createUpdatedWorkspaceImage(
     input: CreateUpdatedWorkspaceImageRequest,
   ): Effect.Effect<
@@ -154,7 +178,9 @@ export declare class WorkSpaces extends AWSServiceClient {
     | ResourceLimitExceededException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateUpdatedWorkspaceImage", input);
+  }
   createWorkspaceBundle(
     input: CreateWorkspaceBundleRequest,
   ): Effect.Effect<
@@ -166,7 +192,9 @@ export declare class WorkSpaces extends AWSServiceClient {
     | ResourceNotFoundException
     | ResourceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateWorkspaceBundle", input);
+  }
   createWorkspaceImage(
     input: CreateWorkspaceImageRequest,
   ): Effect.Effect<
@@ -179,7 +207,9 @@ export declare class WorkSpaces extends AWSServiceClient {
     | ResourceLimitExceededException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateWorkspaceImage", input);
+  }
   createWorkspaces(
     input: CreateWorkspacesRequest,
   ): Effect.Effect<
@@ -187,7 +217,9 @@ export declare class WorkSpaces extends AWSServiceClient {
     | InvalidParameterValuesException
     | ResourceLimitExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateWorkspaces", input);
+  }
   createWorkspacesPool(
     input: CreateWorkspacesPoolRequest,
   ): Effect.Effect<
@@ -199,7 +231,9 @@ export declare class WorkSpaces extends AWSServiceClient {
     | ResourceLimitExceededException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateWorkspacesPool", input);
+  }
   deleteAccountLinkInvitation(
     input: DeleteAccountLinkInvitationRequest,
   ): Effect.Effect<
@@ -210,7 +244,9 @@ export declare class WorkSpaces extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteAccountLinkInvitation", input);
+  }
   deleteClientBranding(
     input: DeleteClientBrandingRequest,
   ): Effect.Effect<
@@ -219,7 +255,9 @@ export declare class WorkSpaces extends AWSServiceClient {
     | InvalidParameterValuesException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteClientBranding", input);
+  }
   deleteConnectClientAddIn(
     input: DeleteConnectClientAddInRequest,
   ): Effect.Effect<
@@ -228,7 +266,9 @@ export declare class WorkSpaces extends AWSServiceClient {
     | InvalidParameterValuesException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteConnectClientAddIn", input);
+  }
   deleteConnectionAlias(
     input: DeleteConnectionAliasRequest,
   ): Effect.Effect<
@@ -240,7 +280,9 @@ export declare class WorkSpaces extends AWSServiceClient {
     | ResourceAssociatedException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteConnectionAlias", input);
+  }
   deleteIpGroup(
     input: DeleteIpGroupRequest,
   ): Effect.Effect<
@@ -250,13 +292,17 @@ export declare class WorkSpaces extends AWSServiceClient {
     | ResourceAssociatedException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteIpGroup", input);
+  }
   deleteTags(
     input: DeleteTagsRequest,
   ): Effect.Effect<
     DeleteTagsResult,
     InvalidParameterValuesException | ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteTags", input);
+  }
   deleteWorkspaceBundle(
     input: DeleteWorkspaceBundleRequest,
   ): Effect.Effect<
@@ -266,7 +312,9 @@ export declare class WorkSpaces extends AWSServiceClient {
     | ResourceAssociatedException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteWorkspaceBundle", input);
+  }
   deleteWorkspaceImage(
     input: DeleteWorkspaceImageRequest,
   ): Effect.Effect<
@@ -275,7 +323,9 @@ export declare class WorkSpaces extends AWSServiceClient {
     | InvalidResourceStateException
     | ResourceAssociatedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteWorkspaceImage", input);
+  }
   deployWorkspaceApplications(
     input: DeployWorkspaceApplicationsRequest,
   ): Effect.Effect<
@@ -287,7 +337,9 @@ export declare class WorkSpaces extends AWSServiceClient {
     | ResourceInUseException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeployWorkspaceApplications", input);
+  }
   deregisterWorkspaceDirectory(
     input: DeregisterWorkspaceDirectoryRequest,
   ): Effect.Effect<
@@ -298,19 +350,25 @@ export declare class WorkSpaces extends AWSServiceClient {
     | OperationNotSupportedException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeregisterWorkspaceDirectory", input);
+  }
   describeAccount(
     input: DescribeAccountRequest,
   ): Effect.Effect<
     DescribeAccountResult,
     AccessDeniedException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeAccount", input);
+  }
   describeAccountModifications(
     input: DescribeAccountModificationsRequest,
   ): Effect.Effect<
     DescribeAccountModificationsResult,
     AccessDeniedException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeAccountModifications", input);
+  }
   describeApplicationAssociations(
     input: DescribeApplicationAssociationsRequest,
   ): Effect.Effect<
@@ -320,7 +378,9 @@ export declare class WorkSpaces extends AWSServiceClient {
     | OperationNotSupportedException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeApplicationAssociations", input);
+  }
   describeApplications(
     input: DescribeApplicationsRequest,
   ): Effect.Effect<
@@ -330,7 +390,9 @@ export declare class WorkSpaces extends AWSServiceClient {
     | OperationNotSupportedException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeApplications", input);
+  }
   describeBundleAssociations(
     input: DescribeBundleAssociationsRequest,
   ): Effect.Effect<
@@ -340,7 +402,9 @@ export declare class WorkSpaces extends AWSServiceClient {
     | OperationNotSupportedException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeBundleAssociations", input);
+  }
   describeClientBranding(
     input: DescribeClientBrandingRequest,
   ): Effect.Effect<
@@ -349,7 +413,9 @@ export declare class WorkSpaces extends AWSServiceClient {
     | InvalidParameterValuesException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeClientBranding", input);
+  }
   describeClientProperties(
     input: DescribeClientPropertiesRequest,
   ): Effect.Effect<
@@ -358,7 +424,9 @@ export declare class WorkSpaces extends AWSServiceClient {
     | InvalidParameterValuesException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeClientProperties", input);
+  }
   describeConnectClientAddIns(
     input: DescribeConnectClientAddInsRequest,
   ): Effect.Effect<
@@ -367,7 +435,9 @@ export declare class WorkSpaces extends AWSServiceClient {
     | InvalidParameterValuesException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeConnectClientAddIns", input);
+  }
   describeConnectionAliases(
     input: DescribeConnectionAliasesRequest,
   ): Effect.Effect<
@@ -376,7 +446,9 @@ export declare class WorkSpaces extends AWSServiceClient {
     | InvalidParameterValuesException
     | OperationNotSupportedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeConnectionAliases", input);
+  }
   describeConnectionAliasPermissions(
     input: DescribeConnectionAliasPermissionsRequest,
   ): Effect.Effect<
@@ -386,7 +458,9 @@ export declare class WorkSpaces extends AWSServiceClient {
     | OperationNotSupportedException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeConnectionAliasPermissions", input);
+  }
   describeImageAssociations(
     input: DescribeImageAssociationsRequest,
   ): Effect.Effect<
@@ -396,19 +470,25 @@ export declare class WorkSpaces extends AWSServiceClient {
     | OperationNotSupportedException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeImageAssociations", input);
+  }
   describeIpGroups(
     input: DescribeIpGroupsRequest,
   ): Effect.Effect<
     DescribeIpGroupsResult,
     AccessDeniedException | InvalidParameterValuesException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeIpGroups", input);
+  }
   describeTags(
     input: DescribeTagsRequest,
   ): Effect.Effect<
     DescribeTagsResult,
     ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeTags", input);
+  }
   describeWorkspaceAssociations(
     input: DescribeWorkspaceAssociationsRequest,
   ): Effect.Effect<
@@ -418,19 +498,25 @@ export declare class WorkSpaces extends AWSServiceClient {
     | OperationNotSupportedException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeWorkspaceAssociations", input);
+  }
   describeWorkspaceBundles(
     input: DescribeWorkspaceBundlesRequest,
   ): Effect.Effect<
     DescribeWorkspaceBundlesResult,
     InvalidParameterValuesException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeWorkspaceBundles", input);
+  }
   describeWorkspaceDirectories(
     input: DescribeWorkspaceDirectoriesRequest,
   ): Effect.Effect<
     DescribeWorkspaceDirectoriesResult,
     InvalidParameterValuesException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeWorkspaceDirectories", input);
+  }
   describeWorkspaceImagePermissions(
     input: DescribeWorkspaceImagePermissionsRequest,
   ): Effect.Effect<
@@ -439,13 +525,17 @@ export declare class WorkSpaces extends AWSServiceClient {
     | InvalidParameterValuesException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeWorkspaceImagePermissions", input);
+  }
   describeWorkspaceImages(
     input: DescribeWorkspaceImagesRequest,
   ): Effect.Effect<
     DescribeWorkspaceImagesResult,
     AccessDeniedException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeWorkspaceImages", input);
+  }
   describeWorkspaces(
     input: DescribeWorkspacesRequest,
   ): Effect.Effect<
@@ -453,13 +543,17 @@ export declare class WorkSpaces extends AWSServiceClient {
     | InvalidParameterValuesException
     | ResourceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeWorkspaces", input);
+  }
   describeWorkspacesConnectionStatus(
     input: DescribeWorkspacesConnectionStatusRequest,
   ): Effect.Effect<
     DescribeWorkspacesConnectionStatusResult,
     InvalidParameterValuesException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeWorkspacesConnectionStatus", input);
+  }
   describeWorkspaceSnapshots(
     input: DescribeWorkspaceSnapshotsRequest,
   ): Effect.Effect<
@@ -468,7 +562,9 @@ export declare class WorkSpaces extends AWSServiceClient {
     | InvalidParameterValuesException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeWorkspaceSnapshots", input);
+  }
   describeWorkspacesPools(
     input: DescribeWorkspacesPoolsRequest,
   ): Effect.Effect<
@@ -477,7 +573,9 @@ export declare class WorkSpaces extends AWSServiceClient {
     | InvalidParameterValuesException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeWorkspacesPools", input);
+  }
   describeWorkspacesPoolSessions(
     input: DescribeWorkspacesPoolSessionsRequest,
   ): Effect.Effect<
@@ -486,7 +584,9 @@ export declare class WorkSpaces extends AWSServiceClient {
     | InvalidParameterValuesException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeWorkspacesPoolSessions", input);
+  }
   disassociateConnectionAlias(
     input: DisassociateConnectionAliasRequest,
   ): Effect.Effect<
@@ -497,7 +597,9 @@ export declare class WorkSpaces extends AWSServiceClient {
     | OperationNotSupportedException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DisassociateConnectionAlias", input);
+  }
   disassociateIpGroups(
     input: DisassociateIpGroupsRequest,
   ): Effect.Effect<
@@ -508,7 +610,9 @@ export declare class WorkSpaces extends AWSServiceClient {
     | OperationNotSupportedException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DisassociateIpGroups", input);
+  }
   disassociateWorkspaceApplication(
     input: DisassociateWorkspaceApplicationRequest,
   ): Effect.Effect<
@@ -519,7 +623,9 @@ export declare class WorkSpaces extends AWSServiceClient {
     | ResourceInUseException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DisassociateWorkspaceApplication", input);
+  }
   getAccountLink(
     input: GetAccountLinkRequest,
   ): Effect.Effect<
@@ -529,7 +635,9 @@ export declare class WorkSpaces extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetAccountLink", input);
+  }
   importClientBranding(
     input: ImportClientBrandingRequest,
   ): Effect.Effect<
@@ -539,7 +647,9 @@ export declare class WorkSpaces extends AWSServiceClient {
     | ResourceLimitExceededException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ImportClientBranding", input);
+  }
   importWorkspaceImage(
     input: ImportWorkspaceImageRequest,
   ): Effect.Effect<
@@ -551,7 +661,9 @@ export declare class WorkSpaces extends AWSServiceClient {
     | ResourceLimitExceededException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ImportWorkspaceImage", input);
+  }
   listAccountLinks(
     input: ListAccountLinksRequest,
   ): Effect.Effect<
@@ -560,13 +672,17 @@ export declare class WorkSpaces extends AWSServiceClient {
     | InternalServerException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListAccountLinks", input);
+  }
   listAvailableManagementCidrRanges(
     input: ListAvailableManagementCidrRangesRequest,
   ): Effect.Effect<
     ListAvailableManagementCidrRangesResult,
     AccessDeniedException | InvalidParameterValuesException | CommonAwsError
-  >;
+  > {
+    return this.call("ListAvailableManagementCidrRanges", input);
+  }
   migrateWorkspace(
     input: MigrateWorkspaceRequest,
   ): Effect.Effect<
@@ -578,7 +694,9 @@ export declare class WorkSpaces extends AWSServiceClient {
     | ResourceNotFoundException
     | ResourceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("MigrateWorkspace", input);
+  }
   modifyAccount(
     input: ModifyAccountRequest,
   ): Effect.Effect<
@@ -589,7 +707,9 @@ export declare class WorkSpaces extends AWSServiceClient {
     | ResourceNotFoundException
     | ResourceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ModifyAccount", input);
+  }
   modifyCertificateBasedAuthProperties(
     input: ModifyCertificateBasedAuthPropertiesRequest,
   ): Effect.Effect<
@@ -599,7 +719,9 @@ export declare class WorkSpaces extends AWSServiceClient {
     | OperationNotSupportedException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ModifyCertificateBasedAuthProperties", input);
+  }
   modifyClientProperties(
     input: ModifyClientPropertiesRequest,
   ): Effect.Effect<
@@ -609,7 +731,9 @@ export declare class WorkSpaces extends AWSServiceClient {
     | OperationNotSupportedException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ModifyClientProperties", input);
+  }
   modifyEndpointEncryptionMode(
     input: ModifyEndpointEncryptionModeRequest,
   ): Effect.Effect<
@@ -618,7 +742,9 @@ export declare class WorkSpaces extends AWSServiceClient {
     | OperationNotSupportedException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ModifyEndpointEncryptionMode", input);
+  }
   modifySamlProperties(
     input: ModifySamlPropertiesRequest,
   ): Effect.Effect<
@@ -628,7 +754,9 @@ export declare class WorkSpaces extends AWSServiceClient {
     | OperationNotSupportedException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ModifySamlProperties", input);
+  }
   modifySelfservicePermissions(
     input: ModifySelfservicePermissionsRequest,
   ): Effect.Effect<
@@ -638,7 +766,9 @@ export declare class WorkSpaces extends AWSServiceClient {
     | OperationNotSupportedException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ModifySelfservicePermissions", input);
+  }
   modifyStreamingProperties(
     input: ModifyStreamingPropertiesRequest,
   ): Effect.Effect<
@@ -648,7 +778,9 @@ export declare class WorkSpaces extends AWSServiceClient {
     | OperationNotSupportedException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ModifyStreamingProperties", input);
+  }
   modifyWorkspaceAccessProperties(
     input: ModifyWorkspaceAccessPropertiesRequest,
   ): Effect.Effect<
@@ -659,7 +791,9 @@ export declare class WorkSpaces extends AWSServiceClient {
     | OperationNotSupportedException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ModifyWorkspaceAccessProperties", input);
+  }
   modifyWorkspaceCreationProperties(
     input: ModifyWorkspaceCreationPropertiesRequest,
   ): Effect.Effect<
@@ -669,7 +803,9 @@ export declare class WorkSpaces extends AWSServiceClient {
     | OperationNotSupportedException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ModifyWorkspaceCreationProperties", input);
+  }
   modifyWorkspaceProperties(
     input: ModifyWorkspacePropertiesRequest,
   ): Effect.Effect<
@@ -682,7 +818,9 @@ export declare class WorkSpaces extends AWSServiceClient {
     | ResourceUnavailableException
     | UnsupportedWorkspaceConfigurationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ModifyWorkspaceProperties", input);
+  }
   modifyWorkspaceState(
     input: ModifyWorkspaceStateRequest,
   ): Effect.Effect<
@@ -692,19 +830,25 @@ export declare class WorkSpaces extends AWSServiceClient {
     | OperationNotSupportedException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ModifyWorkspaceState", input);
+  }
   rebootWorkspaces(
     input: RebootWorkspacesRequest,
   ): Effect.Effect<
     RebootWorkspacesResult,
     OperationNotSupportedException | CommonAwsError
-  >;
+  > {
+    return this.call("RebootWorkspaces", input);
+  }
   rebuildWorkspaces(
     input: RebuildWorkspacesRequest,
   ): Effect.Effect<
     RebuildWorkspacesResult,
     OperationNotSupportedException | CommonAwsError
-  >;
+  > {
+    return this.call("RebuildWorkspaces", input);
+  }
   registerWorkspaceDirectory(
     input: RegisterWorkspaceDirectoryRequest,
   ): Effect.Effect<
@@ -719,7 +863,9 @@ export declare class WorkSpaces extends AWSServiceClient {
     | UnsupportedNetworkConfigurationException
     | WorkspacesDefaultRoleNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("RegisterWorkspaceDirectory", input);
+  }
   rejectAccountLinkInvitation(
     input: RejectAccountLinkInvitationRequest,
   ): Effect.Effect<
@@ -730,7 +876,9 @@ export declare class WorkSpaces extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("RejectAccountLinkInvitation", input);
+  }
   restoreWorkspace(
     input: RestoreWorkspaceRequest,
   ): Effect.Effect<
@@ -740,7 +888,9 @@ export declare class WorkSpaces extends AWSServiceClient {
     | OperationNotSupportedException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("RestoreWorkspace", input);
+  }
   revokeIpRules(
     input: RevokeIpRulesRequest,
   ): Effect.Effect<
@@ -750,10 +900,14 @@ export declare class WorkSpaces extends AWSServiceClient {
     | InvalidResourceStateException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("RevokeIpRules", input);
+  }
   startWorkspaces(
     input: StartWorkspacesRequest,
-  ): Effect.Effect<StartWorkspacesResult, CommonAwsError>;
+  ): Effect.Effect<StartWorkspacesResult, CommonAwsError> {
+    return this.call("StartWorkspaces", input);
+  }
   startWorkspacesPool(
     input: StartWorkspacesPoolRequest,
   ): Effect.Effect<
@@ -766,10 +920,14 @@ export declare class WorkSpaces extends AWSServiceClient {
     | ResourceLimitExceededException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartWorkspacesPool", input);
+  }
   stopWorkspaces(
     input: StopWorkspacesRequest,
-  ): Effect.Effect<StopWorkspacesResult, CommonAwsError>;
+  ): Effect.Effect<StopWorkspacesResult, CommonAwsError> {
+    return this.call("StopWorkspaces", input);
+  }
   stopWorkspacesPool(
     input: StopWorkspacesPoolRequest,
   ): Effect.Effect<
@@ -780,10 +938,14 @@ export declare class WorkSpaces extends AWSServiceClient {
     | OperationInProgressException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StopWorkspacesPool", input);
+  }
   terminateWorkspaces(
     input: TerminateWorkspacesRequest,
-  ): Effect.Effect<TerminateWorkspacesResult, CommonAwsError>;
+  ): Effect.Effect<TerminateWorkspacesResult, CommonAwsError> {
+    return this.call("TerminateWorkspaces", input);
+  }
   terminateWorkspacesPool(
     input: TerminateWorkspacesPoolRequest,
   ): Effect.Effect<
@@ -794,7 +956,9 @@ export declare class WorkSpaces extends AWSServiceClient {
     | OperationInProgressException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TerminateWorkspacesPool", input);
+  }
   terminateWorkspacesPoolSession(
     input: TerminateWorkspacesPoolSessionRequest,
   ): Effect.Effect<
@@ -805,7 +969,9 @@ export declare class WorkSpaces extends AWSServiceClient {
     | OperationNotSupportedException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TerminateWorkspacesPoolSession", input);
+  }
   updateConnectClientAddIn(
     input: UpdateConnectClientAddInRequest,
   ): Effect.Effect<
@@ -814,7 +980,9 @@ export declare class WorkSpaces extends AWSServiceClient {
     | InvalidParameterValuesException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateConnectClientAddIn", input);
+  }
   updateConnectionAliasPermission(
     input: UpdateConnectionAliasPermissionRequest,
   ): Effect.Effect<
@@ -827,7 +995,9 @@ export declare class WorkSpaces extends AWSServiceClient {
     | ResourceLimitExceededException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateConnectionAliasPermission", input);
+  }
   updateRulesOfIpGroup(
     input: UpdateRulesOfIpGroupRequest,
   ): Effect.Effect<
@@ -838,7 +1008,9 @@ export declare class WorkSpaces extends AWSServiceClient {
     | ResourceLimitExceededException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateRulesOfIpGroup", input);
+  }
   updateWorkspaceBundle(
     input: UpdateWorkspaceBundleRequest,
   ): Effect.Effect<
@@ -849,7 +1021,9 @@ export declare class WorkSpaces extends AWSServiceClient {
     | ResourceNotFoundException
     | ResourceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateWorkspaceBundle", input);
+  }
   updateWorkspaceImagePermission(
     input: UpdateWorkspaceImagePermissionRequest,
   ): Effect.Effect<
@@ -860,7 +1034,9 @@ export declare class WorkSpaces extends AWSServiceClient {
     | ResourceNotFoundException
     | ResourceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateWorkspaceImagePermission", input);
+  }
   updateWorkspacesPool(
     input: UpdateWorkspacesPoolRequest,
   ): Effect.Effect<
@@ -873,10 +1049,14 @@ export declare class WorkSpaces extends AWSServiceClient {
     | ResourceLimitExceededException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateWorkspacesPool", input);
+  }
 }
 
-export declare class Workspaces extends WorkSpaces {}
+export class Workspaces extends WorkSpaces {}
+
+export default WorkSpaces;
 
 export interface AcceptAccountLinkInvitationRequest {
   LinkId: string;

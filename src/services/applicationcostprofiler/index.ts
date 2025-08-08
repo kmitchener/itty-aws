@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class ApplicationCostProfiler extends AWSServiceClient {
+export class ApplicationCostProfiler extends AWSServiceClient {
   deleteReportDefinition(
     input: DeleteReportDefinitionRequest,
   ): Effect.Effect<
@@ -12,7 +12,9 @@ export declare class ApplicationCostProfiler extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteReportDefinition", input);
+  }
   getReportDefinition(
     input: GetReportDefinitionRequest,
   ): Effect.Effect<
@@ -22,7 +24,9 @@ export declare class ApplicationCostProfiler extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetReportDefinition", input);
+  }
   importApplicationUsage(
     input: ImportApplicationUsageRequest,
   ): Effect.Effect<
@@ -32,7 +36,9 @@ export declare class ApplicationCostProfiler extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ImportApplicationUsage", input);
+  }
   listReportDefinitions(
     input: ListReportDefinitionsRequest,
   ): Effect.Effect<
@@ -42,7 +48,9 @@ export declare class ApplicationCostProfiler extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListReportDefinitions", input);
+  }
   putReportDefinition(
     input: PutReportDefinitionRequest,
   ): Effect.Effect<
@@ -53,7 +61,9 @@ export declare class ApplicationCostProfiler extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutReportDefinition", input);
+  }
   updateReportDefinition(
     input: UpdateReportDefinitionRequest,
   ): Effect.Effect<
@@ -63,10 +73,14 @@ export declare class ApplicationCostProfiler extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateReportDefinition", input);
+  }
 }
 
-export declare class Applicationcostprofiler extends ApplicationCostProfiler {}
+export class Applicationcostprofiler extends ApplicationCostProfiler {}
+
+export default ApplicationCostProfiler;
 
 export declare class AccessDeniedException extends EffectData.TaggedError(
   "AccessDeniedException",

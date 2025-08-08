@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class Route53Domains extends AWSServiceClient {
+export class Route53Domains extends AWSServiceClient {
   acceptDomainTransferFromAnotherAwsAccount(
     input: AcceptDomainTransferFromAnotherAwsAccountRequest,
   ): Effect.Effect<
@@ -12,7 +12,9 @@ export declare class Route53Domains extends AWSServiceClient {
     | OperationLimitExceeded
     | UnsupportedTLD
     | CommonAwsError
-  >;
+  > {
+    return this.call("AcceptDomainTransferFromAnotherAwsAccount", input);
+  }
   associateDelegationSignerToDomain(
     input: AssociateDelegationSignerToDomainRequest,
   ): Effect.Effect<
@@ -24,25 +26,33 @@ export declare class Route53Domains extends AWSServiceClient {
     | TLDRulesViolation
     | UnsupportedTLD
     | CommonAwsError
-  >;
+  > {
+    return this.call("AssociateDelegationSignerToDomain", input);
+  }
   cancelDomainTransferToAnotherAwsAccount(
     input: CancelDomainTransferToAnotherAwsAccountRequest,
   ): Effect.Effect<
     CancelDomainTransferToAnotherAwsAccountResponse,
     InvalidInput | OperationLimitExceeded | UnsupportedTLD | CommonAwsError
-  >;
+  > {
+    return this.call("CancelDomainTransferToAnotherAwsAccount", input);
+  }
   checkDomainAvailability(
     input: CheckDomainAvailabilityRequest,
   ): Effect.Effect<
     CheckDomainAvailabilityResponse,
     InvalidInput | UnsupportedTLD | CommonAwsError
-  >;
+  > {
+    return this.call("CheckDomainAvailability", input);
+  }
   checkDomainTransferability(
     input: CheckDomainTransferabilityRequest,
   ): Effect.Effect<
     CheckDomainTransferabilityResponse,
     InvalidInput | UnsupportedTLD | CommonAwsError
-  >;
+  > {
+    return this.call("CheckDomainTransferability", input);
+  }
   deleteDomain(
     input: DeleteDomainRequest,
   ): Effect.Effect<
@@ -52,19 +62,25 @@ export declare class Route53Domains extends AWSServiceClient {
     | TLDRulesViolation
     | UnsupportedTLD
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteDomain", input);
+  }
   deleteTagsForDomain(
     input: DeleteTagsForDomainRequest,
   ): Effect.Effect<
     DeleteTagsForDomainResponse,
     InvalidInput | OperationLimitExceeded | UnsupportedTLD | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteTagsForDomain", input);
+  }
   disableDomainAutoRenew(
     input: DisableDomainAutoRenewRequest,
   ): Effect.Effect<
     DisableDomainAutoRenewResponse,
     InvalidInput | UnsupportedTLD | CommonAwsError
-  >;
+  > {
+    return this.call("DisableDomainAutoRenew", input);
+  }
   disableDomainTransferLock(
     input: DisableDomainTransferLockRequest,
   ): Effect.Effect<
@@ -75,7 +91,9 @@ export declare class Route53Domains extends AWSServiceClient {
     | TLDRulesViolation
     | UnsupportedTLD
     | CommonAwsError
-  >;
+  > {
+    return this.call("DisableDomainTransferLock", input);
+  }
   disassociateDelegationSignerFromDomain(
     input: DisassociateDelegationSignerFromDomainRequest,
   ): Effect.Effect<
@@ -86,13 +104,17 @@ export declare class Route53Domains extends AWSServiceClient {
     | TLDRulesViolation
     | UnsupportedTLD
     | CommonAwsError
-  >;
+  > {
+    return this.call("DisassociateDelegationSignerFromDomain", input);
+  }
   enableDomainAutoRenew(
     input: EnableDomainAutoRenewRequest,
   ): Effect.Effect<
     EnableDomainAutoRenewResponse,
     InvalidInput | TLDRulesViolation | UnsupportedTLD | CommonAwsError
-  >;
+  > {
+    return this.call("EnableDomainAutoRenew", input);
+  }
   enableDomainTransferLock(
     input: EnableDomainTransferLockRequest,
   ): Effect.Effect<
@@ -103,52 +125,72 @@ export declare class Route53Domains extends AWSServiceClient {
     | TLDRulesViolation
     | UnsupportedTLD
     | CommonAwsError
-  >;
+  > {
+    return this.call("EnableDomainTransferLock", input);
+  }
   getContactReachabilityStatus(
     input: GetContactReachabilityStatusRequest,
   ): Effect.Effect<
     GetContactReachabilityStatusResponse,
     InvalidInput | OperationLimitExceeded | UnsupportedTLD | CommonAwsError
-  >;
+  > {
+    return this.call("GetContactReachabilityStatus", input);
+  }
   getDomainDetail(
     input: GetDomainDetailRequest,
   ): Effect.Effect<
     GetDomainDetailResponse,
     InvalidInput | UnsupportedTLD | CommonAwsError
-  >;
+  > {
+    return this.call("GetDomainDetail", input);
+  }
   getDomainSuggestions(
     input: GetDomainSuggestionsRequest,
   ): Effect.Effect<
     GetDomainSuggestionsResponse,
     InvalidInput | UnsupportedTLD | CommonAwsError
-  >;
+  > {
+    return this.call("GetDomainSuggestions", input);
+  }
   getOperationDetail(
     input: GetOperationDetailRequest,
-  ): Effect.Effect<GetOperationDetailResponse, InvalidInput | CommonAwsError>;
+  ): Effect.Effect<GetOperationDetailResponse, InvalidInput | CommonAwsError> {
+    return this.call("GetOperationDetail", input);
+  }
   listDomains(
     input: ListDomainsRequest,
-  ): Effect.Effect<ListDomainsResponse, InvalidInput | CommonAwsError>;
+  ): Effect.Effect<ListDomainsResponse, InvalidInput | CommonAwsError> {
+    return this.call("ListDomains", input);
+  }
   listOperations(
     input: ListOperationsRequest,
-  ): Effect.Effect<ListOperationsResponse, InvalidInput | CommonAwsError>;
+  ): Effect.Effect<ListOperationsResponse, InvalidInput | CommonAwsError> {
+    return this.call("ListOperations", input);
+  }
   listPrices(
     input: ListPricesRequest,
   ): Effect.Effect<
     ListPricesResponse,
     InvalidInput | UnsupportedTLD | CommonAwsError
-  >;
+  > {
+    return this.call("ListPrices", input);
+  }
   listTagsForDomain(
     input: ListTagsForDomainRequest,
   ): Effect.Effect<
     ListTagsForDomainResponse,
     InvalidInput | OperationLimitExceeded | UnsupportedTLD | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForDomain", input);
+  }
   pushDomain(
     input: PushDomainRequest,
   ): Effect.Effect<
     {},
     InvalidInput | OperationLimitExceeded | UnsupportedTLD | CommonAwsError
-  >;
+  > {
+    return this.call("PushDomain", input);
+  }
   registerDomain(
     input: RegisterDomainRequest,
   ): Effect.Effect<
@@ -160,13 +202,17 @@ export declare class Route53Domains extends AWSServiceClient {
     | TLDRulesViolation
     | UnsupportedTLD
     | CommonAwsError
-  >;
+  > {
+    return this.call("RegisterDomain", input);
+  }
   rejectDomainTransferFromAnotherAwsAccount(
     input: RejectDomainTransferFromAnotherAwsAccountRequest,
   ): Effect.Effect<
     RejectDomainTransferFromAnotherAwsAccountResponse,
     InvalidInput | OperationLimitExceeded | UnsupportedTLD | CommonAwsError
-  >;
+  > {
+    return this.call("RejectDomainTransferFromAnotherAwsAccount", input);
+  }
   renewDomain(
     input: RenewDomainRequest,
   ): Effect.Effect<
@@ -177,22 +223,30 @@ export declare class Route53Domains extends AWSServiceClient {
     | TLDRulesViolation
     | UnsupportedTLD
     | CommonAwsError
-  >;
+  > {
+    return this.call("RenewDomain", input);
+  }
   resendContactReachabilityEmail(
     input: ResendContactReachabilityEmailRequest,
   ): Effect.Effect<
     ResendContactReachabilityEmailResponse,
     InvalidInput | OperationLimitExceeded | UnsupportedTLD | CommonAwsError
-  >;
+  > {
+    return this.call("ResendContactReachabilityEmail", input);
+  }
   resendOperationAuthorization(
     input: ResendOperationAuthorizationRequest,
-  ): Effect.Effect<{}, InvalidInput | CommonAwsError>;
+  ): Effect.Effect<{}, InvalidInput | CommonAwsError> {
+    return this.call("ResendOperationAuthorization", input);
+  }
   retrieveDomainAuthCode(
     input: RetrieveDomainAuthCodeRequest,
   ): Effect.Effect<
     RetrieveDomainAuthCodeResponse,
     InvalidInput | UnsupportedTLD | CommonAwsError
-  >;
+  > {
+    return this.call("RetrieveDomainAuthCode", input);
+  }
   transferDomain(
     input: TransferDomainRequest,
   ): Effect.Effect<
@@ -204,7 +258,9 @@ export declare class Route53Domains extends AWSServiceClient {
     | TLDRulesViolation
     | UnsupportedTLD
     | CommonAwsError
-  >;
+  > {
+    return this.call("TransferDomain", input);
+  }
   transferDomainToAnotherAwsAccount(
     input: TransferDomainToAnotherAwsAccountRequest,
   ): Effect.Effect<
@@ -214,7 +270,9 @@ export declare class Route53Domains extends AWSServiceClient {
     | OperationLimitExceeded
     | UnsupportedTLD
     | CommonAwsError
-  >;
+  > {
+    return this.call("TransferDomainToAnotherAwsAccount", input);
+  }
   updateDomainContact(
     input: UpdateDomainContactRequest,
   ): Effect.Effect<
@@ -225,7 +283,9 @@ export declare class Route53Domains extends AWSServiceClient {
     | TLDRulesViolation
     | UnsupportedTLD
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateDomainContact", input);
+  }
   updateDomainContactPrivacy(
     input: UpdateDomainContactPrivacyRequest,
   ): Effect.Effect<
@@ -236,7 +296,9 @@ export declare class Route53Domains extends AWSServiceClient {
     | TLDRulesViolation
     | UnsupportedTLD
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateDomainContactPrivacy", input);
+  }
   updateDomainNameservers(
     input: UpdateDomainNameserversRequest,
   ): Effect.Effect<
@@ -247,17 +309,25 @@ export declare class Route53Domains extends AWSServiceClient {
     | TLDRulesViolation
     | UnsupportedTLD
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateDomainNameservers", input);
+  }
   updateTagsForDomain(
     input: UpdateTagsForDomainRequest,
   ): Effect.Effect<
     UpdateTagsForDomainResponse,
     InvalidInput | OperationLimitExceeded | UnsupportedTLD | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateTagsForDomain", input);
+  }
   viewBilling(
     input: ViewBillingRequest,
-  ): Effect.Effect<ViewBillingResponse, InvalidInput | CommonAwsError>;
+  ): Effect.Effect<ViewBillingResponse, InvalidInput | CommonAwsError> {
+    return this.call("ViewBilling", input);
+  }
 }
+
+export default Route53Domains;
 
 export interface AcceptDomainTransferFromAnotherAwsAccountRequest {
   DomainName: string;

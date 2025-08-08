@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class ApplicationInsights extends AWSServiceClient {
+export class ApplicationInsights extends AWSServiceClient {
   addWorkload(
     input: AddWorkloadRequest,
   ): Effect.Effect<
@@ -12,7 +12,9 @@ export declare class ApplicationInsights extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AddWorkload", input);
+  }
   createApplication(
     input: CreateApplicationRequest,
   ): Effect.Effect<
@@ -24,7 +26,9 @@ export declare class ApplicationInsights extends AWSServiceClient {
     | TagsAlreadyExistException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateApplication", input);
+  }
   createComponent(
     input: CreateComponentRequest,
   ): Effect.Effect<
@@ -34,7 +38,9 @@ export declare class ApplicationInsights extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateComponent", input);
+  }
   createLogPattern(
     input: CreateLogPatternRequest,
   ): Effect.Effect<
@@ -44,7 +50,9 @@ export declare class ApplicationInsights extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateLogPattern", input);
+  }
   deleteApplication(
     input: DeleteApplicationRequest,
   ): Effect.Effect<
@@ -54,7 +62,9 @@ export declare class ApplicationInsights extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteApplication", input);
+  }
   deleteComponent(
     input: DeleteComponentRequest,
   ): Effect.Effect<
@@ -63,7 +73,9 @@ export declare class ApplicationInsights extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteComponent", input);
+  }
   deleteLogPattern(
     input: DeleteLogPatternRequest,
   ): Effect.Effect<
@@ -73,7 +85,9 @@ export declare class ApplicationInsights extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteLogPattern", input);
+  }
   describeApplication(
     input: DescribeApplicationRequest,
   ): Effect.Effect<
@@ -82,7 +96,9 @@ export declare class ApplicationInsights extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeApplication", input);
+  }
   describeComponent(
     input: DescribeComponentRequest,
   ): Effect.Effect<
@@ -91,7 +107,9 @@ export declare class ApplicationInsights extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeComponent", input);
+  }
   describeComponentConfiguration(
     input: DescribeComponentConfigurationRequest,
   ): Effect.Effect<
@@ -100,7 +118,9 @@ export declare class ApplicationInsights extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeComponentConfiguration", input);
+  }
   describeComponentConfigurationRecommendation(
     input: DescribeComponentConfigurationRecommendationRequest,
   ): Effect.Effect<
@@ -109,7 +129,9 @@ export declare class ApplicationInsights extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeComponentConfigurationRecommendation", input);
+  }
   describeLogPattern(
     input: DescribeLogPatternRequest,
   ): Effect.Effect<
@@ -118,7 +140,9 @@ export declare class ApplicationInsights extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeLogPattern", input);
+  }
   describeObservation(
     input: DescribeObservationRequest,
   ): Effect.Effect<
@@ -127,7 +151,9 @@ export declare class ApplicationInsights extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeObservation", input);
+  }
   describeProblem(
     input: DescribeProblemRequest,
   ): Effect.Effect<
@@ -136,7 +162,9 @@ export declare class ApplicationInsights extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeProblem", input);
+  }
   describeProblemObservations(
     input: DescribeProblemObservationsRequest,
   ): Effect.Effect<
@@ -145,7 +173,9 @@ export declare class ApplicationInsights extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeProblemObservations", input);
+  }
   describeWorkload(
     input: DescribeWorkloadRequest,
   ): Effect.Effect<
@@ -154,13 +184,17 @@ export declare class ApplicationInsights extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeWorkload", input);
+  }
   listApplications(
     input: ListApplicationsRequest,
   ): Effect.Effect<
     ListApplicationsResponse,
     InternalServerException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("ListApplications", input);
+  }
   listComponents(
     input: ListComponentsRequest,
   ): Effect.Effect<
@@ -169,7 +203,9 @@ export declare class ApplicationInsights extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListComponents", input);
+  }
   listConfigurationHistory(
     input: ListConfigurationHistoryRequest,
   ): Effect.Effect<
@@ -178,7 +214,9 @@ export declare class ApplicationInsights extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListConfigurationHistory", input);
+  }
   listLogPatterns(
     input: ListLogPatternsRequest,
   ): Effect.Effect<
@@ -187,7 +225,9 @@ export declare class ApplicationInsights extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListLogPatterns", input);
+  }
   listLogPatternSets(
     input: ListLogPatternSetsRequest,
   ): Effect.Effect<
@@ -196,7 +236,9 @@ export declare class ApplicationInsights extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListLogPatternSets", input);
+  }
   listProblems(
     input: ListProblemsRequest,
   ): Effect.Effect<
@@ -205,13 +247,17 @@ export declare class ApplicationInsights extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListProblems", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
     ResourceNotFoundException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   listWorkloads(
     input: ListWorkloadsRequest,
   ): Effect.Effect<
@@ -220,7 +266,9 @@ export declare class ApplicationInsights extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListWorkloads", input);
+  }
   removeWorkload(
     input: RemoveWorkloadRequest,
   ): Effect.Effect<
@@ -229,7 +277,9 @@ export declare class ApplicationInsights extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("RemoveWorkload", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -238,13 +288,17 @@ export declare class ApplicationInsights extends AWSServiceClient {
     | TooManyTagsException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
     ResourceNotFoundException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
   updateApplication(
     input: UpdateApplicationRequest,
   ): Effect.Effect<
@@ -253,7 +307,9 @@ export declare class ApplicationInsights extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateApplication", input);
+  }
   updateComponent(
     input: UpdateComponentRequest,
   ): Effect.Effect<
@@ -263,7 +319,9 @@ export declare class ApplicationInsights extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateComponent", input);
+  }
   updateComponentConfiguration(
     input: UpdateComponentConfigurationRequest,
   ): Effect.Effect<
@@ -273,7 +331,9 @@ export declare class ApplicationInsights extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateComponentConfiguration", input);
+  }
   updateLogPattern(
     input: UpdateLogPatternRequest,
   ): Effect.Effect<
@@ -283,7 +343,9 @@ export declare class ApplicationInsights extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateLogPattern", input);
+  }
   updateProblem(
     input: UpdateProblemRequest,
   ): Effect.Effect<
@@ -292,7 +354,9 @@ export declare class ApplicationInsights extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateProblem", input);
+  }
   updateWorkload(
     input: UpdateWorkloadRequest,
   ): Effect.Effect<
@@ -301,8 +365,12 @@ export declare class ApplicationInsights extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateWorkload", input);
+  }
 }
+
+export default ApplicationInsights;
 
 export declare class AccessDeniedException extends EffectData.TaggedError(
   "AccessDeniedException",

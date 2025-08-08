@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class Cloud9 extends AWSServiceClient {
+export class Cloud9 extends AWSServiceClient {
   createEnvironmentEC2(
     input: CreateEnvironmentEC2Request,
   ): Effect.Effect<
@@ -15,7 +15,9 @@ export declare class Cloud9 extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateEnvironmentEC2", input);
+  }
   createEnvironmentMembership(
     input: CreateEnvironmentMembershipRequest,
   ): Effect.Effect<
@@ -28,7 +30,9 @@ export declare class Cloud9 extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateEnvironmentMembership", input);
+  }
   deleteEnvironment(
     input: DeleteEnvironmentRequest,
   ): Effect.Effect<
@@ -41,7 +45,9 @@ export declare class Cloud9 extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteEnvironment", input);
+  }
   deleteEnvironmentMembership(
     input: DeleteEnvironmentMembershipRequest,
   ): Effect.Effect<
@@ -54,7 +60,9 @@ export declare class Cloud9 extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteEnvironmentMembership", input);
+  }
   describeEnvironmentMemberships(
     input: DescribeEnvironmentMembershipsRequest,
   ): Effect.Effect<
@@ -67,7 +75,9 @@ export declare class Cloud9 extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeEnvironmentMemberships", input);
+  }
   describeEnvironments(
     input: DescribeEnvironmentsRequest,
   ): Effect.Effect<
@@ -80,7 +90,9 @@ export declare class Cloud9 extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeEnvironments", input);
+  }
   describeEnvironmentStatus(
     input: DescribeEnvironmentStatusRequest,
   ): Effect.Effect<
@@ -93,7 +105,9 @@ export declare class Cloud9 extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeEnvironmentStatus", input);
+  }
   listEnvironments(
     input: ListEnvironmentsRequest,
   ): Effect.Effect<
@@ -106,7 +120,9 @@ export declare class Cloud9 extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListEnvironments", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
@@ -115,7 +131,9 @@ export declare class Cloud9 extends AWSServiceClient {
     | InternalServerErrorException
     | NotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -125,7 +143,9 @@ export declare class Cloud9 extends AWSServiceClient {
     | InternalServerErrorException
     | NotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
@@ -135,7 +155,9 @@ export declare class Cloud9 extends AWSServiceClient {
     | InternalServerErrorException
     | NotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
   updateEnvironment(
     input: UpdateEnvironmentRequest,
   ): Effect.Effect<
@@ -148,7 +170,9 @@ export declare class Cloud9 extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateEnvironment", input);
+  }
   updateEnvironmentMembership(
     input: UpdateEnvironmentMembershipRequest,
   ): Effect.Effect<
@@ -161,8 +185,12 @@ export declare class Cloud9 extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateEnvironmentMembership", input);
+  }
 }
+
+export default Cloud9;
 
 export type AutomaticStopTimeMinutes = number;
 

@@ -2,17 +2,23 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class CodeCatalyst extends AWSServiceClient {
+export class CodeCatalyst extends AWSServiceClient {
   getUserDetails(
     input: GetUserDetailsRequest,
-  ): Effect.Effect<GetUserDetailsResponse, CommonAwsError>;
+  ): Effect.Effect<GetUserDetailsResponse, CommonAwsError> {
+    return this.call("GetUserDetails", input);
+  }
   verifySession(input: {}): Effect.Effect<
     VerifySessionResponse,
     CommonAwsError
-  >;
+  > {
+    return this.call("VerifySession", input);
+  }
 }
 
-export declare class Codecatalyst extends CodeCatalyst {}
+export class Codecatalyst extends CodeCatalyst {}
+
+export default CodeCatalyst;
 
 export declare class AccessDeniedException extends EffectData.TaggedError(
   "AccessDeniedException",

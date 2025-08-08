@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class Neptune extends AWSServiceClient {
+export class Neptune extends AWSServiceClient {
   addRoleToDBCluster(
     input: AddRoleToDBClusterMessage,
   ): Effect.Effect<
@@ -12,13 +12,17 @@ export declare class Neptune extends AWSServiceClient {
     | DBClusterRoleQuotaExceededFault
     | InvalidDBClusterStateFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("AddRoleToDBCluster", input);
+  }
   addSourceIdentifierToSubscription(
     input: AddSourceIdentifierToSubscriptionMessage,
   ): Effect.Effect<
     AddSourceIdentifierToSubscriptionResult,
     SourceNotFoundFault | SubscriptionNotFoundFault | CommonAwsError
-  >;
+  > {
+    return this.call("AddSourceIdentifierToSubscription", input);
+  }
   addTagsToResource(
     input: AddTagsToResourceMessage,
   ): Effect.Effect<
@@ -27,13 +31,17 @@ export declare class Neptune extends AWSServiceClient {
     | DBInstanceNotFoundFault
     | DBSnapshotNotFoundFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("AddTagsToResource", input);
+  }
   applyPendingMaintenanceAction(
     input: ApplyPendingMaintenanceActionMessage,
   ): Effect.Effect<
     ApplyPendingMaintenanceActionResult,
     ResourceNotFoundFault | CommonAwsError
-  >;
+  > {
+    return this.call("ApplyPendingMaintenanceAction", input);
+  }
   copyDBClusterParameterGroup(
     input: CopyDBClusterParameterGroupMessage,
   ): Effect.Effect<
@@ -42,7 +50,9 @@ export declare class Neptune extends AWSServiceClient {
     | DBParameterGroupNotFoundFault
     | DBParameterGroupQuotaExceededFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("CopyDBClusterParameterGroup", input);
+  }
   copyDBClusterSnapshot(
     input: CopyDBClusterSnapshotMessage,
   ): Effect.Effect<
@@ -54,7 +64,9 @@ export declare class Neptune extends AWSServiceClient {
     | KMSKeyNotAccessibleFault
     | SnapshotQuotaExceededFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("CopyDBClusterSnapshot", input);
+  }
   copyDBParameterGroup(
     input: CopyDBParameterGroupMessage,
   ): Effect.Effect<
@@ -63,7 +75,9 @@ export declare class Neptune extends AWSServiceClient {
     | DBParameterGroupNotFoundFault
     | DBParameterGroupQuotaExceededFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("CopyDBParameterGroup", input);
+  }
   createDBCluster(
     input: CreateDBClusterMessage,
   ): Effect.Effect<
@@ -86,7 +100,9 @@ export declare class Neptune extends AWSServiceClient {
     | KMSKeyNotAccessibleFault
     | StorageQuotaExceededFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateDBCluster", input);
+  }
   createDBClusterEndpoint(
     input: CreateDBClusterEndpointMessage,
   ): Effect.Effect<
@@ -98,7 +114,9 @@ export declare class Neptune extends AWSServiceClient {
     | InvalidDBClusterStateFault
     | InvalidDBInstanceStateFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateDBClusterEndpoint", input);
+  }
   createDBClusterParameterGroup(
     input: CreateDBClusterParameterGroupMessage,
   ): Effect.Effect<
@@ -106,7 +124,9 @@ export declare class Neptune extends AWSServiceClient {
     | DBParameterGroupAlreadyExistsFault
     | DBParameterGroupQuotaExceededFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateDBClusterParameterGroup", input);
+  }
   createDBClusterSnapshot(
     input: CreateDBClusterSnapshotMessage,
   ): Effect.Effect<
@@ -117,7 +137,9 @@ export declare class Neptune extends AWSServiceClient {
     | InvalidDBClusterStateFault
     | SnapshotQuotaExceededFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateDBClusterSnapshot", input);
+  }
   createDBInstance(
     input: CreateDBInstanceMessage,
   ): Effect.Effect<
@@ -141,7 +163,9 @@ export declare class Neptune extends AWSServiceClient {
     | StorageQuotaExceededFault
     | StorageTypeNotSupportedFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateDBInstance", input);
+  }
   createDBParameterGroup(
     input: CreateDBParameterGroupMessage,
   ): Effect.Effect<
@@ -149,7 +173,9 @@ export declare class Neptune extends AWSServiceClient {
     | DBParameterGroupAlreadyExistsFault
     | DBParameterGroupQuotaExceededFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateDBParameterGroup", input);
+  }
   createDBSubnetGroup(
     input: CreateDBSubnetGroupMessage,
   ): Effect.Effect<
@@ -160,7 +186,9 @@ export declare class Neptune extends AWSServiceClient {
     | DBSubnetQuotaExceededFault
     | InvalidSubnet
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateDBSubnetGroup", input);
+  }
   createEventSubscription(
     input: CreateEventSubscriptionMessage,
   ): Effect.Effect<
@@ -173,7 +201,9 @@ export declare class Neptune extends AWSServiceClient {
     | SubscriptionAlreadyExistFault
     | SubscriptionCategoryNotFoundFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateEventSubscription", input);
+  }
   createGlobalCluster(
     input: CreateGlobalClusterMessage,
   ): Effect.Effect<
@@ -183,7 +213,9 @@ export declare class Neptune extends AWSServiceClient {
     | GlobalClusterQuotaExceededFault
     | InvalidDBClusterStateFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateGlobalCluster", input);
+  }
   deleteDBCluster(
     input: DeleteDBClusterMessage,
   ): Effect.Effect<
@@ -194,7 +226,9 @@ export declare class Neptune extends AWSServiceClient {
     | InvalidDBClusterStateFault
     | SnapshotQuotaExceededFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteDBCluster", input);
+  }
   deleteDBClusterEndpoint(
     input: DeleteDBClusterEndpointMessage,
   ): Effect.Effect<
@@ -203,7 +237,9 @@ export declare class Neptune extends AWSServiceClient {
     | InvalidDBClusterEndpointStateFault
     | InvalidDBClusterStateFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteDBClusterEndpoint", input);
+  }
   deleteDBClusterParameterGroup(
     input: DeleteDBClusterParameterGroupMessage,
   ): Effect.Effect<
@@ -211,7 +247,9 @@ export declare class Neptune extends AWSServiceClient {
     | DBParameterGroupNotFoundFault
     | InvalidDBParameterGroupStateFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteDBClusterParameterGroup", input);
+  }
   deleteDBClusterSnapshot(
     input: DeleteDBClusterSnapshotMessage,
   ): Effect.Effect<
@@ -219,7 +257,9 @@ export declare class Neptune extends AWSServiceClient {
     | DBClusterSnapshotNotFoundFault
     | InvalidDBClusterSnapshotStateFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteDBClusterSnapshot", input);
+  }
   deleteDBInstance(
     input: DeleteDBInstanceMessage,
   ): Effect.Effect<
@@ -230,7 +270,9 @@ export declare class Neptune extends AWSServiceClient {
     | InvalidDBInstanceStateFault
     | SnapshotQuotaExceededFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteDBInstance", input);
+  }
   deleteDBParameterGroup(
     input: DeleteDBParameterGroupMessage,
   ): Effect.Effect<
@@ -238,7 +280,9 @@ export declare class Neptune extends AWSServiceClient {
     | DBParameterGroupNotFoundFault
     | InvalidDBParameterGroupStateFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteDBParameterGroup", input);
+  }
   deleteDBSubnetGroup(
     input: DeleteDBSubnetGroupMessage,
   ): Effect.Effect<
@@ -247,7 +291,9 @@ export declare class Neptune extends AWSServiceClient {
     | InvalidDBSubnetGroupStateFault
     | InvalidDBSubnetStateFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteDBSubnetGroup", input);
+  }
   deleteEventSubscription(
     input: DeleteEventSubscriptionMessage,
   ): Effect.Effect<
@@ -255,112 +301,159 @@ export declare class Neptune extends AWSServiceClient {
     | InvalidEventSubscriptionStateFault
     | SubscriptionNotFoundFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteEventSubscription", input);
+  }
   deleteGlobalCluster(
     input: DeleteGlobalClusterMessage,
   ): Effect.Effect<
     DeleteGlobalClusterResult,
     GlobalClusterNotFoundFault | InvalidGlobalClusterStateFault | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteGlobalCluster", input);
+  }
   describeDBClusterEndpoints(
     input: DescribeDBClusterEndpointsMessage,
   ): Effect.Effect<
     DBClusterEndpointMessage,
     DBClusterNotFoundFault | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeDBClusterEndpoints", input);
+  }
   describeDBClusterParameterGroups(
     input: DescribeDBClusterParameterGroupsMessage,
   ): Effect.Effect<
     DBClusterParameterGroupsMessage,
     DBParameterGroupNotFoundFault | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeDBClusterParameterGroups", input);
+  }
   describeDBClusterParameters(
     input: DescribeDBClusterParametersMessage,
   ): Effect.Effect<
     DBClusterParameterGroupDetails,
     DBParameterGroupNotFoundFault | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeDBClusterParameters", input);
+  }
   describeDBClusters(
     input: DescribeDBClustersMessage,
-  ): Effect.Effect<DBClusterMessage, DBClusterNotFoundFault | CommonAwsError>;
+  ): Effect.Effect<DBClusterMessage, DBClusterNotFoundFault | CommonAwsError> {
+    return this.call("DescribeDBClusters", input);
+  }
   describeDBClusterSnapshotAttributes(
     input: DescribeDBClusterSnapshotAttributesMessage,
   ): Effect.Effect<
     DescribeDBClusterSnapshotAttributesResult,
     DBClusterSnapshotNotFoundFault | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeDBClusterSnapshotAttributes", input);
+  }
   describeDBClusterSnapshots(
     input: DescribeDBClusterSnapshotsMessage,
   ): Effect.Effect<
     DBClusterSnapshotMessage,
     DBClusterSnapshotNotFoundFault | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeDBClusterSnapshots", input);
+  }
   describeDBEngineVersions(
     input: DescribeDBEngineVersionsMessage,
-  ): Effect.Effect<DBEngineVersionMessage, CommonAwsError>;
+  ): Effect.Effect<DBEngineVersionMessage, CommonAwsError> {
+    return this.call("DescribeDBEngineVersions", input);
+  }
   describeDBInstances(
     input: DescribeDBInstancesMessage,
-  ): Effect.Effect<DBInstanceMessage, DBInstanceNotFoundFault | CommonAwsError>;
+  ): Effect.Effect<
+    DBInstanceMessage,
+    DBInstanceNotFoundFault | CommonAwsError
+  > {
+    return this.call("DescribeDBInstances", input);
+  }
   describeDBParameterGroups(
     input: DescribeDBParameterGroupsMessage,
   ): Effect.Effect<
     DBParameterGroupsMessage,
     DBParameterGroupNotFoundFault | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeDBParameterGroups", input);
+  }
   describeDBParameters(
     input: DescribeDBParametersMessage,
   ): Effect.Effect<
     DBParameterGroupDetails,
     DBParameterGroupNotFoundFault | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeDBParameters", input);
+  }
   describeDBSubnetGroups(
     input: DescribeDBSubnetGroupsMessage,
   ): Effect.Effect<
     DBSubnetGroupMessage,
     DBSubnetGroupNotFoundFault | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeDBSubnetGroups", input);
+  }
   describeEngineDefaultClusterParameters(
     input: DescribeEngineDefaultClusterParametersMessage,
   ): Effect.Effect<
     DescribeEngineDefaultClusterParametersResult,
     CommonAwsError
-  >;
+  > {
+    return this.call("DescribeEngineDefaultClusterParameters", input);
+  }
   describeEngineDefaultParameters(
     input: DescribeEngineDefaultParametersMessage,
-  ): Effect.Effect<DescribeEngineDefaultParametersResult, CommonAwsError>;
+  ): Effect.Effect<DescribeEngineDefaultParametersResult, CommonAwsError> {
+    return this.call("DescribeEngineDefaultParameters", input);
+  }
   describeEventCategories(
     input: DescribeEventCategoriesMessage,
-  ): Effect.Effect<EventCategoriesMessage, CommonAwsError>;
+  ): Effect.Effect<EventCategoriesMessage, CommonAwsError> {
+    return this.call("DescribeEventCategories", input);
+  }
   describeEvents(
     input: DescribeEventsMessage,
-  ): Effect.Effect<EventsMessage, CommonAwsError>;
+  ): Effect.Effect<EventsMessage, CommonAwsError> {
+    return this.call("DescribeEvents", input);
+  }
   describeEventSubscriptions(
     input: DescribeEventSubscriptionsMessage,
   ): Effect.Effect<
     EventSubscriptionsMessage,
     SubscriptionNotFoundFault | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeEventSubscriptions", input);
+  }
   describeGlobalClusters(
     input: DescribeGlobalClustersMessage,
   ): Effect.Effect<
     GlobalClustersMessage,
     GlobalClusterNotFoundFault | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeGlobalClusters", input);
+  }
   describeOrderableDBInstanceOptions(
     input: DescribeOrderableDBInstanceOptionsMessage,
-  ): Effect.Effect<OrderableDBInstanceOptionsMessage, CommonAwsError>;
+  ): Effect.Effect<OrderableDBInstanceOptionsMessage, CommonAwsError> {
+    return this.call("DescribeOrderableDBInstanceOptions", input);
+  }
   describePendingMaintenanceActions(
     input: DescribePendingMaintenanceActionsMessage,
   ): Effect.Effect<
     PendingMaintenanceActionsMessage,
     ResourceNotFoundFault | CommonAwsError
-  >;
+  > {
+    return this.call("DescribePendingMaintenanceActions", input);
+  }
   describeValidDBInstanceModifications(
     input: DescribeValidDBInstanceModificationsMessage,
   ): Effect.Effect<
     DescribeValidDBInstanceModificationsResult,
     DBInstanceNotFoundFault | InvalidDBInstanceStateFault | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeValidDBInstanceModifications", input);
+  }
   failoverDBCluster(
     input: FailoverDBClusterMessage,
   ): Effect.Effect<
@@ -369,7 +462,9 @@ export declare class Neptune extends AWSServiceClient {
     | InvalidDBClusterStateFault
     | InvalidDBInstanceStateFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("FailoverDBCluster", input);
+  }
   failoverGlobalCluster(
     input: FailoverGlobalClusterMessage,
   ): Effect.Effect<
@@ -379,7 +474,9 @@ export declare class Neptune extends AWSServiceClient {
     | InvalidDBClusterStateFault
     | InvalidGlobalClusterStateFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("FailoverGlobalCluster", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceMessage,
   ): Effect.Effect<
@@ -388,7 +485,9 @@ export declare class Neptune extends AWSServiceClient {
     | DBInstanceNotFoundFault
     | DBSnapshotNotFoundFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   modifyDBCluster(
     input: ModifyDBClusterMessage,
   ): Effect.Effect<
@@ -406,7 +505,9 @@ export declare class Neptune extends AWSServiceClient {
     | StorageQuotaExceededFault
     | StorageTypeNotSupportedFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("ModifyDBCluster", input);
+  }
   modifyDBClusterEndpoint(
     input: ModifyDBClusterEndpointMessage,
   ): Effect.Effect<
@@ -417,7 +518,9 @@ export declare class Neptune extends AWSServiceClient {
     | InvalidDBClusterStateFault
     | InvalidDBInstanceStateFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("ModifyDBClusterEndpoint", input);
+  }
   modifyDBClusterParameterGroup(
     input: ModifyDBClusterParameterGroupMessage,
   ): Effect.Effect<
@@ -425,7 +528,9 @@ export declare class Neptune extends AWSServiceClient {
     | DBParameterGroupNotFoundFault
     | InvalidDBParameterGroupStateFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("ModifyDBClusterParameterGroup", input);
+  }
   modifyDBClusterSnapshotAttribute(
     input: ModifyDBClusterSnapshotAttributeMessage,
   ): Effect.Effect<
@@ -434,7 +539,9 @@ export declare class Neptune extends AWSServiceClient {
     | InvalidDBClusterSnapshotStateFault
     | SharedSnapshotQuotaExceededFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("ModifyDBClusterSnapshotAttribute", input);
+  }
   modifyDBInstance(
     input: ModifyDBInstanceMessage,
   ): Effect.Effect<
@@ -456,7 +563,9 @@ export declare class Neptune extends AWSServiceClient {
     | StorageQuotaExceededFault
     | StorageTypeNotSupportedFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("ModifyDBInstance", input);
+  }
   modifyDBParameterGroup(
     input: ModifyDBParameterGroupMessage,
   ): Effect.Effect<
@@ -464,7 +573,9 @@ export declare class Neptune extends AWSServiceClient {
     | DBParameterGroupNotFoundFault
     | InvalidDBParameterGroupStateFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("ModifyDBParameterGroup", input);
+  }
   modifyDBSubnetGroup(
     input: ModifyDBSubnetGroupMessage,
   ): Effect.Effect<
@@ -475,7 +586,9 @@ export declare class Neptune extends AWSServiceClient {
     | InvalidSubnet
     | SubnetAlreadyInUse
     | CommonAwsError
-  >;
+  > {
+    return this.call("ModifyDBSubnetGroup", input);
+  }
   modifyEventSubscription(
     input: ModifyEventSubscriptionMessage,
   ): Effect.Effect<
@@ -487,25 +600,33 @@ export declare class Neptune extends AWSServiceClient {
     | SubscriptionCategoryNotFoundFault
     | SubscriptionNotFoundFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("ModifyEventSubscription", input);
+  }
   modifyGlobalCluster(
     input: ModifyGlobalClusterMessage,
   ): Effect.Effect<
     ModifyGlobalClusterResult,
     GlobalClusterNotFoundFault | InvalidGlobalClusterStateFault | CommonAwsError
-  >;
+  > {
+    return this.call("ModifyGlobalCluster", input);
+  }
   promoteReadReplicaDBCluster(
     input: PromoteReadReplicaDBClusterMessage,
   ): Effect.Effect<
     PromoteReadReplicaDBClusterResult,
     DBClusterNotFoundFault | InvalidDBClusterStateFault | CommonAwsError
-  >;
+  > {
+    return this.call("PromoteReadReplicaDBCluster", input);
+  }
   rebootDBInstance(
     input: RebootDBInstanceMessage,
   ): Effect.Effect<
     RebootDBInstanceResult,
     DBInstanceNotFoundFault | InvalidDBInstanceStateFault | CommonAwsError
-  >;
+  > {
+    return this.call("RebootDBInstance", input);
+  }
   removeFromGlobalCluster(
     input: RemoveFromGlobalClusterMessage,
   ): Effect.Effect<
@@ -514,7 +635,9 @@ export declare class Neptune extends AWSServiceClient {
     | GlobalClusterNotFoundFault
     | InvalidGlobalClusterStateFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("RemoveFromGlobalCluster", input);
+  }
   removeRoleFromDBCluster(
     input: RemoveRoleFromDBClusterMessage,
   ): Effect.Effect<
@@ -523,13 +646,17 @@ export declare class Neptune extends AWSServiceClient {
     | DBClusterRoleNotFoundFault
     | InvalidDBClusterStateFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("RemoveRoleFromDBCluster", input);
+  }
   removeSourceIdentifierFromSubscription(
     input: RemoveSourceIdentifierFromSubscriptionMessage,
   ): Effect.Effect<
     RemoveSourceIdentifierFromSubscriptionResult,
     SourceNotFoundFault | SubscriptionNotFoundFault | CommonAwsError
-  >;
+  > {
+    return this.call("RemoveSourceIdentifierFromSubscription", input);
+  }
   removeTagsFromResource(
     input: RemoveTagsFromResourceMessage,
   ): Effect.Effect<
@@ -538,7 +665,9 @@ export declare class Neptune extends AWSServiceClient {
     | DBInstanceNotFoundFault
     | DBSnapshotNotFoundFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("RemoveTagsFromResource", input);
+  }
   resetDBClusterParameterGroup(
     input: ResetDBClusterParameterGroupMessage,
   ): Effect.Effect<
@@ -546,7 +675,9 @@ export declare class Neptune extends AWSServiceClient {
     | DBParameterGroupNotFoundFault
     | InvalidDBParameterGroupStateFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("ResetDBClusterParameterGroup", input);
+  }
   resetDBParameterGroup(
     input: ResetDBParameterGroupMessage,
   ): Effect.Effect<
@@ -554,7 +685,9 @@ export declare class Neptune extends AWSServiceClient {
     | DBParameterGroupNotFoundFault
     | InvalidDBParameterGroupStateFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("ResetDBParameterGroup", input);
+  }
   restoreDBClusterFromSnapshot(
     input: RestoreDBClusterFromSnapshotMessage,
   ): Effect.Effect<
@@ -576,7 +709,9 @@ export declare class Neptune extends AWSServiceClient {
     | OptionGroupNotFoundFault
     | StorageQuotaExceededFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("RestoreDBClusterFromSnapshot", input);
+  }
   restoreDBClusterToPointInTime(
     input: RestoreDBClusterToPointInTimeMessage,
   ): Effect.Effect<
@@ -599,7 +734,9 @@ export declare class Neptune extends AWSServiceClient {
     | OptionGroupNotFoundFault
     | StorageQuotaExceededFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("RestoreDBClusterToPointInTime", input);
+  }
   startDBCluster(
     input: StartDBClusterMessage,
   ): Effect.Effect<
@@ -608,7 +745,9 @@ export declare class Neptune extends AWSServiceClient {
     | InvalidDBClusterStateFault
     | InvalidDBInstanceStateFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartDBCluster", input);
+  }
   stopDBCluster(
     input: StopDBClusterMessage,
   ): Effect.Effect<
@@ -617,7 +756,9 @@ export declare class Neptune extends AWSServiceClient {
     | InvalidDBClusterStateFault
     | InvalidDBInstanceStateFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("StopDBCluster", input);
+  }
   switchoverGlobalCluster(
     input: SwitchoverGlobalClusterMessage,
   ): Effect.Effect<
@@ -627,8 +768,12 @@ export declare class Neptune extends AWSServiceClient {
     | InvalidDBClusterStateFault
     | InvalidGlobalClusterStateFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("SwitchoverGlobalCluster", input);
+  }
 }
+
+export default Neptune;
 
 export interface AddRoleToDBClusterMessage {
   DBClusterIdentifier: string;

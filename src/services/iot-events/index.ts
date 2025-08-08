@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class IoTEvents extends AWSServiceClient {
+export class IoTEvents extends AWSServiceClient {
   createAlarmModel(
     input: CreateAlarmModelRequest,
   ): Effect.Effect<
@@ -15,7 +15,9 @@ export declare class IoTEvents extends AWSServiceClient {
     | ServiceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateAlarmModel", input);
+  }
   createDetectorModel(
     input: CreateDetectorModelRequest,
   ): Effect.Effect<
@@ -28,7 +30,9 @@ export declare class IoTEvents extends AWSServiceClient {
     | ServiceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateDetectorModel", input);
+  }
   createInput(
     input: CreateInputRequest,
   ): Effect.Effect<
@@ -39,7 +43,9 @@ export declare class IoTEvents extends AWSServiceClient {
     | ServiceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateInput", input);
+  }
   deleteAlarmModel(
     input: DeleteAlarmModelRequest,
   ): Effect.Effect<
@@ -51,7 +57,9 @@ export declare class IoTEvents extends AWSServiceClient {
     | ServiceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteAlarmModel", input);
+  }
   deleteDetectorModel(
     input: DeleteDetectorModelRequest,
   ): Effect.Effect<
@@ -63,7 +71,9 @@ export declare class IoTEvents extends AWSServiceClient {
     | ServiceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteDetectorModel", input);
+  }
   deleteInput(
     input: DeleteInputRequest,
   ): Effect.Effect<
@@ -75,7 +85,9 @@ export declare class IoTEvents extends AWSServiceClient {
     | ServiceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteInput", input);
+  }
   describeAlarmModel(
     input: DescribeAlarmModelRequest,
   ): Effect.Effect<
@@ -86,7 +98,9 @@ export declare class IoTEvents extends AWSServiceClient {
     | ServiceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeAlarmModel", input);
+  }
   describeDetectorModel(
     input: DescribeDetectorModelRequest,
   ): Effect.Effect<
@@ -97,7 +111,9 @@ export declare class IoTEvents extends AWSServiceClient {
     | ServiceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeDetectorModel", input);
+  }
   describeDetectorModelAnalysis(
     input: DescribeDetectorModelAnalysisRequest,
   ): Effect.Effect<
@@ -108,7 +124,9 @@ export declare class IoTEvents extends AWSServiceClient {
     | ServiceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeDetectorModelAnalysis", input);
+  }
   describeInput(
     input: DescribeInputRequest,
   ): Effect.Effect<
@@ -119,7 +137,9 @@ export declare class IoTEvents extends AWSServiceClient {
     | ServiceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeInput", input);
+  }
   describeLoggingOptions(
     input: DescribeLoggingOptionsRequest,
   ): Effect.Effect<
@@ -131,7 +151,9 @@ export declare class IoTEvents extends AWSServiceClient {
     | ThrottlingException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeLoggingOptions", input);
+  }
   getDetectorModelAnalysisResults(
     input: GetDetectorModelAnalysisResultsRequest,
   ): Effect.Effect<
@@ -142,7 +164,9 @@ export declare class IoTEvents extends AWSServiceClient {
     | ServiceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetDetectorModelAnalysisResults", input);
+  }
   listAlarmModels(
     input: ListAlarmModelsRequest,
   ): Effect.Effect<
@@ -152,7 +176,9 @@ export declare class IoTEvents extends AWSServiceClient {
     | ServiceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListAlarmModels", input);
+  }
   listAlarmModelVersions(
     input: ListAlarmModelVersionsRequest,
   ): Effect.Effect<
@@ -163,7 +189,9 @@ export declare class IoTEvents extends AWSServiceClient {
     | ServiceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListAlarmModelVersions", input);
+  }
   listDetectorModels(
     input: ListDetectorModelsRequest,
   ): Effect.Effect<
@@ -173,7 +201,9 @@ export declare class IoTEvents extends AWSServiceClient {
     | ServiceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListDetectorModels", input);
+  }
   listDetectorModelVersions(
     input: ListDetectorModelVersionsRequest,
   ): Effect.Effect<
@@ -184,7 +214,9 @@ export declare class IoTEvents extends AWSServiceClient {
     | ServiceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListDetectorModelVersions", input);
+  }
   listInputRoutings(
     input: ListInputRoutingsRequest,
   ): Effect.Effect<
@@ -195,7 +227,9 @@ export declare class IoTEvents extends AWSServiceClient {
     | ServiceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListInputRoutings", input);
+  }
   listInputs(
     input: ListInputsRequest,
   ): Effect.Effect<
@@ -205,7 +239,9 @@ export declare class IoTEvents extends AWSServiceClient {
     | ServiceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListInputs", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
@@ -216,7 +252,9 @@ export declare class IoTEvents extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   putLoggingOptions(
     input: PutLoggingOptionsRequest,
   ): Effect.Effect<
@@ -228,7 +266,9 @@ export declare class IoTEvents extends AWSServiceClient {
     | ThrottlingException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutLoggingOptions", input);
+  }
   startDetectorModelAnalysis(
     input: StartDetectorModelAnalysisRequest,
   ): Effect.Effect<
@@ -239,7 +279,9 @@ export declare class IoTEvents extends AWSServiceClient {
     | ServiceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartDetectorModelAnalysis", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -251,7 +293,9 @@ export declare class IoTEvents extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
@@ -262,7 +306,9 @@ export declare class IoTEvents extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
   updateAlarmModel(
     input: UpdateAlarmModelRequest,
   ): Effect.Effect<
@@ -274,7 +320,9 @@ export declare class IoTEvents extends AWSServiceClient {
     | ServiceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateAlarmModel", input);
+  }
   updateDetectorModel(
     input: UpdateDetectorModelRequest,
   ): Effect.Effect<
@@ -286,7 +334,9 @@ export declare class IoTEvents extends AWSServiceClient {
     | ServiceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateDetectorModel", input);
+  }
   updateInput(
     input: UpdateInputRequest,
   ): Effect.Effect<
@@ -298,10 +348,14 @@ export declare class IoTEvents extends AWSServiceClient {
     | ServiceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateInput", input);
+  }
 }
 
-export declare class IotEvents extends IoTEvents {}
+export class IotEvents extends IoTEvents {}
+
+export default IoTEvents;
 
 export interface AcknowledgeFlow {
   enabled: boolean;

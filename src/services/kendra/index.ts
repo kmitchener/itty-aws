@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class kendra extends AWSServiceClient {
+export class kendra extends AWSServiceClient {
   associateEntitiesToExperience(
     input: AssociateEntitiesToExperienceRequest,
   ): Effect.Effect<
@@ -14,7 +14,9 @@ export declare class kendra extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AssociateEntitiesToExperience", input);
+  }
   associatePersonasToEntities(
     input: AssociatePersonasToEntitiesRequest,
   ): Effect.Effect<
@@ -26,7 +28,9 @@ export declare class kendra extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AssociatePersonasToEntities", input);
+  }
   batchDeleteDocument(
     input: BatchDeleteDocumentRequest,
   ): Effect.Effect<
@@ -38,7 +42,9 @@ export declare class kendra extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("BatchDeleteDocument", input);
+  }
   batchDeleteFeaturedResultsSet(
     input: BatchDeleteFeaturedResultsSetRequest,
   ): Effect.Effect<
@@ -49,7 +55,9 @@ export declare class kendra extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("BatchDeleteFeaturedResultsSet", input);
+  }
   batchGetDocumentStatus(
     input: BatchGetDocumentStatusRequest,
   ): Effect.Effect<
@@ -61,7 +69,9 @@ export declare class kendra extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("BatchGetDocumentStatus", input);
+  }
   batchPutDocument(
     input: BatchPutDocumentRequest,
   ): Effect.Effect<
@@ -74,7 +84,9 @@ export declare class kendra extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("BatchPutDocument", input);
+  }
   clearQuerySuggestions(
     input: ClearQuerySuggestionsRequest,
   ): Effect.Effect<
@@ -86,7 +98,9 @@ export declare class kendra extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ClearQuerySuggestions", input);
+  }
   createAccessControlConfiguration(
     input: CreateAccessControlConfigurationRequest,
   ): Effect.Effect<
@@ -99,7 +113,9 @@ export declare class kendra extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateAccessControlConfiguration", input);
+  }
   createDataSource(
     input: CreateDataSourceRequest,
   ): Effect.Effect<
@@ -113,7 +129,9 @@ export declare class kendra extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateDataSource", input);
+  }
   createExperience(
     input: CreateExperienceRequest,
   ): Effect.Effect<
@@ -126,7 +144,9 @@ export declare class kendra extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateExperience", input);
+  }
   createFaq(
     input: CreateFaqRequest,
   ): Effect.Effect<
@@ -139,7 +159,9 @@ export declare class kendra extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateFaq", input);
+  }
   createFeaturedResultsSet(
     input: CreateFeaturedResultsSetRequest,
   ): Effect.Effect<
@@ -152,7 +174,9 @@ export declare class kendra extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateFeaturedResultsSet", input);
+  }
   createIndex(
     input: CreateIndexRequest,
   ): Effect.Effect<
@@ -165,7 +189,9 @@ export declare class kendra extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateIndex", input);
+  }
   createQuerySuggestionsBlockList(
     input: CreateQuerySuggestionsBlockListRequest,
   ): Effect.Effect<
@@ -178,7 +204,9 @@ export declare class kendra extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateQuerySuggestionsBlockList", input);
+  }
   createThesaurus(
     input: CreateThesaurusRequest,
   ): Effect.Effect<
@@ -191,7 +219,9 @@ export declare class kendra extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateThesaurus", input);
+  }
   deleteAccessControlConfiguration(
     input: DeleteAccessControlConfigurationRequest,
   ): Effect.Effect<
@@ -203,7 +233,9 @@ export declare class kendra extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteAccessControlConfiguration", input);
+  }
   deleteDataSource(
     input: DeleteDataSourceRequest,
   ): Effect.Effect<
@@ -215,7 +247,9 @@ export declare class kendra extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteDataSource", input);
+  }
   deleteExperience(
     input: DeleteExperienceRequest,
   ): Effect.Effect<
@@ -227,7 +261,9 @@ export declare class kendra extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteExperience", input);
+  }
   deleteFaq(
     input: DeleteFaqRequest,
   ): Effect.Effect<
@@ -239,7 +275,9 @@ export declare class kendra extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteFaq", input);
+  }
   deleteIndex(
     input: DeleteIndexRequest,
   ): Effect.Effect<
@@ -251,7 +289,9 @@ export declare class kendra extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteIndex", input);
+  }
   deletePrincipalMapping(
     input: DeletePrincipalMappingRequest,
   ): Effect.Effect<
@@ -263,7 +303,9 @@ export declare class kendra extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeletePrincipalMapping", input);
+  }
   deleteQuerySuggestionsBlockList(
     input: DeleteQuerySuggestionsBlockListRequest,
   ): Effect.Effect<
@@ -275,7 +317,9 @@ export declare class kendra extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteQuerySuggestionsBlockList", input);
+  }
   deleteThesaurus(
     input: DeleteThesaurusRequest,
   ): Effect.Effect<
@@ -287,7 +331,9 @@ export declare class kendra extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteThesaurus", input);
+  }
   describeAccessControlConfiguration(
     input: DescribeAccessControlConfigurationRequest,
   ): Effect.Effect<
@@ -298,7 +344,9 @@ export declare class kendra extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeAccessControlConfiguration", input);
+  }
   describeDataSource(
     input: DescribeDataSourceRequest,
   ): Effect.Effect<
@@ -309,7 +357,9 @@ export declare class kendra extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeDataSource", input);
+  }
   describeExperience(
     input: DescribeExperienceRequest,
   ): Effect.Effect<
@@ -320,7 +370,9 @@ export declare class kendra extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeExperience", input);
+  }
   describeFaq(
     input: DescribeFaqRequest,
   ): Effect.Effect<
@@ -331,7 +383,9 @@ export declare class kendra extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeFaq", input);
+  }
   describeFeaturedResultsSet(
     input: DescribeFeaturedResultsSetRequest,
   ): Effect.Effect<
@@ -342,7 +396,9 @@ export declare class kendra extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeFeaturedResultsSet", input);
+  }
   describeIndex(
     input: DescribeIndexRequest,
   ): Effect.Effect<
@@ -353,7 +409,9 @@ export declare class kendra extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeIndex", input);
+  }
   describePrincipalMapping(
     input: DescribePrincipalMappingRequest,
   ): Effect.Effect<
@@ -364,7 +422,9 @@ export declare class kendra extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribePrincipalMapping", input);
+  }
   describeQuerySuggestionsBlockList(
     input: DescribeQuerySuggestionsBlockListRequest,
   ): Effect.Effect<
@@ -375,7 +435,9 @@ export declare class kendra extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeQuerySuggestionsBlockList", input);
+  }
   describeQuerySuggestionsConfig(
     input: DescribeQuerySuggestionsConfigRequest,
   ): Effect.Effect<
@@ -386,7 +448,9 @@ export declare class kendra extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeQuerySuggestionsConfig", input);
+  }
   describeThesaurus(
     input: DescribeThesaurusRequest,
   ): Effect.Effect<
@@ -397,7 +461,9 @@ export declare class kendra extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeThesaurus", input);
+  }
   disassociateEntitiesFromExperience(
     input: DisassociateEntitiesFromExperienceRequest,
   ): Effect.Effect<
@@ -408,7 +474,9 @@ export declare class kendra extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DisassociateEntitiesFromExperience", input);
+  }
   disassociatePersonasFromEntities(
     input: DisassociatePersonasFromEntitiesRequest,
   ): Effect.Effect<
@@ -419,7 +487,9 @@ export declare class kendra extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DisassociatePersonasFromEntities", input);
+  }
   getQuerySuggestions(
     input: GetQuerySuggestionsRequest,
   ): Effect.Effect<
@@ -432,7 +502,9 @@ export declare class kendra extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetQuerySuggestions", input);
+  }
   getSnapshots(
     input: GetSnapshotsRequest,
   ): Effect.Effect<
@@ -442,7 +514,9 @@ export declare class kendra extends AWSServiceClient {
     | InvalidRequestException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetSnapshots", input);
+  }
   listAccessControlConfigurations(
     input: ListAccessControlConfigurationsRequest,
   ): Effect.Effect<
@@ -453,7 +527,9 @@ export declare class kendra extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListAccessControlConfigurations", input);
+  }
   listDataSources(
     input: ListDataSourcesRequest,
   ): Effect.Effect<
@@ -464,7 +540,9 @@ export declare class kendra extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListDataSources", input);
+  }
   listDataSourceSyncJobs(
     input: ListDataSourceSyncJobsRequest,
   ): Effect.Effect<
@@ -476,7 +554,9 @@ export declare class kendra extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListDataSourceSyncJobs", input);
+  }
   listEntityPersonas(
     input: ListEntityPersonasRequest,
   ): Effect.Effect<
@@ -487,7 +567,9 @@ export declare class kendra extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListEntityPersonas", input);
+  }
   listExperienceEntities(
     input: ListExperienceEntitiesRequest,
   ): Effect.Effect<
@@ -498,7 +580,9 @@ export declare class kendra extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListExperienceEntities", input);
+  }
   listExperiences(
     input: ListExperiencesRequest,
   ): Effect.Effect<
@@ -509,7 +593,9 @@ export declare class kendra extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListExperiences", input);
+  }
   listFaqs(
     input: ListFaqsRequest,
   ): Effect.Effect<
@@ -520,7 +606,9 @@ export declare class kendra extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListFaqs", input);
+  }
   listFeaturedResultsSets(
     input: ListFeaturedResultsSetsRequest,
   ): Effect.Effect<
@@ -531,7 +619,9 @@ export declare class kendra extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListFeaturedResultsSets", input);
+  }
   listGroupsOlderThanOrderingId(
     input: ListGroupsOlderThanOrderingIdRequest,
   ): Effect.Effect<
@@ -543,7 +633,9 @@ export declare class kendra extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListGroupsOlderThanOrderingId", input);
+  }
   listIndices(
     input: ListIndicesRequest,
   ): Effect.Effect<
@@ -553,7 +645,9 @@ export declare class kendra extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListIndices", input);
+  }
   listQuerySuggestionsBlockLists(
     input: ListQuerySuggestionsBlockListsRequest,
   ): Effect.Effect<
@@ -564,7 +658,9 @@ export declare class kendra extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListQuerySuggestionsBlockLists", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
@@ -575,7 +671,9 @@ export declare class kendra extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   listThesauri(
     input: ListThesauriRequest,
   ): Effect.Effect<
@@ -586,7 +684,9 @@ export declare class kendra extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListThesauri", input);
+  }
   putPrincipalMapping(
     input: PutPrincipalMappingRequest,
   ): Effect.Effect<
@@ -599,7 +699,9 @@ export declare class kendra extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutPrincipalMapping", input);
+  }
   query(
     input: QueryRequest,
   ): Effect.Effect<
@@ -612,7 +714,9 @@ export declare class kendra extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("Query", input);
+  }
   retrieve(
     input: RetrieveRequest,
   ): Effect.Effect<
@@ -625,7 +729,9 @@ export declare class kendra extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("Retrieve", input);
+  }
   startDataSourceSyncJob(
     input: StartDataSourceSyncJobRequest,
   ): Effect.Effect<
@@ -638,7 +744,9 @@ export declare class kendra extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartDataSourceSyncJob", input);
+  }
   stopDataSourceSyncJob(
     input: StopDataSourceSyncJobRequest,
   ): Effect.Effect<
@@ -649,7 +757,9 @@ export declare class kendra extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StopDataSourceSyncJob", input);
+  }
   submitFeedback(
     input: SubmitFeedbackRequest,
   ): Effect.Effect<
@@ -661,7 +771,9 @@ export declare class kendra extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("SubmitFeedback", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -672,7 +784,9 @@ export declare class kendra extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
@@ -683,7 +797,9 @@ export declare class kendra extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
   updateAccessControlConfiguration(
     input: UpdateAccessControlConfigurationRequest,
   ): Effect.Effect<
@@ -696,7 +812,9 @@ export declare class kendra extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateAccessControlConfiguration", input);
+  }
   updateDataSource(
     input: UpdateDataSourceRequest,
   ): Effect.Effect<
@@ -708,7 +826,9 @@ export declare class kendra extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateDataSource", input);
+  }
   updateExperience(
     input: UpdateExperienceRequest,
   ): Effect.Effect<
@@ -720,7 +840,9 @@ export declare class kendra extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateExperience", input);
+  }
   updateFeaturedResultsSet(
     input: UpdateFeaturedResultsSetRequest,
   ): Effect.Effect<
@@ -732,7 +854,9 @@ export declare class kendra extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateFeaturedResultsSet", input);
+  }
   updateIndex(
     input: UpdateIndexRequest,
   ): Effect.Effect<
@@ -745,7 +869,9 @@ export declare class kendra extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateIndex", input);
+  }
   updateQuerySuggestionsBlockList(
     input: UpdateQuerySuggestionsBlockListRequest,
   ): Effect.Effect<
@@ -757,7 +883,9 @@ export declare class kendra extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateQuerySuggestionsBlockList", input);
+  }
   updateQuerySuggestionsConfig(
     input: UpdateQuerySuggestionsConfigRequest,
   ): Effect.Effect<
@@ -769,7 +897,9 @@ export declare class kendra extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateQuerySuggestionsConfig", input);
+  }
   updateThesaurus(
     input: UpdateThesaurusRequest,
   ): Effect.Effect<
@@ -781,10 +911,14 @@ export declare class kendra extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateThesaurus", input);
+  }
 }
 
-export declare class Kendra extends kendra {}
+export class Kendra extends kendra {}
+
+export default kendra;
 
 export type AccessControlConfigurationId = string;
 

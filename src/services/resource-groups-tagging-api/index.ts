@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class ResourceGroupsTaggingAPI extends AWSServiceClient {
+export class ResourceGroupsTaggingAPI extends AWSServiceClient {
   describeReportCreation(
     input: DescribeReportCreationInput,
   ): Effect.Effect<
@@ -12,7 +12,9 @@ export declare class ResourceGroupsTaggingAPI extends AWSServiceClient {
     | InvalidParameterException
     | ThrottledException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeReportCreation", input);
+  }
   getComplianceSummary(
     input: GetComplianceSummaryInput,
   ): Effect.Effect<
@@ -22,7 +24,9 @@ export declare class ResourceGroupsTaggingAPI extends AWSServiceClient {
     | InvalidParameterException
     | ThrottledException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetComplianceSummary", input);
+  }
   getResources(
     input: GetResourcesInput,
   ): Effect.Effect<
@@ -32,7 +36,9 @@ export declare class ResourceGroupsTaggingAPI extends AWSServiceClient {
     | PaginationTokenExpiredException
     | ThrottledException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetResources", input);
+  }
   getTagKeys(
     input: GetTagKeysInput,
   ): Effect.Effect<
@@ -42,7 +48,9 @@ export declare class ResourceGroupsTaggingAPI extends AWSServiceClient {
     | PaginationTokenExpiredException
     | ThrottledException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetTagKeys", input);
+  }
   getTagValues(
     input: GetTagValuesInput,
   ): Effect.Effect<
@@ -52,7 +60,9 @@ export declare class ResourceGroupsTaggingAPI extends AWSServiceClient {
     | PaginationTokenExpiredException
     | ThrottledException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetTagValues", input);
+  }
   startReportCreation(
     input: StartReportCreationInput,
   ): Effect.Effect<
@@ -63,7 +73,9 @@ export declare class ResourceGroupsTaggingAPI extends AWSServiceClient {
     | InvalidParameterException
     | ThrottledException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartReportCreation", input);
+  }
   tagResources(
     input: TagResourcesInput,
   ): Effect.Effect<
@@ -72,7 +84,9 @@ export declare class ResourceGroupsTaggingAPI extends AWSServiceClient {
     | InvalidParameterException
     | ThrottledException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResources", input);
+  }
   untagResources(
     input: UntagResourcesInput,
   ): Effect.Effect<
@@ -81,10 +95,14 @@ export declare class ResourceGroupsTaggingAPI extends AWSServiceClient {
     | InvalidParameterException
     | ThrottledException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResources", input);
+  }
 }
 
-export declare class ResourceGroupsTaggingApi extends ResourceGroupsTaggingAPI {}
+export class ResourceGroupsTaggingApi extends ResourceGroupsTaggingAPI {}
+
+export default ResourceGroupsTaggingAPI;
 
 export type AmazonResourceType = string;
 

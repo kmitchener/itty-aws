@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class LicenseManager extends AWSServiceClient {
+export class LicenseManager extends AWSServiceClient {
   acceptGrant(
     input: AcceptGrantRequest,
   ): Effect.Effect<
@@ -15,7 +15,9 @@ export declare class LicenseManager extends AWSServiceClient {
     | ServerInternalException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AcceptGrant", input);
+  }
   checkInLicense(
     input: CheckInLicenseRequest,
   ): Effect.Effect<
@@ -29,7 +31,9 @@ export declare class LicenseManager extends AWSServiceClient {
     | ServerInternalException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CheckInLicense", input);
+  }
   checkoutBorrowLicense(
     input: CheckoutBorrowLicenseRequest,
   ): Effect.Effect<
@@ -46,7 +50,9 @@ export declare class LicenseManager extends AWSServiceClient {
     | UnsupportedDigitalSignatureMethodException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CheckoutBorrowLicense", input);
+  }
   checkoutLicense(
     input: CheckoutLicenseRequest,
   ): Effect.Effect<
@@ -62,7 +68,9 @@ export declare class LicenseManager extends AWSServiceClient {
     | UnsupportedDigitalSignatureMethodException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CheckoutLicense", input);
+  }
   createGrant(
     input: CreateGrantRequest,
   ): Effect.Effect<
@@ -75,7 +83,9 @@ export declare class LicenseManager extends AWSServiceClient {
     | ServerInternalException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateGrant", input);
+  }
   createGrantVersion(
     input: CreateGrantVersionRequest,
   ): Effect.Effect<
@@ -88,7 +98,9 @@ export declare class LicenseManager extends AWSServiceClient {
     | ServerInternalException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateGrantVersion", input);
+  }
   createLicense(
     input: CreateLicenseRequest,
   ): Effect.Effect<
@@ -101,7 +113,9 @@ export declare class LicenseManager extends AWSServiceClient {
     | ServerInternalException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateLicense", input);
+  }
   createLicenseConfiguration(
     input: CreateLicenseConfigurationRequest,
   ): Effect.Effect<
@@ -113,7 +127,9 @@ export declare class LicenseManager extends AWSServiceClient {
     | ResourceLimitExceededException
     | ServerInternalException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateLicenseConfiguration", input);
+  }
   createLicenseConversionTaskForResource(
     input: CreateLicenseConversionTaskForResourceRequest,
   ): Effect.Effect<
@@ -125,7 +141,9 @@ export declare class LicenseManager extends AWSServiceClient {
     | ServerInternalException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateLicenseConversionTaskForResource", input);
+  }
   createLicenseManagerReportGenerator(
     input: CreateLicenseManagerReportGeneratorRequest,
   ): Effect.Effect<
@@ -139,7 +157,9 @@ export declare class LicenseManager extends AWSServiceClient {
     | ServerInternalException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateLicenseManagerReportGenerator", input);
+  }
   createLicenseVersion(
     input: CreateLicenseVersionRequest,
   ): Effect.Effect<
@@ -153,7 +173,9 @@ export declare class LicenseManager extends AWSServiceClient {
     | ServerInternalException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateLicenseVersion", input);
+  }
   createToken(
     input: CreateTokenRequest,
   ): Effect.Effect<
@@ -167,7 +189,9 @@ export declare class LicenseManager extends AWSServiceClient {
     | ServerInternalException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateToken", input);
+  }
   deleteGrant(
     input: DeleteGrantRequest,
   ): Effect.Effect<
@@ -180,7 +204,9 @@ export declare class LicenseManager extends AWSServiceClient {
     | ServerInternalException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteGrant", input);
+  }
   deleteLicense(
     input: DeleteLicenseRequest,
   ): Effect.Effect<
@@ -194,7 +220,9 @@ export declare class LicenseManager extends AWSServiceClient {
     | ServerInternalException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteLicense", input);
+  }
   deleteLicenseConfiguration(
     input: DeleteLicenseConfigurationRequest,
   ): Effect.Effect<
@@ -205,7 +233,9 @@ export declare class LicenseManager extends AWSServiceClient {
     | RateLimitExceededException
     | ServerInternalException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteLicenseConfiguration", input);
+  }
   deleteLicenseManagerReportGenerator(
     input: DeleteLicenseManagerReportGeneratorRequest,
   ): Effect.Effect<
@@ -219,7 +249,9 @@ export declare class LicenseManager extends AWSServiceClient {
     | ServerInternalException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteLicenseManagerReportGenerator", input);
+  }
   deleteToken(
     input: DeleteTokenRequest,
   ): Effect.Effect<
@@ -232,7 +264,9 @@ export declare class LicenseManager extends AWSServiceClient {
     | ServerInternalException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteToken", input);
+  }
   extendLicenseConsumption(
     input: ExtendLicenseConsumptionRequest,
   ): Effect.Effect<
@@ -245,7 +279,9 @@ export declare class LicenseManager extends AWSServiceClient {
     | ServerInternalException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ExtendLicenseConsumption", input);
+  }
   getAccessToken(
     input: GetAccessTokenRequest,
   ): Effect.Effect<
@@ -256,7 +292,9 @@ export declare class LicenseManager extends AWSServiceClient {
     | ServerInternalException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetAccessToken", input);
+  }
   getGrant(
     input: GetGrantRequest,
   ): Effect.Effect<
@@ -269,7 +307,9 @@ export declare class LicenseManager extends AWSServiceClient {
     | ServerInternalException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetGrant", input);
+  }
   getLicense(
     input: GetLicenseRequest,
   ): Effect.Effect<
@@ -281,7 +321,9 @@ export declare class LicenseManager extends AWSServiceClient {
     | ServerInternalException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetLicense", input);
+  }
   getLicenseConfiguration(
     input: GetLicenseConfigurationRequest,
   ): Effect.Effect<
@@ -292,7 +334,9 @@ export declare class LicenseManager extends AWSServiceClient {
     | RateLimitExceededException
     | ServerInternalException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetLicenseConfiguration", input);
+  }
   getLicenseConversionTask(
     input: GetLicenseConversionTaskRequest,
   ): Effect.Effect<
@@ -303,7 +347,9 @@ export declare class LicenseManager extends AWSServiceClient {
     | RateLimitExceededException
     | ServerInternalException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetLicenseConversionTask", input);
+  }
   getLicenseManagerReportGenerator(
     input: GetLicenseManagerReportGeneratorRequest,
   ): Effect.Effect<
@@ -317,7 +363,9 @@ export declare class LicenseManager extends AWSServiceClient {
     | ServerInternalException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetLicenseManagerReportGenerator", input);
+  }
   getLicenseUsage(
     input: GetLicenseUsageRequest,
   ): Effect.Effect<
@@ -329,7 +377,9 @@ export declare class LicenseManager extends AWSServiceClient {
     | ServerInternalException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetLicenseUsage", input);
+  }
   getServiceSettings(
     input: GetServiceSettingsRequest,
   ): Effect.Effect<
@@ -339,7 +389,9 @@ export declare class LicenseManager extends AWSServiceClient {
     | RateLimitExceededException
     | ServerInternalException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetServiceSettings", input);
+  }
   listAssociationsForLicenseConfiguration(
     input: ListAssociationsForLicenseConfigurationRequest,
   ): Effect.Effect<
@@ -351,7 +403,9 @@ export declare class LicenseManager extends AWSServiceClient {
     | RateLimitExceededException
     | ServerInternalException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListAssociationsForLicenseConfiguration", input);
+  }
   listDistributedGrants(
     input: ListDistributedGrantsRequest,
   ): Effect.Effect<
@@ -364,7 +418,9 @@ export declare class LicenseManager extends AWSServiceClient {
     | ServerInternalException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListDistributedGrants", input);
+  }
   listFailuresForLicenseConfigurationOperations(
     input: ListFailuresForLicenseConfigurationOperationsRequest,
   ): Effect.Effect<
@@ -375,7 +431,9 @@ export declare class LicenseManager extends AWSServiceClient {
     | RateLimitExceededException
     | ServerInternalException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListFailuresForLicenseConfigurationOperations", input);
+  }
   listLicenseConfigurations(
     input: ListLicenseConfigurationsRequest,
   ): Effect.Effect<
@@ -387,7 +445,9 @@ export declare class LicenseManager extends AWSServiceClient {
     | RateLimitExceededException
     | ServerInternalException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListLicenseConfigurations", input);
+  }
   listLicenseConversionTasks(
     input: ListLicenseConversionTasksRequest,
   ): Effect.Effect<
@@ -398,7 +458,9 @@ export declare class LicenseManager extends AWSServiceClient {
     | RateLimitExceededException
     | ServerInternalException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListLicenseConversionTasks", input);
+  }
   listLicenseManagerReportGenerators(
     input: ListLicenseManagerReportGeneratorsRequest,
   ): Effect.Effect<
@@ -412,7 +474,9 @@ export declare class LicenseManager extends AWSServiceClient {
     | ServerInternalException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListLicenseManagerReportGenerators", input);
+  }
   listLicenses(
     input: ListLicensesRequest,
   ): Effect.Effect<
@@ -424,7 +488,9 @@ export declare class LicenseManager extends AWSServiceClient {
     | ServerInternalException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListLicenses", input);
+  }
   listLicenseSpecificationsForResource(
     input: ListLicenseSpecificationsForResourceRequest,
   ): Effect.Effect<
@@ -435,7 +501,9 @@ export declare class LicenseManager extends AWSServiceClient {
     | RateLimitExceededException
     | ServerInternalException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListLicenseSpecificationsForResource", input);
+  }
   listLicenseVersions(
     input: ListLicenseVersionsRequest,
   ): Effect.Effect<
@@ -446,7 +514,9 @@ export declare class LicenseManager extends AWSServiceClient {
     | RateLimitExceededException
     | ServerInternalException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListLicenseVersions", input);
+  }
   listReceivedGrants(
     input: ListReceivedGrantsRequest,
   ): Effect.Effect<
@@ -459,7 +529,9 @@ export declare class LicenseManager extends AWSServiceClient {
     | ServerInternalException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListReceivedGrants", input);
+  }
   listReceivedGrantsForOrganization(
     input: ListReceivedGrantsForOrganizationRequest,
   ): Effect.Effect<
@@ -472,7 +544,9 @@ export declare class LicenseManager extends AWSServiceClient {
     | ServerInternalException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListReceivedGrantsForOrganization", input);
+  }
   listReceivedLicenses(
     input: ListReceivedLicensesRequest,
   ): Effect.Effect<
@@ -485,7 +559,9 @@ export declare class LicenseManager extends AWSServiceClient {
     | ServerInternalException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListReceivedLicenses", input);
+  }
   listReceivedLicensesForOrganization(
     input: ListReceivedLicensesForOrganizationRequest,
   ): Effect.Effect<
@@ -498,7 +574,9 @@ export declare class LicenseManager extends AWSServiceClient {
     | ServerInternalException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListReceivedLicensesForOrganization", input);
+  }
   listResourceInventory(
     input: ListResourceInventoryRequest,
   ): Effect.Effect<
@@ -511,7 +589,9 @@ export declare class LicenseManager extends AWSServiceClient {
     | RateLimitExceededException
     | ServerInternalException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListResourceInventory", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
@@ -522,7 +602,9 @@ export declare class LicenseManager extends AWSServiceClient {
     | RateLimitExceededException
     | ServerInternalException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   listTokens(
     input: ListTokensRequest,
   ): Effect.Effect<
@@ -533,7 +615,9 @@ export declare class LicenseManager extends AWSServiceClient {
     | ServerInternalException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTokens", input);
+  }
   listUsageForLicenseConfiguration(
     input: ListUsageForLicenseConfigurationRequest,
   ): Effect.Effect<
@@ -545,7 +629,9 @@ export declare class LicenseManager extends AWSServiceClient {
     | RateLimitExceededException
     | ServerInternalException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListUsageForLicenseConfiguration", input);
+  }
   rejectGrant(
     input: RejectGrantRequest,
   ): Effect.Effect<
@@ -558,7 +644,9 @@ export declare class LicenseManager extends AWSServiceClient {
     | ServerInternalException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("RejectGrant", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -569,7 +657,9 @@ export declare class LicenseManager extends AWSServiceClient {
     | RateLimitExceededException
     | ServerInternalException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
@@ -580,7 +670,9 @@ export declare class LicenseManager extends AWSServiceClient {
     | RateLimitExceededException
     | ServerInternalException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
   updateLicenseConfiguration(
     input: UpdateLicenseConfigurationRequest,
   ): Effect.Effect<
@@ -593,7 +685,9 @@ export declare class LicenseManager extends AWSServiceClient {
     | ResourceLimitExceededException
     | ServerInternalException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateLicenseConfiguration", input);
+  }
   updateLicenseManagerReportGenerator(
     input: UpdateLicenseManagerReportGeneratorRequest,
   ): Effect.Effect<
@@ -607,7 +701,9 @@ export declare class LicenseManager extends AWSServiceClient {
     | ServerInternalException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateLicenseManagerReportGenerator", input);
+  }
   updateLicenseSpecificationsForResource(
     input: UpdateLicenseSpecificationsForResourceRequest,
   ): Effect.Effect<
@@ -621,7 +717,9 @@ export declare class LicenseManager extends AWSServiceClient {
     | RateLimitExceededException
     | ServerInternalException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateLicenseSpecificationsForResource", input);
+  }
   updateServiceSettings(
     input: UpdateServiceSettingsRequest,
   ): Effect.Effect<
@@ -632,8 +730,12 @@ export declare class LicenseManager extends AWSServiceClient {
     | RateLimitExceededException
     | ServerInternalException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateServiceSettings", input);
+  }
 }
+
+export default LicenseManager;
 
 export interface AcceptGrantRequest {
   GrantArn: string;

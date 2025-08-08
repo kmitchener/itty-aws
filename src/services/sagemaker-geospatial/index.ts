@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class SageMakerGeospatial extends AWSServiceClient {
+export class SageMakerGeospatial extends AWSServiceClient {
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
@@ -13,7 +13,9 @@ export declare class SageMakerGeospatial extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -24,7 +26,9 @@ export declare class SageMakerGeospatial extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
@@ -35,10 +39,14 @@ export declare class SageMakerGeospatial extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
 }
 
-export declare class SagemakerGeospatial extends SageMakerGeospatial {}
+export class SagemakerGeospatial extends SageMakerGeospatial {}
+
+export default SageMakerGeospatial;
 
 export declare class AccessDeniedException extends EffectData.TaggedError(
   "AccessDeniedException",

@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class Route53RecoveryCluster extends AWSServiceClient {
+export class Route53RecoveryCluster extends AWSServiceClient {
   getRoutingControlState(
     input: GetRoutingControlStateRequest,
   ): Effect.Effect<
@@ -14,7 +14,9 @@ export declare class Route53RecoveryCluster extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetRoutingControlState", input);
+  }
   listRoutingControls(
     input: ListRoutingControlsRequest,
   ): Effect.Effect<
@@ -26,7 +28,9 @@ export declare class Route53RecoveryCluster extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListRoutingControls", input);
+  }
   updateRoutingControlState(
     input: UpdateRoutingControlStateRequest,
   ): Effect.Effect<
@@ -39,7 +43,9 @@ export declare class Route53RecoveryCluster extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateRoutingControlState", input);
+  }
   updateRoutingControlStates(
     input: UpdateRoutingControlStatesRequest,
   ): Effect.Effect<
@@ -53,8 +59,12 @@ export declare class Route53RecoveryCluster extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateRoutingControlStates", input);
+  }
 }
+
+export default Route53RecoveryCluster;
 
 export declare class AccessDeniedException extends EffectData.TaggedError(
   "AccessDeniedException",

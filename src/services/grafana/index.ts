@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class grafana extends AWSServiceClient {
+export class grafana extends AWSServiceClient {
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
@@ -13,7 +13,9 @@ export declare class grafana extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   listVersions(
     input: ListVersionsRequest,
   ): Effect.Effect<
@@ -24,7 +26,9 @@ export declare class grafana extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListVersions", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -35,7 +39,9 @@ export declare class grafana extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
@@ -46,10 +52,14 @@ export declare class grafana extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
 }
 
-export declare class Grafana extends grafana {}
+export class Grafana extends grafana {}
+
+export default grafana;
 
 export declare class AccessDeniedException extends EffectData.TaggedError(
   "AccessDeniedException",

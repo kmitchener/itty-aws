@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class EC2InstanceConnect extends AWSServiceClient {
+export class EC2InstanceConnect extends AWSServiceClient {
   sendSerialConsoleSSHPublicKey(
     input: SendSerialConsoleSSHPublicKeyRequest,
   ): Effect.Effect<
@@ -20,7 +20,9 @@ export declare class EC2InstanceConnect extends AWSServiceClient {
     | ServiceException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("SendSerialConsoleSSHPublicKey", input);
+  }
   sendSSHPublicKey(
     input: SendSSHPublicKeyRequest,
   ): Effect.Effect<
@@ -33,10 +35,14 @@ export declare class EC2InstanceConnect extends AWSServiceClient {
     | ServiceException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("SendSSHPublicKey", input);
+  }
 }
 
-export declare class Ec2InstanceConnect extends EC2InstanceConnect {}
+export class Ec2InstanceConnect extends EC2InstanceConnect {}
+
+export default EC2InstanceConnect;
 
 export declare class AuthException extends EffectData.TaggedError(
   "AuthException",

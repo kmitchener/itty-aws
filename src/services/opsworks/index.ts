@@ -2,441 +2,591 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class OpsWorks extends AWSServiceClient {
+export class OpsWorks extends AWSServiceClient {
   assignInstance(
     input: AssignInstanceRequest,
   ): Effect.Effect<
     {},
     ResourceNotFoundException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("AssignInstance", input);
+  }
   assignVolume(
     input: AssignVolumeRequest,
   ): Effect.Effect<
     {},
     ResourceNotFoundException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("AssignVolume", input);
+  }
   associateElasticIp(
     input: AssociateElasticIpRequest,
   ): Effect.Effect<
     {},
     ResourceNotFoundException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("AssociateElasticIp", input);
+  }
   attachElasticLoadBalancer(
     input: AttachElasticLoadBalancerRequest,
   ): Effect.Effect<
     {},
     ResourceNotFoundException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("AttachElasticLoadBalancer", input);
+  }
   cloneStack(
     input: CloneStackRequest,
   ): Effect.Effect<
     CloneStackResult,
     ResourceNotFoundException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("CloneStack", input);
+  }
   createApp(
     input: CreateAppRequest,
   ): Effect.Effect<
     CreateAppResult,
     ResourceNotFoundException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("CreateApp", input);
+  }
   createDeployment(
     input: CreateDeploymentRequest,
   ): Effect.Effect<
     CreateDeploymentResult,
     ResourceNotFoundException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("CreateDeployment", input);
+  }
   createInstance(
     input: CreateInstanceRequest,
   ): Effect.Effect<
     CreateInstanceResult,
     ResourceNotFoundException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("CreateInstance", input);
+  }
   createLayer(
     input: CreateLayerRequest,
   ): Effect.Effect<
     CreateLayerResult,
     ResourceNotFoundException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("CreateLayer", input);
+  }
   createStack(
     input: CreateStackRequest,
-  ): Effect.Effect<CreateStackResult, ValidationException | CommonAwsError>;
+  ): Effect.Effect<CreateStackResult, ValidationException | CommonAwsError> {
+    return this.call("CreateStack", input);
+  }
   createUserProfile(
     input: CreateUserProfileRequest,
   ): Effect.Effect<
     CreateUserProfileResult,
     ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("CreateUserProfile", input);
+  }
   deleteApp(
     input: DeleteAppRequest,
   ): Effect.Effect<
     {},
     ResourceNotFoundException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteApp", input);
+  }
   deleteInstance(
     input: DeleteInstanceRequest,
   ): Effect.Effect<
     {},
     ResourceNotFoundException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteInstance", input);
+  }
   deleteLayer(
     input: DeleteLayerRequest,
   ): Effect.Effect<
     {},
     ResourceNotFoundException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteLayer", input);
+  }
   deleteStack(
     input: DeleteStackRequest,
   ): Effect.Effect<
     {},
     ResourceNotFoundException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteStack", input);
+  }
   deleteUserProfile(
     input: DeleteUserProfileRequest,
   ): Effect.Effect<
     {},
     ResourceNotFoundException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteUserProfile", input);
+  }
   deregisterEcsCluster(
     input: DeregisterEcsClusterRequest,
   ): Effect.Effect<
     {},
     ResourceNotFoundException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("DeregisterEcsCluster", input);
+  }
   deregisterElasticIp(
     input: DeregisterElasticIpRequest,
   ): Effect.Effect<
     {},
     ResourceNotFoundException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("DeregisterElasticIp", input);
+  }
   deregisterInstance(
     input: DeregisterInstanceRequest,
   ): Effect.Effect<
     {},
     ResourceNotFoundException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("DeregisterInstance", input);
+  }
   deregisterRdsDbInstance(
     input: DeregisterRdsDbInstanceRequest,
   ): Effect.Effect<
     {},
     ResourceNotFoundException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("DeregisterRdsDbInstance", input);
+  }
   deregisterVolume(
     input: DeregisterVolumeRequest,
   ): Effect.Effect<
     {},
     ResourceNotFoundException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("DeregisterVolume", input);
+  }
   describeAgentVersions(
     input: DescribeAgentVersionsRequest,
   ): Effect.Effect<
     DescribeAgentVersionsResult,
     ResourceNotFoundException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeAgentVersions", input);
+  }
   describeApps(
     input: DescribeAppsRequest,
   ): Effect.Effect<
     DescribeAppsResult,
     ResourceNotFoundException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeApps", input);
+  }
   describeCommands(
     input: DescribeCommandsRequest,
   ): Effect.Effect<
     DescribeCommandsResult,
     ResourceNotFoundException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeCommands", input);
+  }
   describeDeployments(
     input: DescribeDeploymentsRequest,
   ): Effect.Effect<
     DescribeDeploymentsResult,
     ResourceNotFoundException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeDeployments", input);
+  }
   describeEcsClusters(
     input: DescribeEcsClustersRequest,
   ): Effect.Effect<
     DescribeEcsClustersResult,
     ResourceNotFoundException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeEcsClusters", input);
+  }
   describeElasticIps(
     input: DescribeElasticIpsRequest,
   ): Effect.Effect<
     DescribeElasticIpsResult,
     ResourceNotFoundException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeElasticIps", input);
+  }
   describeElasticLoadBalancers(
     input: DescribeElasticLoadBalancersRequest,
   ): Effect.Effect<
     DescribeElasticLoadBalancersResult,
     ResourceNotFoundException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeElasticLoadBalancers", input);
+  }
   describeInstances(
     input: DescribeInstancesRequest,
   ): Effect.Effect<
     DescribeInstancesResult,
     ResourceNotFoundException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeInstances", input);
+  }
   describeLayers(
     input: DescribeLayersRequest,
   ): Effect.Effect<
     DescribeLayersResult,
     ResourceNotFoundException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeLayers", input);
+  }
   describeLoadBasedAutoScaling(
     input: DescribeLoadBasedAutoScalingRequest,
   ): Effect.Effect<
     DescribeLoadBasedAutoScalingResult,
     ResourceNotFoundException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeLoadBasedAutoScaling", input);
+  }
   describeMyUserProfile(input: {}): Effect.Effect<
     DescribeMyUserProfileResult,
     CommonAwsError
-  >;
+  > {
+    return this.call("DescribeMyUserProfile", input);
+  }
   describeOperatingSystems(input: {}): Effect.Effect<
     DescribeOperatingSystemsResponse,
     CommonAwsError
-  >;
+  > {
+    return this.call("DescribeOperatingSystems", input);
+  }
   describePermissions(
     input: DescribePermissionsRequest,
   ): Effect.Effect<
     DescribePermissionsResult,
     ResourceNotFoundException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribePermissions", input);
+  }
   describeRaidArrays(
     input: DescribeRaidArraysRequest,
   ): Effect.Effect<
     DescribeRaidArraysResult,
     ResourceNotFoundException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeRaidArrays", input);
+  }
   describeRdsDbInstances(
     input: DescribeRdsDbInstancesRequest,
   ): Effect.Effect<
     DescribeRdsDbInstancesResult,
     ResourceNotFoundException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeRdsDbInstances", input);
+  }
   describeServiceErrors(
     input: DescribeServiceErrorsRequest,
   ): Effect.Effect<
     DescribeServiceErrorsResult,
     ResourceNotFoundException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeServiceErrors", input);
+  }
   describeStackProvisioningParameters(
     input: DescribeStackProvisioningParametersRequest,
   ): Effect.Effect<
     DescribeStackProvisioningParametersResult,
     ResourceNotFoundException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeStackProvisioningParameters", input);
+  }
   describeStacks(
     input: DescribeStacksRequest,
   ): Effect.Effect<
     DescribeStacksResult,
     ResourceNotFoundException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeStacks", input);
+  }
   describeStackSummary(
     input: DescribeStackSummaryRequest,
   ): Effect.Effect<
     DescribeStackSummaryResult,
     ResourceNotFoundException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeStackSummary", input);
+  }
   describeTimeBasedAutoScaling(
     input: DescribeTimeBasedAutoScalingRequest,
   ): Effect.Effect<
     DescribeTimeBasedAutoScalingResult,
     ResourceNotFoundException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeTimeBasedAutoScaling", input);
+  }
   describeUserProfiles(
     input: DescribeUserProfilesRequest,
   ): Effect.Effect<
     DescribeUserProfilesResult,
     ResourceNotFoundException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeUserProfiles", input);
+  }
   describeVolumes(
     input: DescribeVolumesRequest,
   ): Effect.Effect<
     DescribeVolumesResult,
     ResourceNotFoundException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeVolumes", input);
+  }
   detachElasticLoadBalancer(
     input: DetachElasticLoadBalancerRequest,
-  ): Effect.Effect<{}, ResourceNotFoundException | CommonAwsError>;
+  ): Effect.Effect<{}, ResourceNotFoundException | CommonAwsError> {
+    return this.call("DetachElasticLoadBalancer", input);
+  }
   disassociateElasticIp(
     input: DisassociateElasticIpRequest,
   ): Effect.Effect<
     {},
     ResourceNotFoundException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("DisassociateElasticIp", input);
+  }
   getHostnameSuggestion(
     input: GetHostnameSuggestionRequest,
   ): Effect.Effect<
     GetHostnameSuggestionResult,
     ResourceNotFoundException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("GetHostnameSuggestion", input);
+  }
   grantAccess(
     input: GrantAccessRequest,
   ): Effect.Effect<
     GrantAccessResult,
     ResourceNotFoundException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("GrantAccess", input);
+  }
   listTags(
     input: ListTagsRequest,
   ): Effect.Effect<
     ListTagsResult,
     ResourceNotFoundException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("ListTags", input);
+  }
   rebootInstance(
     input: RebootInstanceRequest,
   ): Effect.Effect<
     {},
     ResourceNotFoundException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("RebootInstance", input);
+  }
   registerEcsCluster(
     input: RegisterEcsClusterRequest,
   ): Effect.Effect<
     RegisterEcsClusterResult,
     ResourceNotFoundException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("RegisterEcsCluster", input);
+  }
   registerElasticIp(
     input: RegisterElasticIpRequest,
   ): Effect.Effect<
     RegisterElasticIpResult,
     ResourceNotFoundException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("RegisterElasticIp", input);
+  }
   registerInstance(
     input: RegisterInstanceRequest,
   ): Effect.Effect<
     RegisterInstanceResult,
     ResourceNotFoundException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("RegisterInstance", input);
+  }
   registerRdsDbInstance(
     input: RegisterRdsDbInstanceRequest,
   ): Effect.Effect<
     {},
     ResourceNotFoundException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("RegisterRdsDbInstance", input);
+  }
   registerVolume(
     input: RegisterVolumeRequest,
   ): Effect.Effect<
     RegisterVolumeResult,
     ResourceNotFoundException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("RegisterVolume", input);
+  }
   setLoadBasedAutoScaling(
     input: SetLoadBasedAutoScalingRequest,
   ): Effect.Effect<
     {},
     ResourceNotFoundException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("SetLoadBasedAutoScaling", input);
+  }
   setPermission(
     input: SetPermissionRequest,
   ): Effect.Effect<
     {},
     ResourceNotFoundException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("SetPermission", input);
+  }
   setTimeBasedAutoScaling(
     input: SetTimeBasedAutoScalingRequest,
   ): Effect.Effect<
     {},
     ResourceNotFoundException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("SetTimeBasedAutoScaling", input);
+  }
   startInstance(
     input: StartInstanceRequest,
   ): Effect.Effect<
     {},
     ResourceNotFoundException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("StartInstance", input);
+  }
   startStack(
     input: StartStackRequest,
   ): Effect.Effect<
     {},
     ResourceNotFoundException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("StartStack", input);
+  }
   stopInstance(
     input: StopInstanceRequest,
   ): Effect.Effect<
     {},
     ResourceNotFoundException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("StopInstance", input);
+  }
   stopStack(
     input: StopStackRequest,
   ): Effect.Effect<
     {},
     ResourceNotFoundException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("StopStack", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
     {},
     ResourceNotFoundException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   unassignInstance(
     input: UnassignInstanceRequest,
   ): Effect.Effect<
     {},
     ResourceNotFoundException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("UnassignInstance", input);
+  }
   unassignVolume(
     input: UnassignVolumeRequest,
   ): Effect.Effect<
     {},
     ResourceNotFoundException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("UnassignVolume", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
     {},
     ResourceNotFoundException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
   updateApp(
     input: UpdateAppRequest,
   ): Effect.Effect<
     {},
     ResourceNotFoundException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateApp", input);
+  }
   updateElasticIp(
     input: UpdateElasticIpRequest,
   ): Effect.Effect<
     {},
     ResourceNotFoundException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateElasticIp", input);
+  }
   updateInstance(
     input: UpdateInstanceRequest,
   ): Effect.Effect<
     {},
     ResourceNotFoundException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateInstance", input);
+  }
   updateLayer(
     input: UpdateLayerRequest,
   ): Effect.Effect<
     {},
     ResourceNotFoundException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateLayer", input);
+  }
   updateMyUserProfile(
     input: UpdateMyUserProfileRequest,
-  ): Effect.Effect<{}, ValidationException | CommonAwsError>;
+  ): Effect.Effect<{}, ValidationException | CommonAwsError> {
+    return this.call("UpdateMyUserProfile", input);
+  }
   updateRdsDbInstance(
     input: UpdateRdsDbInstanceRequest,
   ): Effect.Effect<
     {},
     ResourceNotFoundException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateRdsDbInstance", input);
+  }
   updateStack(
     input: UpdateStackRequest,
   ): Effect.Effect<
     {},
     ResourceNotFoundException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateStack", input);
+  }
   updateUserProfile(
     input: UpdateUserProfileRequest,
   ): Effect.Effect<
     {},
     ResourceNotFoundException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateUserProfile", input);
+  }
   updateVolume(
     input: UpdateVolumeRequest,
   ): Effect.Effect<
     {},
     ResourceNotFoundException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateVolume", input);
+  }
 }
 
-export declare class Opsworks extends OpsWorks {}
+export class Opsworks extends OpsWorks {}
+
+export default OpsWorks;
 
 export interface AgentVersion {
   Version?: string;

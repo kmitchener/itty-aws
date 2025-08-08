@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class ChimeSDKMediaPipelines extends AWSServiceClient {
+export class ChimeSDKMediaPipelines extends AWSServiceClient {
   createMediaCapturePipeline(
     input: CreateMediaCapturePipelineRequest,
   ): Effect.Effect<
@@ -15,7 +15,9 @@ export declare class ChimeSDKMediaPipelines extends AWSServiceClient {
     | ThrottledClientException
     | UnauthorizedClientException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateMediaCapturePipeline", input);
+  }
   createMediaConcatenationPipeline(
     input: CreateMediaConcatenationPipelineRequest,
   ): Effect.Effect<
@@ -28,7 +30,9 @@ export declare class ChimeSDKMediaPipelines extends AWSServiceClient {
     | ThrottledClientException
     | UnauthorizedClientException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateMediaConcatenationPipeline", input);
+  }
   createMediaInsightsPipeline(
     input: CreateMediaInsightsPipelineRequest,
   ): Effect.Effect<
@@ -42,7 +46,9 @@ export declare class ChimeSDKMediaPipelines extends AWSServiceClient {
     | ThrottledClientException
     | UnauthorizedClientException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateMediaInsightsPipeline", input);
+  }
   createMediaInsightsPipelineConfiguration(
     input: CreateMediaInsightsPipelineConfigurationRequest,
   ): Effect.Effect<
@@ -56,7 +62,9 @@ export declare class ChimeSDKMediaPipelines extends AWSServiceClient {
     | ThrottledClientException
     | UnauthorizedClientException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateMediaInsightsPipelineConfiguration", input);
+  }
   createMediaLiveConnectorPipeline(
     input: CreateMediaLiveConnectorPipelineRequest,
   ): Effect.Effect<
@@ -69,7 +77,9 @@ export declare class ChimeSDKMediaPipelines extends AWSServiceClient {
     | ThrottledClientException
     | UnauthorizedClientException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateMediaLiveConnectorPipeline", input);
+  }
   createMediaPipelineKinesisVideoStreamPool(
     input: CreateMediaPipelineKinesisVideoStreamPoolRequest,
   ): Effect.Effect<
@@ -83,7 +93,9 @@ export declare class ChimeSDKMediaPipelines extends AWSServiceClient {
     | ThrottledClientException
     | UnauthorizedClientException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateMediaPipelineKinesisVideoStreamPool", input);
+  }
   createMediaStreamPipeline(
     input: CreateMediaStreamPipelineRequest,
   ): Effect.Effect<
@@ -97,7 +109,9 @@ export declare class ChimeSDKMediaPipelines extends AWSServiceClient {
     | ThrottledClientException
     | UnauthorizedClientException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateMediaStreamPipeline", input);
+  }
   deleteMediaCapturePipeline(
     input: DeleteMediaCapturePipelineRequest,
   ): Effect.Effect<
@@ -110,7 +124,9 @@ export declare class ChimeSDKMediaPipelines extends AWSServiceClient {
     | ThrottledClientException
     | UnauthorizedClientException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteMediaCapturePipeline", input);
+  }
   deleteMediaInsightsPipelineConfiguration(
     input: DeleteMediaInsightsPipelineConfigurationRequest,
   ): Effect.Effect<
@@ -124,7 +140,9 @@ export declare class ChimeSDKMediaPipelines extends AWSServiceClient {
     | ThrottledClientException
     | UnauthorizedClientException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteMediaInsightsPipelineConfiguration", input);
+  }
   deleteMediaPipeline(
     input: DeleteMediaPipelineRequest,
   ): Effect.Effect<
@@ -138,7 +156,9 @@ export declare class ChimeSDKMediaPipelines extends AWSServiceClient {
     | ThrottledClientException
     | UnauthorizedClientException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteMediaPipeline", input);
+  }
   deleteMediaPipelineKinesisVideoStreamPool(
     input: DeleteMediaPipelineKinesisVideoStreamPoolRequest,
   ): Effect.Effect<
@@ -152,7 +172,9 @@ export declare class ChimeSDKMediaPipelines extends AWSServiceClient {
     | ThrottledClientException
     | UnauthorizedClientException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteMediaPipelineKinesisVideoStreamPool", input);
+  }
   getMediaCapturePipeline(
     input: GetMediaCapturePipelineRequest,
   ): Effect.Effect<
@@ -165,7 +187,9 @@ export declare class ChimeSDKMediaPipelines extends AWSServiceClient {
     | ThrottledClientException
     | UnauthorizedClientException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetMediaCapturePipeline", input);
+  }
   getMediaInsightsPipelineConfiguration(
     input: GetMediaInsightsPipelineConfigurationRequest,
   ): Effect.Effect<
@@ -178,7 +202,9 @@ export declare class ChimeSDKMediaPipelines extends AWSServiceClient {
     | ThrottledClientException
     | UnauthorizedClientException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetMediaInsightsPipelineConfiguration", input);
+  }
   getMediaPipeline(
     input: GetMediaPipelineRequest,
   ): Effect.Effect<
@@ -191,7 +217,9 @@ export declare class ChimeSDKMediaPipelines extends AWSServiceClient {
     | ThrottledClientException
     | UnauthorizedClientException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetMediaPipeline", input);
+  }
   getMediaPipelineKinesisVideoStreamPool(
     input: GetMediaPipelineKinesisVideoStreamPoolRequest,
   ): Effect.Effect<
@@ -204,7 +232,9 @@ export declare class ChimeSDKMediaPipelines extends AWSServiceClient {
     | ThrottledClientException
     | UnauthorizedClientException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetMediaPipelineKinesisVideoStreamPool", input);
+  }
   getSpeakerSearchTask(
     input: GetSpeakerSearchTaskRequest,
   ): Effect.Effect<
@@ -217,7 +247,9 @@ export declare class ChimeSDKMediaPipelines extends AWSServiceClient {
     | ThrottledClientException
     | UnauthorizedClientException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetSpeakerSearchTask", input);
+  }
   getVoiceToneAnalysisTask(
     input: GetVoiceToneAnalysisTaskRequest,
   ): Effect.Effect<
@@ -230,7 +262,9 @@ export declare class ChimeSDKMediaPipelines extends AWSServiceClient {
     | ThrottledClientException
     | UnauthorizedClientException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetVoiceToneAnalysisTask", input);
+  }
   listMediaCapturePipelines(
     input: ListMediaCapturePipelinesRequest,
   ): Effect.Effect<
@@ -243,7 +277,9 @@ export declare class ChimeSDKMediaPipelines extends AWSServiceClient {
     | ThrottledClientException
     | UnauthorizedClientException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListMediaCapturePipelines", input);
+  }
   listMediaInsightsPipelineConfigurations(
     input: ListMediaInsightsPipelineConfigurationsRequest,
   ): Effect.Effect<
@@ -256,7 +292,9 @@ export declare class ChimeSDKMediaPipelines extends AWSServiceClient {
     | ThrottledClientException
     | UnauthorizedClientException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListMediaInsightsPipelineConfigurations", input);
+  }
   listMediaPipelineKinesisVideoStreamPools(
     input: ListMediaPipelineKinesisVideoStreamPoolsRequest,
   ): Effect.Effect<
@@ -269,7 +307,9 @@ export declare class ChimeSDKMediaPipelines extends AWSServiceClient {
     | ThrottledClientException
     | UnauthorizedClientException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListMediaPipelineKinesisVideoStreamPools", input);
+  }
   listMediaPipelines(
     input: ListMediaPipelinesRequest,
   ): Effect.Effect<
@@ -282,7 +322,9 @@ export declare class ChimeSDKMediaPipelines extends AWSServiceClient {
     | ThrottledClientException
     | UnauthorizedClientException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListMediaPipelines", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
@@ -295,7 +337,9 @@ export declare class ChimeSDKMediaPipelines extends AWSServiceClient {
     | ThrottledClientException
     | UnauthorizedClientException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   startSpeakerSearchTask(
     input: StartSpeakerSearchTaskRequest,
   ): Effect.Effect<
@@ -309,7 +353,9 @@ export declare class ChimeSDKMediaPipelines extends AWSServiceClient {
     | ThrottledClientException
     | UnauthorizedClientException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartSpeakerSearchTask", input);
+  }
   startVoiceToneAnalysisTask(
     input: StartVoiceToneAnalysisTaskRequest,
   ): Effect.Effect<
@@ -323,7 +369,9 @@ export declare class ChimeSDKMediaPipelines extends AWSServiceClient {
     | ThrottledClientException
     | UnauthorizedClientException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartVoiceToneAnalysisTask", input);
+  }
   stopSpeakerSearchTask(
     input: StopSpeakerSearchTaskRequest,
   ): Effect.Effect<
@@ -337,7 +385,9 @@ export declare class ChimeSDKMediaPipelines extends AWSServiceClient {
     | ThrottledClientException
     | UnauthorizedClientException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StopSpeakerSearchTask", input);
+  }
   stopVoiceToneAnalysisTask(
     input: StopVoiceToneAnalysisTaskRequest,
   ): Effect.Effect<
@@ -351,7 +401,9 @@ export declare class ChimeSDKMediaPipelines extends AWSServiceClient {
     | ThrottledClientException
     | UnauthorizedClientException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StopVoiceToneAnalysisTask", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -364,7 +416,9 @@ export declare class ChimeSDKMediaPipelines extends AWSServiceClient {
     | ThrottledClientException
     | UnauthorizedClientException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
@@ -377,7 +431,9 @@ export declare class ChimeSDKMediaPipelines extends AWSServiceClient {
     | ThrottledClientException
     | UnauthorizedClientException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
   updateMediaInsightsPipelineConfiguration(
     input: UpdateMediaInsightsPipelineConfigurationRequest,
   ): Effect.Effect<
@@ -391,7 +447,9 @@ export declare class ChimeSDKMediaPipelines extends AWSServiceClient {
     | ThrottledClientException
     | UnauthorizedClientException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateMediaInsightsPipelineConfiguration", input);
+  }
   updateMediaInsightsPipelineStatus(
     input: UpdateMediaInsightsPipelineStatusRequest,
   ): Effect.Effect<
@@ -405,7 +463,9 @@ export declare class ChimeSDKMediaPipelines extends AWSServiceClient {
     | ThrottledClientException
     | UnauthorizedClientException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateMediaInsightsPipelineStatus", input);
+  }
   updateMediaPipelineKinesisVideoStreamPool(
     input: UpdateMediaPipelineKinesisVideoStreamPoolRequest,
   ): Effect.Effect<
@@ -419,10 +479,14 @@ export declare class ChimeSDKMediaPipelines extends AWSServiceClient {
     | ThrottledClientException
     | UnauthorizedClientException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateMediaPipelineKinesisVideoStreamPool", input);
+  }
 }
 
-export declare class ChimeSdkMediaPipelines extends ChimeSDKMediaPipelines {}
+export class ChimeSdkMediaPipelines extends ChimeSDKMediaPipelines {}
+
+export default ChimeSDKMediaPipelines;
 
 export interface ActiveSpeakerOnlyConfiguration {
   ActiveSpeakerPosition?: ActiveSpeakerPosition;

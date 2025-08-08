@@ -2,19 +2,23 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class AmplifyUIBuilder extends AWSServiceClient {
+export class AmplifyUIBuilder extends AWSServiceClient {
   exchangeCodeForToken(
     input: ExchangeCodeForTokenRequest,
   ): Effect.Effect<
     ExchangeCodeForTokenResponse,
     InvalidParameterException | CommonAwsError
-  >;
+  > {
+    return this.call("ExchangeCodeForToken", input);
+  }
   getMetadata(
     input: GetMetadataRequest,
   ): Effect.Effect<
     GetMetadataResponse,
     InvalidParameterException | UnauthorizedException | CommonAwsError
-  >;
+  > {
+    return this.call("GetMetadata", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
@@ -25,19 +29,25 @@ export declare class AmplifyUIBuilder extends AWSServiceClient {
     | ThrottlingException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   putMetadataFlag(
     input: PutMetadataFlagRequest,
   ): Effect.Effect<
     {},
     InvalidParameterException | UnauthorizedException | CommonAwsError
-  >;
+  > {
+    return this.call("PutMetadataFlag", input);
+  }
   refreshToken(
     input: RefreshTokenRequest,
   ): Effect.Effect<
     RefreshTokenResponse,
     InvalidParameterException | CommonAwsError
-  >;
+  > {
+    return this.call("RefreshToken", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -48,7 +58,9 @@ export declare class AmplifyUIBuilder extends AWSServiceClient {
     | ThrottlingException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
@@ -59,10 +71,14 @@ export declare class AmplifyUIBuilder extends AWSServiceClient {
     | ThrottlingException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
 }
 
-export declare class Amplifyuibuilder extends AmplifyUIBuilder {}
+export class Amplifyuibuilder extends AmplifyUIBuilder {}
+
+export default AmplifyUIBuilder;
 
 export interface ActionParameters {
   type?: ComponentProperty;

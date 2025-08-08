@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class AppRunner extends AWSServiceClient {
+export class AppRunner extends AWSServiceClient {
   associateCustomDomain(
     input: AssociateCustomDomainRequest,
   ): Effect.Effect<
@@ -11,7 +11,9 @@ export declare class AppRunner extends AWSServiceClient {
     | InvalidRequestException
     | InvalidStateException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AssociateCustomDomain", input);
+  }
   createAutoScalingConfiguration(
     input: CreateAutoScalingConfigurationRequest,
   ): Effect.Effect<
@@ -20,7 +22,9 @@ export declare class AppRunner extends AWSServiceClient {
     | InvalidRequestException
     | ServiceQuotaExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateAutoScalingConfiguration", input);
+  }
   createConnection(
     input: CreateConnectionRequest,
   ): Effect.Effect<
@@ -29,7 +33,9 @@ export declare class AppRunner extends AWSServiceClient {
     | InvalidRequestException
     | ServiceQuotaExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateConnection", input);
+  }
   createObservabilityConfiguration(
     input: CreateObservabilityConfigurationRequest,
   ): Effect.Effect<
@@ -38,7 +44,9 @@ export declare class AppRunner extends AWSServiceClient {
     | InvalidRequestException
     | ServiceQuotaExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateObservabilityConfiguration", input);
+  }
   createService(
     input: CreateServiceRequest,
   ): Effect.Effect<
@@ -47,7 +55,9 @@ export declare class AppRunner extends AWSServiceClient {
     | InvalidRequestException
     | ServiceQuotaExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateService", input);
+  }
   createVpcConnector(
     input: CreateVpcConnectorRequest,
   ): Effect.Effect<
@@ -56,7 +66,9 @@ export declare class AppRunner extends AWSServiceClient {
     | InvalidRequestException
     | ServiceQuotaExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateVpcConnector", input);
+  }
   createVpcIngressConnection(
     input: CreateVpcIngressConnectionRequest,
   ): Effect.Effect<
@@ -66,7 +78,9 @@ export declare class AppRunner extends AWSServiceClient {
     | InvalidStateException
     | ServiceQuotaExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateVpcIngressConnection", input);
+  }
   deleteAutoScalingConfiguration(
     input: DeleteAutoScalingConfigurationRequest,
   ): Effect.Effect<
@@ -75,7 +89,9 @@ export declare class AppRunner extends AWSServiceClient {
     | InvalidRequestException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteAutoScalingConfiguration", input);
+  }
   deleteConnection(
     input: DeleteConnectionRequest,
   ): Effect.Effect<
@@ -84,7 +100,9 @@ export declare class AppRunner extends AWSServiceClient {
     | InvalidRequestException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteConnection", input);
+  }
   deleteObservabilityConfiguration(
     input: DeleteObservabilityConfigurationRequest,
   ): Effect.Effect<
@@ -93,7 +111,9 @@ export declare class AppRunner extends AWSServiceClient {
     | InvalidRequestException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteObservabilityConfiguration", input);
+  }
   deleteService(
     input: DeleteServiceRequest,
   ): Effect.Effect<
@@ -103,7 +123,9 @@ export declare class AppRunner extends AWSServiceClient {
     | InvalidStateException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteService", input);
+  }
   deleteVpcConnector(
     input: DeleteVpcConnectorRequest,
   ): Effect.Effect<
@@ -112,7 +134,9 @@ export declare class AppRunner extends AWSServiceClient {
     | InvalidRequestException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteVpcConnector", input);
+  }
   deleteVpcIngressConnection(
     input: DeleteVpcIngressConnectionRequest,
   ): Effect.Effect<
@@ -122,7 +146,9 @@ export declare class AppRunner extends AWSServiceClient {
     | InvalidStateException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteVpcIngressConnection", input);
+  }
   describeAutoScalingConfiguration(
     input: DescribeAutoScalingConfigurationRequest,
   ): Effect.Effect<
@@ -131,7 +157,9 @@ export declare class AppRunner extends AWSServiceClient {
     | InvalidRequestException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeAutoScalingConfiguration", input);
+  }
   describeCustomDomains(
     input: DescribeCustomDomainsRequest,
   ): Effect.Effect<
@@ -140,7 +168,9 @@ export declare class AppRunner extends AWSServiceClient {
     | InvalidRequestException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeCustomDomains", input);
+  }
   describeObservabilityConfiguration(
     input: DescribeObservabilityConfigurationRequest,
   ): Effect.Effect<
@@ -149,7 +179,9 @@ export declare class AppRunner extends AWSServiceClient {
     | InvalidRequestException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeObservabilityConfiguration", input);
+  }
   describeService(
     input: DescribeServiceRequest,
   ): Effect.Effect<
@@ -158,7 +190,9 @@ export declare class AppRunner extends AWSServiceClient {
     | InvalidRequestException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeService", input);
+  }
   describeVpcConnector(
     input: DescribeVpcConnectorRequest,
   ): Effect.Effect<
@@ -167,7 +201,9 @@ export declare class AppRunner extends AWSServiceClient {
     | InvalidRequestException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeVpcConnector", input);
+  }
   describeVpcIngressConnection(
     input: DescribeVpcIngressConnectionRequest,
   ): Effect.Effect<
@@ -176,7 +212,9 @@ export declare class AppRunner extends AWSServiceClient {
     | InvalidRequestException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeVpcIngressConnection", input);
+  }
   disassociateCustomDomain(
     input: DisassociateCustomDomainRequest,
   ): Effect.Effect<
@@ -186,25 +224,33 @@ export declare class AppRunner extends AWSServiceClient {
     | InvalidStateException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DisassociateCustomDomain", input);
+  }
   listAutoScalingConfigurations(
     input: ListAutoScalingConfigurationsRequest,
   ): Effect.Effect<
     ListAutoScalingConfigurationsResponse,
     InternalServiceErrorException | InvalidRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("ListAutoScalingConfigurations", input);
+  }
   listConnections(
     input: ListConnectionsRequest,
   ): Effect.Effect<
     ListConnectionsResponse,
     InternalServiceErrorException | InvalidRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("ListConnections", input);
+  }
   listObservabilityConfigurations(
     input: ListObservabilityConfigurationsRequest,
   ): Effect.Effect<
     ListObservabilityConfigurationsResponse,
     InternalServiceErrorException | InvalidRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("ListObservabilityConfigurations", input);
+  }
   listOperations(
     input: ListOperationsRequest,
   ): Effect.Effect<
@@ -213,13 +259,17 @@ export declare class AppRunner extends AWSServiceClient {
     | InvalidRequestException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListOperations", input);
+  }
   listServices(
     input: ListServicesRequest,
   ): Effect.Effect<
     ListServicesResponse,
     InternalServiceErrorException | InvalidRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("ListServices", input);
+  }
   listServicesForAutoScalingConfiguration(
     input: ListServicesForAutoScalingConfigurationRequest,
   ): Effect.Effect<
@@ -228,7 +278,9 @@ export declare class AppRunner extends AWSServiceClient {
     | InvalidRequestException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListServicesForAutoScalingConfiguration", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
@@ -238,19 +290,25 @@ export declare class AppRunner extends AWSServiceClient {
     | InvalidStateException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   listVpcConnectors(
     input: ListVpcConnectorsRequest,
   ): Effect.Effect<
     ListVpcConnectorsResponse,
     InternalServiceErrorException | InvalidRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("ListVpcConnectors", input);
+  }
   listVpcIngressConnections(
     input: ListVpcIngressConnectionsRequest,
   ): Effect.Effect<
     ListVpcIngressConnectionsResponse,
     InternalServiceErrorException | InvalidRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("ListVpcIngressConnections", input);
+  }
   pauseService(
     input: PauseServiceRequest,
   ): Effect.Effect<
@@ -260,7 +318,9 @@ export declare class AppRunner extends AWSServiceClient {
     | InvalidStateException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PauseService", input);
+  }
   resumeService(
     input: ResumeServiceRequest,
   ): Effect.Effect<
@@ -270,7 +330,9 @@ export declare class AppRunner extends AWSServiceClient {
     | InvalidStateException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ResumeService", input);
+  }
   startDeployment(
     input: StartDeploymentRequest,
   ): Effect.Effect<
@@ -279,7 +341,9 @@ export declare class AppRunner extends AWSServiceClient {
     | InvalidRequestException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartDeployment", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -289,7 +353,9 @@ export declare class AppRunner extends AWSServiceClient {
     | InvalidStateException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
@@ -299,7 +365,9 @@ export declare class AppRunner extends AWSServiceClient {
     | InvalidStateException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
   updateDefaultAutoScalingConfiguration(
     input: UpdateDefaultAutoScalingConfigurationRequest,
   ): Effect.Effect<
@@ -308,7 +376,9 @@ export declare class AppRunner extends AWSServiceClient {
     | InvalidRequestException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateDefaultAutoScalingConfiguration", input);
+  }
   updateService(
     input: UpdateServiceRequest,
   ): Effect.Effect<
@@ -318,7 +388,9 @@ export declare class AppRunner extends AWSServiceClient {
     | InvalidStateException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateService", input);
+  }
   updateVpcIngressConnection(
     input: UpdateVpcIngressConnectionRequest,
   ): Effect.Effect<
@@ -328,10 +400,14 @@ export declare class AppRunner extends AWSServiceClient {
     | InvalidStateException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateVpcIngressConnection", input);
+  }
 }
 
-export declare class Apprunner extends AppRunner {}
+export class Apprunner extends AppRunner {}
+
+export default AppRunner;
 
 export type AppRunnerResourceArn = string;
 

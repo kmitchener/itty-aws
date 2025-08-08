@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class CodeGuruReviewer extends AWSServiceClient {
+export class CodeGuruReviewer extends AWSServiceClient {
   associateRepository(
     input: AssociateRepositoryRequest,
   ): Effect.Effect<
@@ -13,7 +13,9 @@ export declare class CodeGuruReviewer extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AssociateRepository", input);
+  }
   createCodeReview(
     input: CreateCodeReviewRequest,
   ): Effect.Effect<
@@ -25,7 +27,9 @@ export declare class CodeGuruReviewer extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateCodeReview", input);
+  }
   describeCodeReview(
     input: DescribeCodeReviewRequest,
   ): Effect.Effect<
@@ -36,7 +40,9 @@ export declare class CodeGuruReviewer extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeCodeReview", input);
+  }
   describeRecommendationFeedback(
     input: DescribeRecommendationFeedbackRequest,
   ): Effect.Effect<
@@ -47,7 +53,9 @@ export declare class CodeGuruReviewer extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeRecommendationFeedback", input);
+  }
   describeRepositoryAssociation(
     input: DescribeRepositoryAssociationRequest,
   ): Effect.Effect<
@@ -58,7 +66,9 @@ export declare class CodeGuruReviewer extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeRepositoryAssociation", input);
+  }
   disassociateRepository(
     input: DisassociateRepositoryRequest,
   ): Effect.Effect<
@@ -70,7 +80,9 @@ export declare class CodeGuruReviewer extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DisassociateRepository", input);
+  }
   listCodeReviews(
     input: ListCodeReviewsRequest,
   ): Effect.Effect<
@@ -80,7 +92,9 @@ export declare class CodeGuruReviewer extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListCodeReviews", input);
+  }
   listRecommendationFeedback(
     input: ListRecommendationFeedbackRequest,
   ): Effect.Effect<
@@ -91,7 +105,9 @@ export declare class CodeGuruReviewer extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListRecommendationFeedback", input);
+  }
   listRecommendations(
     input: ListRecommendationsRequest,
   ): Effect.Effect<
@@ -102,7 +118,9 @@ export declare class CodeGuruReviewer extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListRecommendations", input);
+  }
   listRepositoryAssociations(
     input: ListRepositoryAssociationsRequest,
   ): Effect.Effect<
@@ -111,7 +129,9 @@ export declare class CodeGuruReviewer extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListRepositoryAssociations", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
@@ -120,7 +140,9 @@ export declare class CodeGuruReviewer extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   putRecommendationFeedback(
     input: PutRecommendationFeedbackRequest,
   ): Effect.Effect<
@@ -131,7 +153,9 @@ export declare class CodeGuruReviewer extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutRecommendationFeedback", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -140,7 +164,9 @@ export declare class CodeGuruReviewer extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
@@ -149,10 +175,14 @@ export declare class CodeGuruReviewer extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
 }
 
-export declare class CodeguruReviewer extends CodeGuruReviewer {}
+export class CodeguruReviewer extends CodeGuruReviewer {}
+
+export default CodeGuruReviewer;
 
 export declare class AccessDeniedException extends EffectData.TaggedError(
   "AccessDeniedException",

@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class NetworkFirewall extends AWSServiceClient {
+export class NetworkFirewall extends AWSServiceClient {
   acceptNetworkFirewallTransitGatewayAttachment(
     input: AcceptNetworkFirewallTransitGatewayAttachmentRequest,
   ): Effect.Effect<
@@ -12,7 +12,9 @@ export declare class NetworkFirewall extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AcceptNetworkFirewallTransitGatewayAttachment", input);
+  }
   associateAvailabilityZones(
     input: AssociateAvailabilityZonesRequest,
   ): Effect.Effect<
@@ -25,7 +27,9 @@ export declare class NetworkFirewall extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AssociateAvailabilityZones", input);
+  }
   associateFirewallPolicy(
     input: AssociateFirewallPolicyRequest,
   ): Effect.Effect<
@@ -37,7 +41,9 @@ export declare class NetworkFirewall extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AssociateFirewallPolicy", input);
+  }
   associateSubnets(
     input: AssociateSubnetsRequest,
   ): Effect.Effect<
@@ -50,7 +56,9 @@ export declare class NetworkFirewall extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AssociateSubnets", input);
+  }
   createFirewall(
     input: CreateFirewallRequest,
   ): Effect.Effect<
@@ -62,7 +70,9 @@ export declare class NetworkFirewall extends AWSServiceClient {
     | LimitExceededException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateFirewall", input);
+  }
   createFirewallPolicy(
     input: CreateFirewallPolicyRequest,
   ): Effect.Effect<
@@ -73,7 +83,9 @@ export declare class NetworkFirewall extends AWSServiceClient {
     | LimitExceededException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateFirewallPolicy", input);
+  }
   createRuleGroup(
     input: CreateRuleGroupRequest,
   ): Effect.Effect<
@@ -84,7 +96,9 @@ export declare class NetworkFirewall extends AWSServiceClient {
     | LimitExceededException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateRuleGroup", input);
+  }
   createTLSInspectionConfiguration(
     input: CreateTLSInspectionConfigurationRequest,
   ): Effect.Effect<
@@ -95,7 +109,9 @@ export declare class NetworkFirewall extends AWSServiceClient {
     | LimitExceededException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateTLSInspectionConfiguration", input);
+  }
   createVpcEndpointAssociation(
     input: CreateVpcEndpointAssociationRequest,
   ): Effect.Effect<
@@ -108,7 +124,9 @@ export declare class NetworkFirewall extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateVpcEndpointAssociation", input);
+  }
   deleteFirewall(
     input: DeleteFirewallRequest,
   ): Effect.Effect<
@@ -120,7 +138,9 @@ export declare class NetworkFirewall extends AWSServiceClient {
     | ThrottlingException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteFirewall", input);
+  }
   deleteFirewallPolicy(
     input: DeleteFirewallPolicyRequest,
   ): Effect.Effect<
@@ -132,7 +152,9 @@ export declare class NetworkFirewall extends AWSServiceClient {
     | ThrottlingException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteFirewallPolicy", input);
+  }
   deleteNetworkFirewallTransitGatewayAttachment(
     input: DeleteNetworkFirewallTransitGatewayAttachmentRequest,
   ): Effect.Effect<
@@ -142,7 +164,9 @@ export declare class NetworkFirewall extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteNetworkFirewallTransitGatewayAttachment", input);
+  }
   deleteResourcePolicy(
     input: DeleteResourcePolicyRequest,
   ): Effect.Effect<
@@ -153,7 +177,9 @@ export declare class NetworkFirewall extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteResourcePolicy", input);
+  }
   deleteRuleGroup(
     input: DeleteRuleGroupRequest,
   ): Effect.Effect<
@@ -165,7 +191,9 @@ export declare class NetworkFirewall extends AWSServiceClient {
     | ThrottlingException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteRuleGroup", input);
+  }
   deleteTLSInspectionConfiguration(
     input: DeleteTLSInspectionConfigurationRequest,
   ): Effect.Effect<
@@ -176,7 +204,9 @@ export declare class NetworkFirewall extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteTLSInspectionConfiguration", input);
+  }
   deleteVpcEndpointAssociation(
     input: DeleteVpcEndpointAssociationRequest,
   ): Effect.Effect<
@@ -187,7 +217,9 @@ export declare class NetworkFirewall extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteVpcEndpointAssociation", input);
+  }
   describeFirewall(
     input: DescribeFirewallRequest,
   ): Effect.Effect<
@@ -197,7 +229,9 @@ export declare class NetworkFirewall extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeFirewall", input);
+  }
   describeFirewallMetadata(
     input: DescribeFirewallMetadataRequest,
   ): Effect.Effect<
@@ -207,7 +241,9 @@ export declare class NetworkFirewall extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeFirewallMetadata", input);
+  }
   describeFirewallPolicy(
     input: DescribeFirewallPolicyRequest,
   ): Effect.Effect<
@@ -217,7 +253,9 @@ export declare class NetworkFirewall extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeFirewallPolicy", input);
+  }
   describeFlowOperation(
     input: DescribeFlowOperationRequest,
   ): Effect.Effect<
@@ -227,7 +265,9 @@ export declare class NetworkFirewall extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeFlowOperation", input);
+  }
   describeLoggingConfiguration(
     input: DescribeLoggingConfigurationRequest,
   ): Effect.Effect<
@@ -237,7 +277,9 @@ export declare class NetworkFirewall extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeLoggingConfiguration", input);
+  }
   describeResourcePolicy(
     input: DescribeResourcePolicyRequest,
   ): Effect.Effect<
@@ -247,7 +289,9 @@ export declare class NetworkFirewall extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeResourcePolicy", input);
+  }
   describeRuleGroup(
     input: DescribeRuleGroupRequest,
   ): Effect.Effect<
@@ -257,7 +301,9 @@ export declare class NetworkFirewall extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeRuleGroup", input);
+  }
   describeRuleGroupMetadata(
     input: DescribeRuleGroupMetadataRequest,
   ): Effect.Effect<
@@ -267,7 +313,9 @@ export declare class NetworkFirewall extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeRuleGroupMetadata", input);
+  }
   describeRuleGroupSummary(
     input: DescribeRuleGroupSummaryRequest,
   ): Effect.Effect<
@@ -277,7 +325,9 @@ export declare class NetworkFirewall extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeRuleGroupSummary", input);
+  }
   describeTLSInspectionConfiguration(
     input: DescribeTLSInspectionConfigurationRequest,
   ): Effect.Effect<
@@ -287,7 +337,9 @@ export declare class NetworkFirewall extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeTLSInspectionConfiguration", input);
+  }
   describeVpcEndpointAssociation(
     input: DescribeVpcEndpointAssociationRequest,
   ): Effect.Effect<
@@ -297,7 +349,9 @@ export declare class NetworkFirewall extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeVpcEndpointAssociation", input);
+  }
   disassociateAvailabilityZones(
     input: DisassociateAvailabilityZonesRequest,
   ): Effect.Effect<
@@ -309,7 +363,9 @@ export declare class NetworkFirewall extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DisassociateAvailabilityZones", input);
+  }
   disassociateSubnets(
     input: DisassociateSubnetsRequest,
   ): Effect.Effect<
@@ -321,7 +377,9 @@ export declare class NetworkFirewall extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DisassociateSubnets", input);
+  }
   getAnalysisReportResults(
     input: GetAnalysisReportResultsRequest,
   ): Effect.Effect<
@@ -331,7 +389,9 @@ export declare class NetworkFirewall extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetAnalysisReportResults", input);
+  }
   listAnalysisReports(
     input: ListAnalysisReportsRequest,
   ): Effect.Effect<
@@ -341,7 +401,9 @@ export declare class NetworkFirewall extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListAnalysisReports", input);
+  }
   listFirewallPolicies(
     input: ListFirewallPoliciesRequest,
   ): Effect.Effect<
@@ -350,7 +412,9 @@ export declare class NetworkFirewall extends AWSServiceClient {
     | InvalidRequestException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListFirewallPolicies", input);
+  }
   listFirewalls(
     input: ListFirewallsRequest,
   ): Effect.Effect<
@@ -359,7 +423,9 @@ export declare class NetworkFirewall extends AWSServiceClient {
     | InvalidRequestException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListFirewalls", input);
+  }
   listFlowOperationResults(
     input: ListFlowOperationResultsRequest,
   ): Effect.Effect<
@@ -369,7 +435,9 @@ export declare class NetworkFirewall extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListFlowOperationResults", input);
+  }
   listFlowOperations(
     input: ListFlowOperationsRequest,
   ): Effect.Effect<
@@ -379,7 +447,9 @@ export declare class NetworkFirewall extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListFlowOperations", input);
+  }
   listRuleGroups(
     input: ListRuleGroupsRequest,
   ): Effect.Effect<
@@ -388,7 +458,9 @@ export declare class NetworkFirewall extends AWSServiceClient {
     | InvalidRequestException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListRuleGroups", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
@@ -398,7 +470,9 @@ export declare class NetworkFirewall extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   listTLSInspectionConfigurations(
     input: ListTLSInspectionConfigurationsRequest,
   ): Effect.Effect<
@@ -407,7 +481,9 @@ export declare class NetworkFirewall extends AWSServiceClient {
     | InvalidRequestException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTLSInspectionConfigurations", input);
+  }
   listVpcEndpointAssociations(
     input: ListVpcEndpointAssociationsRequest,
   ): Effect.Effect<
@@ -416,7 +492,9 @@ export declare class NetworkFirewall extends AWSServiceClient {
     | InvalidRequestException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListVpcEndpointAssociations", input);
+  }
   putResourcePolicy(
     input: PutResourcePolicyRequest,
   ): Effect.Effect<
@@ -427,7 +505,9 @@ export declare class NetworkFirewall extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutResourcePolicy", input);
+  }
   rejectNetworkFirewallTransitGatewayAttachment(
     input: RejectNetworkFirewallTransitGatewayAttachmentRequest,
   ): Effect.Effect<
@@ -437,7 +517,9 @@ export declare class NetworkFirewall extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("RejectNetworkFirewallTransitGatewayAttachment", input);
+  }
   startAnalysisReport(
     input: StartAnalysisReportRequest,
   ): Effect.Effect<
@@ -447,7 +529,9 @@ export declare class NetworkFirewall extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartAnalysisReport", input);
+  }
   startFlowCapture(
     input: StartFlowCaptureRequest,
   ): Effect.Effect<
@@ -457,7 +541,9 @@ export declare class NetworkFirewall extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartFlowCapture", input);
+  }
   startFlowFlush(
     input: StartFlowFlushRequest,
   ): Effect.Effect<
@@ -467,7 +553,9 @@ export declare class NetworkFirewall extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartFlowFlush", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -477,7 +565,9 @@ export declare class NetworkFirewall extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
@@ -487,7 +577,9 @@ export declare class NetworkFirewall extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
   updateAvailabilityZoneChangeProtection(
     input: UpdateAvailabilityZoneChangeProtectionRequest,
   ): Effect.Effect<
@@ -499,7 +591,9 @@ export declare class NetworkFirewall extends AWSServiceClient {
     | ResourceOwnerCheckException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateAvailabilityZoneChangeProtection", input);
+  }
   updateFirewallAnalysisSettings(
     input: UpdateFirewallAnalysisSettingsRequest,
   ): Effect.Effect<
@@ -509,7 +603,9 @@ export declare class NetworkFirewall extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateFirewallAnalysisSettings", input);
+  }
   updateFirewallDeleteProtection(
     input: UpdateFirewallDeleteProtectionRequest,
   ): Effect.Effect<
@@ -521,7 +617,9 @@ export declare class NetworkFirewall extends AWSServiceClient {
     | ResourceOwnerCheckException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateFirewallDeleteProtection", input);
+  }
   updateFirewallDescription(
     input: UpdateFirewallDescriptionRequest,
   ): Effect.Effect<
@@ -532,7 +630,9 @@ export declare class NetworkFirewall extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateFirewallDescription", input);
+  }
   updateFirewallEncryptionConfiguration(
     input: UpdateFirewallEncryptionConfigurationRequest,
   ): Effect.Effect<
@@ -544,7 +644,9 @@ export declare class NetworkFirewall extends AWSServiceClient {
     | ResourceOwnerCheckException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateFirewallEncryptionConfiguration", input);
+  }
   updateFirewallPolicy(
     input: UpdateFirewallPolicyRequest,
   ): Effect.Effect<
@@ -555,7 +657,9 @@ export declare class NetworkFirewall extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateFirewallPolicy", input);
+  }
   updateFirewallPolicyChangeProtection(
     input: UpdateFirewallPolicyChangeProtectionRequest,
   ): Effect.Effect<
@@ -567,7 +671,9 @@ export declare class NetworkFirewall extends AWSServiceClient {
     | ResourceOwnerCheckException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateFirewallPolicyChangeProtection", input);
+  }
   updateLoggingConfiguration(
     input: UpdateLoggingConfigurationRequest,
   ): Effect.Effect<
@@ -579,7 +685,9 @@ export declare class NetworkFirewall extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateLoggingConfiguration", input);
+  }
   updateRuleGroup(
     input: UpdateRuleGroupRequest,
   ): Effect.Effect<
@@ -590,7 +698,9 @@ export declare class NetworkFirewall extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateRuleGroup", input);
+  }
   updateSubnetChangeProtection(
     input: UpdateSubnetChangeProtectionRequest,
   ): Effect.Effect<
@@ -602,7 +712,9 @@ export declare class NetworkFirewall extends AWSServiceClient {
     | ResourceOwnerCheckException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateSubnetChangeProtection", input);
+  }
   updateTLSInspectionConfiguration(
     input: UpdateTLSInspectionConfigurationRequest,
   ): Effect.Effect<
@@ -613,8 +725,12 @@ export declare class NetworkFirewall extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateTLSInspectionConfiguration", input);
+  }
 }
+
+export default NetworkFirewall;
 
 export interface AcceptNetworkFirewallTransitGatewayAttachmentRequest {
   TransitGatewayAttachmentId: string;

@@ -2,19 +2,23 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class DirectConnect extends AWSServiceClient {
+export class DirectConnect extends AWSServiceClient {
   acceptDirectConnectGatewayAssociationProposal(
     input: AcceptDirectConnectGatewayAssociationProposalRequest,
   ): Effect.Effect<
     AcceptDirectConnectGatewayAssociationProposalResult,
     DirectConnectClientException | DirectConnectServerException | CommonAwsError
-  >;
+  > {
+    return this.call("AcceptDirectConnectGatewayAssociationProposal", input);
+  }
   allocateConnectionOnInterconnect(
     input: AllocateConnectionOnInterconnectRequest,
   ): Effect.Effect<
     Connection,
     DirectConnectClientException | DirectConnectServerException | CommonAwsError
-  >;
+  > {
+    return this.call("AllocateConnectionOnInterconnect", input);
+  }
   allocateHostedConnection(
     input: AllocateHostedConnectionRequest,
   ): Effect.Effect<
@@ -24,7 +28,9 @@ export declare class DirectConnect extends AWSServiceClient {
     | DuplicateTagKeysException
     | TooManyTagsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AllocateHostedConnection", input);
+  }
   allocatePrivateVirtualInterface(
     input: AllocatePrivateVirtualInterfaceRequest,
   ): Effect.Effect<
@@ -34,7 +40,9 @@ export declare class DirectConnect extends AWSServiceClient {
     | DuplicateTagKeysException
     | TooManyTagsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AllocatePrivateVirtualInterface", input);
+  }
   allocatePublicVirtualInterface(
     input: AllocatePublicVirtualInterfaceRequest,
   ): Effect.Effect<
@@ -44,7 +52,9 @@ export declare class DirectConnect extends AWSServiceClient {
     | DuplicateTagKeysException
     | TooManyTagsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AllocatePublicVirtualInterface", input);
+  }
   allocateTransitVirtualInterface(
     input: AllocateTransitVirtualInterfaceRequest,
   ): Effect.Effect<
@@ -54,67 +64,89 @@ export declare class DirectConnect extends AWSServiceClient {
     | DuplicateTagKeysException
     | TooManyTagsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AllocateTransitVirtualInterface", input);
+  }
   associateConnectionWithLag(
     input: AssociateConnectionWithLagRequest,
   ): Effect.Effect<
     Connection,
     DirectConnectClientException | DirectConnectServerException | CommonAwsError
-  >;
+  > {
+    return this.call("AssociateConnectionWithLag", input);
+  }
   associateHostedConnection(
     input: AssociateHostedConnectionRequest,
   ): Effect.Effect<
     Connection,
     DirectConnectClientException | DirectConnectServerException | CommonAwsError
-  >;
+  > {
+    return this.call("AssociateHostedConnection", input);
+  }
   associateMacSecKey(
     input: AssociateMacSecKeyRequest,
   ): Effect.Effect<
     AssociateMacSecKeyResponse,
     DirectConnectClientException | DirectConnectServerException | CommonAwsError
-  >;
+  > {
+    return this.call("AssociateMacSecKey", input);
+  }
   associateVirtualInterface(
     input: AssociateVirtualInterfaceRequest,
   ): Effect.Effect<
     VirtualInterface,
     DirectConnectClientException | DirectConnectServerException | CommonAwsError
-  >;
+  > {
+    return this.call("AssociateVirtualInterface", input);
+  }
   confirmConnection(
     input: ConfirmConnectionRequest,
   ): Effect.Effect<
     ConfirmConnectionResponse,
     DirectConnectClientException | DirectConnectServerException | CommonAwsError
-  >;
+  > {
+    return this.call("ConfirmConnection", input);
+  }
   confirmCustomerAgreement(
     input: ConfirmCustomerAgreementRequest,
   ): Effect.Effect<
     ConfirmCustomerAgreementResponse,
     DirectConnectClientException | DirectConnectServerException | CommonAwsError
-  >;
+  > {
+    return this.call("ConfirmCustomerAgreement", input);
+  }
   confirmPrivateVirtualInterface(
     input: ConfirmPrivateVirtualInterfaceRequest,
   ): Effect.Effect<
     ConfirmPrivateVirtualInterfaceResponse,
     DirectConnectClientException | DirectConnectServerException | CommonAwsError
-  >;
+  > {
+    return this.call("ConfirmPrivateVirtualInterface", input);
+  }
   confirmPublicVirtualInterface(
     input: ConfirmPublicVirtualInterfaceRequest,
   ): Effect.Effect<
     ConfirmPublicVirtualInterfaceResponse,
     DirectConnectClientException | DirectConnectServerException | CommonAwsError
-  >;
+  > {
+    return this.call("ConfirmPublicVirtualInterface", input);
+  }
   confirmTransitVirtualInterface(
     input: ConfirmTransitVirtualInterfaceRequest,
   ): Effect.Effect<
     ConfirmTransitVirtualInterfaceResponse,
     DirectConnectClientException | DirectConnectServerException | CommonAwsError
-  >;
+  > {
+    return this.call("ConfirmTransitVirtualInterface", input);
+  }
   createBGPPeer(
     input: CreateBGPPeerRequest,
   ): Effect.Effect<
     CreateBGPPeerResponse,
     DirectConnectClientException | DirectConnectServerException | CommonAwsError
-  >;
+  > {
+    return this.call("CreateBGPPeer", input);
+  }
   createConnection(
     input: CreateConnectionRequest,
   ): Effect.Effect<
@@ -124,25 +156,33 @@ export declare class DirectConnect extends AWSServiceClient {
     | DuplicateTagKeysException
     | TooManyTagsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateConnection", input);
+  }
   createDirectConnectGateway(
     input: CreateDirectConnectGatewayRequest,
   ): Effect.Effect<
     CreateDirectConnectGatewayResult,
     DirectConnectClientException | DirectConnectServerException | CommonAwsError
-  >;
+  > {
+    return this.call("CreateDirectConnectGateway", input);
+  }
   createDirectConnectGatewayAssociation(
     input: CreateDirectConnectGatewayAssociationRequest,
   ): Effect.Effect<
     CreateDirectConnectGatewayAssociationResult,
     DirectConnectClientException | DirectConnectServerException | CommonAwsError
-  >;
+  > {
+    return this.call("CreateDirectConnectGatewayAssociation", input);
+  }
   createDirectConnectGatewayAssociationProposal(
     input: CreateDirectConnectGatewayAssociationProposalRequest,
   ): Effect.Effect<
     CreateDirectConnectGatewayAssociationProposalResult,
     DirectConnectClientException | DirectConnectServerException | CommonAwsError
-  >;
+  > {
+    return this.call("CreateDirectConnectGatewayAssociationProposal", input);
+  }
   createInterconnect(
     input: CreateInterconnectRequest,
   ): Effect.Effect<
@@ -152,7 +192,9 @@ export declare class DirectConnect extends AWSServiceClient {
     | DuplicateTagKeysException
     | TooManyTagsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateInterconnect", input);
+  }
   createLag(
     input: CreateLagRequest,
   ): Effect.Effect<
@@ -162,7 +204,9 @@ export declare class DirectConnect extends AWSServiceClient {
     | DuplicateTagKeysException
     | TooManyTagsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateLag", input);
+  }
   createPrivateVirtualInterface(
     input: CreatePrivateVirtualInterfaceRequest,
   ): Effect.Effect<
@@ -172,7 +216,9 @@ export declare class DirectConnect extends AWSServiceClient {
     | DuplicateTagKeysException
     | TooManyTagsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreatePrivateVirtualInterface", input);
+  }
   createPublicVirtualInterface(
     input: CreatePublicVirtualInterfaceRequest,
   ): Effect.Effect<
@@ -182,7 +228,9 @@ export declare class DirectConnect extends AWSServiceClient {
     | DuplicateTagKeysException
     | TooManyTagsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreatePublicVirtualInterface", input);
+  }
   createTransitVirtualInterface(
     input: CreateTransitVirtualInterfaceRequest,
   ): Effect.Effect<
@@ -192,187 +240,251 @@ export declare class DirectConnect extends AWSServiceClient {
     | DuplicateTagKeysException
     | TooManyTagsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateTransitVirtualInterface", input);
+  }
   deleteBGPPeer(
     input: DeleteBGPPeerRequest,
   ): Effect.Effect<
     DeleteBGPPeerResponse,
     DirectConnectClientException | DirectConnectServerException | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteBGPPeer", input);
+  }
   deleteConnection(
     input: DeleteConnectionRequest,
   ): Effect.Effect<
     Connection,
     DirectConnectClientException | DirectConnectServerException | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteConnection", input);
+  }
   deleteDirectConnectGateway(
     input: DeleteDirectConnectGatewayRequest,
   ): Effect.Effect<
     DeleteDirectConnectGatewayResult,
     DirectConnectClientException | DirectConnectServerException | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteDirectConnectGateway", input);
+  }
   deleteDirectConnectGatewayAssociation(
     input: DeleteDirectConnectGatewayAssociationRequest,
   ): Effect.Effect<
     DeleteDirectConnectGatewayAssociationResult,
     DirectConnectClientException | DirectConnectServerException | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteDirectConnectGatewayAssociation", input);
+  }
   deleteDirectConnectGatewayAssociationProposal(
     input: DeleteDirectConnectGatewayAssociationProposalRequest,
   ): Effect.Effect<
     DeleteDirectConnectGatewayAssociationProposalResult,
     DirectConnectClientException | DirectConnectServerException | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteDirectConnectGatewayAssociationProposal", input);
+  }
   deleteInterconnect(
     input: DeleteInterconnectRequest,
   ): Effect.Effect<
     DeleteInterconnectResponse,
     DirectConnectClientException | DirectConnectServerException | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteInterconnect", input);
+  }
   deleteLag(
     input: DeleteLagRequest,
   ): Effect.Effect<
     Lag,
     DirectConnectClientException | DirectConnectServerException | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteLag", input);
+  }
   deleteVirtualInterface(
     input: DeleteVirtualInterfaceRequest,
   ): Effect.Effect<
     DeleteVirtualInterfaceResponse,
     DirectConnectClientException | DirectConnectServerException | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteVirtualInterface", input);
+  }
   describeConnectionLoa(
     input: DescribeConnectionLoaRequest,
   ): Effect.Effect<
     DescribeConnectionLoaResponse,
     DirectConnectClientException | DirectConnectServerException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeConnectionLoa", input);
+  }
   describeConnections(
     input: DescribeConnectionsRequest,
   ): Effect.Effect<
     Connections,
     DirectConnectClientException | DirectConnectServerException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeConnections", input);
+  }
   describeConnectionsOnInterconnect(
     input: DescribeConnectionsOnInterconnectRequest,
   ): Effect.Effect<
     Connections,
     DirectConnectClientException | DirectConnectServerException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeConnectionsOnInterconnect", input);
+  }
   describeCustomerMetadata(input: {}): Effect.Effect<
     DescribeCustomerMetadataResponse,
     DirectConnectClientException | DirectConnectServerException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeCustomerMetadata", input);
+  }
   describeDirectConnectGatewayAssociationProposals(
     input: DescribeDirectConnectGatewayAssociationProposalsRequest,
   ): Effect.Effect<
     DescribeDirectConnectGatewayAssociationProposalsResult,
     DirectConnectClientException | DirectConnectServerException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeDirectConnectGatewayAssociationProposals", input);
+  }
   describeDirectConnectGatewayAssociations(
     input: DescribeDirectConnectGatewayAssociationsRequest,
   ): Effect.Effect<
     DescribeDirectConnectGatewayAssociationsResult,
     DirectConnectClientException | DirectConnectServerException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeDirectConnectGatewayAssociations", input);
+  }
   describeDirectConnectGatewayAttachments(
     input: DescribeDirectConnectGatewayAttachmentsRequest,
   ): Effect.Effect<
     DescribeDirectConnectGatewayAttachmentsResult,
     DirectConnectClientException | DirectConnectServerException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeDirectConnectGatewayAttachments", input);
+  }
   describeDirectConnectGateways(
     input: DescribeDirectConnectGatewaysRequest,
   ): Effect.Effect<
     DescribeDirectConnectGatewaysResult,
     DirectConnectClientException | DirectConnectServerException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeDirectConnectGateways", input);
+  }
   describeHostedConnections(
     input: DescribeHostedConnectionsRequest,
   ): Effect.Effect<
     Connections,
     DirectConnectClientException | DirectConnectServerException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeHostedConnections", input);
+  }
   describeInterconnectLoa(
     input: DescribeInterconnectLoaRequest,
   ): Effect.Effect<
     DescribeInterconnectLoaResponse,
     DirectConnectClientException | DirectConnectServerException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeInterconnectLoa", input);
+  }
   describeInterconnects(
     input: DescribeInterconnectsRequest,
   ): Effect.Effect<
     Interconnects,
     DirectConnectClientException | DirectConnectServerException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeInterconnects", input);
+  }
   describeLags(
     input: DescribeLagsRequest,
   ): Effect.Effect<
     Lags,
     DirectConnectClientException | DirectConnectServerException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeLags", input);
+  }
   describeLoa(
     input: DescribeLoaRequest,
   ): Effect.Effect<
     Loa,
     DirectConnectClientException | DirectConnectServerException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeLoa", input);
+  }
   describeLocations(input: {}): Effect.Effect<
     Locations,
     DirectConnectClientException | DirectConnectServerException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeLocations", input);
+  }
   describeRouterConfiguration(
     input: DescribeRouterConfigurationRequest,
   ): Effect.Effect<
     DescribeRouterConfigurationResponse,
     DirectConnectClientException | DirectConnectServerException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeRouterConfiguration", input);
+  }
   describeTags(
     input: DescribeTagsRequest,
   ): Effect.Effect<
     DescribeTagsResponse,
     DirectConnectClientException | DirectConnectServerException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeTags", input);
+  }
   describeVirtualGateways(input: {}): Effect.Effect<
     VirtualGateways,
     DirectConnectClientException | DirectConnectServerException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeVirtualGateways", input);
+  }
   describeVirtualInterfaces(
     input: DescribeVirtualInterfacesRequest,
   ): Effect.Effect<
     VirtualInterfaces,
     DirectConnectClientException | DirectConnectServerException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeVirtualInterfaces", input);
+  }
   disassociateConnectionFromLag(
     input: DisassociateConnectionFromLagRequest,
   ): Effect.Effect<
     Connection,
     DirectConnectClientException | DirectConnectServerException | CommonAwsError
-  >;
+  > {
+    return this.call("DisassociateConnectionFromLag", input);
+  }
   disassociateMacSecKey(
     input: DisassociateMacSecKeyRequest,
   ): Effect.Effect<
     DisassociateMacSecKeyResponse,
     DirectConnectClientException | DirectConnectServerException | CommonAwsError
-  >;
+  > {
+    return this.call("DisassociateMacSecKey", input);
+  }
   listVirtualInterfaceTestHistory(
     input: ListVirtualInterfaceTestHistoryRequest,
   ): Effect.Effect<
     ListVirtualInterfaceTestHistoryResponse,
     DirectConnectClientException | DirectConnectServerException | CommonAwsError
-  >;
+  > {
+    return this.call("ListVirtualInterfaceTestHistory", input);
+  }
   startBgpFailoverTest(
     input: StartBgpFailoverTestRequest,
   ): Effect.Effect<
     StartBgpFailoverTestResponse,
     DirectConnectClientException | DirectConnectServerException | CommonAwsError
-  >;
+  > {
+    return this.call("StartBgpFailoverTest", input);
+  }
   stopBgpFailoverTest(
     input: StopBgpFailoverTestRequest,
   ): Effect.Effect<
     StopBgpFailoverTestResponse,
     DirectConnectClientException | DirectConnectServerException | CommonAwsError
-  >;
+  > {
+    return this.call("StopBgpFailoverTest", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -382,44 +494,60 @@ export declare class DirectConnect extends AWSServiceClient {
     | DuplicateTagKeysException
     | TooManyTagsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
     DirectConnectClientException | DirectConnectServerException | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
   updateConnection(
     input: UpdateConnectionRequest,
   ): Effect.Effect<
     Connection,
     DirectConnectClientException | DirectConnectServerException | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateConnection", input);
+  }
   updateDirectConnectGateway(
     input: UpdateDirectConnectGatewayRequest,
   ): Effect.Effect<
     UpdateDirectConnectGatewayResponse,
     DirectConnectClientException | DirectConnectServerException | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateDirectConnectGateway", input);
+  }
   updateDirectConnectGatewayAssociation(
     input: UpdateDirectConnectGatewayAssociationRequest,
   ): Effect.Effect<
     UpdateDirectConnectGatewayAssociationResult,
     DirectConnectClientException | DirectConnectServerException | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateDirectConnectGatewayAssociation", input);
+  }
   updateLag(
     input: UpdateLagRequest,
   ): Effect.Effect<
     Lag,
     DirectConnectClientException | DirectConnectServerException | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateLag", input);
+  }
   updateVirtualInterfaceAttributes(
     input: UpdateVirtualInterfaceAttributesRequest,
   ): Effect.Effect<
     VirtualInterface,
     DirectConnectClientException | DirectConnectServerException | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateVirtualInterfaceAttributes", input);
+  }
 }
+
+export default DirectConnect;
 
 export interface AcceptDirectConnectGatewayAssociationProposalRequest {
   directConnectGatewayId: string;

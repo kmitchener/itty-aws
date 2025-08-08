@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class drs extends AWSServiceClient {
+export class drs extends AWSServiceClient {
   createExtendedSourceServer(
     input: CreateExtendedSourceServerRequest,
   ): Effect.Effect<
@@ -15,7 +15,9 @@ export declare class drs extends AWSServiceClient {
     | UninitializedAccountException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateExtendedSourceServer", input);
+  }
   deleteLaunchAction(
     input: DeleteLaunchActionRequest,
   ): Effect.Effect<
@@ -26,7 +28,9 @@ export declare class drs extends AWSServiceClient {
     | UninitializedAccountException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteLaunchAction", input);
+  }
   initializeService(
     input: InitializeServiceRequest,
   ): Effect.Effect<
@@ -36,7 +40,9 @@ export declare class drs extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("InitializeService", input);
+  }
   listExtensibleSourceServers(
     input: ListExtensibleSourceServersRequest,
   ): Effect.Effect<
@@ -47,7 +53,9 @@ export declare class drs extends AWSServiceClient {
     | UninitializedAccountException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListExtensibleSourceServers", input);
+  }
   listLaunchActions(
     input: ListLaunchActionsRequest,
   ): Effect.Effect<
@@ -58,7 +66,9 @@ export declare class drs extends AWSServiceClient {
     | ThrottlingException
     | UninitializedAccountException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListLaunchActions", input);
+  }
   listStagingAccounts(
     input: ListStagingAccountsRequest,
   ): Effect.Effect<
@@ -69,7 +79,9 @@ export declare class drs extends AWSServiceClient {
     | UninitializedAccountException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListStagingAccounts", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
@@ -80,7 +92,9 @@ export declare class drs extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   putLaunchAction(
     input: PutLaunchActionRequest,
   ): Effect.Effect<
@@ -92,7 +106,9 @@ export declare class drs extends AWSServiceClient {
     | UninitializedAccountException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutLaunchAction", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -103,7 +119,9 @@ export declare class drs extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
@@ -114,10 +132,14 @@ export declare class drs extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
 }
 
-export declare class Drs extends drs {}
+export class Drs extends drs {}
+
+export default drs;
 
 export declare class AccessDeniedException extends EffectData.TaggedError(
   "AccessDeniedException",

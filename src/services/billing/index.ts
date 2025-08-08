@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class Billing extends AWSServiceClient {
+export class Billing extends AWSServiceClient {
   createBillingView(
     input: CreateBillingViewRequest,
   ): Effect.Effect<
@@ -14,7 +14,9 @@ export declare class Billing extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateBillingView", input);
+  }
   deleteBillingView(
     input: DeleteBillingViewRequest,
   ): Effect.Effect<
@@ -25,7 +27,9 @@ export declare class Billing extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteBillingView", input);
+  }
   getBillingView(
     input: GetBillingViewRequest,
   ): Effect.Effect<
@@ -36,7 +40,9 @@ export declare class Billing extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetBillingView", input);
+  }
   getResourcePolicy(
     input: GetResourcePolicyRequest,
   ): Effect.Effect<
@@ -47,7 +53,9 @@ export declare class Billing extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetResourcePolicy", input);
+  }
   listBillingViews(
     input: ListBillingViewsRequest,
   ): Effect.Effect<
@@ -57,7 +65,9 @@ export declare class Billing extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListBillingViews", input);
+  }
   listSourceViewsForBillingView(
     input: ListSourceViewsForBillingViewRequest,
   ): Effect.Effect<
@@ -68,7 +78,9 @@ export declare class Billing extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListSourceViewsForBillingView", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
@@ -79,7 +91,9 @@ export declare class Billing extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -90,7 +104,9 @@ export declare class Billing extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
@@ -101,7 +117,9 @@ export declare class Billing extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
   updateBillingView(
     input: UpdateBillingViewRequest,
   ): Effect.Effect<
@@ -114,8 +132,12 @@ export declare class Billing extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateBillingView", input);
+  }
 }
+
+export default Billing;
 
 export declare class AccessDeniedException extends EffectData.TaggedError(
   "AccessDeniedException",

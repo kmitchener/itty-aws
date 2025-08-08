@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class Backup extends AWSServiceClient {
+export class Backup extends AWSServiceClient {
   associateBackupVaultMpaApprovalTeam(
     input: AssociateBackupVaultMpaApprovalTeamInput,
   ): Effect.Effect<
@@ -13,7 +13,9 @@ export declare class Backup extends AWSServiceClient {
     | ResourceNotFoundException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AssociateBackupVaultMpaApprovalTeam", input);
+  }
   cancelLegalHold(
     input: CancelLegalHoldInput,
   ): Effect.Effect<
@@ -24,7 +26,9 @@ export declare class Backup extends AWSServiceClient {
     | ResourceNotFoundException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CancelLegalHold", input);
+  }
   createBackupPlan(
     input: CreateBackupPlanInput,
   ): Effect.Effect<
@@ -35,7 +39,9 @@ export declare class Backup extends AWSServiceClient {
     | MissingParameterValueException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateBackupPlan", input);
+  }
   createBackupSelection(
     input: CreateBackupSelectionInput,
   ): Effect.Effect<
@@ -46,7 +52,9 @@ export declare class Backup extends AWSServiceClient {
     | MissingParameterValueException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateBackupSelection", input);
+  }
   createBackupVault(
     input: CreateBackupVaultInput,
   ): Effect.Effect<
@@ -57,7 +65,9 @@ export declare class Backup extends AWSServiceClient {
     | MissingParameterValueException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateBackupVault", input);
+  }
   createFramework(
     input: CreateFrameworkInput,
   ): Effect.Effect<
@@ -68,7 +78,9 @@ export declare class Backup extends AWSServiceClient {
     | MissingParameterValueException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateFramework", input);
+  }
   createLegalHold(
     input: CreateLegalHoldInput,
   ): Effect.Effect<
@@ -78,7 +90,9 @@ export declare class Backup extends AWSServiceClient {
     | MissingParameterValueException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateLegalHold", input);
+  }
   createLogicallyAirGappedBackupVault(
     input: CreateLogicallyAirGappedBackupVaultInput,
   ): Effect.Effect<
@@ -90,7 +104,9 @@ export declare class Backup extends AWSServiceClient {
     | MissingParameterValueException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateLogicallyAirGappedBackupVault", input);
+  }
   createReportPlan(
     input: CreateReportPlanInput,
   ): Effect.Effect<
@@ -101,7 +117,9 @@ export declare class Backup extends AWSServiceClient {
     | MissingParameterValueException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateReportPlan", input);
+  }
   createRestoreAccessBackupVault(
     input: CreateRestoreAccessBackupVaultInput,
   ): Effect.Effect<
@@ -114,7 +132,9 @@ export declare class Backup extends AWSServiceClient {
     | ResourceNotFoundException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateRestoreAccessBackupVault", input);
+  }
   createRestoreTestingPlan(
     input: CreateRestoreTestingPlanInput,
   ): Effect.Effect<
@@ -126,7 +146,9 @@ export declare class Backup extends AWSServiceClient {
     | MissingParameterValueException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateRestoreTestingPlan", input);
+  }
   createRestoreTestingSelection(
     input: CreateRestoreTestingSelectionInput,
   ): Effect.Effect<
@@ -138,7 +160,9 @@ export declare class Backup extends AWSServiceClient {
     | ResourceNotFoundException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateRestoreTestingSelection", input);
+  }
   deleteBackupPlan(
     input: DeleteBackupPlanInput,
   ): Effect.Effect<
@@ -149,7 +173,9 @@ export declare class Backup extends AWSServiceClient {
     | ResourceNotFoundException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteBackupPlan", input);
+  }
   deleteBackupSelection(
     input: DeleteBackupSelectionInput,
   ): Effect.Effect<
@@ -159,7 +185,9 @@ export declare class Backup extends AWSServiceClient {
     | ResourceNotFoundException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteBackupSelection", input);
+  }
   deleteBackupVault(
     input: DeleteBackupVaultInput,
   ): Effect.Effect<
@@ -170,7 +198,9 @@ export declare class Backup extends AWSServiceClient {
     | ResourceNotFoundException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteBackupVault", input);
+  }
   deleteBackupVaultAccessPolicy(
     input: DeleteBackupVaultAccessPolicyInput,
   ): Effect.Effect<
@@ -180,7 +210,9 @@ export declare class Backup extends AWSServiceClient {
     | ResourceNotFoundException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteBackupVaultAccessPolicy", input);
+  }
   deleteBackupVaultLockConfiguration(
     input: DeleteBackupVaultLockConfigurationInput,
   ): Effect.Effect<
@@ -191,7 +223,9 @@ export declare class Backup extends AWSServiceClient {
     | ResourceNotFoundException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteBackupVaultLockConfiguration", input);
+  }
   deleteBackupVaultNotifications(
     input: DeleteBackupVaultNotificationsInput,
   ): Effect.Effect<
@@ -201,7 +235,9 @@ export declare class Backup extends AWSServiceClient {
     | ResourceNotFoundException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteBackupVaultNotifications", input);
+  }
   deleteFramework(
     input: DeleteFrameworkInput,
   ): Effect.Effect<
@@ -212,7 +248,9 @@ export declare class Backup extends AWSServiceClient {
     | ResourceNotFoundException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteFramework", input);
+  }
   deleteRecoveryPoint(
     input: DeleteRecoveryPointInput,
   ): Effect.Effect<
@@ -224,7 +262,9 @@ export declare class Backup extends AWSServiceClient {
     | ResourceNotFoundException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteRecoveryPoint", input);
+  }
   deleteReportPlan(
     input: DeleteReportPlanInput,
   ): Effect.Effect<
@@ -235,19 +275,25 @@ export declare class Backup extends AWSServiceClient {
     | ResourceNotFoundException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteReportPlan", input);
+  }
   deleteRestoreTestingPlan(
     input: DeleteRestoreTestingPlanInput,
   ): Effect.Effect<
     {},
     InvalidRequestException | ServiceUnavailableException | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteRestoreTestingPlan", input);
+  }
   deleteRestoreTestingSelection(
     input: DeleteRestoreTestingSelectionInput,
   ): Effect.Effect<
     {},
     ResourceNotFoundException | ServiceUnavailableException | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteRestoreTestingSelection", input);
+  }
   describeBackupJob(
     input: DescribeBackupJobInput,
   ): Effect.Effect<
@@ -258,7 +304,9 @@ export declare class Backup extends AWSServiceClient {
     | ResourceNotFoundException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeBackupJob", input);
+  }
   describeBackupVault(
     input: DescribeBackupVaultInput,
   ): Effect.Effect<
@@ -268,7 +316,9 @@ export declare class Backup extends AWSServiceClient {
     | ResourceNotFoundException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeBackupVault", input);
+  }
   describeCopyJob(
     input: DescribeCopyJobInput,
   ): Effect.Effect<
@@ -278,7 +328,9 @@ export declare class Backup extends AWSServiceClient {
     | ResourceNotFoundException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeCopyJob", input);
+  }
   describeFramework(
     input: DescribeFrameworkInput,
   ): Effect.Effect<
@@ -288,13 +340,17 @@ export declare class Backup extends AWSServiceClient {
     | ResourceNotFoundException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeFramework", input);
+  }
   describeGlobalSettings(
     input: DescribeGlobalSettingsInput,
   ): Effect.Effect<
     DescribeGlobalSettingsOutput,
     InvalidRequestException | ServiceUnavailableException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeGlobalSettings", input);
+  }
   describeProtectedResource(
     input: DescribeProtectedResourceInput,
   ): Effect.Effect<
@@ -304,7 +360,9 @@ export declare class Backup extends AWSServiceClient {
     | ResourceNotFoundException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeProtectedResource", input);
+  }
   describeRecoveryPoint(
     input: DescribeRecoveryPointInput,
   ): Effect.Effect<
@@ -314,13 +372,17 @@ export declare class Backup extends AWSServiceClient {
     | ResourceNotFoundException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeRecoveryPoint", input);
+  }
   describeRegionSettings(
     input: DescribeRegionSettingsInput,
   ): Effect.Effect<
     DescribeRegionSettingsOutput,
     ServiceUnavailableException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeRegionSettings", input);
+  }
   describeReportJob(
     input: DescribeReportJobInput,
   ): Effect.Effect<
@@ -329,7 +391,9 @@ export declare class Backup extends AWSServiceClient {
     | ResourceNotFoundException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeReportJob", input);
+  }
   describeReportPlan(
     input: DescribeReportPlanInput,
   ): Effect.Effect<
@@ -339,7 +403,9 @@ export declare class Backup extends AWSServiceClient {
     | ResourceNotFoundException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeReportPlan", input);
+  }
   describeRestoreJob(
     input: DescribeRestoreJobInput,
   ): Effect.Effect<
@@ -350,7 +416,9 @@ export declare class Backup extends AWSServiceClient {
     | ResourceNotFoundException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeRestoreJob", input);
+  }
   disassociateBackupVaultMpaApprovalTeam(
     input: DisassociateBackupVaultMpaApprovalTeamInput,
   ): Effect.Effect<
@@ -361,7 +429,9 @@ export declare class Backup extends AWSServiceClient {
     | ResourceNotFoundException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DisassociateBackupVaultMpaApprovalTeam", input);
+  }
   disassociateRecoveryPoint(
     input: DisassociateRecoveryPointInput,
   ): Effect.Effect<
@@ -373,7 +443,9 @@ export declare class Backup extends AWSServiceClient {
     | ResourceNotFoundException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DisassociateRecoveryPoint", input);
+  }
   disassociateRecoveryPointFromParent(
     input: DisassociateRecoveryPointFromParentInput,
   ): Effect.Effect<
@@ -384,7 +456,9 @@ export declare class Backup extends AWSServiceClient {
     | ResourceNotFoundException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DisassociateRecoveryPointFromParent", input);
+  }
   exportBackupPlanTemplate(
     input: ExportBackupPlanTemplateInput,
   ): Effect.Effect<
@@ -394,7 +468,9 @@ export declare class Backup extends AWSServiceClient {
     | ResourceNotFoundException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ExportBackupPlanTemplate", input);
+  }
   getBackupPlan(
     input: GetBackupPlanInput,
   ): Effect.Effect<
@@ -404,7 +480,9 @@ export declare class Backup extends AWSServiceClient {
     | ResourceNotFoundException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetBackupPlan", input);
+  }
   getBackupPlanFromJSON(
     input: GetBackupPlanFromJSONInput,
   ): Effect.Effect<
@@ -415,7 +493,9 @@ export declare class Backup extends AWSServiceClient {
     | MissingParameterValueException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetBackupPlanFromJSON", input);
+  }
   getBackupPlanFromTemplate(
     input: GetBackupPlanFromTemplateInput,
   ): Effect.Effect<
@@ -425,7 +505,9 @@ export declare class Backup extends AWSServiceClient {
     | ResourceNotFoundException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetBackupPlanFromTemplate", input);
+  }
   getBackupSelection(
     input: GetBackupSelectionInput,
   ): Effect.Effect<
@@ -435,7 +517,9 @@ export declare class Backup extends AWSServiceClient {
     | ResourceNotFoundException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetBackupSelection", input);
+  }
   getBackupVaultAccessPolicy(
     input: GetBackupVaultAccessPolicyInput,
   ): Effect.Effect<
@@ -445,7 +529,9 @@ export declare class Backup extends AWSServiceClient {
     | ResourceNotFoundException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetBackupVaultAccessPolicy", input);
+  }
   getBackupVaultNotifications(
     input: GetBackupVaultNotificationsInput,
   ): Effect.Effect<
@@ -455,7 +541,9 @@ export declare class Backup extends AWSServiceClient {
     | ResourceNotFoundException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetBackupVaultNotifications", input);
+  }
   getLegalHold(
     input: GetLegalHoldInput,
   ): Effect.Effect<
@@ -465,7 +553,9 @@ export declare class Backup extends AWSServiceClient {
     | ResourceNotFoundException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetLegalHold", input);
+  }
   getRecoveryPointIndexDetails(
     input: GetRecoveryPointIndexDetailsInput,
   ): Effect.Effect<
@@ -475,7 +565,9 @@ export declare class Backup extends AWSServiceClient {
     | ResourceNotFoundException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetRecoveryPointIndexDetails", input);
+  }
   getRecoveryPointRestoreMetadata(
     input: GetRecoveryPointRestoreMetadataInput,
   ): Effect.Effect<
@@ -485,7 +577,9 @@ export declare class Backup extends AWSServiceClient {
     | ResourceNotFoundException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetRecoveryPointRestoreMetadata", input);
+  }
   getRestoreJobMetadata(
     input: GetRestoreJobMetadataInput,
   ): Effect.Effect<
@@ -495,7 +589,9 @@ export declare class Backup extends AWSServiceClient {
     | ResourceNotFoundException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetRestoreJobMetadata", input);
+  }
   getRestoreTestingInferredMetadata(
     input: GetRestoreTestingInferredMetadataInput,
   ): Effect.Effect<
@@ -505,23 +601,31 @@ export declare class Backup extends AWSServiceClient {
     | ResourceNotFoundException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetRestoreTestingInferredMetadata", input);
+  }
   getRestoreTestingPlan(
     input: GetRestoreTestingPlanInput,
   ): Effect.Effect<
     GetRestoreTestingPlanOutput,
     ResourceNotFoundException | ServiceUnavailableException | CommonAwsError
-  >;
+  > {
+    return this.call("GetRestoreTestingPlan", input);
+  }
   getRestoreTestingSelection(
     input: GetRestoreTestingSelectionInput,
   ): Effect.Effect<
     GetRestoreTestingSelectionOutput,
     ResourceNotFoundException | ServiceUnavailableException | CommonAwsError
-  >;
+  > {
+    return this.call("GetRestoreTestingSelection", input);
+  }
   getSupportedResourceTypes(input: {}): Effect.Effect<
     GetSupportedResourceTypesOutput,
     ServiceUnavailableException | CommonAwsError
-  >;
+  > {
+    return this.call("GetSupportedResourceTypes", input);
+  }
   listBackupJobs(
     input: ListBackupJobsInput,
   ): Effect.Effect<
@@ -529,7 +633,9 @@ export declare class Backup extends AWSServiceClient {
     | InvalidParameterValueException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListBackupJobs", input);
+  }
   listBackupJobSummaries(
     input: ListBackupJobSummariesInput,
   ): Effect.Effect<
@@ -537,7 +643,9 @@ export declare class Backup extends AWSServiceClient {
     | InvalidParameterValueException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListBackupJobSummaries", input);
+  }
   listBackupPlans(
     input: ListBackupPlansInput,
   ): Effect.Effect<
@@ -547,7 +655,9 @@ export declare class Backup extends AWSServiceClient {
     | ResourceNotFoundException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListBackupPlans", input);
+  }
   listBackupPlanTemplates(
     input: ListBackupPlanTemplatesInput,
   ): Effect.Effect<
@@ -557,7 +667,9 @@ export declare class Backup extends AWSServiceClient {
     | ResourceNotFoundException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListBackupPlanTemplates", input);
+  }
   listBackupPlanVersions(
     input: ListBackupPlanVersionsInput,
   ): Effect.Effect<
@@ -567,7 +679,9 @@ export declare class Backup extends AWSServiceClient {
     | ResourceNotFoundException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListBackupPlanVersions", input);
+  }
   listBackupSelections(
     input: ListBackupSelectionsInput,
   ): Effect.Effect<
@@ -577,7 +691,9 @@ export declare class Backup extends AWSServiceClient {
     | ResourceNotFoundException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListBackupSelections", input);
+  }
   listBackupVaults(
     input: ListBackupVaultsInput,
   ): Effect.Effect<
@@ -587,7 +703,9 @@ export declare class Backup extends AWSServiceClient {
     | ResourceNotFoundException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListBackupVaults", input);
+  }
   listCopyJobs(
     input: ListCopyJobsInput,
   ): Effect.Effect<
@@ -595,7 +713,9 @@ export declare class Backup extends AWSServiceClient {
     | InvalidParameterValueException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListCopyJobs", input);
+  }
   listCopyJobSummaries(
     input: ListCopyJobSummariesInput,
   ): Effect.Effect<
@@ -603,7 +723,9 @@ export declare class Backup extends AWSServiceClient {
     | InvalidParameterValueException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListCopyJobSummaries", input);
+  }
   listFrameworks(
     input: ListFrameworksInput,
   ): Effect.Effect<
@@ -611,7 +733,9 @@ export declare class Backup extends AWSServiceClient {
     | InvalidParameterValueException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListFrameworks", input);
+  }
   listIndexedRecoveryPoints(
     input: ListIndexedRecoveryPointsInput,
   ): Effect.Effect<
@@ -620,7 +744,9 @@ export declare class Backup extends AWSServiceClient {
     | ResourceNotFoundException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListIndexedRecoveryPoints", input);
+  }
   listLegalHolds(
     input: ListLegalHoldsInput,
   ): Effect.Effect<
@@ -628,7 +754,9 @@ export declare class Backup extends AWSServiceClient {
     | InvalidParameterValueException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListLegalHolds", input);
+  }
   listProtectedResources(
     input: ListProtectedResourcesInput,
   ): Effect.Effect<
@@ -636,7 +764,9 @@ export declare class Backup extends AWSServiceClient {
     | InvalidParameterValueException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListProtectedResources", input);
+  }
   listProtectedResourcesByBackupVault(
     input: ListProtectedResourcesByBackupVaultInput,
   ): Effect.Effect<
@@ -645,7 +775,9 @@ export declare class Backup extends AWSServiceClient {
     | ResourceNotFoundException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListProtectedResourcesByBackupVault", input);
+  }
   listRecoveryPointsByBackupVault(
     input: ListRecoveryPointsByBackupVaultInput,
   ): Effect.Effect<
@@ -655,7 +787,9 @@ export declare class Backup extends AWSServiceClient {
     | ResourceNotFoundException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListRecoveryPointsByBackupVault", input);
+  }
   listRecoveryPointsByLegalHold(
     input: ListRecoveryPointsByLegalHoldInput,
   ): Effect.Effect<
@@ -664,7 +798,9 @@ export declare class Backup extends AWSServiceClient {
     | MissingParameterValueException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListRecoveryPointsByLegalHold", input);
+  }
   listRecoveryPointsByResource(
     input: ListRecoveryPointsByResourceInput,
   ): Effect.Effect<
@@ -674,7 +810,9 @@ export declare class Backup extends AWSServiceClient {
     | ResourceNotFoundException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListRecoveryPointsByResource", input);
+  }
   listReportJobs(
     input: ListReportJobsInput,
   ): Effect.Effect<
@@ -683,7 +821,9 @@ export declare class Backup extends AWSServiceClient {
     | ResourceNotFoundException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListReportJobs", input);
+  }
   listReportPlans(
     input: ListReportPlansInput,
   ): Effect.Effect<
@@ -691,7 +831,9 @@ export declare class Backup extends AWSServiceClient {
     | InvalidParameterValueException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListReportPlans", input);
+  }
   listRestoreAccessBackupVaults(
     input: ListRestoreAccessBackupVaultsInput,
   ): Effect.Effect<
@@ -701,7 +843,9 @@ export declare class Backup extends AWSServiceClient {
     | ResourceNotFoundException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListRestoreAccessBackupVaults", input);
+  }
   listRestoreJobs(
     input: ListRestoreJobsInput,
   ): Effect.Effect<
@@ -711,7 +855,9 @@ export declare class Backup extends AWSServiceClient {
     | ResourceNotFoundException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListRestoreJobs", input);
+  }
   listRestoreJobsByProtectedResource(
     input: ListRestoreJobsByProtectedResourceInput,
   ): Effect.Effect<
@@ -721,7 +867,9 @@ export declare class Backup extends AWSServiceClient {
     | ResourceNotFoundException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListRestoreJobsByProtectedResource", input);
+  }
   listRestoreJobSummaries(
     input: ListRestoreJobSummariesInput,
   ): Effect.Effect<
@@ -729,7 +877,9 @@ export declare class Backup extends AWSServiceClient {
     | InvalidParameterValueException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListRestoreJobSummaries", input);
+  }
   listRestoreTestingPlans(
     input: ListRestoreTestingPlansInput,
   ): Effect.Effect<
@@ -737,7 +887,9 @@ export declare class Backup extends AWSServiceClient {
     | InvalidParameterValueException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListRestoreTestingPlans", input);
+  }
   listRestoreTestingSelections(
     input: ListRestoreTestingSelectionsInput,
   ): Effect.Effect<
@@ -746,7 +898,9 @@ export declare class Backup extends AWSServiceClient {
     | ResourceNotFoundException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListRestoreTestingSelections", input);
+  }
   listTags(
     input: ListTagsInput,
   ): Effect.Effect<
@@ -756,7 +910,9 @@ export declare class Backup extends AWSServiceClient {
     | ResourceNotFoundException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTags", input);
+  }
   putBackupVaultAccessPolicy(
     input: PutBackupVaultAccessPolicyInput,
   ): Effect.Effect<
@@ -766,7 +922,9 @@ export declare class Backup extends AWSServiceClient {
     | ResourceNotFoundException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutBackupVaultAccessPolicy", input);
+  }
   putBackupVaultLockConfiguration(
     input: PutBackupVaultLockConfigurationInput,
   ): Effect.Effect<
@@ -777,7 +935,9 @@ export declare class Backup extends AWSServiceClient {
     | ResourceNotFoundException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutBackupVaultLockConfiguration", input);
+  }
   putBackupVaultNotifications(
     input: PutBackupVaultNotificationsInput,
   ): Effect.Effect<
@@ -787,7 +947,9 @@ export declare class Backup extends AWSServiceClient {
     | ResourceNotFoundException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutBackupVaultNotifications", input);
+  }
   putRestoreValidationResult(
     input: PutRestoreValidationResultInput,
   ): Effect.Effect<
@@ -798,7 +960,9 @@ export declare class Backup extends AWSServiceClient {
     | ResourceNotFoundException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutRestoreValidationResult", input);
+  }
   revokeRestoreAccessBackupVault(
     input: RevokeRestoreAccessBackupVaultInput,
   ): Effect.Effect<
@@ -809,7 +973,9 @@ export declare class Backup extends AWSServiceClient {
     | ResourceNotFoundException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("RevokeRestoreAccessBackupVault", input);
+  }
   startBackupJob(
     input: StartBackupJobInput,
   ): Effect.Effect<
@@ -821,7 +987,9 @@ export declare class Backup extends AWSServiceClient {
     | ResourceNotFoundException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartBackupJob", input);
+  }
   startCopyJob(
     input: StartCopyJobInput,
   ): Effect.Effect<
@@ -833,7 +1001,9 @@ export declare class Backup extends AWSServiceClient {
     | ResourceNotFoundException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartCopyJob", input);
+  }
   startReportJob(
     input: StartReportJobInput,
   ): Effect.Effect<
@@ -843,7 +1013,9 @@ export declare class Backup extends AWSServiceClient {
     | ResourceNotFoundException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartReportJob", input);
+  }
   startRestoreJob(
     input: StartRestoreJobInput,
   ): Effect.Effect<
@@ -854,7 +1026,9 @@ export declare class Backup extends AWSServiceClient {
     | ResourceNotFoundException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartRestoreJob", input);
+  }
   stopBackupJob(
     input: StopBackupJobInput,
   ): Effect.Effect<
@@ -865,7 +1039,9 @@ export declare class Backup extends AWSServiceClient {
     | ResourceNotFoundException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StopBackupJob", input);
+  }
   tagResource(
     input: TagResourceInput,
   ): Effect.Effect<
@@ -876,7 +1052,9 @@ export declare class Backup extends AWSServiceClient {
     | ResourceNotFoundException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceInput,
   ): Effect.Effect<
@@ -886,7 +1064,9 @@ export declare class Backup extends AWSServiceClient {
     | ResourceNotFoundException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
   updateBackupPlan(
     input: UpdateBackupPlanInput,
   ): Effect.Effect<
@@ -896,7 +1076,9 @@ export declare class Backup extends AWSServiceClient {
     | ResourceNotFoundException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateBackupPlan", input);
+  }
   updateFramework(
     input: UpdateFrameworkInput,
   ): Effect.Effect<
@@ -909,7 +1091,9 @@ export declare class Backup extends AWSServiceClient {
     | ResourceNotFoundException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateFramework", input);
+  }
   updateGlobalSettings(
     input: UpdateGlobalSettingsInput,
   ): Effect.Effect<
@@ -919,7 +1103,9 @@ export declare class Backup extends AWSServiceClient {
     | MissingParameterValueException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateGlobalSettings", input);
+  }
   updateRecoveryPointIndexSettings(
     input: UpdateRecoveryPointIndexSettingsInput,
   ): Effect.Effect<
@@ -930,7 +1116,9 @@ export declare class Backup extends AWSServiceClient {
     | ResourceNotFoundException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateRecoveryPointIndexSettings", input);
+  }
   updateRecoveryPointLifecycle(
     input: UpdateRecoveryPointLifecycleInput,
   ): Effect.Effect<
@@ -941,7 +1129,9 @@ export declare class Backup extends AWSServiceClient {
     | ResourceNotFoundException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateRecoveryPointLifecycle", input);
+  }
   updateRegionSettings(
     input: UpdateRegionSettingsInput,
   ): Effect.Effect<
@@ -950,7 +1140,9 @@ export declare class Backup extends AWSServiceClient {
     | MissingParameterValueException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateRegionSettings", input);
+  }
   updateReportPlan(
     input: UpdateReportPlanInput,
   ): Effect.Effect<
@@ -961,7 +1153,9 @@ export declare class Backup extends AWSServiceClient {
     | ResourceNotFoundException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateReportPlan", input);
+  }
   updateRestoreTestingPlan(
     input: UpdateRestoreTestingPlanInput,
   ): Effect.Effect<
@@ -972,7 +1166,9 @@ export declare class Backup extends AWSServiceClient {
     | ResourceNotFoundException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateRestoreTestingPlan", input);
+  }
   updateRestoreTestingSelection(
     input: UpdateRestoreTestingSelectionInput,
   ): Effect.Effect<
@@ -983,8 +1179,12 @@ export declare class Backup extends AWSServiceClient {
     | ResourceNotFoundException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateRestoreTestingSelection", input);
+  }
 }
+
+export default Backup;
 
 export type AccountId = string;
 

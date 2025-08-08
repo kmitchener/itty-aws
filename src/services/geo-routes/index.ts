@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class GeoRoutes extends AWSServiceClient {
+export class GeoRoutes extends AWSServiceClient {
   calculateIsolines(
     input: CalculateIsolinesRequest,
   ): Effect.Effect<
@@ -12,7 +12,9 @@ export declare class GeoRoutes extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CalculateIsolines", input);
+  }
   calculateRouteMatrix(
     input: CalculateRouteMatrixRequest,
   ): Effect.Effect<
@@ -22,7 +24,9 @@ export declare class GeoRoutes extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CalculateRouteMatrix", input);
+  }
   calculateRoutes(
     input: CalculateRoutesRequest,
   ): Effect.Effect<
@@ -32,7 +36,9 @@ export declare class GeoRoutes extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CalculateRoutes", input);
+  }
   optimizeWaypoints(
     input: OptimizeWaypointsRequest,
   ): Effect.Effect<
@@ -42,7 +48,9 @@ export declare class GeoRoutes extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("OptimizeWaypoints", input);
+  }
   snapToRoads(
     input: SnapToRoadsRequest,
   ): Effect.Effect<
@@ -52,8 +60,12 @@ export declare class GeoRoutes extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("SnapToRoads", input);
+  }
 }
+
+export default GeoRoutes;
 
 export declare class AccessDeniedException extends EffectData.TaggedError(
   "AccessDeniedException",

@@ -2,2297 +2,3729 @@ import type { Effect } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class EC2 extends AWSServiceClient {
+export class EC2 extends AWSServiceClient {
   acceptAddressTransfer(
     input: AcceptAddressTransferRequest,
-  ): Effect.Effect<AcceptAddressTransferResult, CommonAwsError>;
+  ): Effect.Effect<AcceptAddressTransferResult, CommonAwsError> {
+    return this.call("AcceptAddressTransfer", input);
+  }
   acceptCapacityReservationBillingOwnership(
     input: AcceptCapacityReservationBillingOwnershipRequest,
   ): Effect.Effect<
     AcceptCapacityReservationBillingOwnershipResult,
     CommonAwsError
-  >;
+  > {
+    return this.call("AcceptCapacityReservationBillingOwnership", input);
+  }
   acceptReservedInstancesExchangeQuote(
     input: AcceptReservedInstancesExchangeQuoteRequest,
-  ): Effect.Effect<AcceptReservedInstancesExchangeQuoteResult, CommonAwsError>;
+  ): Effect.Effect<AcceptReservedInstancesExchangeQuoteResult, CommonAwsError> {
+    return this.call("AcceptReservedInstancesExchangeQuote", input);
+  }
   acceptTransitGatewayMulticastDomainAssociations(
     input: AcceptTransitGatewayMulticastDomainAssociationsRequest,
   ): Effect.Effect<
     AcceptTransitGatewayMulticastDomainAssociationsResult,
     CommonAwsError
-  >;
+  > {
+    return this.call("AcceptTransitGatewayMulticastDomainAssociations", input);
+  }
   acceptTransitGatewayPeeringAttachment(
     input: AcceptTransitGatewayPeeringAttachmentRequest,
-  ): Effect.Effect<AcceptTransitGatewayPeeringAttachmentResult, CommonAwsError>;
+  ): Effect.Effect<
+    AcceptTransitGatewayPeeringAttachmentResult,
+    CommonAwsError
+  > {
+    return this.call("AcceptTransitGatewayPeeringAttachment", input);
+  }
   acceptTransitGatewayVpcAttachment(
     input: AcceptTransitGatewayVpcAttachmentRequest,
-  ): Effect.Effect<AcceptTransitGatewayVpcAttachmentResult, CommonAwsError>;
+  ): Effect.Effect<AcceptTransitGatewayVpcAttachmentResult, CommonAwsError> {
+    return this.call("AcceptTransitGatewayVpcAttachment", input);
+  }
   acceptVpcEndpointConnections(
     input: AcceptVpcEndpointConnectionsRequest,
-  ): Effect.Effect<AcceptVpcEndpointConnectionsResult, CommonAwsError>;
+  ): Effect.Effect<AcceptVpcEndpointConnectionsResult, CommonAwsError> {
+    return this.call("AcceptVpcEndpointConnections", input);
+  }
   acceptVpcPeeringConnection(
     input: AcceptVpcPeeringConnectionRequest,
-  ): Effect.Effect<AcceptVpcPeeringConnectionResult, CommonAwsError>;
+  ): Effect.Effect<AcceptVpcPeeringConnectionResult, CommonAwsError> {
+    return this.call("AcceptVpcPeeringConnection", input);
+  }
   advertiseByoipCidr(
     input: AdvertiseByoipCidrRequest,
-  ): Effect.Effect<AdvertiseByoipCidrResult, CommonAwsError>;
+  ): Effect.Effect<AdvertiseByoipCidrResult, CommonAwsError> {
+    return this.call("AdvertiseByoipCidr", input);
+  }
   allocateAddress(
     input: AllocateAddressRequest,
-  ): Effect.Effect<AllocateAddressResult, CommonAwsError>;
+  ): Effect.Effect<AllocateAddressResult, CommonAwsError> {
+    return this.call("AllocateAddress", input);
+  }
   allocateHosts(
     input: AllocateHostsRequest,
-  ): Effect.Effect<AllocateHostsResult, CommonAwsError>;
+  ): Effect.Effect<AllocateHostsResult, CommonAwsError> {
+    return this.call("AllocateHosts", input);
+  }
   allocateIpamPoolCidr(
     input: AllocateIpamPoolCidrRequest,
-  ): Effect.Effect<AllocateIpamPoolCidrResult, CommonAwsError>;
+  ): Effect.Effect<AllocateIpamPoolCidrResult, CommonAwsError> {
+    return this.call("AllocateIpamPoolCidr", input);
+  }
   applySecurityGroupsToClientVpnTargetNetwork(
     input: ApplySecurityGroupsToClientVpnTargetNetworkRequest,
   ): Effect.Effect<
     ApplySecurityGroupsToClientVpnTargetNetworkResult,
     CommonAwsError
-  >;
+  > {
+    return this.call("ApplySecurityGroupsToClientVpnTargetNetwork", input);
+  }
   assignIpv6Addresses(
     input: AssignIpv6AddressesRequest,
-  ): Effect.Effect<AssignIpv6AddressesResult, CommonAwsError>;
+  ): Effect.Effect<AssignIpv6AddressesResult, CommonAwsError> {
+    return this.call("AssignIpv6Addresses", input);
+  }
   assignPrivateIpAddresses(
     input: AssignPrivateIpAddressesRequest,
-  ): Effect.Effect<AssignPrivateIpAddressesResult, CommonAwsError>;
+  ): Effect.Effect<AssignPrivateIpAddressesResult, CommonAwsError> {
+    return this.call("AssignPrivateIpAddresses", input);
+  }
   assignPrivateNatGatewayAddress(
     input: AssignPrivateNatGatewayAddressRequest,
-  ): Effect.Effect<AssignPrivateNatGatewayAddressResult, CommonAwsError>;
+  ): Effect.Effect<AssignPrivateNatGatewayAddressResult, CommonAwsError> {
+    return this.call("AssignPrivateNatGatewayAddress", input);
+  }
   associateAddress(
     input: AssociateAddressRequest,
-  ): Effect.Effect<AssociateAddressResult, CommonAwsError>;
+  ): Effect.Effect<AssociateAddressResult, CommonAwsError> {
+    return this.call("AssociateAddress", input);
+  }
   associateCapacityReservationBillingOwner(
     input: AssociateCapacityReservationBillingOwnerRequest,
   ): Effect.Effect<
     AssociateCapacityReservationBillingOwnerResult,
     CommonAwsError
-  >;
+  > {
+    return this.call("AssociateCapacityReservationBillingOwner", input);
+  }
   associateClientVpnTargetNetwork(
     input: AssociateClientVpnTargetNetworkRequest,
-  ): Effect.Effect<AssociateClientVpnTargetNetworkResult, CommonAwsError>;
+  ): Effect.Effect<AssociateClientVpnTargetNetworkResult, CommonAwsError> {
+    return this.call("AssociateClientVpnTargetNetwork", input);
+  }
   associateDhcpOptions(
     input: AssociateDhcpOptionsRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, CommonAwsError> {
+    return this.call("AssociateDhcpOptions", input);
+  }
   associateEnclaveCertificateIamRole(
     input: AssociateEnclaveCertificateIamRoleRequest,
-  ): Effect.Effect<AssociateEnclaveCertificateIamRoleResult, CommonAwsError>;
+  ): Effect.Effect<AssociateEnclaveCertificateIamRoleResult, CommonAwsError> {
+    return this.call("AssociateEnclaveCertificateIamRole", input);
+  }
   associateIamInstanceProfile(
     input: AssociateIamInstanceProfileRequest,
-  ): Effect.Effect<AssociateIamInstanceProfileResult, CommonAwsError>;
+  ): Effect.Effect<AssociateIamInstanceProfileResult, CommonAwsError> {
+    return this.call("AssociateIamInstanceProfile", input);
+  }
   associateInstanceEventWindow(
     input: AssociateInstanceEventWindowRequest,
-  ): Effect.Effect<AssociateInstanceEventWindowResult, CommonAwsError>;
+  ): Effect.Effect<AssociateInstanceEventWindowResult, CommonAwsError> {
+    return this.call("AssociateInstanceEventWindow", input);
+  }
   associateIpamByoasn(
     input: AssociateIpamByoasnRequest,
-  ): Effect.Effect<AssociateIpamByoasnResult, CommonAwsError>;
+  ): Effect.Effect<AssociateIpamByoasnResult, CommonAwsError> {
+    return this.call("AssociateIpamByoasn", input);
+  }
   associateIpamResourceDiscovery(
     input: AssociateIpamResourceDiscoveryRequest,
-  ): Effect.Effect<AssociateIpamResourceDiscoveryResult, CommonAwsError>;
+  ): Effect.Effect<AssociateIpamResourceDiscoveryResult, CommonAwsError> {
+    return this.call("AssociateIpamResourceDiscovery", input);
+  }
   associateNatGatewayAddress(
     input: AssociateNatGatewayAddressRequest,
-  ): Effect.Effect<AssociateNatGatewayAddressResult, CommonAwsError>;
+  ): Effect.Effect<AssociateNatGatewayAddressResult, CommonAwsError> {
+    return this.call("AssociateNatGatewayAddress", input);
+  }
   associateRouteServer(
     input: AssociateRouteServerRequest,
-  ): Effect.Effect<AssociateRouteServerResult, CommonAwsError>;
+  ): Effect.Effect<AssociateRouteServerResult, CommonAwsError> {
+    return this.call("AssociateRouteServer", input);
+  }
   associateRouteTable(
     input: AssociateRouteTableRequest,
-  ): Effect.Effect<AssociateRouteTableResult, CommonAwsError>;
+  ): Effect.Effect<AssociateRouteTableResult, CommonAwsError> {
+    return this.call("AssociateRouteTable", input);
+  }
   associateSecurityGroupVpc(
     input: AssociateSecurityGroupVpcRequest,
-  ): Effect.Effect<AssociateSecurityGroupVpcResult, CommonAwsError>;
+  ): Effect.Effect<AssociateSecurityGroupVpcResult, CommonAwsError> {
+    return this.call("AssociateSecurityGroupVpc", input);
+  }
   associateSubnetCidrBlock(
     input: AssociateSubnetCidrBlockRequest,
-  ): Effect.Effect<AssociateSubnetCidrBlockResult, CommonAwsError>;
+  ): Effect.Effect<AssociateSubnetCidrBlockResult, CommonAwsError> {
+    return this.call("AssociateSubnetCidrBlock", input);
+  }
   associateTransitGatewayMulticastDomain(
     input: AssociateTransitGatewayMulticastDomainRequest,
   ): Effect.Effect<
     AssociateTransitGatewayMulticastDomainResult,
     CommonAwsError
-  >;
+  > {
+    return this.call("AssociateTransitGatewayMulticastDomain", input);
+  }
   associateTransitGatewayPolicyTable(
     input: AssociateTransitGatewayPolicyTableRequest,
-  ): Effect.Effect<AssociateTransitGatewayPolicyTableResult, CommonAwsError>;
+  ): Effect.Effect<AssociateTransitGatewayPolicyTableResult, CommonAwsError> {
+    return this.call("AssociateTransitGatewayPolicyTable", input);
+  }
   associateTransitGatewayRouteTable(
     input: AssociateTransitGatewayRouteTableRequest,
-  ): Effect.Effect<AssociateTransitGatewayRouteTableResult, CommonAwsError>;
+  ): Effect.Effect<AssociateTransitGatewayRouteTableResult, CommonAwsError> {
+    return this.call("AssociateTransitGatewayRouteTable", input);
+  }
   associateTrunkInterface(
     input: AssociateTrunkInterfaceRequest,
-  ): Effect.Effect<AssociateTrunkInterfaceResult, CommonAwsError>;
+  ): Effect.Effect<AssociateTrunkInterfaceResult, CommonAwsError> {
+    return this.call("AssociateTrunkInterface", input);
+  }
   associateVpcCidrBlock(
     input: AssociateVpcCidrBlockRequest,
-  ): Effect.Effect<AssociateVpcCidrBlockResult, CommonAwsError>;
+  ): Effect.Effect<AssociateVpcCidrBlockResult, CommonAwsError> {
+    return this.call("AssociateVpcCidrBlock", input);
+  }
   attachClassicLinkVpc(
     input: AttachClassicLinkVpcRequest,
-  ): Effect.Effect<AttachClassicLinkVpcResult, CommonAwsError>;
+  ): Effect.Effect<AttachClassicLinkVpcResult, CommonAwsError> {
+    return this.call("AttachClassicLinkVpc", input);
+  }
   attachInternetGateway(
     input: AttachInternetGatewayRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, CommonAwsError> {
+    return this.call("AttachInternetGateway", input);
+  }
   attachNetworkInterface(
     input: AttachNetworkInterfaceRequest,
-  ): Effect.Effect<AttachNetworkInterfaceResult, CommonAwsError>;
+  ): Effect.Effect<AttachNetworkInterfaceResult, CommonAwsError> {
+    return this.call("AttachNetworkInterface", input);
+  }
   attachVerifiedAccessTrustProvider(
     input: AttachVerifiedAccessTrustProviderRequest,
-  ): Effect.Effect<AttachVerifiedAccessTrustProviderResult, CommonAwsError>;
+  ): Effect.Effect<AttachVerifiedAccessTrustProviderResult, CommonAwsError> {
+    return this.call("AttachVerifiedAccessTrustProvider", input);
+  }
   attachVolume(
     input: AttachVolumeRequest,
-  ): Effect.Effect<VolumeAttachment, CommonAwsError>;
+  ): Effect.Effect<VolumeAttachment, CommonAwsError> {
+    return this.call("AttachVolume", input);
+  }
   attachVpnGateway(
     input: AttachVpnGatewayRequest,
-  ): Effect.Effect<AttachVpnGatewayResult, CommonAwsError>;
+  ): Effect.Effect<AttachVpnGatewayResult, CommonAwsError> {
+    return this.call("AttachVpnGateway", input);
+  }
   authorizeClientVpnIngress(
     input: AuthorizeClientVpnIngressRequest,
-  ): Effect.Effect<AuthorizeClientVpnIngressResult, CommonAwsError>;
+  ): Effect.Effect<AuthorizeClientVpnIngressResult, CommonAwsError> {
+    return this.call("AuthorizeClientVpnIngress", input);
+  }
   authorizeSecurityGroupEgress(
     input: AuthorizeSecurityGroupEgressRequest,
-  ): Effect.Effect<AuthorizeSecurityGroupEgressResult, CommonAwsError>;
+  ): Effect.Effect<AuthorizeSecurityGroupEgressResult, CommonAwsError> {
+    return this.call("AuthorizeSecurityGroupEgress", input);
+  }
   authorizeSecurityGroupIngress(
     input: AuthorizeSecurityGroupIngressRequest,
-  ): Effect.Effect<AuthorizeSecurityGroupIngressResult, CommonAwsError>;
+  ): Effect.Effect<AuthorizeSecurityGroupIngressResult, CommonAwsError> {
+    return this.call("AuthorizeSecurityGroupIngress", input);
+  }
   bundleInstance(
     input: BundleInstanceRequest,
-  ): Effect.Effect<BundleInstanceResult, CommonAwsError>;
+  ): Effect.Effect<BundleInstanceResult, CommonAwsError> {
+    return this.call("BundleInstance", input);
+  }
   cancelBundleTask(
     input: CancelBundleTaskRequest,
-  ): Effect.Effect<CancelBundleTaskResult, CommonAwsError>;
+  ): Effect.Effect<CancelBundleTaskResult, CommonAwsError> {
+    return this.call("CancelBundleTask", input);
+  }
   cancelCapacityReservation(
     input: CancelCapacityReservationRequest,
-  ): Effect.Effect<CancelCapacityReservationResult, CommonAwsError>;
+  ): Effect.Effect<CancelCapacityReservationResult, CommonAwsError> {
+    return this.call("CancelCapacityReservation", input);
+  }
   cancelCapacityReservationFleets(
     input: CancelCapacityReservationFleetsRequest,
-  ): Effect.Effect<CancelCapacityReservationFleetsResult, CommonAwsError>;
+  ): Effect.Effect<CancelCapacityReservationFleetsResult, CommonAwsError> {
+    return this.call("CancelCapacityReservationFleets", input);
+  }
   cancelConversionTask(
     input: CancelConversionRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, CommonAwsError> {
+    return this.call("CancelConversionTask", input);
+  }
   cancelDeclarativePoliciesReport(
     input: CancelDeclarativePoliciesReportRequest,
-  ): Effect.Effect<CancelDeclarativePoliciesReportResult, CommonAwsError>;
+  ): Effect.Effect<CancelDeclarativePoliciesReportResult, CommonAwsError> {
+    return this.call("CancelDeclarativePoliciesReport", input);
+  }
   cancelExportTask(
     input: CancelExportTaskRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, CommonAwsError> {
+    return this.call("CancelExportTask", input);
+  }
   cancelImageLaunchPermission(
     input: CancelImageLaunchPermissionRequest,
-  ): Effect.Effect<CancelImageLaunchPermissionResult, CommonAwsError>;
+  ): Effect.Effect<CancelImageLaunchPermissionResult, CommonAwsError> {
+    return this.call("CancelImageLaunchPermission", input);
+  }
   cancelImportTask(
     input: CancelImportTaskRequest,
-  ): Effect.Effect<CancelImportTaskResult, CommonAwsError>;
+  ): Effect.Effect<CancelImportTaskResult, CommonAwsError> {
+    return this.call("CancelImportTask", input);
+  }
   cancelReservedInstancesListing(
     input: CancelReservedInstancesListingRequest,
-  ): Effect.Effect<CancelReservedInstancesListingResult, CommonAwsError>;
+  ): Effect.Effect<CancelReservedInstancesListingResult, CommonAwsError> {
+    return this.call("CancelReservedInstancesListing", input);
+  }
   cancelSpotFleetRequests(
     input: CancelSpotFleetRequestsRequest,
-  ): Effect.Effect<CancelSpotFleetRequestsResponse, CommonAwsError>;
+  ): Effect.Effect<CancelSpotFleetRequestsResponse, CommonAwsError> {
+    return this.call("CancelSpotFleetRequests", input);
+  }
   cancelSpotInstanceRequests(
     input: CancelSpotInstanceRequestsRequest,
-  ): Effect.Effect<CancelSpotInstanceRequestsResult, CommonAwsError>;
+  ): Effect.Effect<CancelSpotInstanceRequestsResult, CommonAwsError> {
+    return this.call("CancelSpotInstanceRequests", input);
+  }
   confirmProductInstance(
     input: ConfirmProductInstanceRequest,
-  ): Effect.Effect<ConfirmProductInstanceResult, CommonAwsError>;
+  ): Effect.Effect<ConfirmProductInstanceResult, CommonAwsError> {
+    return this.call("ConfirmProductInstance", input);
+  }
   copyFpgaImage(
     input: CopyFpgaImageRequest,
-  ): Effect.Effect<CopyFpgaImageResult, CommonAwsError>;
+  ): Effect.Effect<CopyFpgaImageResult, CommonAwsError> {
+    return this.call("CopyFpgaImage", input);
+  }
   copyImage(
     input: CopyImageRequest,
-  ): Effect.Effect<CopyImageResult, CommonAwsError>;
+  ): Effect.Effect<CopyImageResult, CommonAwsError> {
+    return this.call("CopyImage", input);
+  }
   copySnapshot(
     input: CopySnapshotRequest,
-  ): Effect.Effect<CopySnapshotResult, CommonAwsError>;
+  ): Effect.Effect<CopySnapshotResult, CommonAwsError> {
+    return this.call("CopySnapshot", input);
+  }
   createCapacityReservation(
     input: CreateCapacityReservationRequest,
-  ): Effect.Effect<CreateCapacityReservationResult, CommonAwsError>;
+  ): Effect.Effect<CreateCapacityReservationResult, CommonAwsError> {
+    return this.call("CreateCapacityReservation", input);
+  }
   createCapacityReservationBySplitting(
     input: CreateCapacityReservationBySplittingRequest,
-  ): Effect.Effect<CreateCapacityReservationBySplittingResult, CommonAwsError>;
+  ): Effect.Effect<CreateCapacityReservationBySplittingResult, CommonAwsError> {
+    return this.call("CreateCapacityReservationBySplitting", input);
+  }
   createCapacityReservationFleet(
     input: CreateCapacityReservationFleetRequest,
-  ): Effect.Effect<CreateCapacityReservationFleetResult, CommonAwsError>;
+  ): Effect.Effect<CreateCapacityReservationFleetResult, CommonAwsError> {
+    return this.call("CreateCapacityReservationFleet", input);
+  }
   createCarrierGateway(
     input: CreateCarrierGatewayRequest,
-  ): Effect.Effect<CreateCarrierGatewayResult, CommonAwsError>;
+  ): Effect.Effect<CreateCarrierGatewayResult, CommonAwsError> {
+    return this.call("CreateCarrierGateway", input);
+  }
   createClientVpnEndpoint(
     input: CreateClientVpnEndpointRequest,
-  ): Effect.Effect<CreateClientVpnEndpointResult, CommonAwsError>;
+  ): Effect.Effect<CreateClientVpnEndpointResult, CommonAwsError> {
+    return this.call("CreateClientVpnEndpoint", input);
+  }
   createClientVpnRoute(
     input: CreateClientVpnRouteRequest,
-  ): Effect.Effect<CreateClientVpnRouteResult, CommonAwsError>;
+  ): Effect.Effect<CreateClientVpnRouteResult, CommonAwsError> {
+    return this.call("CreateClientVpnRoute", input);
+  }
   createCoipCidr(
     input: CreateCoipCidrRequest,
-  ): Effect.Effect<CreateCoipCidrResult, CommonAwsError>;
+  ): Effect.Effect<CreateCoipCidrResult, CommonAwsError> {
+    return this.call("CreateCoipCidr", input);
+  }
   createCoipPool(
     input: CreateCoipPoolRequest,
-  ): Effect.Effect<CreateCoipPoolResult, CommonAwsError>;
+  ): Effect.Effect<CreateCoipPoolResult, CommonAwsError> {
+    return this.call("CreateCoipPool", input);
+  }
   createCustomerGateway(
     input: CreateCustomerGatewayRequest,
-  ): Effect.Effect<CreateCustomerGatewayResult, CommonAwsError>;
+  ): Effect.Effect<CreateCustomerGatewayResult, CommonAwsError> {
+    return this.call("CreateCustomerGateway", input);
+  }
   createDefaultSubnet(
     input: CreateDefaultSubnetRequest,
-  ): Effect.Effect<CreateDefaultSubnetResult, CommonAwsError>;
+  ): Effect.Effect<CreateDefaultSubnetResult, CommonAwsError> {
+    return this.call("CreateDefaultSubnet", input);
+  }
   createDefaultVpc(
     input: CreateDefaultVpcRequest,
-  ): Effect.Effect<CreateDefaultVpcResult, CommonAwsError>;
+  ): Effect.Effect<CreateDefaultVpcResult, CommonAwsError> {
+    return this.call("CreateDefaultVpc", input);
+  }
   createDelegateMacVolumeOwnershipTask(
     input: CreateDelegateMacVolumeOwnershipTaskRequest,
-  ): Effect.Effect<CreateDelegateMacVolumeOwnershipTaskResult, CommonAwsError>;
+  ): Effect.Effect<CreateDelegateMacVolumeOwnershipTaskResult, CommonAwsError> {
+    return this.call("CreateDelegateMacVolumeOwnershipTask", input);
+  }
   createDhcpOptions(
     input: CreateDhcpOptionsRequest,
-  ): Effect.Effect<CreateDhcpOptionsResult, CommonAwsError>;
+  ): Effect.Effect<CreateDhcpOptionsResult, CommonAwsError> {
+    return this.call("CreateDhcpOptions", input);
+  }
   createEgressOnlyInternetGateway(
     input: CreateEgressOnlyInternetGatewayRequest,
-  ): Effect.Effect<CreateEgressOnlyInternetGatewayResult, CommonAwsError>;
+  ): Effect.Effect<CreateEgressOnlyInternetGatewayResult, CommonAwsError> {
+    return this.call("CreateEgressOnlyInternetGateway", input);
+  }
   createFleet(
     input: CreateFleetRequest,
-  ): Effect.Effect<CreateFleetResult, CommonAwsError>;
+  ): Effect.Effect<CreateFleetResult, CommonAwsError> {
+    return this.call("CreateFleet", input);
+  }
   createFlowLogs(
     input: CreateFlowLogsRequest,
-  ): Effect.Effect<CreateFlowLogsResult, CommonAwsError>;
+  ): Effect.Effect<CreateFlowLogsResult, CommonAwsError> {
+    return this.call("CreateFlowLogs", input);
+  }
   createFpgaImage(
     input: CreateFpgaImageRequest,
-  ): Effect.Effect<CreateFpgaImageResult, CommonAwsError>;
+  ): Effect.Effect<CreateFpgaImageResult, CommonAwsError> {
+    return this.call("CreateFpgaImage", input);
+  }
   createImage(
     input: CreateImageRequest,
-  ): Effect.Effect<CreateImageResult, CommonAwsError>;
+  ): Effect.Effect<CreateImageResult, CommonAwsError> {
+    return this.call("CreateImage", input);
+  }
   createInstanceConnectEndpoint(
     input: CreateInstanceConnectEndpointRequest,
-  ): Effect.Effect<CreateInstanceConnectEndpointResult, CommonAwsError>;
+  ): Effect.Effect<CreateInstanceConnectEndpointResult, CommonAwsError> {
+    return this.call("CreateInstanceConnectEndpoint", input);
+  }
   createInstanceEventWindow(
     input: CreateInstanceEventWindowRequest,
-  ): Effect.Effect<CreateInstanceEventWindowResult, CommonAwsError>;
+  ): Effect.Effect<CreateInstanceEventWindowResult, CommonAwsError> {
+    return this.call("CreateInstanceEventWindow", input);
+  }
   createInstanceExportTask(
     input: CreateInstanceExportTaskRequest,
-  ): Effect.Effect<CreateInstanceExportTaskResult, CommonAwsError>;
+  ): Effect.Effect<CreateInstanceExportTaskResult, CommonAwsError> {
+    return this.call("CreateInstanceExportTask", input);
+  }
   createInternetGateway(
     input: CreateInternetGatewayRequest,
-  ): Effect.Effect<CreateInternetGatewayResult, CommonAwsError>;
+  ): Effect.Effect<CreateInternetGatewayResult, CommonAwsError> {
+    return this.call("CreateInternetGateway", input);
+  }
   createIpam(
     input: CreateIpamRequest,
-  ): Effect.Effect<CreateIpamResult, CommonAwsError>;
+  ): Effect.Effect<CreateIpamResult, CommonAwsError> {
+    return this.call("CreateIpam", input);
+  }
   createIpamExternalResourceVerificationToken(
     input: CreateIpamExternalResourceVerificationTokenRequest,
   ): Effect.Effect<
     CreateIpamExternalResourceVerificationTokenResult,
     CommonAwsError
-  >;
+  > {
+    return this.call("CreateIpamExternalResourceVerificationToken", input);
+  }
   createIpamPool(
     input: CreateIpamPoolRequest,
-  ): Effect.Effect<CreateIpamPoolResult, CommonAwsError>;
+  ): Effect.Effect<CreateIpamPoolResult, CommonAwsError> {
+    return this.call("CreateIpamPool", input);
+  }
   createIpamResourceDiscovery(
     input: CreateIpamResourceDiscoveryRequest,
-  ): Effect.Effect<CreateIpamResourceDiscoveryResult, CommonAwsError>;
+  ): Effect.Effect<CreateIpamResourceDiscoveryResult, CommonAwsError> {
+    return this.call("CreateIpamResourceDiscovery", input);
+  }
   createIpamScope(
     input: CreateIpamScopeRequest,
-  ): Effect.Effect<CreateIpamScopeResult, CommonAwsError>;
+  ): Effect.Effect<CreateIpamScopeResult, CommonAwsError> {
+    return this.call("CreateIpamScope", input);
+  }
   createKeyPair(
     input: CreateKeyPairRequest,
-  ): Effect.Effect<KeyPair, CommonAwsError>;
+  ): Effect.Effect<KeyPair, CommonAwsError> {
+    return this.call("CreateKeyPair", input);
+  }
   createLaunchTemplate(
     input: CreateLaunchTemplateRequest,
-  ): Effect.Effect<CreateLaunchTemplateResult, CommonAwsError>;
+  ): Effect.Effect<CreateLaunchTemplateResult, CommonAwsError> {
+    return this.call("CreateLaunchTemplate", input);
+  }
   createLaunchTemplateVersion(
     input: CreateLaunchTemplateVersionRequest,
-  ): Effect.Effect<CreateLaunchTemplateVersionResult, CommonAwsError>;
+  ): Effect.Effect<CreateLaunchTemplateVersionResult, CommonAwsError> {
+    return this.call("CreateLaunchTemplateVersion", input);
+  }
   createLocalGatewayRoute(
     input: CreateLocalGatewayRouteRequest,
-  ): Effect.Effect<CreateLocalGatewayRouteResult, CommonAwsError>;
+  ): Effect.Effect<CreateLocalGatewayRouteResult, CommonAwsError> {
+    return this.call("CreateLocalGatewayRoute", input);
+  }
   createLocalGatewayRouteTable(
     input: CreateLocalGatewayRouteTableRequest,
-  ): Effect.Effect<CreateLocalGatewayRouteTableResult, CommonAwsError>;
+  ): Effect.Effect<CreateLocalGatewayRouteTableResult, CommonAwsError> {
+    return this.call("CreateLocalGatewayRouteTable", input);
+  }
   createLocalGatewayRouteTableVirtualInterfaceGroupAssociation(
     input: CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationRequest,
   ): Effect.Effect<
     CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationResult,
     CommonAwsError
-  >;
+  > {
+    return this.call(
+      "CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociation",
+      input,
+    );
+  }
   createLocalGatewayRouteTableVpcAssociation(
     input: CreateLocalGatewayRouteTableVpcAssociationRequest,
   ): Effect.Effect<
     CreateLocalGatewayRouteTableVpcAssociationResult,
     CommonAwsError
-  >;
+  > {
+    return this.call("CreateLocalGatewayRouteTableVpcAssociation", input);
+  }
   createLocalGatewayVirtualInterface(
     input: CreateLocalGatewayVirtualInterfaceRequest,
-  ): Effect.Effect<CreateLocalGatewayVirtualInterfaceResult, CommonAwsError>;
+  ): Effect.Effect<CreateLocalGatewayVirtualInterfaceResult, CommonAwsError> {
+    return this.call("CreateLocalGatewayVirtualInterface", input);
+  }
   createLocalGatewayVirtualInterfaceGroup(
     input: CreateLocalGatewayVirtualInterfaceGroupRequest,
   ): Effect.Effect<
     CreateLocalGatewayVirtualInterfaceGroupResult,
     CommonAwsError
-  >;
+  > {
+    return this.call("CreateLocalGatewayVirtualInterfaceGroup", input);
+  }
   createMacSystemIntegrityProtectionModificationTask(
     input: CreateMacSystemIntegrityProtectionModificationTaskRequest,
   ): Effect.Effect<
     CreateMacSystemIntegrityProtectionModificationTaskResult,
     CommonAwsError
-  >;
+  > {
+    return this.call(
+      "CreateMacSystemIntegrityProtectionModificationTask",
+      input,
+    );
+  }
   createManagedPrefixList(
     input: CreateManagedPrefixListRequest,
-  ): Effect.Effect<CreateManagedPrefixListResult, CommonAwsError>;
+  ): Effect.Effect<CreateManagedPrefixListResult, CommonAwsError> {
+    return this.call("CreateManagedPrefixList", input);
+  }
   createNatGateway(
     input: CreateNatGatewayRequest,
-  ): Effect.Effect<CreateNatGatewayResult, CommonAwsError>;
+  ): Effect.Effect<CreateNatGatewayResult, CommonAwsError> {
+    return this.call("CreateNatGateway", input);
+  }
   createNetworkAcl(
     input: CreateNetworkAclRequest,
-  ): Effect.Effect<CreateNetworkAclResult, CommonAwsError>;
+  ): Effect.Effect<CreateNetworkAclResult, CommonAwsError> {
+    return this.call("CreateNetworkAcl", input);
+  }
   createNetworkAclEntry(
     input: CreateNetworkAclEntryRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, CommonAwsError> {
+    return this.call("CreateNetworkAclEntry", input);
+  }
   createNetworkInsightsAccessScope(
     input: CreateNetworkInsightsAccessScopeRequest,
-  ): Effect.Effect<CreateNetworkInsightsAccessScopeResult, CommonAwsError>;
+  ): Effect.Effect<CreateNetworkInsightsAccessScopeResult, CommonAwsError> {
+    return this.call("CreateNetworkInsightsAccessScope", input);
+  }
   createNetworkInsightsPath(
     input: CreateNetworkInsightsPathRequest,
-  ): Effect.Effect<CreateNetworkInsightsPathResult, CommonAwsError>;
+  ): Effect.Effect<CreateNetworkInsightsPathResult, CommonAwsError> {
+    return this.call("CreateNetworkInsightsPath", input);
+  }
   createNetworkInterface(
     input: CreateNetworkInterfaceRequest,
-  ): Effect.Effect<CreateNetworkInterfaceResult, CommonAwsError>;
+  ): Effect.Effect<CreateNetworkInterfaceResult, CommonAwsError> {
+    return this.call("CreateNetworkInterface", input);
+  }
   createNetworkInterfacePermission(
     input: CreateNetworkInterfacePermissionRequest,
-  ): Effect.Effect<CreateNetworkInterfacePermissionResult, CommonAwsError>;
+  ): Effect.Effect<CreateNetworkInterfacePermissionResult, CommonAwsError> {
+    return this.call("CreateNetworkInterfacePermission", input);
+  }
   createPlacementGroup(
     input: CreatePlacementGroupRequest,
-  ): Effect.Effect<CreatePlacementGroupResult, CommonAwsError>;
+  ): Effect.Effect<CreatePlacementGroupResult, CommonAwsError> {
+    return this.call("CreatePlacementGroup", input);
+  }
   createPublicIpv4Pool(
     input: CreatePublicIpv4PoolRequest,
-  ): Effect.Effect<CreatePublicIpv4PoolResult, CommonAwsError>;
+  ): Effect.Effect<CreatePublicIpv4PoolResult, CommonAwsError> {
+    return this.call("CreatePublicIpv4Pool", input);
+  }
   createReplaceRootVolumeTask(
     input: CreateReplaceRootVolumeTaskRequest,
-  ): Effect.Effect<CreateReplaceRootVolumeTaskResult, CommonAwsError>;
+  ): Effect.Effect<CreateReplaceRootVolumeTaskResult, CommonAwsError> {
+    return this.call("CreateReplaceRootVolumeTask", input);
+  }
   createReservedInstancesListing(
     input: CreateReservedInstancesListingRequest,
-  ): Effect.Effect<CreateReservedInstancesListingResult, CommonAwsError>;
+  ): Effect.Effect<CreateReservedInstancesListingResult, CommonAwsError> {
+    return this.call("CreateReservedInstancesListing", input);
+  }
   createRestoreImageTask(
     input: CreateRestoreImageTaskRequest,
-  ): Effect.Effect<CreateRestoreImageTaskResult, CommonAwsError>;
+  ): Effect.Effect<CreateRestoreImageTaskResult, CommonAwsError> {
+    return this.call("CreateRestoreImageTask", input);
+  }
   createRoute(
     input: CreateRouteRequest,
-  ): Effect.Effect<CreateRouteResult, CommonAwsError>;
+  ): Effect.Effect<CreateRouteResult, CommonAwsError> {
+    return this.call("CreateRoute", input);
+  }
   createRouteServer(
     input: CreateRouteServerRequest,
-  ): Effect.Effect<CreateRouteServerResult, CommonAwsError>;
+  ): Effect.Effect<CreateRouteServerResult, CommonAwsError> {
+    return this.call("CreateRouteServer", input);
+  }
   createRouteServerEndpoint(
     input: CreateRouteServerEndpointRequest,
-  ): Effect.Effect<CreateRouteServerEndpointResult, CommonAwsError>;
+  ): Effect.Effect<CreateRouteServerEndpointResult, CommonAwsError> {
+    return this.call("CreateRouteServerEndpoint", input);
+  }
   createRouteServerPeer(
     input: CreateRouteServerPeerRequest,
-  ): Effect.Effect<CreateRouteServerPeerResult, CommonAwsError>;
+  ): Effect.Effect<CreateRouteServerPeerResult, CommonAwsError> {
+    return this.call("CreateRouteServerPeer", input);
+  }
   createRouteTable(
     input: CreateRouteTableRequest,
-  ): Effect.Effect<CreateRouteTableResult, CommonAwsError>;
+  ): Effect.Effect<CreateRouteTableResult, CommonAwsError> {
+    return this.call("CreateRouteTable", input);
+  }
   createSecurityGroup(
     input: CreateSecurityGroupRequest,
-  ): Effect.Effect<CreateSecurityGroupResult, CommonAwsError>;
+  ): Effect.Effect<CreateSecurityGroupResult, CommonAwsError> {
+    return this.call("CreateSecurityGroup", input);
+  }
   createSnapshot(
     input: CreateSnapshotRequest,
-  ): Effect.Effect<Snapshot, CommonAwsError>;
+  ): Effect.Effect<Snapshot, CommonAwsError> {
+    return this.call("CreateSnapshot", input);
+  }
   createSnapshots(
     input: CreateSnapshotsRequest,
-  ): Effect.Effect<CreateSnapshotsResult, CommonAwsError>;
+  ): Effect.Effect<CreateSnapshotsResult, CommonAwsError> {
+    return this.call("CreateSnapshots", input);
+  }
   createSpotDatafeedSubscription(
     input: CreateSpotDatafeedSubscriptionRequest,
-  ): Effect.Effect<CreateSpotDatafeedSubscriptionResult, CommonAwsError>;
+  ): Effect.Effect<CreateSpotDatafeedSubscriptionResult, CommonAwsError> {
+    return this.call("CreateSpotDatafeedSubscription", input);
+  }
   createStoreImageTask(
     input: CreateStoreImageTaskRequest,
-  ): Effect.Effect<CreateStoreImageTaskResult, CommonAwsError>;
+  ): Effect.Effect<CreateStoreImageTaskResult, CommonAwsError> {
+    return this.call("CreateStoreImageTask", input);
+  }
   createSubnet(
     input: CreateSubnetRequest,
-  ): Effect.Effect<CreateSubnetResult, CommonAwsError>;
+  ): Effect.Effect<CreateSubnetResult, CommonAwsError> {
+    return this.call("CreateSubnet", input);
+  }
   createSubnetCidrReservation(
     input: CreateSubnetCidrReservationRequest,
-  ): Effect.Effect<CreateSubnetCidrReservationResult, CommonAwsError>;
-  createTags(input: CreateTagsRequest): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<CreateSubnetCidrReservationResult, CommonAwsError> {
+    return this.call("CreateSubnetCidrReservation", input);
+  }
+  createTags(input: CreateTagsRequest): Effect.Effect<{}, CommonAwsError> {
+    return this.call("CreateTags", input);
+  }
   createTrafficMirrorFilter(
     input: CreateTrafficMirrorFilterRequest,
-  ): Effect.Effect<CreateTrafficMirrorFilterResult, CommonAwsError>;
+  ): Effect.Effect<CreateTrafficMirrorFilterResult, CommonAwsError> {
+    return this.call("CreateTrafficMirrorFilter", input);
+  }
   createTrafficMirrorFilterRule(
     input: CreateTrafficMirrorFilterRuleRequest,
-  ): Effect.Effect<CreateTrafficMirrorFilterRuleResult, CommonAwsError>;
+  ): Effect.Effect<CreateTrafficMirrorFilterRuleResult, CommonAwsError> {
+    return this.call("CreateTrafficMirrorFilterRule", input);
+  }
   createTrafficMirrorSession(
     input: CreateTrafficMirrorSessionRequest,
-  ): Effect.Effect<CreateTrafficMirrorSessionResult, CommonAwsError>;
+  ): Effect.Effect<CreateTrafficMirrorSessionResult, CommonAwsError> {
+    return this.call("CreateTrafficMirrorSession", input);
+  }
   createTrafficMirrorTarget(
     input: CreateTrafficMirrorTargetRequest,
-  ): Effect.Effect<CreateTrafficMirrorTargetResult, CommonAwsError>;
+  ): Effect.Effect<CreateTrafficMirrorTargetResult, CommonAwsError> {
+    return this.call("CreateTrafficMirrorTarget", input);
+  }
   createTransitGateway(
     input: CreateTransitGatewayRequest,
-  ): Effect.Effect<CreateTransitGatewayResult, CommonAwsError>;
+  ): Effect.Effect<CreateTransitGatewayResult, CommonAwsError> {
+    return this.call("CreateTransitGateway", input);
+  }
   createTransitGatewayConnect(
     input: CreateTransitGatewayConnectRequest,
-  ): Effect.Effect<CreateTransitGatewayConnectResult, CommonAwsError>;
+  ): Effect.Effect<CreateTransitGatewayConnectResult, CommonAwsError> {
+    return this.call("CreateTransitGatewayConnect", input);
+  }
   createTransitGatewayConnectPeer(
     input: CreateTransitGatewayConnectPeerRequest,
-  ): Effect.Effect<CreateTransitGatewayConnectPeerResult, CommonAwsError>;
+  ): Effect.Effect<CreateTransitGatewayConnectPeerResult, CommonAwsError> {
+    return this.call("CreateTransitGatewayConnectPeer", input);
+  }
   createTransitGatewayMulticastDomain(
     input: CreateTransitGatewayMulticastDomainRequest,
-  ): Effect.Effect<CreateTransitGatewayMulticastDomainResult, CommonAwsError>;
+  ): Effect.Effect<CreateTransitGatewayMulticastDomainResult, CommonAwsError> {
+    return this.call("CreateTransitGatewayMulticastDomain", input);
+  }
   createTransitGatewayPeeringAttachment(
     input: CreateTransitGatewayPeeringAttachmentRequest,
-  ): Effect.Effect<CreateTransitGatewayPeeringAttachmentResult, CommonAwsError>;
+  ): Effect.Effect<
+    CreateTransitGatewayPeeringAttachmentResult,
+    CommonAwsError
+  > {
+    return this.call("CreateTransitGatewayPeeringAttachment", input);
+  }
   createTransitGatewayPolicyTable(
     input: CreateTransitGatewayPolicyTableRequest,
-  ): Effect.Effect<CreateTransitGatewayPolicyTableResult, CommonAwsError>;
+  ): Effect.Effect<CreateTransitGatewayPolicyTableResult, CommonAwsError> {
+    return this.call("CreateTransitGatewayPolicyTable", input);
+  }
   createTransitGatewayPrefixListReference(
     input: CreateTransitGatewayPrefixListReferenceRequest,
   ): Effect.Effect<
     CreateTransitGatewayPrefixListReferenceResult,
     CommonAwsError
-  >;
+  > {
+    return this.call("CreateTransitGatewayPrefixListReference", input);
+  }
   createTransitGatewayRoute(
     input: CreateTransitGatewayRouteRequest,
-  ): Effect.Effect<CreateTransitGatewayRouteResult, CommonAwsError>;
+  ): Effect.Effect<CreateTransitGatewayRouteResult, CommonAwsError> {
+    return this.call("CreateTransitGatewayRoute", input);
+  }
   createTransitGatewayRouteTable(
     input: CreateTransitGatewayRouteTableRequest,
-  ): Effect.Effect<CreateTransitGatewayRouteTableResult, CommonAwsError>;
+  ): Effect.Effect<CreateTransitGatewayRouteTableResult, CommonAwsError> {
+    return this.call("CreateTransitGatewayRouteTable", input);
+  }
   createTransitGatewayRouteTableAnnouncement(
     input: CreateTransitGatewayRouteTableAnnouncementRequest,
   ): Effect.Effect<
     CreateTransitGatewayRouteTableAnnouncementResult,
     CommonAwsError
-  >;
+  > {
+    return this.call("CreateTransitGatewayRouteTableAnnouncement", input);
+  }
   createTransitGatewayVpcAttachment(
     input: CreateTransitGatewayVpcAttachmentRequest,
-  ): Effect.Effect<CreateTransitGatewayVpcAttachmentResult, CommonAwsError>;
+  ): Effect.Effect<CreateTransitGatewayVpcAttachmentResult, CommonAwsError> {
+    return this.call("CreateTransitGatewayVpcAttachment", input);
+  }
   createVerifiedAccessEndpoint(
     input: CreateVerifiedAccessEndpointRequest,
-  ): Effect.Effect<CreateVerifiedAccessEndpointResult, CommonAwsError>;
+  ): Effect.Effect<CreateVerifiedAccessEndpointResult, CommonAwsError> {
+    return this.call("CreateVerifiedAccessEndpoint", input);
+  }
   createVerifiedAccessGroup(
     input: CreateVerifiedAccessGroupRequest,
-  ): Effect.Effect<CreateVerifiedAccessGroupResult, CommonAwsError>;
+  ): Effect.Effect<CreateVerifiedAccessGroupResult, CommonAwsError> {
+    return this.call("CreateVerifiedAccessGroup", input);
+  }
   createVerifiedAccessInstance(
     input: CreateVerifiedAccessInstanceRequest,
-  ): Effect.Effect<CreateVerifiedAccessInstanceResult, CommonAwsError>;
+  ): Effect.Effect<CreateVerifiedAccessInstanceResult, CommonAwsError> {
+    return this.call("CreateVerifiedAccessInstance", input);
+  }
   createVerifiedAccessTrustProvider(
     input: CreateVerifiedAccessTrustProviderRequest,
-  ): Effect.Effect<CreateVerifiedAccessTrustProviderResult, CommonAwsError>;
+  ): Effect.Effect<CreateVerifiedAccessTrustProviderResult, CommonAwsError> {
+    return this.call("CreateVerifiedAccessTrustProvider", input);
+  }
   createVolume(
     input: CreateVolumeRequest,
-  ): Effect.Effect<Volume, CommonAwsError>;
+  ): Effect.Effect<Volume, CommonAwsError> {
+    return this.call("CreateVolume", input);
+  }
   createVpc(
     input: CreateVpcRequest,
-  ): Effect.Effect<CreateVpcResult, CommonAwsError>;
+  ): Effect.Effect<CreateVpcResult, CommonAwsError> {
+    return this.call("CreateVpc", input);
+  }
   createVpcBlockPublicAccessExclusion(
     input: CreateVpcBlockPublicAccessExclusionRequest,
-  ): Effect.Effect<CreateVpcBlockPublicAccessExclusionResult, CommonAwsError>;
+  ): Effect.Effect<CreateVpcBlockPublicAccessExclusionResult, CommonAwsError> {
+    return this.call("CreateVpcBlockPublicAccessExclusion", input);
+  }
   createVpcEndpoint(
     input: CreateVpcEndpointRequest,
-  ): Effect.Effect<CreateVpcEndpointResult, CommonAwsError>;
+  ): Effect.Effect<CreateVpcEndpointResult, CommonAwsError> {
+    return this.call("CreateVpcEndpoint", input);
+  }
   createVpcEndpointConnectionNotification(
     input: CreateVpcEndpointConnectionNotificationRequest,
   ): Effect.Effect<
     CreateVpcEndpointConnectionNotificationResult,
     CommonAwsError
-  >;
+  > {
+    return this.call("CreateVpcEndpointConnectionNotification", input);
+  }
   createVpcEndpointServiceConfiguration(
     input: CreateVpcEndpointServiceConfigurationRequest,
-  ): Effect.Effect<CreateVpcEndpointServiceConfigurationResult, CommonAwsError>;
+  ): Effect.Effect<
+    CreateVpcEndpointServiceConfigurationResult,
+    CommonAwsError
+  > {
+    return this.call("CreateVpcEndpointServiceConfiguration", input);
+  }
   createVpcPeeringConnection(
     input: CreateVpcPeeringConnectionRequest,
-  ): Effect.Effect<CreateVpcPeeringConnectionResult, CommonAwsError>;
+  ): Effect.Effect<CreateVpcPeeringConnectionResult, CommonAwsError> {
+    return this.call("CreateVpcPeeringConnection", input);
+  }
   createVpnConnection(
     input: CreateVpnConnectionRequest,
-  ): Effect.Effect<CreateVpnConnectionResult, CommonAwsError>;
+  ): Effect.Effect<CreateVpnConnectionResult, CommonAwsError> {
+    return this.call("CreateVpnConnection", input);
+  }
   createVpnConnectionRoute(
     input: CreateVpnConnectionRouteRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, CommonAwsError> {
+    return this.call("CreateVpnConnectionRoute", input);
+  }
   createVpnGateway(
     input: CreateVpnGatewayRequest,
-  ): Effect.Effect<CreateVpnGatewayResult, CommonAwsError>;
+  ): Effect.Effect<CreateVpnGatewayResult, CommonAwsError> {
+    return this.call("CreateVpnGateway", input);
+  }
   deleteCarrierGateway(
     input: DeleteCarrierGatewayRequest,
-  ): Effect.Effect<DeleteCarrierGatewayResult, CommonAwsError>;
+  ): Effect.Effect<DeleteCarrierGatewayResult, CommonAwsError> {
+    return this.call("DeleteCarrierGateway", input);
+  }
   deleteClientVpnEndpoint(
     input: DeleteClientVpnEndpointRequest,
-  ): Effect.Effect<DeleteClientVpnEndpointResult, CommonAwsError>;
+  ): Effect.Effect<DeleteClientVpnEndpointResult, CommonAwsError> {
+    return this.call("DeleteClientVpnEndpoint", input);
+  }
   deleteClientVpnRoute(
     input: DeleteClientVpnRouteRequest,
-  ): Effect.Effect<DeleteClientVpnRouteResult, CommonAwsError>;
+  ): Effect.Effect<DeleteClientVpnRouteResult, CommonAwsError> {
+    return this.call("DeleteClientVpnRoute", input);
+  }
   deleteCoipCidr(
     input: DeleteCoipCidrRequest,
-  ): Effect.Effect<DeleteCoipCidrResult, CommonAwsError>;
+  ): Effect.Effect<DeleteCoipCidrResult, CommonAwsError> {
+    return this.call("DeleteCoipCidr", input);
+  }
   deleteCoipPool(
     input: DeleteCoipPoolRequest,
-  ): Effect.Effect<DeleteCoipPoolResult, CommonAwsError>;
+  ): Effect.Effect<DeleteCoipPoolResult, CommonAwsError> {
+    return this.call("DeleteCoipPool", input);
+  }
   deleteCustomerGateway(
     input: DeleteCustomerGatewayRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, CommonAwsError> {
+    return this.call("DeleteCustomerGateway", input);
+  }
   deleteDhcpOptions(
     input: DeleteDhcpOptionsRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, CommonAwsError> {
+    return this.call("DeleteDhcpOptions", input);
+  }
   deleteEgressOnlyInternetGateway(
     input: DeleteEgressOnlyInternetGatewayRequest,
-  ): Effect.Effect<DeleteEgressOnlyInternetGatewayResult, CommonAwsError>;
+  ): Effect.Effect<DeleteEgressOnlyInternetGatewayResult, CommonAwsError> {
+    return this.call("DeleteEgressOnlyInternetGateway", input);
+  }
   deleteFleets(
     input: DeleteFleetsRequest,
-  ): Effect.Effect<DeleteFleetsResult, CommonAwsError>;
+  ): Effect.Effect<DeleteFleetsResult, CommonAwsError> {
+    return this.call("DeleteFleets", input);
+  }
   deleteFlowLogs(
     input: DeleteFlowLogsRequest,
-  ): Effect.Effect<DeleteFlowLogsResult, CommonAwsError>;
+  ): Effect.Effect<DeleteFlowLogsResult, CommonAwsError> {
+    return this.call("DeleteFlowLogs", input);
+  }
   deleteFpgaImage(
     input: DeleteFpgaImageRequest,
-  ): Effect.Effect<DeleteFpgaImageResult, CommonAwsError>;
+  ): Effect.Effect<DeleteFpgaImageResult, CommonAwsError> {
+    return this.call("DeleteFpgaImage", input);
+  }
   deleteInstanceConnectEndpoint(
     input: DeleteInstanceConnectEndpointRequest,
-  ): Effect.Effect<DeleteInstanceConnectEndpointResult, CommonAwsError>;
+  ): Effect.Effect<DeleteInstanceConnectEndpointResult, CommonAwsError> {
+    return this.call("DeleteInstanceConnectEndpoint", input);
+  }
   deleteInstanceEventWindow(
     input: DeleteInstanceEventWindowRequest,
-  ): Effect.Effect<DeleteInstanceEventWindowResult, CommonAwsError>;
+  ): Effect.Effect<DeleteInstanceEventWindowResult, CommonAwsError> {
+    return this.call("DeleteInstanceEventWindow", input);
+  }
   deleteInternetGateway(
     input: DeleteInternetGatewayRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, CommonAwsError> {
+    return this.call("DeleteInternetGateway", input);
+  }
   deleteIpam(
     input: DeleteIpamRequest,
-  ): Effect.Effect<DeleteIpamResult, CommonAwsError>;
+  ): Effect.Effect<DeleteIpamResult, CommonAwsError> {
+    return this.call("DeleteIpam", input);
+  }
   deleteIpamExternalResourceVerificationToken(
     input: DeleteIpamExternalResourceVerificationTokenRequest,
   ): Effect.Effect<
     DeleteIpamExternalResourceVerificationTokenResult,
     CommonAwsError
-  >;
+  > {
+    return this.call("DeleteIpamExternalResourceVerificationToken", input);
+  }
   deleteIpamPool(
     input: DeleteIpamPoolRequest,
-  ): Effect.Effect<DeleteIpamPoolResult, CommonAwsError>;
+  ): Effect.Effect<DeleteIpamPoolResult, CommonAwsError> {
+    return this.call("DeleteIpamPool", input);
+  }
   deleteIpamResourceDiscovery(
     input: DeleteIpamResourceDiscoveryRequest,
-  ): Effect.Effect<DeleteIpamResourceDiscoveryResult, CommonAwsError>;
+  ): Effect.Effect<DeleteIpamResourceDiscoveryResult, CommonAwsError> {
+    return this.call("DeleteIpamResourceDiscovery", input);
+  }
   deleteIpamScope(
     input: DeleteIpamScopeRequest,
-  ): Effect.Effect<DeleteIpamScopeResult, CommonAwsError>;
+  ): Effect.Effect<DeleteIpamScopeResult, CommonAwsError> {
+    return this.call("DeleteIpamScope", input);
+  }
   deleteKeyPair(
     input: DeleteKeyPairRequest,
-  ): Effect.Effect<DeleteKeyPairResult, CommonAwsError>;
+  ): Effect.Effect<DeleteKeyPairResult, CommonAwsError> {
+    return this.call("DeleteKeyPair", input);
+  }
   deleteLaunchTemplate(
     input: DeleteLaunchTemplateRequest,
-  ): Effect.Effect<DeleteLaunchTemplateResult, CommonAwsError>;
+  ): Effect.Effect<DeleteLaunchTemplateResult, CommonAwsError> {
+    return this.call("DeleteLaunchTemplate", input);
+  }
   deleteLaunchTemplateVersions(
     input: DeleteLaunchTemplateVersionsRequest,
-  ): Effect.Effect<DeleteLaunchTemplateVersionsResult, CommonAwsError>;
+  ): Effect.Effect<DeleteLaunchTemplateVersionsResult, CommonAwsError> {
+    return this.call("DeleteLaunchTemplateVersions", input);
+  }
   deleteLocalGatewayRoute(
     input: DeleteLocalGatewayRouteRequest,
-  ): Effect.Effect<DeleteLocalGatewayRouteResult, CommonAwsError>;
+  ): Effect.Effect<DeleteLocalGatewayRouteResult, CommonAwsError> {
+    return this.call("DeleteLocalGatewayRoute", input);
+  }
   deleteLocalGatewayRouteTable(
     input: DeleteLocalGatewayRouteTableRequest,
-  ): Effect.Effect<DeleteLocalGatewayRouteTableResult, CommonAwsError>;
+  ): Effect.Effect<DeleteLocalGatewayRouteTableResult, CommonAwsError> {
+    return this.call("DeleteLocalGatewayRouteTable", input);
+  }
   deleteLocalGatewayRouteTableVirtualInterfaceGroupAssociation(
     input: DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationRequest,
   ): Effect.Effect<
     DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationResult,
     CommonAwsError
-  >;
+  > {
+    return this.call(
+      "DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociation",
+      input,
+    );
+  }
   deleteLocalGatewayRouteTableVpcAssociation(
     input: DeleteLocalGatewayRouteTableVpcAssociationRequest,
   ): Effect.Effect<
     DeleteLocalGatewayRouteTableVpcAssociationResult,
     CommonAwsError
-  >;
+  > {
+    return this.call("DeleteLocalGatewayRouteTableVpcAssociation", input);
+  }
   deleteLocalGatewayVirtualInterface(
     input: DeleteLocalGatewayVirtualInterfaceRequest,
-  ): Effect.Effect<DeleteLocalGatewayVirtualInterfaceResult, CommonAwsError>;
+  ): Effect.Effect<DeleteLocalGatewayVirtualInterfaceResult, CommonAwsError> {
+    return this.call("DeleteLocalGatewayVirtualInterface", input);
+  }
   deleteLocalGatewayVirtualInterfaceGroup(
     input: DeleteLocalGatewayVirtualInterfaceGroupRequest,
   ): Effect.Effect<
     DeleteLocalGatewayVirtualInterfaceGroupResult,
     CommonAwsError
-  >;
+  > {
+    return this.call("DeleteLocalGatewayVirtualInterfaceGroup", input);
+  }
   deleteManagedPrefixList(
     input: DeleteManagedPrefixListRequest,
-  ): Effect.Effect<DeleteManagedPrefixListResult, CommonAwsError>;
+  ): Effect.Effect<DeleteManagedPrefixListResult, CommonAwsError> {
+    return this.call("DeleteManagedPrefixList", input);
+  }
   deleteNatGateway(
     input: DeleteNatGatewayRequest,
-  ): Effect.Effect<DeleteNatGatewayResult, CommonAwsError>;
+  ): Effect.Effect<DeleteNatGatewayResult, CommonAwsError> {
+    return this.call("DeleteNatGateway", input);
+  }
   deleteNetworkAcl(
     input: DeleteNetworkAclRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, CommonAwsError> {
+    return this.call("DeleteNetworkAcl", input);
+  }
   deleteNetworkAclEntry(
     input: DeleteNetworkAclEntryRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, CommonAwsError> {
+    return this.call("DeleteNetworkAclEntry", input);
+  }
   deleteNetworkInsightsAccessScope(
     input: DeleteNetworkInsightsAccessScopeRequest,
-  ): Effect.Effect<DeleteNetworkInsightsAccessScopeResult, CommonAwsError>;
+  ): Effect.Effect<DeleteNetworkInsightsAccessScopeResult, CommonAwsError> {
+    return this.call("DeleteNetworkInsightsAccessScope", input);
+  }
   deleteNetworkInsightsAccessScopeAnalysis(
     input: DeleteNetworkInsightsAccessScopeAnalysisRequest,
   ): Effect.Effect<
     DeleteNetworkInsightsAccessScopeAnalysisResult,
     CommonAwsError
-  >;
+  > {
+    return this.call("DeleteNetworkInsightsAccessScopeAnalysis", input);
+  }
   deleteNetworkInsightsAnalysis(
     input: DeleteNetworkInsightsAnalysisRequest,
-  ): Effect.Effect<DeleteNetworkInsightsAnalysisResult, CommonAwsError>;
+  ): Effect.Effect<DeleteNetworkInsightsAnalysisResult, CommonAwsError> {
+    return this.call("DeleteNetworkInsightsAnalysis", input);
+  }
   deleteNetworkInsightsPath(
     input: DeleteNetworkInsightsPathRequest,
-  ): Effect.Effect<DeleteNetworkInsightsPathResult, CommonAwsError>;
+  ): Effect.Effect<DeleteNetworkInsightsPathResult, CommonAwsError> {
+    return this.call("DeleteNetworkInsightsPath", input);
+  }
   deleteNetworkInterface(
     input: DeleteNetworkInterfaceRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, CommonAwsError> {
+    return this.call("DeleteNetworkInterface", input);
+  }
   deleteNetworkInterfacePermission(
     input: DeleteNetworkInterfacePermissionRequest,
-  ): Effect.Effect<DeleteNetworkInterfacePermissionResult, CommonAwsError>;
+  ): Effect.Effect<DeleteNetworkInterfacePermissionResult, CommonAwsError> {
+    return this.call("DeleteNetworkInterfacePermission", input);
+  }
   deletePlacementGroup(
     input: DeletePlacementGroupRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, CommonAwsError> {
+    return this.call("DeletePlacementGroup", input);
+  }
   deletePublicIpv4Pool(
     input: DeletePublicIpv4PoolRequest,
-  ): Effect.Effect<DeletePublicIpv4PoolResult, CommonAwsError>;
+  ): Effect.Effect<DeletePublicIpv4PoolResult, CommonAwsError> {
+    return this.call("DeletePublicIpv4Pool", input);
+  }
   deleteQueuedReservedInstances(
     input: DeleteQueuedReservedInstancesRequest,
-  ): Effect.Effect<DeleteQueuedReservedInstancesResult, CommonAwsError>;
-  deleteRoute(input: DeleteRouteRequest): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<DeleteQueuedReservedInstancesResult, CommonAwsError> {
+    return this.call("DeleteQueuedReservedInstances", input);
+  }
+  deleteRoute(input: DeleteRouteRequest): Effect.Effect<{}, CommonAwsError> {
+    return this.call("DeleteRoute", input);
+  }
   deleteRouteServer(
     input: DeleteRouteServerRequest,
-  ): Effect.Effect<DeleteRouteServerResult, CommonAwsError>;
+  ): Effect.Effect<DeleteRouteServerResult, CommonAwsError> {
+    return this.call("DeleteRouteServer", input);
+  }
   deleteRouteServerEndpoint(
     input: DeleteRouteServerEndpointRequest,
-  ): Effect.Effect<DeleteRouteServerEndpointResult, CommonAwsError>;
+  ): Effect.Effect<DeleteRouteServerEndpointResult, CommonAwsError> {
+    return this.call("DeleteRouteServerEndpoint", input);
+  }
   deleteRouteServerPeer(
     input: DeleteRouteServerPeerRequest,
-  ): Effect.Effect<DeleteRouteServerPeerResult, CommonAwsError>;
+  ): Effect.Effect<DeleteRouteServerPeerResult, CommonAwsError> {
+    return this.call("DeleteRouteServerPeer", input);
+  }
   deleteRouteTable(
     input: DeleteRouteTableRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, CommonAwsError> {
+    return this.call("DeleteRouteTable", input);
+  }
   deleteSecurityGroup(
     input: DeleteSecurityGroupRequest,
-  ): Effect.Effect<DeleteSecurityGroupResult, CommonAwsError>;
+  ): Effect.Effect<DeleteSecurityGroupResult, CommonAwsError> {
+    return this.call("DeleteSecurityGroup", input);
+  }
   deleteSnapshot(
     input: DeleteSnapshotRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, CommonAwsError> {
+    return this.call("DeleteSnapshot", input);
+  }
   deleteSpotDatafeedSubscription(
     input: DeleteSpotDatafeedSubscriptionRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
-  deleteSubnet(input: DeleteSubnetRequest): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, CommonAwsError> {
+    return this.call("DeleteSpotDatafeedSubscription", input);
+  }
+  deleteSubnet(input: DeleteSubnetRequest): Effect.Effect<{}, CommonAwsError> {
+    return this.call("DeleteSubnet", input);
+  }
   deleteSubnetCidrReservation(
     input: DeleteSubnetCidrReservationRequest,
-  ): Effect.Effect<DeleteSubnetCidrReservationResult, CommonAwsError>;
-  deleteTags(input: DeleteTagsRequest): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<DeleteSubnetCidrReservationResult, CommonAwsError> {
+    return this.call("DeleteSubnetCidrReservation", input);
+  }
+  deleteTags(input: DeleteTagsRequest): Effect.Effect<{}, CommonAwsError> {
+    return this.call("DeleteTags", input);
+  }
   deleteTrafficMirrorFilter(
     input: DeleteTrafficMirrorFilterRequest,
-  ): Effect.Effect<DeleteTrafficMirrorFilterResult, CommonAwsError>;
+  ): Effect.Effect<DeleteTrafficMirrorFilterResult, CommonAwsError> {
+    return this.call("DeleteTrafficMirrorFilter", input);
+  }
   deleteTrafficMirrorFilterRule(
     input: DeleteTrafficMirrorFilterRuleRequest,
-  ): Effect.Effect<DeleteTrafficMirrorFilterRuleResult, CommonAwsError>;
+  ): Effect.Effect<DeleteTrafficMirrorFilterRuleResult, CommonAwsError> {
+    return this.call("DeleteTrafficMirrorFilterRule", input);
+  }
   deleteTrafficMirrorSession(
     input: DeleteTrafficMirrorSessionRequest,
-  ): Effect.Effect<DeleteTrafficMirrorSessionResult, CommonAwsError>;
+  ): Effect.Effect<DeleteTrafficMirrorSessionResult, CommonAwsError> {
+    return this.call("DeleteTrafficMirrorSession", input);
+  }
   deleteTrafficMirrorTarget(
     input: DeleteTrafficMirrorTargetRequest,
-  ): Effect.Effect<DeleteTrafficMirrorTargetResult, CommonAwsError>;
+  ): Effect.Effect<DeleteTrafficMirrorTargetResult, CommonAwsError> {
+    return this.call("DeleteTrafficMirrorTarget", input);
+  }
   deleteTransitGateway(
     input: DeleteTransitGatewayRequest,
-  ): Effect.Effect<DeleteTransitGatewayResult, CommonAwsError>;
+  ): Effect.Effect<DeleteTransitGatewayResult, CommonAwsError> {
+    return this.call("DeleteTransitGateway", input);
+  }
   deleteTransitGatewayConnect(
     input: DeleteTransitGatewayConnectRequest,
-  ): Effect.Effect<DeleteTransitGatewayConnectResult, CommonAwsError>;
+  ): Effect.Effect<DeleteTransitGatewayConnectResult, CommonAwsError> {
+    return this.call("DeleteTransitGatewayConnect", input);
+  }
   deleteTransitGatewayConnectPeer(
     input: DeleteTransitGatewayConnectPeerRequest,
-  ): Effect.Effect<DeleteTransitGatewayConnectPeerResult, CommonAwsError>;
+  ): Effect.Effect<DeleteTransitGatewayConnectPeerResult, CommonAwsError> {
+    return this.call("DeleteTransitGatewayConnectPeer", input);
+  }
   deleteTransitGatewayMulticastDomain(
     input: DeleteTransitGatewayMulticastDomainRequest,
-  ): Effect.Effect<DeleteTransitGatewayMulticastDomainResult, CommonAwsError>;
+  ): Effect.Effect<DeleteTransitGatewayMulticastDomainResult, CommonAwsError> {
+    return this.call("DeleteTransitGatewayMulticastDomain", input);
+  }
   deleteTransitGatewayPeeringAttachment(
     input: DeleteTransitGatewayPeeringAttachmentRequest,
-  ): Effect.Effect<DeleteTransitGatewayPeeringAttachmentResult, CommonAwsError>;
+  ): Effect.Effect<
+    DeleteTransitGatewayPeeringAttachmentResult,
+    CommonAwsError
+  > {
+    return this.call("DeleteTransitGatewayPeeringAttachment", input);
+  }
   deleteTransitGatewayPolicyTable(
     input: DeleteTransitGatewayPolicyTableRequest,
-  ): Effect.Effect<DeleteTransitGatewayPolicyTableResult, CommonAwsError>;
+  ): Effect.Effect<DeleteTransitGatewayPolicyTableResult, CommonAwsError> {
+    return this.call("DeleteTransitGatewayPolicyTable", input);
+  }
   deleteTransitGatewayPrefixListReference(
     input: DeleteTransitGatewayPrefixListReferenceRequest,
   ): Effect.Effect<
     DeleteTransitGatewayPrefixListReferenceResult,
     CommonAwsError
-  >;
+  > {
+    return this.call("DeleteTransitGatewayPrefixListReference", input);
+  }
   deleteTransitGatewayRoute(
     input: DeleteTransitGatewayRouteRequest,
-  ): Effect.Effect<DeleteTransitGatewayRouteResult, CommonAwsError>;
+  ): Effect.Effect<DeleteTransitGatewayRouteResult, CommonAwsError> {
+    return this.call("DeleteTransitGatewayRoute", input);
+  }
   deleteTransitGatewayRouteTable(
     input: DeleteTransitGatewayRouteTableRequest,
-  ): Effect.Effect<DeleteTransitGatewayRouteTableResult, CommonAwsError>;
+  ): Effect.Effect<DeleteTransitGatewayRouteTableResult, CommonAwsError> {
+    return this.call("DeleteTransitGatewayRouteTable", input);
+  }
   deleteTransitGatewayRouteTableAnnouncement(
     input: DeleteTransitGatewayRouteTableAnnouncementRequest,
   ): Effect.Effect<
     DeleteTransitGatewayRouteTableAnnouncementResult,
     CommonAwsError
-  >;
+  > {
+    return this.call("DeleteTransitGatewayRouteTableAnnouncement", input);
+  }
   deleteTransitGatewayVpcAttachment(
     input: DeleteTransitGatewayVpcAttachmentRequest,
-  ): Effect.Effect<DeleteTransitGatewayVpcAttachmentResult, CommonAwsError>;
+  ): Effect.Effect<DeleteTransitGatewayVpcAttachmentResult, CommonAwsError> {
+    return this.call("DeleteTransitGatewayVpcAttachment", input);
+  }
   deleteVerifiedAccessEndpoint(
     input: DeleteVerifiedAccessEndpointRequest,
-  ): Effect.Effect<DeleteVerifiedAccessEndpointResult, CommonAwsError>;
+  ): Effect.Effect<DeleteVerifiedAccessEndpointResult, CommonAwsError> {
+    return this.call("DeleteVerifiedAccessEndpoint", input);
+  }
   deleteVerifiedAccessGroup(
     input: DeleteVerifiedAccessGroupRequest,
-  ): Effect.Effect<DeleteVerifiedAccessGroupResult, CommonAwsError>;
+  ): Effect.Effect<DeleteVerifiedAccessGroupResult, CommonAwsError> {
+    return this.call("DeleteVerifiedAccessGroup", input);
+  }
   deleteVerifiedAccessInstance(
     input: DeleteVerifiedAccessInstanceRequest,
-  ): Effect.Effect<DeleteVerifiedAccessInstanceResult, CommonAwsError>;
+  ): Effect.Effect<DeleteVerifiedAccessInstanceResult, CommonAwsError> {
+    return this.call("DeleteVerifiedAccessInstance", input);
+  }
   deleteVerifiedAccessTrustProvider(
     input: DeleteVerifiedAccessTrustProviderRequest,
-  ): Effect.Effect<DeleteVerifiedAccessTrustProviderResult, CommonAwsError>;
-  deleteVolume(input: DeleteVolumeRequest): Effect.Effect<{}, CommonAwsError>;
-  deleteVpc(input: DeleteVpcRequest): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<DeleteVerifiedAccessTrustProviderResult, CommonAwsError> {
+    return this.call("DeleteVerifiedAccessTrustProvider", input);
+  }
+  deleteVolume(input: DeleteVolumeRequest): Effect.Effect<{}, CommonAwsError> {
+    return this.call("DeleteVolume", input);
+  }
+  deleteVpc(input: DeleteVpcRequest): Effect.Effect<{}, CommonAwsError> {
+    return this.call("DeleteVpc", input);
+  }
   deleteVpcBlockPublicAccessExclusion(
     input: DeleteVpcBlockPublicAccessExclusionRequest,
-  ): Effect.Effect<DeleteVpcBlockPublicAccessExclusionResult, CommonAwsError>;
+  ): Effect.Effect<DeleteVpcBlockPublicAccessExclusionResult, CommonAwsError> {
+    return this.call("DeleteVpcBlockPublicAccessExclusion", input);
+  }
   deleteVpcEndpointConnectionNotifications(
     input: DeleteVpcEndpointConnectionNotificationsRequest,
   ): Effect.Effect<
     DeleteVpcEndpointConnectionNotificationsResult,
     CommonAwsError
-  >;
+  > {
+    return this.call("DeleteVpcEndpointConnectionNotifications", input);
+  }
   deleteVpcEndpoints(
     input: DeleteVpcEndpointsRequest,
-  ): Effect.Effect<DeleteVpcEndpointsResult, CommonAwsError>;
+  ): Effect.Effect<DeleteVpcEndpointsResult, CommonAwsError> {
+    return this.call("DeleteVpcEndpoints", input);
+  }
   deleteVpcEndpointServiceConfigurations(
     input: DeleteVpcEndpointServiceConfigurationsRequest,
   ): Effect.Effect<
     DeleteVpcEndpointServiceConfigurationsResult,
     CommonAwsError
-  >;
+  > {
+    return this.call("DeleteVpcEndpointServiceConfigurations", input);
+  }
   deleteVpcPeeringConnection(
     input: DeleteVpcPeeringConnectionRequest,
-  ): Effect.Effect<DeleteVpcPeeringConnectionResult, CommonAwsError>;
+  ): Effect.Effect<DeleteVpcPeeringConnectionResult, CommonAwsError> {
+    return this.call("DeleteVpcPeeringConnection", input);
+  }
   deleteVpnConnection(
     input: DeleteVpnConnectionRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, CommonAwsError> {
+    return this.call("DeleteVpnConnection", input);
+  }
   deleteVpnConnectionRoute(
     input: DeleteVpnConnectionRouteRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, CommonAwsError> {
+    return this.call("DeleteVpnConnectionRoute", input);
+  }
   deleteVpnGateway(
     input: DeleteVpnGatewayRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, CommonAwsError> {
+    return this.call("DeleteVpnGateway", input);
+  }
   deprovisionByoipCidr(
     input: DeprovisionByoipCidrRequest,
-  ): Effect.Effect<DeprovisionByoipCidrResult, CommonAwsError>;
+  ): Effect.Effect<DeprovisionByoipCidrResult, CommonAwsError> {
+    return this.call("DeprovisionByoipCidr", input);
+  }
   deprovisionIpamByoasn(
     input: DeprovisionIpamByoasnRequest,
-  ): Effect.Effect<DeprovisionIpamByoasnResult, CommonAwsError>;
+  ): Effect.Effect<DeprovisionIpamByoasnResult, CommonAwsError> {
+    return this.call("DeprovisionIpamByoasn", input);
+  }
   deprovisionIpamPoolCidr(
     input: DeprovisionIpamPoolCidrRequest,
-  ): Effect.Effect<DeprovisionIpamPoolCidrResult, CommonAwsError>;
+  ): Effect.Effect<DeprovisionIpamPoolCidrResult, CommonAwsError> {
+    return this.call("DeprovisionIpamPoolCidr", input);
+  }
   deprovisionPublicIpv4PoolCidr(
     input: DeprovisionPublicIpv4PoolCidrRequest,
-  ): Effect.Effect<DeprovisionPublicIpv4PoolCidrResult, CommonAwsError>;
+  ): Effect.Effect<DeprovisionPublicIpv4PoolCidrResult, CommonAwsError> {
+    return this.call("DeprovisionPublicIpv4PoolCidr", input);
+  }
   deregisterImage(
     input: DeregisterImageRequest,
-  ): Effect.Effect<DeregisterImageResult, CommonAwsError>;
+  ): Effect.Effect<DeregisterImageResult, CommonAwsError> {
+    return this.call("DeregisterImage", input);
+  }
   deregisterInstanceEventNotificationAttributes(
     input: DeregisterInstanceEventNotificationAttributesRequest,
   ): Effect.Effect<
     DeregisterInstanceEventNotificationAttributesResult,
     CommonAwsError
-  >;
+  > {
+    return this.call("DeregisterInstanceEventNotificationAttributes", input);
+  }
   deregisterTransitGatewayMulticastGroupMembers(
     input: DeregisterTransitGatewayMulticastGroupMembersRequest,
   ): Effect.Effect<
     DeregisterTransitGatewayMulticastGroupMembersResult,
     CommonAwsError
-  >;
+  > {
+    return this.call("DeregisterTransitGatewayMulticastGroupMembers", input);
+  }
   deregisterTransitGatewayMulticastGroupSources(
     input: DeregisterTransitGatewayMulticastGroupSourcesRequest,
   ): Effect.Effect<
     DeregisterTransitGatewayMulticastGroupSourcesResult,
     CommonAwsError
-  >;
+  > {
+    return this.call("DeregisterTransitGatewayMulticastGroupSources", input);
+  }
   describeAccountAttributes(
     input: DescribeAccountAttributesRequest,
-  ): Effect.Effect<DescribeAccountAttributesResult, CommonAwsError>;
+  ): Effect.Effect<DescribeAccountAttributesResult, CommonAwsError> {
+    return this.call("DescribeAccountAttributes", input);
+  }
   describeAddresses(
     input: DescribeAddressesRequest,
-  ): Effect.Effect<DescribeAddressesResult, CommonAwsError>;
+  ): Effect.Effect<DescribeAddressesResult, CommonAwsError> {
+    return this.call("DescribeAddresses", input);
+  }
   describeAddressesAttribute(
     input: DescribeAddressesAttributeRequest,
-  ): Effect.Effect<DescribeAddressesAttributeResult, CommonAwsError>;
+  ): Effect.Effect<DescribeAddressesAttributeResult, CommonAwsError> {
+    return this.call("DescribeAddressesAttribute", input);
+  }
   describeAddressTransfers(
     input: DescribeAddressTransfersRequest,
-  ): Effect.Effect<DescribeAddressTransfersResult, CommonAwsError>;
+  ): Effect.Effect<DescribeAddressTransfersResult, CommonAwsError> {
+    return this.call("DescribeAddressTransfers", input);
+  }
   describeAggregateIdFormat(
     input: DescribeAggregateIdFormatRequest,
-  ): Effect.Effect<DescribeAggregateIdFormatResult, CommonAwsError>;
+  ): Effect.Effect<DescribeAggregateIdFormatResult, CommonAwsError> {
+    return this.call("DescribeAggregateIdFormat", input);
+  }
   describeAvailabilityZones(
     input: DescribeAvailabilityZonesRequest,
-  ): Effect.Effect<DescribeAvailabilityZonesResult, CommonAwsError>;
+  ): Effect.Effect<DescribeAvailabilityZonesResult, CommonAwsError> {
+    return this.call("DescribeAvailabilityZones", input);
+  }
   describeAwsNetworkPerformanceMetricSubscriptions(
     input: DescribeAwsNetworkPerformanceMetricSubscriptionsRequest,
   ): Effect.Effect<
     DescribeAwsNetworkPerformanceMetricSubscriptionsResult,
     CommonAwsError
-  >;
+  > {
+    return this.call("DescribeAwsNetworkPerformanceMetricSubscriptions", input);
+  }
   describeBundleTasks(
     input: DescribeBundleTasksRequest,
-  ): Effect.Effect<DescribeBundleTasksResult, CommonAwsError>;
+  ): Effect.Effect<DescribeBundleTasksResult, CommonAwsError> {
+    return this.call("DescribeBundleTasks", input);
+  }
   describeByoipCidrs(
     input: DescribeByoipCidrsRequest,
-  ): Effect.Effect<DescribeByoipCidrsResult, CommonAwsError>;
+  ): Effect.Effect<DescribeByoipCidrsResult, CommonAwsError> {
+    return this.call("DescribeByoipCidrs", input);
+  }
   describeCapacityBlockExtensionHistory(
     input: DescribeCapacityBlockExtensionHistoryRequest,
-  ): Effect.Effect<DescribeCapacityBlockExtensionHistoryResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeCapacityBlockExtensionHistoryResult,
+    CommonAwsError
+  > {
+    return this.call("DescribeCapacityBlockExtensionHistory", input);
+  }
   describeCapacityBlockExtensionOfferings(
     input: DescribeCapacityBlockExtensionOfferingsRequest,
   ): Effect.Effect<
     DescribeCapacityBlockExtensionOfferingsResult,
     CommonAwsError
-  >;
+  > {
+    return this.call("DescribeCapacityBlockExtensionOfferings", input);
+  }
   describeCapacityBlockOfferings(
     input: DescribeCapacityBlockOfferingsRequest,
-  ): Effect.Effect<DescribeCapacityBlockOfferingsResult, CommonAwsError>;
+  ): Effect.Effect<DescribeCapacityBlockOfferingsResult, CommonAwsError> {
+    return this.call("DescribeCapacityBlockOfferings", input);
+  }
   describeCapacityBlocks(
     input: DescribeCapacityBlocksRequest,
-  ): Effect.Effect<DescribeCapacityBlocksResult, CommonAwsError>;
+  ): Effect.Effect<DescribeCapacityBlocksResult, CommonAwsError> {
+    return this.call("DescribeCapacityBlocks", input);
+  }
   describeCapacityBlockStatus(
     input: DescribeCapacityBlockStatusRequest,
-  ): Effect.Effect<DescribeCapacityBlockStatusResult, CommonAwsError>;
+  ): Effect.Effect<DescribeCapacityBlockStatusResult, CommonAwsError> {
+    return this.call("DescribeCapacityBlockStatus", input);
+  }
   describeCapacityReservationBillingRequests(
     input: DescribeCapacityReservationBillingRequestsRequest,
   ): Effect.Effect<
     DescribeCapacityReservationBillingRequestsResult,
     CommonAwsError
-  >;
+  > {
+    return this.call("DescribeCapacityReservationBillingRequests", input);
+  }
   describeCapacityReservationFleets(
     input: DescribeCapacityReservationFleetsRequest,
-  ): Effect.Effect<DescribeCapacityReservationFleetsResult, CommonAwsError>;
+  ): Effect.Effect<DescribeCapacityReservationFleetsResult, CommonAwsError> {
+    return this.call("DescribeCapacityReservationFleets", input);
+  }
   describeCapacityReservations(
     input: DescribeCapacityReservationsRequest,
-  ): Effect.Effect<DescribeCapacityReservationsResult, CommonAwsError>;
+  ): Effect.Effect<DescribeCapacityReservationsResult, CommonAwsError> {
+    return this.call("DescribeCapacityReservations", input);
+  }
   describeCarrierGateways(
     input: DescribeCarrierGatewaysRequest,
-  ): Effect.Effect<DescribeCarrierGatewaysResult, CommonAwsError>;
+  ): Effect.Effect<DescribeCarrierGatewaysResult, CommonAwsError> {
+    return this.call("DescribeCarrierGateways", input);
+  }
   describeClassicLinkInstances(
     input: DescribeClassicLinkInstancesRequest,
-  ): Effect.Effect<DescribeClassicLinkInstancesResult, CommonAwsError>;
+  ): Effect.Effect<DescribeClassicLinkInstancesResult, CommonAwsError> {
+    return this.call("DescribeClassicLinkInstances", input);
+  }
   describeClientVpnAuthorizationRules(
     input: DescribeClientVpnAuthorizationRulesRequest,
-  ): Effect.Effect<DescribeClientVpnAuthorizationRulesResult, CommonAwsError>;
+  ): Effect.Effect<DescribeClientVpnAuthorizationRulesResult, CommonAwsError> {
+    return this.call("DescribeClientVpnAuthorizationRules", input);
+  }
   describeClientVpnConnections(
     input: DescribeClientVpnConnectionsRequest,
-  ): Effect.Effect<DescribeClientVpnConnectionsResult, CommonAwsError>;
+  ): Effect.Effect<DescribeClientVpnConnectionsResult, CommonAwsError> {
+    return this.call("DescribeClientVpnConnections", input);
+  }
   describeClientVpnEndpoints(
     input: DescribeClientVpnEndpointsRequest,
-  ): Effect.Effect<DescribeClientVpnEndpointsResult, CommonAwsError>;
+  ): Effect.Effect<DescribeClientVpnEndpointsResult, CommonAwsError> {
+    return this.call("DescribeClientVpnEndpoints", input);
+  }
   describeClientVpnRoutes(
     input: DescribeClientVpnRoutesRequest,
-  ): Effect.Effect<DescribeClientVpnRoutesResult, CommonAwsError>;
+  ): Effect.Effect<DescribeClientVpnRoutesResult, CommonAwsError> {
+    return this.call("DescribeClientVpnRoutes", input);
+  }
   describeClientVpnTargetNetworks(
     input: DescribeClientVpnTargetNetworksRequest,
-  ): Effect.Effect<DescribeClientVpnTargetNetworksResult, CommonAwsError>;
+  ): Effect.Effect<DescribeClientVpnTargetNetworksResult, CommonAwsError> {
+    return this.call("DescribeClientVpnTargetNetworks", input);
+  }
   describeCoipPools(
     input: DescribeCoipPoolsRequest,
-  ): Effect.Effect<DescribeCoipPoolsResult, CommonAwsError>;
+  ): Effect.Effect<DescribeCoipPoolsResult, CommonAwsError> {
+    return this.call("DescribeCoipPools", input);
+  }
   describeConversionTasks(
     input: DescribeConversionTasksRequest,
-  ): Effect.Effect<DescribeConversionTasksResult, CommonAwsError>;
+  ): Effect.Effect<DescribeConversionTasksResult, CommonAwsError> {
+    return this.call("DescribeConversionTasks", input);
+  }
   describeCustomerGateways(
     input: DescribeCustomerGatewaysRequest,
-  ): Effect.Effect<DescribeCustomerGatewaysResult, CommonAwsError>;
+  ): Effect.Effect<DescribeCustomerGatewaysResult, CommonAwsError> {
+    return this.call("DescribeCustomerGateways", input);
+  }
   describeDeclarativePoliciesReports(
     input: DescribeDeclarativePoliciesReportsRequest,
-  ): Effect.Effect<DescribeDeclarativePoliciesReportsResult, CommonAwsError>;
+  ): Effect.Effect<DescribeDeclarativePoliciesReportsResult, CommonAwsError> {
+    return this.call("DescribeDeclarativePoliciesReports", input);
+  }
   describeDhcpOptions(
     input: DescribeDhcpOptionsRequest,
-  ): Effect.Effect<DescribeDhcpOptionsResult, CommonAwsError>;
+  ): Effect.Effect<DescribeDhcpOptionsResult, CommonAwsError> {
+    return this.call("DescribeDhcpOptions", input);
+  }
   describeEgressOnlyInternetGateways(
     input: DescribeEgressOnlyInternetGatewaysRequest,
-  ): Effect.Effect<DescribeEgressOnlyInternetGatewaysResult, CommonAwsError>;
+  ): Effect.Effect<DescribeEgressOnlyInternetGatewaysResult, CommonAwsError> {
+    return this.call("DescribeEgressOnlyInternetGateways", input);
+  }
   describeElasticGpus(
     input: DescribeElasticGpusRequest,
-  ): Effect.Effect<DescribeElasticGpusResult, CommonAwsError>;
+  ): Effect.Effect<DescribeElasticGpusResult, CommonAwsError> {
+    return this.call("DescribeElasticGpus", input);
+  }
   describeExportImageTasks(
     input: DescribeExportImageTasksRequest,
-  ): Effect.Effect<DescribeExportImageTasksResult, CommonAwsError>;
+  ): Effect.Effect<DescribeExportImageTasksResult, CommonAwsError> {
+    return this.call("DescribeExportImageTasks", input);
+  }
   describeExportTasks(
     input: DescribeExportTasksRequest,
-  ): Effect.Effect<DescribeExportTasksResult, CommonAwsError>;
+  ): Effect.Effect<DescribeExportTasksResult, CommonAwsError> {
+    return this.call("DescribeExportTasks", input);
+  }
   describeFastLaunchImages(
     input: DescribeFastLaunchImagesRequest,
-  ): Effect.Effect<DescribeFastLaunchImagesResult, CommonAwsError>;
+  ): Effect.Effect<DescribeFastLaunchImagesResult, CommonAwsError> {
+    return this.call("DescribeFastLaunchImages", input);
+  }
   describeFastSnapshotRestores(
     input: DescribeFastSnapshotRestoresRequest,
-  ): Effect.Effect<DescribeFastSnapshotRestoresResult, CommonAwsError>;
+  ): Effect.Effect<DescribeFastSnapshotRestoresResult, CommonAwsError> {
+    return this.call("DescribeFastSnapshotRestores", input);
+  }
   describeFleetHistory(
     input: DescribeFleetHistoryRequest,
-  ): Effect.Effect<DescribeFleetHistoryResult, CommonAwsError>;
+  ): Effect.Effect<DescribeFleetHistoryResult, CommonAwsError> {
+    return this.call("DescribeFleetHistory", input);
+  }
   describeFleetInstances(
     input: DescribeFleetInstancesRequest,
-  ): Effect.Effect<DescribeFleetInstancesResult, CommonAwsError>;
+  ): Effect.Effect<DescribeFleetInstancesResult, CommonAwsError> {
+    return this.call("DescribeFleetInstances", input);
+  }
   describeFleets(
     input: DescribeFleetsRequest,
-  ): Effect.Effect<DescribeFleetsResult, CommonAwsError>;
+  ): Effect.Effect<DescribeFleetsResult, CommonAwsError> {
+    return this.call("DescribeFleets", input);
+  }
   describeFlowLogs(
     input: DescribeFlowLogsRequest,
-  ): Effect.Effect<DescribeFlowLogsResult, CommonAwsError>;
+  ): Effect.Effect<DescribeFlowLogsResult, CommonAwsError> {
+    return this.call("DescribeFlowLogs", input);
+  }
   describeFpgaImageAttribute(
     input: DescribeFpgaImageAttributeRequest,
-  ): Effect.Effect<DescribeFpgaImageAttributeResult, CommonAwsError>;
+  ): Effect.Effect<DescribeFpgaImageAttributeResult, CommonAwsError> {
+    return this.call("DescribeFpgaImageAttribute", input);
+  }
   describeFpgaImages(
     input: DescribeFpgaImagesRequest,
-  ): Effect.Effect<DescribeFpgaImagesResult, CommonAwsError>;
+  ): Effect.Effect<DescribeFpgaImagesResult, CommonAwsError> {
+    return this.call("DescribeFpgaImages", input);
+  }
   describeHostReservationOfferings(
     input: DescribeHostReservationOfferingsRequest,
-  ): Effect.Effect<DescribeHostReservationOfferingsResult, CommonAwsError>;
+  ): Effect.Effect<DescribeHostReservationOfferingsResult, CommonAwsError> {
+    return this.call("DescribeHostReservationOfferings", input);
+  }
   describeHostReservations(
     input: DescribeHostReservationsRequest,
-  ): Effect.Effect<DescribeHostReservationsResult, CommonAwsError>;
+  ): Effect.Effect<DescribeHostReservationsResult, CommonAwsError> {
+    return this.call("DescribeHostReservations", input);
+  }
   describeHosts(
     input: DescribeHostsRequest,
-  ): Effect.Effect<DescribeHostsResult, CommonAwsError>;
+  ): Effect.Effect<DescribeHostsResult, CommonAwsError> {
+    return this.call("DescribeHosts", input);
+  }
   describeIamInstanceProfileAssociations(
     input: DescribeIamInstanceProfileAssociationsRequest,
   ): Effect.Effect<
     DescribeIamInstanceProfileAssociationsResult,
     CommonAwsError
-  >;
+  > {
+    return this.call("DescribeIamInstanceProfileAssociations", input);
+  }
   describeIdentityIdFormat(
     input: DescribeIdentityIdFormatRequest,
-  ): Effect.Effect<DescribeIdentityIdFormatResult, CommonAwsError>;
+  ): Effect.Effect<DescribeIdentityIdFormatResult, CommonAwsError> {
+    return this.call("DescribeIdentityIdFormat", input);
+  }
   describeIdFormat(
     input: DescribeIdFormatRequest,
-  ): Effect.Effect<DescribeIdFormatResult, CommonAwsError>;
+  ): Effect.Effect<DescribeIdFormatResult, CommonAwsError> {
+    return this.call("DescribeIdFormat", input);
+  }
   describeImageAttribute(
     input: DescribeImageAttributeRequest,
-  ): Effect.Effect<ImageAttribute, CommonAwsError>;
+  ): Effect.Effect<ImageAttribute, CommonAwsError> {
+    return this.call("DescribeImageAttribute", input);
+  }
   describeImages(
     input: DescribeImagesRequest,
-  ): Effect.Effect<DescribeImagesResult, CommonAwsError>;
+  ): Effect.Effect<DescribeImagesResult, CommonAwsError> {
+    return this.call("DescribeImages", input);
+  }
   describeImportImageTasks(
     input: DescribeImportImageTasksRequest,
-  ): Effect.Effect<DescribeImportImageTasksResult, CommonAwsError>;
+  ): Effect.Effect<DescribeImportImageTasksResult, CommonAwsError> {
+    return this.call("DescribeImportImageTasks", input);
+  }
   describeImportSnapshotTasks(
     input: DescribeImportSnapshotTasksRequest,
-  ): Effect.Effect<DescribeImportSnapshotTasksResult, CommonAwsError>;
+  ): Effect.Effect<DescribeImportSnapshotTasksResult, CommonAwsError> {
+    return this.call("DescribeImportSnapshotTasks", input);
+  }
   describeInstanceAttribute(
     input: DescribeInstanceAttributeRequest,
-  ): Effect.Effect<InstanceAttribute, CommonAwsError>;
+  ): Effect.Effect<InstanceAttribute, CommonAwsError> {
+    return this.call("DescribeInstanceAttribute", input);
+  }
   describeInstanceConnectEndpoints(
     input: DescribeInstanceConnectEndpointsRequest,
-  ): Effect.Effect<DescribeInstanceConnectEndpointsResult, CommonAwsError>;
+  ): Effect.Effect<DescribeInstanceConnectEndpointsResult, CommonAwsError> {
+    return this.call("DescribeInstanceConnectEndpoints", input);
+  }
   describeInstanceCreditSpecifications(
     input: DescribeInstanceCreditSpecificationsRequest,
-  ): Effect.Effect<DescribeInstanceCreditSpecificationsResult, CommonAwsError>;
+  ): Effect.Effect<DescribeInstanceCreditSpecificationsResult, CommonAwsError> {
+    return this.call("DescribeInstanceCreditSpecifications", input);
+  }
   describeInstanceEventNotificationAttributes(
     input: DescribeInstanceEventNotificationAttributesRequest,
   ): Effect.Effect<
     DescribeInstanceEventNotificationAttributesResult,
     CommonAwsError
-  >;
+  > {
+    return this.call("DescribeInstanceEventNotificationAttributes", input);
+  }
   describeInstanceEventWindows(
     input: DescribeInstanceEventWindowsRequest,
-  ): Effect.Effect<DescribeInstanceEventWindowsResult, CommonAwsError>;
+  ): Effect.Effect<DescribeInstanceEventWindowsResult, CommonAwsError> {
+    return this.call("DescribeInstanceEventWindows", input);
+  }
   describeInstanceImageMetadata(
     input: DescribeInstanceImageMetadataRequest,
-  ): Effect.Effect<DescribeInstanceImageMetadataResult, CommonAwsError>;
+  ): Effect.Effect<DescribeInstanceImageMetadataResult, CommonAwsError> {
+    return this.call("DescribeInstanceImageMetadata", input);
+  }
   describeInstances(
     input: DescribeInstancesRequest,
-  ): Effect.Effect<DescribeInstancesResult, CommonAwsError>;
+  ): Effect.Effect<DescribeInstancesResult, CommonAwsError> {
+    return this.call("DescribeInstances", input);
+  }
   describeInstanceStatus(
     input: DescribeInstanceStatusRequest,
-  ): Effect.Effect<DescribeInstanceStatusResult, CommonAwsError>;
+  ): Effect.Effect<DescribeInstanceStatusResult, CommonAwsError> {
+    return this.call("DescribeInstanceStatus", input);
+  }
   describeInstanceTopology(
     input: DescribeInstanceTopologyRequest,
-  ): Effect.Effect<DescribeInstanceTopologyResult, CommonAwsError>;
+  ): Effect.Effect<DescribeInstanceTopologyResult, CommonAwsError> {
+    return this.call("DescribeInstanceTopology", input);
+  }
   describeInstanceTypeOfferings(
     input: DescribeInstanceTypeOfferingsRequest,
-  ): Effect.Effect<DescribeInstanceTypeOfferingsResult, CommonAwsError>;
+  ): Effect.Effect<DescribeInstanceTypeOfferingsResult, CommonAwsError> {
+    return this.call("DescribeInstanceTypeOfferings", input);
+  }
   describeInstanceTypes(
     input: DescribeInstanceTypesRequest,
-  ): Effect.Effect<DescribeInstanceTypesResult, CommonAwsError>;
+  ): Effect.Effect<DescribeInstanceTypesResult, CommonAwsError> {
+    return this.call("DescribeInstanceTypes", input);
+  }
   describeInternetGateways(
     input: DescribeInternetGatewaysRequest,
-  ): Effect.Effect<DescribeInternetGatewaysResult, CommonAwsError>;
+  ): Effect.Effect<DescribeInternetGatewaysResult, CommonAwsError> {
+    return this.call("DescribeInternetGateways", input);
+  }
   describeIpamByoasn(
     input: DescribeIpamByoasnRequest,
-  ): Effect.Effect<DescribeIpamByoasnResult, CommonAwsError>;
+  ): Effect.Effect<DescribeIpamByoasnResult, CommonAwsError> {
+    return this.call("DescribeIpamByoasn", input);
+  }
   describeIpamExternalResourceVerificationTokens(
     input: DescribeIpamExternalResourceVerificationTokensRequest,
   ): Effect.Effect<
     DescribeIpamExternalResourceVerificationTokensResult,
     CommonAwsError
-  >;
+  > {
+    return this.call("DescribeIpamExternalResourceVerificationTokens", input);
+  }
   describeIpamPools(
     input: DescribeIpamPoolsRequest,
-  ): Effect.Effect<DescribeIpamPoolsResult, CommonAwsError>;
+  ): Effect.Effect<DescribeIpamPoolsResult, CommonAwsError> {
+    return this.call("DescribeIpamPools", input);
+  }
   describeIpamResourceDiscoveries(
     input: DescribeIpamResourceDiscoveriesRequest,
-  ): Effect.Effect<DescribeIpamResourceDiscoveriesResult, CommonAwsError>;
+  ): Effect.Effect<DescribeIpamResourceDiscoveriesResult, CommonAwsError> {
+    return this.call("DescribeIpamResourceDiscoveries", input);
+  }
   describeIpamResourceDiscoveryAssociations(
     input: DescribeIpamResourceDiscoveryAssociationsRequest,
   ): Effect.Effect<
     DescribeIpamResourceDiscoveryAssociationsResult,
     CommonAwsError
-  >;
+  > {
+    return this.call("DescribeIpamResourceDiscoveryAssociations", input);
+  }
   describeIpams(
     input: DescribeIpamsRequest,
-  ): Effect.Effect<DescribeIpamsResult, CommonAwsError>;
+  ): Effect.Effect<DescribeIpamsResult, CommonAwsError> {
+    return this.call("DescribeIpams", input);
+  }
   describeIpamScopes(
     input: DescribeIpamScopesRequest,
-  ): Effect.Effect<DescribeIpamScopesResult, CommonAwsError>;
+  ): Effect.Effect<DescribeIpamScopesResult, CommonAwsError> {
+    return this.call("DescribeIpamScopes", input);
+  }
   describeIpv6Pools(
     input: DescribeIpv6PoolsRequest,
-  ): Effect.Effect<DescribeIpv6PoolsResult, CommonAwsError>;
+  ): Effect.Effect<DescribeIpv6PoolsResult, CommonAwsError> {
+    return this.call("DescribeIpv6Pools", input);
+  }
   describeKeyPairs(
     input: DescribeKeyPairsRequest,
-  ): Effect.Effect<DescribeKeyPairsResult, CommonAwsError>;
+  ): Effect.Effect<DescribeKeyPairsResult, CommonAwsError> {
+    return this.call("DescribeKeyPairs", input);
+  }
   describeLaunchTemplates(
     input: DescribeLaunchTemplatesRequest,
-  ): Effect.Effect<DescribeLaunchTemplatesResult, CommonAwsError>;
+  ): Effect.Effect<DescribeLaunchTemplatesResult, CommonAwsError> {
+    return this.call("DescribeLaunchTemplates", input);
+  }
   describeLaunchTemplateVersions(
     input: DescribeLaunchTemplateVersionsRequest,
-  ): Effect.Effect<DescribeLaunchTemplateVersionsResult, CommonAwsError>;
+  ): Effect.Effect<DescribeLaunchTemplateVersionsResult, CommonAwsError> {
+    return this.call("DescribeLaunchTemplateVersions", input);
+  }
   describeLocalGatewayRouteTables(
     input: DescribeLocalGatewayRouteTablesRequest,
-  ): Effect.Effect<DescribeLocalGatewayRouteTablesResult, CommonAwsError>;
+  ): Effect.Effect<DescribeLocalGatewayRouteTablesResult, CommonAwsError> {
+    return this.call("DescribeLocalGatewayRouteTables", input);
+  }
   describeLocalGatewayRouteTableVirtualInterfaceGroupAssociations(
     input: DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsRequest,
   ): Effect.Effect<
     DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsResult,
     CommonAwsError
-  >;
+  > {
+    return this.call(
+      "DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations",
+      input,
+    );
+  }
   describeLocalGatewayRouteTableVpcAssociations(
     input: DescribeLocalGatewayRouteTableVpcAssociationsRequest,
   ): Effect.Effect<
     DescribeLocalGatewayRouteTableVpcAssociationsResult,
     CommonAwsError
-  >;
+  > {
+    return this.call("DescribeLocalGatewayRouteTableVpcAssociations", input);
+  }
   describeLocalGateways(
     input: DescribeLocalGatewaysRequest,
-  ): Effect.Effect<DescribeLocalGatewaysResult, CommonAwsError>;
+  ): Effect.Effect<DescribeLocalGatewaysResult, CommonAwsError> {
+    return this.call("DescribeLocalGateways", input);
+  }
   describeLocalGatewayVirtualInterfaceGroups(
     input: DescribeLocalGatewayVirtualInterfaceGroupsRequest,
   ): Effect.Effect<
     DescribeLocalGatewayVirtualInterfaceGroupsResult,
     CommonAwsError
-  >;
+  > {
+    return this.call("DescribeLocalGatewayVirtualInterfaceGroups", input);
+  }
   describeLocalGatewayVirtualInterfaces(
     input: DescribeLocalGatewayVirtualInterfacesRequest,
-  ): Effect.Effect<DescribeLocalGatewayVirtualInterfacesResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeLocalGatewayVirtualInterfacesResult,
+    CommonAwsError
+  > {
+    return this.call("DescribeLocalGatewayVirtualInterfaces", input);
+  }
   describeLockedSnapshots(
     input: DescribeLockedSnapshotsRequest,
-  ): Effect.Effect<DescribeLockedSnapshotsResult, CommonAwsError>;
+  ): Effect.Effect<DescribeLockedSnapshotsResult, CommonAwsError> {
+    return this.call("DescribeLockedSnapshots", input);
+  }
   describeMacHosts(
     input: DescribeMacHostsRequest,
-  ): Effect.Effect<DescribeMacHostsResult, CommonAwsError>;
+  ): Effect.Effect<DescribeMacHostsResult, CommonAwsError> {
+    return this.call("DescribeMacHosts", input);
+  }
   describeMacModificationTasks(
     input: DescribeMacModificationTasksRequest,
-  ): Effect.Effect<DescribeMacModificationTasksResult, CommonAwsError>;
+  ): Effect.Effect<DescribeMacModificationTasksResult, CommonAwsError> {
+    return this.call("DescribeMacModificationTasks", input);
+  }
   describeManagedPrefixLists(
     input: DescribeManagedPrefixListsRequest,
-  ): Effect.Effect<DescribeManagedPrefixListsResult, CommonAwsError>;
+  ): Effect.Effect<DescribeManagedPrefixListsResult, CommonAwsError> {
+    return this.call("DescribeManagedPrefixLists", input);
+  }
   describeMovingAddresses(
     input: DescribeMovingAddressesRequest,
-  ): Effect.Effect<DescribeMovingAddressesResult, CommonAwsError>;
+  ): Effect.Effect<DescribeMovingAddressesResult, CommonAwsError> {
+    return this.call("DescribeMovingAddresses", input);
+  }
   describeNatGateways(
     input: DescribeNatGatewaysRequest,
-  ): Effect.Effect<DescribeNatGatewaysResult, CommonAwsError>;
+  ): Effect.Effect<DescribeNatGatewaysResult, CommonAwsError> {
+    return this.call("DescribeNatGateways", input);
+  }
   describeNetworkAcls(
     input: DescribeNetworkAclsRequest,
-  ): Effect.Effect<DescribeNetworkAclsResult, CommonAwsError>;
+  ): Effect.Effect<DescribeNetworkAclsResult, CommonAwsError> {
+    return this.call("DescribeNetworkAcls", input);
+  }
   describeNetworkInsightsAccessScopeAnalyses(
     input: DescribeNetworkInsightsAccessScopeAnalysesRequest,
   ): Effect.Effect<
     DescribeNetworkInsightsAccessScopeAnalysesResult,
     CommonAwsError
-  >;
+  > {
+    return this.call("DescribeNetworkInsightsAccessScopeAnalyses", input);
+  }
   describeNetworkInsightsAccessScopes(
     input: DescribeNetworkInsightsAccessScopesRequest,
-  ): Effect.Effect<DescribeNetworkInsightsAccessScopesResult, CommonAwsError>;
+  ): Effect.Effect<DescribeNetworkInsightsAccessScopesResult, CommonAwsError> {
+    return this.call("DescribeNetworkInsightsAccessScopes", input);
+  }
   describeNetworkInsightsAnalyses(
     input: DescribeNetworkInsightsAnalysesRequest,
-  ): Effect.Effect<DescribeNetworkInsightsAnalysesResult, CommonAwsError>;
+  ): Effect.Effect<DescribeNetworkInsightsAnalysesResult, CommonAwsError> {
+    return this.call("DescribeNetworkInsightsAnalyses", input);
+  }
   describeNetworkInsightsPaths(
     input: DescribeNetworkInsightsPathsRequest,
-  ): Effect.Effect<DescribeNetworkInsightsPathsResult, CommonAwsError>;
+  ): Effect.Effect<DescribeNetworkInsightsPathsResult, CommonAwsError> {
+    return this.call("DescribeNetworkInsightsPaths", input);
+  }
   describeNetworkInterfaceAttribute(
     input: DescribeNetworkInterfaceAttributeRequest,
-  ): Effect.Effect<DescribeNetworkInterfaceAttributeResult, CommonAwsError>;
+  ): Effect.Effect<DescribeNetworkInterfaceAttributeResult, CommonAwsError> {
+    return this.call("DescribeNetworkInterfaceAttribute", input);
+  }
   describeNetworkInterfacePermissions(
     input: DescribeNetworkInterfacePermissionsRequest,
-  ): Effect.Effect<DescribeNetworkInterfacePermissionsResult, CommonAwsError>;
+  ): Effect.Effect<DescribeNetworkInterfacePermissionsResult, CommonAwsError> {
+    return this.call("DescribeNetworkInterfacePermissions", input);
+  }
   describeNetworkInterfaces(
     input: DescribeNetworkInterfacesRequest,
-  ): Effect.Effect<DescribeNetworkInterfacesResult, CommonAwsError>;
+  ): Effect.Effect<DescribeNetworkInterfacesResult, CommonAwsError> {
+    return this.call("DescribeNetworkInterfaces", input);
+  }
   describeOutpostLags(
     input: DescribeOutpostLagsRequest,
-  ): Effect.Effect<DescribeOutpostLagsResult, CommonAwsError>;
+  ): Effect.Effect<DescribeOutpostLagsResult, CommonAwsError> {
+    return this.call("DescribeOutpostLags", input);
+  }
   describePlacementGroups(
     input: DescribePlacementGroupsRequest,
-  ): Effect.Effect<DescribePlacementGroupsResult, CommonAwsError>;
+  ): Effect.Effect<DescribePlacementGroupsResult, CommonAwsError> {
+    return this.call("DescribePlacementGroups", input);
+  }
   describePrefixLists(
     input: DescribePrefixListsRequest,
-  ): Effect.Effect<DescribePrefixListsResult, CommonAwsError>;
+  ): Effect.Effect<DescribePrefixListsResult, CommonAwsError> {
+    return this.call("DescribePrefixLists", input);
+  }
   describePrincipalIdFormat(
     input: DescribePrincipalIdFormatRequest,
-  ): Effect.Effect<DescribePrincipalIdFormatResult, CommonAwsError>;
+  ): Effect.Effect<DescribePrincipalIdFormatResult, CommonAwsError> {
+    return this.call("DescribePrincipalIdFormat", input);
+  }
   describePublicIpv4Pools(
     input: DescribePublicIpv4PoolsRequest,
-  ): Effect.Effect<DescribePublicIpv4PoolsResult, CommonAwsError>;
+  ): Effect.Effect<DescribePublicIpv4PoolsResult, CommonAwsError> {
+    return this.call("DescribePublicIpv4Pools", input);
+  }
   describeRegions(
     input: DescribeRegionsRequest,
-  ): Effect.Effect<DescribeRegionsResult, CommonAwsError>;
+  ): Effect.Effect<DescribeRegionsResult, CommonAwsError> {
+    return this.call("DescribeRegions", input);
+  }
   describeReplaceRootVolumeTasks(
     input: DescribeReplaceRootVolumeTasksRequest,
-  ): Effect.Effect<DescribeReplaceRootVolumeTasksResult, CommonAwsError>;
+  ): Effect.Effect<DescribeReplaceRootVolumeTasksResult, CommonAwsError> {
+    return this.call("DescribeReplaceRootVolumeTasks", input);
+  }
   describeReservedInstances(
     input: DescribeReservedInstancesRequest,
-  ): Effect.Effect<DescribeReservedInstancesResult, CommonAwsError>;
+  ): Effect.Effect<DescribeReservedInstancesResult, CommonAwsError> {
+    return this.call("DescribeReservedInstances", input);
+  }
   describeReservedInstancesListings(
     input: DescribeReservedInstancesListingsRequest,
-  ): Effect.Effect<DescribeReservedInstancesListingsResult, CommonAwsError>;
+  ): Effect.Effect<DescribeReservedInstancesListingsResult, CommonAwsError> {
+    return this.call("DescribeReservedInstancesListings", input);
+  }
   describeReservedInstancesModifications(
     input: DescribeReservedInstancesModificationsRequest,
   ): Effect.Effect<
     DescribeReservedInstancesModificationsResult,
     CommonAwsError
-  >;
+  > {
+    return this.call("DescribeReservedInstancesModifications", input);
+  }
   describeReservedInstancesOfferings(
     input: DescribeReservedInstancesOfferingsRequest,
-  ): Effect.Effect<DescribeReservedInstancesOfferingsResult, CommonAwsError>;
+  ): Effect.Effect<DescribeReservedInstancesOfferingsResult, CommonAwsError> {
+    return this.call("DescribeReservedInstancesOfferings", input);
+  }
   describeRouteServerEndpoints(
     input: DescribeRouteServerEndpointsRequest,
-  ): Effect.Effect<DescribeRouteServerEndpointsResult, CommonAwsError>;
+  ): Effect.Effect<DescribeRouteServerEndpointsResult, CommonAwsError> {
+    return this.call("DescribeRouteServerEndpoints", input);
+  }
   describeRouteServerPeers(
     input: DescribeRouteServerPeersRequest,
-  ): Effect.Effect<DescribeRouteServerPeersResult, CommonAwsError>;
+  ): Effect.Effect<DescribeRouteServerPeersResult, CommonAwsError> {
+    return this.call("DescribeRouteServerPeers", input);
+  }
   describeRouteServers(
     input: DescribeRouteServersRequest,
-  ): Effect.Effect<DescribeRouteServersResult, CommonAwsError>;
+  ): Effect.Effect<DescribeRouteServersResult, CommonAwsError> {
+    return this.call("DescribeRouteServers", input);
+  }
   describeRouteTables(
     input: DescribeRouteTablesRequest,
-  ): Effect.Effect<DescribeRouteTablesResult, CommonAwsError>;
+  ): Effect.Effect<DescribeRouteTablesResult, CommonAwsError> {
+    return this.call("DescribeRouteTables", input);
+  }
   describeScheduledInstanceAvailability(
     input: DescribeScheduledInstanceAvailabilityRequest,
-  ): Effect.Effect<DescribeScheduledInstanceAvailabilityResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeScheduledInstanceAvailabilityResult,
+    CommonAwsError
+  > {
+    return this.call("DescribeScheduledInstanceAvailability", input);
+  }
   describeScheduledInstances(
     input: DescribeScheduledInstancesRequest,
-  ): Effect.Effect<DescribeScheduledInstancesResult, CommonAwsError>;
+  ): Effect.Effect<DescribeScheduledInstancesResult, CommonAwsError> {
+    return this.call("DescribeScheduledInstances", input);
+  }
   describeSecurityGroupReferences(
     input: DescribeSecurityGroupReferencesRequest,
-  ): Effect.Effect<DescribeSecurityGroupReferencesResult, CommonAwsError>;
+  ): Effect.Effect<DescribeSecurityGroupReferencesResult, CommonAwsError> {
+    return this.call("DescribeSecurityGroupReferences", input);
+  }
   describeSecurityGroupRules(
     input: DescribeSecurityGroupRulesRequest,
-  ): Effect.Effect<DescribeSecurityGroupRulesResult, CommonAwsError>;
+  ): Effect.Effect<DescribeSecurityGroupRulesResult, CommonAwsError> {
+    return this.call("DescribeSecurityGroupRules", input);
+  }
   describeSecurityGroups(
     input: DescribeSecurityGroupsRequest,
-  ): Effect.Effect<DescribeSecurityGroupsResult, CommonAwsError>;
+  ): Effect.Effect<DescribeSecurityGroupsResult, CommonAwsError> {
+    return this.call("DescribeSecurityGroups", input);
+  }
   describeSecurityGroupVpcAssociations(
     input: DescribeSecurityGroupVpcAssociationsRequest,
-  ): Effect.Effect<DescribeSecurityGroupVpcAssociationsResult, CommonAwsError>;
+  ): Effect.Effect<DescribeSecurityGroupVpcAssociationsResult, CommonAwsError> {
+    return this.call("DescribeSecurityGroupVpcAssociations", input);
+  }
   describeServiceLinkVirtualInterfaces(
     input: DescribeServiceLinkVirtualInterfacesRequest,
-  ): Effect.Effect<DescribeServiceLinkVirtualInterfacesResult, CommonAwsError>;
+  ): Effect.Effect<DescribeServiceLinkVirtualInterfacesResult, CommonAwsError> {
+    return this.call("DescribeServiceLinkVirtualInterfaces", input);
+  }
   describeSnapshotAttribute(
     input: DescribeSnapshotAttributeRequest,
-  ): Effect.Effect<DescribeSnapshotAttributeResult, CommonAwsError>;
+  ): Effect.Effect<DescribeSnapshotAttributeResult, CommonAwsError> {
+    return this.call("DescribeSnapshotAttribute", input);
+  }
   describeSnapshots(
     input: DescribeSnapshotsRequest,
-  ): Effect.Effect<DescribeSnapshotsResult, CommonAwsError>;
+  ): Effect.Effect<DescribeSnapshotsResult, CommonAwsError> {
+    return this.call("DescribeSnapshots", input);
+  }
   describeSnapshotTierStatus(
     input: DescribeSnapshotTierStatusRequest,
-  ): Effect.Effect<DescribeSnapshotTierStatusResult, CommonAwsError>;
+  ): Effect.Effect<DescribeSnapshotTierStatusResult, CommonAwsError> {
+    return this.call("DescribeSnapshotTierStatus", input);
+  }
   describeSpotDatafeedSubscription(
     input: DescribeSpotDatafeedSubscriptionRequest,
-  ): Effect.Effect<DescribeSpotDatafeedSubscriptionResult, CommonAwsError>;
+  ): Effect.Effect<DescribeSpotDatafeedSubscriptionResult, CommonAwsError> {
+    return this.call("DescribeSpotDatafeedSubscription", input);
+  }
   describeSpotFleetInstances(
     input: DescribeSpotFleetInstancesRequest,
-  ): Effect.Effect<DescribeSpotFleetInstancesResponse, CommonAwsError>;
+  ): Effect.Effect<DescribeSpotFleetInstancesResponse, CommonAwsError> {
+    return this.call("DescribeSpotFleetInstances", input);
+  }
   describeSpotFleetRequestHistory(
     input: DescribeSpotFleetRequestHistoryRequest,
-  ): Effect.Effect<DescribeSpotFleetRequestHistoryResponse, CommonAwsError>;
+  ): Effect.Effect<DescribeSpotFleetRequestHistoryResponse, CommonAwsError> {
+    return this.call("DescribeSpotFleetRequestHistory", input);
+  }
   describeSpotFleetRequests(
     input: DescribeSpotFleetRequestsRequest,
-  ): Effect.Effect<DescribeSpotFleetRequestsResponse, CommonAwsError>;
+  ): Effect.Effect<DescribeSpotFleetRequestsResponse, CommonAwsError> {
+    return this.call("DescribeSpotFleetRequests", input);
+  }
   describeSpotInstanceRequests(
     input: DescribeSpotInstanceRequestsRequest,
-  ): Effect.Effect<DescribeSpotInstanceRequestsResult, CommonAwsError>;
+  ): Effect.Effect<DescribeSpotInstanceRequestsResult, CommonAwsError> {
+    return this.call("DescribeSpotInstanceRequests", input);
+  }
   describeSpotPriceHistory(
     input: DescribeSpotPriceHistoryRequest,
-  ): Effect.Effect<DescribeSpotPriceHistoryResult, CommonAwsError>;
+  ): Effect.Effect<DescribeSpotPriceHistoryResult, CommonAwsError> {
+    return this.call("DescribeSpotPriceHistory", input);
+  }
   describeStaleSecurityGroups(
     input: DescribeStaleSecurityGroupsRequest,
-  ): Effect.Effect<DescribeStaleSecurityGroupsResult, CommonAwsError>;
+  ): Effect.Effect<DescribeStaleSecurityGroupsResult, CommonAwsError> {
+    return this.call("DescribeStaleSecurityGroups", input);
+  }
   describeStoreImageTasks(
     input: DescribeStoreImageTasksRequest,
-  ): Effect.Effect<DescribeStoreImageTasksResult, CommonAwsError>;
+  ): Effect.Effect<DescribeStoreImageTasksResult, CommonAwsError> {
+    return this.call("DescribeStoreImageTasks", input);
+  }
   describeSubnets(
     input: DescribeSubnetsRequest,
-  ): Effect.Effect<DescribeSubnetsResult, CommonAwsError>;
+  ): Effect.Effect<DescribeSubnetsResult, CommonAwsError> {
+    return this.call("DescribeSubnets", input);
+  }
   describeTags(
     input: DescribeTagsRequest,
-  ): Effect.Effect<DescribeTagsResult, CommonAwsError>;
+  ): Effect.Effect<DescribeTagsResult, CommonAwsError> {
+    return this.call("DescribeTags", input);
+  }
   describeTrafficMirrorFilterRules(
     input: DescribeTrafficMirrorFilterRulesRequest,
-  ): Effect.Effect<DescribeTrafficMirrorFilterRulesResult, CommonAwsError>;
+  ): Effect.Effect<DescribeTrafficMirrorFilterRulesResult, CommonAwsError> {
+    return this.call("DescribeTrafficMirrorFilterRules", input);
+  }
   describeTrafficMirrorFilters(
     input: DescribeTrafficMirrorFiltersRequest,
-  ): Effect.Effect<DescribeTrafficMirrorFiltersResult, CommonAwsError>;
+  ): Effect.Effect<DescribeTrafficMirrorFiltersResult, CommonAwsError> {
+    return this.call("DescribeTrafficMirrorFilters", input);
+  }
   describeTrafficMirrorSessions(
     input: DescribeTrafficMirrorSessionsRequest,
-  ): Effect.Effect<DescribeTrafficMirrorSessionsResult, CommonAwsError>;
+  ): Effect.Effect<DescribeTrafficMirrorSessionsResult, CommonAwsError> {
+    return this.call("DescribeTrafficMirrorSessions", input);
+  }
   describeTrafficMirrorTargets(
     input: DescribeTrafficMirrorTargetsRequest,
-  ): Effect.Effect<DescribeTrafficMirrorTargetsResult, CommonAwsError>;
+  ): Effect.Effect<DescribeTrafficMirrorTargetsResult, CommonAwsError> {
+    return this.call("DescribeTrafficMirrorTargets", input);
+  }
   describeTransitGatewayAttachments(
     input: DescribeTransitGatewayAttachmentsRequest,
-  ): Effect.Effect<DescribeTransitGatewayAttachmentsResult, CommonAwsError>;
+  ): Effect.Effect<DescribeTransitGatewayAttachmentsResult, CommonAwsError> {
+    return this.call("DescribeTransitGatewayAttachments", input);
+  }
   describeTransitGatewayConnectPeers(
     input: DescribeTransitGatewayConnectPeersRequest,
-  ): Effect.Effect<DescribeTransitGatewayConnectPeersResult, CommonAwsError>;
+  ): Effect.Effect<DescribeTransitGatewayConnectPeersResult, CommonAwsError> {
+    return this.call("DescribeTransitGatewayConnectPeers", input);
+  }
   describeTransitGatewayConnects(
     input: DescribeTransitGatewayConnectsRequest,
-  ): Effect.Effect<DescribeTransitGatewayConnectsResult, CommonAwsError>;
+  ): Effect.Effect<DescribeTransitGatewayConnectsResult, CommonAwsError> {
+    return this.call("DescribeTransitGatewayConnects", input);
+  }
   describeTransitGatewayMulticastDomains(
     input: DescribeTransitGatewayMulticastDomainsRequest,
   ): Effect.Effect<
     DescribeTransitGatewayMulticastDomainsResult,
     CommonAwsError
-  >;
+  > {
+    return this.call("DescribeTransitGatewayMulticastDomains", input);
+  }
   describeTransitGatewayPeeringAttachments(
     input: DescribeTransitGatewayPeeringAttachmentsRequest,
   ): Effect.Effect<
     DescribeTransitGatewayPeeringAttachmentsResult,
     CommonAwsError
-  >;
+  > {
+    return this.call("DescribeTransitGatewayPeeringAttachments", input);
+  }
   describeTransitGatewayPolicyTables(
     input: DescribeTransitGatewayPolicyTablesRequest,
-  ): Effect.Effect<DescribeTransitGatewayPolicyTablesResult, CommonAwsError>;
+  ): Effect.Effect<DescribeTransitGatewayPolicyTablesResult, CommonAwsError> {
+    return this.call("DescribeTransitGatewayPolicyTables", input);
+  }
   describeTransitGatewayRouteTableAnnouncements(
     input: DescribeTransitGatewayRouteTableAnnouncementsRequest,
   ): Effect.Effect<
     DescribeTransitGatewayRouteTableAnnouncementsResult,
     CommonAwsError
-  >;
+  > {
+    return this.call("DescribeTransitGatewayRouteTableAnnouncements", input);
+  }
   describeTransitGatewayRouteTables(
     input: DescribeTransitGatewayRouteTablesRequest,
-  ): Effect.Effect<DescribeTransitGatewayRouteTablesResult, CommonAwsError>;
+  ): Effect.Effect<DescribeTransitGatewayRouteTablesResult, CommonAwsError> {
+    return this.call("DescribeTransitGatewayRouteTables", input);
+  }
   describeTransitGateways(
     input: DescribeTransitGatewaysRequest,
-  ): Effect.Effect<DescribeTransitGatewaysResult, CommonAwsError>;
+  ): Effect.Effect<DescribeTransitGatewaysResult, CommonAwsError> {
+    return this.call("DescribeTransitGateways", input);
+  }
   describeTransitGatewayVpcAttachments(
     input: DescribeTransitGatewayVpcAttachmentsRequest,
-  ): Effect.Effect<DescribeTransitGatewayVpcAttachmentsResult, CommonAwsError>;
+  ): Effect.Effect<DescribeTransitGatewayVpcAttachmentsResult, CommonAwsError> {
+    return this.call("DescribeTransitGatewayVpcAttachments", input);
+  }
   describeTrunkInterfaceAssociations(
     input: DescribeTrunkInterfaceAssociationsRequest,
-  ): Effect.Effect<DescribeTrunkInterfaceAssociationsResult, CommonAwsError>;
+  ): Effect.Effect<DescribeTrunkInterfaceAssociationsResult, CommonAwsError> {
+    return this.call("DescribeTrunkInterfaceAssociations", input);
+  }
   describeVerifiedAccessEndpoints(
     input: DescribeVerifiedAccessEndpointsRequest,
-  ): Effect.Effect<DescribeVerifiedAccessEndpointsResult, CommonAwsError>;
+  ): Effect.Effect<DescribeVerifiedAccessEndpointsResult, CommonAwsError> {
+    return this.call("DescribeVerifiedAccessEndpoints", input);
+  }
   describeVerifiedAccessGroups(
     input: DescribeVerifiedAccessGroupsRequest,
-  ): Effect.Effect<DescribeVerifiedAccessGroupsResult, CommonAwsError>;
+  ): Effect.Effect<DescribeVerifiedAccessGroupsResult, CommonAwsError> {
+    return this.call("DescribeVerifiedAccessGroups", input);
+  }
   describeVerifiedAccessInstanceLoggingConfigurations(
     input: DescribeVerifiedAccessInstanceLoggingConfigurationsRequest,
   ): Effect.Effect<
     DescribeVerifiedAccessInstanceLoggingConfigurationsResult,
     CommonAwsError
-  >;
+  > {
+    return this.call(
+      "DescribeVerifiedAccessInstanceLoggingConfigurations",
+      input,
+    );
+  }
   describeVerifiedAccessInstances(
     input: DescribeVerifiedAccessInstancesRequest,
-  ): Effect.Effect<DescribeVerifiedAccessInstancesResult, CommonAwsError>;
+  ): Effect.Effect<DescribeVerifiedAccessInstancesResult, CommonAwsError> {
+    return this.call("DescribeVerifiedAccessInstances", input);
+  }
   describeVerifiedAccessTrustProviders(
     input: DescribeVerifiedAccessTrustProvidersRequest,
-  ): Effect.Effect<DescribeVerifiedAccessTrustProvidersResult, CommonAwsError>;
+  ): Effect.Effect<DescribeVerifiedAccessTrustProvidersResult, CommonAwsError> {
+    return this.call("DescribeVerifiedAccessTrustProviders", input);
+  }
   describeVolumeAttribute(
     input: DescribeVolumeAttributeRequest,
-  ): Effect.Effect<DescribeVolumeAttributeResult, CommonAwsError>;
+  ): Effect.Effect<DescribeVolumeAttributeResult, CommonAwsError> {
+    return this.call("DescribeVolumeAttribute", input);
+  }
   describeVolumes(
     input: DescribeVolumesRequest,
-  ): Effect.Effect<DescribeVolumesResult, CommonAwsError>;
+  ): Effect.Effect<DescribeVolumesResult, CommonAwsError> {
+    return this.call("DescribeVolumes", input);
+  }
   describeVolumesModifications(
     input: DescribeVolumesModificationsRequest,
-  ): Effect.Effect<DescribeVolumesModificationsResult, CommonAwsError>;
+  ): Effect.Effect<DescribeVolumesModificationsResult, CommonAwsError> {
+    return this.call("DescribeVolumesModifications", input);
+  }
   describeVolumeStatus(
     input: DescribeVolumeStatusRequest,
-  ): Effect.Effect<DescribeVolumeStatusResult, CommonAwsError>;
+  ): Effect.Effect<DescribeVolumeStatusResult, CommonAwsError> {
+    return this.call("DescribeVolumeStatus", input);
+  }
   describeVpcAttribute(
     input: DescribeVpcAttributeRequest,
-  ): Effect.Effect<DescribeVpcAttributeResult, CommonAwsError>;
+  ): Effect.Effect<DescribeVpcAttributeResult, CommonAwsError> {
+    return this.call("DescribeVpcAttribute", input);
+  }
   describeVpcBlockPublicAccessExclusions(
     input: DescribeVpcBlockPublicAccessExclusionsRequest,
   ): Effect.Effect<
     DescribeVpcBlockPublicAccessExclusionsResult,
     CommonAwsError
-  >;
+  > {
+    return this.call("DescribeVpcBlockPublicAccessExclusions", input);
+  }
   describeVpcBlockPublicAccessOptions(
     input: DescribeVpcBlockPublicAccessOptionsRequest,
-  ): Effect.Effect<DescribeVpcBlockPublicAccessOptionsResult, CommonAwsError>;
+  ): Effect.Effect<DescribeVpcBlockPublicAccessOptionsResult, CommonAwsError> {
+    return this.call("DescribeVpcBlockPublicAccessOptions", input);
+  }
   describeVpcClassicLink(
     input: DescribeVpcClassicLinkRequest,
-  ): Effect.Effect<DescribeVpcClassicLinkResult, CommonAwsError>;
+  ): Effect.Effect<DescribeVpcClassicLinkResult, CommonAwsError> {
+    return this.call("DescribeVpcClassicLink", input);
+  }
   describeVpcClassicLinkDnsSupport(
     input: DescribeVpcClassicLinkDnsSupportRequest,
-  ): Effect.Effect<DescribeVpcClassicLinkDnsSupportResult, CommonAwsError>;
+  ): Effect.Effect<DescribeVpcClassicLinkDnsSupportResult, CommonAwsError> {
+    return this.call("DescribeVpcClassicLinkDnsSupport", input);
+  }
   describeVpcEndpointAssociations(
     input: DescribeVpcEndpointAssociationsRequest,
-  ): Effect.Effect<DescribeVpcEndpointAssociationsResult, CommonAwsError>;
+  ): Effect.Effect<DescribeVpcEndpointAssociationsResult, CommonAwsError> {
+    return this.call("DescribeVpcEndpointAssociations", input);
+  }
   describeVpcEndpointConnectionNotifications(
     input: DescribeVpcEndpointConnectionNotificationsRequest,
   ): Effect.Effect<
     DescribeVpcEndpointConnectionNotificationsResult,
     CommonAwsError
-  >;
+  > {
+    return this.call("DescribeVpcEndpointConnectionNotifications", input);
+  }
   describeVpcEndpointConnections(
     input: DescribeVpcEndpointConnectionsRequest,
-  ): Effect.Effect<DescribeVpcEndpointConnectionsResult, CommonAwsError>;
+  ): Effect.Effect<DescribeVpcEndpointConnectionsResult, CommonAwsError> {
+    return this.call("DescribeVpcEndpointConnections", input);
+  }
   describeVpcEndpoints(
     input: DescribeVpcEndpointsRequest,
-  ): Effect.Effect<DescribeVpcEndpointsResult, CommonAwsError>;
+  ): Effect.Effect<DescribeVpcEndpointsResult, CommonAwsError> {
+    return this.call("DescribeVpcEndpoints", input);
+  }
   describeVpcEndpointServiceConfigurations(
     input: DescribeVpcEndpointServiceConfigurationsRequest,
   ): Effect.Effect<
     DescribeVpcEndpointServiceConfigurationsResult,
     CommonAwsError
-  >;
+  > {
+    return this.call("DescribeVpcEndpointServiceConfigurations", input);
+  }
   describeVpcEndpointServicePermissions(
     input: DescribeVpcEndpointServicePermissionsRequest,
-  ): Effect.Effect<DescribeVpcEndpointServicePermissionsResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeVpcEndpointServicePermissionsResult,
+    CommonAwsError
+  > {
+    return this.call("DescribeVpcEndpointServicePermissions", input);
+  }
   describeVpcEndpointServices(
     input: DescribeVpcEndpointServicesRequest,
-  ): Effect.Effect<DescribeVpcEndpointServicesResult, CommonAwsError>;
+  ): Effect.Effect<DescribeVpcEndpointServicesResult, CommonAwsError> {
+    return this.call("DescribeVpcEndpointServices", input);
+  }
   describeVpcPeeringConnections(
     input: DescribeVpcPeeringConnectionsRequest,
-  ): Effect.Effect<DescribeVpcPeeringConnectionsResult, CommonAwsError>;
+  ): Effect.Effect<DescribeVpcPeeringConnectionsResult, CommonAwsError> {
+    return this.call("DescribeVpcPeeringConnections", input);
+  }
   describeVpcs(
     input: DescribeVpcsRequest,
-  ): Effect.Effect<DescribeVpcsResult, CommonAwsError>;
+  ): Effect.Effect<DescribeVpcsResult, CommonAwsError> {
+    return this.call("DescribeVpcs", input);
+  }
   describeVpnConnections(
     input: DescribeVpnConnectionsRequest,
-  ): Effect.Effect<DescribeVpnConnectionsResult, CommonAwsError>;
+  ): Effect.Effect<DescribeVpnConnectionsResult, CommonAwsError> {
+    return this.call("DescribeVpnConnections", input);
+  }
   describeVpnGateways(
     input: DescribeVpnGatewaysRequest,
-  ): Effect.Effect<DescribeVpnGatewaysResult, CommonAwsError>;
+  ): Effect.Effect<DescribeVpnGatewaysResult, CommonAwsError> {
+    return this.call("DescribeVpnGateways", input);
+  }
   detachClassicLinkVpc(
     input: DetachClassicLinkVpcRequest,
-  ): Effect.Effect<DetachClassicLinkVpcResult, CommonAwsError>;
+  ): Effect.Effect<DetachClassicLinkVpcResult, CommonAwsError> {
+    return this.call("DetachClassicLinkVpc", input);
+  }
   detachInternetGateway(
     input: DetachInternetGatewayRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, CommonAwsError> {
+    return this.call("DetachInternetGateway", input);
+  }
   detachNetworkInterface(
     input: DetachNetworkInterfaceRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, CommonAwsError> {
+    return this.call("DetachNetworkInterface", input);
+  }
   detachVerifiedAccessTrustProvider(
     input: DetachVerifiedAccessTrustProviderRequest,
-  ): Effect.Effect<DetachVerifiedAccessTrustProviderResult, CommonAwsError>;
+  ): Effect.Effect<DetachVerifiedAccessTrustProviderResult, CommonAwsError> {
+    return this.call("DetachVerifiedAccessTrustProvider", input);
+  }
   detachVolume(
     input: DetachVolumeRequest,
-  ): Effect.Effect<VolumeAttachment, CommonAwsError>;
+  ): Effect.Effect<VolumeAttachment, CommonAwsError> {
+    return this.call("DetachVolume", input);
+  }
   detachVpnGateway(
     input: DetachVpnGatewayRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, CommonAwsError> {
+    return this.call("DetachVpnGateway", input);
+  }
   disableAddressTransfer(
     input: DisableAddressTransferRequest,
-  ): Effect.Effect<DisableAddressTransferResult, CommonAwsError>;
+  ): Effect.Effect<DisableAddressTransferResult, CommonAwsError> {
+    return this.call("DisableAddressTransfer", input);
+  }
   disableAllowedImagesSettings(
     input: DisableAllowedImagesSettingsRequest,
-  ): Effect.Effect<DisableAllowedImagesSettingsResult, CommonAwsError>;
+  ): Effect.Effect<DisableAllowedImagesSettingsResult, CommonAwsError> {
+    return this.call("DisableAllowedImagesSettings", input);
+  }
   disableAwsNetworkPerformanceMetricSubscription(
     input: DisableAwsNetworkPerformanceMetricSubscriptionRequest,
   ): Effect.Effect<
     DisableAwsNetworkPerformanceMetricSubscriptionResult,
     CommonAwsError
-  >;
+  > {
+    return this.call("DisableAwsNetworkPerformanceMetricSubscription", input);
+  }
   disableEbsEncryptionByDefault(
     input: DisableEbsEncryptionByDefaultRequest,
-  ): Effect.Effect<DisableEbsEncryptionByDefaultResult, CommonAwsError>;
+  ): Effect.Effect<DisableEbsEncryptionByDefaultResult, CommonAwsError> {
+    return this.call("DisableEbsEncryptionByDefault", input);
+  }
   disableFastLaunch(
     input: DisableFastLaunchRequest,
-  ): Effect.Effect<DisableFastLaunchResult, CommonAwsError>;
+  ): Effect.Effect<DisableFastLaunchResult, CommonAwsError> {
+    return this.call("DisableFastLaunch", input);
+  }
   disableFastSnapshotRestores(
     input: DisableFastSnapshotRestoresRequest,
-  ): Effect.Effect<DisableFastSnapshotRestoresResult, CommonAwsError>;
+  ): Effect.Effect<DisableFastSnapshotRestoresResult, CommonAwsError> {
+    return this.call("DisableFastSnapshotRestores", input);
+  }
   disableImage(
     input: DisableImageRequest,
-  ): Effect.Effect<DisableImageResult, CommonAwsError>;
+  ): Effect.Effect<DisableImageResult, CommonAwsError> {
+    return this.call("DisableImage", input);
+  }
   disableImageBlockPublicAccess(
     input: DisableImageBlockPublicAccessRequest,
-  ): Effect.Effect<DisableImageBlockPublicAccessResult, CommonAwsError>;
+  ): Effect.Effect<DisableImageBlockPublicAccessResult, CommonAwsError> {
+    return this.call("DisableImageBlockPublicAccess", input);
+  }
   disableImageDeprecation(
     input: DisableImageDeprecationRequest,
-  ): Effect.Effect<DisableImageDeprecationResult, CommonAwsError>;
+  ): Effect.Effect<DisableImageDeprecationResult, CommonAwsError> {
+    return this.call("DisableImageDeprecation", input);
+  }
   disableImageDeregistrationProtection(
     input: DisableImageDeregistrationProtectionRequest,
-  ): Effect.Effect<DisableImageDeregistrationProtectionResult, CommonAwsError>;
+  ): Effect.Effect<DisableImageDeregistrationProtectionResult, CommonAwsError> {
+    return this.call("DisableImageDeregistrationProtection", input);
+  }
   disableIpamOrganizationAdminAccount(
     input: DisableIpamOrganizationAdminAccountRequest,
-  ): Effect.Effect<DisableIpamOrganizationAdminAccountResult, CommonAwsError>;
+  ): Effect.Effect<DisableIpamOrganizationAdminAccountResult, CommonAwsError> {
+    return this.call("DisableIpamOrganizationAdminAccount", input);
+  }
   disableRouteServerPropagation(
     input: DisableRouteServerPropagationRequest,
-  ): Effect.Effect<DisableRouteServerPropagationResult, CommonAwsError>;
+  ): Effect.Effect<DisableRouteServerPropagationResult, CommonAwsError> {
+    return this.call("DisableRouteServerPropagation", input);
+  }
   disableSerialConsoleAccess(
     input: DisableSerialConsoleAccessRequest,
-  ): Effect.Effect<DisableSerialConsoleAccessResult, CommonAwsError>;
+  ): Effect.Effect<DisableSerialConsoleAccessResult, CommonAwsError> {
+    return this.call("DisableSerialConsoleAccess", input);
+  }
   disableSnapshotBlockPublicAccess(
     input: DisableSnapshotBlockPublicAccessRequest,
-  ): Effect.Effect<DisableSnapshotBlockPublicAccessResult, CommonAwsError>;
+  ): Effect.Effect<DisableSnapshotBlockPublicAccessResult, CommonAwsError> {
+    return this.call("DisableSnapshotBlockPublicAccess", input);
+  }
   disableTransitGatewayRouteTablePropagation(
     input: DisableTransitGatewayRouteTablePropagationRequest,
   ): Effect.Effect<
     DisableTransitGatewayRouteTablePropagationResult,
     CommonAwsError
-  >;
+  > {
+    return this.call("DisableTransitGatewayRouteTablePropagation", input);
+  }
   disableVgwRoutePropagation(
     input: DisableVgwRoutePropagationRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, CommonAwsError> {
+    return this.call("DisableVgwRoutePropagation", input);
+  }
   disableVpcClassicLink(
     input: DisableVpcClassicLinkRequest,
-  ): Effect.Effect<DisableVpcClassicLinkResult, CommonAwsError>;
+  ): Effect.Effect<DisableVpcClassicLinkResult, CommonAwsError> {
+    return this.call("DisableVpcClassicLink", input);
+  }
   disableVpcClassicLinkDnsSupport(
     input: DisableVpcClassicLinkDnsSupportRequest,
-  ): Effect.Effect<DisableVpcClassicLinkDnsSupportResult, CommonAwsError>;
+  ): Effect.Effect<DisableVpcClassicLinkDnsSupportResult, CommonAwsError> {
+    return this.call("DisableVpcClassicLinkDnsSupport", input);
+  }
   disassociateAddress(
     input: DisassociateAddressRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, CommonAwsError> {
+    return this.call("DisassociateAddress", input);
+  }
   disassociateCapacityReservationBillingOwner(
     input: DisassociateCapacityReservationBillingOwnerRequest,
   ): Effect.Effect<
     DisassociateCapacityReservationBillingOwnerResult,
     CommonAwsError
-  >;
+  > {
+    return this.call("DisassociateCapacityReservationBillingOwner", input);
+  }
   disassociateClientVpnTargetNetwork(
     input: DisassociateClientVpnTargetNetworkRequest,
-  ): Effect.Effect<DisassociateClientVpnTargetNetworkResult, CommonAwsError>;
+  ): Effect.Effect<DisassociateClientVpnTargetNetworkResult, CommonAwsError> {
+    return this.call("DisassociateClientVpnTargetNetwork", input);
+  }
   disassociateEnclaveCertificateIamRole(
     input: DisassociateEnclaveCertificateIamRoleRequest,
-  ): Effect.Effect<DisassociateEnclaveCertificateIamRoleResult, CommonAwsError>;
+  ): Effect.Effect<
+    DisassociateEnclaveCertificateIamRoleResult,
+    CommonAwsError
+  > {
+    return this.call("DisassociateEnclaveCertificateIamRole", input);
+  }
   disassociateIamInstanceProfile(
     input: DisassociateIamInstanceProfileRequest,
-  ): Effect.Effect<DisassociateIamInstanceProfileResult, CommonAwsError>;
+  ): Effect.Effect<DisassociateIamInstanceProfileResult, CommonAwsError> {
+    return this.call("DisassociateIamInstanceProfile", input);
+  }
   disassociateInstanceEventWindow(
     input: DisassociateInstanceEventWindowRequest,
-  ): Effect.Effect<DisassociateInstanceEventWindowResult, CommonAwsError>;
+  ): Effect.Effect<DisassociateInstanceEventWindowResult, CommonAwsError> {
+    return this.call("DisassociateInstanceEventWindow", input);
+  }
   disassociateIpamByoasn(
     input: DisassociateIpamByoasnRequest,
-  ): Effect.Effect<DisassociateIpamByoasnResult, CommonAwsError>;
+  ): Effect.Effect<DisassociateIpamByoasnResult, CommonAwsError> {
+    return this.call("DisassociateIpamByoasn", input);
+  }
   disassociateIpamResourceDiscovery(
     input: DisassociateIpamResourceDiscoveryRequest,
-  ): Effect.Effect<DisassociateIpamResourceDiscoveryResult, CommonAwsError>;
+  ): Effect.Effect<DisassociateIpamResourceDiscoveryResult, CommonAwsError> {
+    return this.call("DisassociateIpamResourceDiscovery", input);
+  }
   disassociateNatGatewayAddress(
     input: DisassociateNatGatewayAddressRequest,
-  ): Effect.Effect<DisassociateNatGatewayAddressResult, CommonAwsError>;
+  ): Effect.Effect<DisassociateNatGatewayAddressResult, CommonAwsError> {
+    return this.call("DisassociateNatGatewayAddress", input);
+  }
   disassociateRouteServer(
     input: DisassociateRouteServerRequest,
-  ): Effect.Effect<DisassociateRouteServerResult, CommonAwsError>;
+  ): Effect.Effect<DisassociateRouteServerResult, CommonAwsError> {
+    return this.call("DisassociateRouteServer", input);
+  }
   disassociateRouteTable(
     input: DisassociateRouteTableRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, CommonAwsError> {
+    return this.call("DisassociateRouteTable", input);
+  }
   disassociateSecurityGroupVpc(
     input: DisassociateSecurityGroupVpcRequest,
-  ): Effect.Effect<DisassociateSecurityGroupVpcResult, CommonAwsError>;
+  ): Effect.Effect<DisassociateSecurityGroupVpcResult, CommonAwsError> {
+    return this.call("DisassociateSecurityGroupVpc", input);
+  }
   disassociateSubnetCidrBlock(
     input: DisassociateSubnetCidrBlockRequest,
-  ): Effect.Effect<DisassociateSubnetCidrBlockResult, CommonAwsError>;
+  ): Effect.Effect<DisassociateSubnetCidrBlockResult, CommonAwsError> {
+    return this.call("DisassociateSubnetCidrBlock", input);
+  }
   disassociateTransitGatewayMulticastDomain(
     input: DisassociateTransitGatewayMulticastDomainRequest,
   ): Effect.Effect<
     DisassociateTransitGatewayMulticastDomainResult,
     CommonAwsError
-  >;
+  > {
+    return this.call("DisassociateTransitGatewayMulticastDomain", input);
+  }
   disassociateTransitGatewayPolicyTable(
     input: DisassociateTransitGatewayPolicyTableRequest,
-  ): Effect.Effect<DisassociateTransitGatewayPolicyTableResult, CommonAwsError>;
+  ): Effect.Effect<
+    DisassociateTransitGatewayPolicyTableResult,
+    CommonAwsError
+  > {
+    return this.call("DisassociateTransitGatewayPolicyTable", input);
+  }
   disassociateTransitGatewayRouteTable(
     input: DisassociateTransitGatewayRouteTableRequest,
-  ): Effect.Effect<DisassociateTransitGatewayRouteTableResult, CommonAwsError>;
+  ): Effect.Effect<DisassociateTransitGatewayRouteTableResult, CommonAwsError> {
+    return this.call("DisassociateTransitGatewayRouteTable", input);
+  }
   disassociateTrunkInterface(
     input: DisassociateTrunkInterfaceRequest,
-  ): Effect.Effect<DisassociateTrunkInterfaceResult, CommonAwsError>;
+  ): Effect.Effect<DisassociateTrunkInterfaceResult, CommonAwsError> {
+    return this.call("DisassociateTrunkInterface", input);
+  }
   disassociateVpcCidrBlock(
     input: DisassociateVpcCidrBlockRequest,
-  ): Effect.Effect<DisassociateVpcCidrBlockResult, CommonAwsError>;
+  ): Effect.Effect<DisassociateVpcCidrBlockResult, CommonAwsError> {
+    return this.call("DisassociateVpcCidrBlock", input);
+  }
   enableAddressTransfer(
     input: EnableAddressTransferRequest,
-  ): Effect.Effect<EnableAddressTransferResult, CommonAwsError>;
+  ): Effect.Effect<EnableAddressTransferResult, CommonAwsError> {
+    return this.call("EnableAddressTransfer", input);
+  }
   enableAllowedImagesSettings(
     input: EnableAllowedImagesSettingsRequest,
-  ): Effect.Effect<EnableAllowedImagesSettingsResult, CommonAwsError>;
+  ): Effect.Effect<EnableAllowedImagesSettingsResult, CommonAwsError> {
+    return this.call("EnableAllowedImagesSettings", input);
+  }
   enableAwsNetworkPerformanceMetricSubscription(
     input: EnableAwsNetworkPerformanceMetricSubscriptionRequest,
   ): Effect.Effect<
     EnableAwsNetworkPerformanceMetricSubscriptionResult,
     CommonAwsError
-  >;
+  > {
+    return this.call("EnableAwsNetworkPerformanceMetricSubscription", input);
+  }
   enableEbsEncryptionByDefault(
     input: EnableEbsEncryptionByDefaultRequest,
-  ): Effect.Effect<EnableEbsEncryptionByDefaultResult, CommonAwsError>;
+  ): Effect.Effect<EnableEbsEncryptionByDefaultResult, CommonAwsError> {
+    return this.call("EnableEbsEncryptionByDefault", input);
+  }
   enableFastLaunch(
     input: EnableFastLaunchRequest,
-  ): Effect.Effect<EnableFastLaunchResult, CommonAwsError>;
+  ): Effect.Effect<EnableFastLaunchResult, CommonAwsError> {
+    return this.call("EnableFastLaunch", input);
+  }
   enableFastSnapshotRestores(
     input: EnableFastSnapshotRestoresRequest,
-  ): Effect.Effect<EnableFastSnapshotRestoresResult, CommonAwsError>;
+  ): Effect.Effect<EnableFastSnapshotRestoresResult, CommonAwsError> {
+    return this.call("EnableFastSnapshotRestores", input);
+  }
   enableImage(
     input: EnableImageRequest,
-  ): Effect.Effect<EnableImageResult, CommonAwsError>;
+  ): Effect.Effect<EnableImageResult, CommonAwsError> {
+    return this.call("EnableImage", input);
+  }
   enableImageBlockPublicAccess(
     input: EnableImageBlockPublicAccessRequest,
-  ): Effect.Effect<EnableImageBlockPublicAccessResult, CommonAwsError>;
+  ): Effect.Effect<EnableImageBlockPublicAccessResult, CommonAwsError> {
+    return this.call("EnableImageBlockPublicAccess", input);
+  }
   enableImageDeprecation(
     input: EnableImageDeprecationRequest,
-  ): Effect.Effect<EnableImageDeprecationResult, CommonAwsError>;
+  ): Effect.Effect<EnableImageDeprecationResult, CommonAwsError> {
+    return this.call("EnableImageDeprecation", input);
+  }
   enableImageDeregistrationProtection(
     input: EnableImageDeregistrationProtectionRequest,
-  ): Effect.Effect<EnableImageDeregistrationProtectionResult, CommonAwsError>;
+  ): Effect.Effect<EnableImageDeregistrationProtectionResult, CommonAwsError> {
+    return this.call("EnableImageDeregistrationProtection", input);
+  }
   enableIpamOrganizationAdminAccount(
     input: EnableIpamOrganizationAdminAccountRequest,
-  ): Effect.Effect<EnableIpamOrganizationAdminAccountResult, CommonAwsError>;
+  ): Effect.Effect<EnableIpamOrganizationAdminAccountResult, CommonAwsError> {
+    return this.call("EnableIpamOrganizationAdminAccount", input);
+  }
   enableReachabilityAnalyzerOrganizationSharing(
     input: EnableReachabilityAnalyzerOrganizationSharingRequest,
   ): Effect.Effect<
     EnableReachabilityAnalyzerOrganizationSharingResult,
     CommonAwsError
-  >;
+  > {
+    return this.call("EnableReachabilityAnalyzerOrganizationSharing", input);
+  }
   enableRouteServerPropagation(
     input: EnableRouteServerPropagationRequest,
-  ): Effect.Effect<EnableRouteServerPropagationResult, CommonAwsError>;
+  ): Effect.Effect<EnableRouteServerPropagationResult, CommonAwsError> {
+    return this.call("EnableRouteServerPropagation", input);
+  }
   enableSerialConsoleAccess(
     input: EnableSerialConsoleAccessRequest,
-  ): Effect.Effect<EnableSerialConsoleAccessResult, CommonAwsError>;
+  ): Effect.Effect<EnableSerialConsoleAccessResult, CommonAwsError> {
+    return this.call("EnableSerialConsoleAccess", input);
+  }
   enableSnapshotBlockPublicAccess(
     input: EnableSnapshotBlockPublicAccessRequest,
-  ): Effect.Effect<EnableSnapshotBlockPublicAccessResult, CommonAwsError>;
+  ): Effect.Effect<EnableSnapshotBlockPublicAccessResult, CommonAwsError> {
+    return this.call("EnableSnapshotBlockPublicAccess", input);
+  }
   enableTransitGatewayRouteTablePropagation(
     input: EnableTransitGatewayRouteTablePropagationRequest,
   ): Effect.Effect<
     EnableTransitGatewayRouteTablePropagationResult,
     CommonAwsError
-  >;
+  > {
+    return this.call("EnableTransitGatewayRouteTablePropagation", input);
+  }
   enableVgwRoutePropagation(
     input: EnableVgwRoutePropagationRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, CommonAwsError> {
+    return this.call("EnableVgwRoutePropagation", input);
+  }
   enableVolumeIO(
     input: EnableVolumeIORequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, CommonAwsError> {
+    return this.call("EnableVolumeIO", input);
+  }
   enableVpcClassicLink(
     input: EnableVpcClassicLinkRequest,
-  ): Effect.Effect<EnableVpcClassicLinkResult, CommonAwsError>;
+  ): Effect.Effect<EnableVpcClassicLinkResult, CommonAwsError> {
+    return this.call("EnableVpcClassicLink", input);
+  }
   enableVpcClassicLinkDnsSupport(
     input: EnableVpcClassicLinkDnsSupportRequest,
-  ): Effect.Effect<EnableVpcClassicLinkDnsSupportResult, CommonAwsError>;
+  ): Effect.Effect<EnableVpcClassicLinkDnsSupportResult, CommonAwsError> {
+    return this.call("EnableVpcClassicLinkDnsSupport", input);
+  }
   exportClientVpnClientCertificateRevocationList(
     input: ExportClientVpnClientCertificateRevocationListRequest,
   ): Effect.Effect<
     ExportClientVpnClientCertificateRevocationListResult,
     CommonAwsError
-  >;
+  > {
+    return this.call("ExportClientVpnClientCertificateRevocationList", input);
+  }
   exportClientVpnClientConfiguration(
     input: ExportClientVpnClientConfigurationRequest,
-  ): Effect.Effect<ExportClientVpnClientConfigurationResult, CommonAwsError>;
+  ): Effect.Effect<ExportClientVpnClientConfigurationResult, CommonAwsError> {
+    return this.call("ExportClientVpnClientConfiguration", input);
+  }
   exportImage(
     input: ExportImageRequest,
-  ): Effect.Effect<ExportImageResult, CommonAwsError>;
+  ): Effect.Effect<ExportImageResult, CommonAwsError> {
+    return this.call("ExportImage", input);
+  }
   exportTransitGatewayRoutes(
     input: ExportTransitGatewayRoutesRequest,
-  ): Effect.Effect<ExportTransitGatewayRoutesResult, CommonAwsError>;
+  ): Effect.Effect<ExportTransitGatewayRoutesResult, CommonAwsError> {
+    return this.call("ExportTransitGatewayRoutes", input);
+  }
   exportVerifiedAccessInstanceClientConfiguration(
     input: ExportVerifiedAccessInstanceClientConfigurationRequest,
   ): Effect.Effect<
     ExportVerifiedAccessInstanceClientConfigurationResult,
     CommonAwsError
-  >;
+  > {
+    return this.call("ExportVerifiedAccessInstanceClientConfiguration", input);
+  }
   getActiveVpnTunnelStatus(
     input: GetActiveVpnTunnelStatusRequest,
-  ): Effect.Effect<GetActiveVpnTunnelStatusResult, CommonAwsError>;
+  ): Effect.Effect<GetActiveVpnTunnelStatusResult, CommonAwsError> {
+    return this.call("GetActiveVpnTunnelStatus", input);
+  }
   getAllowedImagesSettings(
     input: GetAllowedImagesSettingsRequest,
-  ): Effect.Effect<GetAllowedImagesSettingsResult, CommonAwsError>;
+  ): Effect.Effect<GetAllowedImagesSettingsResult, CommonAwsError> {
+    return this.call("GetAllowedImagesSettings", input);
+  }
   getAssociatedEnclaveCertificateIamRoles(
     input: GetAssociatedEnclaveCertificateIamRolesRequest,
   ): Effect.Effect<
     GetAssociatedEnclaveCertificateIamRolesResult,
     CommonAwsError
-  >;
+  > {
+    return this.call("GetAssociatedEnclaveCertificateIamRoles", input);
+  }
   getAssociatedIpv6PoolCidrs(
     input: GetAssociatedIpv6PoolCidrsRequest,
-  ): Effect.Effect<GetAssociatedIpv6PoolCidrsResult, CommonAwsError>;
+  ): Effect.Effect<GetAssociatedIpv6PoolCidrsResult, CommonAwsError> {
+    return this.call("GetAssociatedIpv6PoolCidrs", input);
+  }
   getAwsNetworkPerformanceData(
     input: GetAwsNetworkPerformanceDataRequest,
-  ): Effect.Effect<GetAwsNetworkPerformanceDataResult, CommonAwsError>;
+  ): Effect.Effect<GetAwsNetworkPerformanceDataResult, CommonAwsError> {
+    return this.call("GetAwsNetworkPerformanceData", input);
+  }
   getCapacityReservationUsage(
     input: GetCapacityReservationUsageRequest,
-  ): Effect.Effect<GetCapacityReservationUsageResult, CommonAwsError>;
+  ): Effect.Effect<GetCapacityReservationUsageResult, CommonAwsError> {
+    return this.call("GetCapacityReservationUsage", input);
+  }
   getCoipPoolUsage(
     input: GetCoipPoolUsageRequest,
-  ): Effect.Effect<GetCoipPoolUsageResult, CommonAwsError>;
+  ): Effect.Effect<GetCoipPoolUsageResult, CommonAwsError> {
+    return this.call("GetCoipPoolUsage", input);
+  }
   getConsoleOutput(
     input: GetConsoleOutputRequest,
-  ): Effect.Effect<GetConsoleOutputResult, CommonAwsError>;
+  ): Effect.Effect<GetConsoleOutputResult, CommonAwsError> {
+    return this.call("GetConsoleOutput", input);
+  }
   getConsoleScreenshot(
     input: GetConsoleScreenshotRequest,
-  ): Effect.Effect<GetConsoleScreenshotResult, CommonAwsError>;
+  ): Effect.Effect<GetConsoleScreenshotResult, CommonAwsError> {
+    return this.call("GetConsoleScreenshot", input);
+  }
   getDeclarativePoliciesReportSummary(
     input: GetDeclarativePoliciesReportSummaryRequest,
-  ): Effect.Effect<GetDeclarativePoliciesReportSummaryResult, CommonAwsError>;
+  ): Effect.Effect<GetDeclarativePoliciesReportSummaryResult, CommonAwsError> {
+    return this.call("GetDeclarativePoliciesReportSummary", input);
+  }
   getDefaultCreditSpecification(
     input: GetDefaultCreditSpecificationRequest,
-  ): Effect.Effect<GetDefaultCreditSpecificationResult, CommonAwsError>;
+  ): Effect.Effect<GetDefaultCreditSpecificationResult, CommonAwsError> {
+    return this.call("GetDefaultCreditSpecification", input);
+  }
   getEbsDefaultKmsKeyId(
     input: GetEbsDefaultKmsKeyIdRequest,
-  ): Effect.Effect<GetEbsDefaultKmsKeyIdResult, CommonAwsError>;
+  ): Effect.Effect<GetEbsDefaultKmsKeyIdResult, CommonAwsError> {
+    return this.call("GetEbsDefaultKmsKeyId", input);
+  }
   getEbsEncryptionByDefault(
     input: GetEbsEncryptionByDefaultRequest,
-  ): Effect.Effect<GetEbsEncryptionByDefaultResult, CommonAwsError>;
+  ): Effect.Effect<GetEbsEncryptionByDefaultResult, CommonAwsError> {
+    return this.call("GetEbsEncryptionByDefault", input);
+  }
   getFlowLogsIntegrationTemplate(
     input: GetFlowLogsIntegrationTemplateRequest,
-  ): Effect.Effect<GetFlowLogsIntegrationTemplateResult, CommonAwsError>;
+  ): Effect.Effect<GetFlowLogsIntegrationTemplateResult, CommonAwsError> {
+    return this.call("GetFlowLogsIntegrationTemplate", input);
+  }
   getGroupsForCapacityReservation(
     input: GetGroupsForCapacityReservationRequest,
-  ): Effect.Effect<GetGroupsForCapacityReservationResult, CommonAwsError>;
+  ): Effect.Effect<GetGroupsForCapacityReservationResult, CommonAwsError> {
+    return this.call("GetGroupsForCapacityReservation", input);
+  }
   getHostReservationPurchasePreview(
     input: GetHostReservationPurchasePreviewRequest,
-  ): Effect.Effect<GetHostReservationPurchasePreviewResult, CommonAwsError>;
+  ): Effect.Effect<GetHostReservationPurchasePreviewResult, CommonAwsError> {
+    return this.call("GetHostReservationPurchasePreview", input);
+  }
   getImageBlockPublicAccessState(
     input: GetImageBlockPublicAccessStateRequest,
-  ): Effect.Effect<GetImageBlockPublicAccessStateResult, CommonAwsError>;
+  ): Effect.Effect<GetImageBlockPublicAccessStateResult, CommonAwsError> {
+    return this.call("GetImageBlockPublicAccessState", input);
+  }
   getInstanceMetadataDefaults(
     input: GetInstanceMetadataDefaultsRequest,
-  ): Effect.Effect<GetInstanceMetadataDefaultsResult, CommonAwsError>;
+  ): Effect.Effect<GetInstanceMetadataDefaultsResult, CommonAwsError> {
+    return this.call("GetInstanceMetadataDefaults", input);
+  }
   getInstanceTpmEkPub(
     input: GetInstanceTpmEkPubRequest,
-  ): Effect.Effect<GetInstanceTpmEkPubResult, CommonAwsError>;
+  ): Effect.Effect<GetInstanceTpmEkPubResult, CommonAwsError> {
+    return this.call("GetInstanceTpmEkPub", input);
+  }
   getInstanceTypesFromInstanceRequirements(
     input: GetInstanceTypesFromInstanceRequirementsRequest,
   ): Effect.Effect<
     GetInstanceTypesFromInstanceRequirementsResult,
     CommonAwsError
-  >;
+  > {
+    return this.call("GetInstanceTypesFromInstanceRequirements", input);
+  }
   getInstanceUefiData(
     input: GetInstanceUefiDataRequest,
-  ): Effect.Effect<GetInstanceUefiDataResult, CommonAwsError>;
+  ): Effect.Effect<GetInstanceUefiDataResult, CommonAwsError> {
+    return this.call("GetInstanceUefiData", input);
+  }
   getIpamAddressHistory(
     input: GetIpamAddressHistoryRequest,
-  ): Effect.Effect<GetIpamAddressHistoryResult, CommonAwsError>;
+  ): Effect.Effect<GetIpamAddressHistoryResult, CommonAwsError> {
+    return this.call("GetIpamAddressHistory", input);
+  }
   getIpamDiscoveredAccounts(
     input: GetIpamDiscoveredAccountsRequest,
-  ): Effect.Effect<GetIpamDiscoveredAccountsResult, CommonAwsError>;
+  ): Effect.Effect<GetIpamDiscoveredAccountsResult, CommonAwsError> {
+    return this.call("GetIpamDiscoveredAccounts", input);
+  }
   getIpamDiscoveredPublicAddresses(
     input: GetIpamDiscoveredPublicAddressesRequest,
-  ): Effect.Effect<GetIpamDiscoveredPublicAddressesResult, CommonAwsError>;
+  ): Effect.Effect<GetIpamDiscoveredPublicAddressesResult, CommonAwsError> {
+    return this.call("GetIpamDiscoveredPublicAddresses", input);
+  }
   getIpamDiscoveredResourceCidrs(
     input: GetIpamDiscoveredResourceCidrsRequest,
-  ): Effect.Effect<GetIpamDiscoveredResourceCidrsResult, CommonAwsError>;
+  ): Effect.Effect<GetIpamDiscoveredResourceCidrsResult, CommonAwsError> {
+    return this.call("GetIpamDiscoveredResourceCidrs", input);
+  }
   getIpamPoolAllocations(
     input: GetIpamPoolAllocationsRequest,
-  ): Effect.Effect<GetIpamPoolAllocationsResult, CommonAwsError>;
+  ): Effect.Effect<GetIpamPoolAllocationsResult, CommonAwsError> {
+    return this.call("GetIpamPoolAllocations", input);
+  }
   getIpamPoolCidrs(
     input: GetIpamPoolCidrsRequest,
-  ): Effect.Effect<GetIpamPoolCidrsResult, CommonAwsError>;
+  ): Effect.Effect<GetIpamPoolCidrsResult, CommonAwsError> {
+    return this.call("GetIpamPoolCidrs", input);
+  }
   getIpamResourceCidrs(
     input: GetIpamResourceCidrsRequest,
-  ): Effect.Effect<GetIpamResourceCidrsResult, CommonAwsError>;
+  ): Effect.Effect<GetIpamResourceCidrsResult, CommonAwsError> {
+    return this.call("GetIpamResourceCidrs", input);
+  }
   getLaunchTemplateData(
     input: GetLaunchTemplateDataRequest,
-  ): Effect.Effect<GetLaunchTemplateDataResult, CommonAwsError>;
+  ): Effect.Effect<GetLaunchTemplateDataResult, CommonAwsError> {
+    return this.call("GetLaunchTemplateData", input);
+  }
   getManagedPrefixListAssociations(
     input: GetManagedPrefixListAssociationsRequest,
-  ): Effect.Effect<GetManagedPrefixListAssociationsResult, CommonAwsError>;
+  ): Effect.Effect<GetManagedPrefixListAssociationsResult, CommonAwsError> {
+    return this.call("GetManagedPrefixListAssociations", input);
+  }
   getManagedPrefixListEntries(
     input: GetManagedPrefixListEntriesRequest,
-  ): Effect.Effect<GetManagedPrefixListEntriesResult, CommonAwsError>;
+  ): Effect.Effect<GetManagedPrefixListEntriesResult, CommonAwsError> {
+    return this.call("GetManagedPrefixListEntries", input);
+  }
   getNetworkInsightsAccessScopeAnalysisFindings(
     input: GetNetworkInsightsAccessScopeAnalysisFindingsRequest,
   ): Effect.Effect<
     GetNetworkInsightsAccessScopeAnalysisFindingsResult,
     CommonAwsError
-  >;
+  > {
+    return this.call("GetNetworkInsightsAccessScopeAnalysisFindings", input);
+  }
   getNetworkInsightsAccessScopeContent(
     input: GetNetworkInsightsAccessScopeContentRequest,
-  ): Effect.Effect<GetNetworkInsightsAccessScopeContentResult, CommonAwsError>;
+  ): Effect.Effect<GetNetworkInsightsAccessScopeContentResult, CommonAwsError> {
+    return this.call("GetNetworkInsightsAccessScopeContent", input);
+  }
   getPasswordData(
     input: GetPasswordDataRequest,
-  ): Effect.Effect<GetPasswordDataResult, CommonAwsError>;
+  ): Effect.Effect<GetPasswordDataResult, CommonAwsError> {
+    return this.call("GetPasswordData", input);
+  }
   getReservedInstancesExchangeQuote(
     input: GetReservedInstancesExchangeQuoteRequest,
-  ): Effect.Effect<GetReservedInstancesExchangeQuoteResult, CommonAwsError>;
+  ): Effect.Effect<GetReservedInstancesExchangeQuoteResult, CommonAwsError> {
+    return this.call("GetReservedInstancesExchangeQuote", input);
+  }
   getRouteServerAssociations(
     input: GetRouteServerAssociationsRequest,
-  ): Effect.Effect<GetRouteServerAssociationsResult, CommonAwsError>;
+  ): Effect.Effect<GetRouteServerAssociationsResult, CommonAwsError> {
+    return this.call("GetRouteServerAssociations", input);
+  }
   getRouteServerPropagations(
     input: GetRouteServerPropagationsRequest,
-  ): Effect.Effect<GetRouteServerPropagationsResult, CommonAwsError>;
+  ): Effect.Effect<GetRouteServerPropagationsResult, CommonAwsError> {
+    return this.call("GetRouteServerPropagations", input);
+  }
   getRouteServerRoutingDatabase(
     input: GetRouteServerRoutingDatabaseRequest,
-  ): Effect.Effect<GetRouteServerRoutingDatabaseResult, CommonAwsError>;
+  ): Effect.Effect<GetRouteServerRoutingDatabaseResult, CommonAwsError> {
+    return this.call("GetRouteServerRoutingDatabase", input);
+  }
   getSecurityGroupsForVpc(
     input: GetSecurityGroupsForVpcRequest,
-  ): Effect.Effect<GetSecurityGroupsForVpcResult, CommonAwsError>;
+  ): Effect.Effect<GetSecurityGroupsForVpcResult, CommonAwsError> {
+    return this.call("GetSecurityGroupsForVpc", input);
+  }
   getSerialConsoleAccessStatus(
     input: GetSerialConsoleAccessStatusRequest,
-  ): Effect.Effect<GetSerialConsoleAccessStatusResult, CommonAwsError>;
+  ): Effect.Effect<GetSerialConsoleAccessStatusResult, CommonAwsError> {
+    return this.call("GetSerialConsoleAccessStatus", input);
+  }
   getSnapshotBlockPublicAccessState(
     input: GetSnapshotBlockPublicAccessStateRequest,
-  ): Effect.Effect<GetSnapshotBlockPublicAccessStateResult, CommonAwsError>;
+  ): Effect.Effect<GetSnapshotBlockPublicAccessStateResult, CommonAwsError> {
+    return this.call("GetSnapshotBlockPublicAccessState", input);
+  }
   getSpotPlacementScores(
     input: GetSpotPlacementScoresRequest,
-  ): Effect.Effect<GetSpotPlacementScoresResult, CommonAwsError>;
+  ): Effect.Effect<GetSpotPlacementScoresResult, CommonAwsError> {
+    return this.call("GetSpotPlacementScores", input);
+  }
   getSubnetCidrReservations(
     input: GetSubnetCidrReservationsRequest,
-  ): Effect.Effect<GetSubnetCidrReservationsResult, CommonAwsError>;
+  ): Effect.Effect<GetSubnetCidrReservationsResult, CommonAwsError> {
+    return this.call("GetSubnetCidrReservations", input);
+  }
   getTransitGatewayAttachmentPropagations(
     input: GetTransitGatewayAttachmentPropagationsRequest,
   ): Effect.Effect<
     GetTransitGatewayAttachmentPropagationsResult,
     CommonAwsError
-  >;
+  > {
+    return this.call("GetTransitGatewayAttachmentPropagations", input);
+  }
   getTransitGatewayMulticastDomainAssociations(
     input: GetTransitGatewayMulticastDomainAssociationsRequest,
   ): Effect.Effect<
     GetTransitGatewayMulticastDomainAssociationsResult,
     CommonAwsError
-  >;
+  > {
+    return this.call("GetTransitGatewayMulticastDomainAssociations", input);
+  }
   getTransitGatewayPolicyTableAssociations(
     input: GetTransitGatewayPolicyTableAssociationsRequest,
   ): Effect.Effect<
     GetTransitGatewayPolicyTableAssociationsResult,
     CommonAwsError
-  >;
+  > {
+    return this.call("GetTransitGatewayPolicyTableAssociations", input);
+  }
   getTransitGatewayPolicyTableEntries(
     input: GetTransitGatewayPolicyTableEntriesRequest,
-  ): Effect.Effect<GetTransitGatewayPolicyTableEntriesResult, CommonAwsError>;
+  ): Effect.Effect<GetTransitGatewayPolicyTableEntriesResult, CommonAwsError> {
+    return this.call("GetTransitGatewayPolicyTableEntries", input);
+  }
   getTransitGatewayPrefixListReferences(
     input: GetTransitGatewayPrefixListReferencesRequest,
-  ): Effect.Effect<GetTransitGatewayPrefixListReferencesResult, CommonAwsError>;
+  ): Effect.Effect<
+    GetTransitGatewayPrefixListReferencesResult,
+    CommonAwsError
+  > {
+    return this.call("GetTransitGatewayPrefixListReferences", input);
+  }
   getTransitGatewayRouteTableAssociations(
     input: GetTransitGatewayRouteTableAssociationsRequest,
   ): Effect.Effect<
     GetTransitGatewayRouteTableAssociationsResult,
     CommonAwsError
-  >;
+  > {
+    return this.call("GetTransitGatewayRouteTableAssociations", input);
+  }
   getTransitGatewayRouteTablePropagations(
     input: GetTransitGatewayRouteTablePropagationsRequest,
   ): Effect.Effect<
     GetTransitGatewayRouteTablePropagationsResult,
     CommonAwsError
-  >;
+  > {
+    return this.call("GetTransitGatewayRouteTablePropagations", input);
+  }
   getVerifiedAccessEndpointPolicy(
     input: GetVerifiedAccessEndpointPolicyRequest,
-  ): Effect.Effect<GetVerifiedAccessEndpointPolicyResult, CommonAwsError>;
+  ): Effect.Effect<GetVerifiedAccessEndpointPolicyResult, CommonAwsError> {
+    return this.call("GetVerifiedAccessEndpointPolicy", input);
+  }
   getVerifiedAccessEndpointTargets(
     input: GetVerifiedAccessEndpointTargetsRequest,
-  ): Effect.Effect<GetVerifiedAccessEndpointTargetsResult, CommonAwsError>;
+  ): Effect.Effect<GetVerifiedAccessEndpointTargetsResult, CommonAwsError> {
+    return this.call("GetVerifiedAccessEndpointTargets", input);
+  }
   getVerifiedAccessGroupPolicy(
     input: GetVerifiedAccessGroupPolicyRequest,
-  ): Effect.Effect<GetVerifiedAccessGroupPolicyResult, CommonAwsError>;
+  ): Effect.Effect<GetVerifiedAccessGroupPolicyResult, CommonAwsError> {
+    return this.call("GetVerifiedAccessGroupPolicy", input);
+  }
   getVpnConnectionDeviceSampleConfiguration(
     input: GetVpnConnectionDeviceSampleConfigurationRequest,
   ): Effect.Effect<
     GetVpnConnectionDeviceSampleConfigurationResult,
     CommonAwsError
-  >;
+  > {
+    return this.call("GetVpnConnectionDeviceSampleConfiguration", input);
+  }
   getVpnConnectionDeviceTypes(
     input: GetVpnConnectionDeviceTypesRequest,
-  ): Effect.Effect<GetVpnConnectionDeviceTypesResult, CommonAwsError>;
+  ): Effect.Effect<GetVpnConnectionDeviceTypesResult, CommonAwsError> {
+    return this.call("GetVpnConnectionDeviceTypes", input);
+  }
   getVpnTunnelReplacementStatus(
     input: GetVpnTunnelReplacementStatusRequest,
-  ): Effect.Effect<GetVpnTunnelReplacementStatusResult, CommonAwsError>;
+  ): Effect.Effect<GetVpnTunnelReplacementStatusResult, CommonAwsError> {
+    return this.call("GetVpnTunnelReplacementStatus", input);
+  }
   importClientVpnClientCertificateRevocationList(
     input: ImportClientVpnClientCertificateRevocationListRequest,
   ): Effect.Effect<
     ImportClientVpnClientCertificateRevocationListResult,
     CommonAwsError
-  >;
+  > {
+    return this.call("ImportClientVpnClientCertificateRevocationList", input);
+  }
   importImage(
     input: ImportImageRequest,
-  ): Effect.Effect<ImportImageResult, CommonAwsError>;
+  ): Effect.Effect<ImportImageResult, CommonAwsError> {
+    return this.call("ImportImage", input);
+  }
   importInstance(
     input: ImportInstanceRequest,
-  ): Effect.Effect<ImportInstanceResult, CommonAwsError>;
+  ): Effect.Effect<ImportInstanceResult, CommonAwsError> {
+    return this.call("ImportInstance", input);
+  }
   importKeyPair(
     input: ImportKeyPairRequest,
-  ): Effect.Effect<ImportKeyPairResult, CommonAwsError>;
+  ): Effect.Effect<ImportKeyPairResult, CommonAwsError> {
+    return this.call("ImportKeyPair", input);
+  }
   importSnapshot(
     input: ImportSnapshotRequest,
-  ): Effect.Effect<ImportSnapshotResult, CommonAwsError>;
+  ): Effect.Effect<ImportSnapshotResult, CommonAwsError> {
+    return this.call("ImportSnapshot", input);
+  }
   importVolume(
     input: ImportVolumeRequest,
-  ): Effect.Effect<ImportVolumeResult, CommonAwsError>;
+  ): Effect.Effect<ImportVolumeResult, CommonAwsError> {
+    return this.call("ImportVolume", input);
+  }
   listImagesInRecycleBin(
     input: ListImagesInRecycleBinRequest,
-  ): Effect.Effect<ListImagesInRecycleBinResult, CommonAwsError>;
+  ): Effect.Effect<ListImagesInRecycleBinResult, CommonAwsError> {
+    return this.call("ListImagesInRecycleBin", input);
+  }
   listSnapshotsInRecycleBin(
     input: ListSnapshotsInRecycleBinRequest,
-  ): Effect.Effect<ListSnapshotsInRecycleBinResult, CommonAwsError>;
+  ): Effect.Effect<ListSnapshotsInRecycleBinResult, CommonAwsError> {
+    return this.call("ListSnapshotsInRecycleBin", input);
+  }
   lockSnapshot(
     input: LockSnapshotRequest,
-  ): Effect.Effect<LockSnapshotResult, CommonAwsError>;
+  ): Effect.Effect<LockSnapshotResult, CommonAwsError> {
+    return this.call("LockSnapshot", input);
+  }
   modifyAddressAttribute(
     input: ModifyAddressAttributeRequest,
-  ): Effect.Effect<ModifyAddressAttributeResult, CommonAwsError>;
+  ): Effect.Effect<ModifyAddressAttributeResult, CommonAwsError> {
+    return this.call("ModifyAddressAttribute", input);
+  }
   modifyAvailabilityZoneGroup(
     input: ModifyAvailabilityZoneGroupRequest,
-  ): Effect.Effect<ModifyAvailabilityZoneGroupResult, CommonAwsError>;
+  ): Effect.Effect<ModifyAvailabilityZoneGroupResult, CommonAwsError> {
+    return this.call("ModifyAvailabilityZoneGroup", input);
+  }
   modifyCapacityReservation(
     input: ModifyCapacityReservationRequest,
-  ): Effect.Effect<ModifyCapacityReservationResult, CommonAwsError>;
+  ): Effect.Effect<ModifyCapacityReservationResult, CommonAwsError> {
+    return this.call("ModifyCapacityReservation", input);
+  }
   modifyCapacityReservationFleet(
     input: ModifyCapacityReservationFleetRequest,
-  ): Effect.Effect<ModifyCapacityReservationFleetResult, CommonAwsError>;
+  ): Effect.Effect<ModifyCapacityReservationFleetResult, CommonAwsError> {
+    return this.call("ModifyCapacityReservationFleet", input);
+  }
   modifyClientVpnEndpoint(
     input: ModifyClientVpnEndpointRequest,
-  ): Effect.Effect<ModifyClientVpnEndpointResult, CommonAwsError>;
+  ): Effect.Effect<ModifyClientVpnEndpointResult, CommonAwsError> {
+    return this.call("ModifyClientVpnEndpoint", input);
+  }
   modifyDefaultCreditSpecification(
     input: ModifyDefaultCreditSpecificationRequest,
-  ): Effect.Effect<ModifyDefaultCreditSpecificationResult, CommonAwsError>;
+  ): Effect.Effect<ModifyDefaultCreditSpecificationResult, CommonAwsError> {
+    return this.call("ModifyDefaultCreditSpecification", input);
+  }
   modifyEbsDefaultKmsKeyId(
     input: ModifyEbsDefaultKmsKeyIdRequest,
-  ): Effect.Effect<ModifyEbsDefaultKmsKeyIdResult, CommonAwsError>;
+  ): Effect.Effect<ModifyEbsDefaultKmsKeyIdResult, CommonAwsError> {
+    return this.call("ModifyEbsDefaultKmsKeyId", input);
+  }
   modifyFleet(
     input: ModifyFleetRequest,
-  ): Effect.Effect<ModifyFleetResult, CommonAwsError>;
+  ): Effect.Effect<ModifyFleetResult, CommonAwsError> {
+    return this.call("ModifyFleet", input);
+  }
   modifyFpgaImageAttribute(
     input: ModifyFpgaImageAttributeRequest,
-  ): Effect.Effect<ModifyFpgaImageAttributeResult, CommonAwsError>;
+  ): Effect.Effect<ModifyFpgaImageAttributeResult, CommonAwsError> {
+    return this.call("ModifyFpgaImageAttribute", input);
+  }
   modifyHosts(
     input: ModifyHostsRequest,
-  ): Effect.Effect<ModifyHostsResult, CommonAwsError>;
+  ): Effect.Effect<ModifyHostsResult, CommonAwsError> {
+    return this.call("ModifyHosts", input);
+  }
   modifyIdentityIdFormat(
     input: ModifyIdentityIdFormatRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, CommonAwsError> {
+    return this.call("ModifyIdentityIdFormat", input);
+  }
   modifyIdFormat(
     input: ModifyIdFormatRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, CommonAwsError> {
+    return this.call("ModifyIdFormat", input);
+  }
   modifyImageAttribute(
     input: ModifyImageAttributeRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, CommonAwsError> {
+    return this.call("ModifyImageAttribute", input);
+  }
   modifyInstanceAttribute(
     input: ModifyInstanceAttributeRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, CommonAwsError> {
+    return this.call("ModifyInstanceAttribute", input);
+  }
   modifyInstanceCapacityReservationAttributes(
     input: ModifyInstanceCapacityReservationAttributesRequest,
   ): Effect.Effect<
     ModifyInstanceCapacityReservationAttributesResult,
     CommonAwsError
-  >;
+  > {
+    return this.call("ModifyInstanceCapacityReservationAttributes", input);
+  }
   modifyInstanceCpuOptions(
     input: ModifyInstanceCpuOptionsRequest,
-  ): Effect.Effect<ModifyInstanceCpuOptionsResult, CommonAwsError>;
+  ): Effect.Effect<ModifyInstanceCpuOptionsResult, CommonAwsError> {
+    return this.call("ModifyInstanceCpuOptions", input);
+  }
   modifyInstanceCreditSpecification(
     input: ModifyInstanceCreditSpecificationRequest,
-  ): Effect.Effect<ModifyInstanceCreditSpecificationResult, CommonAwsError>;
+  ): Effect.Effect<ModifyInstanceCreditSpecificationResult, CommonAwsError> {
+    return this.call("ModifyInstanceCreditSpecification", input);
+  }
   modifyInstanceEventStartTime(
     input: ModifyInstanceEventStartTimeRequest,
-  ): Effect.Effect<ModifyInstanceEventStartTimeResult, CommonAwsError>;
+  ): Effect.Effect<ModifyInstanceEventStartTimeResult, CommonAwsError> {
+    return this.call("ModifyInstanceEventStartTime", input);
+  }
   modifyInstanceEventWindow(
     input: ModifyInstanceEventWindowRequest,
-  ): Effect.Effect<ModifyInstanceEventWindowResult, CommonAwsError>;
+  ): Effect.Effect<ModifyInstanceEventWindowResult, CommonAwsError> {
+    return this.call("ModifyInstanceEventWindow", input);
+  }
   modifyInstanceMaintenanceOptions(
     input: ModifyInstanceMaintenanceOptionsRequest,
-  ): Effect.Effect<ModifyInstanceMaintenanceOptionsResult, CommonAwsError>;
+  ): Effect.Effect<ModifyInstanceMaintenanceOptionsResult, CommonAwsError> {
+    return this.call("ModifyInstanceMaintenanceOptions", input);
+  }
   modifyInstanceMetadataDefaults(
     input: ModifyInstanceMetadataDefaultsRequest,
-  ): Effect.Effect<ModifyInstanceMetadataDefaultsResult, CommonAwsError>;
+  ): Effect.Effect<ModifyInstanceMetadataDefaultsResult, CommonAwsError> {
+    return this.call("ModifyInstanceMetadataDefaults", input);
+  }
   modifyInstanceMetadataOptions(
     input: ModifyInstanceMetadataOptionsRequest,
-  ): Effect.Effect<ModifyInstanceMetadataOptionsResult, CommonAwsError>;
+  ): Effect.Effect<ModifyInstanceMetadataOptionsResult, CommonAwsError> {
+    return this.call("ModifyInstanceMetadataOptions", input);
+  }
   modifyInstanceNetworkPerformanceOptions(
     input: ModifyInstanceNetworkPerformanceRequest,
-  ): Effect.Effect<ModifyInstanceNetworkPerformanceResult, CommonAwsError>;
+  ): Effect.Effect<ModifyInstanceNetworkPerformanceResult, CommonAwsError> {
+    return this.call("ModifyInstanceNetworkPerformanceOptions", input);
+  }
   modifyInstancePlacement(
     input: ModifyInstancePlacementRequest,
-  ): Effect.Effect<ModifyInstancePlacementResult, CommonAwsError>;
+  ): Effect.Effect<ModifyInstancePlacementResult, CommonAwsError> {
+    return this.call("ModifyInstancePlacement", input);
+  }
   modifyIpam(
     input: ModifyIpamRequest,
-  ): Effect.Effect<ModifyIpamResult, CommonAwsError>;
+  ): Effect.Effect<ModifyIpamResult, CommonAwsError> {
+    return this.call("ModifyIpam", input);
+  }
   modifyIpamPool(
     input: ModifyIpamPoolRequest,
-  ): Effect.Effect<ModifyIpamPoolResult, CommonAwsError>;
+  ): Effect.Effect<ModifyIpamPoolResult, CommonAwsError> {
+    return this.call("ModifyIpamPool", input);
+  }
   modifyIpamResourceCidr(
     input: ModifyIpamResourceCidrRequest,
-  ): Effect.Effect<ModifyIpamResourceCidrResult, CommonAwsError>;
+  ): Effect.Effect<ModifyIpamResourceCidrResult, CommonAwsError> {
+    return this.call("ModifyIpamResourceCidr", input);
+  }
   modifyIpamResourceDiscovery(
     input: ModifyIpamResourceDiscoveryRequest,
-  ): Effect.Effect<ModifyIpamResourceDiscoveryResult, CommonAwsError>;
+  ): Effect.Effect<ModifyIpamResourceDiscoveryResult, CommonAwsError> {
+    return this.call("ModifyIpamResourceDiscovery", input);
+  }
   modifyIpamScope(
     input: ModifyIpamScopeRequest,
-  ): Effect.Effect<ModifyIpamScopeResult, CommonAwsError>;
+  ): Effect.Effect<ModifyIpamScopeResult, CommonAwsError> {
+    return this.call("ModifyIpamScope", input);
+  }
   modifyLaunchTemplate(
     input: ModifyLaunchTemplateRequest,
-  ): Effect.Effect<ModifyLaunchTemplateResult, CommonAwsError>;
+  ): Effect.Effect<ModifyLaunchTemplateResult, CommonAwsError> {
+    return this.call("ModifyLaunchTemplate", input);
+  }
   modifyLocalGatewayRoute(
     input: ModifyLocalGatewayRouteRequest,
-  ): Effect.Effect<ModifyLocalGatewayRouteResult, CommonAwsError>;
+  ): Effect.Effect<ModifyLocalGatewayRouteResult, CommonAwsError> {
+    return this.call("ModifyLocalGatewayRoute", input);
+  }
   modifyManagedPrefixList(
     input: ModifyManagedPrefixListRequest,
-  ): Effect.Effect<ModifyManagedPrefixListResult, CommonAwsError>;
+  ): Effect.Effect<ModifyManagedPrefixListResult, CommonAwsError> {
+    return this.call("ModifyManagedPrefixList", input);
+  }
   modifyNetworkInterfaceAttribute(
     input: ModifyNetworkInterfaceAttributeRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, CommonAwsError> {
+    return this.call("ModifyNetworkInterfaceAttribute", input);
+  }
   modifyPrivateDnsNameOptions(
     input: ModifyPrivateDnsNameOptionsRequest,
-  ): Effect.Effect<ModifyPrivateDnsNameOptionsResult, CommonAwsError>;
+  ): Effect.Effect<ModifyPrivateDnsNameOptionsResult, CommonAwsError> {
+    return this.call("ModifyPrivateDnsNameOptions", input);
+  }
   modifyPublicIpDnsNameOptions(
     input: ModifyPublicIpDnsNameOptionsRequest,
-  ): Effect.Effect<ModifyPublicIpDnsNameOptionsResult, CommonAwsError>;
+  ): Effect.Effect<ModifyPublicIpDnsNameOptionsResult, CommonAwsError> {
+    return this.call("ModifyPublicIpDnsNameOptions", input);
+  }
   modifyReservedInstances(
     input: ModifyReservedInstancesRequest,
-  ): Effect.Effect<ModifyReservedInstancesResult, CommonAwsError>;
+  ): Effect.Effect<ModifyReservedInstancesResult, CommonAwsError> {
+    return this.call("ModifyReservedInstances", input);
+  }
   modifyRouteServer(
     input: ModifyRouteServerRequest,
-  ): Effect.Effect<ModifyRouteServerResult, CommonAwsError>;
+  ): Effect.Effect<ModifyRouteServerResult, CommonAwsError> {
+    return this.call("ModifyRouteServer", input);
+  }
   modifySecurityGroupRules(
     input: ModifySecurityGroupRulesRequest,
-  ): Effect.Effect<ModifySecurityGroupRulesResult, CommonAwsError>;
+  ): Effect.Effect<ModifySecurityGroupRulesResult, CommonAwsError> {
+    return this.call("ModifySecurityGroupRules", input);
+  }
   modifySnapshotAttribute(
     input: ModifySnapshotAttributeRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, CommonAwsError> {
+    return this.call("ModifySnapshotAttribute", input);
+  }
   modifySnapshotTier(
     input: ModifySnapshotTierRequest,
-  ): Effect.Effect<ModifySnapshotTierResult, CommonAwsError>;
+  ): Effect.Effect<ModifySnapshotTierResult, CommonAwsError> {
+    return this.call("ModifySnapshotTier", input);
+  }
   modifySpotFleetRequest(
     input: ModifySpotFleetRequestRequest,
-  ): Effect.Effect<ModifySpotFleetRequestResponse, CommonAwsError>;
+  ): Effect.Effect<ModifySpotFleetRequestResponse, CommonAwsError> {
+    return this.call("ModifySpotFleetRequest", input);
+  }
   modifySubnetAttribute(
     input: ModifySubnetAttributeRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, CommonAwsError> {
+    return this.call("ModifySubnetAttribute", input);
+  }
   modifyTrafficMirrorFilterNetworkServices(
     input: ModifyTrafficMirrorFilterNetworkServicesRequest,
   ): Effect.Effect<
     ModifyTrafficMirrorFilterNetworkServicesResult,
     CommonAwsError
-  >;
+  > {
+    return this.call("ModifyTrafficMirrorFilterNetworkServices", input);
+  }
   modifyTrafficMirrorFilterRule(
     input: ModifyTrafficMirrorFilterRuleRequest,
-  ): Effect.Effect<ModifyTrafficMirrorFilterRuleResult, CommonAwsError>;
+  ): Effect.Effect<ModifyTrafficMirrorFilterRuleResult, CommonAwsError> {
+    return this.call("ModifyTrafficMirrorFilterRule", input);
+  }
   modifyTrafficMirrorSession(
     input: ModifyTrafficMirrorSessionRequest,
-  ): Effect.Effect<ModifyTrafficMirrorSessionResult, CommonAwsError>;
+  ): Effect.Effect<ModifyTrafficMirrorSessionResult, CommonAwsError> {
+    return this.call("ModifyTrafficMirrorSession", input);
+  }
   modifyTransitGateway(
     input: ModifyTransitGatewayRequest,
-  ): Effect.Effect<ModifyTransitGatewayResult, CommonAwsError>;
+  ): Effect.Effect<ModifyTransitGatewayResult, CommonAwsError> {
+    return this.call("ModifyTransitGateway", input);
+  }
   modifyTransitGatewayPrefixListReference(
     input: ModifyTransitGatewayPrefixListReferenceRequest,
   ): Effect.Effect<
     ModifyTransitGatewayPrefixListReferenceResult,
     CommonAwsError
-  >;
+  > {
+    return this.call("ModifyTransitGatewayPrefixListReference", input);
+  }
   modifyTransitGatewayVpcAttachment(
     input: ModifyTransitGatewayVpcAttachmentRequest,
-  ): Effect.Effect<ModifyTransitGatewayVpcAttachmentResult, CommonAwsError>;
+  ): Effect.Effect<ModifyTransitGatewayVpcAttachmentResult, CommonAwsError> {
+    return this.call("ModifyTransitGatewayVpcAttachment", input);
+  }
   modifyVerifiedAccessEndpoint(
     input: ModifyVerifiedAccessEndpointRequest,
-  ): Effect.Effect<ModifyVerifiedAccessEndpointResult, CommonAwsError>;
+  ): Effect.Effect<ModifyVerifiedAccessEndpointResult, CommonAwsError> {
+    return this.call("ModifyVerifiedAccessEndpoint", input);
+  }
   modifyVerifiedAccessEndpointPolicy(
     input: ModifyVerifiedAccessEndpointPolicyRequest,
-  ): Effect.Effect<ModifyVerifiedAccessEndpointPolicyResult, CommonAwsError>;
+  ): Effect.Effect<ModifyVerifiedAccessEndpointPolicyResult, CommonAwsError> {
+    return this.call("ModifyVerifiedAccessEndpointPolicy", input);
+  }
   modifyVerifiedAccessGroup(
     input: ModifyVerifiedAccessGroupRequest,
-  ): Effect.Effect<ModifyVerifiedAccessGroupResult, CommonAwsError>;
+  ): Effect.Effect<ModifyVerifiedAccessGroupResult, CommonAwsError> {
+    return this.call("ModifyVerifiedAccessGroup", input);
+  }
   modifyVerifiedAccessGroupPolicy(
     input: ModifyVerifiedAccessGroupPolicyRequest,
-  ): Effect.Effect<ModifyVerifiedAccessGroupPolicyResult, CommonAwsError>;
+  ): Effect.Effect<ModifyVerifiedAccessGroupPolicyResult, CommonAwsError> {
+    return this.call("ModifyVerifiedAccessGroupPolicy", input);
+  }
   modifyVerifiedAccessInstance(
     input: ModifyVerifiedAccessInstanceRequest,
-  ): Effect.Effect<ModifyVerifiedAccessInstanceResult, CommonAwsError>;
+  ): Effect.Effect<ModifyVerifiedAccessInstanceResult, CommonAwsError> {
+    return this.call("ModifyVerifiedAccessInstance", input);
+  }
   modifyVerifiedAccessInstanceLoggingConfiguration(
     input: ModifyVerifiedAccessInstanceLoggingConfigurationRequest,
   ): Effect.Effect<
     ModifyVerifiedAccessInstanceLoggingConfigurationResult,
     CommonAwsError
-  >;
+  > {
+    return this.call("ModifyVerifiedAccessInstanceLoggingConfiguration", input);
+  }
   modifyVerifiedAccessTrustProvider(
     input: ModifyVerifiedAccessTrustProviderRequest,
-  ): Effect.Effect<ModifyVerifiedAccessTrustProviderResult, CommonAwsError>;
+  ): Effect.Effect<ModifyVerifiedAccessTrustProviderResult, CommonAwsError> {
+    return this.call("ModifyVerifiedAccessTrustProvider", input);
+  }
   modifyVolume(
     input: ModifyVolumeRequest,
-  ): Effect.Effect<ModifyVolumeResult, CommonAwsError>;
+  ): Effect.Effect<ModifyVolumeResult, CommonAwsError> {
+    return this.call("ModifyVolume", input);
+  }
   modifyVolumeAttribute(
     input: ModifyVolumeAttributeRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, CommonAwsError> {
+    return this.call("ModifyVolumeAttribute", input);
+  }
   modifyVpcAttribute(
     input: ModifyVpcAttributeRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, CommonAwsError> {
+    return this.call("ModifyVpcAttribute", input);
+  }
   modifyVpcBlockPublicAccessExclusion(
     input: ModifyVpcBlockPublicAccessExclusionRequest,
-  ): Effect.Effect<ModifyVpcBlockPublicAccessExclusionResult, CommonAwsError>;
+  ): Effect.Effect<ModifyVpcBlockPublicAccessExclusionResult, CommonAwsError> {
+    return this.call("ModifyVpcBlockPublicAccessExclusion", input);
+  }
   modifyVpcBlockPublicAccessOptions(
     input: ModifyVpcBlockPublicAccessOptionsRequest,
-  ): Effect.Effect<ModifyVpcBlockPublicAccessOptionsResult, CommonAwsError>;
+  ): Effect.Effect<ModifyVpcBlockPublicAccessOptionsResult, CommonAwsError> {
+    return this.call("ModifyVpcBlockPublicAccessOptions", input);
+  }
   modifyVpcEndpoint(
     input: ModifyVpcEndpointRequest,
-  ): Effect.Effect<ModifyVpcEndpointResult, CommonAwsError>;
+  ): Effect.Effect<ModifyVpcEndpointResult, CommonAwsError> {
+    return this.call("ModifyVpcEndpoint", input);
+  }
   modifyVpcEndpointConnectionNotification(
     input: ModifyVpcEndpointConnectionNotificationRequest,
   ): Effect.Effect<
     ModifyVpcEndpointConnectionNotificationResult,
     CommonAwsError
-  >;
+  > {
+    return this.call("ModifyVpcEndpointConnectionNotification", input);
+  }
   modifyVpcEndpointServiceConfiguration(
     input: ModifyVpcEndpointServiceConfigurationRequest,
-  ): Effect.Effect<ModifyVpcEndpointServiceConfigurationResult, CommonAwsError>;
+  ): Effect.Effect<
+    ModifyVpcEndpointServiceConfigurationResult,
+    CommonAwsError
+  > {
+    return this.call("ModifyVpcEndpointServiceConfiguration", input);
+  }
   modifyVpcEndpointServicePayerResponsibility(
     input: ModifyVpcEndpointServicePayerResponsibilityRequest,
   ): Effect.Effect<
     ModifyVpcEndpointServicePayerResponsibilityResult,
     CommonAwsError
-  >;
+  > {
+    return this.call("ModifyVpcEndpointServicePayerResponsibility", input);
+  }
   modifyVpcEndpointServicePermissions(
     input: ModifyVpcEndpointServicePermissionsRequest,
-  ): Effect.Effect<ModifyVpcEndpointServicePermissionsResult, CommonAwsError>;
+  ): Effect.Effect<ModifyVpcEndpointServicePermissionsResult, CommonAwsError> {
+    return this.call("ModifyVpcEndpointServicePermissions", input);
+  }
   modifyVpcPeeringConnectionOptions(
     input: ModifyVpcPeeringConnectionOptionsRequest,
-  ): Effect.Effect<ModifyVpcPeeringConnectionOptionsResult, CommonAwsError>;
+  ): Effect.Effect<ModifyVpcPeeringConnectionOptionsResult, CommonAwsError> {
+    return this.call("ModifyVpcPeeringConnectionOptions", input);
+  }
   modifyVpcTenancy(
     input: ModifyVpcTenancyRequest,
-  ): Effect.Effect<ModifyVpcTenancyResult, CommonAwsError>;
+  ): Effect.Effect<ModifyVpcTenancyResult, CommonAwsError> {
+    return this.call("ModifyVpcTenancy", input);
+  }
   modifyVpnConnection(
     input: ModifyVpnConnectionRequest,
-  ): Effect.Effect<ModifyVpnConnectionResult, CommonAwsError>;
+  ): Effect.Effect<ModifyVpnConnectionResult, CommonAwsError> {
+    return this.call("ModifyVpnConnection", input);
+  }
   modifyVpnConnectionOptions(
     input: ModifyVpnConnectionOptionsRequest,
-  ): Effect.Effect<ModifyVpnConnectionOptionsResult, CommonAwsError>;
+  ): Effect.Effect<ModifyVpnConnectionOptionsResult, CommonAwsError> {
+    return this.call("ModifyVpnConnectionOptions", input);
+  }
   modifyVpnTunnelCertificate(
     input: ModifyVpnTunnelCertificateRequest,
-  ): Effect.Effect<ModifyVpnTunnelCertificateResult, CommonAwsError>;
+  ): Effect.Effect<ModifyVpnTunnelCertificateResult, CommonAwsError> {
+    return this.call("ModifyVpnTunnelCertificate", input);
+  }
   modifyVpnTunnelOptions(
     input: ModifyVpnTunnelOptionsRequest,
-  ): Effect.Effect<ModifyVpnTunnelOptionsResult, CommonAwsError>;
+  ): Effect.Effect<ModifyVpnTunnelOptionsResult, CommonAwsError> {
+    return this.call("ModifyVpnTunnelOptions", input);
+  }
   monitorInstances(
     input: MonitorInstancesRequest,
-  ): Effect.Effect<MonitorInstancesResult, CommonAwsError>;
+  ): Effect.Effect<MonitorInstancesResult, CommonAwsError> {
+    return this.call("MonitorInstances", input);
+  }
   moveAddressToVpc(
     input: MoveAddressToVpcRequest,
-  ): Effect.Effect<MoveAddressToVpcResult, CommonAwsError>;
+  ): Effect.Effect<MoveAddressToVpcResult, CommonAwsError> {
+    return this.call("MoveAddressToVpc", input);
+  }
   moveByoipCidrToIpam(
     input: MoveByoipCidrToIpamRequest,
-  ): Effect.Effect<MoveByoipCidrToIpamResult, CommonAwsError>;
+  ): Effect.Effect<MoveByoipCidrToIpamResult, CommonAwsError> {
+    return this.call("MoveByoipCidrToIpam", input);
+  }
   moveCapacityReservationInstances(
     input: MoveCapacityReservationInstancesRequest,
-  ): Effect.Effect<MoveCapacityReservationInstancesResult, CommonAwsError>;
+  ): Effect.Effect<MoveCapacityReservationInstancesResult, CommonAwsError> {
+    return this.call("MoveCapacityReservationInstances", input);
+  }
   provisionByoipCidr(
     input: ProvisionByoipCidrRequest,
-  ): Effect.Effect<ProvisionByoipCidrResult, CommonAwsError>;
+  ): Effect.Effect<ProvisionByoipCidrResult, CommonAwsError> {
+    return this.call("ProvisionByoipCidr", input);
+  }
   provisionIpamByoasn(
     input: ProvisionIpamByoasnRequest,
-  ): Effect.Effect<ProvisionIpamByoasnResult, CommonAwsError>;
+  ): Effect.Effect<ProvisionIpamByoasnResult, CommonAwsError> {
+    return this.call("ProvisionIpamByoasn", input);
+  }
   provisionIpamPoolCidr(
     input: ProvisionIpamPoolCidrRequest,
-  ): Effect.Effect<ProvisionIpamPoolCidrResult, CommonAwsError>;
+  ): Effect.Effect<ProvisionIpamPoolCidrResult, CommonAwsError> {
+    return this.call("ProvisionIpamPoolCidr", input);
+  }
   provisionPublicIpv4PoolCidr(
     input: ProvisionPublicIpv4PoolCidrRequest,
-  ): Effect.Effect<ProvisionPublicIpv4PoolCidrResult, CommonAwsError>;
+  ): Effect.Effect<ProvisionPublicIpv4PoolCidrResult, CommonAwsError> {
+    return this.call("ProvisionPublicIpv4PoolCidr", input);
+  }
   purchaseCapacityBlock(
     input: PurchaseCapacityBlockRequest,
-  ): Effect.Effect<PurchaseCapacityBlockResult, CommonAwsError>;
+  ): Effect.Effect<PurchaseCapacityBlockResult, CommonAwsError> {
+    return this.call("PurchaseCapacityBlock", input);
+  }
   purchaseCapacityBlockExtension(
     input: PurchaseCapacityBlockExtensionRequest,
-  ): Effect.Effect<PurchaseCapacityBlockExtensionResult, CommonAwsError>;
+  ): Effect.Effect<PurchaseCapacityBlockExtensionResult, CommonAwsError> {
+    return this.call("PurchaseCapacityBlockExtension", input);
+  }
   purchaseHostReservation(
     input: PurchaseHostReservationRequest,
-  ): Effect.Effect<PurchaseHostReservationResult, CommonAwsError>;
+  ): Effect.Effect<PurchaseHostReservationResult, CommonAwsError> {
+    return this.call("PurchaseHostReservation", input);
+  }
   purchaseReservedInstancesOffering(
     input: PurchaseReservedInstancesOfferingRequest,
-  ): Effect.Effect<PurchaseReservedInstancesOfferingResult, CommonAwsError>;
+  ): Effect.Effect<PurchaseReservedInstancesOfferingResult, CommonAwsError> {
+    return this.call("PurchaseReservedInstancesOffering", input);
+  }
   purchaseScheduledInstances(
     input: PurchaseScheduledInstancesRequest,
-  ): Effect.Effect<PurchaseScheduledInstancesResult, CommonAwsError>;
+  ): Effect.Effect<PurchaseScheduledInstancesResult, CommonAwsError> {
+    return this.call("PurchaseScheduledInstances", input);
+  }
   rebootInstances(
     input: RebootInstancesRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, CommonAwsError> {
+    return this.call("RebootInstances", input);
+  }
   registerImage(
     input: RegisterImageRequest,
-  ): Effect.Effect<RegisterImageResult, CommonAwsError>;
+  ): Effect.Effect<RegisterImageResult, CommonAwsError> {
+    return this.call("RegisterImage", input);
+  }
   registerInstanceEventNotificationAttributes(
     input: RegisterInstanceEventNotificationAttributesRequest,
   ): Effect.Effect<
     RegisterInstanceEventNotificationAttributesResult,
     CommonAwsError
-  >;
+  > {
+    return this.call("RegisterInstanceEventNotificationAttributes", input);
+  }
   registerTransitGatewayMulticastGroupMembers(
     input: RegisterTransitGatewayMulticastGroupMembersRequest,
   ): Effect.Effect<
     RegisterTransitGatewayMulticastGroupMembersResult,
     CommonAwsError
-  >;
+  > {
+    return this.call("RegisterTransitGatewayMulticastGroupMembers", input);
+  }
   registerTransitGatewayMulticastGroupSources(
     input: RegisterTransitGatewayMulticastGroupSourcesRequest,
   ): Effect.Effect<
     RegisterTransitGatewayMulticastGroupSourcesResult,
     CommonAwsError
-  >;
+  > {
+    return this.call("RegisterTransitGatewayMulticastGroupSources", input);
+  }
   rejectCapacityReservationBillingOwnership(
     input: RejectCapacityReservationBillingOwnershipRequest,
   ): Effect.Effect<
     RejectCapacityReservationBillingOwnershipResult,
     CommonAwsError
-  >;
+  > {
+    return this.call("RejectCapacityReservationBillingOwnership", input);
+  }
   rejectTransitGatewayMulticastDomainAssociations(
     input: RejectTransitGatewayMulticastDomainAssociationsRequest,
   ): Effect.Effect<
     RejectTransitGatewayMulticastDomainAssociationsResult,
     CommonAwsError
-  >;
+  > {
+    return this.call("RejectTransitGatewayMulticastDomainAssociations", input);
+  }
   rejectTransitGatewayPeeringAttachment(
     input: RejectTransitGatewayPeeringAttachmentRequest,
-  ): Effect.Effect<RejectTransitGatewayPeeringAttachmentResult, CommonAwsError>;
+  ): Effect.Effect<
+    RejectTransitGatewayPeeringAttachmentResult,
+    CommonAwsError
+  > {
+    return this.call("RejectTransitGatewayPeeringAttachment", input);
+  }
   rejectTransitGatewayVpcAttachment(
     input: RejectTransitGatewayVpcAttachmentRequest,
-  ): Effect.Effect<RejectTransitGatewayVpcAttachmentResult, CommonAwsError>;
+  ): Effect.Effect<RejectTransitGatewayVpcAttachmentResult, CommonAwsError> {
+    return this.call("RejectTransitGatewayVpcAttachment", input);
+  }
   rejectVpcEndpointConnections(
     input: RejectVpcEndpointConnectionsRequest,
-  ): Effect.Effect<RejectVpcEndpointConnectionsResult, CommonAwsError>;
+  ): Effect.Effect<RejectVpcEndpointConnectionsResult, CommonAwsError> {
+    return this.call("RejectVpcEndpointConnections", input);
+  }
   rejectVpcPeeringConnection(
     input: RejectVpcPeeringConnectionRequest,
-  ): Effect.Effect<RejectVpcPeeringConnectionResult, CommonAwsError>;
+  ): Effect.Effect<RejectVpcPeeringConnectionResult, CommonAwsError> {
+    return this.call("RejectVpcPeeringConnection", input);
+  }
   releaseAddress(
     input: ReleaseAddressRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, CommonAwsError> {
+    return this.call("ReleaseAddress", input);
+  }
   releaseHosts(
     input: ReleaseHostsRequest,
-  ): Effect.Effect<ReleaseHostsResult, CommonAwsError>;
+  ): Effect.Effect<ReleaseHostsResult, CommonAwsError> {
+    return this.call("ReleaseHosts", input);
+  }
   releaseIpamPoolAllocation(
     input: ReleaseIpamPoolAllocationRequest,
-  ): Effect.Effect<ReleaseIpamPoolAllocationResult, CommonAwsError>;
+  ): Effect.Effect<ReleaseIpamPoolAllocationResult, CommonAwsError> {
+    return this.call("ReleaseIpamPoolAllocation", input);
+  }
   replaceIamInstanceProfileAssociation(
     input: ReplaceIamInstanceProfileAssociationRequest,
-  ): Effect.Effect<ReplaceIamInstanceProfileAssociationResult, CommonAwsError>;
+  ): Effect.Effect<ReplaceIamInstanceProfileAssociationResult, CommonAwsError> {
+    return this.call("ReplaceIamInstanceProfileAssociation", input);
+  }
   replaceImageCriteriaInAllowedImagesSettings(
     input: ReplaceImageCriteriaInAllowedImagesSettingsRequest,
   ): Effect.Effect<
     ReplaceImageCriteriaInAllowedImagesSettingsResult,
     CommonAwsError
-  >;
+  > {
+    return this.call("ReplaceImageCriteriaInAllowedImagesSettings", input);
+  }
   replaceNetworkAclAssociation(
     input: ReplaceNetworkAclAssociationRequest,
-  ): Effect.Effect<ReplaceNetworkAclAssociationResult, CommonAwsError>;
+  ): Effect.Effect<ReplaceNetworkAclAssociationResult, CommonAwsError> {
+    return this.call("ReplaceNetworkAclAssociation", input);
+  }
   replaceNetworkAclEntry(
     input: ReplaceNetworkAclEntryRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
-  replaceRoute(input: ReplaceRouteRequest): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, CommonAwsError> {
+    return this.call("ReplaceNetworkAclEntry", input);
+  }
+  replaceRoute(input: ReplaceRouteRequest): Effect.Effect<{}, CommonAwsError> {
+    return this.call("ReplaceRoute", input);
+  }
   replaceRouteTableAssociation(
     input: ReplaceRouteTableAssociationRequest,
-  ): Effect.Effect<ReplaceRouteTableAssociationResult, CommonAwsError>;
+  ): Effect.Effect<ReplaceRouteTableAssociationResult, CommonAwsError> {
+    return this.call("ReplaceRouteTableAssociation", input);
+  }
   replaceTransitGatewayRoute(
     input: ReplaceTransitGatewayRouteRequest,
-  ): Effect.Effect<ReplaceTransitGatewayRouteResult, CommonAwsError>;
+  ): Effect.Effect<ReplaceTransitGatewayRouteResult, CommonAwsError> {
+    return this.call("ReplaceTransitGatewayRoute", input);
+  }
   replaceVpnTunnel(
     input: ReplaceVpnTunnelRequest,
-  ): Effect.Effect<ReplaceVpnTunnelResult, CommonAwsError>;
+  ): Effect.Effect<ReplaceVpnTunnelResult, CommonAwsError> {
+    return this.call("ReplaceVpnTunnel", input);
+  }
   reportInstanceStatus(
     input: ReportInstanceStatusRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, CommonAwsError> {
+    return this.call("ReportInstanceStatus", input);
+  }
   requestSpotFleet(
     input: RequestSpotFleetRequest,
-  ): Effect.Effect<RequestSpotFleetResponse, CommonAwsError>;
+  ): Effect.Effect<RequestSpotFleetResponse, CommonAwsError> {
+    return this.call("RequestSpotFleet", input);
+  }
   requestSpotInstances(
     input: RequestSpotInstancesRequest,
-  ): Effect.Effect<RequestSpotInstancesResult, CommonAwsError>;
+  ): Effect.Effect<RequestSpotInstancesResult, CommonAwsError> {
+    return this.call("RequestSpotInstances", input);
+  }
   resetAddressAttribute(
     input: ResetAddressAttributeRequest,
-  ): Effect.Effect<ResetAddressAttributeResult, CommonAwsError>;
+  ): Effect.Effect<ResetAddressAttributeResult, CommonAwsError> {
+    return this.call("ResetAddressAttribute", input);
+  }
   resetEbsDefaultKmsKeyId(
     input: ResetEbsDefaultKmsKeyIdRequest,
-  ): Effect.Effect<ResetEbsDefaultKmsKeyIdResult, CommonAwsError>;
+  ): Effect.Effect<ResetEbsDefaultKmsKeyIdResult, CommonAwsError> {
+    return this.call("ResetEbsDefaultKmsKeyId", input);
+  }
   resetFpgaImageAttribute(
     input: ResetFpgaImageAttributeRequest,
-  ): Effect.Effect<ResetFpgaImageAttributeResult, CommonAwsError>;
+  ): Effect.Effect<ResetFpgaImageAttributeResult, CommonAwsError> {
+    return this.call("ResetFpgaImageAttribute", input);
+  }
   resetImageAttribute(
     input: ResetImageAttributeRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, CommonAwsError> {
+    return this.call("ResetImageAttribute", input);
+  }
   resetInstanceAttribute(
     input: ResetInstanceAttributeRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, CommonAwsError> {
+    return this.call("ResetInstanceAttribute", input);
+  }
   resetNetworkInterfaceAttribute(
     input: ResetNetworkInterfaceAttributeRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, CommonAwsError> {
+    return this.call("ResetNetworkInterfaceAttribute", input);
+  }
   resetSnapshotAttribute(
     input: ResetSnapshotAttributeRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, CommonAwsError> {
+    return this.call("ResetSnapshotAttribute", input);
+  }
   restoreAddressToClassic(
     input: RestoreAddressToClassicRequest,
-  ): Effect.Effect<RestoreAddressToClassicResult, CommonAwsError>;
+  ): Effect.Effect<RestoreAddressToClassicResult, CommonAwsError> {
+    return this.call("RestoreAddressToClassic", input);
+  }
   restoreImageFromRecycleBin(
     input: RestoreImageFromRecycleBinRequest,
-  ): Effect.Effect<RestoreImageFromRecycleBinResult, CommonAwsError>;
+  ): Effect.Effect<RestoreImageFromRecycleBinResult, CommonAwsError> {
+    return this.call("RestoreImageFromRecycleBin", input);
+  }
   restoreManagedPrefixListVersion(
     input: RestoreManagedPrefixListVersionRequest,
-  ): Effect.Effect<RestoreManagedPrefixListVersionResult, CommonAwsError>;
+  ): Effect.Effect<RestoreManagedPrefixListVersionResult, CommonAwsError> {
+    return this.call("RestoreManagedPrefixListVersion", input);
+  }
   restoreSnapshotFromRecycleBin(
     input: RestoreSnapshotFromRecycleBinRequest,
-  ): Effect.Effect<RestoreSnapshotFromRecycleBinResult, CommonAwsError>;
+  ): Effect.Effect<RestoreSnapshotFromRecycleBinResult, CommonAwsError> {
+    return this.call("RestoreSnapshotFromRecycleBin", input);
+  }
   restoreSnapshotTier(
     input: RestoreSnapshotTierRequest,
-  ): Effect.Effect<RestoreSnapshotTierResult, CommonAwsError>;
+  ): Effect.Effect<RestoreSnapshotTierResult, CommonAwsError> {
+    return this.call("RestoreSnapshotTier", input);
+  }
   revokeClientVpnIngress(
     input: RevokeClientVpnIngressRequest,
-  ): Effect.Effect<RevokeClientVpnIngressResult, CommonAwsError>;
+  ): Effect.Effect<RevokeClientVpnIngressResult, CommonAwsError> {
+    return this.call("RevokeClientVpnIngress", input);
+  }
   revokeSecurityGroupEgress(
     input: RevokeSecurityGroupEgressRequest,
-  ): Effect.Effect<RevokeSecurityGroupEgressResult, CommonAwsError>;
+  ): Effect.Effect<RevokeSecurityGroupEgressResult, CommonAwsError> {
+    return this.call("RevokeSecurityGroupEgress", input);
+  }
   revokeSecurityGroupIngress(
     input: RevokeSecurityGroupIngressRequest,
-  ): Effect.Effect<RevokeSecurityGroupIngressResult, CommonAwsError>;
+  ): Effect.Effect<RevokeSecurityGroupIngressResult, CommonAwsError> {
+    return this.call("RevokeSecurityGroupIngress", input);
+  }
   runInstances(
     input: RunInstancesRequest,
-  ): Effect.Effect<Reservation, CommonAwsError>;
+  ): Effect.Effect<Reservation, CommonAwsError> {
+    return this.call("RunInstances", input);
+  }
   runScheduledInstances(
     input: RunScheduledInstancesRequest,
-  ): Effect.Effect<RunScheduledInstancesResult, CommonAwsError>;
+  ): Effect.Effect<RunScheduledInstancesResult, CommonAwsError> {
+    return this.call("RunScheduledInstances", input);
+  }
   searchLocalGatewayRoutes(
     input: SearchLocalGatewayRoutesRequest,
-  ): Effect.Effect<SearchLocalGatewayRoutesResult, CommonAwsError>;
+  ): Effect.Effect<SearchLocalGatewayRoutesResult, CommonAwsError> {
+    return this.call("SearchLocalGatewayRoutes", input);
+  }
   searchTransitGatewayMulticastGroups(
     input: SearchTransitGatewayMulticastGroupsRequest,
-  ): Effect.Effect<SearchTransitGatewayMulticastGroupsResult, CommonAwsError>;
+  ): Effect.Effect<SearchTransitGatewayMulticastGroupsResult, CommonAwsError> {
+    return this.call("SearchTransitGatewayMulticastGroups", input);
+  }
   searchTransitGatewayRoutes(
     input: SearchTransitGatewayRoutesRequest,
-  ): Effect.Effect<SearchTransitGatewayRoutesResult, CommonAwsError>;
+  ): Effect.Effect<SearchTransitGatewayRoutesResult, CommonAwsError> {
+    return this.call("SearchTransitGatewayRoutes", input);
+  }
   sendDiagnosticInterrupt(
     input: SendDiagnosticInterruptRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, CommonAwsError> {
+    return this.call("SendDiagnosticInterrupt", input);
+  }
   startDeclarativePoliciesReport(
     input: StartDeclarativePoliciesReportRequest,
-  ): Effect.Effect<StartDeclarativePoliciesReportResult, CommonAwsError>;
+  ): Effect.Effect<StartDeclarativePoliciesReportResult, CommonAwsError> {
+    return this.call("StartDeclarativePoliciesReport", input);
+  }
   startInstances(
     input: StartInstancesRequest,
-  ): Effect.Effect<StartInstancesResult, CommonAwsError>;
+  ): Effect.Effect<StartInstancesResult, CommonAwsError> {
+    return this.call("StartInstances", input);
+  }
   startNetworkInsightsAccessScopeAnalysis(
     input: StartNetworkInsightsAccessScopeAnalysisRequest,
   ): Effect.Effect<
     StartNetworkInsightsAccessScopeAnalysisResult,
     CommonAwsError
-  >;
+  > {
+    return this.call("StartNetworkInsightsAccessScopeAnalysis", input);
+  }
   startNetworkInsightsAnalysis(
     input: StartNetworkInsightsAnalysisRequest,
-  ): Effect.Effect<StartNetworkInsightsAnalysisResult, CommonAwsError>;
+  ): Effect.Effect<StartNetworkInsightsAnalysisResult, CommonAwsError> {
+    return this.call("StartNetworkInsightsAnalysis", input);
+  }
   startVpcEndpointServicePrivateDnsVerification(
     input: StartVpcEndpointServicePrivateDnsVerificationRequest,
   ): Effect.Effect<
     StartVpcEndpointServicePrivateDnsVerificationResult,
     CommonAwsError
-  >;
+  > {
+    return this.call("StartVpcEndpointServicePrivateDnsVerification", input);
+  }
   stopInstances(
     input: StopInstancesRequest,
-  ): Effect.Effect<StopInstancesResult, CommonAwsError>;
+  ): Effect.Effect<StopInstancesResult, CommonAwsError> {
+    return this.call("StopInstances", input);
+  }
   terminateClientVpnConnections(
     input: TerminateClientVpnConnectionsRequest,
-  ): Effect.Effect<TerminateClientVpnConnectionsResult, CommonAwsError>;
+  ): Effect.Effect<TerminateClientVpnConnectionsResult, CommonAwsError> {
+    return this.call("TerminateClientVpnConnections", input);
+  }
   terminateInstances(
     input: TerminateInstancesRequest,
-  ): Effect.Effect<TerminateInstancesResult, CommonAwsError>;
+  ): Effect.Effect<TerminateInstancesResult, CommonAwsError> {
+    return this.call("TerminateInstances", input);
+  }
   unassignIpv6Addresses(
     input: UnassignIpv6AddressesRequest,
-  ): Effect.Effect<UnassignIpv6AddressesResult, CommonAwsError>;
+  ): Effect.Effect<UnassignIpv6AddressesResult, CommonAwsError> {
+    return this.call("UnassignIpv6Addresses", input);
+  }
   unassignPrivateIpAddresses(
     input: UnassignPrivateIpAddressesRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, CommonAwsError> {
+    return this.call("UnassignPrivateIpAddresses", input);
+  }
   unassignPrivateNatGatewayAddress(
     input: UnassignPrivateNatGatewayAddressRequest,
-  ): Effect.Effect<UnassignPrivateNatGatewayAddressResult, CommonAwsError>;
+  ): Effect.Effect<UnassignPrivateNatGatewayAddressResult, CommonAwsError> {
+    return this.call("UnassignPrivateNatGatewayAddress", input);
+  }
   unlockSnapshot(
     input: UnlockSnapshotRequest,
-  ): Effect.Effect<UnlockSnapshotResult, CommonAwsError>;
+  ): Effect.Effect<UnlockSnapshotResult, CommonAwsError> {
+    return this.call("UnlockSnapshot", input);
+  }
   unmonitorInstances(
     input: UnmonitorInstancesRequest,
-  ): Effect.Effect<UnmonitorInstancesResult, CommonAwsError>;
+  ): Effect.Effect<UnmonitorInstancesResult, CommonAwsError> {
+    return this.call("UnmonitorInstances", input);
+  }
   updateSecurityGroupRuleDescriptionsEgress(
     input: UpdateSecurityGroupRuleDescriptionsEgressRequest,
   ): Effect.Effect<
     UpdateSecurityGroupRuleDescriptionsEgressResult,
     CommonAwsError
-  >;
+  > {
+    return this.call("UpdateSecurityGroupRuleDescriptionsEgress", input);
+  }
   updateSecurityGroupRuleDescriptionsIngress(
     input: UpdateSecurityGroupRuleDescriptionsIngressRequest,
   ): Effect.Effect<
     UpdateSecurityGroupRuleDescriptionsIngressResult,
     CommonAwsError
-  >;
+  > {
+    return this.call("UpdateSecurityGroupRuleDescriptionsIngress", input);
+  }
   withdrawByoipCidr(
     input: WithdrawByoipCidrRequest,
-  ): Effect.Effect<WithdrawByoipCidrResult, CommonAwsError>;
+  ): Effect.Effect<WithdrawByoipCidrResult, CommonAwsError> {
+    return this.call("WithdrawByoipCidr", input);
+  }
 }
 
-export declare class Ec2 extends EC2 {}
+export class Ec2 extends EC2 {}
+
+export default EC2;
 
 export interface AcceleratorCount {
   Min?: number;

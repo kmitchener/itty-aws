@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class amp extends AWSServiceClient {
+export class amp extends AWSServiceClient {
   getDefaultScraperConfiguration(
     input: GetDefaultScraperConfigurationRequest,
   ): Effect.Effect<
@@ -11,7 +11,9 @@ export declare class amp extends AWSServiceClient {
     | InternalServerException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetDefaultScraperConfiguration", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
@@ -22,7 +24,9 @@ export declare class amp extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -33,7 +37,9 @@ export declare class amp extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
@@ -44,10 +50,14 @@ export declare class amp extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
 }
 
-export declare class Amp extends amp {}
+export class Amp extends amp {}
+
+export default amp;
 
 export declare class AccessDeniedException extends EffectData.TaggedError(
   "AccessDeniedException",

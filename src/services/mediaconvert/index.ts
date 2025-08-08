@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class MediaConvert extends AWSServiceClient {
+export class MediaConvert extends AWSServiceClient {
   associateCertificate(
     input: AssociateCertificateRequest,
   ): Effect.Effect<
@@ -14,7 +14,9 @@ export declare class MediaConvert extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AssociateCertificate", input);
+  }
   cancelJob(
     input: CancelJobRequest,
   ): Effect.Effect<
@@ -26,7 +28,9 @@ export declare class MediaConvert extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CancelJob", input);
+  }
   createJob(
     input: CreateJobRequest,
   ): Effect.Effect<
@@ -38,7 +42,9 @@ export declare class MediaConvert extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateJob", input);
+  }
   createJobTemplate(
     input: CreateJobTemplateRequest,
   ): Effect.Effect<
@@ -50,7 +56,9 @@ export declare class MediaConvert extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateJobTemplate", input);
+  }
   createPreset(
     input: CreatePresetRequest,
   ): Effect.Effect<
@@ -62,7 +70,9 @@ export declare class MediaConvert extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreatePreset", input);
+  }
   createQueue(
     input: CreateQueueRequest,
   ): Effect.Effect<
@@ -74,7 +84,9 @@ export declare class MediaConvert extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateQueue", input);
+  }
   deleteJobTemplate(
     input: DeleteJobTemplateRequest,
   ): Effect.Effect<
@@ -86,7 +98,9 @@ export declare class MediaConvert extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteJobTemplate", input);
+  }
   deletePolicy(
     input: DeletePolicyRequest,
   ): Effect.Effect<
@@ -98,7 +112,9 @@ export declare class MediaConvert extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeletePolicy", input);
+  }
   deletePreset(
     input: DeletePresetRequest,
   ): Effect.Effect<
@@ -110,7 +126,9 @@ export declare class MediaConvert extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeletePreset", input);
+  }
   deleteQueue(
     input: DeleteQueueRequest,
   ): Effect.Effect<
@@ -122,7 +140,9 @@ export declare class MediaConvert extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteQueue", input);
+  }
   describeEndpoints(
     input: DescribeEndpointsRequest,
   ): Effect.Effect<
@@ -134,7 +154,9 @@ export declare class MediaConvert extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeEndpoints", input);
+  }
   disassociateCertificate(
     input: DisassociateCertificateRequest,
   ): Effect.Effect<
@@ -146,7 +168,9 @@ export declare class MediaConvert extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DisassociateCertificate", input);
+  }
   getJob(
     input: GetJobRequest,
   ): Effect.Effect<
@@ -158,7 +182,9 @@ export declare class MediaConvert extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetJob", input);
+  }
   getJobTemplate(
     input: GetJobTemplateRequest,
   ): Effect.Effect<
@@ -170,7 +196,9 @@ export declare class MediaConvert extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetJobTemplate", input);
+  }
   getPolicy(
     input: GetPolicyRequest,
   ): Effect.Effect<
@@ -182,7 +210,9 @@ export declare class MediaConvert extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetPolicy", input);
+  }
   getPreset(
     input: GetPresetRequest,
   ): Effect.Effect<
@@ -194,7 +224,9 @@ export declare class MediaConvert extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetPreset", input);
+  }
   getQueue(
     input: GetQueueRequest,
   ): Effect.Effect<
@@ -206,7 +238,9 @@ export declare class MediaConvert extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetQueue", input);
+  }
   listJobs(
     input: ListJobsRequest,
   ): Effect.Effect<
@@ -218,7 +252,9 @@ export declare class MediaConvert extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListJobs", input);
+  }
   listJobTemplates(
     input: ListJobTemplatesRequest,
   ): Effect.Effect<
@@ -230,7 +266,9 @@ export declare class MediaConvert extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListJobTemplates", input);
+  }
   listPresets(
     input: ListPresetsRequest,
   ): Effect.Effect<
@@ -242,7 +280,9 @@ export declare class MediaConvert extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListPresets", input);
+  }
   listQueues(
     input: ListQueuesRequest,
   ): Effect.Effect<
@@ -254,7 +294,9 @@ export declare class MediaConvert extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListQueues", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
@@ -266,7 +308,9 @@ export declare class MediaConvert extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   listVersions(
     input: ListVersionsRequest,
   ): Effect.Effect<
@@ -278,7 +322,9 @@ export declare class MediaConvert extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListVersions", input);
+  }
   probe(
     input: ProbeRequest,
   ): Effect.Effect<
@@ -290,7 +336,9 @@ export declare class MediaConvert extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("Probe", input);
+  }
   putPolicy(
     input: PutPolicyRequest,
   ): Effect.Effect<
@@ -302,7 +350,9 @@ export declare class MediaConvert extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutPolicy", input);
+  }
   searchJobs(
     input: SearchJobsRequest,
   ): Effect.Effect<
@@ -314,7 +364,9 @@ export declare class MediaConvert extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("SearchJobs", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -326,7 +378,9 @@ export declare class MediaConvert extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
@@ -338,7 +392,9 @@ export declare class MediaConvert extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
   updateJobTemplate(
     input: UpdateJobTemplateRequest,
   ): Effect.Effect<
@@ -350,7 +406,9 @@ export declare class MediaConvert extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateJobTemplate", input);
+  }
   updatePreset(
     input: UpdatePresetRequest,
   ): Effect.Effect<
@@ -362,7 +420,9 @@ export declare class MediaConvert extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdatePreset", input);
+  }
   updateQueue(
     input: UpdateQueueRequest,
   ): Effect.Effect<
@@ -374,10 +434,14 @@ export declare class MediaConvert extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateQueue", input);
+  }
 }
 
-export declare class Mediaconvert extends MediaConvert {}
+export class Mediaconvert extends MediaConvert {}
+
+export default MediaConvert;
 
 export type __double = number;
 

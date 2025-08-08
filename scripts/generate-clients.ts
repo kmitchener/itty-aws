@@ -844,7 +844,7 @@ const generateServiceCode = (serviceName: string, manifest: Manifest) =>
       consistentInterfaceName = `${consistentInterfaceName}Client`;
     }
 
-    code += `export declare class ${consistentInterfaceName} extends AWSServiceClient {\n`;
+    code += `export class ${consistentInterfaceName} extends AWSServiceClient {\n`;
 
     for (const operation of operations) {
       const methodName = toLowerCamelCase(operation.name);
@@ -887,7 +887,9 @@ const generateServiceCode = (serviceName: string, manifest: Manifest) =>
       code += "  ): Effect.Effect<\n";
       code += `    ${effectOutputType},\n`;
       code += `    ${errorUnion}\n`;
-      code += "  >;\n";
+      code += "  > {\n";
+      code += `    return this.call("${operation.name}", input);\n`;
+      code += "  }\n";
     }
 
     code += "}\n\n";
@@ -904,8 +906,11 @@ const generateServiceCode = (serviceName: string, manifest: Manifest) =>
       simpleServiceName !== consistentInterfaceName &&
       !shapeNameCounts.has(simpleServiceName)
     ) {
-      code += `export declare class ${simpleServiceName} extends ${consistentInterfaceName} {}\n\n`;
+      code += `export class ${simpleServiceName} extends ${consistentInterfaceName} {}\n\n`;
     }
+
+    // Add default export - always use the main consistent interface name
+    code += `export default ${consistentInterfaceName};\n\n`;
 
     // Track generated type names to avoid duplicates
     const generatedTypes = new Set<string>();

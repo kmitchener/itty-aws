@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class MigrationHub extends AWSServiceClient {
+export class MigrationHub extends AWSServiceClient {
   associateCreatedArtifact(
     input: AssociateCreatedArtifactRequest,
   ): Effect.Effect<
@@ -17,7 +17,9 @@ export declare class MigrationHub extends AWSServiceClient {
     | ThrottlingException
     | UnauthorizedOperation
     | CommonAwsError
-  >;
+  > {
+    return this.call("AssociateCreatedArtifact", input);
+  }
   associateDiscoveredResource(
     input: AssociateDiscoveredResourceRequest,
   ): Effect.Effect<
@@ -33,7 +35,9 @@ export declare class MigrationHub extends AWSServiceClient {
     | ThrottlingException
     | UnauthorizedOperation
     | CommonAwsError
-  >;
+  > {
+    return this.call("AssociateDiscoveredResource", input);
+  }
   associateSourceResource(
     input: AssociateSourceResourceRequest,
   ): Effect.Effect<
@@ -47,7 +51,9 @@ export declare class MigrationHub extends AWSServiceClient {
     | ThrottlingException
     | UnauthorizedOperation
     | CommonAwsError
-  >;
+  > {
+    return this.call("AssociateSourceResource", input);
+  }
   createProgressUpdateStream(
     input: CreateProgressUpdateStreamRequest,
   ): Effect.Effect<
@@ -61,7 +67,9 @@ export declare class MigrationHub extends AWSServiceClient {
     | ThrottlingException
     | UnauthorizedOperation
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateProgressUpdateStream", input);
+  }
   deleteProgressUpdateStream(
     input: DeleteProgressUpdateStreamRequest,
   ): Effect.Effect<
@@ -76,7 +84,9 @@ export declare class MigrationHub extends AWSServiceClient {
     | ThrottlingException
     | UnauthorizedOperation
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteProgressUpdateStream", input);
+  }
   describeApplicationState(
     input: DescribeApplicationStateRequest,
   ): Effect.Effect<
@@ -90,7 +100,9 @@ export declare class MigrationHub extends AWSServiceClient {
     | ServiceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeApplicationState", input);
+  }
   describeMigrationTask(
     input: DescribeMigrationTaskRequest,
   ): Effect.Effect<
@@ -103,7 +115,9 @@ export declare class MigrationHub extends AWSServiceClient {
     | ServiceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeMigrationTask", input);
+  }
   disassociateCreatedArtifact(
     input: DisassociateCreatedArtifactRequest,
   ): Effect.Effect<
@@ -118,7 +132,9 @@ export declare class MigrationHub extends AWSServiceClient {
     | ThrottlingException
     | UnauthorizedOperation
     | CommonAwsError
-  >;
+  > {
+    return this.call("DisassociateCreatedArtifact", input);
+  }
   disassociateDiscoveredResource(
     input: DisassociateDiscoveredResourceRequest,
   ): Effect.Effect<
@@ -133,7 +149,9 @@ export declare class MigrationHub extends AWSServiceClient {
     | ThrottlingException
     | UnauthorizedOperation
     | CommonAwsError
-  >;
+  > {
+    return this.call("DisassociateDiscoveredResource", input);
+  }
   disassociateSourceResource(
     input: DisassociateSourceResourceRequest,
   ): Effect.Effect<
@@ -147,7 +165,9 @@ export declare class MigrationHub extends AWSServiceClient {
     | ThrottlingException
     | UnauthorizedOperation
     | CommonAwsError
-  >;
+  > {
+    return this.call("DisassociateSourceResource", input);
+  }
   importMigrationTask(
     input: ImportMigrationTaskRequest,
   ): Effect.Effect<
@@ -162,7 +182,9 @@ export declare class MigrationHub extends AWSServiceClient {
     | ThrottlingException
     | UnauthorizedOperation
     | CommonAwsError
-  >;
+  > {
+    return this.call("ImportMigrationTask", input);
+  }
   listApplicationStates(
     input: ListApplicationStatesRequest,
   ): Effect.Effect<
@@ -174,7 +196,9 @@ export declare class MigrationHub extends AWSServiceClient {
     | ServiceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListApplicationStates", input);
+  }
   listCreatedArtifacts(
     input: ListCreatedArtifactsRequest,
   ): Effect.Effect<
@@ -187,7 +211,9 @@ export declare class MigrationHub extends AWSServiceClient {
     | ServiceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListCreatedArtifacts", input);
+  }
   listDiscoveredResources(
     input: ListDiscoveredResourcesRequest,
   ): Effect.Effect<
@@ -200,7 +226,9 @@ export declare class MigrationHub extends AWSServiceClient {
     | ServiceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListDiscoveredResources", input);
+  }
   listMigrationTasks(
     input: ListMigrationTasksRequest,
   ): Effect.Effect<
@@ -214,7 +242,9 @@ export declare class MigrationHub extends AWSServiceClient {
     | ServiceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListMigrationTasks", input);
+  }
   listMigrationTaskUpdates(
     input: ListMigrationTaskUpdatesRequest,
   ): Effect.Effect<
@@ -226,7 +256,9 @@ export declare class MigrationHub extends AWSServiceClient {
     | ServiceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListMigrationTaskUpdates", input);
+  }
   listProgressUpdateStreams(
     input: ListProgressUpdateStreamsRequest,
   ): Effect.Effect<
@@ -238,7 +270,9 @@ export declare class MigrationHub extends AWSServiceClient {
     | ServiceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListProgressUpdateStreams", input);
+  }
   listSourceResources(
     input: ListSourceResourcesRequest,
   ): Effect.Effect<
@@ -250,7 +284,9 @@ export declare class MigrationHub extends AWSServiceClient {
     | ServiceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListSourceResources", input);
+  }
   notifyApplicationState(
     input: NotifyApplicationStateRequest,
   ): Effect.Effect<
@@ -266,7 +302,9 @@ export declare class MigrationHub extends AWSServiceClient {
     | ThrottlingException
     | UnauthorizedOperation
     | CommonAwsError
-  >;
+  > {
+    return this.call("NotifyApplicationState", input);
+  }
   notifyMigrationTaskState(
     input: NotifyMigrationTaskStateRequest,
   ): Effect.Effect<
@@ -281,7 +319,9 @@ export declare class MigrationHub extends AWSServiceClient {
     | ThrottlingException
     | UnauthorizedOperation
     | CommonAwsError
-  >;
+  > {
+    return this.call("NotifyMigrationTaskState", input);
+  }
   putResourceAttributes(
     input: PutResourceAttributesRequest,
   ): Effect.Effect<
@@ -296,8 +336,12 @@ export declare class MigrationHub extends AWSServiceClient {
     | ThrottlingException
     | UnauthorizedOperation
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutResourceAttributes", input);
+  }
 }
+
+export default MigrationHub;
 
 export declare class AccessDeniedException extends EffectData.TaggedError(
   "AccessDeniedException",

@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class CognitoSync extends AWSServiceClient {
+export class CognitoSync extends AWSServiceClient {
   bulkPublish(
     input: BulkPublishRequest,
   ): Effect.Effect<
@@ -14,7 +14,9 @@ export declare class CognitoSync extends AWSServiceClient {
     | NotAuthorizedException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("BulkPublish", input);
+  }
   deleteDataset(
     input: DeleteDatasetRequest,
   ): Effect.Effect<
@@ -26,7 +28,9 @@ export declare class CognitoSync extends AWSServiceClient {
     | ResourceNotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteDataset", input);
+  }
   describeDataset(
     input: DescribeDatasetRequest,
   ): Effect.Effect<
@@ -37,7 +41,9 @@ export declare class CognitoSync extends AWSServiceClient {
     | ResourceNotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeDataset", input);
+  }
   describeIdentityPoolUsage(
     input: DescribeIdentityPoolUsageRequest,
   ): Effect.Effect<
@@ -48,7 +54,9 @@ export declare class CognitoSync extends AWSServiceClient {
     | ResourceNotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeIdentityPoolUsage", input);
+  }
   describeIdentityUsage(
     input: DescribeIdentityUsageRequest,
   ): Effect.Effect<
@@ -59,7 +67,9 @@ export declare class CognitoSync extends AWSServiceClient {
     | ResourceNotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeIdentityUsage", input);
+  }
   getBulkPublishDetails(
     input: GetBulkPublishDetailsRequest,
   ): Effect.Effect<
@@ -69,7 +79,9 @@ export declare class CognitoSync extends AWSServiceClient {
     | NotAuthorizedException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetBulkPublishDetails", input);
+  }
   getCognitoEvents(
     input: GetCognitoEventsRequest,
   ): Effect.Effect<
@@ -80,7 +92,9 @@ export declare class CognitoSync extends AWSServiceClient {
     | ResourceNotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetCognitoEvents", input);
+  }
   getIdentityPoolConfiguration(
     input: GetIdentityPoolConfigurationRequest,
   ): Effect.Effect<
@@ -91,7 +105,9 @@ export declare class CognitoSync extends AWSServiceClient {
     | ResourceNotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetIdentityPoolConfiguration", input);
+  }
   listDatasets(
     input: ListDatasetsRequest,
   ): Effect.Effect<
@@ -101,7 +117,9 @@ export declare class CognitoSync extends AWSServiceClient {
     | NotAuthorizedException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListDatasets", input);
+  }
   listIdentityPoolUsage(
     input: ListIdentityPoolUsageRequest,
   ): Effect.Effect<
@@ -111,7 +129,9 @@ export declare class CognitoSync extends AWSServiceClient {
     | NotAuthorizedException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListIdentityPoolUsage", input);
+  }
   listRecords(
     input: ListRecordsRequest,
   ): Effect.Effect<
@@ -121,7 +141,9 @@ export declare class CognitoSync extends AWSServiceClient {
     | NotAuthorizedException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListRecords", input);
+  }
   registerDevice(
     input: RegisterDeviceRequest,
   ): Effect.Effect<
@@ -133,7 +155,9 @@ export declare class CognitoSync extends AWSServiceClient {
     | ResourceNotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("RegisterDevice", input);
+  }
   setCognitoEvents(
     input: SetCognitoEventsRequest,
   ): Effect.Effect<
@@ -144,7 +168,9 @@ export declare class CognitoSync extends AWSServiceClient {
     | ResourceNotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("SetCognitoEvents", input);
+  }
   setIdentityPoolConfiguration(
     input: SetIdentityPoolConfigurationRequest,
   ): Effect.Effect<
@@ -156,7 +182,9 @@ export declare class CognitoSync extends AWSServiceClient {
     | ResourceNotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("SetIdentityPoolConfiguration", input);
+  }
   subscribeToDataset(
     input: SubscribeToDatasetRequest,
   ): Effect.Effect<
@@ -168,7 +196,9 @@ export declare class CognitoSync extends AWSServiceClient {
     | ResourceNotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("SubscribeToDataset", input);
+  }
   unsubscribeFromDataset(
     input: UnsubscribeFromDatasetRequest,
   ): Effect.Effect<
@@ -180,7 +210,9 @@ export declare class CognitoSync extends AWSServiceClient {
     | ResourceNotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UnsubscribeFromDataset", input);
+  }
   updateRecords(
     input: UpdateRecordsRequest,
   ): Effect.Effect<
@@ -195,8 +227,12 @@ export declare class CognitoSync extends AWSServiceClient {
     | ResourceNotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateRecords", input);
+  }
 }
+
+export default CognitoSync;
 
 export declare class AlreadyStreamedException extends EffectData.TaggedError(
   "AlreadyStreamedException",

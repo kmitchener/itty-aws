@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class MediaPackageVod extends AWSServiceClient {
+export class MediaPackageVod extends AWSServiceClient {
   configureLogs(
     input: ConfigureLogsRequest,
   ): Effect.Effect<
@@ -14,7 +14,9 @@ export declare class MediaPackageVod extends AWSServiceClient {
     | TooManyRequestsException
     | UnprocessableEntityException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ConfigureLogs", input);
+  }
   createAsset(
     input: CreateAssetRequest,
   ): Effect.Effect<
@@ -26,7 +28,9 @@ export declare class MediaPackageVod extends AWSServiceClient {
     | TooManyRequestsException
     | UnprocessableEntityException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateAsset", input);
+  }
   createPackagingConfiguration(
     input: CreatePackagingConfigurationRequest,
   ): Effect.Effect<
@@ -38,7 +42,9 @@ export declare class MediaPackageVod extends AWSServiceClient {
     | TooManyRequestsException
     | UnprocessableEntityException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreatePackagingConfiguration", input);
+  }
   createPackagingGroup(
     input: CreatePackagingGroupRequest,
   ): Effect.Effect<
@@ -50,7 +56,9 @@ export declare class MediaPackageVod extends AWSServiceClient {
     | TooManyRequestsException
     | UnprocessableEntityException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreatePackagingGroup", input);
+  }
   deleteAsset(
     input: DeleteAssetRequest,
   ): Effect.Effect<
@@ -62,7 +70,9 @@ export declare class MediaPackageVod extends AWSServiceClient {
     | TooManyRequestsException
     | UnprocessableEntityException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteAsset", input);
+  }
   deletePackagingConfiguration(
     input: DeletePackagingConfigurationRequest,
   ): Effect.Effect<
@@ -74,7 +84,9 @@ export declare class MediaPackageVod extends AWSServiceClient {
     | TooManyRequestsException
     | UnprocessableEntityException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeletePackagingConfiguration", input);
+  }
   deletePackagingGroup(
     input: DeletePackagingGroupRequest,
   ): Effect.Effect<
@@ -86,7 +98,9 @@ export declare class MediaPackageVod extends AWSServiceClient {
     | TooManyRequestsException
     | UnprocessableEntityException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeletePackagingGroup", input);
+  }
   describeAsset(
     input: DescribeAssetRequest,
   ): Effect.Effect<
@@ -98,7 +112,9 @@ export declare class MediaPackageVod extends AWSServiceClient {
     | TooManyRequestsException
     | UnprocessableEntityException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeAsset", input);
+  }
   describePackagingConfiguration(
     input: DescribePackagingConfigurationRequest,
   ): Effect.Effect<
@@ -110,7 +126,9 @@ export declare class MediaPackageVod extends AWSServiceClient {
     | TooManyRequestsException
     | UnprocessableEntityException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribePackagingConfiguration", input);
+  }
   describePackagingGroup(
     input: DescribePackagingGroupRequest,
   ): Effect.Effect<
@@ -122,7 +140,9 @@ export declare class MediaPackageVod extends AWSServiceClient {
     | TooManyRequestsException
     | UnprocessableEntityException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribePackagingGroup", input);
+  }
   listAssets(
     input: ListAssetsRequest,
   ): Effect.Effect<
@@ -134,7 +154,9 @@ export declare class MediaPackageVod extends AWSServiceClient {
     | TooManyRequestsException
     | UnprocessableEntityException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListAssets", input);
+  }
   listPackagingConfigurations(
     input: ListPackagingConfigurationsRequest,
   ): Effect.Effect<
@@ -146,7 +168,9 @@ export declare class MediaPackageVod extends AWSServiceClient {
     | TooManyRequestsException
     | UnprocessableEntityException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListPackagingConfigurations", input);
+  }
   listPackagingGroups(
     input: ListPackagingGroupsRequest,
   ): Effect.Effect<
@@ -158,12 +182,22 @@ export declare class MediaPackageVod extends AWSServiceClient {
     | TooManyRequestsException
     | UnprocessableEntityException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListPackagingGroups", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
-  ): Effect.Effect<ListTagsForResourceResponse, CommonAwsError>;
-  tagResource(input: TagResourceRequest): Effect.Effect<{}, CommonAwsError>;
-  untagResource(input: UntagResourceRequest): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<ListTagsForResourceResponse, CommonAwsError> {
+    return this.call("ListTagsForResource", input);
+  }
+  tagResource(input: TagResourceRequest): Effect.Effect<{}, CommonAwsError> {
+    return this.call("TagResource", input);
+  }
+  untagResource(
+    input: UntagResourceRequest,
+  ): Effect.Effect<{}, CommonAwsError> {
+    return this.call("UntagResource", input);
+  }
   updatePackagingGroup(
     input: UpdatePackagingGroupRequest,
   ): Effect.Effect<
@@ -175,10 +209,14 @@ export declare class MediaPackageVod extends AWSServiceClient {
     | TooManyRequestsException
     | UnprocessableEntityException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdatePackagingGroup", input);
+  }
 }
 
-export declare class MediapackageVod extends MediaPackageVod {}
+export class MediapackageVod extends MediaPackageVod {}
+
+export default MediaPackageVod;
 
 export type __boolean = boolean;
 

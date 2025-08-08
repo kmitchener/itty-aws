@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class CostOptimizationHub extends AWSServiceClient {
+export class CostOptimizationHub extends AWSServiceClient {
   getPreferences(
     input: GetPreferencesRequest,
   ): Effect.Effect<
@@ -12,7 +12,9 @@ export declare class CostOptimizationHub extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetPreferences", input);
+  }
   getRecommendation(
     input: GetRecommendationRequest,
   ): Effect.Effect<
@@ -23,7 +25,9 @@ export declare class CostOptimizationHub extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetRecommendation", input);
+  }
   listEnrollmentStatuses(
     input: ListEnrollmentStatusesRequest,
   ): Effect.Effect<
@@ -33,7 +37,9 @@ export declare class CostOptimizationHub extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListEnrollmentStatuses", input);
+  }
   listRecommendations(
     input: ListRecommendationsRequest,
   ): Effect.Effect<
@@ -43,7 +49,9 @@ export declare class CostOptimizationHub extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListRecommendations", input);
+  }
   listRecommendationSummaries(
     input: ListRecommendationSummariesRequest,
   ): Effect.Effect<
@@ -53,7 +61,9 @@ export declare class CostOptimizationHub extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListRecommendationSummaries", input);
+  }
   updateEnrollmentStatus(
     input: UpdateEnrollmentStatusRequest,
   ): Effect.Effect<
@@ -63,7 +73,9 @@ export declare class CostOptimizationHub extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateEnrollmentStatus", input);
+  }
   updatePreferences(
     input: UpdatePreferencesRequest,
   ): Effect.Effect<
@@ -73,8 +85,12 @@ export declare class CostOptimizationHub extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdatePreferences", input);
+  }
 }
+
+export default CostOptimizationHub;
 
 export declare class AccessDeniedException extends EffectData.TaggedError(
   "AccessDeniedException",

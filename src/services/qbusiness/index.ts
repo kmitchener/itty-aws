@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class QBusiness extends AWSServiceClient {
+export class QBusiness extends AWSServiceClient {
   associatePermission(
     input: AssociatePermissionRequest,
   ): Effect.Effect<
@@ -15,7 +15,9 @@ export declare class QBusiness extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AssociatePermission", input);
+  }
   batchDeleteDocument(
     input: BatchDeleteDocumentRequest,
   ): Effect.Effect<
@@ -27,7 +29,9 @@ export declare class QBusiness extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("BatchDeleteDocument", input);
+  }
   batchPutDocument(
     input: BatchPutDocumentRequest,
   ): Effect.Effect<
@@ -40,7 +44,9 @@ export declare class QBusiness extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("BatchPutDocument", input);
+  }
   cancelSubscription(
     input: CancelSubscriptionRequest,
   ): Effect.Effect<
@@ -51,7 +57,9 @@ export declare class QBusiness extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CancelSubscription", input);
+  }
   chat(
     input: ChatInput,
   ): Effect.Effect<
@@ -65,7 +73,9 @@ export declare class QBusiness extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("Chat", input);
+  }
   chatSync(
     input: ChatSyncInput,
   ): Effect.Effect<
@@ -79,7 +89,9 @@ export declare class QBusiness extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ChatSync", input);
+  }
   checkDocumentAccess(
     input: CheckDocumentAccessRequest,
   ): Effect.Effect<
@@ -90,7 +102,9 @@ export declare class QBusiness extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CheckDocumentAccess", input);
+  }
   createAnonymousWebExperienceUrl(
     input: CreateAnonymousWebExperienceUrlRequest,
   ): Effect.Effect<
@@ -102,7 +116,9 @@ export declare class QBusiness extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateAnonymousWebExperienceUrl", input);
+  }
   createChatResponseConfiguration(
     input: CreateChatResponseConfigurationRequest,
   ): Effect.Effect<
@@ -115,7 +131,9 @@ export declare class QBusiness extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateChatResponseConfiguration", input);
+  }
   createSubscription(
     input: CreateSubscriptionRequest,
   ): Effect.Effect<
@@ -127,7 +145,9 @@ export declare class QBusiness extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateSubscription", input);
+  }
   createUser(
     input: CreateUserRequest,
   ): Effect.Effect<
@@ -140,7 +160,9 @@ export declare class QBusiness extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateUser", input);
+  }
   deleteAttachment(
     input: DeleteAttachmentRequest,
   ): Effect.Effect<
@@ -152,7 +174,9 @@ export declare class QBusiness extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteAttachment", input);
+  }
   deleteChatControlsConfiguration(
     input: DeleteChatControlsConfigurationRequest,
   ): Effect.Effect<
@@ -163,7 +187,9 @@ export declare class QBusiness extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteChatControlsConfiguration", input);
+  }
   deleteChatResponseConfiguration(
     input: DeleteChatResponseConfigurationRequest,
   ): Effect.Effect<
@@ -175,7 +201,9 @@ export declare class QBusiness extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteChatResponseConfiguration", input);
+  }
   deleteConversation(
     input: DeleteConversationRequest,
   ): Effect.Effect<
@@ -187,7 +215,9 @@ export declare class QBusiness extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteConversation", input);
+  }
   deleteGroup(
     input: DeleteGroupRequest,
   ): Effect.Effect<
@@ -199,7 +229,9 @@ export declare class QBusiness extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteGroup", input);
+  }
   deleteUser(
     input: DeleteUserRequest,
   ): Effect.Effect<
@@ -211,7 +243,9 @@ export declare class QBusiness extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteUser", input);
+  }
   disassociatePermission(
     input: DisassociatePermissionRequest,
   ): Effect.Effect<
@@ -223,7 +257,9 @@ export declare class QBusiness extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DisassociatePermission", input);
+  }
   getChatControlsConfiguration(
     input: GetChatControlsConfigurationRequest,
   ): Effect.Effect<
@@ -234,7 +270,9 @@ export declare class QBusiness extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetChatControlsConfiguration", input);
+  }
   getChatResponseConfiguration(
     input: GetChatResponseConfigurationRequest,
   ): Effect.Effect<
@@ -245,7 +283,9 @@ export declare class QBusiness extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetChatResponseConfiguration", input);
+  }
   getGroup(
     input: GetGroupRequest,
   ): Effect.Effect<
@@ -257,7 +297,9 @@ export declare class QBusiness extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetGroup", input);
+  }
   getMedia(
     input: GetMediaRequest,
   ): Effect.Effect<
@@ -270,7 +312,9 @@ export declare class QBusiness extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetMedia", input);
+  }
   getPolicy(
     input: GetPolicyRequest,
   ): Effect.Effect<
@@ -281,7 +325,9 @@ export declare class QBusiness extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetPolicy", input);
+  }
   getUser(
     input: GetUserRequest,
   ): Effect.Effect<
@@ -293,7 +339,9 @@ export declare class QBusiness extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetUser", input);
+  }
   listAttachments(
     input: ListAttachmentsRequest,
   ): Effect.Effect<
@@ -305,7 +353,9 @@ export declare class QBusiness extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListAttachments", input);
+  }
   listChatResponseConfigurations(
     input: ListChatResponseConfigurationsRequest,
   ): Effect.Effect<
@@ -316,7 +366,9 @@ export declare class QBusiness extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListChatResponseConfigurations", input);
+  }
   listConversations(
     input: ListConversationsRequest,
   ): Effect.Effect<
@@ -328,7 +380,9 @@ export declare class QBusiness extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListConversations", input);
+  }
   listDataSourceSyncJobs(
     input: ListDataSourceSyncJobsRequest,
   ): Effect.Effect<
@@ -340,7 +394,9 @@ export declare class QBusiness extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListDataSourceSyncJobs", input);
+  }
   listDocuments(
     input: ListDocumentsRequest,
   ): Effect.Effect<
@@ -351,7 +407,9 @@ export declare class QBusiness extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListDocuments", input);
+  }
   listGroups(
     input: ListGroupsRequest,
   ): Effect.Effect<
@@ -363,7 +421,9 @@ export declare class QBusiness extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListGroups", input);
+  }
   listMessages(
     input: ListMessagesRequest,
   ): Effect.Effect<
@@ -375,7 +435,9 @@ export declare class QBusiness extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListMessages", input);
+  }
   listPluginActions(
     input: ListPluginActionsRequest,
   ): Effect.Effect<
@@ -386,7 +448,9 @@ export declare class QBusiness extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListPluginActions", input);
+  }
   listPluginTypeActions(
     input: ListPluginTypeActionsRequest,
   ): Effect.Effect<
@@ -396,7 +460,9 @@ export declare class QBusiness extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListPluginTypeActions", input);
+  }
   listPluginTypeMetadata(
     input: ListPluginTypeMetadataRequest,
   ): Effect.Effect<
@@ -406,7 +472,9 @@ export declare class QBusiness extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListPluginTypeMetadata", input);
+  }
   listSubscriptions(
     input: ListSubscriptionsRequest,
   ): Effect.Effect<
@@ -418,7 +486,9 @@ export declare class QBusiness extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListSubscriptions", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
@@ -429,7 +499,9 @@ export declare class QBusiness extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   putFeedback(
     input: PutFeedbackRequest,
   ): Effect.Effect<
@@ -440,7 +512,9 @@ export declare class QBusiness extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutFeedback", input);
+  }
   putGroup(
     input: PutGroupRequest,
   ): Effect.Effect<
@@ -453,7 +527,9 @@ export declare class QBusiness extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutGroup", input);
+  }
   searchRelevantContent(
     input: SearchRelevantContentRequest,
   ): Effect.Effect<
@@ -465,7 +541,9 @@ export declare class QBusiness extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("SearchRelevantContent", input);
+  }
   startDataSourceSyncJob(
     input: StartDataSourceSyncJobRequest,
   ): Effect.Effect<
@@ -478,7 +556,9 @@ export declare class QBusiness extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartDataSourceSyncJob", input);
+  }
   stopDataSourceSyncJob(
     input: StopDataSourceSyncJobRequest,
   ): Effect.Effect<
@@ -490,7 +570,9 @@ export declare class QBusiness extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StopDataSourceSyncJob", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -502,7 +584,9 @@ export declare class QBusiness extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
@@ -513,7 +597,9 @@ export declare class QBusiness extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
   updateChatControlsConfiguration(
     input: UpdateChatControlsConfigurationRequest,
   ): Effect.Effect<
@@ -526,7 +612,9 @@ export declare class QBusiness extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateChatControlsConfiguration", input);
+  }
   updateChatResponseConfiguration(
     input: UpdateChatResponseConfigurationRequest,
   ): Effect.Effect<
@@ -538,7 +626,9 @@ export declare class QBusiness extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateChatResponseConfiguration", input);
+  }
   updateSubscription(
     input: UpdateSubscriptionRequest,
   ): Effect.Effect<
@@ -550,7 +640,9 @@ export declare class QBusiness extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateSubscription", input);
+  }
   updateUser(
     input: UpdateUserRequest,
   ): Effect.Effect<
@@ -563,10 +655,14 @@ export declare class QBusiness extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateUser", input);
+  }
 }
 
-export declare class Qbusiness extends QBusiness {}
+export class Qbusiness extends QBusiness {}
+
+export default QBusiness;
 
 export interface AccessConfiguration {
   accessControls: Array<AccessControl>;

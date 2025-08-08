@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-`itty-aws` is a lightweight AWS SDK implementation for [Effect](https://effect.website) that provides type-safe AWS service clients generated from official AWS API specifications. It uses a single Proxy pattern to dynamically create service clients and implements aws4fetch for request signing.
+`itty-aws` is a lightweight AWS SDK implementation for [Effect](https://effect.website) that provides type-safe AWS service clients generated from official AWS API specifications. Each service is individually importable for optimal tree-shaking, and implements aws4fetch for request signing.
 
 ## Development Commands
 
@@ -32,15 +32,15 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ### Core Components
 
-1. **AWS Proxy (`src/index.ts`)**: Main entry point that creates dynamic service proxies
-2. **Service Client (`src/client.ts`)**: Core client implementation with request/response handling
-3. **Generated Services (`src/services/`)**: Auto-generated TypeScript types for each AWS service
+1. **AWSServiceClient (`src/client.ts`)**: Base class that all services extend
+2. **Individual Services (`src/services/`)**: Tree-shakable service classes with complete implementations
+3. **Service Proxy (`src/client.ts`)**: Core client implementation with request/response handling
 4. **AWS Models (`aws-models/`)**: Git submodule containing official AWS API specifications
 
 ### Key Files
 
-- `src/client.ts`: Core AWS client with proxy-based method interception
-- `src/aws.ts`: Type definitions and service interfaces  
+- `src/client.ts`: Core AWS client base class and service proxy implementation
+- `src/index.ts`: Main exports (AWSServiceClient and types)
 - `src/metadata.ts`: Service metadata (endpoints, protocols, target prefixes)
 - `src/error.ts`: Common AWS error types and tagged error implementations
 - `src/ec2-parsers.ts`: Auto-generated XML parsers for EC2 Query protocol
@@ -48,18 +48,19 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ### Code Generation Process
 
 1. AWS API models are stored as Smithy JSON in `aws-models/models/`
-2. `scripts/generate-clients.ts` reads these models and generates TypeScript interfaces
-3. Each service gets its own file in `src/services/` with complete type definitions
-4. The main AWS proxy dynamically creates service clients using these types
+2. `scripts/generate-clients.ts` reads these models and generates TypeScript runtime classes
+3. Each service gets its own file in `src/services/` with complete implementations and default exports
+4. Services extend `AWSServiceClient` and delegate to the service proxy for actual AWS calls
 
 ### Request Flow
 
-1. `new AWS.ServiceName(config)` creates a service proxy
-2. Method calls like `client.methodName(input)` are intercepted by the proxy
-3. `createServiceProxy` converts the call to AWS API format
-4. Request is signed with aws4fetch and sent to AWS
-5. Response is parsed based on service protocol (JSON, XML, Query)
-6. Errors are converted to typed Effect errors
+1. `import ServiceName from "itty-aws/servicename"` imports individual service
+2. `new ServiceName(config)` creates a service instance extending `AWSServiceClient`
+3. Method calls like `client.methodName(input)` delegate to the service proxy
+4. `createServiceProxy` converts the call to AWS API format
+5. Request is signed with aws4fetch and sent to AWS
+6. Response is parsed based on service protocol (JSON, XML, Query)
+7. Errors are converted to typed Effect errors
 
 ### Protocols Supported
 
@@ -73,6 +74,8 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - Uses Effect.js for functional error handling and composable operations
 - All operations return `Effect<Success, Error, Requirements>` values
 - Credentials are resolved automatically using AWS credential chain
+- Tree-shakable: import only the services you need for optimal bundle size
+- Each service is individually exported via package.json exports (e.g., "itty-aws/dynamodb")
 - XML protocols (S3) are not fully supported yet
 - Service generation requires the aws-models git submodule to be present
 

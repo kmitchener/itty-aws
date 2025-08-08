@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class Route53RecoveryControlConfig extends AWSServiceClient {
+export class Route53RecoveryControlConfig extends AWSServiceClient {
   createCluster(
     input: CreateClusterRequest,
   ): Effect.Effect<
@@ -15,7 +15,9 @@ export declare class Route53RecoveryControlConfig extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateCluster", input);
+  }
   createControlPanel(
     input: CreateControlPanelRequest,
   ): Effect.Effect<
@@ -28,7 +30,9 @@ export declare class Route53RecoveryControlConfig extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateControlPanel", input);
+  }
   createRoutingControl(
     input: CreateRoutingControlRequest,
   ): Effect.Effect<
@@ -41,13 +45,17 @@ export declare class Route53RecoveryControlConfig extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateRoutingControl", input);
+  }
   createSafetyRule(
     input: CreateSafetyRuleRequest,
   ): Effect.Effect<
     CreateSafetyRuleResponse,
     InternalServerException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("CreateSafetyRule", input);
+  }
   deleteCluster(
     input: DeleteClusterRequest,
   ): Effect.Effect<
@@ -59,7 +67,9 @@ export declare class Route53RecoveryControlConfig extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteCluster", input);
+  }
   deleteControlPanel(
     input: DeleteControlPanelRequest,
   ): Effect.Effect<
@@ -71,7 +81,9 @@ export declare class Route53RecoveryControlConfig extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteControlPanel", input);
+  }
   deleteRoutingControl(
     input: DeleteRoutingControlRequest,
   ): Effect.Effect<
@@ -83,7 +95,9 @@ export declare class Route53RecoveryControlConfig extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteRoutingControl", input);
+  }
   deleteSafetyRule(
     input: DeleteSafetyRuleRequest,
   ): Effect.Effect<
@@ -92,7 +106,9 @@ export declare class Route53RecoveryControlConfig extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteSafetyRule", input);
+  }
   describeCluster(
     input: DescribeClusterRequest,
   ): Effect.Effect<
@@ -104,7 +120,9 @@ export declare class Route53RecoveryControlConfig extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeCluster", input);
+  }
   describeControlPanel(
     input: DescribeControlPanelRequest,
   ): Effect.Effect<
@@ -116,7 +134,9 @@ export declare class Route53RecoveryControlConfig extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeControlPanel", input);
+  }
   describeRoutingControl(
     input: DescribeRoutingControlRequest,
   ): Effect.Effect<
@@ -128,19 +148,25 @@ export declare class Route53RecoveryControlConfig extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeRoutingControl", input);
+  }
   describeSafetyRule(
     input: DescribeSafetyRuleRequest,
   ): Effect.Effect<
     DescribeSafetyRuleResponse,
     ResourceNotFoundException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeSafetyRule", input);
+  }
   getResourcePolicy(
     input: GetResourcePolicyRequest,
   ): Effect.Effect<
     GetResourcePolicyResponse,
     InternalServerException | ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("GetResourcePolicy", input);
+  }
   listAssociatedRoute53HealthChecks(
     input: ListAssociatedRoute53HealthChecksRequest,
   ): Effect.Effect<
@@ -149,7 +175,9 @@ export declare class Route53RecoveryControlConfig extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListAssociatedRoute53HealthChecks", input);
+  }
   listClusters(
     input: ListClustersRequest,
   ): Effect.Effect<
@@ -160,7 +188,9 @@ export declare class Route53RecoveryControlConfig extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListClusters", input);
+  }
   listControlPanels(
     input: ListControlPanelsRequest,
   ): Effect.Effect<
@@ -171,7 +201,9 @@ export declare class Route53RecoveryControlConfig extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListControlPanels", input);
+  }
   listRoutingControls(
     input: ListRoutingControlsRequest,
   ): Effect.Effect<
@@ -182,7 +214,9 @@ export declare class Route53RecoveryControlConfig extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListRoutingControls", input);
+  }
   listSafetyRules(
     input: ListSafetyRulesRequest,
   ): Effect.Effect<
@@ -193,7 +227,9 @@ export declare class Route53RecoveryControlConfig extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListSafetyRules", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
@@ -202,7 +238,9 @@ export declare class Route53RecoveryControlConfig extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -211,7 +249,9 @@ export declare class Route53RecoveryControlConfig extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
@@ -220,7 +260,9 @@ export declare class Route53RecoveryControlConfig extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
   updateCluster(
     input: UpdateClusterRequest,
   ): Effect.Effect<
@@ -232,7 +274,9 @@ export declare class Route53RecoveryControlConfig extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateCluster", input);
+  }
   updateControlPanel(
     input: UpdateControlPanelRequest,
   ): Effect.Effect<
@@ -244,7 +288,9 @@ export declare class Route53RecoveryControlConfig extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateControlPanel", input);
+  }
   updateRoutingControl(
     input: UpdateRoutingControlRequest,
   ): Effect.Effect<
@@ -256,7 +302,9 @@ export declare class Route53RecoveryControlConfig extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateRoutingControl", input);
+  }
   updateSafetyRule(
     input: UpdateSafetyRuleRequest,
   ): Effect.Effect<
@@ -265,8 +313,12 @@ export declare class Route53RecoveryControlConfig extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateSafetyRule", input);
+  }
 }
+
+export default Route53RecoveryControlConfig;
 
 export type __boolean = boolean;
 

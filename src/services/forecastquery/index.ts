@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class forecastquery extends AWSServiceClient {
+export class forecastquery extends AWSServiceClient {
   queryForecast(
     input: QueryForecastRequest,
   ): Effect.Effect<
@@ -13,7 +13,9 @@ export declare class forecastquery extends AWSServiceClient {
     | ResourceInUseException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("QueryForecast", input);
+  }
   queryWhatIfForecast(
     input: QueryWhatIfForecastRequest,
   ): Effect.Effect<
@@ -24,10 +26,14 @@ export declare class forecastquery extends AWSServiceClient {
     | ResourceInUseException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("QueryWhatIfForecast", input);
+  }
 }
 
-export declare class Forecastquery extends forecastquery {}
+export class Forecastquery extends forecastquery {}
+
+export default forecastquery;
 
 export type Arn = string;
 

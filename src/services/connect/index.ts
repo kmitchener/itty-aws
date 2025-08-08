@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class Connect extends AWSServiceClient {
+export class Connect extends AWSServiceClient {
   activateEvaluationForm(
     input: ActivateEvaluationFormRequest,
   ): Effect.Effect<
@@ -13,7 +13,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ActivateEvaluationForm", input);
+  }
   associateAnalyticsDataSet(
     input: AssociateAnalyticsDataSetRequest,
   ): Effect.Effect<
@@ -24,7 +26,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AssociateAnalyticsDataSet", input);
+  }
   associateApprovedOrigin(
     input: AssociateApprovedOriginRequest,
   ): Effect.Effect<
@@ -37,7 +41,9 @@ export declare class Connect extends AWSServiceClient {
     | ServiceQuotaExceededException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AssociateApprovedOrigin", input);
+  }
   associateBot(
     input: AssociateBotRequest,
   ): Effect.Effect<
@@ -50,7 +56,9 @@ export declare class Connect extends AWSServiceClient {
     | ServiceQuotaExceededException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AssociateBot", input);
+  }
   associateDefaultVocabulary(
     input: AssociateDefaultVocabularyRequest,
   ): Effect.Effect<
@@ -61,7 +69,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AssociateDefaultVocabulary", input);
+  }
   associateFlow(
     input: AssociateFlowRequest,
   ): Effect.Effect<
@@ -73,7 +83,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AssociateFlow", input);
+  }
   associateInstanceStorageConfig(
     input: AssociateInstanceStorageConfigRequest,
   ): Effect.Effect<
@@ -85,7 +97,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AssociateInstanceStorageConfig", input);
+  }
   associateLambdaFunction(
     input: AssociateLambdaFunctionRequest,
   ): Effect.Effect<
@@ -98,7 +112,9 @@ export declare class Connect extends AWSServiceClient {
     | ServiceQuotaExceededException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AssociateLambdaFunction", input);
+  }
   associateLexBot(
     input: AssociateLexBotRequest,
   ): Effect.Effect<
@@ -111,7 +127,9 @@ export declare class Connect extends AWSServiceClient {
     | ServiceQuotaExceededException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AssociateLexBot", input);
+  }
   associatePhoneNumberContactFlow(
     input: AssociatePhoneNumberContactFlowRequest,
   ): Effect.Effect<
@@ -122,7 +140,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AssociatePhoneNumberContactFlow", input);
+  }
   associateQueueQuickConnects(
     input: AssociateQueueQuickConnectsRequest,
   ): Effect.Effect<
@@ -134,7 +154,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AssociateQueueQuickConnects", input);
+  }
   associateRoutingProfileQueues(
     input: AssociateRoutingProfileQueuesRequest,
   ): Effect.Effect<
@@ -145,7 +167,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AssociateRoutingProfileQueues", input);
+  }
   associateSecurityKey(
     input: AssociateSecurityKeyRequest,
   ): Effect.Effect<
@@ -158,7 +182,9 @@ export declare class Connect extends AWSServiceClient {
     | ServiceQuotaExceededException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AssociateSecurityKey", input);
+  }
   associateTrafficDistributionGroupUser(
     input: AssociateTrafficDistributionGroupUserRequest,
   ): Effect.Effect<
@@ -170,7 +196,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AssociateTrafficDistributionGroupUser", input);
+  }
   associateUserProficiencies(
     input: AssociateUserProficienciesRequest,
   ): Effect.Effect<
@@ -181,7 +209,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AssociateUserProficiencies", input);
+  }
   batchAssociateAnalyticsDataSet(
     input: BatchAssociateAnalyticsDataSetRequest,
   ): Effect.Effect<
@@ -192,7 +222,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("BatchAssociateAnalyticsDataSet", input);
+  }
   batchDisassociateAnalyticsDataSet(
     input: BatchDisassociateAnalyticsDataSetRequest,
   ): Effect.Effect<
@@ -203,7 +235,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("BatchDisassociateAnalyticsDataSet", input);
+  }
   batchGetAttachedFileMetadata(
     input: BatchGetAttachedFileMetadataRequest,
   ): Effect.Effect<
@@ -214,7 +248,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("BatchGetAttachedFileMetadata", input);
+  }
   batchGetFlowAssociation(
     input: BatchGetFlowAssociationRequest,
   ): Effect.Effect<
@@ -226,7 +262,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("BatchGetFlowAssociation", input);
+  }
   batchPutContact(
     input: BatchPutContactRequest,
   ): Effect.Effect<
@@ -238,7 +276,9 @@ export declare class Connect extends AWSServiceClient {
     | LimitExceededException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("BatchPutContact", input);
+  }
   claimPhoneNumber(
     input: ClaimPhoneNumberRequest,
   ): Effect.Effect<
@@ -250,7 +290,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ClaimPhoneNumber", input);
+  }
   completeAttachedFileUpload(
     input: CompleteAttachedFileUploadRequest,
   ): Effect.Effect<
@@ -261,7 +303,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CompleteAttachedFileUpload", input);
+  }
   createAgentStatus(
     input: CreateAgentStatusRequest,
   ): Effect.Effect<
@@ -274,7 +318,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateAgentStatus", input);
+  }
   createContact(
     input: CreateContactRequest,
   ): Effect.Effect<
@@ -289,7 +335,9 @@ export declare class Connect extends AWSServiceClient {
     | ServiceQuotaExceededException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateContact", input);
+  }
   createContactFlow(
     input: CreateContactFlowRequest,
   ): Effect.Effect<
@@ -303,7 +351,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateContactFlow", input);
+  }
   createContactFlowModule(
     input: CreateContactFlowModuleRequest,
   ): Effect.Effect<
@@ -319,7 +369,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateContactFlowModule", input);
+  }
   createContactFlowVersion(
     input: CreateContactFlowVersionRequest,
   ): Effect.Effect<
@@ -332,7 +384,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateContactFlowVersion", input);
+  }
   createEmailAddress(
     input: CreateEmailAddressRequest,
   ): Effect.Effect<
@@ -348,7 +402,9 @@ export declare class Connect extends AWSServiceClient {
     | ServiceQuotaExceededException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateEmailAddress", input);
+  }
   createEvaluationForm(
     input: CreateEvaluationFormRequest,
   ): Effect.Effect<
@@ -360,7 +416,9 @@ export declare class Connect extends AWSServiceClient {
     | ServiceQuotaExceededException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateEvaluationForm", input);
+  }
   createHoursOfOperation(
     input: CreateHoursOfOperationRequest,
   ): Effect.Effect<
@@ -373,7 +431,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateHoursOfOperation", input);
+  }
   createHoursOfOperationOverride(
     input: CreateHoursOfOperationOverrideRequest,
   ): Effect.Effect<
@@ -386,7 +446,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateHoursOfOperationOverride", input);
+  }
   createInstance(
     input: CreateInstanceRequest,
   ): Effect.Effect<
@@ -397,7 +459,9 @@ export declare class Connect extends AWSServiceClient {
     | ServiceQuotaExceededException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateInstance", input);
+  }
   createIntegrationAssociation(
     input: CreateIntegrationAssociationRequest,
   ): Effect.Effect<
@@ -408,7 +472,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateIntegrationAssociation", input);
+  }
   createParticipant(
     input: CreateParticipantRequest,
   ): Effect.Effect<
@@ -419,7 +485,9 @@ export declare class Connect extends AWSServiceClient {
     | ServiceQuotaExceededException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateParticipant", input);
+  }
   createPersistentContactAssociation(
     input: CreatePersistentContactAssociationRequest,
   ): Effect.Effect<
@@ -431,7 +499,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreatePersistentContactAssociation", input);
+  }
   createPredefinedAttribute(
     input: CreatePredefinedAttributeRequest,
   ): Effect.Effect<
@@ -444,7 +514,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreatePredefinedAttribute", input);
+  }
   createPrompt(
     input: CreatePromptRequest,
   ): Effect.Effect<
@@ -456,7 +528,9 @@ export declare class Connect extends AWSServiceClient {
     | LimitExceededException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreatePrompt", input);
+  }
   createPushNotificationRegistration(
     input: CreatePushNotificationRegistrationRequest,
   ): Effect.Effect<
@@ -468,7 +542,9 @@ export declare class Connect extends AWSServiceClient {
     | ServiceQuotaExceededException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreatePushNotificationRegistration", input);
+  }
   createQueue(
     input: CreateQueueRequest,
   ): Effect.Effect<
@@ -481,7 +557,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateQueue", input);
+  }
   createQuickConnect(
     input: CreateQuickConnectRequest,
   ): Effect.Effect<
@@ -494,7 +572,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateQuickConnect", input);
+  }
   createRoutingProfile(
     input: CreateRoutingProfileRequest,
   ): Effect.Effect<
@@ -507,7 +587,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateRoutingProfile", input);
+  }
   createRule(
     input: CreateRuleRequest,
   ): Effect.Effect<
@@ -520,7 +602,9 @@ export declare class Connect extends AWSServiceClient {
     | ServiceQuotaExceededException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateRule", input);
+  }
   createSecurityProfile(
     input: CreateSecurityProfileRequest,
   ): Effect.Effect<
@@ -533,7 +617,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateSecurityProfile", input);
+  }
   createTaskTemplate(
     input: CreateTaskTemplateRequest,
   ): Effect.Effect<
@@ -545,7 +631,9 @@ export declare class Connect extends AWSServiceClient {
     | ServiceQuotaExceededException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateTaskTemplate", input);
+  }
   createTrafficDistributionGroup(
     input: CreateTrafficDistributionGroupRequest,
   ): Effect.Effect<
@@ -559,7 +647,9 @@ export declare class Connect extends AWSServiceClient {
     | ServiceQuotaExceededException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateTrafficDistributionGroup", input);
+  }
   createUseCase(
     input: CreateUseCaseRequest,
   ): Effect.Effect<
@@ -570,7 +660,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateUseCase", input);
+  }
   createUser(
     input: CreateUserRequest,
   ): Effect.Effect<
@@ -583,7 +675,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateUser", input);
+  }
   createUserHierarchyGroup(
     input: CreateUserHierarchyGroupRequest,
   ): Effect.Effect<
@@ -596,7 +690,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateUserHierarchyGroup", input);
+  }
   createView(
     input: CreateViewRequest,
   ): Effect.Effect<
@@ -611,7 +707,9 @@ export declare class Connect extends AWSServiceClient {
     | ServiceQuotaExceededException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateView", input);
+  }
   createViewVersion(
     input: CreateViewVersionRequest,
   ): Effect.Effect<
@@ -625,7 +723,9 @@ export declare class Connect extends AWSServiceClient {
     | ServiceQuotaExceededException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateViewVersion", input);
+  }
   createVocabulary(
     input: CreateVocabularyRequest,
   ): Effect.Effect<
@@ -638,7 +738,9 @@ export declare class Connect extends AWSServiceClient {
     | ServiceQuotaExceededException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateVocabulary", input);
+  }
   deactivateEvaluationForm(
     input: DeactivateEvaluationFormRequest,
   ): Effect.Effect<
@@ -649,7 +751,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeactivateEvaluationForm", input);
+  }
   deleteAttachedFile(
     input: DeleteAttachedFileRequest,
   ): Effect.Effect<
@@ -660,7 +764,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteAttachedFile", input);
+  }
   deleteContactEvaluation(
     input: DeleteContactEvaluationRequest,
   ): Effect.Effect<
@@ -671,7 +777,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteContactEvaluation", input);
+  }
   deleteContactFlow(
     input: DeleteContactFlowRequest,
   ): Effect.Effect<
@@ -683,7 +791,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteContactFlow", input);
+  }
   deleteContactFlowModule(
     input: DeleteContactFlowModuleRequest,
   ): Effect.Effect<
@@ -695,7 +805,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteContactFlowModule", input);
+  }
   deleteContactFlowVersion(
     input: DeleteContactFlowVersionRequest,
   ): Effect.Effect<
@@ -707,7 +819,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteContactFlowVersion", input);
+  }
   deleteEmailAddress(
     input: DeleteEmailAddressRequest,
   ): Effect.Effect<
@@ -720,7 +834,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteEmailAddress", input);
+  }
   deleteEvaluationForm(
     input: DeleteEvaluationFormRequest,
   ): Effect.Effect<
@@ -731,7 +847,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteEvaluationForm", input);
+  }
   deleteHoursOfOperation(
     input: DeleteHoursOfOperationRequest,
   ): Effect.Effect<
@@ -742,7 +860,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteHoursOfOperation", input);
+  }
   deleteHoursOfOperationOverride(
     input: DeleteHoursOfOperationOverrideRequest,
   ): Effect.Effect<
@@ -753,7 +873,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteHoursOfOperationOverride", input);
+  }
   deleteInstance(
     input: DeleteInstanceRequest,
   ): Effect.Effect<
@@ -762,7 +884,9 @@ export declare class Connect extends AWSServiceClient {
     | InvalidRequestException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteInstance", input);
+  }
   deleteIntegrationAssociation(
     input: DeleteIntegrationAssociationRequest,
   ): Effect.Effect<
@@ -772,7 +896,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteIntegrationAssociation", input);
+  }
   deletePredefinedAttribute(
     input: DeletePredefinedAttributeRequest,
   ): Effect.Effect<
@@ -784,7 +910,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeletePredefinedAttribute", input);
+  }
   deletePrompt(
     input: DeletePromptRequest,
   ): Effect.Effect<
@@ -795,7 +923,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeletePrompt", input);
+  }
   deletePushNotificationRegistration(
     input: DeletePushNotificationRegistrationRequest,
   ): Effect.Effect<
@@ -806,7 +936,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeletePushNotificationRegistration", input);
+  }
   deleteQueue(
     input: DeleteQueueRequest,
   ): Effect.Effect<
@@ -818,7 +950,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteQueue", input);
+  }
   deleteQuickConnect(
     input: DeleteQuickConnectRequest,
   ): Effect.Effect<
@@ -829,7 +963,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteQuickConnect", input);
+  }
   deleteRoutingProfile(
     input: DeleteRoutingProfileRequest,
   ): Effect.Effect<
@@ -841,7 +977,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteRoutingProfile", input);
+  }
   deleteRule(
     input: DeleteRuleRequest,
   ): Effect.Effect<
@@ -852,7 +990,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteRule", input);
+  }
   deleteSecurityProfile(
     input: DeleteSecurityProfileRequest,
   ): Effect.Effect<
@@ -865,7 +1005,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteSecurityProfile", input);
+  }
   deleteTaskTemplate(
     input: DeleteTaskTemplateRequest,
   ): Effect.Effect<
@@ -876,7 +1018,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteTaskTemplate", input);
+  }
   deleteTrafficDistributionGroup(
     input: DeleteTrafficDistributionGroupRequest,
   ): Effect.Effect<
@@ -887,7 +1031,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceInUseException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteTrafficDistributionGroup", input);
+  }
   deleteUseCase(
     input: DeleteUseCaseRequest,
   ): Effect.Effect<
@@ -897,7 +1043,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteUseCase", input);
+  }
   deleteUser(
     input: DeleteUserRequest,
   ): Effect.Effect<
@@ -908,7 +1056,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteUser", input);
+  }
   deleteUserHierarchyGroup(
     input: DeleteUserHierarchyGroupRequest,
   ): Effect.Effect<
@@ -920,7 +1070,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteUserHierarchyGroup", input);
+  }
   deleteView(
     input: DeleteViewRequest,
   ): Effect.Effect<
@@ -933,7 +1085,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteView", input);
+  }
   deleteViewVersion(
     input: DeleteViewVersionRequest,
   ): Effect.Effect<
@@ -946,7 +1100,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteViewVersion", input);
+  }
   deleteVocabulary(
     input: DeleteVocabularyRequest,
   ): Effect.Effect<
@@ -958,7 +1114,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteVocabulary", input);
+  }
   describeAgentStatus(
     input: DescribeAgentStatusRequest,
   ): Effect.Effect<
@@ -969,7 +1127,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeAgentStatus", input);
+  }
   describeAuthenticationProfile(
     input: DescribeAuthenticationProfileRequest,
   ): Effect.Effect<
@@ -980,7 +1140,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeAuthenticationProfile", input);
+  }
   describeContact(
     input: DescribeContactRequest,
   ): Effect.Effect<
@@ -991,7 +1153,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeContact", input);
+  }
   describeContactEvaluation(
     input: DescribeContactEvaluationRequest,
   ): Effect.Effect<
@@ -1001,7 +1165,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeContactEvaluation", input);
+  }
   describeContactFlow(
     input: DescribeContactFlowRequest,
   ): Effect.Effect<
@@ -1013,7 +1179,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeContactFlow", input);
+  }
   describeContactFlowModule(
     input: DescribeContactFlowModuleRequest,
   ): Effect.Effect<
@@ -1025,7 +1193,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeContactFlowModule", input);
+  }
   describeEmailAddress(
     input: DescribeEmailAddressRequest,
   ): Effect.Effect<
@@ -1037,7 +1207,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeEmailAddress", input);
+  }
   describeEvaluationForm(
     input: DescribeEvaluationFormRequest,
   ): Effect.Effect<
@@ -1047,7 +1219,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeEvaluationForm", input);
+  }
   describeHoursOfOperation(
     input: DescribeHoursOfOperationRequest,
   ): Effect.Effect<
@@ -1058,7 +1232,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeHoursOfOperation", input);
+  }
   describeHoursOfOperationOverride(
     input: DescribeHoursOfOperationOverrideRequest,
   ): Effect.Effect<
@@ -1069,7 +1245,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeHoursOfOperationOverride", input);
+  }
   describeInstance(
     input: DescribeInstanceRequest,
   ): Effect.Effect<
@@ -1078,7 +1256,9 @@ export declare class Connect extends AWSServiceClient {
     | InvalidRequestException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeInstance", input);
+  }
   describeInstanceAttribute(
     input: DescribeInstanceAttributeRequest,
   ): Effect.Effect<
@@ -1089,7 +1269,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeInstanceAttribute", input);
+  }
   describeInstanceStorageConfig(
     input: DescribeInstanceStorageConfigRequest,
   ): Effect.Effect<
@@ -1100,7 +1282,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeInstanceStorageConfig", input);
+  }
   describePhoneNumber(
     input: DescribePhoneNumberRequest,
   ): Effect.Effect<
@@ -1111,7 +1295,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribePhoneNumber", input);
+  }
   describePredefinedAttribute(
     input: DescribePredefinedAttributeRequest,
   ): Effect.Effect<
@@ -1122,7 +1308,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribePredefinedAttribute", input);
+  }
   describePrompt(
     input: DescribePromptRequest,
   ): Effect.Effect<
@@ -1133,7 +1321,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribePrompt", input);
+  }
   describeQueue(
     input: DescribeQueueRequest,
   ): Effect.Effect<
@@ -1144,7 +1334,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeQueue", input);
+  }
   describeQuickConnect(
     input: DescribeQuickConnectRequest,
   ): Effect.Effect<
@@ -1155,7 +1347,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeQuickConnect", input);
+  }
   describeRoutingProfile(
     input: DescribeRoutingProfileRequest,
   ): Effect.Effect<
@@ -1166,7 +1360,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeRoutingProfile", input);
+  }
   describeRule(
     input: DescribeRuleRequest,
   ): Effect.Effect<
@@ -1177,7 +1373,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeRule", input);
+  }
   describeSecurityProfile(
     input: DescribeSecurityProfileRequest,
   ): Effect.Effect<
@@ -1188,7 +1386,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeSecurityProfile", input);
+  }
   describeTrafficDistributionGroup(
     input: DescribeTrafficDistributionGroupRequest,
   ): Effect.Effect<
@@ -1199,7 +1399,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeTrafficDistributionGroup", input);
+  }
   describeUser(
     input: DescribeUserRequest,
   ): Effect.Effect<
@@ -1210,7 +1412,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeUser", input);
+  }
   describeUserHierarchyGroup(
     input: DescribeUserHierarchyGroupRequest,
   ): Effect.Effect<
@@ -1221,7 +1425,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeUserHierarchyGroup", input);
+  }
   describeUserHierarchyStructure(
     input: DescribeUserHierarchyStructureRequest,
   ): Effect.Effect<
@@ -1232,7 +1438,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeUserHierarchyStructure", input);
+  }
   describeView(
     input: DescribeViewRequest,
   ): Effect.Effect<
@@ -1244,7 +1452,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeView", input);
+  }
   describeVocabulary(
     input: DescribeVocabularyRequest,
   ): Effect.Effect<
@@ -1255,7 +1465,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeVocabulary", input);
+  }
   disassociateAnalyticsDataSet(
     input: DisassociateAnalyticsDataSetRequest,
   ): Effect.Effect<
@@ -1266,7 +1478,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DisassociateAnalyticsDataSet", input);
+  }
   disassociateApprovedOrigin(
     input: DisassociateApprovedOriginRequest,
   ): Effect.Effect<
@@ -1277,7 +1491,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DisassociateApprovedOrigin", input);
+  }
   disassociateBot(
     input: DisassociateBotRequest,
   ): Effect.Effect<
@@ -1287,7 +1503,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DisassociateBot", input);
+  }
   disassociateFlow(
     input: DisassociateFlowRequest,
   ): Effect.Effect<
@@ -1299,7 +1517,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DisassociateFlow", input);
+  }
   disassociateInstanceStorageConfig(
     input: DisassociateInstanceStorageConfigRequest,
   ): Effect.Effect<
@@ -1310,7 +1530,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DisassociateInstanceStorageConfig", input);
+  }
   disassociateLambdaFunction(
     input: DisassociateLambdaFunctionRequest,
   ): Effect.Effect<
@@ -1321,7 +1543,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DisassociateLambdaFunction", input);
+  }
   disassociateLexBot(
     input: DisassociateLexBotRequest,
   ): Effect.Effect<
@@ -1332,7 +1556,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DisassociateLexBot", input);
+  }
   disassociatePhoneNumberContactFlow(
     input: DisassociatePhoneNumberContactFlowRequest,
   ): Effect.Effect<
@@ -1343,7 +1569,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DisassociatePhoneNumberContactFlow", input);
+  }
   disassociateQueueQuickConnects(
     input: DisassociateQueueQuickConnectsRequest,
   ): Effect.Effect<
@@ -1354,7 +1582,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DisassociateQueueQuickConnects", input);
+  }
   disassociateRoutingProfileQueues(
     input: DisassociateRoutingProfileQueuesRequest,
   ): Effect.Effect<
@@ -1365,7 +1595,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DisassociateRoutingProfileQueues", input);
+  }
   disassociateSecurityKey(
     input: DisassociateSecurityKeyRequest,
   ): Effect.Effect<
@@ -1376,7 +1608,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DisassociateSecurityKey", input);
+  }
   disassociateTrafficDistributionGroupUser(
     input: DisassociateTrafficDistributionGroupUserRequest,
   ): Effect.Effect<
@@ -1388,7 +1622,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DisassociateTrafficDistributionGroupUser", input);
+  }
   disassociateUserProficiencies(
     input: DisassociateUserProficienciesRequest,
   ): Effect.Effect<
@@ -1399,7 +1635,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DisassociateUserProficiencies", input);
+  }
   dismissUserContact(
     input: DismissUserContactRequest,
   ): Effect.Effect<
@@ -1411,7 +1649,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DismissUserContact", input);
+  }
   getAttachedFile(
     input: GetAttachedFileRequest,
   ): Effect.Effect<
@@ -1422,7 +1662,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetAttachedFile", input);
+  }
   getContactAttributes(
     input: GetContactAttributesRequest,
   ): Effect.Effect<
@@ -1431,7 +1673,9 @@ export declare class Connect extends AWSServiceClient {
     | InvalidRequestException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetContactAttributes", input);
+  }
   getCurrentMetricData(
     input: GetCurrentMetricDataRequest,
   ): Effect.Effect<
@@ -1442,7 +1686,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetCurrentMetricData", input);
+  }
   getCurrentUserData(
     input: GetCurrentUserDataRequest,
   ): Effect.Effect<
@@ -1453,7 +1699,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetCurrentUserData", input);
+  }
   getEffectiveHoursOfOperations(
     input: GetEffectiveHoursOfOperationsRequest,
   ): Effect.Effect<
@@ -1464,7 +1712,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetEffectiveHoursOfOperations", input);
+  }
   getFederationToken(
     input: GetFederationTokenRequest,
   ): Effect.Effect<
@@ -1476,7 +1726,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | UserNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetFederationToken", input);
+  }
   getFlowAssociation(
     input: GetFlowAssociationRequest,
   ): Effect.Effect<
@@ -1488,7 +1740,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetFlowAssociation", input);
+  }
   getMetricData(
     input: GetMetricDataRequest,
   ): Effect.Effect<
@@ -1499,7 +1753,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetMetricData", input);
+  }
   getMetricDataV2(
     input: GetMetricDataV2Request,
   ): Effect.Effect<
@@ -1510,7 +1766,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetMetricDataV2", input);
+  }
   getPromptFile(
     input: GetPromptFileRequest,
   ): Effect.Effect<
@@ -1521,7 +1779,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetPromptFile", input);
+  }
   getTaskTemplate(
     input: GetTaskTemplateRequest,
   ): Effect.Effect<
@@ -1532,7 +1792,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetTaskTemplate", input);
+  }
   getTrafficDistribution(
     input: GetTrafficDistributionRequest,
   ): Effect.Effect<
@@ -1543,7 +1805,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetTrafficDistribution", input);
+  }
   importPhoneNumber(
     input: ImportPhoneNumberRequest,
   ): Effect.Effect<
@@ -1555,7 +1819,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ImportPhoneNumber", input);
+  }
   listAgentStatuses(
     input: ListAgentStatusRequest,
   ): Effect.Effect<
@@ -1566,7 +1832,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListAgentStatuses", input);
+  }
   listAnalyticsDataAssociations(
     input: ListAnalyticsDataAssociationsRequest,
   ): Effect.Effect<
@@ -1577,7 +1845,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListAnalyticsDataAssociations", input);
+  }
   listAnalyticsDataLakeDataSets(
     input: ListAnalyticsDataLakeDataSetsRequest,
   ): Effect.Effect<
@@ -1588,7 +1858,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListAnalyticsDataLakeDataSets", input);
+  }
   listApprovedOrigins(
     input: ListApprovedOriginsRequest,
   ): Effect.Effect<
@@ -1599,7 +1871,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListApprovedOrigins", input);
+  }
   listAssociatedContacts(
     input: ListAssociatedContactsRequest,
   ): Effect.Effect<
@@ -1610,7 +1884,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListAssociatedContacts", input);
+  }
   listAuthenticationProfiles(
     input: ListAuthenticationProfilesRequest,
   ): Effect.Effect<
@@ -1621,7 +1897,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListAuthenticationProfiles", input);
+  }
   listBots(
     input: ListBotsRequest,
   ): Effect.Effect<
@@ -1631,7 +1909,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListBots", input);
+  }
   listContactEvaluations(
     input: ListContactEvaluationsRequest,
   ): Effect.Effect<
@@ -1641,7 +1921,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListContactEvaluations", input);
+  }
   listContactFlowModules(
     input: ListContactFlowModulesRequest,
   ): Effect.Effect<
@@ -1653,7 +1935,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListContactFlowModules", input);
+  }
   listContactFlows(
     input: ListContactFlowsRequest,
   ): Effect.Effect<
@@ -1664,7 +1948,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListContactFlows", input);
+  }
   listContactFlowVersions(
     input: ListContactFlowVersionsRequest,
   ): Effect.Effect<
@@ -1676,7 +1962,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListContactFlowVersions", input);
+  }
   listContactReferences(
     input: ListContactReferencesRequest,
   ): Effect.Effect<
@@ -1687,7 +1975,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListContactReferences", input);
+  }
   listDefaultVocabularies(
     input: ListDefaultVocabulariesRequest,
   ): Effect.Effect<
@@ -1697,7 +1987,9 @@ export declare class Connect extends AWSServiceClient {
     | InvalidRequestException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListDefaultVocabularies", input);
+  }
   listEvaluationForms(
     input: ListEvaluationFormsRequest,
   ): Effect.Effect<
@@ -1707,7 +1999,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListEvaluationForms", input);
+  }
   listEvaluationFormVersions(
     input: ListEvaluationFormVersionsRequest,
   ): Effect.Effect<
@@ -1717,7 +2011,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListEvaluationFormVersions", input);
+  }
   listFlowAssociations(
     input: ListFlowAssociationsRequest,
   ): Effect.Effect<
@@ -1729,7 +2025,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListFlowAssociations", input);
+  }
   listHoursOfOperationOverrides(
     input: ListHoursOfOperationOverridesRequest,
   ): Effect.Effect<
@@ -1740,7 +2038,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListHoursOfOperationOverrides", input);
+  }
   listHoursOfOperations(
     input: ListHoursOfOperationsRequest,
   ): Effect.Effect<
@@ -1751,7 +2051,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListHoursOfOperations", input);
+  }
   listInstanceAttributes(
     input: ListInstanceAttributesRequest,
   ): Effect.Effect<
@@ -1762,13 +2064,17 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListInstanceAttributes", input);
+  }
   listInstances(
     input: ListInstancesRequest,
   ): Effect.Effect<
     ListInstancesResponse,
     InternalServiceException | InvalidRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("ListInstances", input);
+  }
   listInstanceStorageConfigs(
     input: ListInstanceStorageConfigsRequest,
   ): Effect.Effect<
@@ -1779,7 +2085,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListInstanceStorageConfigs", input);
+  }
   listIntegrationAssociations(
     input: ListIntegrationAssociationsRequest,
   ): Effect.Effect<
@@ -1789,7 +2097,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListIntegrationAssociations", input);
+  }
   listLambdaFunctions(
     input: ListLambdaFunctionsRequest,
   ): Effect.Effect<
@@ -1800,7 +2110,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListLambdaFunctions", input);
+  }
   listLexBots(
     input: ListLexBotsRequest,
   ): Effect.Effect<
@@ -1811,7 +2123,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListLexBots", input);
+  }
   listPhoneNumbers(
     input: ListPhoneNumbersRequest,
   ): Effect.Effect<
@@ -1822,7 +2136,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListPhoneNumbers", input);
+  }
   listPhoneNumbersV2(
     input: ListPhoneNumbersV2Request,
   ): Effect.Effect<
@@ -1833,7 +2149,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListPhoneNumbersV2", input);
+  }
   listPredefinedAttributes(
     input: ListPredefinedAttributesRequest,
   ): Effect.Effect<
@@ -1844,7 +2162,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListPredefinedAttributes", input);
+  }
   listPrompts(
     input: ListPromptsRequest,
   ): Effect.Effect<
@@ -1855,7 +2175,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListPrompts", input);
+  }
   listQueueQuickConnects(
     input: ListQueueQuickConnectsRequest,
   ): Effect.Effect<
@@ -1866,7 +2188,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListQueueQuickConnects", input);
+  }
   listQueues(
     input: ListQueuesRequest,
   ): Effect.Effect<
@@ -1877,7 +2201,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListQueues", input);
+  }
   listQuickConnects(
     input: ListQuickConnectsRequest,
   ): Effect.Effect<
@@ -1888,7 +2214,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListQuickConnects", input);
+  }
   listRealtimeContactAnalysisSegmentsV2(
     input: ListRealtimeContactAnalysisSegmentsV2Request,
   ): Effect.Effect<
@@ -1900,7 +2228,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListRealtimeContactAnalysisSegmentsV2", input);
+  }
   listRoutingProfileQueues(
     input: ListRoutingProfileQueuesRequest,
   ): Effect.Effect<
@@ -1911,7 +2241,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListRoutingProfileQueues", input);
+  }
   listRoutingProfiles(
     input: ListRoutingProfilesRequest,
   ): Effect.Effect<
@@ -1922,7 +2254,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListRoutingProfiles", input);
+  }
   listRules(
     input: ListRulesRequest,
   ): Effect.Effect<
@@ -1933,7 +2267,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListRules", input);
+  }
   listSecurityKeys(
     input: ListSecurityKeysRequest,
   ): Effect.Effect<
@@ -1944,7 +2280,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListSecurityKeys", input);
+  }
   listSecurityProfileApplications(
     input: ListSecurityProfileApplicationsRequest,
   ): Effect.Effect<
@@ -1955,7 +2293,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListSecurityProfileApplications", input);
+  }
   listSecurityProfilePermissions(
     input: ListSecurityProfilePermissionsRequest,
   ): Effect.Effect<
@@ -1966,7 +2306,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListSecurityProfilePermissions", input);
+  }
   listSecurityProfiles(
     input: ListSecurityProfilesRequest,
   ): Effect.Effect<
@@ -1977,7 +2319,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListSecurityProfiles", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
@@ -1988,7 +2332,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   listTaskTemplates(
     input: ListTaskTemplatesRequest,
   ): Effect.Effect<
@@ -1999,7 +2345,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTaskTemplates", input);
+  }
   listTrafficDistributionGroups(
     input: ListTrafficDistributionGroupsRequest,
   ): Effect.Effect<
@@ -2009,7 +2357,9 @@ export declare class Connect extends AWSServiceClient {
     | InvalidRequestException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTrafficDistributionGroups", input);
+  }
   listTrafficDistributionGroupUsers(
     input: ListTrafficDistributionGroupUsersRequest,
   ): Effect.Effect<
@@ -2020,7 +2370,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTrafficDistributionGroupUsers", input);
+  }
   listUseCases(
     input: ListUseCasesRequest,
   ): Effect.Effect<
@@ -2030,7 +2382,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListUseCases", input);
+  }
   listUserHierarchyGroups(
     input: ListUserHierarchyGroupsRequest,
   ): Effect.Effect<
@@ -2041,7 +2395,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListUserHierarchyGroups", input);
+  }
   listUserProficiencies(
     input: ListUserProficienciesRequest,
   ): Effect.Effect<
@@ -2052,7 +2408,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListUserProficiencies", input);
+  }
   listUsers(
     input: ListUsersRequest,
   ): Effect.Effect<
@@ -2063,7 +2421,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListUsers", input);
+  }
   listViews(
     input: ListViewsRequest,
   ): Effect.Effect<
@@ -2075,7 +2435,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListViews", input);
+  }
   listViewVersions(
     input: ListViewVersionsRequest,
   ): Effect.Effect<
@@ -2087,7 +2449,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListViewVersions", input);
+  }
   monitorContact(
     input: MonitorContactRequest,
   ): Effect.Effect<
@@ -2100,7 +2464,9 @@ export declare class Connect extends AWSServiceClient {
     | ServiceQuotaExceededException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("MonitorContact", input);
+  }
   pauseContact(
     input: PauseContactRequest,
   ): Effect.Effect<
@@ -2114,7 +2480,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PauseContact", input);
+  }
   putUserStatus(
     input: PutUserStatusRequest,
   ): Effect.Effect<
@@ -2126,7 +2494,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutUserStatus", input);
+  }
   releasePhoneNumber(
     input: ReleasePhoneNumberRequest,
   ): Effect.Effect<
@@ -2139,7 +2509,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ReleasePhoneNumber", input);
+  }
   replicateInstance(
     input: ReplicateInstanceRequest,
   ): Effect.Effect<
@@ -2153,7 +2525,9 @@ export declare class Connect extends AWSServiceClient {
     | ServiceQuotaExceededException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ReplicateInstance", input);
+  }
   resumeContact(
     input: ResumeContactRequest,
   ): Effect.Effect<
@@ -2166,7 +2540,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ResumeContact", input);
+  }
   resumeContactRecording(
     input: ResumeContactRecordingRequest,
   ): Effect.Effect<
@@ -2175,7 +2551,9 @@ export declare class Connect extends AWSServiceClient {
     | InvalidRequestException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ResumeContactRecording", input);
+  }
   searchAgentStatuses(
     input: SearchAgentStatusesRequest,
   ): Effect.Effect<
@@ -2186,7 +2564,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("SearchAgentStatuses", input);
+  }
   searchAvailablePhoneNumbers(
     input: SearchAvailablePhoneNumbersRequest,
   ): Effect.Effect<
@@ -2196,7 +2576,9 @@ export declare class Connect extends AWSServiceClient {
     | InvalidParameterException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("SearchAvailablePhoneNumbers", input);
+  }
   searchContactFlowModules(
     input: SearchContactFlowModulesRequest,
   ): Effect.Effect<
@@ -2207,7 +2589,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("SearchContactFlowModules", input);
+  }
   searchContactFlows(
     input: SearchContactFlowsRequest,
   ): Effect.Effect<
@@ -2218,7 +2602,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("SearchContactFlows", input);
+  }
   searchContacts(
     input: SearchContactsRequest,
   ): Effect.Effect<
@@ -2229,7 +2615,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("SearchContacts", input);
+  }
   searchEmailAddresses(
     input: SearchEmailAddressesRequest,
   ): Effect.Effect<
@@ -2241,7 +2629,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("SearchEmailAddresses", input);
+  }
   searchHoursOfOperationOverrides(
     input: SearchHoursOfOperationOverridesRequest,
   ): Effect.Effect<
@@ -2252,7 +2642,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("SearchHoursOfOperationOverrides", input);
+  }
   searchHoursOfOperations(
     input: SearchHoursOfOperationsRequest,
   ): Effect.Effect<
@@ -2263,7 +2655,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("SearchHoursOfOperations", input);
+  }
   searchPredefinedAttributes(
     input: SearchPredefinedAttributesRequest,
   ): Effect.Effect<
@@ -2274,7 +2668,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("SearchPredefinedAttributes", input);
+  }
   searchPrompts(
     input: SearchPromptsRequest,
   ): Effect.Effect<
@@ -2285,7 +2681,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("SearchPrompts", input);
+  }
   searchQueues(
     input: SearchQueuesRequest,
   ): Effect.Effect<
@@ -2296,7 +2694,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("SearchQueues", input);
+  }
   searchQuickConnects(
     input: SearchQuickConnectsRequest,
   ): Effect.Effect<
@@ -2307,7 +2707,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("SearchQuickConnects", input);
+  }
   searchResourceTags(
     input: SearchResourceTagsRequest,
   ): Effect.Effect<
@@ -2319,7 +2721,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("SearchResourceTags", input);
+  }
   searchRoutingProfiles(
     input: SearchRoutingProfilesRequest,
   ): Effect.Effect<
@@ -2330,7 +2734,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("SearchRoutingProfiles", input);
+  }
   searchSecurityProfiles(
     input: SearchSecurityProfilesRequest,
   ): Effect.Effect<
@@ -2341,7 +2747,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("SearchSecurityProfiles", input);
+  }
   searchUserHierarchyGroups(
     input: SearchUserHierarchyGroupsRequest,
   ): Effect.Effect<
@@ -2352,7 +2760,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("SearchUserHierarchyGroups", input);
+  }
   searchUsers(
     input: SearchUsersRequest,
   ): Effect.Effect<
@@ -2363,7 +2773,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("SearchUsers", input);
+  }
   searchVocabularies(
     input: SearchVocabulariesRequest,
   ): Effect.Effect<
@@ -2373,7 +2785,9 @@ export declare class Connect extends AWSServiceClient {
     | InvalidRequestException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("SearchVocabularies", input);
+  }
   sendChatIntegrationEvent(
     input: SendChatIntegrationEventRequest,
   ): Effect.Effect<
@@ -2384,7 +2798,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("SendChatIntegrationEvent", input);
+  }
   sendOutboundEmail(
     input: SendOutboundEmailRequest,
   ): Effect.Effect<
@@ -2397,7 +2813,9 @@ export declare class Connect extends AWSServiceClient {
     | ServiceQuotaExceededException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("SendOutboundEmail", input);
+  }
   startAttachedFileUpload(
     input: StartAttachedFileUploadRequest,
   ): Effect.Effect<
@@ -2409,7 +2827,9 @@ export declare class Connect extends AWSServiceClient {
     | ServiceQuotaExceededException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartAttachedFileUpload", input);
+  }
   startChatContact(
     input: StartChatContactRequest,
   ): Effect.Effect<
@@ -2420,7 +2840,9 @@ export declare class Connect extends AWSServiceClient {
     | LimitExceededException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartChatContact", input);
+  }
   startContactEvaluation(
     input: StartContactEvaluationRequest,
   ): Effect.Effect<
@@ -2432,7 +2854,9 @@ export declare class Connect extends AWSServiceClient {
     | ServiceQuotaExceededException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartContactEvaluation", input);
+  }
   startContactRecording(
     input: StartContactRecordingRequest,
   ): Effect.Effect<
@@ -2442,7 +2866,9 @@ export declare class Connect extends AWSServiceClient {
     | InvalidRequestException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartContactRecording", input);
+  }
   startContactStreaming(
     input: StartContactStreamingRequest,
   ): Effect.Effect<
@@ -2453,7 +2879,9 @@ export declare class Connect extends AWSServiceClient {
     | LimitExceededException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartContactStreaming", input);
+  }
   startEmailContact(
     input: StartEmailContactRequest,
   ): Effect.Effect<
@@ -2466,7 +2894,9 @@ export declare class Connect extends AWSServiceClient {
     | ServiceQuotaExceededException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartEmailContact", input);
+  }
   startOutboundChatContact(
     input: StartOutboundChatContactRequest,
   ): Effect.Effect<
@@ -2479,7 +2909,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartOutboundChatContact", input);
+  }
   startOutboundEmailContact(
     input: StartOutboundEmailContactRequest,
   ): Effect.Effect<
@@ -2492,7 +2924,9 @@ export declare class Connect extends AWSServiceClient {
     | ServiceQuotaExceededException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartOutboundEmailContact", input);
+  }
   startOutboundVoiceContact(
     input: StartOutboundVoiceContactRequest,
   ): Effect.Effect<
@@ -2505,7 +2939,9 @@ export declare class Connect extends AWSServiceClient {
     | OutboundContactNotPermittedException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartOutboundVoiceContact", input);
+  }
   startScreenSharing(
     input: StartScreenSharingRequest,
   ): Effect.Effect<
@@ -2517,7 +2953,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartScreenSharing", input);
+  }
   startTaskContact(
     input: StartTaskContactRequest,
   ): Effect.Effect<
@@ -2529,7 +2967,9 @@ export declare class Connect extends AWSServiceClient {
     | ServiceQuotaExceededException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartTaskContact", input);
+  }
   startWebRTCContact(
     input: StartWebRTCContactRequest,
   ): Effect.Effect<
@@ -2540,7 +2980,9 @@ export declare class Connect extends AWSServiceClient {
     | LimitExceededException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartWebRTCContact", input);
+  }
   stopContact(
     input: StopContactRequest,
   ): Effect.Effect<
@@ -2551,7 +2993,9 @@ export declare class Connect extends AWSServiceClient {
     | InvalidRequestException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StopContact", input);
+  }
   stopContactRecording(
     input: StopContactRecordingRequest,
   ): Effect.Effect<
@@ -2560,7 +3004,9 @@ export declare class Connect extends AWSServiceClient {
     | InvalidRequestException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StopContactRecording", input);
+  }
   stopContactStreaming(
     input: StopContactStreamingRequest,
   ): Effect.Effect<
@@ -2570,7 +3016,9 @@ export declare class Connect extends AWSServiceClient {
     | InvalidRequestException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StopContactStreaming", input);
+  }
   submitContactEvaluation(
     input: SubmitContactEvaluationRequest,
   ): Effect.Effect<
@@ -2581,7 +3029,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("SubmitContactEvaluation", input);
+  }
   suspendContactRecording(
     input: SuspendContactRecordingRequest,
   ): Effect.Effect<
@@ -2590,7 +3040,9 @@ export declare class Connect extends AWSServiceClient {
     | InvalidRequestException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("SuspendContactRecording", input);
+  }
   tagContact(
     input: TagContactRequest,
   ): Effect.Effect<
@@ -2601,7 +3053,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagContact", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -2612,7 +3066,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   transferContact(
     input: TransferContactRequest,
   ): Effect.Effect<
@@ -2625,7 +3081,9 @@ export declare class Connect extends AWSServiceClient {
     | ServiceQuotaExceededException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TransferContact", input);
+  }
   untagContact(
     input: UntagContactRequest,
   ): Effect.Effect<
@@ -2636,7 +3094,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagContact", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
@@ -2647,7 +3107,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
   updateAgentStatus(
     input: UpdateAgentStatusRequest,
   ): Effect.Effect<
@@ -2660,7 +3122,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateAgentStatus", input);
+  }
   updateAuthenticationProfile(
     input: UpdateAuthenticationProfileRequest,
   ): Effect.Effect<
@@ -2671,7 +3135,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateAuthenticationProfile", input);
+  }
   updateContact(
     input: UpdateContactRequest,
   ): Effect.Effect<
@@ -2684,7 +3150,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateContact", input);
+  }
   updateContactAttributes(
     input: UpdateContactAttributesRequest,
   ): Effect.Effect<
@@ -2694,7 +3162,9 @@ export declare class Connect extends AWSServiceClient {
     | InvalidRequestException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateContactAttributes", input);
+  }
   updateContactEvaluation(
     input: UpdateContactEvaluationRequest,
   ): Effect.Effect<
@@ -2705,7 +3175,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateContactEvaluation", input);
+  }
   updateContactFlowContent(
     input: UpdateContactFlowContentRequest,
   ): Effect.Effect<
@@ -2717,7 +3189,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateContactFlowContent", input);
+  }
   updateContactFlowMetadata(
     input: UpdateContactFlowMetadataRequest,
   ): Effect.Effect<
@@ -2729,7 +3203,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateContactFlowMetadata", input);
+  }
   updateContactFlowModuleContent(
     input: UpdateContactFlowModuleContentRequest,
   ): Effect.Effect<
@@ -2741,7 +3217,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateContactFlowModuleContent", input);
+  }
   updateContactFlowModuleMetadata(
     input: UpdateContactFlowModuleMetadataRequest,
   ): Effect.Effect<
@@ -2754,7 +3232,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateContactFlowModuleMetadata", input);
+  }
   updateContactFlowName(
     input: UpdateContactFlowNameRequest,
   ): Effect.Effect<
@@ -2766,7 +3246,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateContactFlowName", input);
+  }
   updateContactRoutingData(
     input: UpdateContactRoutingDataRequest,
   ): Effect.Effect<
@@ -2778,7 +3260,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateContactRoutingData", input);
+  }
   updateContactSchedule(
     input: UpdateContactScheduleRequest,
   ): Effect.Effect<
@@ -2790,7 +3274,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateContactSchedule", input);
+  }
   updateEmailAddressMetadata(
     input: UpdateEmailAddressMetadataRequest,
   ): Effect.Effect<
@@ -2803,7 +3289,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateEmailAddressMetadata", input);
+  }
   updateEvaluationForm(
     input: UpdateEvaluationFormRequest,
   ): Effect.Effect<
@@ -2815,7 +3303,9 @@ export declare class Connect extends AWSServiceClient {
     | ServiceQuotaExceededException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateEvaluationForm", input);
+  }
   updateHoursOfOperation(
     input: UpdateHoursOfOperationRequest,
   ): Effect.Effect<
@@ -2827,7 +3317,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateHoursOfOperation", input);
+  }
   updateHoursOfOperationOverride(
     input: UpdateHoursOfOperationOverrideRequest,
   ): Effect.Effect<
@@ -2840,7 +3332,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateHoursOfOperationOverride", input);
+  }
   updateInstanceAttribute(
     input: UpdateInstanceAttributeRequest,
   ): Effect.Effect<
@@ -2851,7 +3345,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateInstanceAttribute", input);
+  }
   updateInstanceStorageConfig(
     input: UpdateInstanceStorageConfigRequest,
   ): Effect.Effect<
@@ -2862,7 +3358,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateInstanceStorageConfig", input);
+  }
   updateParticipantAuthentication(
     input: UpdateParticipantAuthenticationRequest,
   ): Effect.Effect<
@@ -2874,7 +3372,9 @@ export declare class Connect extends AWSServiceClient {
     | InvalidRequestException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateParticipantAuthentication", input);
+  }
   updateParticipantRoleConfig(
     input: UpdateParticipantRoleConfigRequest,
   ): Effect.Effect<
@@ -2886,7 +3386,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateParticipantRoleConfig", input);
+  }
   updatePhoneNumber(
     input: UpdatePhoneNumberRequest,
   ): Effect.Effect<
@@ -2899,7 +3401,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdatePhoneNumber", input);
+  }
   updatePhoneNumberMetadata(
     input: UpdatePhoneNumberMetadataRequest,
   ): Effect.Effect<
@@ -2913,7 +3417,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdatePhoneNumberMetadata", input);
+  }
   updatePredefinedAttribute(
     input: UpdatePredefinedAttributeRequest,
   ): Effect.Effect<
@@ -2924,7 +3430,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdatePredefinedAttribute", input);
+  }
   updatePrompt(
     input: UpdatePromptRequest,
   ): Effect.Effect<
@@ -2935,7 +3443,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdatePrompt", input);
+  }
   updateQueueHoursOfOperation(
     input: UpdateQueueHoursOfOperationRequest,
   ): Effect.Effect<
@@ -2946,7 +3456,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateQueueHoursOfOperation", input);
+  }
   updateQueueMaxContacts(
     input: UpdateQueueMaxContactsRequest,
   ): Effect.Effect<
@@ -2957,7 +3469,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateQueueMaxContacts", input);
+  }
   updateQueueName(
     input: UpdateQueueNameRequest,
   ): Effect.Effect<
@@ -2969,7 +3483,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateQueueName", input);
+  }
   updateQueueOutboundCallerConfig(
     input: UpdateQueueOutboundCallerConfigRequest,
   ): Effect.Effect<
@@ -2980,7 +3496,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateQueueOutboundCallerConfig", input);
+  }
   updateQueueOutboundEmailConfig(
     input: UpdateQueueOutboundEmailConfigRequest,
   ): Effect.Effect<
@@ -2993,7 +3511,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateQueueOutboundEmailConfig", input);
+  }
   updateQueueStatus(
     input: UpdateQueueStatusRequest,
   ): Effect.Effect<
@@ -3004,7 +3524,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateQueueStatus", input);
+  }
   updateQuickConnectConfig(
     input: UpdateQuickConnectConfigRequest,
   ): Effect.Effect<
@@ -3015,7 +3537,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateQuickConnectConfig", input);
+  }
   updateQuickConnectName(
     input: UpdateQuickConnectNameRequest,
   ): Effect.Effect<
@@ -3026,7 +3550,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateQuickConnectName", input);
+  }
   updateRoutingProfileAgentAvailabilityTimer(
     input: UpdateRoutingProfileAgentAvailabilityTimerRequest,
   ): Effect.Effect<
@@ -3037,7 +3563,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateRoutingProfileAgentAvailabilityTimer", input);
+  }
   updateRoutingProfileConcurrency(
     input: UpdateRoutingProfileConcurrencyRequest,
   ): Effect.Effect<
@@ -3048,7 +3576,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateRoutingProfileConcurrency", input);
+  }
   updateRoutingProfileDefaultOutboundQueue(
     input: UpdateRoutingProfileDefaultOutboundQueueRequest,
   ): Effect.Effect<
@@ -3059,7 +3589,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateRoutingProfileDefaultOutboundQueue", input);
+  }
   updateRoutingProfileName(
     input: UpdateRoutingProfileNameRequest,
   ): Effect.Effect<
@@ -3071,7 +3603,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateRoutingProfileName", input);
+  }
   updateRoutingProfileQueues(
     input: UpdateRoutingProfileQueuesRequest,
   ): Effect.Effect<
@@ -3082,7 +3616,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateRoutingProfileQueues", input);
+  }
   updateRule(
     input: UpdateRuleRequest,
   ): Effect.Effect<
@@ -3094,7 +3630,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateRule", input);
+  }
   updateSecurityProfile(
     input: UpdateSecurityProfileRequest,
   ): Effect.Effect<
@@ -3105,7 +3643,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateSecurityProfile", input);
+  }
   updateTaskTemplate(
     input: UpdateTaskTemplateRequest,
   ): Effect.Effect<
@@ -3117,7 +3657,9 @@ export declare class Connect extends AWSServiceClient {
     | ServiceQuotaExceededException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateTaskTemplate", input);
+  }
   updateTrafficDistribution(
     input: UpdateTrafficDistributionRequest,
   ): Effect.Effect<
@@ -3129,7 +3671,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateTrafficDistribution", input);
+  }
   updateUserHierarchy(
     input: UpdateUserHierarchyRequest,
   ): Effect.Effect<
@@ -3140,7 +3684,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateUserHierarchy", input);
+  }
   updateUserHierarchyGroupName(
     input: UpdateUserHierarchyGroupNameRequest,
   ): Effect.Effect<
@@ -3152,7 +3698,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateUserHierarchyGroupName", input);
+  }
   updateUserHierarchyStructure(
     input: UpdateUserHierarchyStructureRequest,
   ): Effect.Effect<
@@ -3164,7 +3712,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateUserHierarchyStructure", input);
+  }
   updateUserIdentityInfo(
     input: UpdateUserIdentityInfoRequest,
   ): Effect.Effect<
@@ -3175,7 +3725,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateUserIdentityInfo", input);
+  }
   updateUserPhoneConfig(
     input: UpdateUserPhoneConfigRequest,
   ): Effect.Effect<
@@ -3186,7 +3738,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateUserPhoneConfig", input);
+  }
   updateUserProficiencies(
     input: UpdateUserProficienciesRequest,
   ): Effect.Effect<
@@ -3197,7 +3751,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateUserProficiencies", input);
+  }
   updateUserRoutingProfile(
     input: UpdateUserRoutingProfileRequest,
   ): Effect.Effect<
@@ -3208,7 +3764,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateUserRoutingProfile", input);
+  }
   updateUserSecurityProfiles(
     input: UpdateUserSecurityProfilesRequest,
   ): Effect.Effect<
@@ -3219,7 +3777,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateUserSecurityProfiles", input);
+  }
   updateViewContent(
     input: UpdateViewContentRequest,
   ): Effect.Effect<
@@ -3232,7 +3792,9 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateViewContent", input);
+  }
   updateViewMetadata(
     input: UpdateViewMetadataRequest,
   ): Effect.Effect<
@@ -3246,8 +3808,12 @@ export declare class Connect extends AWSServiceClient {
     | ResourceNotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateViewMetadata", input);
+  }
 }
+
+export default Connect;
 
 export declare class AccessDeniedException extends EffectData.TaggedError(
   "AccessDeniedException",

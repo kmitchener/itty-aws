@@ -4,7 +4,7 @@ import type { Buffer } from "node:buffer";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class LexRuntimeService extends AWSServiceClient {
+export class LexRuntimeService extends AWSServiceClient {
   deleteSession(
     input: DeleteSessionRequest,
   ): Effect.Effect<
@@ -15,7 +15,9 @@ export declare class LexRuntimeService extends AWSServiceClient {
     | LimitExceededException
     | NotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteSession", input);
+  }
   getSession(
     input: GetSessionRequest,
   ): Effect.Effect<
@@ -25,7 +27,9 @@ export declare class LexRuntimeService extends AWSServiceClient {
     | LimitExceededException
     | NotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetSession", input);
+  }
   postContent(
     input: PostContentRequest,
   ): Effect.Effect<
@@ -42,7 +46,9 @@ export declare class LexRuntimeService extends AWSServiceClient {
     | RequestTimeoutException
     | UnsupportedMediaTypeException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PostContent", input);
+  }
   postText(
     input: PostTextRequest,
   ): Effect.Effect<
@@ -56,7 +62,9 @@ export declare class LexRuntimeService extends AWSServiceClient {
     | LoopDetectedException
     | NotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PostText", input);
+  }
   putSession(
     input: PutSessionRequest,
   ): Effect.Effect<
@@ -70,8 +78,12 @@ export declare class LexRuntimeService extends AWSServiceClient {
     | NotAcceptableException
     | NotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutSession", input);
+  }
 }
+
+export default LexRuntimeService;
 
 export type Accept = string;
 

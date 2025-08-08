@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class SecretsManager extends AWSServiceClient {
+export class SecretsManager extends AWSServiceClient {
   batchGetSecretValue(
     input: BatchGetSecretValueRequest,
   ): Effect.Effect<
@@ -14,7 +14,9 @@ export declare class SecretsManager extends AWSServiceClient {
     | InvalidRequestException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("BatchGetSecretValue", input);
+  }
   cancelRotateSecret(
     input: CancelRotateSecretRequest,
   ): Effect.Effect<
@@ -24,7 +26,9 @@ export declare class SecretsManager extends AWSServiceClient {
     | InvalidRequestException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CancelRotateSecret", input);
+  }
   createSecret(
     input: CreateSecretRequest,
   ): Effect.Effect<
@@ -40,7 +44,9 @@ export declare class SecretsManager extends AWSServiceClient {
     | ResourceExistsException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateSecret", input);
+  }
   deleteResourcePolicy(
     input: DeleteResourcePolicyRequest,
   ): Effect.Effect<
@@ -50,7 +56,9 @@ export declare class SecretsManager extends AWSServiceClient {
     | InvalidRequestException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteResourcePolicy", input);
+  }
   deleteSecret(
     input: DeleteSecretRequest,
   ): Effect.Effect<
@@ -60,7 +68,9 @@ export declare class SecretsManager extends AWSServiceClient {
     | InvalidRequestException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteSecret", input);
+  }
   describeSecret(
     input: DescribeSecretRequest,
   ): Effect.Effect<
@@ -69,7 +79,9 @@ export declare class SecretsManager extends AWSServiceClient {
     | InvalidParameterException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeSecret", input);
+  }
   getRandomPassword(
     input: GetRandomPasswordRequest,
   ): Effect.Effect<
@@ -78,7 +90,9 @@ export declare class SecretsManager extends AWSServiceClient {
     | InvalidParameterException
     | InvalidRequestException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetRandomPassword", input);
+  }
   getResourcePolicy(
     input: GetResourcePolicyRequest,
   ): Effect.Effect<
@@ -88,7 +102,9 @@ export declare class SecretsManager extends AWSServiceClient {
     | InvalidRequestException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetResourcePolicy", input);
+  }
   getSecretValue(
     input: GetSecretValueRequest,
   ): Effect.Effect<
@@ -99,7 +115,9 @@ export declare class SecretsManager extends AWSServiceClient {
     | InvalidRequestException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetSecretValue", input);
+  }
   listSecrets(
     input: ListSecretsRequest,
   ): Effect.Effect<
@@ -109,7 +127,9 @@ export declare class SecretsManager extends AWSServiceClient {
     | InvalidParameterException
     | InvalidRequestException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListSecrets", input);
+  }
   listSecretVersionIds(
     input: ListSecretVersionIdsRequest,
   ): Effect.Effect<
@@ -119,7 +139,9 @@ export declare class SecretsManager extends AWSServiceClient {
     | InvalidParameterException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListSecretVersionIds", input);
+  }
   putResourcePolicy(
     input: PutResourcePolicyRequest,
   ): Effect.Effect<
@@ -131,7 +153,9 @@ export declare class SecretsManager extends AWSServiceClient {
     | PublicPolicyException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutResourcePolicy", input);
+  }
   putSecretValue(
     input: PutSecretValueRequest,
   ): Effect.Effect<
@@ -145,7 +169,9 @@ export declare class SecretsManager extends AWSServiceClient {
     | ResourceExistsException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutSecretValue", input);
+  }
   removeRegionsFromReplication(
     input: RemoveRegionsFromReplicationRequest,
   ): Effect.Effect<
@@ -155,7 +181,9 @@ export declare class SecretsManager extends AWSServiceClient {
     | InvalidRequestException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("RemoveRegionsFromReplication", input);
+  }
   replicateSecretToRegions(
     input: ReplicateSecretToRegionsRequest,
   ): Effect.Effect<
@@ -165,7 +193,9 @@ export declare class SecretsManager extends AWSServiceClient {
     | InvalidRequestException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ReplicateSecretToRegions", input);
+  }
   restoreSecret(
     input: RestoreSecretRequest,
   ): Effect.Effect<
@@ -175,7 +205,9 @@ export declare class SecretsManager extends AWSServiceClient {
     | InvalidRequestException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("RestoreSecret", input);
+  }
   rotateSecret(
     input: RotateSecretRequest,
   ): Effect.Effect<
@@ -185,7 +217,9 @@ export declare class SecretsManager extends AWSServiceClient {
     | InvalidRequestException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("RotateSecret", input);
+  }
   stopReplicationToReplica(
     input: StopReplicationToReplicaRequest,
   ): Effect.Effect<
@@ -195,7 +229,9 @@ export declare class SecretsManager extends AWSServiceClient {
     | InvalidRequestException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StopReplicationToReplica", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -205,7 +241,9 @@ export declare class SecretsManager extends AWSServiceClient {
     | InvalidRequestException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
@@ -215,7 +253,9 @@ export declare class SecretsManager extends AWSServiceClient {
     | InvalidRequestException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
   updateSecret(
     input: UpdateSecretRequest,
   ): Effect.Effect<
@@ -231,7 +271,9 @@ export declare class SecretsManager extends AWSServiceClient {
     | ResourceExistsException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateSecret", input);
+  }
   updateSecretVersionStage(
     input: UpdateSecretVersionStageRequest,
   ): Effect.Effect<
@@ -242,7 +284,9 @@ export declare class SecretsManager extends AWSServiceClient {
     | LimitExceededException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateSecretVersionStage", input);
+  }
   validateResourcePolicy(
     input: ValidateResourcePolicyRequest,
   ): Effect.Effect<
@@ -253,8 +297,12 @@ export declare class SecretsManager extends AWSServiceClient {
     | MalformedPolicyDocumentException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ValidateResourcePolicy", input);
+  }
 }
+
+export default SecretsManager;
 
 export type AddReplicaRegionListType = Array<ReplicaRegionType>;
 export type APIErrorListType = Array<APIErrorType>;

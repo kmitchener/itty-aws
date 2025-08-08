@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class QLDB extends AWSServiceClient {
+export class QLDB extends AWSServiceClient {
   cancelJournalKinesisStream(
     input: CancelJournalKinesisStreamRequest,
   ): Effect.Effect<
@@ -11,7 +11,9 @@ export declare class QLDB extends AWSServiceClient {
     | ResourceNotFoundException
     | ResourcePreconditionNotMetException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CancelJournalKinesisStream", input);
+  }
   createLedger(
     input: CreateLedgerRequest,
   ): Effect.Effect<
@@ -21,7 +23,9 @@ export declare class QLDB extends AWSServiceClient {
     | ResourceAlreadyExistsException
     | ResourceInUseException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateLedger", input);
+  }
   deleteLedger(
     input: DeleteLedgerRequest,
   ): Effect.Effect<
@@ -31,7 +35,9 @@ export declare class QLDB extends AWSServiceClient {
     | ResourceNotFoundException
     | ResourcePreconditionNotMetException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteLedger", input);
+  }
   describeJournalKinesisStream(
     input: DescribeJournalKinesisStreamRequest,
   ): Effect.Effect<
@@ -40,19 +46,25 @@ export declare class QLDB extends AWSServiceClient {
     | ResourceNotFoundException
     | ResourcePreconditionNotMetException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeJournalKinesisStream", input);
+  }
   describeJournalS3Export(
     input: DescribeJournalS3ExportRequest,
   ): Effect.Effect<
     DescribeJournalS3ExportResponse,
     ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeJournalS3Export", input);
+  }
   describeLedger(
     input: DescribeLedgerRequest,
   ): Effect.Effect<
     DescribeLedgerResponse,
     InvalidParameterException | ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeLedger", input);
+  }
   exportJournalToS3(
     input: ExportJournalToS3Request,
   ): Effect.Effect<
@@ -60,7 +72,9 @@ export declare class QLDB extends AWSServiceClient {
     | ResourceNotFoundException
     | ResourcePreconditionNotMetException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ExportJournalToS3", input);
+  }
   getBlock(
     input: GetBlockRequest,
   ): Effect.Effect<
@@ -69,7 +83,9 @@ export declare class QLDB extends AWSServiceClient {
     | ResourceNotFoundException
     | ResourcePreconditionNotMetException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetBlock", input);
+  }
   getDigest(
     input: GetDigestRequest,
   ): Effect.Effect<
@@ -78,7 +94,9 @@ export declare class QLDB extends AWSServiceClient {
     | ResourceNotFoundException
     | ResourcePreconditionNotMetException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetDigest", input);
+  }
   getRevision(
     input: GetRevisionRequest,
   ): Effect.Effect<
@@ -87,7 +105,9 @@ export declare class QLDB extends AWSServiceClient {
     | ResourceNotFoundException
     | ResourcePreconditionNotMetException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetRevision", input);
+  }
   listJournalKinesisStreamsForLedger(
     input: ListJournalKinesisStreamsForLedgerRequest,
   ): Effect.Effect<
@@ -96,22 +116,32 @@ export declare class QLDB extends AWSServiceClient {
     | ResourceNotFoundException
     | ResourcePreconditionNotMetException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListJournalKinesisStreamsForLedger", input);
+  }
   listJournalS3Exports(
     input: ListJournalS3ExportsRequest,
-  ): Effect.Effect<ListJournalS3ExportsResponse, CommonAwsError>;
+  ): Effect.Effect<ListJournalS3ExportsResponse, CommonAwsError> {
+    return this.call("ListJournalS3Exports", input);
+  }
   listJournalS3ExportsForLedger(
     input: ListJournalS3ExportsForLedgerRequest,
-  ): Effect.Effect<ListJournalS3ExportsForLedgerResponse, CommonAwsError>;
+  ): Effect.Effect<ListJournalS3ExportsForLedgerResponse, CommonAwsError> {
+    return this.call("ListJournalS3ExportsForLedger", input);
+  }
   listLedgers(
     input: ListLedgersRequest,
-  ): Effect.Effect<ListLedgersResponse, CommonAwsError>;
+  ): Effect.Effect<ListLedgersResponse, CommonAwsError> {
+    return this.call("ListLedgers", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
     InvalidParameterException | ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   streamJournalToKinesis(
     input: StreamJournalToKinesisRequest,
   ): Effect.Effect<
@@ -120,34 +150,46 @@ export declare class QLDB extends AWSServiceClient {
     | ResourceNotFoundException
     | ResourcePreconditionNotMetException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StreamJournalToKinesis", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
     InvalidParameterException | ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
     InvalidParameterException | ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
   updateLedger(
     input: UpdateLedgerRequest,
   ): Effect.Effect<
     UpdateLedgerResponse,
     InvalidParameterException | ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateLedger", input);
+  }
   updateLedgerPermissionsMode(
     input: UpdateLedgerPermissionsModeRequest,
   ): Effect.Effect<
     UpdateLedgerPermissionsModeResponse,
     InvalidParameterException | ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateLedgerPermissionsMode", input);
+  }
 }
 
-export declare class Qldb extends QLDB {}
+export class Qldb extends QLDB {}
+
+export default QLDB;
 
 export type Arn = string;
 

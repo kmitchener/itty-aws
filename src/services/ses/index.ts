@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class SES extends AWSServiceClient {
+export class SES extends AWSServiceClient {
   cloneReceiptRuleSet(
     input: CloneReceiptRuleSetRequest,
   ): Effect.Effect<
@@ -11,7 +11,9 @@ export declare class SES extends AWSServiceClient {
     | LimitExceededException
     | RuleSetDoesNotExistException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CloneReceiptRuleSet", input);
+  }
   createConfigurationSet(
     input: CreateConfigurationSetRequest,
   ): Effect.Effect<
@@ -20,7 +22,9 @@ export declare class SES extends AWSServiceClient {
     | InvalidConfigurationSetException
     | LimitExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateConfigurationSet", input);
+  }
   createConfigurationSetEventDestination(
     input: CreateConfigurationSetEventDestinationRequest,
   ): Effect.Effect<
@@ -32,7 +36,9 @@ export declare class SES extends AWSServiceClient {
     | InvalidSNSDestinationException
     | LimitExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateConfigurationSetEventDestination", input);
+  }
   createConfigurationSetTrackingOptions(
     input: CreateConfigurationSetTrackingOptionsRequest,
   ): Effect.Effect<
@@ -41,7 +47,9 @@ export declare class SES extends AWSServiceClient {
     | InvalidTrackingOptionsException
     | TrackingOptionsAlreadyExistsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateConfigurationSetTrackingOptions", input);
+  }
   createCustomVerificationEmailTemplate(
     input: CreateCustomVerificationEmailTemplateRequest,
   ): Effect.Effect<
@@ -51,13 +59,17 @@ export declare class SES extends AWSServiceClient {
     | FromEmailAddressNotVerifiedException
     | LimitExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateCustomVerificationEmailTemplate", input);
+  }
   createReceiptFilter(
     input: CreateReceiptFilterRequest,
   ): Effect.Effect<
     CreateReceiptFilterResponse,
     AlreadyExistsException | LimitExceededException | CommonAwsError
-  >;
+  > {
+    return this.call("CreateReceiptFilter", input);
+  }
   createReceiptRule(
     input: CreateReceiptRuleRequest,
   ): Effect.Effect<
@@ -70,13 +82,17 @@ export declare class SES extends AWSServiceClient {
     | RuleDoesNotExistException
     | RuleSetDoesNotExistException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateReceiptRule", input);
+  }
   createReceiptRuleSet(
     input: CreateReceiptRuleSetRequest,
   ): Effect.Effect<
     CreateReceiptRuleSetResponse,
     AlreadyExistsException | LimitExceededException | CommonAwsError
-  >;
+  > {
+    return this.call("CreateReceiptRuleSet", input);
+  }
   createTemplate(
     input: CreateTemplateRequest,
   ): Effect.Effect<
@@ -85,13 +101,17 @@ export declare class SES extends AWSServiceClient {
     | InvalidTemplateException
     | LimitExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateTemplate", input);
+  }
   deleteConfigurationSet(
     input: DeleteConfigurationSetRequest,
   ): Effect.Effect<
     DeleteConfigurationSetResponse,
     ConfigurationSetDoesNotExistException | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteConfigurationSet", input);
+  }
   deleteConfigurationSetEventDestination(
     input: DeleteConfigurationSetEventDestinationRequest,
   ): Effect.Effect<
@@ -99,7 +119,9 @@ export declare class SES extends AWSServiceClient {
     | ConfigurationSetDoesNotExistException
     | EventDestinationDoesNotExistException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteConfigurationSetEventDestination", input);
+  }
   deleteConfigurationSetTrackingOptions(
     input: DeleteConfigurationSetTrackingOptionsRequest,
   ): Effect.Effect<
@@ -107,122 +129,187 @@ export declare class SES extends AWSServiceClient {
     | ConfigurationSetDoesNotExistException
     | TrackingOptionsDoesNotExistException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteConfigurationSetTrackingOptions", input);
+  }
   deleteCustomVerificationEmailTemplate(
     input: DeleteCustomVerificationEmailTemplateRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, CommonAwsError> {
+    return this.call("DeleteCustomVerificationEmailTemplate", input);
+  }
   deleteIdentity(
     input: DeleteIdentityRequest,
-  ): Effect.Effect<DeleteIdentityResponse, CommonAwsError>;
+  ): Effect.Effect<DeleteIdentityResponse, CommonAwsError> {
+    return this.call("DeleteIdentity", input);
+  }
   deleteIdentityPolicy(
     input: DeleteIdentityPolicyRequest,
-  ): Effect.Effect<DeleteIdentityPolicyResponse, CommonAwsError>;
+  ): Effect.Effect<DeleteIdentityPolicyResponse, CommonAwsError> {
+    return this.call("DeleteIdentityPolicy", input);
+  }
   deleteReceiptFilter(
     input: DeleteReceiptFilterRequest,
-  ): Effect.Effect<DeleteReceiptFilterResponse, CommonAwsError>;
+  ): Effect.Effect<DeleteReceiptFilterResponse, CommonAwsError> {
+    return this.call("DeleteReceiptFilter", input);
+  }
   deleteReceiptRule(
     input: DeleteReceiptRuleRequest,
   ): Effect.Effect<
     DeleteReceiptRuleResponse,
     RuleSetDoesNotExistException | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteReceiptRule", input);
+  }
   deleteReceiptRuleSet(
     input: DeleteReceiptRuleSetRequest,
   ): Effect.Effect<
     DeleteReceiptRuleSetResponse,
     CannotDeleteException | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteReceiptRuleSet", input);
+  }
   deleteTemplate(
     input: DeleteTemplateRequest,
-  ): Effect.Effect<DeleteTemplateResponse, CommonAwsError>;
+  ): Effect.Effect<DeleteTemplateResponse, CommonAwsError> {
+    return this.call("DeleteTemplate", input);
+  }
   deleteVerifiedEmailAddress(
     input: DeleteVerifiedEmailAddressRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, CommonAwsError> {
+    return this.call("DeleteVerifiedEmailAddress", input);
+  }
   describeActiveReceiptRuleSet(
     input: DescribeActiveReceiptRuleSetRequest,
-  ): Effect.Effect<DescribeActiveReceiptRuleSetResponse, CommonAwsError>;
+  ): Effect.Effect<DescribeActiveReceiptRuleSetResponse, CommonAwsError> {
+    return this.call("DescribeActiveReceiptRuleSet", input);
+  }
   describeConfigurationSet(
     input: DescribeConfigurationSetRequest,
   ): Effect.Effect<
     DescribeConfigurationSetResponse,
     ConfigurationSetDoesNotExistException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeConfigurationSet", input);
+  }
   describeReceiptRule(
     input: DescribeReceiptRuleRequest,
   ): Effect.Effect<
     DescribeReceiptRuleResponse,
     RuleDoesNotExistException | RuleSetDoesNotExistException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeReceiptRule", input);
+  }
   describeReceiptRuleSet(
     input: DescribeReceiptRuleSetRequest,
   ): Effect.Effect<
     DescribeReceiptRuleSetResponse,
     RuleSetDoesNotExistException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeReceiptRuleSet", input);
+  }
   getAccountSendingEnabled(input: {}): Effect.Effect<
     GetAccountSendingEnabledResponse,
     CommonAwsError
-  >;
+  > {
+    return this.call("GetAccountSendingEnabled", input);
+  }
   getCustomVerificationEmailTemplate(
     input: GetCustomVerificationEmailTemplateRequest,
   ): Effect.Effect<
     GetCustomVerificationEmailTemplateResponse,
     CustomVerificationEmailTemplateDoesNotExistException | CommonAwsError
-  >;
+  > {
+    return this.call("GetCustomVerificationEmailTemplate", input);
+  }
   getIdentityDkimAttributes(
     input: GetIdentityDkimAttributesRequest,
-  ): Effect.Effect<GetIdentityDkimAttributesResponse, CommonAwsError>;
+  ): Effect.Effect<GetIdentityDkimAttributesResponse, CommonAwsError> {
+    return this.call("GetIdentityDkimAttributes", input);
+  }
   getIdentityMailFromDomainAttributes(
     input: GetIdentityMailFromDomainAttributesRequest,
-  ): Effect.Effect<GetIdentityMailFromDomainAttributesResponse, CommonAwsError>;
+  ): Effect.Effect<
+    GetIdentityMailFromDomainAttributesResponse,
+    CommonAwsError
+  > {
+    return this.call("GetIdentityMailFromDomainAttributes", input);
+  }
   getIdentityNotificationAttributes(
     input: GetIdentityNotificationAttributesRequest,
-  ): Effect.Effect<GetIdentityNotificationAttributesResponse, CommonAwsError>;
+  ): Effect.Effect<GetIdentityNotificationAttributesResponse, CommonAwsError> {
+    return this.call("GetIdentityNotificationAttributes", input);
+  }
   getIdentityPolicies(
     input: GetIdentityPoliciesRequest,
-  ): Effect.Effect<GetIdentityPoliciesResponse, CommonAwsError>;
+  ): Effect.Effect<GetIdentityPoliciesResponse, CommonAwsError> {
+    return this.call("GetIdentityPolicies", input);
+  }
   getIdentityVerificationAttributes(
     input: GetIdentityVerificationAttributesRequest,
-  ): Effect.Effect<GetIdentityVerificationAttributesResponse, CommonAwsError>;
-  getSendQuota(input: {}): Effect.Effect<GetSendQuotaResponse, CommonAwsError>;
+  ): Effect.Effect<GetIdentityVerificationAttributesResponse, CommonAwsError> {
+    return this.call("GetIdentityVerificationAttributes", input);
+  }
+  getSendQuota(input: {}): Effect.Effect<GetSendQuotaResponse, CommonAwsError> {
+    return this.call("GetSendQuota", input);
+  }
   getSendStatistics(input: {}): Effect.Effect<
     GetSendStatisticsResponse,
     CommonAwsError
-  >;
+  > {
+    return this.call("GetSendStatistics", input);
+  }
   getTemplate(
     input: GetTemplateRequest,
   ): Effect.Effect<
     GetTemplateResponse,
     TemplateDoesNotExistException | CommonAwsError
-  >;
+  > {
+    return this.call("GetTemplate", input);
+  }
   listConfigurationSets(
     input: ListConfigurationSetsRequest,
-  ): Effect.Effect<ListConfigurationSetsResponse, CommonAwsError>;
+  ): Effect.Effect<ListConfigurationSetsResponse, CommonAwsError> {
+    return this.call("ListConfigurationSets", input);
+  }
   listCustomVerificationEmailTemplates(
     input: ListCustomVerificationEmailTemplatesRequest,
   ): Effect.Effect<
     ListCustomVerificationEmailTemplatesResponse,
     CommonAwsError
-  >;
+  > {
+    return this.call("ListCustomVerificationEmailTemplates", input);
+  }
   listIdentities(
     input: ListIdentitiesRequest,
-  ): Effect.Effect<ListIdentitiesResponse, CommonAwsError>;
+  ): Effect.Effect<ListIdentitiesResponse, CommonAwsError> {
+    return this.call("ListIdentities", input);
+  }
   listIdentityPolicies(
     input: ListIdentityPoliciesRequest,
-  ): Effect.Effect<ListIdentityPoliciesResponse, CommonAwsError>;
+  ): Effect.Effect<ListIdentityPoliciesResponse, CommonAwsError> {
+    return this.call("ListIdentityPolicies", input);
+  }
   listReceiptFilters(
     input: ListReceiptFiltersRequest,
-  ): Effect.Effect<ListReceiptFiltersResponse, CommonAwsError>;
+  ): Effect.Effect<ListReceiptFiltersResponse, CommonAwsError> {
+    return this.call("ListReceiptFilters", input);
+  }
   listReceiptRuleSets(
     input: ListReceiptRuleSetsRequest,
-  ): Effect.Effect<ListReceiptRuleSetsResponse, CommonAwsError>;
+  ): Effect.Effect<ListReceiptRuleSetsResponse, CommonAwsError> {
+    return this.call("ListReceiptRuleSets", input);
+  }
   listTemplates(
     input: ListTemplatesRequest,
-  ): Effect.Effect<ListTemplatesResponse, CommonAwsError>;
+  ): Effect.Effect<ListTemplatesResponse, CommonAwsError> {
+    return this.call("ListTemplates", input);
+  }
   listVerifiedEmailAddresses(input: {}): Effect.Effect<
     ListVerifiedEmailAddressesResponse,
     CommonAwsError
-  >;
+  > {
+    return this.call("ListVerifiedEmailAddresses", input);
+  }
   putConfigurationSetDeliveryOptions(
     input: PutConfigurationSetDeliveryOptionsRequest,
   ): Effect.Effect<
@@ -230,22 +317,30 @@ export declare class SES extends AWSServiceClient {
     | ConfigurationSetDoesNotExistException
     | InvalidDeliveryOptionsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutConfigurationSetDeliveryOptions", input);
+  }
   putIdentityPolicy(
     input: PutIdentityPolicyRequest,
   ): Effect.Effect<
     PutIdentityPolicyResponse,
     InvalidPolicyException | CommonAwsError
-  >;
+  > {
+    return this.call("PutIdentityPolicy", input);
+  }
   reorderReceiptRuleSet(
     input: ReorderReceiptRuleSetRequest,
   ): Effect.Effect<
     ReorderReceiptRuleSetResponse,
     RuleDoesNotExistException | RuleSetDoesNotExistException | CommonAwsError
-  >;
+  > {
+    return this.call("ReorderReceiptRuleSet", input);
+  }
   sendBounce(
     input: SendBounceRequest,
-  ): Effect.Effect<SendBounceResponse, MessageRejected | CommonAwsError>;
+  ): Effect.Effect<SendBounceResponse, MessageRejected | CommonAwsError> {
+    return this.call("SendBounce", input);
+  }
   sendBulkTemplatedEmail(
     input: SendBulkTemplatedEmailRequest,
   ): Effect.Effect<
@@ -257,7 +352,9 @@ export declare class SES extends AWSServiceClient {
     | MessageRejected
     | TemplateDoesNotExistException
     | CommonAwsError
-  >;
+  > {
+    return this.call("SendBulkTemplatedEmail", input);
+  }
   sendCustomVerificationEmail(
     input: SendCustomVerificationEmailRequest,
   ): Effect.Effect<
@@ -268,7 +365,9 @@ export declare class SES extends AWSServiceClient {
     | MessageRejected
     | ProductionAccessNotGrantedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("SendCustomVerificationEmail", input);
+  }
   sendEmail(
     input: SendEmailRequest,
   ): Effect.Effect<
@@ -279,7 +378,9 @@ export declare class SES extends AWSServiceClient {
     | MailFromDomainNotVerifiedException
     | MessageRejected
     | CommonAwsError
-  >;
+  > {
+    return this.call("SendEmail", input);
+  }
   sendRawEmail(
     input: SendRawEmailRequest,
   ): Effect.Effect<
@@ -290,7 +391,9 @@ export declare class SES extends AWSServiceClient {
     | MailFromDomainNotVerifiedException
     | MessageRejected
     | CommonAwsError
-  >;
+  > {
+    return this.call("SendRawEmail", input);
+  }
   sendTemplatedEmail(
     input: SendTemplatedEmailRequest,
   ): Effect.Effect<
@@ -302,40 +405,56 @@ export declare class SES extends AWSServiceClient {
     | MessageRejected
     | TemplateDoesNotExistException
     | CommonAwsError
-  >;
+  > {
+    return this.call("SendTemplatedEmail", input);
+  }
   setActiveReceiptRuleSet(
     input: SetActiveReceiptRuleSetRequest,
   ): Effect.Effect<
     SetActiveReceiptRuleSetResponse,
     RuleSetDoesNotExistException | CommonAwsError
-  >;
+  > {
+    return this.call("SetActiveReceiptRuleSet", input);
+  }
   setIdentityDkimEnabled(
     input: SetIdentityDkimEnabledRequest,
-  ): Effect.Effect<SetIdentityDkimEnabledResponse, CommonAwsError>;
+  ): Effect.Effect<SetIdentityDkimEnabledResponse, CommonAwsError> {
+    return this.call("SetIdentityDkimEnabled", input);
+  }
   setIdentityFeedbackForwardingEnabled(
     input: SetIdentityFeedbackForwardingEnabledRequest,
   ): Effect.Effect<
     SetIdentityFeedbackForwardingEnabledResponse,
     CommonAwsError
-  >;
+  > {
+    return this.call("SetIdentityFeedbackForwardingEnabled", input);
+  }
   setIdentityHeadersInNotificationsEnabled(
     input: SetIdentityHeadersInNotificationsEnabledRequest,
   ): Effect.Effect<
     SetIdentityHeadersInNotificationsEnabledResponse,
     CommonAwsError
-  >;
+  > {
+    return this.call("SetIdentityHeadersInNotificationsEnabled", input);
+  }
   setIdentityMailFromDomain(
     input: SetIdentityMailFromDomainRequest,
-  ): Effect.Effect<SetIdentityMailFromDomainResponse, CommonAwsError>;
+  ): Effect.Effect<SetIdentityMailFromDomainResponse, CommonAwsError> {
+    return this.call("SetIdentityMailFromDomain", input);
+  }
   setIdentityNotificationTopic(
     input: SetIdentityNotificationTopicRequest,
-  ): Effect.Effect<SetIdentityNotificationTopicResponse, CommonAwsError>;
+  ): Effect.Effect<SetIdentityNotificationTopicResponse, CommonAwsError> {
+    return this.call("SetIdentityNotificationTopic", input);
+  }
   setReceiptRulePosition(
     input: SetReceiptRulePositionRequest,
   ): Effect.Effect<
     SetReceiptRulePositionResponse,
     RuleDoesNotExistException | RuleSetDoesNotExistException | CommonAwsError
-  >;
+  > {
+    return this.call("SetReceiptRulePosition", input);
+  }
   testRenderTemplate(
     input: TestRenderTemplateRequest,
   ): Effect.Effect<
@@ -344,10 +463,14 @@ export declare class SES extends AWSServiceClient {
     | MissingRenderingAttributeException
     | TemplateDoesNotExistException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TestRenderTemplate", input);
+  }
   updateAccountSendingEnabled(
     input: UpdateAccountSendingEnabledRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, CommonAwsError> {
+    return this.call("UpdateAccountSendingEnabled", input);
+  }
   updateConfigurationSetEventDestination(
     input: UpdateConfigurationSetEventDestinationRequest,
   ): Effect.Effect<
@@ -358,13 +481,19 @@ export declare class SES extends AWSServiceClient {
     | InvalidFirehoseDestinationException
     | InvalidSNSDestinationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateConfigurationSetEventDestination", input);
+  }
   updateConfigurationSetReputationMetricsEnabled(
     input: UpdateConfigurationSetReputationMetricsEnabledRequest,
-  ): Effect.Effect<{}, ConfigurationSetDoesNotExistException | CommonAwsError>;
+  ): Effect.Effect<{}, ConfigurationSetDoesNotExistException | CommonAwsError> {
+    return this.call("UpdateConfigurationSetReputationMetricsEnabled", input);
+  }
   updateConfigurationSetSendingEnabled(
     input: UpdateConfigurationSetSendingEnabledRequest,
-  ): Effect.Effect<{}, ConfigurationSetDoesNotExistException | CommonAwsError>;
+  ): Effect.Effect<{}, ConfigurationSetDoesNotExistException | CommonAwsError> {
+    return this.call("UpdateConfigurationSetSendingEnabled", input);
+  }
   updateConfigurationSetTrackingOptions(
     input: UpdateConfigurationSetTrackingOptionsRequest,
   ): Effect.Effect<
@@ -373,7 +502,9 @@ export declare class SES extends AWSServiceClient {
     | InvalidTrackingOptionsException
     | TrackingOptionsDoesNotExistException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateConfigurationSetTrackingOptions", input);
+  }
   updateCustomVerificationEmailTemplate(
     input: UpdateCustomVerificationEmailTemplateRequest,
   ): Effect.Effect<
@@ -382,7 +513,9 @@ export declare class SES extends AWSServiceClient {
     | CustomVerificationEmailTemplateDoesNotExistException
     | FromEmailAddressNotVerifiedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateCustomVerificationEmailTemplate", input);
+  }
   updateReceiptRule(
     input: UpdateReceiptRuleRequest,
   ): Effect.Effect<
@@ -394,28 +527,42 @@ export declare class SES extends AWSServiceClient {
     | RuleDoesNotExistException
     | RuleSetDoesNotExistException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateReceiptRule", input);
+  }
   updateTemplate(
     input: UpdateTemplateRequest,
   ): Effect.Effect<
     UpdateTemplateResponse,
     InvalidTemplateException | TemplateDoesNotExistException | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateTemplate", input);
+  }
   verifyDomainDkim(
     input: VerifyDomainDkimRequest,
-  ): Effect.Effect<VerifyDomainDkimResponse, CommonAwsError>;
+  ): Effect.Effect<VerifyDomainDkimResponse, CommonAwsError> {
+    return this.call("VerifyDomainDkim", input);
+  }
   verifyDomainIdentity(
     input: VerifyDomainIdentityRequest,
-  ): Effect.Effect<VerifyDomainIdentityResponse, CommonAwsError>;
+  ): Effect.Effect<VerifyDomainIdentityResponse, CommonAwsError> {
+    return this.call("VerifyDomainIdentity", input);
+  }
   verifyEmailAddress(
     input: VerifyEmailAddressRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, CommonAwsError> {
+    return this.call("VerifyEmailAddress", input);
+  }
   verifyEmailIdentity(
     input: VerifyEmailIdentityRequest,
-  ): Effect.Effect<VerifyEmailIdentityResponse, CommonAwsError>;
+  ): Effect.Effect<VerifyEmailIdentityResponse, CommonAwsError> {
+    return this.call("VerifyEmailIdentity", input);
+  }
 }
 
-export declare class Ses extends SES {}
+export class Ses extends SES {}
+
+export default SES;
 
 export declare class AccountSendingPausedException extends EffectData.TaggedError(
   "AccountSendingPausedException",

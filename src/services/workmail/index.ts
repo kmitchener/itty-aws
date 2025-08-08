@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class WorkMail extends AWSServiceClient {
+export class WorkMail extends AWSServiceClient {
   associateDelegateToResource(
     input: AssociateDelegateToResourceRequest,
   ): Effect.Effect<
@@ -14,7 +14,9 @@ export declare class WorkMail extends AWSServiceClient {
     | OrganizationStateException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AssociateDelegateToResource", input);
+  }
   associateMemberToGroup(
     input: AssociateMemberToGroupRequest,
   ): Effect.Effect<
@@ -28,7 +30,9 @@ export declare class WorkMail extends AWSServiceClient {
     | OrganizationStateException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AssociateMemberToGroup", input);
+  }
   assumeImpersonationRole(
     input: AssumeImpersonationRoleRequest,
   ): Effect.Effect<
@@ -38,7 +42,9 @@ export declare class WorkMail extends AWSServiceClient {
     | OrganizationStateException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AssumeImpersonationRole", input);
+  }
   cancelMailboxExportJob(
     input: CancelMailboxExportJobRequest,
   ): Effect.Effect<
@@ -48,7 +54,9 @@ export declare class WorkMail extends AWSServiceClient {
     | OrganizationNotFoundException
     | OrganizationStateException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CancelMailboxExportJob", input);
+  }
   createAlias(
     input: CreateAliasRequest,
   ): Effect.Effect<
@@ -63,7 +71,9 @@ export declare class WorkMail extends AWSServiceClient {
     | OrganizationNotFoundException
     | OrganizationStateException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateAlias", input);
+  }
   createAvailabilityConfiguration(
     input: CreateAvailabilityConfigurationRequest,
   ): Effect.Effect<
@@ -74,7 +84,9 @@ export declare class WorkMail extends AWSServiceClient {
     | OrganizationNotFoundException
     | OrganizationStateException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateAvailabilityConfiguration", input);
+  }
   createGroup(
     input: CreateGroupRequest,
   ): Effect.Effect<
@@ -88,13 +100,17 @@ export declare class WorkMail extends AWSServiceClient {
     | ReservedNameException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateGroup", input);
+  }
   createIdentityCenterApplication(
     input: CreateIdentityCenterApplicationRequest,
   ): Effect.Effect<
     CreateIdentityCenterApplicationResponse,
     InvalidParameterException | CommonAwsError
-  >;
+  > {
+    return this.call("CreateIdentityCenterApplication", input);
+  }
   createImpersonationRole(
     input: CreateImpersonationRoleRequest,
   ): Effect.Effect<
@@ -106,7 +122,9 @@ export declare class WorkMail extends AWSServiceClient {
     | OrganizationNotFoundException
     | OrganizationStateException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateImpersonationRole", input);
+  }
   createMobileDeviceAccessRule(
     input: CreateMobileDeviceAccessRuleRequest,
   ): Effect.Effect<
@@ -116,7 +134,9 @@ export declare class WorkMail extends AWSServiceClient {
     | OrganizationNotFoundException
     | OrganizationStateException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateMobileDeviceAccessRule", input);
+  }
   createOrganization(
     input: CreateOrganizationRequest,
   ): Effect.Effect<
@@ -127,7 +147,9 @@ export declare class WorkMail extends AWSServiceClient {
     | LimitExceededException
     | NameAvailabilityException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateOrganization", input);
+  }
   createResource(
     input: CreateResourceRequest,
   ): Effect.Effect<
@@ -141,7 +163,9 @@ export declare class WorkMail extends AWSServiceClient {
     | ReservedNameException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateResource", input);
+  }
   createUser(
     input: CreateUserRequest,
   ): Effect.Effect<
@@ -156,13 +180,17 @@ export declare class WorkMail extends AWSServiceClient {
     | ReservedNameException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateUser", input);
+  }
   deleteAccessControlRule(
     input: DeleteAccessControlRuleRequest,
   ): Effect.Effect<
     DeleteAccessControlRuleResponse,
     OrganizationNotFoundException | OrganizationStateException | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteAccessControlRule", input);
+  }
   deleteAlias(
     input: DeleteAliasRequest,
   ): Effect.Effect<
@@ -173,13 +201,17 @@ export declare class WorkMail extends AWSServiceClient {
     | OrganizationNotFoundException
     | OrganizationStateException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteAlias", input);
+  }
   deleteAvailabilityConfiguration(
     input: DeleteAvailabilityConfigurationRequest,
   ): Effect.Effect<
     DeleteAvailabilityConfigurationResponse,
     OrganizationNotFoundException | OrganizationStateException | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteAvailabilityConfiguration", input);
+  }
   deleteEmailMonitoringConfiguration(
     input: DeleteEmailMonitoringConfigurationRequest,
   ): Effect.Effect<
@@ -188,7 +220,9 @@ export declare class WorkMail extends AWSServiceClient {
     | OrganizationNotFoundException
     | OrganizationStateException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteEmailMonitoringConfiguration", input);
+  }
   deleteGroup(
     input: DeleteGroupRequest,
   ): Effect.Effect<
@@ -201,13 +235,17 @@ export declare class WorkMail extends AWSServiceClient {
     | OrganizationStateException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteGroup", input);
+  }
   deleteIdentityCenterApplication(
     input: DeleteIdentityCenterApplicationRequest,
   ): Effect.Effect<
     DeleteIdentityCenterApplicationResponse,
     InvalidParameterException | OrganizationStateException | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteIdentityCenterApplication", input);
+  }
   deleteIdentityProviderConfiguration(
     input: DeleteIdentityProviderConfigurationRequest,
   ): Effect.Effect<
@@ -216,7 +254,9 @@ export declare class WorkMail extends AWSServiceClient {
     | OrganizationNotFoundException
     | OrganizationStateException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteIdentityProviderConfiguration", input);
+  }
   deleteImpersonationRole(
     input: DeleteImpersonationRoleRequest,
   ): Effect.Effect<
@@ -225,7 +265,9 @@ export declare class WorkMail extends AWSServiceClient {
     | OrganizationNotFoundException
     | OrganizationStateException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteImpersonationRole", input);
+  }
   deleteMailboxPermissions(
     input: DeleteMailboxPermissionsRequest,
   ): Effect.Effect<
@@ -236,7 +278,9 @@ export declare class WorkMail extends AWSServiceClient {
     | OrganizationNotFoundException
     | OrganizationStateException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteMailboxPermissions", input);
+  }
   deleteMobileDeviceAccessOverride(
     input: DeleteMobileDeviceAccessOverrideRequest,
   ): Effect.Effect<
@@ -246,7 +290,9 @@ export declare class WorkMail extends AWSServiceClient {
     | OrganizationNotFoundException
     | OrganizationStateException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteMobileDeviceAccessOverride", input);
+  }
   deleteMobileDeviceAccessRule(
     input: DeleteMobileDeviceAccessRuleRequest,
   ): Effect.Effect<
@@ -255,7 +301,9 @@ export declare class WorkMail extends AWSServiceClient {
     | OrganizationNotFoundException
     | OrganizationStateException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteMobileDeviceAccessRule", input);
+  }
   deleteOrganization(
     input: DeleteOrganizationRequest,
   ): Effect.Effect<
@@ -264,7 +312,9 @@ export declare class WorkMail extends AWSServiceClient {
     | OrganizationNotFoundException
     | OrganizationStateException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteOrganization", input);
+  }
   deletePersonalAccessToken(
     input: DeletePersonalAccessTokenRequest,
   ): Effect.Effect<
@@ -273,7 +323,9 @@ export declare class WorkMail extends AWSServiceClient {
     | OrganizationNotFoundException
     | OrganizationStateException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeletePersonalAccessToken", input);
+  }
   deleteResource(
     input: DeleteResourceRequest,
   ): Effect.Effect<
@@ -284,7 +336,9 @@ export declare class WorkMail extends AWSServiceClient {
     | OrganizationStateException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteResource", input);
+  }
   deleteRetentionPolicy(
     input: DeleteRetentionPolicyRequest,
   ): Effect.Effect<
@@ -293,7 +347,9 @@ export declare class WorkMail extends AWSServiceClient {
     | OrganizationNotFoundException
     | OrganizationStateException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteRetentionPolicy", input);
+  }
   deleteUser(
     input: DeleteUserRequest,
   ): Effect.Effect<
@@ -306,7 +362,9 @@ export declare class WorkMail extends AWSServiceClient {
     | OrganizationStateException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteUser", input);
+  }
   deregisterFromWorkMail(
     input: DeregisterFromWorkMailRequest,
   ): Effect.Effect<
@@ -317,7 +375,9 @@ export declare class WorkMail extends AWSServiceClient {
     | OrganizationNotFoundException
     | OrganizationStateException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeregisterFromWorkMail", input);
+  }
   deregisterMailDomain(
     input: DeregisterMailDomainRequest,
   ): Effect.Effect<
@@ -328,7 +388,9 @@ export declare class WorkMail extends AWSServiceClient {
     | OrganizationNotFoundException
     | OrganizationStateException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeregisterMailDomain", input);
+  }
   describeEmailMonitoringConfiguration(
     input: DescribeEmailMonitoringConfigurationRequest,
   ): Effect.Effect<
@@ -338,7 +400,9 @@ export declare class WorkMail extends AWSServiceClient {
     | OrganizationStateException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeEmailMonitoringConfiguration", input);
+  }
   describeEntity(
     input: DescribeEntityRequest,
   ): Effect.Effect<
@@ -348,7 +412,9 @@ export declare class WorkMail extends AWSServiceClient {
     | OrganizationNotFoundException
     | OrganizationStateException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeEntity", input);
+  }
   describeGroup(
     input: DescribeGroupRequest,
   ): Effect.Effect<
@@ -358,7 +424,9 @@ export declare class WorkMail extends AWSServiceClient {
     | OrganizationNotFoundException
     | OrganizationStateException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeGroup", input);
+  }
   describeIdentityProviderConfiguration(
     input: DescribeIdentityProviderConfigurationRequest,
   ): Effect.Effect<
@@ -368,13 +436,17 @@ export declare class WorkMail extends AWSServiceClient {
     | OrganizationStateException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeIdentityProviderConfiguration", input);
+  }
   describeInboundDmarcSettings(
     input: DescribeInboundDmarcSettingsRequest,
   ): Effect.Effect<
     DescribeInboundDmarcSettingsResponse,
     OrganizationNotFoundException | OrganizationStateException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeInboundDmarcSettings", input);
+  }
   describeMailboxExportJob(
     input: DescribeMailboxExportJobRequest,
   ): Effect.Effect<
@@ -384,13 +456,17 @@ export declare class WorkMail extends AWSServiceClient {
     | OrganizationNotFoundException
     | OrganizationStateException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeMailboxExportJob", input);
+  }
   describeOrganization(
     input: DescribeOrganizationRequest,
   ): Effect.Effect<
     DescribeOrganizationResponse,
     InvalidParameterException | OrganizationNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeOrganization", input);
+  }
   describeResource(
     input: DescribeResourceRequest,
   ): Effect.Effect<
@@ -401,7 +477,9 @@ export declare class WorkMail extends AWSServiceClient {
     | OrganizationStateException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeResource", input);
+  }
   describeUser(
     input: DescribeUserRequest,
   ): Effect.Effect<
@@ -413,7 +491,9 @@ export declare class WorkMail extends AWSServiceClient {
     | OrganizationNotFoundException
     | OrganizationStateException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeUser", input);
+  }
   disassociateDelegateFromResource(
     input: DisassociateDelegateFromResourceRequest,
   ): Effect.Effect<
@@ -425,7 +505,9 @@ export declare class WorkMail extends AWSServiceClient {
     | OrganizationStateException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DisassociateDelegateFromResource", input);
+  }
   disassociateMemberFromGroup(
     input: DisassociateMemberFromGroupRequest,
   ): Effect.Effect<
@@ -439,7 +521,9 @@ export declare class WorkMail extends AWSServiceClient {
     | OrganizationStateException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DisassociateMemberFromGroup", input);
+  }
   getAccessControlEffect(
     input: GetAccessControlEffectRequest,
   ): Effect.Effect<
@@ -450,7 +534,9 @@ export declare class WorkMail extends AWSServiceClient {
     | OrganizationStateException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetAccessControlEffect", input);
+  }
   getDefaultRetentionPolicy(
     input: GetDefaultRetentionPolicyRequest,
   ): Effect.Effect<
@@ -460,7 +546,9 @@ export declare class WorkMail extends AWSServiceClient {
     | OrganizationNotFoundException
     | OrganizationStateException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetDefaultRetentionPolicy", input);
+  }
   getImpersonationRole(
     input: GetImpersonationRoleRequest,
   ): Effect.Effect<
@@ -470,7 +558,9 @@ export declare class WorkMail extends AWSServiceClient {
     | OrganizationStateException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetImpersonationRole", input);
+  }
   getImpersonationRoleEffect(
     input: GetImpersonationRoleEffectRequest,
   ): Effect.Effect<
@@ -482,7 +572,9 @@ export declare class WorkMail extends AWSServiceClient {
     | OrganizationStateException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetImpersonationRoleEffect", input);
+  }
   getMailboxDetails(
     input: GetMailboxDetailsRequest,
   ): Effect.Effect<
@@ -492,7 +584,9 @@ export declare class WorkMail extends AWSServiceClient {
     | OrganizationNotFoundException
     | OrganizationStateException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetMailboxDetails", input);
+  }
   getMailDomain(
     input: GetMailDomainRequest,
   ): Effect.Effect<
@@ -502,7 +596,9 @@ export declare class WorkMail extends AWSServiceClient {
     | OrganizationNotFoundException
     | OrganizationStateException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetMailDomain", input);
+  }
   getMobileDeviceAccessEffect(
     input: GetMobileDeviceAccessEffectRequest,
   ): Effect.Effect<
@@ -511,7 +607,9 @@ export declare class WorkMail extends AWSServiceClient {
     | OrganizationNotFoundException
     | OrganizationStateException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetMobileDeviceAccessEffect", input);
+  }
   getMobileDeviceAccessOverride(
     input: GetMobileDeviceAccessOverrideRequest,
   ): Effect.Effect<
@@ -522,7 +620,9 @@ export declare class WorkMail extends AWSServiceClient {
     | OrganizationStateException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetMobileDeviceAccessOverride", input);
+  }
   getPersonalAccessTokenMetadata(
     input: GetPersonalAccessTokenMetadataRequest,
   ): Effect.Effect<
@@ -532,13 +632,17 @@ export declare class WorkMail extends AWSServiceClient {
     | OrganizationStateException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetPersonalAccessTokenMetadata", input);
+  }
   listAccessControlRules(
     input: ListAccessControlRulesRequest,
   ): Effect.Effect<
     ListAccessControlRulesResponse,
     OrganizationNotFoundException | OrganizationStateException | CommonAwsError
-  >;
+  > {
+    return this.call("ListAccessControlRules", input);
+  }
   listAliases(
     input: ListAliasesRequest,
   ): Effect.Effect<
@@ -549,7 +653,9 @@ export declare class WorkMail extends AWSServiceClient {
     | OrganizationNotFoundException
     | OrganizationStateException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListAliases", input);
+  }
   listAvailabilityConfigurations(
     input: ListAvailabilityConfigurationsRequest,
   ): Effect.Effect<
@@ -558,7 +664,9 @@ export declare class WorkMail extends AWSServiceClient {
     | OrganizationNotFoundException
     | OrganizationStateException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListAvailabilityConfigurations", input);
+  }
   listGroupMembers(
     input: ListGroupMembersRequest,
   ): Effect.Effect<
@@ -569,7 +677,9 @@ export declare class WorkMail extends AWSServiceClient {
     | OrganizationNotFoundException
     | OrganizationStateException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListGroupMembers", input);
+  }
   listGroups(
     input: ListGroupsRequest,
   ): Effect.Effect<
@@ -579,7 +689,9 @@ export declare class WorkMail extends AWSServiceClient {
     | OrganizationNotFoundException
     | OrganizationStateException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListGroups", input);
+  }
   listGroupsForEntity(
     input: ListGroupsForEntityRequest,
   ): Effect.Effect<
@@ -590,7 +702,9 @@ export declare class WorkMail extends AWSServiceClient {
     | OrganizationNotFoundException
     | OrganizationStateException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListGroupsForEntity", input);
+  }
   listImpersonationRoles(
     input: ListImpersonationRolesRequest,
   ): Effect.Effect<
@@ -599,7 +713,9 @@ export declare class WorkMail extends AWSServiceClient {
     | OrganizationNotFoundException
     | OrganizationStateException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListImpersonationRoles", input);
+  }
   listMailboxExportJobs(
     input: ListMailboxExportJobsRequest,
   ): Effect.Effect<
@@ -608,7 +724,9 @@ export declare class WorkMail extends AWSServiceClient {
     | OrganizationNotFoundException
     | OrganizationStateException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListMailboxExportJobs", input);
+  }
   listMailboxPermissions(
     input: ListMailboxPermissionsRequest,
   ): Effect.Effect<
@@ -618,7 +736,9 @@ export declare class WorkMail extends AWSServiceClient {
     | OrganizationNotFoundException
     | OrganizationStateException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListMailboxPermissions", input);
+  }
   listMailDomains(
     input: ListMailDomainsRequest,
   ): Effect.Effect<
@@ -627,7 +747,9 @@ export declare class WorkMail extends AWSServiceClient {
     | OrganizationNotFoundException
     | OrganizationStateException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListMailDomains", input);
+  }
   listMobileDeviceAccessOverrides(
     input: ListMobileDeviceAccessOverridesRequest,
   ): Effect.Effect<
@@ -637,7 +759,9 @@ export declare class WorkMail extends AWSServiceClient {
     | OrganizationNotFoundException
     | OrganizationStateException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListMobileDeviceAccessOverrides", input);
+  }
   listMobileDeviceAccessRules(
     input: ListMobileDeviceAccessRulesRequest,
   ): Effect.Effect<
@@ -646,13 +770,17 @@ export declare class WorkMail extends AWSServiceClient {
     | OrganizationNotFoundException
     | OrganizationStateException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListMobileDeviceAccessRules", input);
+  }
   listOrganizations(
     input: ListOrganizationsRequest,
   ): Effect.Effect<
     ListOrganizationsResponse,
     InvalidParameterException | CommonAwsError
-  >;
+  > {
+    return this.call("ListOrganizations", input);
+  }
   listPersonalAccessTokens(
     input: ListPersonalAccessTokensRequest,
   ): Effect.Effect<
@@ -663,7 +791,9 @@ export declare class WorkMail extends AWSServiceClient {
     | OrganizationNotFoundException
     | OrganizationStateException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListPersonalAccessTokens", input);
+  }
   listResourceDelegates(
     input: ListResourceDelegatesRequest,
   ): Effect.Effect<
@@ -675,7 +805,9 @@ export declare class WorkMail extends AWSServiceClient {
     | OrganizationStateException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListResourceDelegates", input);
+  }
   listResources(
     input: ListResourcesRequest,
   ): Effect.Effect<
@@ -685,13 +817,17 @@ export declare class WorkMail extends AWSServiceClient {
     | OrganizationStateException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListResources", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
     ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   listUsers(
     input: ListUsersRequest,
   ): Effect.Effect<
@@ -700,7 +836,9 @@ export declare class WorkMail extends AWSServiceClient {
     | OrganizationNotFoundException
     | OrganizationStateException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListUsers", input);
+  }
   putAccessControlRule(
     input: PutAccessControlRuleRequest,
   ): Effect.Effect<
@@ -712,7 +850,9 @@ export declare class WorkMail extends AWSServiceClient {
     | OrganizationStateException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutAccessControlRule", input);
+  }
   putEmailMonitoringConfiguration(
     input: PutEmailMonitoringConfigurationRequest,
   ): Effect.Effect<
@@ -722,7 +862,9 @@ export declare class WorkMail extends AWSServiceClient {
     | OrganizationStateException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutEmailMonitoringConfiguration", input);
+  }
   putIdentityProviderConfiguration(
     input: PutIdentityProviderConfigurationRequest,
   ): Effect.Effect<
@@ -732,13 +874,17 @@ export declare class WorkMail extends AWSServiceClient {
     | OrganizationStateException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutIdentityProviderConfiguration", input);
+  }
   putInboundDmarcSettings(
     input: PutInboundDmarcSettingsRequest,
   ): Effect.Effect<
     PutInboundDmarcSettingsResponse,
     OrganizationNotFoundException | OrganizationStateException | CommonAwsError
-  >;
+  > {
+    return this.call("PutInboundDmarcSettings", input);
+  }
   putMailboxPermissions(
     input: PutMailboxPermissionsRequest,
   ): Effect.Effect<
@@ -749,7 +895,9 @@ export declare class WorkMail extends AWSServiceClient {
     | OrganizationNotFoundException
     | OrganizationStateException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutMailboxPermissions", input);
+  }
   putMobileDeviceAccessOverride(
     input: PutMobileDeviceAccessOverrideRequest,
   ): Effect.Effect<
@@ -760,7 +908,9 @@ export declare class WorkMail extends AWSServiceClient {
     | OrganizationNotFoundException
     | OrganizationStateException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutMobileDeviceAccessOverride", input);
+  }
   putRetentionPolicy(
     input: PutRetentionPolicyRequest,
   ): Effect.Effect<
@@ -770,7 +920,9 @@ export declare class WorkMail extends AWSServiceClient {
     | OrganizationNotFoundException
     | OrganizationStateException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutRetentionPolicy", input);
+  }
   registerMailDomain(
     input: RegisterMailDomainRequest,
   ): Effect.Effect<
@@ -781,7 +933,9 @@ export declare class WorkMail extends AWSServiceClient {
     | OrganizationNotFoundException
     | OrganizationStateException
     | CommonAwsError
-  >;
+  > {
+    return this.call("RegisterMailDomain", input);
+  }
   registerToWorkMail(
     input: RegisterToWorkMailRequest,
   ): Effect.Effect<
@@ -798,7 +952,9 @@ export declare class WorkMail extends AWSServiceClient {
     | OrganizationNotFoundException
     | OrganizationStateException
     | CommonAwsError
-  >;
+  > {
+    return this.call("RegisterToWorkMail", input);
+  }
   resetPassword(
     input: ResetPasswordRequest,
   ): Effect.Effect<
@@ -813,7 +969,9 @@ export declare class WorkMail extends AWSServiceClient {
     | OrganizationStateException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ResetPassword", input);
+  }
   startMailboxExportJob(
     input: StartMailboxExportJobRequest,
   ): Effect.Effect<
@@ -824,7 +982,9 @@ export declare class WorkMail extends AWSServiceClient {
     | OrganizationNotFoundException
     | OrganizationStateException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartMailboxExportJob", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -834,7 +994,9 @@ export declare class WorkMail extends AWSServiceClient {
     | ResourceNotFoundException
     | TooManyTagsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   testAvailabilityConfiguration(
     input: TestAvailabilityConfigurationRequest,
   ): Effect.Effect<
@@ -844,13 +1006,17 @@ export declare class WorkMail extends AWSServiceClient {
     | OrganizationStateException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TestAvailabilityConfiguration", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
     ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
   updateAvailabilityConfiguration(
     input: UpdateAvailabilityConfigurationRequest,
   ): Effect.Effect<
@@ -860,7 +1026,9 @@ export declare class WorkMail extends AWSServiceClient {
     | OrganizationStateException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateAvailabilityConfiguration", input);
+  }
   updateDefaultMailDomain(
     input: UpdateDefaultMailDomainRequest,
   ): Effect.Effect<
@@ -871,7 +1039,9 @@ export declare class WorkMail extends AWSServiceClient {
     | OrganizationNotFoundException
     | OrganizationStateException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateDefaultMailDomain", input);
+  }
   updateGroup(
     input: UpdateGroupRequest,
   ): Effect.Effect<
@@ -883,7 +1053,9 @@ export declare class WorkMail extends AWSServiceClient {
     | OrganizationStateException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateGroup", input);
+  }
   updateImpersonationRole(
     input: UpdateImpersonationRoleRequest,
   ): Effect.Effect<
@@ -896,7 +1068,9 @@ export declare class WorkMail extends AWSServiceClient {
     | OrganizationStateException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateImpersonationRole", input);
+  }
   updateMailboxQuota(
     input: UpdateMailboxQuotaRequest,
   ): Effect.Effect<
@@ -907,7 +1081,9 @@ export declare class WorkMail extends AWSServiceClient {
     | OrganizationNotFoundException
     | OrganizationStateException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateMailboxQuota", input);
+  }
   updateMobileDeviceAccessRule(
     input: UpdateMobileDeviceAccessRuleRequest,
   ): Effect.Effect<
@@ -917,7 +1093,9 @@ export declare class WorkMail extends AWSServiceClient {
     | OrganizationNotFoundException
     | OrganizationStateException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateMobileDeviceAccessRule", input);
+  }
   updatePrimaryEmailAddress(
     input: UpdatePrimaryEmailAddressRequest,
   ): Effect.Effect<
@@ -934,7 +1112,9 @@ export declare class WorkMail extends AWSServiceClient {
     | OrganizationStateException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdatePrimaryEmailAddress", input);
+  }
   updateResource(
     input: UpdateResourceRequest,
   ): Effect.Effect<
@@ -952,7 +1132,9 @@ export declare class WorkMail extends AWSServiceClient {
     | OrganizationStateException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateResource", input);
+  }
   updateUser(
     input: UpdateUserRequest,
   ): Effect.Effect<
@@ -966,10 +1148,14 @@ export declare class WorkMail extends AWSServiceClient {
     | OrganizationStateException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateUser", input);
+  }
 }
 
-export declare class Workmail extends WorkMail {}
+export class Workmail extends WorkMail {}
+
+export default WorkMail;
 
 export interface AccessControlRule {
   Name?: string;

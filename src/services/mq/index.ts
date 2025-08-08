@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class mq extends AWSServiceClient {
+export class mq extends AWSServiceClient {
   createBroker(
     input: CreateBrokerRequest,
   ): Effect.Effect<
@@ -13,7 +13,9 @@ export declare class mq extends AWSServiceClient {
     | InternalServerErrorException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateBroker", input);
+  }
   createConfiguration(
     input: CreateConfigurationRequest,
   ): Effect.Effect<
@@ -23,7 +25,9 @@ export declare class mq extends AWSServiceClient {
     | ForbiddenException
     | InternalServerErrorException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateConfiguration", input);
+  }
   createTags(
     input: CreateTagsRequest,
   ): Effect.Effect<
@@ -33,7 +37,9 @@ export declare class mq extends AWSServiceClient {
     | InternalServerErrorException
     | NotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateTags", input);
+  }
   createUser(
     input: CreateUserRequest,
   ): Effect.Effect<
@@ -44,7 +50,9 @@ export declare class mq extends AWSServiceClient {
     | InternalServerErrorException
     | NotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateUser", input);
+  }
   deleteBroker(
     input: DeleteBrokerRequest,
   ): Effect.Effect<
@@ -54,7 +62,9 @@ export declare class mq extends AWSServiceClient {
     | InternalServerErrorException
     | NotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteBroker", input);
+  }
   deleteConfiguration(
     input: DeleteConfigurationRequest,
   ): Effect.Effect<
@@ -65,7 +75,9 @@ export declare class mq extends AWSServiceClient {
     | InternalServerErrorException
     | NotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteConfiguration", input);
+  }
   deleteTags(
     input: DeleteTagsRequest,
   ): Effect.Effect<
@@ -75,7 +87,9 @@ export declare class mq extends AWSServiceClient {
     | InternalServerErrorException
     | NotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteTags", input);
+  }
   deleteUser(
     input: DeleteUserRequest,
   ): Effect.Effect<
@@ -85,7 +99,9 @@ export declare class mq extends AWSServiceClient {
     | InternalServerErrorException
     | NotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteUser", input);
+  }
   describeBroker(
     input: DescribeBrokerRequest,
   ): Effect.Effect<
@@ -95,7 +111,9 @@ export declare class mq extends AWSServiceClient {
     | InternalServerErrorException
     | NotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeBroker", input);
+  }
   describeBrokerEngineTypes(
     input: DescribeBrokerEngineTypesRequest,
   ): Effect.Effect<
@@ -104,7 +122,9 @@ export declare class mq extends AWSServiceClient {
     | ForbiddenException
     | InternalServerErrorException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeBrokerEngineTypes", input);
+  }
   describeBrokerInstanceOptions(
     input: DescribeBrokerInstanceOptionsRequest,
   ): Effect.Effect<
@@ -113,7 +133,9 @@ export declare class mq extends AWSServiceClient {
     | ForbiddenException
     | InternalServerErrorException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeBrokerInstanceOptions", input);
+  }
   describeConfiguration(
     input: DescribeConfigurationRequest,
   ): Effect.Effect<
@@ -123,7 +145,9 @@ export declare class mq extends AWSServiceClient {
     | InternalServerErrorException
     | NotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeConfiguration", input);
+  }
   describeConfigurationRevision(
     input: DescribeConfigurationRevisionRequest,
   ): Effect.Effect<
@@ -133,7 +157,9 @@ export declare class mq extends AWSServiceClient {
     | InternalServerErrorException
     | NotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeConfigurationRevision", input);
+  }
   describeUser(
     input: DescribeUserRequest,
   ): Effect.Effect<
@@ -143,7 +169,9 @@ export declare class mq extends AWSServiceClient {
     | InternalServerErrorException
     | NotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeUser", input);
+  }
   listBrokers(
     input: ListBrokersRequest,
   ): Effect.Effect<
@@ -152,7 +180,9 @@ export declare class mq extends AWSServiceClient {
     | ForbiddenException
     | InternalServerErrorException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListBrokers", input);
+  }
   listConfigurationRevisions(
     input: ListConfigurationRevisionsRequest,
   ): Effect.Effect<
@@ -162,7 +192,9 @@ export declare class mq extends AWSServiceClient {
     | InternalServerErrorException
     | NotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListConfigurationRevisions", input);
+  }
   listConfigurations(
     input: ListConfigurationsRequest,
   ): Effect.Effect<
@@ -171,7 +203,9 @@ export declare class mq extends AWSServiceClient {
     | ForbiddenException
     | InternalServerErrorException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListConfigurations", input);
+  }
   listTags(
     input: ListTagsRequest,
   ): Effect.Effect<
@@ -181,7 +215,9 @@ export declare class mq extends AWSServiceClient {
     | InternalServerErrorException
     | NotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTags", input);
+  }
   listUsers(
     input: ListUsersRequest,
   ): Effect.Effect<
@@ -191,7 +227,9 @@ export declare class mq extends AWSServiceClient {
     | InternalServerErrorException
     | NotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListUsers", input);
+  }
   promote(
     input: PromoteRequest,
   ): Effect.Effect<
@@ -201,7 +239,9 @@ export declare class mq extends AWSServiceClient {
     | InternalServerErrorException
     | NotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("Promote", input);
+  }
   rebootBroker(
     input: RebootBrokerRequest,
   ): Effect.Effect<
@@ -211,7 +251,9 @@ export declare class mq extends AWSServiceClient {
     | InternalServerErrorException
     | NotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("RebootBroker", input);
+  }
   updateBroker(
     input: UpdateBrokerRequest,
   ): Effect.Effect<
@@ -222,7 +264,9 @@ export declare class mq extends AWSServiceClient {
     | InternalServerErrorException
     | NotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateBroker", input);
+  }
   updateConfiguration(
     input: UpdateConfigurationRequest,
   ): Effect.Effect<
@@ -233,7 +277,9 @@ export declare class mq extends AWSServiceClient {
     | InternalServerErrorException
     | NotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateConfiguration", input);
+  }
   updateUser(
     input: UpdateUserRequest,
   ): Effect.Effect<
@@ -244,10 +290,14 @@ export declare class mq extends AWSServiceClient {
     | InternalServerErrorException
     | NotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateUser", input);
+  }
 }
 
-export declare class Mq extends mq {}
+export class Mq extends mq {}
+
+export default mq;
 
 export type __boolean = boolean;
 

@@ -2,10 +2,12 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class CloudWatch extends AWSServiceClient {
+export class CloudWatch extends AWSServiceClient {
   deleteAlarms(
     input: DeleteAlarmsInput,
-  ): Effect.Effect<{}, ResourceNotFound | CommonAwsError>;
+  ): Effect.Effect<{}, ResourceNotFound | CommonAwsError> {
+    return this.call("DeleteAlarms", input);
+  }
   deleteAnomalyDetector(
     input: DeleteAnomalyDetectorInput,
   ): Effect.Effect<
@@ -16,7 +18,9 @@ export declare class CloudWatch extends AWSServiceClient {
     | MissingRequiredParameterException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteAnomalyDetector", input);
+  }
   deleteDashboards(
     input: DeleteDashboardsInput,
   ): Effect.Effect<
@@ -26,7 +30,9 @@ export declare class CloudWatch extends AWSServiceClient {
     | InternalServiceFault
     | InvalidParameterValueException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteDashboards", input);
+  }
   deleteInsightRules(
     input: DeleteInsightRulesInput,
   ): Effect.Effect<
@@ -34,7 +40,9 @@ export declare class CloudWatch extends AWSServiceClient {
     | InvalidParameterValueException
     | MissingRequiredParameterException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteInsightRules", input);
+  }
   deleteMetricStream(
     input: DeleteMetricStreamInput,
   ): Effect.Effect<
@@ -43,19 +51,27 @@ export declare class CloudWatch extends AWSServiceClient {
     | InvalidParameterValueException
     | MissingRequiredParameterException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteMetricStream", input);
+  }
   describeAlarmHistory(
     input: DescribeAlarmHistoryInput,
   ): Effect.Effect<
     DescribeAlarmHistoryOutput,
     InvalidNextToken | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeAlarmHistory", input);
+  }
   describeAlarms(
     input: DescribeAlarmsInput,
-  ): Effect.Effect<DescribeAlarmsOutput, InvalidNextToken | CommonAwsError>;
+  ): Effect.Effect<DescribeAlarmsOutput, InvalidNextToken | CommonAwsError> {
+    return this.call("DescribeAlarms", input);
+  }
   describeAlarmsForMetric(
     input: DescribeAlarmsForMetricInput,
-  ): Effect.Effect<DescribeAlarmsForMetricOutput, CommonAwsError>;
+  ): Effect.Effect<DescribeAlarmsForMetricOutput, CommonAwsError> {
+    return this.call("DescribeAlarmsForMetric", input);
+  }
   describeAnomalyDetectors(
     input: DescribeAnomalyDetectorsInput,
   ): Effect.Effect<
@@ -65,16 +81,22 @@ export declare class CloudWatch extends AWSServiceClient {
     | InvalidParameterCombinationException
     | InvalidParameterValueException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeAnomalyDetectors", input);
+  }
   describeInsightRules(
     input: DescribeInsightRulesInput,
   ): Effect.Effect<
     DescribeInsightRulesOutput,
     InvalidNextToken | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeInsightRules", input);
+  }
   disableAlarmActions(
     input: DisableAlarmActionsInput,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, CommonAwsError> {
+    return this.call("DisableAlarmActions", input);
+  }
   disableInsightRules(
     input: DisableInsightRulesInput,
   ): Effect.Effect<
@@ -82,10 +104,14 @@ export declare class CloudWatch extends AWSServiceClient {
     | InvalidParameterValueException
     | MissingRequiredParameterException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DisableInsightRules", input);
+  }
   enableAlarmActions(
     input: EnableAlarmActionsInput,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, CommonAwsError> {
+    return this.call("EnableAlarmActions", input);
+  }
   enableInsightRules(
     input: EnableInsightRulesInput,
   ): Effect.Effect<
@@ -94,7 +120,9 @@ export declare class CloudWatch extends AWSServiceClient {
     | LimitExceededException
     | MissingRequiredParameterException
     | CommonAwsError
-  >;
+  > {
+    return this.call("EnableInsightRules", input);
+  }
   getDashboard(
     input: GetDashboardInput,
   ): Effect.Effect<
@@ -103,7 +131,9 @@ export declare class CloudWatch extends AWSServiceClient {
     | InternalServiceFault
     | InvalidParameterValueException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetDashboard", input);
+  }
   getInsightRuleReport(
     input: GetInsightRuleReportInput,
   ): Effect.Effect<
@@ -112,10 +142,14 @@ export declare class CloudWatch extends AWSServiceClient {
     | MissingRequiredParameterException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetInsightRuleReport", input);
+  }
   getMetricData(
     input: GetMetricDataInput,
-  ): Effect.Effect<GetMetricDataOutput, InvalidNextToken | CommonAwsError>;
+  ): Effect.Effect<GetMetricDataOutput, InvalidNextToken | CommonAwsError> {
+    return this.call("GetMetricData", input);
+  }
   getMetricStatistics(
     input: GetMetricStatisticsInput,
   ): Effect.Effect<
@@ -125,7 +159,9 @@ export declare class CloudWatch extends AWSServiceClient {
     | InvalidParameterValueException
     | MissingRequiredParameterException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetMetricStatistics", input);
+  }
   getMetricStream(
     input: GetMetricStreamInput,
   ): Effect.Effect<
@@ -136,16 +172,22 @@ export declare class CloudWatch extends AWSServiceClient {
     | MissingRequiredParameterException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetMetricStream", input);
+  }
   getMetricWidgetImage(
     input: GetMetricWidgetImageInput,
-  ): Effect.Effect<GetMetricWidgetImageOutput, CommonAwsError>;
+  ): Effect.Effect<GetMetricWidgetImageOutput, CommonAwsError> {
+    return this.call("GetMetricWidgetImage", input);
+  }
   listDashboards(
     input: ListDashboardsInput,
   ): Effect.Effect<
     ListDashboardsOutput,
     InternalServiceFault | InvalidParameterValueException | CommonAwsError
-  >;
+  > {
+    return this.call("ListDashboards", input);
+  }
   listManagedInsightRules(
     input: ListManagedInsightRulesInput,
   ): Effect.Effect<
@@ -154,13 +196,17 @@ export declare class CloudWatch extends AWSServiceClient {
     | InvalidParameterValueException
     | MissingRequiredParameterException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListManagedInsightRules", input);
+  }
   listMetrics(
     input: ListMetricsInput,
   ): Effect.Effect<
     ListMetricsOutput,
     InternalServiceFault | InvalidParameterValueException | CommonAwsError
-  >;
+  > {
+    return this.call("ListMetrics", input);
+  }
   listMetricStreams(
     input: ListMetricStreamsInput,
   ): Effect.Effect<
@@ -170,7 +216,9 @@ export declare class CloudWatch extends AWSServiceClient {
     | InvalidParameterValueException
     | MissingRequiredParameterException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListMetricStreams", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceInput,
   ): Effect.Effect<
@@ -179,7 +227,9 @@ export declare class CloudWatch extends AWSServiceClient {
     | InvalidParameterValueException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   putAnomalyDetector(
     input: PutAnomalyDetectorInput,
   ): Effect.Effect<
@@ -190,10 +240,14 @@ export declare class CloudWatch extends AWSServiceClient {
     | LimitExceededException
     | MissingRequiredParameterException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutAnomalyDetector", input);
+  }
   putCompositeAlarm(
     input: PutCompositeAlarmInput,
-  ): Effect.Effect<{}, LimitExceededFault | CommonAwsError>;
+  ): Effect.Effect<{}, LimitExceededFault | CommonAwsError> {
+    return this.call("PutCompositeAlarm", input);
+  }
   putDashboard(
     input: PutDashboardInput,
   ): Effect.Effect<
@@ -202,7 +256,9 @@ export declare class CloudWatch extends AWSServiceClient {
     | DashboardInvalidInputError
     | InternalServiceFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutDashboard", input);
+  }
   putInsightRule(
     input: PutInsightRuleInput,
   ): Effect.Effect<
@@ -211,7 +267,9 @@ export declare class CloudWatch extends AWSServiceClient {
     | LimitExceededException
     | MissingRequiredParameterException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutInsightRule", input);
+  }
   putManagedInsightRules(
     input: PutManagedInsightRulesInput,
   ): Effect.Effect<
@@ -219,10 +277,14 @@ export declare class CloudWatch extends AWSServiceClient {
     | InvalidParameterValueException
     | MissingRequiredParameterException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutManagedInsightRules", input);
+  }
   putMetricAlarm(
     input: PutMetricAlarmInput,
-  ): Effect.Effect<{}, LimitExceededFault | CommonAwsError>;
+  ): Effect.Effect<{}, LimitExceededFault | CommonAwsError> {
+    return this.call("PutMetricAlarm", input);
+  }
   putMetricData(
     input: PutMetricDataInput,
   ): Effect.Effect<
@@ -232,7 +294,9 @@ export declare class CloudWatch extends AWSServiceClient {
     | InvalidParameterValueException
     | MissingRequiredParameterException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutMetricData", input);
+  }
   putMetricStream(
     input: PutMetricStreamInput,
   ): Effect.Effect<
@@ -243,10 +307,14 @@ export declare class CloudWatch extends AWSServiceClient {
     | InvalidParameterValueException
     | MissingRequiredParameterException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutMetricStream", input);
+  }
   setAlarmState(
     input: SetAlarmStateInput,
-  ): Effect.Effect<{}, InvalidFormatFault | ResourceNotFound | CommonAwsError>;
+  ): Effect.Effect<{}, InvalidFormatFault | ResourceNotFound | CommonAwsError> {
+    return this.call("SetAlarmState", input);
+  }
   startMetricStreams(
     input: StartMetricStreamsInput,
   ): Effect.Effect<
@@ -255,7 +323,9 @@ export declare class CloudWatch extends AWSServiceClient {
     | InvalidParameterValueException
     | MissingRequiredParameterException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartMetricStreams", input);
+  }
   stopMetricStreams(
     input: StopMetricStreamsInput,
   ): Effect.Effect<
@@ -264,7 +334,9 @@ export declare class CloudWatch extends AWSServiceClient {
     | InvalidParameterValueException
     | MissingRequiredParameterException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StopMetricStreams", input);
+  }
   tagResource(
     input: TagResourceInput,
   ): Effect.Effect<
@@ -275,7 +347,9 @@ export declare class CloudWatch extends AWSServiceClient {
     | InvalidParameterValueException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceInput,
   ): Effect.Effect<
@@ -286,10 +360,14 @@ export declare class CloudWatch extends AWSServiceClient {
     | InvalidParameterValueException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
 }
 
-export declare class Cloudwatch extends CloudWatch {}
+export class Cloudwatch extends CloudWatch {}
+
+export default CloudWatch;
 
 export type AccountId = string;
 

@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class SSOAdmin extends AWSServiceClient {
+export class SSOAdmin extends AWSServiceClient {
   attachCustomerManagedPolicyReferenceToPermissionSet(
     input: AttachCustomerManagedPolicyReferenceToPermissionSetRequest,
   ): Effect.Effect<
@@ -15,7 +15,12 @@ export declare class SSOAdmin extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call(
+      "AttachCustomerManagedPolicyReferenceToPermissionSet",
+      input,
+    );
+  }
   attachManagedPolicyToPermissionSet(
     input: AttachManagedPolicyToPermissionSetRequest,
   ): Effect.Effect<
@@ -28,7 +33,9 @@ export declare class SSOAdmin extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AttachManagedPolicyToPermissionSet", input);
+  }
   createAccountAssignment(
     input: CreateAccountAssignmentRequest,
   ): Effect.Effect<
@@ -41,7 +48,9 @@ export declare class SSOAdmin extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateAccountAssignment", input);
+  }
   createApplication(
     input: CreateApplicationRequest,
   ): Effect.Effect<
@@ -54,7 +63,9 @@ export declare class SSOAdmin extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateApplication", input);
+  }
   createApplicationAssignment(
     input: CreateApplicationAssignmentRequest,
   ): Effect.Effect<
@@ -67,7 +78,9 @@ export declare class SSOAdmin extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateApplicationAssignment", input);
+  }
   createInstance(
     input: CreateInstanceRequest,
   ): Effect.Effect<
@@ -79,7 +92,9 @@ export declare class SSOAdmin extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateInstance", input);
+  }
   createInstanceAccessControlAttributeConfiguration(
     input: CreateInstanceAccessControlAttributeConfigurationRequest,
   ): Effect.Effect<
@@ -91,7 +106,12 @@ export declare class SSOAdmin extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call(
+      "CreateInstanceAccessControlAttributeConfiguration",
+      input,
+    );
+  }
   createPermissionSet(
     input: CreatePermissionSetRequest,
   ): Effect.Effect<
@@ -104,7 +124,9 @@ export declare class SSOAdmin extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreatePermissionSet", input);
+  }
   createTrustedTokenIssuer(
     input: CreateTrustedTokenIssuerRequest,
   ): Effect.Effect<
@@ -116,7 +138,9 @@ export declare class SSOAdmin extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateTrustedTokenIssuer", input);
+  }
   deleteAccountAssignment(
     input: DeleteAccountAssignmentRequest,
   ): Effect.Effect<
@@ -128,7 +152,9 @@ export declare class SSOAdmin extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteAccountAssignment", input);
+  }
   deleteApplication(
     input: DeleteApplicationRequest,
   ): Effect.Effect<
@@ -140,7 +166,9 @@ export declare class SSOAdmin extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteApplication", input);
+  }
   deleteApplicationAssignment(
     input: DeleteApplicationAssignmentRequest,
   ): Effect.Effect<
@@ -152,7 +180,9 @@ export declare class SSOAdmin extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteApplicationAssignment", input);
+  }
   deleteInlinePolicyFromPermissionSet(
     input: DeleteInlinePolicyFromPermissionSetRequest,
   ): Effect.Effect<
@@ -164,7 +194,9 @@ export declare class SSOAdmin extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteInlinePolicyFromPermissionSet", input);
+  }
   deleteInstance(
     input: DeleteInstanceRequest,
   ): Effect.Effect<
@@ -175,7 +207,9 @@ export declare class SSOAdmin extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteInstance", input);
+  }
   deleteInstanceAccessControlAttributeConfiguration(
     input: DeleteInstanceAccessControlAttributeConfigurationRequest,
   ): Effect.Effect<
@@ -187,7 +221,12 @@ export declare class SSOAdmin extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call(
+      "DeleteInstanceAccessControlAttributeConfiguration",
+      input,
+    );
+  }
   deletePermissionsBoundaryFromPermissionSet(
     input: DeletePermissionsBoundaryFromPermissionSetRequest,
   ): Effect.Effect<
@@ -199,7 +238,9 @@ export declare class SSOAdmin extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeletePermissionsBoundaryFromPermissionSet", input);
+  }
   deletePermissionSet(
     input: DeletePermissionSetRequest,
   ): Effect.Effect<
@@ -211,7 +252,9 @@ export declare class SSOAdmin extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeletePermissionSet", input);
+  }
   deleteTrustedTokenIssuer(
     input: DeleteTrustedTokenIssuerRequest,
   ): Effect.Effect<
@@ -223,7 +266,9 @@ export declare class SSOAdmin extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteTrustedTokenIssuer", input);
+  }
   describeAccountAssignmentCreationStatus(
     input: DescribeAccountAssignmentCreationStatusRequest,
   ): Effect.Effect<
@@ -234,7 +279,9 @@ export declare class SSOAdmin extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeAccountAssignmentCreationStatus", input);
+  }
   describeAccountAssignmentDeletionStatus(
     input: DescribeAccountAssignmentDeletionStatusRequest,
   ): Effect.Effect<
@@ -245,7 +292,9 @@ export declare class SSOAdmin extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeAccountAssignmentDeletionStatus", input);
+  }
   describeApplication(
     input: DescribeApplicationRequest,
   ): Effect.Effect<
@@ -256,7 +305,9 @@ export declare class SSOAdmin extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeApplication", input);
+  }
   describeApplicationAssignment(
     input: DescribeApplicationAssignmentRequest,
   ): Effect.Effect<
@@ -267,7 +318,9 @@ export declare class SSOAdmin extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeApplicationAssignment", input);
+  }
   describeApplicationProvider(
     input: DescribeApplicationProviderRequest,
   ): Effect.Effect<
@@ -278,7 +331,9 @@ export declare class SSOAdmin extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeApplicationProvider", input);
+  }
   describeInstance(
     input: DescribeInstanceRequest,
   ): Effect.Effect<
@@ -288,7 +343,9 @@ export declare class SSOAdmin extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeInstance", input);
+  }
   describeInstanceAccessControlAttributeConfiguration(
     input: DescribeInstanceAccessControlAttributeConfigurationRequest,
   ): Effect.Effect<
@@ -299,7 +356,12 @@ export declare class SSOAdmin extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call(
+      "DescribeInstanceAccessControlAttributeConfiguration",
+      input,
+    );
+  }
   describePermissionSet(
     input: DescribePermissionSetRequest,
   ): Effect.Effect<
@@ -310,7 +372,9 @@ export declare class SSOAdmin extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribePermissionSet", input);
+  }
   describePermissionSetProvisioningStatus(
     input: DescribePermissionSetProvisioningStatusRequest,
   ): Effect.Effect<
@@ -321,7 +385,9 @@ export declare class SSOAdmin extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribePermissionSetProvisioningStatus", input);
+  }
   describeTrustedTokenIssuer(
     input: DescribeTrustedTokenIssuerRequest,
   ): Effect.Effect<
@@ -332,7 +398,9 @@ export declare class SSOAdmin extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeTrustedTokenIssuer", input);
+  }
   detachCustomerManagedPolicyReferenceFromPermissionSet(
     input: DetachCustomerManagedPolicyReferenceFromPermissionSetRequest,
   ): Effect.Effect<
@@ -344,7 +412,12 @@ export declare class SSOAdmin extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call(
+      "DetachCustomerManagedPolicyReferenceFromPermissionSet",
+      input,
+    );
+  }
   detachManagedPolicyFromPermissionSet(
     input: DetachManagedPolicyFromPermissionSetRequest,
   ): Effect.Effect<
@@ -356,7 +429,9 @@ export declare class SSOAdmin extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DetachManagedPolicyFromPermissionSet", input);
+  }
   getApplicationAssignmentConfiguration(
     input: GetApplicationAssignmentConfigurationRequest,
   ): Effect.Effect<
@@ -367,7 +442,9 @@ export declare class SSOAdmin extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetApplicationAssignmentConfiguration", input);
+  }
   getInlinePolicyForPermissionSet(
     input: GetInlinePolicyForPermissionSetRequest,
   ): Effect.Effect<
@@ -378,7 +455,9 @@ export declare class SSOAdmin extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetInlinePolicyForPermissionSet", input);
+  }
   getPermissionsBoundaryForPermissionSet(
     input: GetPermissionsBoundaryForPermissionSetRequest,
   ): Effect.Effect<
@@ -389,7 +468,9 @@ export declare class SSOAdmin extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetPermissionsBoundaryForPermissionSet", input);
+  }
   listAccountAssignmentCreationStatus(
     input: ListAccountAssignmentCreationStatusRequest,
   ): Effect.Effect<
@@ -400,7 +481,9 @@ export declare class SSOAdmin extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListAccountAssignmentCreationStatus", input);
+  }
   listAccountAssignmentDeletionStatus(
     input: ListAccountAssignmentDeletionStatusRequest,
   ): Effect.Effect<
@@ -411,7 +494,9 @@ export declare class SSOAdmin extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListAccountAssignmentDeletionStatus", input);
+  }
   listAccountAssignments(
     input: ListAccountAssignmentsRequest,
   ): Effect.Effect<
@@ -422,7 +507,9 @@ export declare class SSOAdmin extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListAccountAssignments", input);
+  }
   listAccountAssignmentsForPrincipal(
     input: ListAccountAssignmentsForPrincipalRequest,
   ): Effect.Effect<
@@ -433,7 +520,9 @@ export declare class SSOAdmin extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListAccountAssignmentsForPrincipal", input);
+  }
   listAccountsForProvisionedPermissionSet(
     input: ListAccountsForProvisionedPermissionSetRequest,
   ): Effect.Effect<
@@ -444,7 +533,9 @@ export declare class SSOAdmin extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListAccountsForProvisionedPermissionSet", input);
+  }
   listApplicationAssignments(
     input: ListApplicationAssignmentsRequest,
   ): Effect.Effect<
@@ -455,7 +546,9 @@ export declare class SSOAdmin extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListApplicationAssignments", input);
+  }
   listApplicationAssignmentsForPrincipal(
     input: ListApplicationAssignmentsForPrincipalRequest,
   ): Effect.Effect<
@@ -466,7 +559,9 @@ export declare class SSOAdmin extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListApplicationAssignmentsForPrincipal", input);
+  }
   listApplicationProviders(
     input: ListApplicationProvidersRequest,
   ): Effect.Effect<
@@ -476,7 +571,9 @@ export declare class SSOAdmin extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListApplicationProviders", input);
+  }
   listApplications(
     input: ListApplicationsRequest,
   ): Effect.Effect<
@@ -486,7 +583,9 @@ export declare class SSOAdmin extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListApplications", input);
+  }
   listCustomerManagedPolicyReferencesInPermissionSet(
     input: ListCustomerManagedPolicyReferencesInPermissionSetRequest,
   ): Effect.Effect<
@@ -497,7 +596,12 @@ export declare class SSOAdmin extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call(
+      "ListCustomerManagedPolicyReferencesInPermissionSet",
+      input,
+    );
+  }
   listInstances(
     input: ListInstancesRequest,
   ): Effect.Effect<
@@ -507,7 +611,9 @@ export declare class SSOAdmin extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListInstances", input);
+  }
   listManagedPoliciesInPermissionSet(
     input: ListManagedPoliciesInPermissionSetRequest,
   ): Effect.Effect<
@@ -518,7 +624,9 @@ export declare class SSOAdmin extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListManagedPoliciesInPermissionSet", input);
+  }
   listPermissionSetProvisioningStatus(
     input: ListPermissionSetProvisioningStatusRequest,
   ): Effect.Effect<
@@ -529,7 +637,9 @@ export declare class SSOAdmin extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListPermissionSetProvisioningStatus", input);
+  }
   listPermissionSets(
     input: ListPermissionSetsRequest,
   ): Effect.Effect<
@@ -540,7 +650,9 @@ export declare class SSOAdmin extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListPermissionSets", input);
+  }
   listPermissionSetsProvisionedToAccount(
     input: ListPermissionSetsProvisionedToAccountRequest,
   ): Effect.Effect<
@@ -551,7 +663,9 @@ export declare class SSOAdmin extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListPermissionSetsProvisionedToAccount", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
@@ -562,7 +676,9 @@ export declare class SSOAdmin extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   listTrustedTokenIssuers(
     input: ListTrustedTokenIssuersRequest,
   ): Effect.Effect<
@@ -572,7 +688,9 @@ export declare class SSOAdmin extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTrustedTokenIssuers", input);
+  }
   provisionPermissionSet(
     input: ProvisionPermissionSetRequest,
   ): Effect.Effect<
@@ -584,7 +702,9 @@ export declare class SSOAdmin extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ProvisionPermissionSet", input);
+  }
   putApplicationAssignmentConfiguration(
     input: PutApplicationAssignmentConfigurationRequest,
   ): Effect.Effect<
@@ -596,7 +716,9 @@ export declare class SSOAdmin extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutApplicationAssignmentConfiguration", input);
+  }
   putInlinePolicyToPermissionSet(
     input: PutInlinePolicyToPermissionSetRequest,
   ): Effect.Effect<
@@ -609,7 +731,9 @@ export declare class SSOAdmin extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutInlinePolicyToPermissionSet", input);
+  }
   putPermissionsBoundaryToPermissionSet(
     input: PutPermissionsBoundaryToPermissionSetRequest,
   ): Effect.Effect<
@@ -621,7 +745,9 @@ export declare class SSOAdmin extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutPermissionsBoundaryToPermissionSet", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -634,7 +760,9 @@ export declare class SSOAdmin extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
@@ -646,7 +774,9 @@ export declare class SSOAdmin extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
   updateApplication(
     input: UpdateApplicationRequest,
   ): Effect.Effect<
@@ -658,7 +788,9 @@ export declare class SSOAdmin extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateApplication", input);
+  }
   updateInstance(
     input: UpdateInstanceRequest,
   ): Effect.Effect<
@@ -669,7 +801,9 @@ export declare class SSOAdmin extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateInstance", input);
+  }
   updateInstanceAccessControlAttributeConfiguration(
     input: UpdateInstanceAccessControlAttributeConfigurationRequest,
   ): Effect.Effect<
@@ -681,7 +815,12 @@ export declare class SSOAdmin extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call(
+      "UpdateInstanceAccessControlAttributeConfiguration",
+      input,
+    );
+  }
   updatePermissionSet(
     input: UpdatePermissionSetRequest,
   ): Effect.Effect<
@@ -693,7 +832,9 @@ export declare class SSOAdmin extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdatePermissionSet", input);
+  }
   updateTrustedTokenIssuer(
     input: UpdateTrustedTokenIssuerRequest,
   ): Effect.Effect<
@@ -705,10 +846,14 @@ export declare class SSOAdmin extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateTrustedTokenIssuer", input);
+  }
 }
 
-export declare class SsoAdmin extends SSOAdmin {}
+export class SsoAdmin extends SSOAdmin {}
+
+export default SSOAdmin;
 
 export interface AccessControlAttribute {
   Key: string;

@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class AppIntegrations extends AWSServiceClient {
+export class AppIntegrations extends AWSServiceClient {
   createApplication(
     input: CreateApplicationRequest,
   ): Effect.Effect<
@@ -15,7 +15,9 @@ export declare class AppIntegrations extends AWSServiceClient {
     | ThrottlingException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateApplication", input);
+  }
   createDataIntegration(
     input: CreateDataIntegrationRequest,
   ): Effect.Effect<
@@ -27,7 +29,9 @@ export declare class AppIntegrations extends AWSServiceClient {
     | ResourceQuotaExceededException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateDataIntegration", input);
+  }
   createDataIntegrationAssociation(
     input: CreateDataIntegrationAssociationRequest,
   ): Effect.Effect<
@@ -39,7 +43,9 @@ export declare class AppIntegrations extends AWSServiceClient {
     | ResourceQuotaExceededException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateDataIntegrationAssociation", input);
+  }
   createEventIntegration(
     input: CreateEventIntegrationRequest,
   ): Effect.Effect<
@@ -51,7 +57,9 @@ export declare class AppIntegrations extends AWSServiceClient {
     | ResourceQuotaExceededException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateEventIntegration", input);
+  }
   deleteApplication(
     input: DeleteApplicationRequest,
   ): Effect.Effect<
@@ -62,7 +70,9 @@ export declare class AppIntegrations extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteApplication", input);
+  }
   deleteDataIntegration(
     input: DeleteDataIntegrationRequest,
   ): Effect.Effect<
@@ -73,7 +83,9 @@ export declare class AppIntegrations extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteDataIntegration", input);
+  }
   deleteEventIntegration(
     input: DeleteEventIntegrationRequest,
   ): Effect.Effect<
@@ -84,7 +96,9 @@ export declare class AppIntegrations extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteEventIntegration", input);
+  }
   getApplication(
     input: GetApplicationRequest,
   ): Effect.Effect<
@@ -95,7 +109,9 @@ export declare class AppIntegrations extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetApplication", input);
+  }
   getDataIntegration(
     input: GetDataIntegrationRequest,
   ): Effect.Effect<
@@ -106,7 +122,9 @@ export declare class AppIntegrations extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetDataIntegration", input);
+  }
   getEventIntegration(
     input: GetEventIntegrationRequest,
   ): Effect.Effect<
@@ -117,7 +135,9 @@ export declare class AppIntegrations extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetEventIntegration", input);
+  }
   listApplicationAssociations(
     input: ListApplicationAssociationsRequest,
   ): Effect.Effect<
@@ -128,7 +148,9 @@ export declare class AppIntegrations extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListApplicationAssociations", input);
+  }
   listApplications(
     input: ListApplicationsRequest,
   ): Effect.Effect<
@@ -138,7 +160,9 @@ export declare class AppIntegrations extends AWSServiceClient {
     | InvalidRequestException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListApplications", input);
+  }
   listDataIntegrationAssociations(
     input: ListDataIntegrationAssociationsRequest,
   ): Effect.Effect<
@@ -149,7 +173,9 @@ export declare class AppIntegrations extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListDataIntegrationAssociations", input);
+  }
   listDataIntegrations(
     input: ListDataIntegrationsRequest,
   ): Effect.Effect<
@@ -159,7 +185,9 @@ export declare class AppIntegrations extends AWSServiceClient {
     | InvalidRequestException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListDataIntegrations", input);
+  }
   listEventIntegrationAssociations(
     input: ListEventIntegrationAssociationsRequest,
   ): Effect.Effect<
@@ -170,7 +198,9 @@ export declare class AppIntegrations extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListEventIntegrationAssociations", input);
+  }
   listEventIntegrations(
     input: ListEventIntegrationsRequest,
   ): Effect.Effect<
@@ -180,7 +210,9 @@ export declare class AppIntegrations extends AWSServiceClient {
     | InvalidRequestException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListEventIntegrations", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
@@ -190,7 +222,9 @@ export declare class AppIntegrations extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -200,7 +234,9 @@ export declare class AppIntegrations extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
@@ -210,7 +246,9 @@ export declare class AppIntegrations extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
   updateApplication(
     input: UpdateApplicationRequest,
   ): Effect.Effect<
@@ -222,7 +260,9 @@ export declare class AppIntegrations extends AWSServiceClient {
     | ThrottlingException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateApplication", input);
+  }
   updateDataIntegration(
     input: UpdateDataIntegrationRequest,
   ): Effect.Effect<
@@ -233,7 +273,9 @@ export declare class AppIntegrations extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateDataIntegration", input);
+  }
   updateDataIntegrationAssociation(
     input: UpdateDataIntegrationAssociationRequest,
   ): Effect.Effect<
@@ -244,7 +286,9 @@ export declare class AppIntegrations extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateDataIntegrationAssociation", input);
+  }
   updateEventIntegration(
     input: UpdateEventIntegrationRequest,
   ): Effect.Effect<
@@ -255,10 +299,14 @@ export declare class AppIntegrations extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateEventIntegration", input);
+  }
 }
 
-export declare class Appintegrations extends AppIntegrations {}
+export class Appintegrations extends AppIntegrations {}
+
+export default AppIntegrations;
 
 export declare class AccessDeniedException extends EffectData.TaggedError(
   "AccessDeniedException",

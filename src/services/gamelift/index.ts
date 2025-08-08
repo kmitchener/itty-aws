@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class GameLift extends AWSServiceClient {
+export class GameLift extends AWSServiceClient {
   acceptMatch(
     input: AcceptMatchInput,
   ): Effect.Effect<
@@ -12,7 +12,9 @@ export declare class GameLift extends AWSServiceClient {
     | NotFoundException
     | UnsupportedRegionException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AcceptMatch", input);
+  }
   claimGameServer(
     input: ClaimGameServerInput,
   ): Effect.Effect<
@@ -24,7 +26,9 @@ export declare class GameLift extends AWSServiceClient {
     | OutOfCapacityException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ClaimGameServer", input);
+  }
   createAlias(
     input: CreateAliasInput,
   ): Effect.Effect<
@@ -36,7 +40,9 @@ export declare class GameLift extends AWSServiceClient {
     | TaggingFailedException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateAlias", input);
+  }
   createBuild(
     input: CreateBuildInput,
   ): Effect.Effect<
@@ -47,7 +53,9 @@ export declare class GameLift extends AWSServiceClient {
     | TaggingFailedException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateBuild", input);
+  }
   createContainerFleet(
     input: CreateContainerFleetInput,
   ): Effect.Effect<
@@ -60,7 +68,9 @@ export declare class GameLift extends AWSServiceClient {
     | UnauthorizedException
     | UnsupportedRegionException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateContainerFleet", input);
+  }
   createContainerGroupDefinition(
     input: CreateContainerGroupDefinitionInput,
   ): Effect.Effect<
@@ -73,7 +83,9 @@ export declare class GameLift extends AWSServiceClient {
     | UnauthorizedException
     | UnsupportedRegionException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateContainerGroupDefinition", input);
+  }
   createFleet(
     input: CreateFleetInput,
   ): Effect.Effect<
@@ -88,7 +100,9 @@ export declare class GameLift extends AWSServiceClient {
     | UnauthorizedException
     | UnsupportedRegionException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateFleet", input);
+  }
   createFleetLocations(
     input: CreateFleetLocationsInput,
   ): Effect.Effect<
@@ -103,7 +117,9 @@ export declare class GameLift extends AWSServiceClient {
     | UnauthorizedException
     | UnsupportedRegionException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateFleetLocations", input);
+  }
   createGameServerGroup(
     input: CreateGameServerGroupInput,
   ): Effect.Effect<
@@ -114,7 +130,9 @@ export declare class GameLift extends AWSServiceClient {
     | LimitExceededException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateGameServerGroup", input);
+  }
   createGameSession(
     input: CreateGameSessionInput,
   ): Effect.Effect<
@@ -131,7 +149,9 @@ export declare class GameLift extends AWSServiceClient {
     | UnauthorizedException
     | UnsupportedRegionException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateGameSession", input);
+  }
   createGameSessionQueue(
     input: CreateGameSessionQueueInput,
   ): Effect.Effect<
@@ -143,7 +163,9 @@ export declare class GameLift extends AWSServiceClient {
     | TaggingFailedException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateGameSessionQueue", input);
+  }
   createLocation(
     input: CreateLocationInput,
   ): Effect.Effect<
@@ -155,7 +177,9 @@ export declare class GameLift extends AWSServiceClient {
     | TaggingFailedException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateLocation", input);
+  }
   createMatchmakingConfiguration(
     input: CreateMatchmakingConfigurationInput,
   ): Effect.Effect<
@@ -167,7 +191,9 @@ export declare class GameLift extends AWSServiceClient {
     | TaggingFailedException
     | UnsupportedRegionException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateMatchmakingConfiguration", input);
+  }
   createMatchmakingRuleSet(
     input: CreateMatchmakingRuleSetInput,
   ): Effect.Effect<
@@ -178,7 +204,9 @@ export declare class GameLift extends AWSServiceClient {
     | TaggingFailedException
     | UnsupportedRegionException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateMatchmakingRuleSet", input);
+  }
   createPlayerSession(
     input: CreatePlayerSessionInput,
   ): Effect.Effect<
@@ -191,7 +219,9 @@ export declare class GameLift extends AWSServiceClient {
     | TerminalRoutingStrategyException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreatePlayerSession", input);
+  }
   createPlayerSessions(
     input: CreatePlayerSessionsInput,
   ): Effect.Effect<
@@ -204,7 +234,9 @@ export declare class GameLift extends AWSServiceClient {
     | TerminalRoutingStrategyException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreatePlayerSessions", input);
+  }
   createScript(
     input: CreateScriptInput,
   ): Effect.Effect<
@@ -215,7 +247,9 @@ export declare class GameLift extends AWSServiceClient {
     | TaggingFailedException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateScript", input);
+  }
   createVpcPeeringAuthorization(
     input: CreateVpcPeeringAuthorizationInput,
   ): Effect.Effect<
@@ -225,7 +259,9 @@ export declare class GameLift extends AWSServiceClient {
     | NotFoundException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateVpcPeeringAuthorization", input);
+  }
   createVpcPeeringConnection(
     input: CreateVpcPeeringConnectionInput,
   ): Effect.Effect<
@@ -235,7 +271,9 @@ export declare class GameLift extends AWSServiceClient {
     | NotFoundException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateVpcPeeringConnection", input);
+  }
   deleteAlias(
     input: DeleteAliasInput,
   ): Effect.Effect<
@@ -246,7 +284,9 @@ export declare class GameLift extends AWSServiceClient {
     | TaggingFailedException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteAlias", input);
+  }
   deleteBuild(
     input: DeleteBuildInput,
   ): Effect.Effect<
@@ -257,7 +297,9 @@ export declare class GameLift extends AWSServiceClient {
     | TaggingFailedException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteBuild", input);
+  }
   deleteContainerFleet(
     input: DeleteContainerFleetInput,
   ): Effect.Effect<
@@ -269,7 +311,9 @@ export declare class GameLift extends AWSServiceClient {
     | UnauthorizedException
     | UnsupportedRegionException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteContainerFleet", input);
+  }
   deleteContainerGroupDefinition(
     input: DeleteContainerGroupDefinitionInput,
   ): Effect.Effect<
@@ -281,7 +325,9 @@ export declare class GameLift extends AWSServiceClient {
     | UnauthorizedException
     | UnsupportedRegionException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteContainerGroupDefinition", input);
+  }
   deleteFleet(
     input: DeleteFleetInput,
   ): Effect.Effect<
@@ -293,7 +339,9 @@ export declare class GameLift extends AWSServiceClient {
     | TaggingFailedException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteFleet", input);
+  }
   deleteFleetLocations(
     input: DeleteFleetLocationsInput,
   ): Effect.Effect<
@@ -304,7 +352,9 @@ export declare class GameLift extends AWSServiceClient {
     | UnauthorizedException
     | UnsupportedRegionException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteFleetLocations", input);
+  }
   deleteGameServerGroup(
     input: DeleteGameServerGroupInput,
   ): Effect.Effect<
@@ -314,7 +364,9 @@ export declare class GameLift extends AWSServiceClient {
     | NotFoundException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteGameServerGroup", input);
+  }
   deleteGameSessionQueue(
     input: DeleteGameSessionQueueInput,
   ): Effect.Effect<
@@ -325,7 +377,9 @@ export declare class GameLift extends AWSServiceClient {
     | TaggingFailedException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteGameSessionQueue", input);
+  }
   deleteLocation(
     input: DeleteLocationInput,
   ): Effect.Effect<
@@ -335,7 +389,9 @@ export declare class GameLift extends AWSServiceClient {
     | NotFoundException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteLocation", input);
+  }
   deleteMatchmakingConfiguration(
     input: DeleteMatchmakingConfigurationInput,
   ): Effect.Effect<
@@ -346,7 +402,9 @@ export declare class GameLift extends AWSServiceClient {
     | TaggingFailedException
     | UnsupportedRegionException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteMatchmakingConfiguration", input);
+  }
   deleteMatchmakingRuleSet(
     input: DeleteMatchmakingRuleSetInput,
   ): Effect.Effect<
@@ -357,7 +415,9 @@ export declare class GameLift extends AWSServiceClient {
     | TaggingFailedException
     | UnsupportedRegionException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteMatchmakingRuleSet", input);
+  }
   deleteScalingPolicy(
     input: DeleteScalingPolicyInput,
   ): Effect.Effect<
@@ -368,7 +428,9 @@ export declare class GameLift extends AWSServiceClient {
     | UnauthorizedException
     | UnsupportedRegionException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteScalingPolicy", input);
+  }
   deleteScript(
     input: DeleteScriptInput,
   ): Effect.Effect<
@@ -379,7 +441,9 @@ export declare class GameLift extends AWSServiceClient {
     | TaggingFailedException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteScript", input);
+  }
   deleteVpcPeeringAuthorization(
     input: DeleteVpcPeeringAuthorizationInput,
   ): Effect.Effect<
@@ -389,7 +453,9 @@ export declare class GameLift extends AWSServiceClient {
     | NotFoundException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteVpcPeeringAuthorization", input);
+  }
   deleteVpcPeeringConnection(
     input: DeleteVpcPeeringConnectionInput,
   ): Effect.Effect<
@@ -399,7 +465,9 @@ export declare class GameLift extends AWSServiceClient {
     | NotFoundException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteVpcPeeringConnection", input);
+  }
   deregisterCompute(
     input: DeregisterComputeInput,
   ): Effect.Effect<
@@ -409,7 +477,9 @@ export declare class GameLift extends AWSServiceClient {
     | NotFoundException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeregisterCompute", input);
+  }
   deregisterGameServer(
     input: DeregisterGameServerInput,
   ): Effect.Effect<
@@ -419,7 +489,9 @@ export declare class GameLift extends AWSServiceClient {
     | NotFoundException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeregisterGameServer", input);
+  }
   describeAlias(
     input: DescribeAliasInput,
   ): Effect.Effect<
@@ -429,7 +501,9 @@ export declare class GameLift extends AWSServiceClient {
     | NotFoundException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeAlias", input);
+  }
   describeBuild(
     input: DescribeBuildInput,
   ): Effect.Effect<
@@ -439,7 +513,9 @@ export declare class GameLift extends AWSServiceClient {
     | NotFoundException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeBuild", input);
+  }
   describeCompute(
     input: DescribeComputeInput,
   ): Effect.Effect<
@@ -450,7 +526,9 @@ export declare class GameLift extends AWSServiceClient {
     | UnauthorizedException
     | UnsupportedRegionException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeCompute", input);
+  }
   describeContainerFleet(
     input: DescribeContainerFleetInput,
   ): Effect.Effect<
@@ -461,7 +539,9 @@ export declare class GameLift extends AWSServiceClient {
     | UnauthorizedException
     | UnsupportedRegionException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeContainerFleet", input);
+  }
   describeContainerGroupDefinition(
     input: DescribeContainerGroupDefinitionInput,
   ): Effect.Effect<
@@ -472,7 +552,9 @@ export declare class GameLift extends AWSServiceClient {
     | UnauthorizedException
     | UnsupportedRegionException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeContainerGroupDefinition", input);
+  }
   describeEC2InstanceLimits(
     input: DescribeEC2InstanceLimitsInput,
   ): Effect.Effect<
@@ -482,7 +564,9 @@ export declare class GameLift extends AWSServiceClient {
     | UnauthorizedException
     | UnsupportedRegionException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeEC2InstanceLimits", input);
+  }
   describeFleetAttributes(
     input: DescribeFleetAttributesInput,
   ): Effect.Effect<
@@ -492,7 +576,9 @@ export declare class GameLift extends AWSServiceClient {
     | NotFoundException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeFleetAttributes", input);
+  }
   describeFleetCapacity(
     input: DescribeFleetCapacityInput,
   ): Effect.Effect<
@@ -503,7 +589,9 @@ export declare class GameLift extends AWSServiceClient {
     | UnauthorizedException
     | UnsupportedRegionException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeFleetCapacity", input);
+  }
   describeFleetDeployment(
     input: DescribeFleetDeploymentInput,
   ): Effect.Effect<
@@ -514,7 +602,9 @@ export declare class GameLift extends AWSServiceClient {
     | UnauthorizedException
     | UnsupportedRegionException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeFleetDeployment", input);
+  }
   describeFleetEvents(
     input: DescribeFleetEventsInput,
   ): Effect.Effect<
@@ -525,7 +615,9 @@ export declare class GameLift extends AWSServiceClient {
     | UnauthorizedException
     | UnsupportedRegionException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeFleetEvents", input);
+  }
   describeFleetLocationAttributes(
     input: DescribeFleetLocationAttributesInput,
   ): Effect.Effect<
@@ -536,7 +628,9 @@ export declare class GameLift extends AWSServiceClient {
     | UnauthorizedException
     | UnsupportedRegionException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeFleetLocationAttributes", input);
+  }
   describeFleetLocationCapacity(
     input: DescribeFleetLocationCapacityInput,
   ): Effect.Effect<
@@ -547,7 +641,9 @@ export declare class GameLift extends AWSServiceClient {
     | UnauthorizedException
     | UnsupportedRegionException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeFleetLocationCapacity", input);
+  }
   describeFleetLocationUtilization(
     input: DescribeFleetLocationUtilizationInput,
   ): Effect.Effect<
@@ -558,7 +654,9 @@ export declare class GameLift extends AWSServiceClient {
     | UnauthorizedException
     | UnsupportedRegionException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeFleetLocationUtilization", input);
+  }
   describeFleetPortSettings(
     input: DescribeFleetPortSettingsInput,
   ): Effect.Effect<
@@ -569,7 +667,9 @@ export declare class GameLift extends AWSServiceClient {
     | UnauthorizedException
     | UnsupportedRegionException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeFleetPortSettings", input);
+  }
   describeFleetUtilization(
     input: DescribeFleetUtilizationInput,
   ): Effect.Effect<
@@ -579,7 +679,9 @@ export declare class GameLift extends AWSServiceClient {
     | NotFoundException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeFleetUtilization", input);
+  }
   describeGameServer(
     input: DescribeGameServerInput,
   ): Effect.Effect<
@@ -589,7 +691,9 @@ export declare class GameLift extends AWSServiceClient {
     | NotFoundException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeGameServer", input);
+  }
   describeGameServerGroup(
     input: DescribeGameServerGroupInput,
   ): Effect.Effect<
@@ -599,7 +703,9 @@ export declare class GameLift extends AWSServiceClient {
     | NotFoundException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeGameServerGroup", input);
+  }
   describeGameServerInstances(
     input: DescribeGameServerInstancesInput,
   ): Effect.Effect<
@@ -609,7 +715,9 @@ export declare class GameLift extends AWSServiceClient {
     | NotFoundException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeGameServerInstances", input);
+  }
   describeGameSessionDetails(
     input: DescribeGameSessionDetailsInput,
   ): Effect.Effect<
@@ -621,7 +729,9 @@ export declare class GameLift extends AWSServiceClient {
     | UnauthorizedException
     | UnsupportedRegionException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeGameSessionDetails", input);
+  }
   describeGameSessionPlacement(
     input: DescribeGameSessionPlacementInput,
   ): Effect.Effect<
@@ -631,7 +741,9 @@ export declare class GameLift extends AWSServiceClient {
     | NotFoundException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeGameSessionPlacement", input);
+  }
   describeGameSessionQueues(
     input: DescribeGameSessionQueuesInput,
   ): Effect.Effect<
@@ -641,7 +753,9 @@ export declare class GameLift extends AWSServiceClient {
     | NotFoundException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeGameSessionQueues", input);
+  }
   describeGameSessions(
     input: DescribeGameSessionsInput,
   ): Effect.Effect<
@@ -653,7 +767,9 @@ export declare class GameLift extends AWSServiceClient {
     | UnauthorizedException
     | UnsupportedRegionException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeGameSessions", input);
+  }
   describeInstances(
     input: DescribeInstancesInput,
   ): Effect.Effect<
@@ -664,7 +780,9 @@ export declare class GameLift extends AWSServiceClient {
     | UnauthorizedException
     | UnsupportedRegionException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeInstances", input);
+  }
   describeMatchmaking(
     input: DescribeMatchmakingInput,
   ): Effect.Effect<
@@ -673,7 +791,9 @@ export declare class GameLift extends AWSServiceClient {
     | InvalidRequestException
     | UnsupportedRegionException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeMatchmaking", input);
+  }
   describeMatchmakingConfigurations(
     input: DescribeMatchmakingConfigurationsInput,
   ): Effect.Effect<
@@ -682,7 +802,9 @@ export declare class GameLift extends AWSServiceClient {
     | InvalidRequestException
     | UnsupportedRegionException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeMatchmakingConfigurations", input);
+  }
   describeMatchmakingRuleSets(
     input: DescribeMatchmakingRuleSetsInput,
   ): Effect.Effect<
@@ -692,7 +814,9 @@ export declare class GameLift extends AWSServiceClient {
     | NotFoundException
     | UnsupportedRegionException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeMatchmakingRuleSets", input);
+  }
   describePlayerSessions(
     input: DescribePlayerSessionsInput,
   ): Effect.Effect<
@@ -702,7 +826,9 @@ export declare class GameLift extends AWSServiceClient {
     | NotFoundException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribePlayerSessions", input);
+  }
   describeRuntimeConfiguration(
     input: DescribeRuntimeConfigurationInput,
   ): Effect.Effect<
@@ -712,7 +838,9 @@ export declare class GameLift extends AWSServiceClient {
     | NotFoundException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeRuntimeConfiguration", input);
+  }
   describeScalingPolicies(
     input: DescribeScalingPoliciesInput,
   ): Effect.Effect<
@@ -723,7 +851,9 @@ export declare class GameLift extends AWSServiceClient {
     | UnauthorizedException
     | UnsupportedRegionException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeScalingPolicies", input);
+  }
   describeScript(
     input: DescribeScriptInput,
   ): Effect.Effect<
@@ -733,7 +863,9 @@ export declare class GameLift extends AWSServiceClient {
     | NotFoundException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeScript", input);
+  }
   describeVpcPeeringAuthorizations(
     input: DescribeVpcPeeringAuthorizationsInput,
   ): Effect.Effect<
@@ -742,7 +874,9 @@ export declare class GameLift extends AWSServiceClient {
     | InvalidRequestException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeVpcPeeringAuthorizations", input);
+  }
   describeVpcPeeringConnections(
     input: DescribeVpcPeeringConnectionsInput,
   ): Effect.Effect<
@@ -752,7 +886,9 @@ export declare class GameLift extends AWSServiceClient {
     | NotFoundException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeVpcPeeringConnections", input);
+  }
   getComputeAccess(
     input: GetComputeAccessInput,
   ): Effect.Effect<
@@ -763,7 +899,9 @@ export declare class GameLift extends AWSServiceClient {
     | UnauthorizedException
     | UnsupportedRegionException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetComputeAccess", input);
+  }
   getComputeAuthToken(
     input: GetComputeAuthTokenInput,
   ): Effect.Effect<
@@ -774,7 +912,9 @@ export declare class GameLift extends AWSServiceClient {
     | UnauthorizedException
     | UnsupportedRegionException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetComputeAuthToken", input);
+  }
   getGameSessionLogUrl(
     input: GetGameSessionLogUrlInput,
   ): Effect.Effect<
@@ -784,7 +924,9 @@ export declare class GameLift extends AWSServiceClient {
     | NotFoundException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetGameSessionLogUrl", input);
+  }
   getInstanceAccess(
     input: GetInstanceAccessInput,
   ): Effect.Effect<
@@ -794,7 +936,9 @@ export declare class GameLift extends AWSServiceClient {
     | NotFoundException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetInstanceAccess", input);
+  }
   listAliases(
     input: ListAliasesInput,
   ): Effect.Effect<
@@ -803,7 +947,9 @@ export declare class GameLift extends AWSServiceClient {
     | InvalidRequestException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListAliases", input);
+  }
   listBuilds(
     input: ListBuildsInput,
   ): Effect.Effect<
@@ -812,7 +958,9 @@ export declare class GameLift extends AWSServiceClient {
     | InvalidRequestException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListBuilds", input);
+  }
   listCompute(
     input: ListComputeInput,
   ): Effect.Effect<
@@ -822,7 +970,9 @@ export declare class GameLift extends AWSServiceClient {
     | UnauthorizedException
     | UnsupportedRegionException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListCompute", input);
+  }
   listContainerFleets(
     input: ListContainerFleetsInput,
   ): Effect.Effect<
@@ -832,7 +982,9 @@ export declare class GameLift extends AWSServiceClient {
     | UnauthorizedException
     | UnsupportedRegionException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListContainerFleets", input);
+  }
   listContainerGroupDefinitions(
     input: ListContainerGroupDefinitionsInput,
   ): Effect.Effect<
@@ -842,7 +994,9 @@ export declare class GameLift extends AWSServiceClient {
     | UnauthorizedException
     | UnsupportedRegionException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListContainerGroupDefinitions", input);
+  }
   listContainerGroupDefinitionVersions(
     input: ListContainerGroupDefinitionVersionsInput,
   ): Effect.Effect<
@@ -853,7 +1007,9 @@ export declare class GameLift extends AWSServiceClient {
     | UnauthorizedException
     | UnsupportedRegionException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListContainerGroupDefinitionVersions", input);
+  }
   listFleetDeployments(
     input: ListFleetDeploymentsInput,
   ): Effect.Effect<
@@ -864,7 +1020,9 @@ export declare class GameLift extends AWSServiceClient {
     | UnauthorizedException
     | UnsupportedRegionException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListFleetDeployments", input);
+  }
   listFleets(
     input: ListFleetsInput,
   ): Effect.Effect<
@@ -874,7 +1032,9 @@ export declare class GameLift extends AWSServiceClient {
     | NotFoundException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListFleets", input);
+  }
   listGameServerGroups(
     input: ListGameServerGroupsInput,
   ): Effect.Effect<
@@ -883,7 +1043,9 @@ export declare class GameLift extends AWSServiceClient {
     | InvalidRequestException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListGameServerGroups", input);
+  }
   listGameServers(
     input: ListGameServersInput,
   ): Effect.Effect<
@@ -892,7 +1054,9 @@ export declare class GameLift extends AWSServiceClient {
     | InvalidRequestException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListGameServers", input);
+  }
   listLocations(
     input: ListLocationsInput,
   ): Effect.Effect<
@@ -901,7 +1065,9 @@ export declare class GameLift extends AWSServiceClient {
     | InvalidRequestException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListLocations", input);
+  }
   listScripts(
     input: ListScriptsInput,
   ): Effect.Effect<
@@ -910,7 +1076,9 @@ export declare class GameLift extends AWSServiceClient {
     | InvalidRequestException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListScripts", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
@@ -921,7 +1089,9 @@ export declare class GameLift extends AWSServiceClient {
     | TaggingFailedException
     | UnsupportedRegionException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   putScalingPolicy(
     input: PutScalingPolicyInput,
   ): Effect.Effect<
@@ -932,7 +1102,9 @@ export declare class GameLift extends AWSServiceClient {
     | UnauthorizedException
     | UnsupportedRegionException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutScalingPolicy", input);
+  }
   registerCompute(
     input: RegisterComputeInput,
   ): Effect.Effect<
@@ -944,7 +1116,9 @@ export declare class GameLift extends AWSServiceClient {
     | NotReadyException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("RegisterCompute", input);
+  }
   registerGameServer(
     input: RegisterGameServerInput,
   ): Effect.Effect<
@@ -955,7 +1129,9 @@ export declare class GameLift extends AWSServiceClient {
     | LimitExceededException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("RegisterGameServer", input);
+  }
   requestUploadCredentials(
     input: RequestUploadCredentialsInput,
   ): Effect.Effect<
@@ -965,7 +1141,9 @@ export declare class GameLift extends AWSServiceClient {
     | NotFoundException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("RequestUploadCredentials", input);
+  }
   resolveAlias(
     input: ResolveAliasInput,
   ): Effect.Effect<
@@ -976,7 +1154,9 @@ export declare class GameLift extends AWSServiceClient {
     | TerminalRoutingStrategyException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ResolveAlias", input);
+  }
   resumeGameServerGroup(
     input: ResumeGameServerGroupInput,
   ): Effect.Effect<
@@ -986,7 +1166,9 @@ export declare class GameLift extends AWSServiceClient {
     | NotFoundException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ResumeGameServerGroup", input);
+  }
   searchGameSessions(
     input: SearchGameSessionsInput,
   ): Effect.Effect<
@@ -998,7 +1180,9 @@ export declare class GameLift extends AWSServiceClient {
     | UnauthorizedException
     | UnsupportedRegionException
     | CommonAwsError
-  >;
+  > {
+    return this.call("SearchGameSessions", input);
+  }
   startFleetActions(
     input: StartFleetActionsInput,
   ): Effect.Effect<
@@ -1009,7 +1193,9 @@ export declare class GameLift extends AWSServiceClient {
     | UnauthorizedException
     | UnsupportedRegionException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartFleetActions", input);
+  }
   startGameSessionPlacement(
     input: StartGameSessionPlacementInput,
   ): Effect.Effect<
@@ -1020,7 +1206,9 @@ export declare class GameLift extends AWSServiceClient {
     | UnauthorizedException
     | UnsupportedRegionException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartGameSessionPlacement", input);
+  }
   startMatchBackfill(
     input: StartMatchBackfillInput,
   ): Effect.Effect<
@@ -1030,7 +1218,9 @@ export declare class GameLift extends AWSServiceClient {
     | NotFoundException
     | UnsupportedRegionException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartMatchBackfill", input);
+  }
   startMatchmaking(
     input: StartMatchmakingInput,
   ): Effect.Effect<
@@ -1040,7 +1230,9 @@ export declare class GameLift extends AWSServiceClient {
     | NotFoundException
     | UnsupportedRegionException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartMatchmaking", input);
+  }
   stopFleetActions(
     input: StopFleetActionsInput,
   ): Effect.Effect<
@@ -1051,7 +1243,9 @@ export declare class GameLift extends AWSServiceClient {
     | UnauthorizedException
     | UnsupportedRegionException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StopFleetActions", input);
+  }
   stopGameSessionPlacement(
     input: StopGameSessionPlacementInput,
   ): Effect.Effect<
@@ -1061,7 +1255,9 @@ export declare class GameLift extends AWSServiceClient {
     | NotFoundException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StopGameSessionPlacement", input);
+  }
   stopMatchmaking(
     input: StopMatchmakingInput,
   ): Effect.Effect<
@@ -1071,7 +1267,9 @@ export declare class GameLift extends AWSServiceClient {
     | NotFoundException
     | UnsupportedRegionException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StopMatchmaking", input);
+  }
   suspendGameServerGroup(
     input: SuspendGameServerGroupInput,
   ): Effect.Effect<
@@ -1081,7 +1279,9 @@ export declare class GameLift extends AWSServiceClient {
     | NotFoundException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("SuspendGameServerGroup", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -1092,7 +1292,9 @@ export declare class GameLift extends AWSServiceClient {
     | TaggingFailedException
     | UnsupportedRegionException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   terminateGameSession(
     input: TerminateGameSessionInput,
   ): Effect.Effect<
@@ -1104,7 +1306,9 @@ export declare class GameLift extends AWSServiceClient {
     | NotReadyException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TerminateGameSession", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
@@ -1115,7 +1319,9 @@ export declare class GameLift extends AWSServiceClient {
     | TaggingFailedException
     | UnsupportedRegionException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
   updateAlias(
     input: UpdateAliasInput,
   ): Effect.Effect<
@@ -1125,7 +1331,9 @@ export declare class GameLift extends AWSServiceClient {
     | NotFoundException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateAlias", input);
+  }
   updateBuild(
     input: UpdateBuildInput,
   ): Effect.Effect<
@@ -1135,7 +1343,9 @@ export declare class GameLift extends AWSServiceClient {
     | NotFoundException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateBuild", input);
+  }
   updateContainerFleet(
     input: UpdateContainerFleetInput,
   ): Effect.Effect<
@@ -1148,7 +1358,9 @@ export declare class GameLift extends AWSServiceClient {
     | UnauthorizedException
     | UnsupportedRegionException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateContainerFleet", input);
+  }
   updateContainerGroupDefinition(
     input: UpdateContainerGroupDefinitionInput,
   ): Effect.Effect<
@@ -1160,7 +1372,9 @@ export declare class GameLift extends AWSServiceClient {
     | UnauthorizedException
     | UnsupportedRegionException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateContainerGroupDefinition", input);
+  }
   updateFleetAttributes(
     input: UpdateFleetAttributesInput,
   ): Effect.Effect<
@@ -1173,7 +1387,9 @@ export declare class GameLift extends AWSServiceClient {
     | NotFoundException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateFleetAttributes", input);
+  }
   updateFleetCapacity(
     input: UpdateFleetCapacityInput,
   ): Effect.Effect<
@@ -1187,7 +1403,9 @@ export declare class GameLift extends AWSServiceClient {
     | UnauthorizedException
     | UnsupportedRegionException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateFleetCapacity", input);
+  }
   updateFleetPortSettings(
     input: UpdateFleetPortSettingsInput,
   ): Effect.Effect<
@@ -1200,7 +1418,9 @@ export declare class GameLift extends AWSServiceClient {
     | NotFoundException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateFleetPortSettings", input);
+  }
   updateGameServer(
     input: UpdateGameServerInput,
   ): Effect.Effect<
@@ -1210,7 +1430,9 @@ export declare class GameLift extends AWSServiceClient {
     | NotFoundException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateGameServer", input);
+  }
   updateGameServerGroup(
     input: UpdateGameServerGroupInput,
   ): Effect.Effect<
@@ -1220,7 +1442,9 @@ export declare class GameLift extends AWSServiceClient {
     | NotFoundException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateGameServerGroup", input);
+  }
   updateGameSession(
     input: UpdateGameSessionInput,
   ): Effect.Effect<
@@ -1232,7 +1456,9 @@ export declare class GameLift extends AWSServiceClient {
     | NotFoundException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateGameSession", input);
+  }
   updateGameSessionQueue(
     input: UpdateGameSessionQueueInput,
   ): Effect.Effect<
@@ -1242,7 +1468,9 @@ export declare class GameLift extends AWSServiceClient {
     | NotFoundException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateGameSessionQueue", input);
+  }
   updateMatchmakingConfiguration(
     input: UpdateMatchmakingConfigurationInput,
   ): Effect.Effect<
@@ -1252,7 +1480,9 @@ export declare class GameLift extends AWSServiceClient {
     | NotFoundException
     | UnsupportedRegionException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateMatchmakingConfiguration", input);
+  }
   updateRuntimeConfiguration(
     input: UpdateRuntimeConfigurationInput,
   ): Effect.Effect<
@@ -1264,7 +1494,9 @@ export declare class GameLift extends AWSServiceClient {
     | NotFoundException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateRuntimeConfiguration", input);
+  }
   updateScript(
     input: UpdateScriptInput,
   ): Effect.Effect<
@@ -1274,7 +1506,9 @@ export declare class GameLift extends AWSServiceClient {
     | NotFoundException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateScript", input);
+  }
   validateMatchmakingRuleSet(
     input: ValidateMatchmakingRuleSetInput,
   ): Effect.Effect<
@@ -1283,10 +1517,14 @@ export declare class GameLift extends AWSServiceClient {
     | InvalidRequestException
     | UnsupportedRegionException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ValidateMatchmakingRuleSet", input);
+  }
 }
 
-export declare class Gamelift extends GameLift {}
+export class Gamelift extends GameLift {}
+
+export default GameLift;
 
 export type AcceptanceType = "ACCEPT" | "REJECT";
 export interface AcceptMatchInput {

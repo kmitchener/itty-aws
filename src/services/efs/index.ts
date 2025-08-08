@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class EFS extends AWSServiceClient {
+export class EFS extends AWSServiceClient {
   createAccessPoint(
     input: CreateAccessPointRequest,
   ): Effect.Effect<
@@ -15,7 +15,9 @@ export declare class EFS extends AWSServiceClient {
     | InternalServerError
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateAccessPoint", input);
+  }
   createFileSystem(
     input: CreateFileSystemRequest,
   ): Effect.Effect<
@@ -28,7 +30,9 @@ export declare class EFS extends AWSServiceClient {
     | ThroughputLimitExceeded
     | UnsupportedAvailabilityZone
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateFileSystem", input);
+  }
   createMountTarget(
     input: CreateMountTargetRequest,
   ): Effect.Effect<
@@ -47,7 +51,9 @@ export declare class EFS extends AWSServiceClient {
     | SubnetNotFound
     | UnsupportedAvailabilityZone
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateMountTarget", input);
+  }
   createReplicationConfiguration(
     input: CreateReplicationConfigurationRequest,
   ): Effect.Effect<
@@ -64,19 +70,25 @@ export declare class EFS extends AWSServiceClient {
     | UnsupportedAvailabilityZone
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateReplicationConfiguration", input);
+  }
   createTags(
     input: CreateTagsRequest,
   ): Effect.Effect<
     {},
     BadRequest | FileSystemNotFound | InternalServerError | CommonAwsError
-  >;
+  > {
+    return this.call("CreateTags", input);
+  }
   deleteAccessPoint(
     input: DeleteAccessPointRequest,
   ): Effect.Effect<
     {},
     AccessPointNotFound | BadRequest | InternalServerError | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteAccessPoint", input);
+  }
   deleteFileSystem(
     input: DeleteFileSystemRequest,
   ): Effect.Effect<
@@ -86,7 +98,9 @@ export declare class EFS extends AWSServiceClient {
     | FileSystemNotFound
     | InternalServerError
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteFileSystem", input);
+  }
   deleteFileSystemPolicy(
     input: DeleteFileSystemPolicyRequest,
   ): Effect.Effect<
@@ -96,7 +110,9 @@ export declare class EFS extends AWSServiceClient {
     | IncorrectFileSystemLifeCycleState
     | InternalServerError
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteFileSystemPolicy", input);
+  }
   deleteMountTarget(
     input: DeleteMountTargetRequest,
   ): Effect.Effect<
@@ -106,7 +122,9 @@ export declare class EFS extends AWSServiceClient {
     | InternalServerError
     | MountTargetNotFound
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteMountTarget", input);
+  }
   deleteReplicationConfiguration(
     input: DeleteReplicationConfigurationRequest,
   ): Effect.Effect<
@@ -116,13 +134,17 @@ export declare class EFS extends AWSServiceClient {
     | InternalServerError
     | ReplicationNotFound
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteReplicationConfiguration", input);
+  }
   deleteTags(
     input: DeleteTagsRequest,
   ): Effect.Effect<
     {},
     BadRequest | FileSystemNotFound | InternalServerError | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteTags", input);
+  }
   describeAccessPoints(
     input: DescribeAccessPointsRequest,
   ): Effect.Effect<
@@ -132,13 +154,17 @@ export declare class EFS extends AWSServiceClient {
     | FileSystemNotFound
     | InternalServerError
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeAccessPoints", input);
+  }
   describeAccountPreferences(
     input: DescribeAccountPreferencesRequest,
   ): Effect.Effect<
     DescribeAccountPreferencesResponse,
     InternalServerError | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeAccountPreferences", input);
+  }
   describeBackupPolicy(
     input: DescribeBackupPolicyRequest,
   ): Effect.Effect<
@@ -149,7 +175,9 @@ export declare class EFS extends AWSServiceClient {
     | PolicyNotFound
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeBackupPolicy", input);
+  }
   describeFileSystemPolicy(
     input: DescribeFileSystemPolicyRequest,
   ): Effect.Effect<
@@ -159,19 +187,25 @@ export declare class EFS extends AWSServiceClient {
     | InternalServerError
     | PolicyNotFound
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeFileSystemPolicy", input);
+  }
   describeFileSystems(
     input: DescribeFileSystemsRequest,
   ): Effect.Effect<
     DescribeFileSystemsResponse,
     BadRequest | FileSystemNotFound | InternalServerError | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeFileSystems", input);
+  }
   describeLifecycleConfiguration(
     input: DescribeLifecycleConfigurationRequest,
   ): Effect.Effect<
     LifecycleConfigurationDescription,
     BadRequest | FileSystemNotFound | InternalServerError | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeLifecycleConfiguration", input);
+  }
   describeMountTargets(
     input: DescribeMountTargetsRequest,
   ): Effect.Effect<
@@ -182,7 +216,9 @@ export declare class EFS extends AWSServiceClient {
     | InternalServerError
     | MountTargetNotFound
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeMountTargets", input);
+  }
   describeMountTargetSecurityGroups(
     input: DescribeMountTargetSecurityGroupsRequest,
   ): Effect.Effect<
@@ -192,7 +228,9 @@ export declare class EFS extends AWSServiceClient {
     | InternalServerError
     | MountTargetNotFound
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeMountTargetSecurityGroups", input);
+  }
   describeReplicationConfigurations(
     input: DescribeReplicationConfigurationsRequest,
   ): Effect.Effect<
@@ -203,13 +241,17 @@ export declare class EFS extends AWSServiceClient {
     | ReplicationNotFound
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeReplicationConfigurations", input);
+  }
   describeTags(
     input: DescribeTagsRequest,
   ): Effect.Effect<
     DescribeTagsResponse,
     BadRequest | FileSystemNotFound | InternalServerError | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeTags", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
@@ -219,7 +261,9 @@ export declare class EFS extends AWSServiceClient {
     | FileSystemNotFound
     | InternalServerError
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   modifyMountTargetSecurityGroups(
     input: ModifyMountTargetSecurityGroupsRequest,
   ): Effect.Effect<
@@ -231,13 +275,17 @@ export declare class EFS extends AWSServiceClient {
     | SecurityGroupLimitExceeded
     | SecurityGroupNotFound
     | CommonAwsError
-  >;
+  > {
+    return this.call("ModifyMountTargetSecurityGroups", input);
+  }
   putAccountPreferences(
     input: PutAccountPreferencesRequest,
   ): Effect.Effect<
     PutAccountPreferencesResponse,
     BadRequest | InternalServerError | CommonAwsError
-  >;
+  > {
+    return this.call("PutAccountPreferences", input);
+  }
   putBackupPolicy(
     input: PutBackupPolicyRequest,
   ): Effect.Effect<
@@ -248,7 +296,9 @@ export declare class EFS extends AWSServiceClient {
     | InternalServerError
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutBackupPolicy", input);
+  }
   putFileSystemPolicy(
     input: PutFileSystemPolicyRequest,
   ): Effect.Effect<
@@ -259,7 +309,9 @@ export declare class EFS extends AWSServiceClient {
     | InternalServerError
     | InvalidPolicyException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutFileSystemPolicy", input);
+  }
   putLifecycleConfiguration(
     input: PutLifecycleConfigurationRequest,
   ): Effect.Effect<
@@ -269,7 +321,9 @@ export declare class EFS extends AWSServiceClient {
     | IncorrectFileSystemLifeCycleState
     | InternalServerError
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutLifecycleConfiguration", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -279,7 +333,9 @@ export declare class EFS extends AWSServiceClient {
     | FileSystemNotFound
     | InternalServerError
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
@@ -289,7 +345,9 @@ export declare class EFS extends AWSServiceClient {
     | FileSystemNotFound
     | InternalServerError
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
   updateFileSystem(
     input: UpdateFileSystemRequest,
   ): Effect.Effect<
@@ -302,7 +360,9 @@ export declare class EFS extends AWSServiceClient {
     | ThroughputLimitExceeded
     | TooManyRequests
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateFileSystem", input);
+  }
   updateFileSystemProtection(
     input: UpdateFileSystemProtectionRequest,
   ): Effect.Effect<
@@ -316,10 +376,14 @@ export declare class EFS extends AWSServiceClient {
     | ThroughputLimitExceeded
     | TooManyRequests
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateFileSystemProtection", input);
+  }
 }
 
-export declare class Efs extends EFS {}
+export class Efs extends EFS {}
+
+export default EFS;
 
 export declare class AccessPointAlreadyExists extends EffectData.TaggedError(
   "AccessPointAlreadyExists",

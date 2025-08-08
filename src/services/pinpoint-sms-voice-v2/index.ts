@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class PinpointSMSVoiceV2 extends AWSServiceClient {
+export class PinpointSMSVoiceV2 extends AWSServiceClient {
   associateOriginationIdentity(
     input: AssociateOriginationIdentityRequest,
   ): Effect.Effect<
@@ -15,7 +15,9 @@ export declare class PinpointSMSVoiceV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AssociateOriginationIdentity", input);
+  }
   associateProtectConfiguration(
     input: AssociateProtectConfigurationRequest,
   ): Effect.Effect<
@@ -27,7 +29,9 @@ export declare class PinpointSMSVoiceV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AssociateProtectConfiguration", input);
+  }
   createConfigurationSet(
     input: CreateConfigurationSetRequest,
   ): Effect.Effect<
@@ -39,7 +43,9 @@ export declare class PinpointSMSVoiceV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateConfigurationSet", input);
+  }
   createEventDestination(
     input: CreateEventDestinationRequest,
   ): Effect.Effect<
@@ -52,7 +58,9 @@ export declare class PinpointSMSVoiceV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateEventDestination", input);
+  }
   createOptOutList(
     input: CreateOptOutListRequest,
   ): Effect.Effect<
@@ -64,7 +72,9 @@ export declare class PinpointSMSVoiceV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateOptOutList", input);
+  }
   createPool(
     input: CreatePoolRequest,
   ): Effect.Effect<
@@ -77,7 +87,9 @@ export declare class PinpointSMSVoiceV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreatePool", input);
+  }
   createProtectConfiguration(
     input: CreateProtectConfigurationRequest,
   ): Effect.Effect<
@@ -89,7 +101,9 @@ export declare class PinpointSMSVoiceV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateProtectConfiguration", input);
+  }
   createRegistration(
     input: CreateRegistrationRequest,
   ): Effect.Effect<
@@ -101,7 +115,9 @@ export declare class PinpointSMSVoiceV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateRegistration", input);
+  }
   createRegistrationAssociation(
     input: CreateRegistrationAssociationRequest,
   ): Effect.Effect<
@@ -114,7 +130,9 @@ export declare class PinpointSMSVoiceV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateRegistrationAssociation", input);
+  }
   createRegistrationAttachment(
     input: CreateRegistrationAttachmentRequest,
   ): Effect.Effect<
@@ -126,7 +144,9 @@ export declare class PinpointSMSVoiceV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateRegistrationAttachment", input);
+  }
   createRegistrationVersion(
     input: CreateRegistrationVersionRequest,
   ): Effect.Effect<
@@ -139,7 +159,9 @@ export declare class PinpointSMSVoiceV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateRegistrationVersion", input);
+  }
   createVerifiedDestinationNumber(
     input: CreateVerifiedDestinationNumberRequest,
   ): Effect.Effect<
@@ -151,7 +173,9 @@ export declare class PinpointSMSVoiceV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateVerifiedDestinationNumber", input);
+  }
   deleteAccountDefaultProtectConfiguration(
     input: DeleteAccountDefaultProtectConfigurationRequest,
   ): Effect.Effect<
@@ -162,7 +186,9 @@ export declare class PinpointSMSVoiceV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteAccountDefaultProtectConfiguration", input);
+  }
   deleteConfigurationSet(
     input: DeleteConfigurationSetRequest,
   ): Effect.Effect<
@@ -173,7 +199,9 @@ export declare class PinpointSMSVoiceV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteConfigurationSet", input);
+  }
   deleteDefaultMessageType(
     input: DeleteDefaultMessageTypeRequest,
   ): Effect.Effect<
@@ -184,7 +212,9 @@ export declare class PinpointSMSVoiceV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteDefaultMessageType", input);
+  }
   deleteDefaultSenderId(
     input: DeleteDefaultSenderIdRequest,
   ): Effect.Effect<
@@ -195,7 +225,9 @@ export declare class PinpointSMSVoiceV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteDefaultSenderId", input);
+  }
   deleteEventDestination(
     input: DeleteEventDestinationRequest,
   ): Effect.Effect<
@@ -206,7 +238,9 @@ export declare class PinpointSMSVoiceV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteEventDestination", input);
+  }
   deleteKeyword(
     input: DeleteKeywordRequest,
   ): Effect.Effect<
@@ -218,7 +252,9 @@ export declare class PinpointSMSVoiceV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteKeyword", input);
+  }
   deleteMediaMessageSpendLimitOverride(
     input: DeleteMediaMessageSpendLimitOverrideRequest,
   ): Effect.Effect<
@@ -228,7 +264,9 @@ export declare class PinpointSMSVoiceV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteMediaMessageSpendLimitOverride", input);
+  }
   deleteOptedOutNumber(
     input: DeleteOptedOutNumberRequest,
   ): Effect.Effect<
@@ -240,7 +278,9 @@ export declare class PinpointSMSVoiceV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteOptedOutNumber", input);
+  }
   deleteOptOutList(
     input: DeleteOptOutListRequest,
   ): Effect.Effect<
@@ -252,7 +292,9 @@ export declare class PinpointSMSVoiceV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteOptOutList", input);
+  }
   deletePool(
     input: DeletePoolRequest,
   ): Effect.Effect<
@@ -264,7 +306,9 @@ export declare class PinpointSMSVoiceV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeletePool", input);
+  }
   deleteProtectConfiguration(
     input: DeleteProtectConfigurationRequest,
   ): Effect.Effect<
@@ -276,7 +320,9 @@ export declare class PinpointSMSVoiceV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteProtectConfiguration", input);
+  }
   deleteProtectConfigurationRuleSetNumberOverride(
     input: DeleteProtectConfigurationRuleSetNumberOverrideRequest,
   ): Effect.Effect<
@@ -287,7 +333,9 @@ export declare class PinpointSMSVoiceV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteProtectConfigurationRuleSetNumberOverride", input);
+  }
   deleteRegistration(
     input: DeleteRegistrationRequest,
   ): Effect.Effect<
@@ -299,7 +347,9 @@ export declare class PinpointSMSVoiceV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteRegistration", input);
+  }
   deleteRegistrationAttachment(
     input: DeleteRegistrationAttachmentRequest,
   ): Effect.Effect<
@@ -311,7 +361,9 @@ export declare class PinpointSMSVoiceV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteRegistrationAttachment", input);
+  }
   deleteRegistrationFieldValue(
     input: DeleteRegistrationFieldValueRequest,
   ): Effect.Effect<
@@ -323,7 +375,9 @@ export declare class PinpointSMSVoiceV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteRegistrationFieldValue", input);
+  }
   deleteResourcePolicy(
     input: DeleteResourcePolicyRequest,
   ): Effect.Effect<
@@ -334,7 +388,9 @@ export declare class PinpointSMSVoiceV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteResourcePolicy", input);
+  }
   deleteTextMessageSpendLimitOverride(
     input: DeleteTextMessageSpendLimitOverrideRequest,
   ): Effect.Effect<
@@ -344,7 +400,9 @@ export declare class PinpointSMSVoiceV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteTextMessageSpendLimitOverride", input);
+  }
   deleteVerifiedDestinationNumber(
     input: DeleteVerifiedDestinationNumberRequest,
   ): Effect.Effect<
@@ -356,7 +414,9 @@ export declare class PinpointSMSVoiceV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteVerifiedDestinationNumber", input);
+  }
   deleteVoiceMessageSpendLimitOverride(
     input: DeleteVoiceMessageSpendLimitOverrideRequest,
   ): Effect.Effect<
@@ -366,7 +426,9 @@ export declare class PinpointSMSVoiceV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteVoiceMessageSpendLimitOverride", input);
+  }
   describeAccountAttributes(
     input: DescribeAccountAttributesRequest,
   ): Effect.Effect<
@@ -376,7 +438,9 @@ export declare class PinpointSMSVoiceV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeAccountAttributes", input);
+  }
   describeAccountLimits(
     input: DescribeAccountLimitsRequest,
   ): Effect.Effect<
@@ -386,7 +450,9 @@ export declare class PinpointSMSVoiceV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeAccountLimits", input);
+  }
   describeConfigurationSets(
     input: DescribeConfigurationSetsRequest,
   ): Effect.Effect<
@@ -397,7 +463,9 @@ export declare class PinpointSMSVoiceV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeConfigurationSets", input);
+  }
   describeKeywords(
     input: DescribeKeywordsRequest,
   ): Effect.Effect<
@@ -408,7 +476,9 @@ export declare class PinpointSMSVoiceV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeKeywords", input);
+  }
   describeOptedOutNumbers(
     input: DescribeOptedOutNumbersRequest,
   ): Effect.Effect<
@@ -419,7 +489,9 @@ export declare class PinpointSMSVoiceV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeOptedOutNumbers", input);
+  }
   describeOptOutLists(
     input: DescribeOptOutListsRequest,
   ): Effect.Effect<
@@ -430,7 +502,9 @@ export declare class PinpointSMSVoiceV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeOptOutLists", input);
+  }
   describePhoneNumbers(
     input: DescribePhoneNumbersRequest,
   ): Effect.Effect<
@@ -441,7 +515,9 @@ export declare class PinpointSMSVoiceV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribePhoneNumbers", input);
+  }
   describePools(
     input: DescribePoolsRequest,
   ): Effect.Effect<
@@ -452,7 +528,9 @@ export declare class PinpointSMSVoiceV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribePools", input);
+  }
   describeProtectConfigurations(
     input: DescribeProtectConfigurationsRequest,
   ): Effect.Effect<
@@ -463,7 +541,9 @@ export declare class PinpointSMSVoiceV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeProtectConfigurations", input);
+  }
   describeRegistrationAttachments(
     input: DescribeRegistrationAttachmentsRequest,
   ): Effect.Effect<
@@ -474,7 +554,9 @@ export declare class PinpointSMSVoiceV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeRegistrationAttachments", input);
+  }
   describeRegistrationFieldDefinitions(
     input: DescribeRegistrationFieldDefinitionsRequest,
   ): Effect.Effect<
@@ -484,7 +566,9 @@ export declare class PinpointSMSVoiceV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeRegistrationFieldDefinitions", input);
+  }
   describeRegistrationFieldValues(
     input: DescribeRegistrationFieldValuesRequest,
   ): Effect.Effect<
@@ -495,7 +579,9 @@ export declare class PinpointSMSVoiceV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeRegistrationFieldValues", input);
+  }
   describeRegistrations(
     input: DescribeRegistrationsRequest,
   ): Effect.Effect<
@@ -506,7 +592,9 @@ export declare class PinpointSMSVoiceV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeRegistrations", input);
+  }
   describeRegistrationSectionDefinitions(
     input: DescribeRegistrationSectionDefinitionsRequest,
   ): Effect.Effect<
@@ -516,7 +604,9 @@ export declare class PinpointSMSVoiceV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeRegistrationSectionDefinitions", input);
+  }
   describeRegistrationTypeDefinitions(
     input: DescribeRegistrationTypeDefinitionsRequest,
   ): Effect.Effect<
@@ -526,7 +616,9 @@ export declare class PinpointSMSVoiceV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeRegistrationTypeDefinitions", input);
+  }
   describeRegistrationVersions(
     input: DescribeRegistrationVersionsRequest,
   ): Effect.Effect<
@@ -537,7 +629,9 @@ export declare class PinpointSMSVoiceV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeRegistrationVersions", input);
+  }
   describeSenderIds(
     input: DescribeSenderIdsRequest,
   ): Effect.Effect<
@@ -548,7 +642,9 @@ export declare class PinpointSMSVoiceV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeSenderIds", input);
+  }
   describeSpendLimits(
     input: DescribeSpendLimitsRequest,
   ): Effect.Effect<
@@ -558,7 +654,9 @@ export declare class PinpointSMSVoiceV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeSpendLimits", input);
+  }
   describeVerifiedDestinationNumbers(
     input: DescribeVerifiedDestinationNumbersRequest,
   ): Effect.Effect<
@@ -569,7 +667,9 @@ export declare class PinpointSMSVoiceV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeVerifiedDestinationNumbers", input);
+  }
   disassociateOriginationIdentity(
     input: DisassociateOriginationIdentityRequest,
   ): Effect.Effect<
@@ -581,7 +681,9 @@ export declare class PinpointSMSVoiceV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DisassociateOriginationIdentity", input);
+  }
   disassociateProtectConfiguration(
     input: DisassociateProtectConfigurationRequest,
   ): Effect.Effect<
@@ -593,7 +695,9 @@ export declare class PinpointSMSVoiceV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DisassociateProtectConfiguration", input);
+  }
   discardRegistrationVersion(
     input: DiscardRegistrationVersionRequest,
   ): Effect.Effect<
@@ -605,7 +709,9 @@ export declare class PinpointSMSVoiceV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DiscardRegistrationVersion", input);
+  }
   getProtectConfigurationCountryRuleSet(
     input: GetProtectConfigurationCountryRuleSetRequest,
   ): Effect.Effect<
@@ -616,7 +722,9 @@ export declare class PinpointSMSVoiceV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetProtectConfigurationCountryRuleSet", input);
+  }
   getResourcePolicy(
     input: GetResourcePolicyRequest,
   ): Effect.Effect<
@@ -627,7 +735,9 @@ export declare class PinpointSMSVoiceV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetResourcePolicy", input);
+  }
   listPoolOriginationIdentities(
     input: ListPoolOriginationIdentitiesRequest,
   ): Effect.Effect<
@@ -638,7 +748,9 @@ export declare class PinpointSMSVoiceV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListPoolOriginationIdentities", input);
+  }
   listProtectConfigurationRuleSetNumberOverrides(
     input: ListProtectConfigurationRuleSetNumberOverridesRequest,
   ): Effect.Effect<
@@ -649,7 +761,9 @@ export declare class PinpointSMSVoiceV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListProtectConfigurationRuleSetNumberOverrides", input);
+  }
   listRegistrationAssociations(
     input: ListRegistrationAssociationsRequest,
   ): Effect.Effect<
@@ -660,7 +774,9 @@ export declare class PinpointSMSVoiceV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListRegistrationAssociations", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
@@ -671,7 +787,9 @@ export declare class PinpointSMSVoiceV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   putKeyword(
     input: PutKeywordRequest,
   ): Effect.Effect<
@@ -684,7 +802,9 @@ export declare class PinpointSMSVoiceV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutKeyword", input);
+  }
   putMessageFeedback(
     input: PutMessageFeedbackRequest,
   ): Effect.Effect<
@@ -695,7 +815,9 @@ export declare class PinpointSMSVoiceV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutMessageFeedback", input);
+  }
   putOptedOutNumber(
     input: PutOptedOutNumberRequest,
   ): Effect.Effect<
@@ -706,7 +828,9 @@ export declare class PinpointSMSVoiceV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutOptedOutNumber", input);
+  }
   putProtectConfigurationRuleSetNumberOverride(
     input: PutProtectConfigurationRuleSetNumberOverrideRequest,
   ): Effect.Effect<
@@ -718,7 +842,9 @@ export declare class PinpointSMSVoiceV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutProtectConfigurationRuleSetNumberOverride", input);
+  }
   putRegistrationFieldValue(
     input: PutRegistrationFieldValueRequest,
   ): Effect.Effect<
@@ -730,7 +856,9 @@ export declare class PinpointSMSVoiceV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutRegistrationFieldValue", input);
+  }
   putResourcePolicy(
     input: PutResourcePolicyRequest,
   ): Effect.Effect<
@@ -741,7 +869,9 @@ export declare class PinpointSMSVoiceV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutResourcePolicy", input);
+  }
   releasePhoneNumber(
     input: ReleasePhoneNumberRequest,
   ): Effect.Effect<
@@ -753,7 +883,9 @@ export declare class PinpointSMSVoiceV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ReleasePhoneNumber", input);
+  }
   releaseSenderId(
     input: ReleaseSenderIdRequest,
   ): Effect.Effect<
@@ -765,7 +897,9 @@ export declare class PinpointSMSVoiceV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ReleaseSenderId", input);
+  }
   requestPhoneNumber(
     input: RequestPhoneNumberRequest,
   ): Effect.Effect<
@@ -778,7 +912,9 @@ export declare class PinpointSMSVoiceV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("RequestPhoneNumber", input);
+  }
   requestSenderId(
     input: RequestSenderIdRequest,
   ): Effect.Effect<
@@ -790,7 +926,9 @@ export declare class PinpointSMSVoiceV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("RequestSenderId", input);
+  }
   sendDestinationNumberVerificationCode(
     input: SendDestinationNumberVerificationCodeRequest,
   ): Effect.Effect<
@@ -803,7 +941,9 @@ export declare class PinpointSMSVoiceV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("SendDestinationNumberVerificationCode", input);
+  }
   sendMediaMessage(
     input: SendMediaMessageRequest,
   ): Effect.Effect<
@@ -816,7 +956,9 @@ export declare class PinpointSMSVoiceV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("SendMediaMessage", input);
+  }
   sendTextMessage(
     input: SendTextMessageRequest,
   ): Effect.Effect<
@@ -829,7 +971,9 @@ export declare class PinpointSMSVoiceV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("SendTextMessage", input);
+  }
   sendVoiceMessage(
     input: SendVoiceMessageRequest,
   ): Effect.Effect<
@@ -842,7 +986,9 @@ export declare class PinpointSMSVoiceV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("SendVoiceMessage", input);
+  }
   setAccountDefaultProtectConfiguration(
     input: SetAccountDefaultProtectConfigurationRequest,
   ): Effect.Effect<
@@ -853,7 +999,9 @@ export declare class PinpointSMSVoiceV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("SetAccountDefaultProtectConfiguration", input);
+  }
   setDefaultMessageFeedbackEnabled(
     input: SetDefaultMessageFeedbackEnabledRequest,
   ): Effect.Effect<
@@ -864,7 +1012,9 @@ export declare class PinpointSMSVoiceV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("SetDefaultMessageFeedbackEnabled", input);
+  }
   setDefaultMessageType(
     input: SetDefaultMessageTypeRequest,
   ): Effect.Effect<
@@ -875,7 +1025,9 @@ export declare class PinpointSMSVoiceV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("SetDefaultMessageType", input);
+  }
   setDefaultSenderId(
     input: SetDefaultSenderIdRequest,
   ): Effect.Effect<
@@ -886,7 +1038,9 @@ export declare class PinpointSMSVoiceV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("SetDefaultSenderId", input);
+  }
   setMediaMessageSpendLimitOverride(
     input: SetMediaMessageSpendLimitOverrideRequest,
   ): Effect.Effect<
@@ -896,7 +1050,9 @@ export declare class PinpointSMSVoiceV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("SetMediaMessageSpendLimitOverride", input);
+  }
   setTextMessageSpendLimitOverride(
     input: SetTextMessageSpendLimitOverrideRequest,
   ): Effect.Effect<
@@ -906,7 +1062,9 @@ export declare class PinpointSMSVoiceV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("SetTextMessageSpendLimitOverride", input);
+  }
   setVoiceMessageSpendLimitOverride(
     input: SetVoiceMessageSpendLimitOverrideRequest,
   ): Effect.Effect<
@@ -916,7 +1074,9 @@ export declare class PinpointSMSVoiceV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("SetVoiceMessageSpendLimitOverride", input);
+  }
   submitRegistrationVersion(
     input: SubmitRegistrationVersionRequest,
   ): Effect.Effect<
@@ -928,7 +1088,9 @@ export declare class PinpointSMSVoiceV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("SubmitRegistrationVersion", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -940,7 +1102,9 @@ export declare class PinpointSMSVoiceV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
@@ -951,7 +1115,9 @@ export declare class PinpointSMSVoiceV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
   updateEventDestination(
     input: UpdateEventDestinationRequest,
   ): Effect.Effect<
@@ -963,7 +1129,9 @@ export declare class PinpointSMSVoiceV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateEventDestination", input);
+  }
   updatePhoneNumber(
     input: UpdatePhoneNumberRequest,
   ): Effect.Effect<
@@ -975,7 +1143,9 @@ export declare class PinpointSMSVoiceV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdatePhoneNumber", input);
+  }
   updatePool(
     input: UpdatePoolRequest,
   ): Effect.Effect<
@@ -987,7 +1157,9 @@ export declare class PinpointSMSVoiceV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdatePool", input);
+  }
   updateProtectConfiguration(
     input: UpdateProtectConfigurationRequest,
   ): Effect.Effect<
@@ -998,7 +1170,9 @@ export declare class PinpointSMSVoiceV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateProtectConfiguration", input);
+  }
   updateProtectConfigurationCountryRuleSet(
     input: UpdateProtectConfigurationCountryRuleSetRequest,
   ): Effect.Effect<
@@ -1009,7 +1183,9 @@ export declare class PinpointSMSVoiceV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateProtectConfigurationCountryRuleSet", input);
+  }
   updateSenderId(
     input: UpdateSenderIdRequest,
   ): Effect.Effect<
@@ -1020,7 +1196,9 @@ export declare class PinpointSMSVoiceV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateSenderId", input);
+  }
   verifyDestinationNumber(
     input: VerifyDestinationNumberRequest,
   ): Effect.Effect<
@@ -1032,10 +1210,14 @@ export declare class PinpointSMSVoiceV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("VerifyDestinationNumber", input);
+  }
 }
 
-export declare class PinpointSmsVoiceV2 extends PinpointSMSVoiceV2 {}
+export class PinpointSmsVoiceV2 extends PinpointSMSVoiceV2 {}
+
+export default PinpointSMSVoiceV2;
 
 export declare class AccessDeniedException extends EffectData.TaggedError(
   "AccessDeniedException",

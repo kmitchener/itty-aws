@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class MarketplaceReporting extends AWSServiceClient {
+export class MarketplaceReporting extends AWSServiceClient {
   getBuyerDashboard(
     input: GetBuyerDashboardInput,
   ): Effect.Effect<
@@ -12,8 +12,12 @@ export declare class MarketplaceReporting extends AWSServiceClient {
     | InternalServerException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetBuyerDashboard", input);
+  }
 }
+
+export default MarketplaceReporting;
 
 export declare class AccessDeniedException extends EffectData.TaggedError(
   "AccessDeniedException",

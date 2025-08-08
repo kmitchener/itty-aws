@@ -3,7 +3,7 @@ import type { ResponseError } from "@effect/platform/HttpClientError";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class NeptuneGraph extends AWSServiceClient {
+export class NeptuneGraph extends AWSServiceClient {
   cancelQuery(
     input: CancelQueryInput,
   ): Effect.Effect<
@@ -14,7 +14,9 @@ export declare class NeptuneGraph extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CancelQuery", input);
+  }
   executeQuery(
     input: ExecuteQueryInput,
   ): Effect.Effect<
@@ -26,7 +28,9 @@ export declare class NeptuneGraph extends AWSServiceClient {
     | UnprocessableException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ExecuteQuery", input);
+  }
   getGraphSummary(
     input: GetGraphSummaryInput,
   ): Effect.Effect<
@@ -37,7 +41,9 @@ export declare class NeptuneGraph extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetGraphSummary", input);
+  }
   getQuery(
     input: GetQueryInput,
   ): Effect.Effect<
@@ -48,7 +54,9 @@ export declare class NeptuneGraph extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetQuery", input);
+  }
   listQueries(
     input: ListQueriesInput,
   ): Effect.Effect<
@@ -58,7 +66,9 @@ export declare class NeptuneGraph extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListQueries", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceInput,
   ): Effect.Effect<
@@ -68,7 +78,9 @@ export declare class NeptuneGraph extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   tagResource(
     input: TagResourceInput,
   ): Effect.Effect<
@@ -78,7 +90,9 @@ export declare class NeptuneGraph extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceInput,
   ): Effect.Effect<
@@ -88,8 +102,12 @@ export declare class NeptuneGraph extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
 }
+
+export default NeptuneGraph;
 
 export declare class AccessDeniedException extends EffectData.TaggedError(
   "AccessDeniedException",

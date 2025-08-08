@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class CodeGuruProfiler extends AWSServiceClient {
+export class CodeGuruProfiler extends AWSServiceClient {
   getFindingsReportAccountSummary(
     input: GetFindingsReportAccountSummaryRequest,
   ): Effect.Effect<
@@ -11,7 +11,9 @@ export declare class CodeGuruProfiler extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetFindingsReportAccountSummary", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
@@ -20,7 +22,9 @@ export declare class CodeGuruProfiler extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -29,7 +33,9 @@ export declare class CodeGuruProfiler extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
@@ -38,10 +44,14 @@ export declare class CodeGuruProfiler extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
 }
 
-export declare class Codeguruprofiler extends CodeGuruProfiler {}
+export class Codeguruprofiler extends CodeGuruProfiler {}
+
+export default CodeGuruProfiler;
 
 export type ActionGroup = string;
 

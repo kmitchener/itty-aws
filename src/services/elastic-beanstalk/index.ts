@@ -2,10 +2,12 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class ElasticBeanstalk extends AWSServiceClient {
+export class ElasticBeanstalk extends AWSServiceClient {
   abortEnvironmentUpdate(
     input: AbortEnvironmentUpdateMessage,
-  ): Effect.Effect<{}, InsufficientPrivilegesException | CommonAwsError>;
+  ): Effect.Effect<{}, InsufficientPrivilegesException | CommonAwsError> {
+    return this.call("AbortEnvironmentUpdate", input);
+  }
   applyEnvironmentManagedAction(
     input: ApplyEnvironmentManagedActionRequest,
   ): Effect.Effect<
@@ -13,13 +15,19 @@ export declare class ElasticBeanstalk extends AWSServiceClient {
     | ElasticBeanstalkServiceException
     | ManagedActionInvalidStateException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ApplyEnvironmentManagedAction", input);
+  }
   associateEnvironmentOperationsRole(
     input: AssociateEnvironmentOperationsRoleMessage,
-  ): Effect.Effect<{}, InsufficientPrivilegesException | CommonAwsError>;
+  ): Effect.Effect<{}, InsufficientPrivilegesException | CommonAwsError> {
+    return this.call("AssociateEnvironmentOperationsRole", input);
+  }
   checkDNSAvailability(
     input: CheckDNSAvailabilityMessage,
-  ): Effect.Effect<CheckDNSAvailabilityResultMessage, CommonAwsError>;
+  ): Effect.Effect<CheckDNSAvailabilityResultMessage, CommonAwsError> {
+    return this.call("CheckDNSAvailability", input);
+  }
   composeEnvironments(
     input: ComposeEnvironmentsMessage,
   ): Effect.Effect<
@@ -27,13 +35,17 @@ export declare class ElasticBeanstalk extends AWSServiceClient {
     | InsufficientPrivilegesException
     | TooManyEnvironmentsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ComposeEnvironments", input);
+  }
   createApplication(
     input: CreateApplicationMessage,
   ): Effect.Effect<
     ApplicationDescriptionMessage,
     TooManyApplicationsException | CommonAwsError
-  >;
+  > {
+    return this.call("CreateApplication", input);
+  }
   createApplicationVersion(
     input: CreateApplicationVersionMessage,
   ): Effect.Effect<
@@ -44,7 +56,9 @@ export declare class ElasticBeanstalk extends AWSServiceClient {
     | TooManyApplicationsException
     | TooManyApplicationVersionsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateApplicationVersion", input);
+  }
   createConfigurationTemplate(
     input: CreateConfigurationTemplateMessage,
   ): Effect.Effect<
@@ -53,7 +67,9 @@ export declare class ElasticBeanstalk extends AWSServiceClient {
     | TooManyBucketsException
     | TooManyConfigurationTemplatesException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateConfigurationTemplate", input);
+  }
   createEnvironment(
     input: CreateEnvironmentMessage,
   ): Effect.Effect<
@@ -61,7 +77,9 @@ export declare class ElasticBeanstalk extends AWSServiceClient {
     | InsufficientPrivilegesException
     | TooManyEnvironmentsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateEnvironment", input);
+  }
   createPlatformVersion(
     input: CreatePlatformVersionRequest,
   ): Effect.Effect<
@@ -70,17 +88,23 @@ export declare class ElasticBeanstalk extends AWSServiceClient {
     | InsufficientPrivilegesException
     | TooManyPlatformsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreatePlatformVersion", input);
+  }
   createStorageLocation(input: {}): Effect.Effect<
     CreateStorageLocationResultMessage,
     | InsufficientPrivilegesException
     | S3SubscriptionRequiredException
     | TooManyBucketsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateStorageLocation", input);
+  }
   deleteApplication(
     input: DeleteApplicationMessage,
-  ): Effect.Effect<{}, OperationInProgressException | CommonAwsError>;
+  ): Effect.Effect<{}, OperationInProgressException | CommonAwsError> {
+    return this.call("DeleteApplication", input);
+  }
   deleteApplicationVersion(
     input: DeleteApplicationVersionMessage,
   ): Effect.Effect<
@@ -90,13 +114,19 @@ export declare class ElasticBeanstalk extends AWSServiceClient {
     | S3LocationNotInServiceRegionException
     | SourceBundleDeletionException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteApplicationVersion", input);
+  }
   deleteConfigurationTemplate(
     input: DeleteConfigurationTemplateMessage,
-  ): Effect.Effect<{}, OperationInProgressException | CommonAwsError>;
+  ): Effect.Effect<{}, OperationInProgressException | CommonAwsError> {
+    return this.call("DeleteConfigurationTemplate", input);
+  }
   deleteEnvironmentConfiguration(
     input: DeleteEnvironmentConfigurationMessage,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, CommonAwsError> {
+    return this.call("DeleteEnvironmentConfiguration", input);
+  }
   deletePlatformVersion(
     input: DeletePlatformVersionRequest,
   ): Effect.Effect<
@@ -106,65 +136,91 @@ export declare class ElasticBeanstalk extends AWSServiceClient {
     | OperationInProgressException
     | PlatformVersionStillReferencedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeletePlatformVersion", input);
+  }
   describeAccountAttributes(input: {}): Effect.Effect<
     DescribeAccountAttributesResult,
     InsufficientPrivilegesException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeAccountAttributes", input);
+  }
   describeApplications(
     input: DescribeApplicationsMessage,
-  ): Effect.Effect<ApplicationDescriptionsMessage, CommonAwsError>;
+  ): Effect.Effect<ApplicationDescriptionsMessage, CommonAwsError> {
+    return this.call("DescribeApplications", input);
+  }
   describeApplicationVersions(
     input: DescribeApplicationVersionsMessage,
-  ): Effect.Effect<ApplicationVersionDescriptionsMessage, CommonAwsError>;
+  ): Effect.Effect<ApplicationVersionDescriptionsMessage, CommonAwsError> {
+    return this.call("DescribeApplicationVersions", input);
+  }
   describeConfigurationOptions(
     input: DescribeConfigurationOptionsMessage,
   ): Effect.Effect<
     ConfigurationOptionsDescription,
     TooManyBucketsException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeConfigurationOptions", input);
+  }
   describeConfigurationSettings(
     input: DescribeConfigurationSettingsMessage,
   ): Effect.Effect<
     ConfigurationSettingsDescriptions,
     TooManyBucketsException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeConfigurationSettings", input);
+  }
   describeEnvironmentHealth(
     input: DescribeEnvironmentHealthRequest,
   ): Effect.Effect<
     DescribeEnvironmentHealthResult,
     ElasticBeanstalkServiceException | InvalidRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeEnvironmentHealth", input);
+  }
   describeEnvironmentManagedActionHistory(
     input: DescribeEnvironmentManagedActionHistoryRequest,
   ): Effect.Effect<
     DescribeEnvironmentManagedActionHistoryResult,
     ElasticBeanstalkServiceException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeEnvironmentManagedActionHistory", input);
+  }
   describeEnvironmentManagedActions(
     input: DescribeEnvironmentManagedActionsRequest,
   ): Effect.Effect<
     DescribeEnvironmentManagedActionsResult,
     ElasticBeanstalkServiceException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeEnvironmentManagedActions", input);
+  }
   describeEnvironmentResources(
     input: DescribeEnvironmentResourcesMessage,
   ): Effect.Effect<
     EnvironmentResourceDescriptionsMessage,
     InsufficientPrivilegesException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeEnvironmentResources", input);
+  }
   describeEnvironments(
     input: DescribeEnvironmentsMessage,
-  ): Effect.Effect<EnvironmentDescriptionsMessage, CommonAwsError>;
+  ): Effect.Effect<EnvironmentDescriptionsMessage, CommonAwsError> {
+    return this.call("DescribeEnvironments", input);
+  }
   describeEvents(
     input: DescribeEventsMessage,
-  ): Effect.Effect<EventDescriptionsMessage, CommonAwsError>;
+  ): Effect.Effect<EventDescriptionsMessage, CommonAwsError> {
+    return this.call("DescribeEvents", input);
+  }
   describeInstancesHealth(
     input: DescribeInstancesHealthRequest,
   ): Effect.Effect<
     DescribeInstancesHealthResult,
     ElasticBeanstalkServiceException | InvalidRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeInstancesHealth", input);
+  }
   describePlatformVersion(
     input: DescribePlatformVersionRequest,
   ): Effect.Effect<
@@ -172,17 +228,25 @@ export declare class ElasticBeanstalk extends AWSServiceClient {
     | ElasticBeanstalkServiceException
     | InsufficientPrivilegesException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribePlatformVersion", input);
+  }
   disassociateEnvironmentOperationsRole(
     input: DisassociateEnvironmentOperationsRoleMessage,
-  ): Effect.Effect<{}, InsufficientPrivilegesException | CommonAwsError>;
+  ): Effect.Effect<{}, InsufficientPrivilegesException | CommonAwsError> {
+    return this.call("DisassociateEnvironmentOperationsRole", input);
+  }
   listAvailableSolutionStacks(input: {}): Effect.Effect<
     ListAvailableSolutionStacksResultMessage,
     CommonAwsError
-  >;
+  > {
+    return this.call("ListAvailableSolutionStacks", input);
+  }
   listPlatformBranches(
     input: ListPlatformBranchesRequest,
-  ): Effect.Effect<ListPlatformBranchesResult, CommonAwsError>;
+  ): Effect.Effect<ListPlatformBranchesResult, CommonAwsError> {
+    return this.call("ListPlatformBranches", input);
+  }
   listPlatformVersions(
     input: ListPlatformVersionsRequest,
   ): Effect.Effect<
@@ -190,7 +254,9 @@ export declare class ElasticBeanstalk extends AWSServiceClient {
     | ElasticBeanstalkServiceException
     | InsufficientPrivilegesException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListPlatformVersions", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceMessage,
   ): Effect.Effect<
@@ -199,52 +265,76 @@ export declare class ElasticBeanstalk extends AWSServiceClient {
     | ResourceNotFoundException
     | ResourceTypeNotSupportedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   rebuildEnvironment(
     input: RebuildEnvironmentMessage,
-  ): Effect.Effect<{}, InsufficientPrivilegesException | CommonAwsError>;
+  ): Effect.Effect<{}, InsufficientPrivilegesException | CommonAwsError> {
+    return this.call("RebuildEnvironment", input);
+  }
   requestEnvironmentInfo(
     input: RequestEnvironmentInfoMessage,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, CommonAwsError> {
+    return this.call("RequestEnvironmentInfo", input);
+  }
   restartAppServer(
     input: RestartAppServerMessage,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, CommonAwsError> {
+    return this.call("RestartAppServer", input);
+  }
   retrieveEnvironmentInfo(
     input: RetrieveEnvironmentInfoMessage,
-  ): Effect.Effect<RetrieveEnvironmentInfoResultMessage, CommonAwsError>;
+  ): Effect.Effect<RetrieveEnvironmentInfoResultMessage, CommonAwsError> {
+    return this.call("RetrieveEnvironmentInfo", input);
+  }
   swapEnvironmentCNAMEs(
     input: SwapEnvironmentCNAMEsMessage,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, CommonAwsError> {
+    return this.call("SwapEnvironmentCNAMEs", input);
+  }
   terminateEnvironment(
     input: TerminateEnvironmentMessage,
   ): Effect.Effect<
     EnvironmentDescription,
     InsufficientPrivilegesException | CommonAwsError
-  >;
+  > {
+    return this.call("TerminateEnvironment", input);
+  }
   updateApplication(
     input: UpdateApplicationMessage,
-  ): Effect.Effect<ApplicationDescriptionMessage, CommonAwsError>;
+  ): Effect.Effect<ApplicationDescriptionMessage, CommonAwsError> {
+    return this.call("UpdateApplication", input);
+  }
   updateApplicationResourceLifecycle(
     input: UpdateApplicationResourceLifecycleMessage,
   ): Effect.Effect<
     ApplicationResourceLifecycleDescriptionMessage,
     InsufficientPrivilegesException | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateApplicationResourceLifecycle", input);
+  }
   updateApplicationVersion(
     input: UpdateApplicationVersionMessage,
-  ): Effect.Effect<ApplicationVersionDescriptionMessage, CommonAwsError>;
+  ): Effect.Effect<ApplicationVersionDescriptionMessage, CommonAwsError> {
+    return this.call("UpdateApplicationVersion", input);
+  }
   updateConfigurationTemplate(
     input: UpdateConfigurationTemplateMessage,
   ): Effect.Effect<
     ConfigurationSettingsDescription,
     InsufficientPrivilegesException | TooManyBucketsException | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateConfigurationTemplate", input);
+  }
   updateEnvironment(
     input: UpdateEnvironmentMessage,
   ): Effect.Effect<
     EnvironmentDescription,
     InsufficientPrivilegesException | TooManyBucketsException | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateEnvironment", input);
+  }
   updateTagsForResource(
     input: UpdateTagsForResourceMessage,
   ): Effect.Effect<
@@ -255,14 +345,20 @@ export declare class ElasticBeanstalk extends AWSServiceClient {
     | ResourceTypeNotSupportedException
     | TooManyTagsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateTagsForResource", input);
+  }
   validateConfigurationSettings(
     input: ValidateConfigurationSettingsMessage,
   ): Effect.Effect<
     ConfigurationSettingsValidationMessages,
     InsufficientPrivilegesException | TooManyBucketsException | CommonAwsError
-  >;
+  > {
+    return this.call("ValidateConfigurationSettings", input);
+  }
 }
+
+export default ElasticBeanstalk;
 
 export type AbortableOperationInProgress = boolean;
 

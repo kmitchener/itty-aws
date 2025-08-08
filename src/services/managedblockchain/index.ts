@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class ManagedBlockchain extends AWSServiceClient {
+export class ManagedBlockchain extends AWSServiceClient {
   createAccessor(
     input: CreateAccessorInput,
   ): Effect.Effect<
@@ -15,7 +15,9 @@ export declare class ManagedBlockchain extends AWSServiceClient {
     | ThrottlingException
     | TooManyTagsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateAccessor", input);
+  }
   createMember(
     input: CreateMemberInput,
   ): Effect.Effect<
@@ -30,7 +32,9 @@ export declare class ManagedBlockchain extends AWSServiceClient {
     | ThrottlingException
     | TooManyTagsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateMember", input);
+  }
   createNetwork(
     input: CreateNetworkInput,
   ): Effect.Effect<
@@ -43,7 +47,9 @@ export declare class ManagedBlockchain extends AWSServiceClient {
     | ThrottlingException
     | TooManyTagsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateNetwork", input);
+  }
   createNode(
     input: CreateNodeInput,
   ): Effect.Effect<
@@ -58,7 +64,9 @@ export declare class ManagedBlockchain extends AWSServiceClient {
     | ThrottlingException
     | TooManyTagsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateNode", input);
+  }
   createProposal(
     input: CreateProposalInput,
   ): Effect.Effect<
@@ -71,7 +79,9 @@ export declare class ManagedBlockchain extends AWSServiceClient {
     | ThrottlingException
     | TooManyTagsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateProposal", input);
+  }
   deleteAccessor(
     input: DeleteAccessorInput,
   ): Effect.Effect<
@@ -82,7 +92,9 @@ export declare class ManagedBlockchain extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteAccessor", input);
+  }
   deleteMember(
     input: DeleteMemberInput,
   ): Effect.Effect<
@@ -94,7 +106,9 @@ export declare class ManagedBlockchain extends AWSServiceClient {
     | ResourceNotReadyException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteMember", input);
+  }
   deleteNode(
     input: DeleteNodeInput,
   ): Effect.Effect<
@@ -106,7 +120,9 @@ export declare class ManagedBlockchain extends AWSServiceClient {
     | ResourceNotReadyException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteNode", input);
+  }
   getAccessor(
     input: GetAccessorInput,
   ): Effect.Effect<
@@ -117,7 +133,9 @@ export declare class ManagedBlockchain extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetAccessor", input);
+  }
   getMember(
     input: GetMemberInput,
   ): Effect.Effect<
@@ -128,7 +146,9 @@ export declare class ManagedBlockchain extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetMember", input);
+  }
   getNetwork(
     input: GetNetworkInput,
   ): Effect.Effect<
@@ -139,7 +159,9 @@ export declare class ManagedBlockchain extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetNetwork", input);
+  }
   getNode(
     input: GetNodeInput,
   ): Effect.Effect<
@@ -150,7 +172,9 @@ export declare class ManagedBlockchain extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetNode", input);
+  }
   getProposal(
     input: GetProposalInput,
   ): Effect.Effect<
@@ -161,7 +185,9 @@ export declare class ManagedBlockchain extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetProposal", input);
+  }
   listAccessors(
     input: ListAccessorsInput,
   ): Effect.Effect<
@@ -171,7 +197,9 @@ export declare class ManagedBlockchain extends AWSServiceClient {
     | InvalidRequestException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListAccessors", input);
+  }
   listInvitations(
     input: ListInvitationsInput,
   ): Effect.Effect<
@@ -183,7 +211,9 @@ export declare class ManagedBlockchain extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListInvitations", input);
+  }
   listMembers(
     input: ListMembersInput,
   ): Effect.Effect<
@@ -193,7 +223,9 @@ export declare class ManagedBlockchain extends AWSServiceClient {
     | InvalidRequestException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListMembers", input);
+  }
   listNetworks(
     input: ListNetworksInput,
   ): Effect.Effect<
@@ -203,7 +235,9 @@ export declare class ManagedBlockchain extends AWSServiceClient {
     | InvalidRequestException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListNetworks", input);
+  }
   listNodes(
     input: ListNodesInput,
   ): Effect.Effect<
@@ -213,7 +247,9 @@ export declare class ManagedBlockchain extends AWSServiceClient {
     | InvalidRequestException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListNodes", input);
+  }
   listProposals(
     input: ListProposalsInput,
   ): Effect.Effect<
@@ -224,7 +260,9 @@ export declare class ManagedBlockchain extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListProposals", input);
+  }
   listProposalVotes(
     input: ListProposalVotesInput,
   ): Effect.Effect<
@@ -234,7 +272,9 @@ export declare class ManagedBlockchain extends AWSServiceClient {
     | InvalidRequestException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListProposalVotes", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
@@ -244,7 +284,9 @@ export declare class ManagedBlockchain extends AWSServiceClient {
     | ResourceNotFoundException
     | ResourceNotReadyException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   rejectInvitation(
     input: RejectInvitationInput,
   ): Effect.Effect<
@@ -256,7 +298,9 @@ export declare class ManagedBlockchain extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("RejectInvitation", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -267,7 +311,9 @@ export declare class ManagedBlockchain extends AWSServiceClient {
     | ResourceNotReadyException
     | TooManyTagsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
@@ -277,7 +323,9 @@ export declare class ManagedBlockchain extends AWSServiceClient {
     | ResourceNotFoundException
     | ResourceNotReadyException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
   updateMember(
     input: UpdateMemberInput,
   ): Effect.Effect<
@@ -288,7 +336,9 @@ export declare class ManagedBlockchain extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateMember", input);
+  }
   updateNode(
     input: UpdateNodeInput,
   ): Effect.Effect<
@@ -299,7 +349,9 @@ export declare class ManagedBlockchain extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateNode", input);
+  }
   voteOnProposal(
     input: VoteOnProposalInput,
   ): Effect.Effect<
@@ -311,10 +363,14 @@ export declare class ManagedBlockchain extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("VoteOnProposal", input);
+  }
 }
 
-export declare class Managedblockchain extends ManagedBlockchain {}
+export class Managedblockchain extends ManagedBlockchain {}
+
+export default ManagedBlockchain;
 
 export declare class AccessDeniedException extends EffectData.TaggedError(
   "AccessDeniedException",

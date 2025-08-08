@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class PinpointSMSVoice extends AWSServiceClient {
+export class PinpointSMSVoice extends AWSServiceClient {
   createConfigurationSet(
     input: CreateConfigurationSetRequest,
   ): Effect.Effect<
@@ -13,7 +13,9 @@ export declare class PinpointSMSVoice extends AWSServiceClient {
     | LimitExceededException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateConfigurationSet", input);
+  }
   createConfigurationSetEventDestination(
     input: CreateConfigurationSetEventDestinationRequest,
   ): Effect.Effect<
@@ -25,7 +27,9 @@ export declare class PinpointSMSVoice extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateConfigurationSetEventDestination", input);
+  }
   deleteConfigurationSet(
     input: DeleteConfigurationSetRequest,
   ): Effect.Effect<
@@ -35,7 +39,9 @@ export declare class PinpointSMSVoice extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteConfigurationSet", input);
+  }
   deleteConfigurationSetEventDestination(
     input: DeleteConfigurationSetEventDestinationRequest,
   ): Effect.Effect<
@@ -45,7 +51,9 @@ export declare class PinpointSMSVoice extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteConfigurationSetEventDestination", input);
+  }
   getConfigurationSetEventDestinations(
     input: GetConfigurationSetEventDestinationsRequest,
   ): Effect.Effect<
@@ -55,7 +63,9 @@ export declare class PinpointSMSVoice extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetConfigurationSetEventDestinations", input);
+  }
   listConfigurationSets(
     input: ListConfigurationSetsRequest,
   ): Effect.Effect<
@@ -64,7 +74,9 @@ export declare class PinpointSMSVoice extends AWSServiceClient {
     | InternalServiceErrorException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListConfigurationSets", input);
+  }
   sendVoiceMessage(
     input: SendVoiceMessageRequest,
   ): Effect.Effect<
@@ -73,7 +85,9 @@ export declare class PinpointSMSVoice extends AWSServiceClient {
     | InternalServiceErrorException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("SendVoiceMessage", input);
+  }
   updateConfigurationSetEventDestination(
     input: UpdateConfigurationSetEventDestinationRequest,
   ): Effect.Effect<
@@ -83,10 +97,14 @@ export declare class PinpointSMSVoice extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateConfigurationSetEventDestination", input);
+  }
 }
 
-export declare class PinpointSmsVoice extends PinpointSMSVoice {}
+export class PinpointSmsVoice extends PinpointSMSVoice {}
+
+export default PinpointSMSVoice;
 
 export type __string = string;
 

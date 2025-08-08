@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class IAM extends AWSServiceClient {
+export class IAM extends AWSServiceClient {
   addClientIDToOpenIDConnectProvider(
     input: AddClientIDToOpenIDConnectProviderRequest,
   ): Effect.Effect<
@@ -12,7 +12,9 @@ export declare class IAM extends AWSServiceClient {
     | NoSuchEntityException
     | ServiceFailureException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AddClientIDToOpenIDConnectProvider", input);
+  }
   addRoleToInstanceProfile(
     input: AddRoleToInstanceProfileRequest,
   ): Effect.Effect<
@@ -23,7 +25,9 @@ export declare class IAM extends AWSServiceClient {
     | ServiceFailureException
     | UnmodifiableEntityException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AddRoleToInstanceProfile", input);
+  }
   addUserToGroup(
     input: AddUserToGroupRequest,
   ): Effect.Effect<
@@ -32,7 +36,9 @@ export declare class IAM extends AWSServiceClient {
     | NoSuchEntityException
     | ServiceFailureException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AddUserToGroup", input);
+  }
   attachGroupPolicy(
     input: AttachGroupPolicyRequest,
   ): Effect.Effect<
@@ -43,7 +49,9 @@ export declare class IAM extends AWSServiceClient {
     | PolicyNotAttachableException
     | ServiceFailureException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AttachGroupPolicy", input);
+  }
   attachRolePolicy(
     input: AttachRolePolicyRequest,
   ): Effect.Effect<
@@ -55,7 +63,9 @@ export declare class IAM extends AWSServiceClient {
     | ServiceFailureException
     | UnmodifiableEntityException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AttachRolePolicy", input);
+  }
   attachUserPolicy(
     input: AttachUserPolicyRequest,
   ): Effect.Effect<
@@ -66,7 +76,9 @@ export declare class IAM extends AWSServiceClient {
     | PolicyNotAttachableException
     | ServiceFailureException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AttachUserPolicy", input);
+  }
   changePassword(
     input: ChangePasswordRequest,
   ): Effect.Effect<
@@ -78,7 +90,9 @@ export declare class IAM extends AWSServiceClient {
     | PasswordPolicyViolationException
     | ServiceFailureException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ChangePassword", input);
+  }
   createAccessKey(
     input: CreateAccessKeyRequest,
   ): Effect.Effect<
@@ -87,7 +101,9 @@ export declare class IAM extends AWSServiceClient {
     | NoSuchEntityException
     | ServiceFailureException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateAccessKey", input);
+  }
   createAccountAlias(
     input: CreateAccountAliasRequest,
   ): Effect.Effect<
@@ -97,7 +113,9 @@ export declare class IAM extends AWSServiceClient {
     | LimitExceededException
     | ServiceFailureException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateAccountAlias", input);
+  }
   createGroup(
     input: CreateGroupRequest,
   ): Effect.Effect<
@@ -107,7 +125,9 @@ export declare class IAM extends AWSServiceClient {
     | NoSuchEntityException
     | ServiceFailureException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateGroup", input);
+  }
   createInstanceProfile(
     input: CreateInstanceProfileRequest,
   ): Effect.Effect<
@@ -118,7 +138,9 @@ export declare class IAM extends AWSServiceClient {
     | LimitExceededException
     | ServiceFailureException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateInstanceProfile", input);
+  }
   createLoginProfile(
     input: CreateLoginProfileRequest,
   ): Effect.Effect<
@@ -129,7 +151,9 @@ export declare class IAM extends AWSServiceClient {
     | PasswordPolicyViolationException
     | ServiceFailureException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateLoginProfile", input);
+  }
   createOpenIDConnectProvider(
     input: CreateOpenIDConnectProviderRequest,
   ): Effect.Effect<
@@ -141,7 +165,9 @@ export declare class IAM extends AWSServiceClient {
     | OpenIdIdpCommunicationErrorException
     | ServiceFailureException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateOpenIDConnectProvider", input);
+  }
   createPolicy(
     input: CreatePolicyRequest,
   ): Effect.Effect<
@@ -153,7 +179,9 @@ export declare class IAM extends AWSServiceClient {
     | MalformedPolicyDocumentException
     | ServiceFailureException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreatePolicy", input);
+  }
   createPolicyVersion(
     input: CreatePolicyVersionRequest,
   ): Effect.Effect<
@@ -164,7 +192,9 @@ export declare class IAM extends AWSServiceClient {
     | NoSuchEntityException
     | ServiceFailureException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreatePolicyVersion", input);
+  }
   createRole(
     input: CreateRoleRequest,
   ): Effect.Effect<
@@ -176,7 +206,9 @@ export declare class IAM extends AWSServiceClient {
     | MalformedPolicyDocumentException
     | ServiceFailureException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateRole", input);
+  }
   createSAMLProvider(
     input: CreateSAMLProviderRequest,
   ): Effect.Effect<
@@ -187,7 +219,9 @@ export declare class IAM extends AWSServiceClient {
     | LimitExceededException
     | ServiceFailureException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateSAMLProvider", input);
+  }
   createServiceLinkedRole(
     input: CreateServiceLinkedRoleRequest,
   ): Effect.Effect<
@@ -197,7 +231,9 @@ export declare class IAM extends AWSServiceClient {
     | NoSuchEntityException
     | ServiceFailureException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateServiceLinkedRole", input);
+  }
   createServiceSpecificCredential(
     input: CreateServiceSpecificCredentialRequest,
   ): Effect.Effect<
@@ -206,7 +242,9 @@ export declare class IAM extends AWSServiceClient {
     | NoSuchEntityException
     | ServiceNotSupportedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateServiceSpecificCredential", input);
+  }
   createUser(
     input: CreateUserRequest,
   ): Effect.Effect<
@@ -218,7 +256,9 @@ export declare class IAM extends AWSServiceClient {
     | NoSuchEntityException
     | ServiceFailureException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateUser", input);
+  }
   createVirtualMFADevice(
     input: CreateVirtualMFADeviceRequest,
   ): Effect.Effect<
@@ -229,7 +269,9 @@ export declare class IAM extends AWSServiceClient {
     | LimitExceededException
     | ServiceFailureException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateVirtualMFADevice", input);
+  }
   deactivateMFADevice(
     input: DeactivateMFADeviceRequest,
   ): Effect.Effect<
@@ -240,7 +282,9 @@ export declare class IAM extends AWSServiceClient {
     | NoSuchEntityException
     | ServiceFailureException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeactivateMFADevice", input);
+  }
   deleteAccessKey(
     input: DeleteAccessKeyRequest,
   ): Effect.Effect<
@@ -249,7 +293,9 @@ export declare class IAM extends AWSServiceClient {
     | NoSuchEntityException
     | ServiceFailureException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteAccessKey", input);
+  }
   deleteAccountAlias(
     input: DeleteAccountAliasRequest,
   ): Effect.Effect<
@@ -259,14 +305,18 @@ export declare class IAM extends AWSServiceClient {
     | NoSuchEntityException
     | ServiceFailureException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteAccountAlias", input);
+  }
   deleteAccountPasswordPolicy(input: {}): Effect.Effect<
     {},
     | LimitExceededException
     | NoSuchEntityException
     | ServiceFailureException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteAccountPasswordPolicy", input);
+  }
   deleteGroup(
     input: DeleteGroupRequest,
   ): Effect.Effect<
@@ -276,7 +326,9 @@ export declare class IAM extends AWSServiceClient {
     | NoSuchEntityException
     | ServiceFailureException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteGroup", input);
+  }
   deleteGroupPolicy(
     input: DeleteGroupPolicyRequest,
   ): Effect.Effect<
@@ -285,7 +337,9 @@ export declare class IAM extends AWSServiceClient {
     | NoSuchEntityException
     | ServiceFailureException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteGroupPolicy", input);
+  }
   deleteInstanceProfile(
     input: DeleteInstanceProfileRequest,
   ): Effect.Effect<
@@ -295,7 +349,9 @@ export declare class IAM extends AWSServiceClient {
     | NoSuchEntityException
     | ServiceFailureException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteInstanceProfile", input);
+  }
   deleteLoginProfile(
     input: DeleteLoginProfileRequest,
   ): Effect.Effect<
@@ -305,7 +361,9 @@ export declare class IAM extends AWSServiceClient {
     | NoSuchEntityException
     | ServiceFailureException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteLoginProfile", input);
+  }
   deleteOpenIDConnectProvider(
     input: DeleteOpenIDConnectProviderRequest,
   ): Effect.Effect<
@@ -314,7 +372,9 @@ export declare class IAM extends AWSServiceClient {
     | NoSuchEntityException
     | ServiceFailureException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteOpenIDConnectProvider", input);
+  }
   deletePolicy(
     input: DeletePolicyRequest,
   ): Effect.Effect<
@@ -325,7 +385,9 @@ export declare class IAM extends AWSServiceClient {
     | NoSuchEntityException
     | ServiceFailureException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeletePolicy", input);
+  }
   deletePolicyVersion(
     input: DeletePolicyVersionRequest,
   ): Effect.Effect<
@@ -336,7 +398,9 @@ export declare class IAM extends AWSServiceClient {
     | NoSuchEntityException
     | ServiceFailureException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeletePolicyVersion", input);
+  }
   deleteRole(
     input: DeleteRoleRequest,
   ): Effect.Effect<
@@ -348,7 +412,9 @@ export declare class IAM extends AWSServiceClient {
     | ServiceFailureException
     | UnmodifiableEntityException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteRole", input);
+  }
   deleteRolePermissionsBoundary(
     input: DeleteRolePermissionsBoundaryRequest,
   ): Effect.Effect<
@@ -357,7 +423,9 @@ export declare class IAM extends AWSServiceClient {
     | ServiceFailureException
     | UnmodifiableEntityException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteRolePermissionsBoundary", input);
+  }
   deleteRolePolicy(
     input: DeleteRolePolicyRequest,
   ): Effect.Effect<
@@ -367,7 +435,9 @@ export declare class IAM extends AWSServiceClient {
     | ServiceFailureException
     | UnmodifiableEntityException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteRolePolicy", input);
+  }
   deleteSAMLProvider(
     input: DeleteSAMLProviderRequest,
   ): Effect.Effect<
@@ -377,7 +447,9 @@ export declare class IAM extends AWSServiceClient {
     | NoSuchEntityException
     | ServiceFailureException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteSAMLProvider", input);
+  }
   deleteServerCertificate(
     input: DeleteServerCertificateRequest,
   ): Effect.Effect<
@@ -387,7 +459,9 @@ export declare class IAM extends AWSServiceClient {
     | NoSuchEntityException
     | ServiceFailureException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteServerCertificate", input);
+  }
   deleteServiceLinkedRole(
     input: DeleteServiceLinkedRoleRequest,
   ): Effect.Effect<
@@ -396,10 +470,14 @@ export declare class IAM extends AWSServiceClient {
     | NoSuchEntityException
     | ServiceFailureException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteServiceLinkedRole", input);
+  }
   deleteServiceSpecificCredential(
     input: DeleteServiceSpecificCredentialRequest,
-  ): Effect.Effect<{}, NoSuchEntityException | CommonAwsError>;
+  ): Effect.Effect<{}, NoSuchEntityException | CommonAwsError> {
+    return this.call("DeleteServiceSpecificCredential", input);
+  }
   deleteSigningCertificate(
     input: DeleteSigningCertificateRequest,
   ): Effect.Effect<
@@ -409,10 +487,14 @@ export declare class IAM extends AWSServiceClient {
     | NoSuchEntityException
     | ServiceFailureException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteSigningCertificate", input);
+  }
   deleteSSHPublicKey(
     input: DeleteSSHPublicKeyRequest,
-  ): Effect.Effect<{}, NoSuchEntityException | CommonAwsError>;
+  ): Effect.Effect<{}, NoSuchEntityException | CommonAwsError> {
+    return this.call("DeleteSSHPublicKey", input);
+  }
   deleteUser(
     input: DeleteUserRequest,
   ): Effect.Effect<
@@ -423,13 +505,17 @@ export declare class IAM extends AWSServiceClient {
     | NoSuchEntityException
     | ServiceFailureException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteUser", input);
+  }
   deleteUserPermissionsBoundary(
     input: DeleteUserPermissionsBoundaryRequest,
   ): Effect.Effect<
     {},
     NoSuchEntityException | ServiceFailureException | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteUserPermissionsBoundary", input);
+  }
   deleteUserPolicy(
     input: DeleteUserPolicyRequest,
   ): Effect.Effect<
@@ -438,7 +524,9 @@ export declare class IAM extends AWSServiceClient {
     | NoSuchEntityException
     | ServiceFailureException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteUserPolicy", input);
+  }
   deleteVirtualMFADevice(
     input: DeleteVirtualMFADeviceRequest,
   ): Effect.Effect<
@@ -449,7 +537,9 @@ export declare class IAM extends AWSServiceClient {
     | NoSuchEntityException
     | ServiceFailureException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteVirtualMFADevice", input);
+  }
   detachGroupPolicy(
     input: DetachGroupPolicyRequest,
   ): Effect.Effect<
@@ -459,7 +549,9 @@ export declare class IAM extends AWSServiceClient {
     | NoSuchEntityException
     | ServiceFailureException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DetachGroupPolicy", input);
+  }
   detachRolePolicy(
     input: DetachRolePolicyRequest,
   ): Effect.Effect<
@@ -470,7 +562,9 @@ export declare class IAM extends AWSServiceClient {
     | ServiceFailureException
     | UnmodifiableEntityException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DetachRolePolicy", input);
+  }
   detachUserPolicy(
     input: DetachUserPolicyRequest,
   ): Effect.Effect<
@@ -480,7 +574,9 @@ export declare class IAM extends AWSServiceClient {
     | NoSuchEntityException
     | ServiceFailureException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DetachUserPolicy", input);
+  }
   disableOrganizationsRootCredentialsManagement(
     input: DisableOrganizationsRootCredentialsManagementRequest,
   ): Effect.Effect<
@@ -490,7 +586,9 @@ export declare class IAM extends AWSServiceClient {
     | OrganizationNotInAllFeaturesModeException
     | ServiceAccessNotEnabledException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DisableOrganizationsRootCredentialsManagement", input);
+  }
   disableOrganizationsRootSessions(
     input: DisableOrganizationsRootSessionsRequest,
   ): Effect.Effect<
@@ -500,7 +598,9 @@ export declare class IAM extends AWSServiceClient {
     | OrganizationNotInAllFeaturesModeException
     | ServiceAccessNotEnabledException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DisableOrganizationsRootSessions", input);
+  }
   enableMFADevice(
     input: EnableMFADeviceRequest,
   ): Effect.Effect<
@@ -513,7 +613,9 @@ export declare class IAM extends AWSServiceClient {
     | NoSuchEntityException
     | ServiceFailureException
     | CommonAwsError
-  >;
+  > {
+    return this.call("EnableMFADevice", input);
+  }
   enableOrganizationsRootCredentialsManagement(
     input: EnableOrganizationsRootCredentialsManagementRequest,
   ): Effect.Effect<
@@ -524,7 +626,9 @@ export declare class IAM extends AWSServiceClient {
     | OrganizationNotInAllFeaturesModeException
     | ServiceAccessNotEnabledException
     | CommonAwsError
-  >;
+  > {
+    return this.call("EnableOrganizationsRootCredentialsManagement", input);
+  }
   enableOrganizationsRootSessions(
     input: EnableOrganizationsRootSessionsRequest,
   ): Effect.Effect<
@@ -535,52 +639,72 @@ export declare class IAM extends AWSServiceClient {
     | OrganizationNotInAllFeaturesModeException
     | ServiceAccessNotEnabledException
     | CommonAwsError
-  >;
+  > {
+    return this.call("EnableOrganizationsRootSessions", input);
+  }
   generateCredentialReport(input: {}): Effect.Effect<
     GenerateCredentialReportResponse,
     LimitExceededException | ServiceFailureException | CommonAwsError
-  >;
+  > {
+    return this.call("GenerateCredentialReport", input);
+  }
   generateOrganizationsAccessReport(
     input: GenerateOrganizationsAccessReportRequest,
   ): Effect.Effect<
     GenerateOrganizationsAccessReportResponse,
     ReportGenerationLimitExceededException | CommonAwsError
-  >;
+  > {
+    return this.call("GenerateOrganizationsAccessReport", input);
+  }
   generateServiceLastAccessedDetails(
     input: GenerateServiceLastAccessedDetailsRequest,
   ): Effect.Effect<
     GenerateServiceLastAccessedDetailsResponse,
     InvalidInputException | NoSuchEntityException | CommonAwsError
-  >;
+  > {
+    return this.call("GenerateServiceLastAccessedDetails", input);
+  }
   getAccessKeyLastUsed(
     input: GetAccessKeyLastUsedRequest,
-  ): Effect.Effect<GetAccessKeyLastUsedResponse, CommonAwsError>;
+  ): Effect.Effect<GetAccessKeyLastUsedResponse, CommonAwsError> {
+    return this.call("GetAccessKeyLastUsed", input);
+  }
   getAccountAuthorizationDetails(
     input: GetAccountAuthorizationDetailsRequest,
   ): Effect.Effect<
     GetAccountAuthorizationDetailsResponse,
     ServiceFailureException | CommonAwsError
-  >;
+  > {
+    return this.call("GetAccountAuthorizationDetails", input);
+  }
   getAccountPasswordPolicy(input: {}): Effect.Effect<
     GetAccountPasswordPolicyResponse,
     NoSuchEntityException | ServiceFailureException | CommonAwsError
-  >;
+  > {
+    return this.call("GetAccountPasswordPolicy", input);
+  }
   getAccountSummary(input: {}): Effect.Effect<
     GetAccountSummaryResponse,
     ServiceFailureException | CommonAwsError
-  >;
+  > {
+    return this.call("GetAccountSummary", input);
+  }
   getContextKeysForCustomPolicy(
     input: GetContextKeysForCustomPolicyRequest,
   ): Effect.Effect<
     GetContextKeysForPolicyResponse,
     InvalidInputException | CommonAwsError
-  >;
+  > {
+    return this.call("GetContextKeysForCustomPolicy", input);
+  }
   getContextKeysForPrincipalPolicy(
     input: GetContextKeysForPrincipalPolicyRequest,
   ): Effect.Effect<
     GetContextKeysForPolicyResponse,
     InvalidInputException | NoSuchEntityException | CommonAwsError
-  >;
+  > {
+    return this.call("GetContextKeysForPrincipalPolicy", input);
+  }
   getCredentialReport(input: {}): Effect.Effect<
     GetCredentialReportResponse,
     | CredentialReportExpiredException
@@ -588,37 +712,49 @@ export declare class IAM extends AWSServiceClient {
     | CredentialReportNotReadyException
     | ServiceFailureException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetCredentialReport", input);
+  }
   getGroup(
     input: GetGroupRequest,
   ): Effect.Effect<
     GetGroupResponse,
     NoSuchEntityException | ServiceFailureException | CommonAwsError
-  >;
+  > {
+    return this.call("GetGroup", input);
+  }
   getGroupPolicy(
     input: GetGroupPolicyRequest,
   ): Effect.Effect<
     GetGroupPolicyResponse,
     NoSuchEntityException | ServiceFailureException | CommonAwsError
-  >;
+  > {
+    return this.call("GetGroupPolicy", input);
+  }
   getInstanceProfile(
     input: GetInstanceProfileRequest,
   ): Effect.Effect<
     GetInstanceProfileResponse,
     NoSuchEntityException | ServiceFailureException | CommonAwsError
-  >;
+  > {
+    return this.call("GetInstanceProfile", input);
+  }
   getLoginProfile(
     input: GetLoginProfileRequest,
   ): Effect.Effect<
     GetLoginProfileResponse,
     NoSuchEntityException | ServiceFailureException | CommonAwsError
-  >;
+  > {
+    return this.call("GetLoginProfile", input);
+  }
   getMFADevice(
     input: GetMFADeviceRequest,
   ): Effect.Effect<
     GetMFADeviceResponse,
     NoSuchEntityException | ServiceFailureException | CommonAwsError
-  >;
+  > {
+    return this.call("GetMFADevice", input);
+  }
   getOpenIDConnectProvider(
     input: GetOpenIDConnectProviderRequest,
   ): Effect.Effect<
@@ -627,13 +763,17 @@ export declare class IAM extends AWSServiceClient {
     | NoSuchEntityException
     | ServiceFailureException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetOpenIDConnectProvider", input);
+  }
   getOrganizationsAccessReport(
     input: GetOrganizationsAccessReportRequest,
   ): Effect.Effect<
     GetOrganizationsAccessReportResponse,
     NoSuchEntityException | CommonAwsError
-  >;
+  > {
+    return this.call("GetOrganizationsAccessReport", input);
+  }
   getPolicy(
     input: GetPolicyRequest,
   ): Effect.Effect<
@@ -642,7 +782,9 @@ export declare class IAM extends AWSServiceClient {
     | NoSuchEntityException
     | ServiceFailureException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetPolicy", input);
+  }
   getPolicyVersion(
     input: GetPolicyVersionRequest,
   ): Effect.Effect<
@@ -651,19 +793,25 @@ export declare class IAM extends AWSServiceClient {
     | NoSuchEntityException
     | ServiceFailureException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetPolicyVersion", input);
+  }
   getRole(
     input: GetRoleRequest,
   ): Effect.Effect<
     GetRoleResponse,
     NoSuchEntityException | ServiceFailureException | CommonAwsError
-  >;
+  > {
+    return this.call("GetRole", input);
+  }
   getRolePolicy(
     input: GetRolePolicyRequest,
   ): Effect.Effect<
     GetRolePolicyResponse,
     NoSuchEntityException | ServiceFailureException | CommonAwsError
-  >;
+  > {
+    return this.call("GetRolePolicy", input);
+  }
   getSAMLProvider(
     input: GetSAMLProviderRequest,
   ): Effect.Effect<
@@ -672,25 +820,33 @@ export declare class IAM extends AWSServiceClient {
     | NoSuchEntityException
     | ServiceFailureException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetSAMLProvider", input);
+  }
   getServerCertificate(
     input: GetServerCertificateRequest,
   ): Effect.Effect<
     GetServerCertificateResponse,
     NoSuchEntityException | ServiceFailureException | CommonAwsError
-  >;
+  > {
+    return this.call("GetServerCertificate", input);
+  }
   getServiceLastAccessedDetails(
     input: GetServiceLastAccessedDetailsRequest,
   ): Effect.Effect<
     GetServiceLastAccessedDetailsResponse,
     InvalidInputException | NoSuchEntityException | CommonAwsError
-  >;
+  > {
+    return this.call("GetServiceLastAccessedDetails", input);
+  }
   getServiceLastAccessedDetailsWithEntities(
     input: GetServiceLastAccessedDetailsWithEntitiesRequest,
   ): Effect.Effect<
     GetServiceLastAccessedDetailsWithEntitiesResponse,
     InvalidInputException | NoSuchEntityException | CommonAwsError
-  >;
+  > {
+    return this.call("GetServiceLastAccessedDetailsWithEntities", input);
+  }
   getServiceLinkedRoleDeletionStatus(
     input: GetServiceLinkedRoleDeletionStatusRequest,
   ): Effect.Effect<
@@ -699,7 +855,9 @@ export declare class IAM extends AWSServiceClient {
     | NoSuchEntityException
     | ServiceFailureException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetServiceLinkedRoleDeletionStatus", input);
+  }
   getSSHPublicKey(
     input: GetSSHPublicKeyRequest,
   ): Effect.Effect<
@@ -707,31 +865,41 @@ export declare class IAM extends AWSServiceClient {
     | NoSuchEntityException
     | UnrecognizedPublicKeyEncodingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetSSHPublicKey", input);
+  }
   getUser(
     input: GetUserRequest,
   ): Effect.Effect<
     GetUserResponse,
     NoSuchEntityException | ServiceFailureException | CommonAwsError
-  >;
+  > {
+    return this.call("GetUser", input);
+  }
   getUserPolicy(
     input: GetUserPolicyRequest,
   ): Effect.Effect<
     GetUserPolicyResponse,
     NoSuchEntityException | ServiceFailureException | CommonAwsError
-  >;
+  > {
+    return this.call("GetUserPolicy", input);
+  }
   listAccessKeys(
     input: ListAccessKeysRequest,
   ): Effect.Effect<
     ListAccessKeysResponse,
     NoSuchEntityException | ServiceFailureException | CommonAwsError
-  >;
+  > {
+    return this.call("ListAccessKeys", input);
+  }
   listAccountAliases(
     input: ListAccountAliasesRequest,
   ): Effect.Effect<
     ListAccountAliasesResponse,
     ServiceFailureException | CommonAwsError
-  >;
+  > {
+    return this.call("ListAccountAliases", input);
+  }
   listAttachedGroupPolicies(
     input: ListAttachedGroupPoliciesRequest,
   ): Effect.Effect<
@@ -740,7 +908,9 @@ export declare class IAM extends AWSServiceClient {
     | NoSuchEntityException
     | ServiceFailureException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListAttachedGroupPolicies", input);
+  }
   listAttachedRolePolicies(
     input: ListAttachedRolePoliciesRequest,
   ): Effect.Effect<
@@ -749,7 +919,9 @@ export declare class IAM extends AWSServiceClient {
     | NoSuchEntityException
     | ServiceFailureException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListAttachedRolePolicies", input);
+  }
   listAttachedUserPolicies(
     input: ListAttachedUserPoliciesRequest,
   ): Effect.Effect<
@@ -758,7 +930,9 @@ export declare class IAM extends AWSServiceClient {
     | NoSuchEntityException
     | ServiceFailureException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListAttachedUserPolicies", input);
+  }
   listEntitiesForPolicy(
     input: ListEntitiesForPolicyRequest,
   ): Effect.Effect<
@@ -767,49 +941,65 @@ export declare class IAM extends AWSServiceClient {
     | NoSuchEntityException
     | ServiceFailureException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListEntitiesForPolicy", input);
+  }
   listGroupPolicies(
     input: ListGroupPoliciesRequest,
   ): Effect.Effect<
     ListGroupPoliciesResponse,
     NoSuchEntityException | ServiceFailureException | CommonAwsError
-  >;
+  > {
+    return this.call("ListGroupPolicies", input);
+  }
   listGroups(
     input: ListGroupsRequest,
   ): Effect.Effect<
     ListGroupsResponse,
     ServiceFailureException | CommonAwsError
-  >;
+  > {
+    return this.call("ListGroups", input);
+  }
   listGroupsForUser(
     input: ListGroupsForUserRequest,
   ): Effect.Effect<
     ListGroupsForUserResponse,
     NoSuchEntityException | ServiceFailureException | CommonAwsError
-  >;
+  > {
+    return this.call("ListGroupsForUser", input);
+  }
   listInstanceProfiles(
     input: ListInstanceProfilesRequest,
   ): Effect.Effect<
     ListInstanceProfilesResponse,
     ServiceFailureException | CommonAwsError
-  >;
+  > {
+    return this.call("ListInstanceProfiles", input);
+  }
   listInstanceProfilesForRole(
     input: ListInstanceProfilesForRoleRequest,
   ): Effect.Effect<
     ListInstanceProfilesForRoleResponse,
     NoSuchEntityException | ServiceFailureException | CommonAwsError
-  >;
+  > {
+    return this.call("ListInstanceProfilesForRole", input);
+  }
   listInstanceProfileTags(
     input: ListInstanceProfileTagsRequest,
   ): Effect.Effect<
     ListInstanceProfileTagsResponse,
     NoSuchEntityException | ServiceFailureException | CommonAwsError
-  >;
+  > {
+    return this.call("ListInstanceProfileTags", input);
+  }
   listMFADevices(
     input: ListMFADevicesRequest,
   ): Effect.Effect<
     ListMFADevicesResponse,
     NoSuchEntityException | ServiceFailureException | CommonAwsError
-  >;
+  > {
+    return this.call("ListMFADevices", input);
+  }
   listMFADeviceTags(
     input: ListMFADeviceTagsRequest,
   ): Effect.Effect<
@@ -818,13 +1008,17 @@ export declare class IAM extends AWSServiceClient {
     | NoSuchEntityException
     | ServiceFailureException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListMFADeviceTags", input);
+  }
   listOpenIDConnectProviders(
     input: ListOpenIDConnectProvidersRequest,
   ): Effect.Effect<
     ListOpenIDConnectProvidersResponse,
     ServiceFailureException | CommonAwsError
-  >;
+  > {
+    return this.call("ListOpenIDConnectProviders", input);
+  }
   listOpenIDConnectProviderTags(
     input: ListOpenIDConnectProviderTagsRequest,
   ): Effect.Effect<
@@ -833,7 +1027,9 @@ export declare class IAM extends AWSServiceClient {
     | NoSuchEntityException
     | ServiceFailureException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListOpenIDConnectProviderTags", input);
+  }
   listOrganizationsFeatures(
     input: ListOrganizationsFeaturesRequest,
   ): Effect.Effect<
@@ -843,19 +1039,25 @@ export declare class IAM extends AWSServiceClient {
     | OrganizationNotInAllFeaturesModeException
     | ServiceAccessNotEnabledException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListOrganizationsFeatures", input);
+  }
   listPolicies(
     input: ListPoliciesRequest,
   ): Effect.Effect<
     ListPoliciesResponse,
     ServiceFailureException | CommonAwsError
-  >;
+  > {
+    return this.call("ListPolicies", input);
+  }
   listPoliciesGrantingServiceAccess(
     input: ListPoliciesGrantingServiceAccessRequest,
   ): Effect.Effect<
     ListPoliciesGrantingServiceAccessResponse,
     InvalidInputException | NoSuchEntityException | CommonAwsError
-  >;
+  > {
+    return this.call("ListPoliciesGrantingServiceAccess", input);
+  }
   listPolicyTags(
     input: ListPolicyTagsRequest,
   ): Effect.Effect<
@@ -864,7 +1066,9 @@ export declare class IAM extends AWSServiceClient {
     | NoSuchEntityException
     | ServiceFailureException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListPolicyTags", input);
+  }
   listPolicyVersions(
     input: ListPolicyVersionsRequest,
   ): Effect.Effect<
@@ -873,28 +1077,41 @@ export declare class IAM extends AWSServiceClient {
     | NoSuchEntityException
     | ServiceFailureException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListPolicyVersions", input);
+  }
   listRolePolicies(
     input: ListRolePoliciesRequest,
   ): Effect.Effect<
     ListRolePoliciesResponse,
     NoSuchEntityException | ServiceFailureException | CommonAwsError
-  >;
+  > {
+    return this.call("ListRolePolicies", input);
+  }
   listRoles(
     input: ListRolesRequest,
-  ): Effect.Effect<ListRolesResponse, ServiceFailureException | CommonAwsError>;
+  ): Effect.Effect<
+    ListRolesResponse,
+    ServiceFailureException | CommonAwsError
+  > {
+    return this.call("ListRoles", input);
+  }
   listRoleTags(
     input: ListRoleTagsRequest,
   ): Effect.Effect<
     ListRoleTagsResponse,
     NoSuchEntityException | ServiceFailureException | CommonAwsError
-  >;
+  > {
+    return this.call("ListRoleTags", input);
+  }
   listSAMLProviders(
     input: ListSAMLProvidersRequest,
   ): Effect.Effect<
     ListSAMLProvidersResponse,
     ServiceFailureException | CommonAwsError
-  >;
+  > {
+    return this.call("ListSAMLProviders", input);
+  }
   listSAMLProviderTags(
     input: ListSAMLProviderTagsRequest,
   ): Effect.Effect<
@@ -903,55 +1120,78 @@ export declare class IAM extends AWSServiceClient {
     | NoSuchEntityException
     | ServiceFailureException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListSAMLProviderTags", input);
+  }
   listServerCertificates(
     input: ListServerCertificatesRequest,
   ): Effect.Effect<
     ListServerCertificatesResponse,
     ServiceFailureException | CommonAwsError
-  >;
+  > {
+    return this.call("ListServerCertificates", input);
+  }
   listServerCertificateTags(
     input: ListServerCertificateTagsRequest,
   ): Effect.Effect<
     ListServerCertificateTagsResponse,
     NoSuchEntityException | ServiceFailureException | CommonAwsError
-  >;
+  > {
+    return this.call("ListServerCertificateTags", input);
+  }
   listServiceSpecificCredentials(
     input: ListServiceSpecificCredentialsRequest,
   ): Effect.Effect<
     ListServiceSpecificCredentialsResponse,
     NoSuchEntityException | ServiceNotSupportedException | CommonAwsError
-  >;
+  > {
+    return this.call("ListServiceSpecificCredentials", input);
+  }
   listSigningCertificates(
     input: ListSigningCertificatesRequest,
   ): Effect.Effect<
     ListSigningCertificatesResponse,
     NoSuchEntityException | ServiceFailureException | CommonAwsError
-  >;
+  > {
+    return this.call("ListSigningCertificates", input);
+  }
   listSSHPublicKeys(
     input: ListSSHPublicKeysRequest,
   ): Effect.Effect<
     ListSSHPublicKeysResponse,
     NoSuchEntityException | CommonAwsError
-  >;
+  > {
+    return this.call("ListSSHPublicKeys", input);
+  }
   listUserPolicies(
     input: ListUserPoliciesRequest,
   ): Effect.Effect<
     ListUserPoliciesResponse,
     NoSuchEntityException | ServiceFailureException | CommonAwsError
-  >;
+  > {
+    return this.call("ListUserPolicies", input);
+  }
   listUsers(
     input: ListUsersRequest,
-  ): Effect.Effect<ListUsersResponse, ServiceFailureException | CommonAwsError>;
+  ): Effect.Effect<
+    ListUsersResponse,
+    ServiceFailureException | CommonAwsError
+  > {
+    return this.call("ListUsers", input);
+  }
   listUserTags(
     input: ListUserTagsRequest,
   ): Effect.Effect<
     ListUserTagsResponse,
     NoSuchEntityException | ServiceFailureException | CommonAwsError
-  >;
+  > {
+    return this.call("ListUserTags", input);
+  }
   listVirtualMFADevices(
     input: ListVirtualMFADevicesRequest,
-  ): Effect.Effect<ListVirtualMFADevicesResponse, CommonAwsError>;
+  ): Effect.Effect<ListVirtualMFADevicesResponse, CommonAwsError> {
+    return this.call("ListVirtualMFADevices", input);
+  }
   putGroupPolicy(
     input: PutGroupPolicyRequest,
   ): Effect.Effect<
@@ -961,7 +1201,9 @@ export declare class IAM extends AWSServiceClient {
     | NoSuchEntityException
     | ServiceFailureException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutGroupPolicy", input);
+  }
   putRolePermissionsBoundary(
     input: PutRolePermissionsBoundaryRequest,
   ): Effect.Effect<
@@ -972,7 +1214,9 @@ export declare class IAM extends AWSServiceClient {
     | ServiceFailureException
     | UnmodifiableEntityException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutRolePermissionsBoundary", input);
+  }
   putRolePolicy(
     input: PutRolePolicyRequest,
   ): Effect.Effect<
@@ -983,7 +1227,9 @@ export declare class IAM extends AWSServiceClient {
     | ServiceFailureException
     | UnmodifiableEntityException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutRolePolicy", input);
+  }
   putUserPermissionsBoundary(
     input: PutUserPermissionsBoundaryRequest,
   ): Effect.Effect<
@@ -993,7 +1239,9 @@ export declare class IAM extends AWSServiceClient {
     | PolicyNotAttachableException
     | ServiceFailureException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutUserPermissionsBoundary", input);
+  }
   putUserPolicy(
     input: PutUserPolicyRequest,
   ): Effect.Effect<
@@ -1003,7 +1251,9 @@ export declare class IAM extends AWSServiceClient {
     | NoSuchEntityException
     | ServiceFailureException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutUserPolicy", input);
+  }
   removeClientIDFromOpenIDConnectProvider(
     input: RemoveClientIDFromOpenIDConnectProviderRequest,
   ): Effect.Effect<
@@ -1012,7 +1262,9 @@ export declare class IAM extends AWSServiceClient {
     | NoSuchEntityException
     | ServiceFailureException
     | CommonAwsError
-  >;
+  > {
+    return this.call("RemoveClientIDFromOpenIDConnectProvider", input);
+  }
   removeRoleFromInstanceProfile(
     input: RemoveRoleFromInstanceProfileRequest,
   ): Effect.Effect<
@@ -1022,7 +1274,9 @@ export declare class IAM extends AWSServiceClient {
     | ServiceFailureException
     | UnmodifiableEntityException
     | CommonAwsError
-  >;
+  > {
+    return this.call("RemoveRoleFromInstanceProfile", input);
+  }
   removeUserFromGroup(
     input: RemoveUserFromGroupRequest,
   ): Effect.Effect<
@@ -1031,13 +1285,17 @@ export declare class IAM extends AWSServiceClient {
     | NoSuchEntityException
     | ServiceFailureException
     | CommonAwsError
-  >;
+  > {
+    return this.call("RemoveUserFromGroup", input);
+  }
   resetServiceSpecificCredential(
     input: ResetServiceSpecificCredentialRequest,
   ): Effect.Effect<
     ResetServiceSpecificCredentialResponse,
     NoSuchEntityException | CommonAwsError
-  >;
+  > {
+    return this.call("ResetServiceSpecificCredential", input);
+  }
   resyncMFADevice(
     input: ResyncMFADeviceRequest,
   ): Effect.Effect<
@@ -1048,7 +1306,9 @@ export declare class IAM extends AWSServiceClient {
     | NoSuchEntityException
     | ServiceFailureException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ResyncMFADevice", input);
+  }
   setDefaultPolicyVersion(
     input: SetDefaultPolicyVersionRequest,
   ): Effect.Effect<
@@ -1058,16 +1318,22 @@ export declare class IAM extends AWSServiceClient {
     | NoSuchEntityException
     | ServiceFailureException
     | CommonAwsError
-  >;
+  > {
+    return this.call("SetDefaultPolicyVersion", input);
+  }
   setSecurityTokenServicePreferences(
     input: SetSecurityTokenServicePreferencesRequest,
-  ): Effect.Effect<{}, ServiceFailureException | CommonAwsError>;
+  ): Effect.Effect<{}, ServiceFailureException | CommonAwsError> {
+    return this.call("SetSecurityTokenServicePreferences", input);
+  }
   simulateCustomPolicy(
     input: SimulateCustomPolicyRequest,
   ): Effect.Effect<
     SimulatePolicyResponse,
     InvalidInputException | PolicyEvaluationException | CommonAwsError
-  >;
+  > {
+    return this.call("SimulateCustomPolicy", input);
+  }
   simulatePrincipalPolicy(
     input: SimulatePrincipalPolicyRequest,
   ): Effect.Effect<
@@ -1076,7 +1342,9 @@ export declare class IAM extends AWSServiceClient {
     | NoSuchEntityException
     | PolicyEvaluationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("SimulatePrincipalPolicy", input);
+  }
   tagInstanceProfile(
     input: TagInstanceProfileRequest,
   ): Effect.Effect<
@@ -1087,7 +1355,9 @@ export declare class IAM extends AWSServiceClient {
     | NoSuchEntityException
     | ServiceFailureException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagInstanceProfile", input);
+  }
   tagMFADevice(
     input: TagMFADeviceRequest,
   ): Effect.Effect<
@@ -1098,7 +1368,9 @@ export declare class IAM extends AWSServiceClient {
     | NoSuchEntityException
     | ServiceFailureException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagMFADevice", input);
+  }
   tagOpenIDConnectProvider(
     input: TagOpenIDConnectProviderRequest,
   ): Effect.Effect<
@@ -1109,7 +1381,9 @@ export declare class IAM extends AWSServiceClient {
     | NoSuchEntityException
     | ServiceFailureException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagOpenIDConnectProvider", input);
+  }
   tagPolicy(
     input: TagPolicyRequest,
   ): Effect.Effect<
@@ -1120,7 +1394,9 @@ export declare class IAM extends AWSServiceClient {
     | NoSuchEntityException
     | ServiceFailureException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagPolicy", input);
+  }
   tagRole(
     input: TagRoleRequest,
   ): Effect.Effect<
@@ -1131,7 +1407,9 @@ export declare class IAM extends AWSServiceClient {
     | NoSuchEntityException
     | ServiceFailureException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagRole", input);
+  }
   tagSAMLProvider(
     input: TagSAMLProviderRequest,
   ): Effect.Effect<
@@ -1142,7 +1420,9 @@ export declare class IAM extends AWSServiceClient {
     | NoSuchEntityException
     | ServiceFailureException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagSAMLProvider", input);
+  }
   tagServerCertificate(
     input: TagServerCertificateRequest,
   ): Effect.Effect<
@@ -1153,7 +1433,9 @@ export declare class IAM extends AWSServiceClient {
     | NoSuchEntityException
     | ServiceFailureException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagServerCertificate", input);
+  }
   tagUser(
     input: TagUserRequest,
   ): Effect.Effect<
@@ -1164,7 +1446,9 @@ export declare class IAM extends AWSServiceClient {
     | NoSuchEntityException
     | ServiceFailureException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagUser", input);
+  }
   untagInstanceProfile(
     input: UntagInstanceProfileRequest,
   ): Effect.Effect<
@@ -1174,7 +1458,9 @@ export declare class IAM extends AWSServiceClient {
     | NoSuchEntityException
     | ServiceFailureException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagInstanceProfile", input);
+  }
   untagMFADevice(
     input: UntagMFADeviceRequest,
   ): Effect.Effect<
@@ -1184,7 +1470,9 @@ export declare class IAM extends AWSServiceClient {
     | NoSuchEntityException
     | ServiceFailureException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagMFADevice", input);
+  }
   untagOpenIDConnectProvider(
     input: UntagOpenIDConnectProviderRequest,
   ): Effect.Effect<
@@ -1194,7 +1482,9 @@ export declare class IAM extends AWSServiceClient {
     | NoSuchEntityException
     | ServiceFailureException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagOpenIDConnectProvider", input);
+  }
   untagPolicy(
     input: UntagPolicyRequest,
   ): Effect.Effect<
@@ -1204,7 +1494,9 @@ export declare class IAM extends AWSServiceClient {
     | NoSuchEntityException
     | ServiceFailureException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagPolicy", input);
+  }
   untagRole(
     input: UntagRoleRequest,
   ): Effect.Effect<
@@ -1213,7 +1505,9 @@ export declare class IAM extends AWSServiceClient {
     | NoSuchEntityException
     | ServiceFailureException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagRole", input);
+  }
   untagSAMLProvider(
     input: UntagSAMLProviderRequest,
   ): Effect.Effect<
@@ -1223,7 +1517,9 @@ export declare class IAM extends AWSServiceClient {
     | NoSuchEntityException
     | ServiceFailureException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagSAMLProvider", input);
+  }
   untagServerCertificate(
     input: UntagServerCertificateRequest,
   ): Effect.Effect<
@@ -1233,7 +1529,9 @@ export declare class IAM extends AWSServiceClient {
     | NoSuchEntityException
     | ServiceFailureException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagServerCertificate", input);
+  }
   untagUser(
     input: UntagUserRequest,
   ): Effect.Effect<
@@ -1242,7 +1540,9 @@ export declare class IAM extends AWSServiceClient {
     | NoSuchEntityException
     | ServiceFailureException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagUser", input);
+  }
   updateAccessKey(
     input: UpdateAccessKeyRequest,
   ): Effect.Effect<
@@ -1252,7 +1552,9 @@ export declare class IAM extends AWSServiceClient {
     | NoSuchEntityException
     | ServiceFailureException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateAccessKey", input);
+  }
   updateAccountPasswordPolicy(
     input: UpdateAccountPasswordPolicyRequest,
   ): Effect.Effect<
@@ -1262,7 +1564,9 @@ export declare class IAM extends AWSServiceClient {
     | NoSuchEntityException
     | ServiceFailureException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateAccountPasswordPolicy", input);
+  }
   updateAssumeRolePolicy(
     input: UpdateAssumeRolePolicyRequest,
   ): Effect.Effect<
@@ -1273,7 +1577,9 @@ export declare class IAM extends AWSServiceClient {
     | ServiceFailureException
     | UnmodifiableEntityException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateAssumeRolePolicy", input);
+  }
   updateGroup(
     input: UpdateGroupRequest,
   ): Effect.Effect<
@@ -1283,7 +1589,9 @@ export declare class IAM extends AWSServiceClient {
     | NoSuchEntityException
     | ServiceFailureException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateGroup", input);
+  }
   updateLoginProfile(
     input: UpdateLoginProfileRequest,
   ): Effect.Effect<
@@ -1294,7 +1602,9 @@ export declare class IAM extends AWSServiceClient {
     | PasswordPolicyViolationException
     | ServiceFailureException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateLoginProfile", input);
+  }
   updateOpenIDConnectProviderThumbprint(
     input: UpdateOpenIDConnectProviderThumbprintRequest,
   ): Effect.Effect<
@@ -1303,7 +1613,9 @@ export declare class IAM extends AWSServiceClient {
     | NoSuchEntityException
     | ServiceFailureException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateOpenIDConnectProviderThumbprint", input);
+  }
   updateRole(
     input: UpdateRoleRequest,
   ): Effect.Effect<
@@ -1312,7 +1624,9 @@ export declare class IAM extends AWSServiceClient {
     | ServiceFailureException
     | UnmodifiableEntityException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateRole", input);
+  }
   updateRoleDescription(
     input: UpdateRoleDescriptionRequest,
   ): Effect.Effect<
@@ -1321,7 +1635,9 @@ export declare class IAM extends AWSServiceClient {
     | ServiceFailureException
     | UnmodifiableEntityException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateRoleDescription", input);
+  }
   updateSAMLProvider(
     input: UpdateSAMLProviderRequest,
   ): Effect.Effect<
@@ -1331,7 +1647,9 @@ export declare class IAM extends AWSServiceClient {
     | NoSuchEntityException
     | ServiceFailureException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateSAMLProvider", input);
+  }
   updateServerCertificate(
     input: UpdateServerCertificateRequest,
   ): Effect.Effect<
@@ -1341,10 +1659,14 @@ export declare class IAM extends AWSServiceClient {
     | NoSuchEntityException
     | ServiceFailureException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateServerCertificate", input);
+  }
   updateServiceSpecificCredential(
     input: UpdateServiceSpecificCredentialRequest,
-  ): Effect.Effect<{}, NoSuchEntityException | CommonAwsError>;
+  ): Effect.Effect<{}, NoSuchEntityException | CommonAwsError> {
+    return this.call("UpdateServiceSpecificCredential", input);
+  }
   updateSigningCertificate(
     input: UpdateSigningCertificateRequest,
   ): Effect.Effect<
@@ -1354,13 +1676,17 @@ export declare class IAM extends AWSServiceClient {
     | NoSuchEntityException
     | ServiceFailureException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateSigningCertificate", input);
+  }
   updateSSHPublicKey(
     input: UpdateSSHPublicKeyRequest,
   ): Effect.Effect<
     {},
     InvalidInputException | NoSuchEntityException | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateSSHPublicKey", input);
+  }
   updateUser(
     input: UpdateUserRequest,
   ): Effect.Effect<
@@ -1372,7 +1698,9 @@ export declare class IAM extends AWSServiceClient {
     | NoSuchEntityException
     | ServiceFailureException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateUser", input);
+  }
   uploadServerCertificate(
     input: UploadServerCertificateRequest,
   ): Effect.Effect<
@@ -1385,7 +1713,9 @@ export declare class IAM extends AWSServiceClient {
     | MalformedCertificateException
     | ServiceFailureException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UploadServerCertificate", input);
+  }
   uploadSigningCertificate(
     input: UploadSigningCertificateRequest,
   ): Effect.Effect<
@@ -1399,7 +1729,9 @@ export declare class IAM extends AWSServiceClient {
     | NoSuchEntityException
     | ServiceFailureException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UploadSigningCertificate", input);
+  }
   uploadSSHPublicKey(
     input: UploadSSHPublicKeyRequest,
   ): Effect.Effect<
@@ -1410,10 +1742,14 @@ export declare class IAM extends AWSServiceClient {
     | NoSuchEntityException
     | UnrecognizedPublicKeyEncodingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UploadSSHPublicKey", input);
+  }
 }
 
-export declare class Iam extends IAM {}
+export class Iam extends IAM {}
+
+export default IAM;
 
 export type AccessAdvisorUsageGranularityType =
   | "SERVICE_LEVEL"

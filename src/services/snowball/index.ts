@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class Snowball extends AWSServiceClient {
+export class Snowball extends AWSServiceClient {
   cancelCluster(
     input: CancelClusterRequest,
   ): Effect.Effect<
@@ -11,7 +11,9 @@ export declare class Snowball extends AWSServiceClient {
     | InvalidResourceException
     | KMSRequestFailedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CancelCluster", input);
+  }
   cancelJob(
     input: CancelJobRequest,
   ): Effect.Effect<
@@ -20,13 +22,17 @@ export declare class Snowball extends AWSServiceClient {
     | InvalidResourceException
     | KMSRequestFailedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CancelJob", input);
+  }
   createAddress(
     input: CreateAddressRequest,
   ): Effect.Effect<
     CreateAddressResult,
     InvalidAddressException | UnsupportedAddressException | CommonAwsError
-  >;
+  > {
+    return this.call("CreateAddress", input);
+  }
   createCluster(
     input: CreateClusterRequest,
   ): Effect.Effect<
@@ -36,7 +42,9 @@ export declare class Snowball extends AWSServiceClient {
     | InvalidResourceException
     | KMSRequestFailedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateCluster", input);
+  }
   createJob(
     input: CreateJobRequest,
   ): Effect.Effect<
@@ -47,13 +55,17 @@ export declare class Snowball extends AWSServiceClient {
     | InvalidResourceException
     | KMSRequestFailedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateJob", input);
+  }
   createLongTermPricing(
     input: CreateLongTermPricingRequest,
   ): Effect.Effect<
     CreateLongTermPricingResult,
     InvalidResourceException | CommonAwsError
-  >;
+  > {
+    return this.call("CreateLongTermPricing", input);
+  }
   createReturnShippingLabel(
     input: CreateReturnShippingLabelRequest,
   ): Effect.Effect<
@@ -64,31 +76,41 @@ export declare class Snowball extends AWSServiceClient {
     | InvalidResourceException
     | ReturnShippingLabelAlreadyExistsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateReturnShippingLabel", input);
+  }
   describeAddress(
     input: DescribeAddressRequest,
   ): Effect.Effect<
     DescribeAddressResult,
     InvalidResourceException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeAddress", input);
+  }
   describeAddresses(
     input: DescribeAddressesRequest,
   ): Effect.Effect<
     DescribeAddressesResult,
     InvalidNextTokenException | InvalidResourceException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeAddresses", input);
+  }
   describeCluster(
     input: DescribeClusterRequest,
   ): Effect.Effect<
     DescribeClusterResult,
     InvalidResourceException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeCluster", input);
+  }
   describeJob(
     input: DescribeJobRequest,
   ): Effect.Effect<
     DescribeJobResult,
     InvalidResourceException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeJob", input);
+  }
   describeReturnShippingLabel(
     input: DescribeReturnShippingLabelRequest,
   ): Effect.Effect<
@@ -97,67 +119,91 @@ export declare class Snowball extends AWSServiceClient {
     | InvalidJobStateException
     | InvalidResourceException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeReturnShippingLabel", input);
+  }
   getJobManifest(
     input: GetJobManifestRequest,
   ): Effect.Effect<
     GetJobManifestResult,
     InvalidJobStateException | InvalidResourceException | CommonAwsError
-  >;
+  > {
+    return this.call("GetJobManifest", input);
+  }
   getJobUnlockCode(
     input: GetJobUnlockCodeRequest,
   ): Effect.Effect<
     GetJobUnlockCodeResult,
     InvalidJobStateException | InvalidResourceException | CommonAwsError
-  >;
+  > {
+    return this.call("GetJobUnlockCode", input);
+  }
   getSnowballUsage(
     input: GetSnowballUsageRequest,
-  ): Effect.Effect<GetSnowballUsageResult, CommonAwsError>;
+  ): Effect.Effect<GetSnowballUsageResult, CommonAwsError> {
+    return this.call("GetSnowballUsage", input);
+  }
   getSoftwareUpdates(
     input: GetSoftwareUpdatesRequest,
   ): Effect.Effect<
     GetSoftwareUpdatesResult,
     InvalidJobStateException | InvalidResourceException | CommonAwsError
-  >;
+  > {
+    return this.call("GetSoftwareUpdates", input);
+  }
   listClusterJobs(
     input: ListClusterJobsRequest,
   ): Effect.Effect<
     ListClusterJobsResult,
     InvalidNextTokenException | InvalidResourceException | CommonAwsError
-  >;
+  > {
+    return this.call("ListClusterJobs", input);
+  }
   listClusters(
     input: ListClustersRequest,
   ): Effect.Effect<
     ListClustersResult,
     InvalidNextTokenException | CommonAwsError
-  >;
+  > {
+    return this.call("ListClusters", input);
+  }
   listCompatibleImages(
     input: ListCompatibleImagesRequest,
   ): Effect.Effect<
     ListCompatibleImagesResult,
     Ec2RequestFailedException | InvalidNextTokenException | CommonAwsError
-  >;
+  > {
+    return this.call("ListCompatibleImages", input);
+  }
   listJobs(
     input: ListJobsRequest,
-  ): Effect.Effect<ListJobsResult, InvalidNextTokenException | CommonAwsError>;
+  ): Effect.Effect<ListJobsResult, InvalidNextTokenException | CommonAwsError> {
+    return this.call("ListJobs", input);
+  }
   listLongTermPricing(
     input: ListLongTermPricingRequest,
   ): Effect.Effect<
     ListLongTermPricingResult,
     InvalidNextTokenException | InvalidResourceException | CommonAwsError
-  >;
+  > {
+    return this.call("ListLongTermPricing", input);
+  }
   listPickupLocations(
     input: ListPickupLocationsRequest,
   ): Effect.Effect<
     ListPickupLocationsResult,
     InvalidResourceException | CommonAwsError
-  >;
+  > {
+    return this.call("ListPickupLocations", input);
+  }
   listServiceVersions(
     input: ListServiceVersionsRequest,
   ): Effect.Effect<
     ListServiceVersionsResult,
     InvalidNextTokenException | InvalidResourceException | CommonAwsError
-  >;
+  > {
+    return this.call("ListServiceVersions", input);
+  }
   updateCluster(
     input: UpdateClusterRequest,
   ): Effect.Effect<
@@ -168,7 +214,9 @@ export declare class Snowball extends AWSServiceClient {
     | InvalidResourceException
     | KMSRequestFailedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateCluster", input);
+  }
   updateJob(
     input: UpdateJobRequest,
   ): Effect.Effect<
@@ -180,20 +228,28 @@ export declare class Snowball extends AWSServiceClient {
     | InvalidResourceException
     | KMSRequestFailedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateJob", input);
+  }
   updateJobShipmentState(
     input: UpdateJobShipmentStateRequest,
   ): Effect.Effect<
     UpdateJobShipmentStateResult,
     InvalidJobStateException | InvalidResourceException | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateJobShipmentState", input);
+  }
   updateLongTermPricing(
     input: UpdateLongTermPricingRequest,
   ): Effect.Effect<
     UpdateLongTermPricingResult,
     InvalidResourceException | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateLongTermPricing", input);
+  }
 }
+
+export default Snowball;
 
 export interface Address {
   AddressId?: string;

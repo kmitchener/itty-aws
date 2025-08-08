@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class DLM extends AWSServiceClient {
+export class DLM extends AWSServiceClient {
   createLifecyclePolicy(
     input: CreateLifecyclePolicyRequest,
   ): Effect.Effect<
@@ -11,7 +11,9 @@ export declare class DLM extends AWSServiceClient {
     | InvalidRequestException
     | LimitExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateLifecyclePolicy", input);
+  }
   deleteLifecyclePolicy(
     input: DeleteLifecyclePolicyRequest,
   ): Effect.Effect<
@@ -20,7 +22,9 @@ export declare class DLM extends AWSServiceClient {
     | LimitExceededException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteLifecyclePolicy", input);
+  }
   getLifecyclePolicies(
     input: GetLifecyclePoliciesRequest,
   ): Effect.Effect<
@@ -30,7 +34,9 @@ export declare class DLM extends AWSServiceClient {
     | LimitExceededException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetLifecyclePolicies", input);
+  }
   getLifecyclePolicy(
     input: GetLifecyclePolicyRequest,
   ): Effect.Effect<
@@ -39,7 +45,9 @@ export declare class DLM extends AWSServiceClient {
     | LimitExceededException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetLifecyclePolicy", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
@@ -48,7 +56,9 @@ export declare class DLM extends AWSServiceClient {
     | InvalidRequestException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -57,7 +67,9 @@ export declare class DLM extends AWSServiceClient {
     | InvalidRequestException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
@@ -66,7 +78,9 @@ export declare class DLM extends AWSServiceClient {
     | InvalidRequestException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
   updateLifecyclePolicy(
     input: UpdateLifecyclePolicyRequest,
   ): Effect.Effect<
@@ -76,10 +90,14 @@ export declare class DLM extends AWSServiceClient {
     | LimitExceededException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateLifecyclePolicy", input);
+  }
 }
 
-export declare class Dlm extends DLM {}
+export class Dlm extends DLM {}
+
+export default DLM;
 
 export interface Action {
   Name: string;

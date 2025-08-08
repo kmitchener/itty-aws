@@ -2,83 +2,113 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class Health extends AWSServiceClient {
+export class Health extends AWSServiceClient {
   describeAffectedAccountsForOrganization(
     input: DescribeAffectedAccountsForOrganizationRequest,
   ): Effect.Effect<
     DescribeAffectedAccountsForOrganizationResponse,
     InvalidPaginationToken | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeAffectedAccountsForOrganization", input);
+  }
   describeAffectedEntities(
     input: DescribeAffectedEntitiesRequest,
   ): Effect.Effect<
     DescribeAffectedEntitiesResponse,
     InvalidPaginationToken | UnsupportedLocale | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeAffectedEntities", input);
+  }
   describeAffectedEntitiesForOrganization(
     input: DescribeAffectedEntitiesForOrganizationRequest,
   ): Effect.Effect<
     DescribeAffectedEntitiesForOrganizationResponse,
     InvalidPaginationToken | UnsupportedLocale | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeAffectedEntitiesForOrganization", input);
+  }
   describeEntityAggregates(
     input: DescribeEntityAggregatesRequest,
-  ): Effect.Effect<DescribeEntityAggregatesResponse, CommonAwsError>;
+  ): Effect.Effect<DescribeEntityAggregatesResponse, CommonAwsError> {
+    return this.call("DescribeEntityAggregates", input);
+  }
   describeEntityAggregatesForOrganization(
     input: DescribeEntityAggregatesForOrganizationRequest,
   ): Effect.Effect<
     DescribeEntityAggregatesForOrganizationResponse,
     CommonAwsError
-  >;
+  > {
+    return this.call("DescribeEntityAggregatesForOrganization", input);
+  }
   describeEventAggregates(
     input: DescribeEventAggregatesRequest,
   ): Effect.Effect<
     DescribeEventAggregatesResponse,
     InvalidPaginationToken | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeEventAggregates", input);
+  }
   describeEventDetails(
     input: DescribeEventDetailsRequest,
   ): Effect.Effect<
     DescribeEventDetailsResponse,
     UnsupportedLocale | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeEventDetails", input);
+  }
   describeEventDetailsForOrganization(
     input: DescribeEventDetailsForOrganizationRequest,
   ): Effect.Effect<
     DescribeEventDetailsForOrganizationResponse,
     UnsupportedLocale | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeEventDetailsForOrganization", input);
+  }
   describeEvents(
     input: DescribeEventsRequest,
   ): Effect.Effect<
     DescribeEventsResponse,
     InvalidPaginationToken | UnsupportedLocale | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeEvents", input);
+  }
   describeEventsForOrganization(
     input: DescribeEventsForOrganizationRequest,
   ): Effect.Effect<
     DescribeEventsForOrganizationResponse,
     InvalidPaginationToken | UnsupportedLocale | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeEventsForOrganization", input);
+  }
   describeEventTypes(
     input: DescribeEventTypesRequest,
   ): Effect.Effect<
     DescribeEventTypesResponse,
     InvalidPaginationToken | UnsupportedLocale | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeEventTypes", input);
+  }
   describeHealthServiceStatusForOrganization(input: {}): Effect.Effect<
     DescribeHealthServiceStatusForOrganizationResponse,
     CommonAwsError
-  >;
+  > {
+    return this.call("DescribeHealthServiceStatusForOrganization", input);
+  }
   disableHealthServiceAccessForOrganization(input: {}): Effect.Effect<
     {},
     ConcurrentModificationException | CommonAwsError
-  >;
+  > {
+    return this.call("DisableHealthServiceAccessForOrganization", input);
+  }
   enableHealthServiceAccessForOrganization(input: {}): Effect.Effect<
     {},
     ConcurrentModificationException | CommonAwsError
-  >;
+  > {
+    return this.call("EnableHealthServiceAccessForOrganization", input);
+  }
 }
+
+export default Health;
 
 export interface AccountEntityAggregate {
   accountId?: string;

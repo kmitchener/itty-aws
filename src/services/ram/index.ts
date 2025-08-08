@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class RAM extends AWSServiceClient {
+export class RAM extends AWSServiceClient {
   acceptResourceShareInvitation(
     input: AcceptResourceShareInvitationRequest,
   ): Effect.Effect<
@@ -18,7 +18,9 @@ export declare class RAM extends AWSServiceClient {
     | ServerInternalException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AcceptResourceShareInvitation", input);
+  }
   associateResourceShare(
     input: AssociateResourceShareRequest,
   ): Effect.Effect<
@@ -35,7 +37,9 @@ export declare class RAM extends AWSServiceClient {
     | ThrottlingException
     | UnknownResourceException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AssociateResourceShare", input);
+  }
   associateResourceSharePermission(
     input: AssociateResourceSharePermissionRequest,
   ): Effect.Effect<
@@ -48,7 +52,9 @@ export declare class RAM extends AWSServiceClient {
     | ServiceUnavailableException
     | UnknownResourceException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AssociateResourceSharePermission", input);
+  }
   createPermission(
     input: CreatePermissionRequest,
   ): Effect.Effect<
@@ -64,7 +70,9 @@ export declare class RAM extends AWSServiceClient {
     | ServerInternalException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreatePermission", input);
+  }
   createPermissionVersion(
     input: CreatePermissionVersionRequest,
   ): Effect.Effect<
@@ -80,7 +88,9 @@ export declare class RAM extends AWSServiceClient {
     | ServiceUnavailableException
     | UnknownResourceException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreatePermissionVersion", input);
+  }
   createResourceShare(
     input: CreateResourceShareRequest,
   ): Effect.Effect<
@@ -98,7 +108,9 @@ export declare class RAM extends AWSServiceClient {
     | TagPolicyViolationException
     | UnknownResourceException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateResourceShare", input);
+  }
   deletePermission(
     input: DeletePermissionRequest,
   ): Effect.Effect<
@@ -111,7 +123,9 @@ export declare class RAM extends AWSServiceClient {
     | ServiceUnavailableException
     | UnknownResourceException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeletePermission", input);
+  }
   deletePermissionVersion(
     input: DeletePermissionVersionRequest,
   ): Effect.Effect<
@@ -125,7 +139,9 @@ export declare class RAM extends AWSServiceClient {
     | ServiceUnavailableException
     | UnknownResourceException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeletePermissionVersion", input);
+  }
   deleteResourceShare(
     input: DeleteResourceShareRequest,
   ): Effect.Effect<
@@ -140,7 +156,9 @@ export declare class RAM extends AWSServiceClient {
     | ServiceUnavailableException
     | UnknownResourceException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteResourceShare", input);
+  }
   disassociateResourceShare(
     input: DisassociateResourceShareRequest,
   ): Effect.Effect<
@@ -156,7 +174,9 @@ export declare class RAM extends AWSServiceClient {
     | ServiceUnavailableException
     | UnknownResourceException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DisassociateResourceShare", input);
+  }
   disassociateResourceSharePermission(
     input: DisassociateResourceSharePermissionRequest,
   ): Effect.Effect<
@@ -170,7 +190,9 @@ export declare class RAM extends AWSServiceClient {
     | ServiceUnavailableException
     | UnknownResourceException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DisassociateResourceSharePermission", input);
+  }
   enableSharingWithAwsOrganization(
     input: EnableSharingWithAwsOrganizationRequest,
   ): Effect.Effect<
@@ -179,7 +201,9 @@ export declare class RAM extends AWSServiceClient {
     | ServerInternalException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("EnableSharingWithAwsOrganization", input);
+  }
   getPermission(
     input: GetPermissionRequest,
   ): Effect.Effect<
@@ -191,7 +215,9 @@ export declare class RAM extends AWSServiceClient {
     | ServiceUnavailableException
     | UnknownResourceException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetPermission", input);
+  }
   getResourcePolicies(
     input: GetResourcePoliciesRequest,
   ): Effect.Effect<
@@ -203,7 +229,9 @@ export declare class RAM extends AWSServiceClient {
     | ServerInternalException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetResourcePolicies", input);
+  }
   getResourceShareAssociations(
     input: GetResourceShareAssociationsRequest,
   ): Effect.Effect<
@@ -216,7 +244,9 @@ export declare class RAM extends AWSServiceClient {
     | ServiceUnavailableException
     | UnknownResourceException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetResourceShareAssociations", input);
+  }
   getResourceShareInvitations(
     input: GetResourceShareInvitationsRequest,
   ): Effect.Effect<
@@ -230,7 +260,9 @@ export declare class RAM extends AWSServiceClient {
     | ServiceUnavailableException
     | UnknownResourceException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetResourceShareInvitations", input);
+  }
   getResourceShares(
     input: GetResourceSharesRequest,
   ): Effect.Effect<
@@ -242,7 +274,9 @@ export declare class RAM extends AWSServiceClient {
     | ServiceUnavailableException
     | UnknownResourceException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetResourceShares", input);
+  }
   listPendingInvitationResources(
     input: ListPendingInvitationResourcesRequest,
   ): Effect.Effect<
@@ -257,7 +291,9 @@ export declare class RAM extends AWSServiceClient {
     | ServerInternalException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListPendingInvitationResources", input);
+  }
   listPermissionAssociations(
     input: ListPermissionAssociationsRequest,
   ): Effect.Effect<
@@ -268,7 +304,9 @@ export declare class RAM extends AWSServiceClient {
     | ServerInternalException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListPermissionAssociations", input);
+  }
   listPermissions(
     input: ListPermissionsRequest,
   ): Effect.Effect<
@@ -279,7 +317,9 @@ export declare class RAM extends AWSServiceClient {
     | ServerInternalException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListPermissions", input);
+  }
   listPermissionVersions(
     input: ListPermissionVersionsRequest,
   ): Effect.Effect<
@@ -292,7 +332,9 @@ export declare class RAM extends AWSServiceClient {
     | ServiceUnavailableException
     | UnknownResourceException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListPermissionVersions", input);
+  }
   listPrincipals(
     input: ListPrincipalsRequest,
   ): Effect.Effect<
@@ -304,7 +346,9 @@ export declare class RAM extends AWSServiceClient {
     | ServiceUnavailableException
     | UnknownResourceException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListPrincipals", input);
+  }
   listReplacePermissionAssociationsWork(
     input: ListReplacePermissionAssociationsWorkRequest,
   ): Effect.Effect<
@@ -314,7 +358,9 @@ export declare class RAM extends AWSServiceClient {
     | ServerInternalException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListReplacePermissionAssociationsWork", input);
+  }
   listResources(
     input: ListResourcesRequest,
   ): Effect.Effect<
@@ -327,7 +373,9 @@ export declare class RAM extends AWSServiceClient {
     | ServiceUnavailableException
     | UnknownResourceException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListResources", input);
+  }
   listResourceSharePermissions(
     input: ListResourceSharePermissionsRequest,
   ): Effect.Effect<
@@ -340,7 +388,9 @@ export declare class RAM extends AWSServiceClient {
     | ServiceUnavailableException
     | UnknownResourceException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListResourceSharePermissions", input);
+  }
   listResourceTypes(
     input: ListResourceTypesRequest,
   ): Effect.Effect<
@@ -350,7 +400,9 @@ export declare class RAM extends AWSServiceClient {
     | ServerInternalException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListResourceTypes", input);
+  }
   promotePermissionCreatedFromPolicy(
     input: PromotePermissionCreatedFromPolicyRequest,
   ): Effect.Effect<
@@ -363,7 +415,9 @@ export declare class RAM extends AWSServiceClient {
     | ServiceUnavailableException
     | UnknownResourceException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PromotePermissionCreatedFromPolicy", input);
+  }
   promoteResourceShareCreatedFromPolicy(
     input: PromoteResourceShareCreatedFromPolicyRequest,
   ): Effect.Effect<
@@ -379,7 +433,9 @@ export declare class RAM extends AWSServiceClient {
     | UnknownResourceException
     | UnmatchedPolicyPermissionException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PromoteResourceShareCreatedFromPolicy", input);
+  }
   rejectResourceShareInvitation(
     input: RejectResourceShareInvitationRequest,
   ): Effect.Effect<
@@ -395,7 +451,9 @@ export declare class RAM extends AWSServiceClient {
     | ServerInternalException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("RejectResourceShareInvitation", input);
+  }
   replacePermissionAssociations(
     input: ReplacePermissionAssociationsRequest,
   ): Effect.Effect<
@@ -409,7 +467,9 @@ export declare class RAM extends AWSServiceClient {
     | ServiceUnavailableException
     | UnknownResourceException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ReplacePermissionAssociations", input);
+  }
   setDefaultPermissionVersion(
     input: SetDefaultPermissionVersionRequest,
   ): Effect.Effect<
@@ -422,7 +482,9 @@ export declare class RAM extends AWSServiceClient {
     | ServiceUnavailableException
     | UnknownResourceException
     | CommonAwsError
-  >;
+  > {
+    return this.call("SetDefaultPermissionVersion", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -436,7 +498,9 @@ export declare class RAM extends AWSServiceClient {
     | TagPolicyViolationException
     | UnknownResourceException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
@@ -447,7 +511,9 @@ export declare class RAM extends AWSServiceClient {
     | ServiceUnavailableException
     | UnknownResourceException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
   updateResourceShare(
     input: UpdateResourceShareRequest,
   ): Effect.Effect<
@@ -462,10 +528,14 @@ export declare class RAM extends AWSServiceClient {
     | ServiceUnavailableException
     | UnknownResourceException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateResourceShare", input);
+  }
 }
 
-export declare class Ram extends RAM {}
+export class Ram extends RAM {}
+
+export default RAM;
 
 export interface AcceptResourceShareInvitationRequest {
   resourceShareInvitationArn: string;

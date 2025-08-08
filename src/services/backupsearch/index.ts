@@ -2,40 +2,52 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class BackupSearch extends AWSServiceClient {
+export class BackupSearch extends AWSServiceClient {
   listSearchJobBackups(
     input: ListSearchJobBackupsInput,
   ): Effect.Effect<
     ListSearchJobBackupsOutput,
     ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("ListSearchJobBackups", input);
+  }
   listSearchJobResults(
     input: ListSearchJobResultsInput,
   ): Effect.Effect<
     ListSearchJobResultsOutput,
     ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("ListSearchJobResults", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
     ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
     ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
     ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
 }
 
-export declare class Backupsearch extends BackupSearch {}
+export class Backupsearch extends BackupSearch {}
+
+export default BackupSearch;
 
 export declare class AccessDeniedException extends EffectData.TaggedError(
   "AccessDeniedException",

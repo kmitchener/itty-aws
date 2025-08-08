@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class SQS extends AWSServiceClient {
+export class SQS extends AWSServiceClient {
   addPermission(
     input: AddPermissionRequest,
   ): Effect.Effect<
@@ -14,7 +14,9 @@ export declare class SQS extends AWSServiceClient {
     | RequestThrottled
     | UnsupportedOperation
     | CommonAwsError
-  >;
+  > {
+    return this.call("AddPermission", input);
+  }
   cancelMessageMoveTask(
     input: CancelMessageMoveTaskRequest,
   ): Effect.Effect<
@@ -25,7 +27,9 @@ export declare class SQS extends AWSServiceClient {
     | ResourceNotFoundException
     | UnsupportedOperation
     | CommonAwsError
-  >;
+  > {
+    return this.call("CancelMessageMoveTask", input);
+  }
   changeMessageVisibility(
     input: ChangeMessageVisibilityRequest,
   ): Effect.Effect<
@@ -38,7 +42,9 @@ export declare class SQS extends AWSServiceClient {
     | RequestThrottled
     | UnsupportedOperation
     | CommonAwsError
-  >;
+  > {
+    return this.call("ChangeMessageVisibility", input);
+  }
   changeMessageVisibilityBatch(
     input: ChangeMessageVisibilityBatchRequest,
   ): Effect.Effect<
@@ -53,7 +59,9 @@ export declare class SQS extends AWSServiceClient {
     | TooManyEntriesInBatchRequest
     | UnsupportedOperation
     | CommonAwsError
-  >;
+  > {
+    return this.call("ChangeMessageVisibilityBatch", input);
+  }
   createQueue(
     input: CreateQueueRequest,
   ): Effect.Effect<
@@ -67,7 +75,9 @@ export declare class SQS extends AWSServiceClient {
     | RequestThrottled
     | UnsupportedOperation
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateQueue", input);
+  }
   deleteMessage(
     input: DeleteMessageRequest,
   ): Effect.Effect<
@@ -80,7 +90,9 @@ export declare class SQS extends AWSServiceClient {
     | RequestThrottled
     | UnsupportedOperation
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteMessage", input);
+  }
   deleteMessageBatch(
     input: DeleteMessageBatchRequest,
   ): Effect.Effect<
@@ -95,7 +107,9 @@ export declare class SQS extends AWSServiceClient {
     | TooManyEntriesInBatchRequest
     | UnsupportedOperation
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteMessageBatch", input);
+  }
   deleteQueue(
     input: DeleteQueueRequest,
   ): Effect.Effect<
@@ -106,7 +120,9 @@ export declare class SQS extends AWSServiceClient {
     | RequestThrottled
     | UnsupportedOperation
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteQueue", input);
+  }
   getQueueAttributes(
     input: GetQueueAttributesRequest,
   ): Effect.Effect<
@@ -118,7 +134,9 @@ export declare class SQS extends AWSServiceClient {
     | RequestThrottled
     | UnsupportedOperation
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetQueueAttributes", input);
+  }
   getQueueUrl(
     input: GetQueueUrlRequest,
   ): Effect.Effect<
@@ -129,7 +147,9 @@ export declare class SQS extends AWSServiceClient {
     | RequestThrottled
     | UnsupportedOperation
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetQueueUrl", input);
+  }
   listDeadLetterSourceQueues(
     input: ListDeadLetterSourceQueuesRequest,
   ): Effect.Effect<
@@ -140,7 +160,9 @@ export declare class SQS extends AWSServiceClient {
     | RequestThrottled
     | UnsupportedOperation
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListDeadLetterSourceQueues", input);
+  }
   listMessageMoveTasks(
     input: ListMessageMoveTasksRequest,
   ): Effect.Effect<
@@ -151,7 +173,9 @@ export declare class SQS extends AWSServiceClient {
     | ResourceNotFoundException
     | UnsupportedOperation
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListMessageMoveTasks", input);
+  }
   listQueues(
     input: ListQueuesRequest,
   ): Effect.Effect<
@@ -161,7 +185,9 @@ export declare class SQS extends AWSServiceClient {
     | RequestThrottled
     | UnsupportedOperation
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListQueues", input);
+  }
   listQueueTags(
     input: ListQueueTagsRequest,
   ): Effect.Effect<
@@ -172,7 +198,9 @@ export declare class SQS extends AWSServiceClient {
     | RequestThrottled
     | UnsupportedOperation
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListQueueTags", input);
+  }
   purgeQueue(
     input: PurgeQueueRequest,
   ): Effect.Effect<
@@ -184,7 +212,9 @@ export declare class SQS extends AWSServiceClient {
     | RequestThrottled
     | UnsupportedOperation
     | CommonAwsError
-  >;
+  > {
+    return this.call("PurgeQueue", input);
+  }
   receiveMessage(
     input: ReceiveMessageRequest,
   ): Effect.Effect<
@@ -203,7 +233,9 @@ export declare class SQS extends AWSServiceClient {
     | RequestThrottled
     | UnsupportedOperation
     | CommonAwsError
-  >;
+  > {
+    return this.call("ReceiveMessage", input);
+  }
   removePermission(
     input: RemovePermissionRequest,
   ): Effect.Effect<
@@ -214,7 +246,9 @@ export declare class SQS extends AWSServiceClient {
     | RequestThrottled
     | UnsupportedOperation
     | CommonAwsError
-  >;
+  > {
+    return this.call("RemovePermission", input);
+  }
   sendMessage(
     input: SendMessageRequest,
   ): Effect.Effect<
@@ -233,7 +267,9 @@ export declare class SQS extends AWSServiceClient {
     | RequestThrottled
     | UnsupportedOperation
     | CommonAwsError
-  >;
+  > {
+    return this.call("SendMessage", input);
+  }
   sendMessageBatch(
     input: SendMessageBatchRequest,
   ): Effect.Effect<
@@ -256,7 +292,9 @@ export declare class SQS extends AWSServiceClient {
     | TooManyEntriesInBatchRequest
     | UnsupportedOperation
     | CommonAwsError
-  >;
+  > {
+    return this.call("SendMessageBatch", input);
+  }
   setQueueAttributes(
     input: SetQueueAttributesRequest,
   ): Effect.Effect<
@@ -270,7 +308,9 @@ export declare class SQS extends AWSServiceClient {
     | RequestThrottled
     | UnsupportedOperation
     | CommonAwsError
-  >;
+  > {
+    return this.call("SetQueueAttributes", input);
+  }
   startMessageMoveTask(
     input: StartMessageMoveTaskRequest,
   ): Effect.Effect<
@@ -281,7 +321,9 @@ export declare class SQS extends AWSServiceClient {
     | ResourceNotFoundException
     | UnsupportedOperation
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartMessageMoveTask", input);
+  }
   tagQueue(
     input: TagQueueRequest,
   ): Effect.Effect<
@@ -292,7 +334,9 @@ export declare class SQS extends AWSServiceClient {
     | RequestThrottled
     | UnsupportedOperation
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagQueue", input);
+  }
   untagQueue(
     input: UntagQueueRequest,
   ): Effect.Effect<
@@ -303,10 +347,14 @@ export declare class SQS extends AWSServiceClient {
     | RequestThrottled
     | UnsupportedOperation
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagQueue", input);
+  }
 }
 
-export declare class Sqs extends SQS {}
+export class Sqs extends SQS {}
+
+export default SQS;
 
 export type ActionNameList = Array<string>;
 export interface AddPermissionRequest {

@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class IVSRealTime extends AWSServiceClient {
+export class IVSRealTime extends AWSServiceClient {
   createEncoderConfiguration(
     input: CreateEncoderConfigurationRequest,
   ): Effect.Effect<
@@ -15,7 +15,9 @@ export declare class IVSRealTime extends AWSServiceClient {
     | ServiceQuotaExceededException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateEncoderConfiguration", input);
+  }
   createIngestConfiguration(
     input: CreateIngestConfigurationRequest,
   ): Effect.Effect<
@@ -25,7 +27,9 @@ export declare class IVSRealTime extends AWSServiceClient {
     | ServiceQuotaExceededException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateIngestConfiguration", input);
+  }
   createParticipantToken(
     input: CreateParticipantTokenRequest,
   ): Effect.Effect<
@@ -36,7 +40,9 @@ export declare class IVSRealTime extends AWSServiceClient {
     | ServiceQuotaExceededException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateParticipantToken", input);
+  }
   createStage(
     input: CreateStageRequest,
   ): Effect.Effect<
@@ -46,7 +52,9 @@ export declare class IVSRealTime extends AWSServiceClient {
     | ServiceQuotaExceededException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateStage", input);
+  }
   createStorageConfiguration(
     input: CreateStorageConfigurationRequest,
   ): Effect.Effect<
@@ -59,7 +67,9 @@ export declare class IVSRealTime extends AWSServiceClient {
     | ServiceQuotaExceededException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateStorageConfiguration", input);
+  }
   deleteEncoderConfiguration(
     input: DeleteEncoderConfigurationRequest,
   ): Effect.Effect<
@@ -71,7 +81,9 @@ export declare class IVSRealTime extends AWSServiceClient {
     | ServiceQuotaExceededException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteEncoderConfiguration", input);
+  }
   deleteIngestConfiguration(
     input: DeleteIngestConfigurationRequest,
   ): Effect.Effect<
@@ -82,7 +94,9 @@ export declare class IVSRealTime extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteIngestConfiguration", input);
+  }
   deletePublicKey(
     input: DeletePublicKeyRequest,
   ): Effect.Effect<
@@ -93,7 +107,9 @@ export declare class IVSRealTime extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeletePublicKey", input);
+  }
   deleteStage(
     input: DeleteStageRequest,
   ): Effect.Effect<
@@ -104,7 +120,9 @@ export declare class IVSRealTime extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteStage", input);
+  }
   deleteStorageConfiguration(
     input: DeleteStorageConfigurationRequest,
   ): Effect.Effect<
@@ -116,7 +134,9 @@ export declare class IVSRealTime extends AWSServiceClient {
     | ServiceQuotaExceededException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteStorageConfiguration", input);
+  }
   disconnectParticipant(
     input: DisconnectParticipantRequest,
   ): Effect.Effect<
@@ -126,7 +146,9 @@ export declare class IVSRealTime extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DisconnectParticipant", input);
+  }
   getComposition(
     input: GetCompositionRequest,
   ): Effect.Effect<
@@ -138,7 +160,9 @@ export declare class IVSRealTime extends AWSServiceClient {
     | ServiceQuotaExceededException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetComposition", input);
+  }
   getEncoderConfiguration(
     input: GetEncoderConfigurationRequest,
   ): Effect.Effect<
@@ -150,7 +174,9 @@ export declare class IVSRealTime extends AWSServiceClient {
     | ServiceQuotaExceededException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetEncoderConfiguration", input);
+  }
   getIngestConfiguration(
     input: GetIngestConfigurationRequest,
   ): Effect.Effect<
@@ -159,7 +185,9 @@ export declare class IVSRealTime extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetIngestConfiguration", input);
+  }
   getParticipant(
     input: GetParticipantRequest,
   ): Effect.Effect<
@@ -168,7 +196,9 @@ export declare class IVSRealTime extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetParticipant", input);
+  }
   getPublicKey(
     input: GetPublicKeyRequest,
   ): Effect.Effect<
@@ -177,7 +207,9 @@ export declare class IVSRealTime extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetPublicKey", input);
+  }
   getStage(
     input: GetStageRequest,
   ): Effect.Effect<
@@ -186,7 +218,9 @@ export declare class IVSRealTime extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetStage", input);
+  }
   getStageSession(
     input: GetStageSessionRequest,
   ): Effect.Effect<
@@ -195,7 +229,9 @@ export declare class IVSRealTime extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetStageSession", input);
+  }
   getStorageConfiguration(
     input: GetStorageConfigurationRequest,
   ): Effect.Effect<
@@ -207,7 +243,9 @@ export declare class IVSRealTime extends AWSServiceClient {
     | ServiceQuotaExceededException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetStorageConfiguration", input);
+  }
   importPublicKey(
     input: ImportPublicKeyRequest,
   ): Effect.Effect<
@@ -218,7 +256,9 @@ export declare class IVSRealTime extends AWSServiceClient {
     | ServiceQuotaExceededException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ImportPublicKey", input);
+  }
   listCompositions(
     input: ListCompositionsRequest,
   ): Effect.Effect<
@@ -229,7 +269,9 @@ export declare class IVSRealTime extends AWSServiceClient {
     | ServiceQuotaExceededException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListCompositions", input);
+  }
   listEncoderConfigurations(
     input: ListEncoderConfigurationsRequest,
   ): Effect.Effect<
@@ -240,37 +282,49 @@ export declare class IVSRealTime extends AWSServiceClient {
     | ServiceQuotaExceededException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListEncoderConfigurations", input);
+  }
   listIngestConfigurations(
     input: ListIngestConfigurationsRequest,
   ): Effect.Effect<
     ListIngestConfigurationsResponse,
     AccessDeniedException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("ListIngestConfigurations", input);
+  }
   listParticipantEvents(
     input: ListParticipantEventsRequest,
   ): Effect.Effect<
     ListParticipantEventsResponse,
     AccessDeniedException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("ListParticipantEvents", input);
+  }
   listParticipantReplicas(
     input: ListParticipantReplicasRequest,
   ): Effect.Effect<
     ListParticipantReplicasResponse,
     AccessDeniedException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("ListParticipantReplicas", input);
+  }
   listParticipants(
     input: ListParticipantsRequest,
   ): Effect.Effect<
     ListParticipantsResponse,
     AccessDeniedException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("ListParticipants", input);
+  }
   listPublicKeys(
     input: ListPublicKeysRequest,
   ): Effect.Effect<
     ListPublicKeysResponse,
     AccessDeniedException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("ListPublicKeys", input);
+  }
   listStages(
     input: ListStagesRequest,
   ): Effect.Effect<
@@ -279,13 +333,17 @@ export declare class IVSRealTime extends AWSServiceClient {
     | ConflictException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListStages", input);
+  }
   listStageSessions(
     input: ListStageSessionsRequest,
   ): Effect.Effect<
     ListStageSessionsResponse,
     AccessDeniedException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("ListStageSessions", input);
+  }
   listStorageConfigurations(
     input: ListStorageConfigurationsRequest,
   ): Effect.Effect<
@@ -296,7 +354,9 @@ export declare class IVSRealTime extends AWSServiceClient {
     | ServiceQuotaExceededException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListStorageConfigurations", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
@@ -305,7 +365,9 @@ export declare class IVSRealTime extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   startComposition(
     input: StartCompositionRequest,
   ): Effect.Effect<
@@ -318,7 +380,9 @@ export declare class IVSRealTime extends AWSServiceClient {
     | ServiceQuotaExceededException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartComposition", input);
+  }
   startParticipantReplication(
     input: StartParticipantReplicationRequest,
   ): Effect.Effect<
@@ -331,7 +395,9 @@ export declare class IVSRealTime extends AWSServiceClient {
     | ServiceQuotaExceededException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartParticipantReplication", input);
+  }
   stopComposition(
     input: StopCompositionRequest,
   ): Effect.Effect<
@@ -343,7 +409,9 @@ export declare class IVSRealTime extends AWSServiceClient {
     | ServiceQuotaExceededException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StopComposition", input);
+  }
   stopParticipantReplication(
     input: StopParticipantReplicationRequest,
   ): Effect.Effect<
@@ -353,7 +421,9 @@ export declare class IVSRealTime extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StopParticipantReplication", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -362,7 +432,9 @@ export declare class IVSRealTime extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
@@ -371,7 +443,9 @@ export declare class IVSRealTime extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
   updateIngestConfiguration(
     input: UpdateIngestConfigurationRequest,
   ): Effect.Effect<
@@ -382,7 +456,9 @@ export declare class IVSRealTime extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateIngestConfiguration", input);
+  }
   updateStage(
     input: UpdateStageRequest,
   ): Effect.Effect<
@@ -394,10 +470,14 @@ export declare class IVSRealTime extends AWSServiceClient {
     | ServiceQuotaExceededException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateStage", input);
+  }
 }
 
-export declare class IvsRealtime extends IVSRealTime {}
+export class IvsRealtime extends IVSRealTime {}
+
+export default IVSRealTime;
 
 export declare class AccessDeniedException extends EffectData.TaggedError(
   "AccessDeniedException",

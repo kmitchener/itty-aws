@@ -4,7 +4,7 @@ import type { Buffer } from "node:buffer";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class IoTDataPlane extends AWSServiceClient {
+export class IoTDataPlane extends AWSServiceClient {
   deleteThingShadow(
     input: DeleteThingShadowRequest,
   ): Effect.Effect<
@@ -18,7 +18,9 @@ export declare class IoTDataPlane extends AWSServiceClient {
     | UnauthorizedException
     | UnsupportedDocumentEncodingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteThingShadow", input);
+  }
   getRetainedMessage(
     input: GetRetainedMessageRequest,
   ): Effect.Effect<
@@ -31,7 +33,9 @@ export declare class IoTDataPlane extends AWSServiceClient {
     | ThrottlingException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetRetainedMessage", input);
+  }
   getThingShadow(
     input: GetThingShadowRequest,
   ): Effect.Effect<
@@ -45,7 +49,9 @@ export declare class IoTDataPlane extends AWSServiceClient {
     | UnauthorizedException
     | UnsupportedDocumentEncodingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetThingShadow", input);
+  }
   listNamedShadowsForThing(
     input: ListNamedShadowsForThingRequest,
   ): Effect.Effect<
@@ -58,7 +64,9 @@ export declare class IoTDataPlane extends AWSServiceClient {
     | ThrottlingException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListNamedShadowsForThing", input);
+  }
   listRetainedMessages(
     input: ListRetainedMessagesRequest,
   ): Effect.Effect<
@@ -70,7 +78,9 @@ export declare class IoTDataPlane extends AWSServiceClient {
     | ThrottlingException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListRetainedMessages", input);
+  }
   publish(
     input: PublishRequest,
   ): Effect.Effect<
@@ -81,7 +91,9 @@ export declare class IoTDataPlane extends AWSServiceClient {
     | ThrottlingException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("Publish", input);
+  }
   updateThingShadow(
     input: UpdateThingShadowRequest,
   ): Effect.Effect<
@@ -96,10 +108,14 @@ export declare class IoTDataPlane extends AWSServiceClient {
     | UnauthorizedException
     | UnsupportedDocumentEncodingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateThingShadow", input);
+  }
 }
 
-export declare class IotDataPlane extends IoTDataPlane {}
+export class IotDataPlane extends IoTDataPlane {}
+
+export default IoTDataPlane;
 
 export declare class ConflictException extends EffectData.TaggedError(
   "ConflictException",

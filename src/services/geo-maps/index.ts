@@ -2,13 +2,17 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class GeoMaps extends AWSServiceClient {
+export class GeoMaps extends AWSServiceClient {
   getGlyphs(
     input: GetGlyphsRequest,
-  ): Effect.Effect<GetGlyphsResponse, CommonAwsError>;
+  ): Effect.Effect<GetGlyphsResponse, CommonAwsError> {
+    return this.call("GetGlyphs", input);
+  }
   getSprites(
     input: GetSpritesRequest,
-  ): Effect.Effect<GetSpritesResponse, CommonAwsError>;
+  ): Effect.Effect<GetSpritesResponse, CommonAwsError> {
+    return this.call("GetSprites", input);
+  }
   getStaticMap(
     input: GetStaticMapRequest,
   ): Effect.Effect<
@@ -18,10 +22,14 @@ export declare class GeoMaps extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetStaticMap", input);
+  }
   getStyleDescriptor(
     input: GetStyleDescriptorRequest,
-  ): Effect.Effect<GetStyleDescriptorResponse, CommonAwsError>;
+  ): Effect.Effect<GetStyleDescriptorResponse, CommonAwsError> {
+    return this.call("GetStyleDescriptor", input);
+  }
   getTile(
     input: GetTileRequest,
   ): Effect.Effect<
@@ -31,8 +39,12 @@ export declare class GeoMaps extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetTile", input);
+  }
 }
+
+export default GeoMaps;
 
 export declare class AccessDeniedException extends EffectData.TaggedError(
   "AccessDeniedException",

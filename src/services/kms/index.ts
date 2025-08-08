@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class KMS extends AWSServiceClient {
+export class KMS extends AWSServiceClient {
   cancelKeyDeletion(
     input: CancelKeyDeletionRequest,
   ): Effect.Effect<
@@ -13,7 +13,9 @@ export declare class KMS extends AWSServiceClient {
     | KMSInvalidStateException
     | NotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CancelKeyDeletion", input);
+  }
   connectCustomKeyStore(
     input: ConnectCustomKeyStoreRequest,
   ): Effect.Effect<
@@ -24,7 +26,9 @@ export declare class KMS extends AWSServiceClient {
     | CustomKeyStoreNotFoundException
     | KMSInternalException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ConnectCustomKeyStore", input);
+  }
   createAlias(
     input: CreateAliasRequest,
   ): Effect.Effect<
@@ -37,7 +41,9 @@ export declare class KMS extends AWSServiceClient {
     | LimitExceededException
     | NotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateAlias", input);
+  }
   createCustomKeyStore(
     input: CreateCustomKeyStoreRequest,
   ): Effect.Effect<
@@ -60,7 +66,9 @@ export declare class KMS extends AWSServiceClient {
     | XksProxyVpcEndpointServiceInvalidConfigurationException
     | XksProxyVpcEndpointServiceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateCustomKeyStore", input);
+  }
   createGrant(
     input: CreateGrantRequest,
   ): Effect.Effect<
@@ -75,7 +83,9 @@ export declare class KMS extends AWSServiceClient {
     | LimitExceededException
     | NotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateGrant", input);
+  }
   createKey(
     input: CreateKeyRequest,
   ): Effect.Effect<
@@ -94,7 +104,9 @@ export declare class KMS extends AWSServiceClient {
     | XksKeyInvalidConfigurationException
     | XksKeyNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateKey", input);
+  }
   decrypt(
     input: DecryptRequest,
   ): Effect.Effect<
@@ -111,7 +123,9 @@ export declare class KMS extends AWSServiceClient {
     | KMSInvalidStateException
     | NotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("Decrypt", input);
+  }
   deleteAlias(
     input: DeleteAliasRequest,
   ): Effect.Effect<
@@ -121,7 +135,9 @@ export declare class KMS extends AWSServiceClient {
     | KMSInvalidStateException
     | NotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteAlias", input);
+  }
   deleteCustomKeyStore(
     input: DeleteCustomKeyStoreRequest,
   ): Effect.Effect<
@@ -131,7 +147,9 @@ export declare class KMS extends AWSServiceClient {
     | CustomKeyStoreNotFoundException
     | KMSInternalException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteCustomKeyStore", input);
+  }
   deleteImportedKeyMaterial(
     input: DeleteImportedKeyMaterialRequest,
   ): Effect.Effect<
@@ -143,7 +161,9 @@ export declare class KMS extends AWSServiceClient {
     | NotFoundException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteImportedKeyMaterial", input);
+  }
   deriveSharedSecret(
     input: DeriveSharedSecretRequest,
   ): Effect.Effect<
@@ -158,7 +178,9 @@ export declare class KMS extends AWSServiceClient {
     | KMSInvalidStateException
     | NotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeriveSharedSecret", input);
+  }
   describeCustomKeyStores(
     input: DescribeCustomKeyStoresRequest,
   ): Effect.Effect<
@@ -167,7 +189,9 @@ export declare class KMS extends AWSServiceClient {
     | InvalidMarkerException
     | KMSInternalException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeCustomKeyStores", input);
+  }
   describeKey(
     input: DescribeKeyRequest,
   ): Effect.Effect<
@@ -177,7 +201,9 @@ export declare class KMS extends AWSServiceClient {
     | KMSInternalException
     | NotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeKey", input);
+  }
   disableKey(
     input: DisableKeyRequest,
   ): Effect.Effect<
@@ -188,7 +214,9 @@ export declare class KMS extends AWSServiceClient {
     | KMSInvalidStateException
     | NotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DisableKey", input);
+  }
   disableKeyRotation(
     input: DisableKeyRotationRequest,
   ): Effect.Effect<
@@ -201,7 +229,9 @@ export declare class KMS extends AWSServiceClient {
     | NotFoundException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DisableKeyRotation", input);
+  }
   disconnectCustomKeyStore(
     input: DisconnectCustomKeyStoreRequest,
   ): Effect.Effect<
@@ -210,7 +240,9 @@ export declare class KMS extends AWSServiceClient {
     | CustomKeyStoreNotFoundException
     | KMSInternalException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DisconnectCustomKeyStore", input);
+  }
   enableKey(
     input: EnableKeyRequest,
   ): Effect.Effect<
@@ -222,7 +254,9 @@ export declare class KMS extends AWSServiceClient {
     | LimitExceededException
     | NotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("EnableKey", input);
+  }
   enableKeyRotation(
     input: EnableKeyRotationRequest,
   ): Effect.Effect<
@@ -235,7 +269,9 @@ export declare class KMS extends AWSServiceClient {
     | NotFoundException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("EnableKeyRotation", input);
+  }
   encrypt(
     input: EncryptRequest,
   ): Effect.Effect<
@@ -250,7 +286,9 @@ export declare class KMS extends AWSServiceClient {
     | KMSInvalidStateException
     | NotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("Encrypt", input);
+  }
   generateDataKey(
     input: GenerateDataKeyRequest,
   ): Effect.Effect<
@@ -265,7 +303,9 @@ export declare class KMS extends AWSServiceClient {
     | KMSInvalidStateException
     | NotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GenerateDataKey", input);
+  }
   generateDataKeyPair(
     input: GenerateDataKeyPairRequest,
   ): Effect.Effect<
@@ -281,7 +321,9 @@ export declare class KMS extends AWSServiceClient {
     | NotFoundException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GenerateDataKeyPair", input);
+  }
   generateDataKeyPairWithoutPlaintext(
     input: GenerateDataKeyPairWithoutPlaintextRequest,
   ): Effect.Effect<
@@ -297,7 +339,9 @@ export declare class KMS extends AWSServiceClient {
     | NotFoundException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GenerateDataKeyPairWithoutPlaintext", input);
+  }
   generateDataKeyWithoutPlaintext(
     input: GenerateDataKeyWithoutPlaintextRequest,
   ): Effect.Effect<
@@ -312,7 +356,9 @@ export declare class KMS extends AWSServiceClient {
     | KMSInvalidStateException
     | NotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GenerateDataKeyWithoutPlaintext", input);
+  }
   generateMac(
     input: GenerateMacRequest,
   ): Effect.Effect<
@@ -326,7 +372,9 @@ export declare class KMS extends AWSServiceClient {
     | KMSInvalidStateException
     | NotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GenerateMac", input);
+  }
   generateRandom(
     input: GenerateRandomRequest,
   ): Effect.Effect<
@@ -337,7 +385,9 @@ export declare class KMS extends AWSServiceClient {
     | KMSInternalException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GenerateRandom", input);
+  }
   getKeyPolicy(
     input: GetKeyPolicyRequest,
   ): Effect.Effect<
@@ -348,7 +398,9 @@ export declare class KMS extends AWSServiceClient {
     | KMSInvalidStateException
     | NotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetKeyPolicy", input);
+  }
   getKeyRotationStatus(
     input: GetKeyRotationStatusRequest,
   ): Effect.Effect<
@@ -360,7 +412,9 @@ export declare class KMS extends AWSServiceClient {
     | NotFoundException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetKeyRotationStatus", input);
+  }
   getParametersForImport(
     input: GetParametersForImportRequest,
   ): Effect.Effect<
@@ -372,7 +426,9 @@ export declare class KMS extends AWSServiceClient {
     | NotFoundException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetParametersForImport", input);
+  }
   getPublicKey(
     input: GetPublicKeyRequest,
   ): Effect.Effect<
@@ -388,7 +444,9 @@ export declare class KMS extends AWSServiceClient {
     | NotFoundException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetPublicKey", input);
+  }
   importKeyMaterial(
     input: ImportKeyMaterialRequest,
   ): Effect.Effect<
@@ -404,7 +462,9 @@ export declare class KMS extends AWSServiceClient {
     | NotFoundException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ImportKeyMaterial", input);
+  }
   listAliases(
     input: ListAliasesRequest,
   ): Effect.Effect<
@@ -415,7 +475,9 @@ export declare class KMS extends AWSServiceClient {
     | KMSInternalException
     | NotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListAliases", input);
+  }
   listGrants(
     input: ListGrantsRequest,
   ): Effect.Effect<
@@ -428,7 +490,9 @@ export declare class KMS extends AWSServiceClient {
     | KMSInvalidStateException
     | NotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListGrants", input);
+  }
   listKeyPolicies(
     input: ListKeyPoliciesRequest,
   ): Effect.Effect<
@@ -439,7 +503,9 @@ export declare class KMS extends AWSServiceClient {
     | KMSInvalidStateException
     | NotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListKeyPolicies", input);
+  }
   listKeyRotations(
     input: ListKeyRotationsRequest,
   ): Effect.Effect<
@@ -451,7 +517,9 @@ export declare class KMS extends AWSServiceClient {
     | NotFoundException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListKeyRotations", input);
+  }
   listKeys(
     input: ListKeysRequest,
   ): Effect.Effect<
@@ -460,7 +528,9 @@ export declare class KMS extends AWSServiceClient {
     | InvalidMarkerException
     | KMSInternalException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListKeys", input);
+  }
   listResourceTags(
     input: ListResourceTagsRequest,
   ): Effect.Effect<
@@ -470,7 +540,9 @@ export declare class KMS extends AWSServiceClient {
     | KMSInternalException
     | NotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListResourceTags", input);
+  }
   listRetirableGrants(
     input: ListRetirableGrantsRequest,
   ): Effect.Effect<
@@ -481,7 +553,9 @@ export declare class KMS extends AWSServiceClient {
     | KMSInternalException
     | NotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListRetirableGrants", input);
+  }
   putKeyPolicy(
     input: PutKeyPolicyRequest,
   ): Effect.Effect<
@@ -495,7 +569,9 @@ export declare class KMS extends AWSServiceClient {
     | NotFoundException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutKeyPolicy", input);
+  }
   reEncrypt(
     input: ReEncryptRequest,
   ): Effect.Effect<
@@ -512,7 +588,9 @@ export declare class KMS extends AWSServiceClient {
     | KMSInvalidStateException
     | NotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ReEncrypt", input);
+  }
   replicateKey(
     input: ReplicateKeyRequest,
   ): Effect.Effect<
@@ -528,7 +606,9 @@ export declare class KMS extends AWSServiceClient {
     | TagException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ReplicateKey", input);
+  }
   retireGrant(
     input: RetireGrantRequest,
   ): Effect.Effect<
@@ -542,7 +622,9 @@ export declare class KMS extends AWSServiceClient {
     | KMSInvalidStateException
     | NotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("RetireGrant", input);
+  }
   revokeGrant(
     input: RevokeGrantRequest,
   ): Effect.Effect<
@@ -555,7 +637,9 @@ export declare class KMS extends AWSServiceClient {
     | KMSInvalidStateException
     | NotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("RevokeGrant", input);
+  }
   rotateKeyOnDemand(
     input: RotateKeyOnDemandRequest,
   ): Effect.Effect<
@@ -570,7 +654,9 @@ export declare class KMS extends AWSServiceClient {
     | NotFoundException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("RotateKeyOnDemand", input);
+  }
   scheduleKeyDeletion(
     input: ScheduleKeyDeletionRequest,
   ): Effect.Effect<
@@ -581,7 +667,9 @@ export declare class KMS extends AWSServiceClient {
     | KMSInvalidStateException
     | NotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ScheduleKeyDeletion", input);
+  }
   sign(
     input: SignRequest,
   ): Effect.Effect<
@@ -596,7 +684,9 @@ export declare class KMS extends AWSServiceClient {
     | KMSInvalidStateException
     | NotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("Sign", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -608,7 +698,9 @@ export declare class KMS extends AWSServiceClient {
     | NotFoundException
     | TagException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
@@ -619,7 +711,9 @@ export declare class KMS extends AWSServiceClient {
     | NotFoundException
     | TagException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
   updateAlias(
     input: UpdateAliasRequest,
   ): Effect.Effect<
@@ -630,7 +724,9 @@ export declare class KMS extends AWSServiceClient {
     | LimitExceededException
     | NotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateAlias", input);
+  }
   updateCustomKeyStore(
     input: UpdateCustomKeyStoreRequest,
   ): Effect.Effect<
@@ -653,7 +749,9 @@ export declare class KMS extends AWSServiceClient {
     | XksProxyVpcEndpointServiceInvalidConfigurationException
     | XksProxyVpcEndpointServiceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateCustomKeyStore", input);
+  }
   updateKeyDescription(
     input: UpdateKeyDescriptionRequest,
   ): Effect.Effect<
@@ -664,7 +762,9 @@ export declare class KMS extends AWSServiceClient {
     | KMSInvalidStateException
     | NotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateKeyDescription", input);
+  }
   updatePrimaryRegion(
     input: UpdatePrimaryRegionRequest,
   ): Effect.Effect<
@@ -676,7 +776,9 @@ export declare class KMS extends AWSServiceClient {
     | NotFoundException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdatePrimaryRegion", input);
+  }
   verify(
     input: VerifyRequest,
   ): Effect.Effect<
@@ -692,7 +794,9 @@ export declare class KMS extends AWSServiceClient {
     | KMSInvalidStateException
     | NotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("Verify", input);
+  }
   verifyMac(
     input: VerifyMacRequest,
   ): Effect.Effect<
@@ -707,10 +811,14 @@ export declare class KMS extends AWSServiceClient {
     | KMSInvalidStateException
     | NotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("VerifyMac", input);
+  }
 }
 
-export declare class Kms extends KMS {}
+export class Kms extends KMS {}
+
+export default KMS;
 
 export type AlgorithmSpec =
   | "RSAES_PKCS1_V1_5"

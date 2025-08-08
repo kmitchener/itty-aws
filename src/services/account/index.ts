@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class Account extends AWSServiceClient {
+export class Account extends AWSServiceClient {
   acceptPrimaryEmailUpdate(
     input: AcceptPrimaryEmailUpdateRequest,
   ): Effect.Effect<
@@ -14,7 +14,9 @@ export declare class Account extends AWSServiceClient {
     | TooManyRequestsException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AcceptPrimaryEmailUpdate", input);
+  }
   deleteAlternateContact(
     input: DeleteAlternateContactRequest,
   ): Effect.Effect<
@@ -25,7 +27,9 @@ export declare class Account extends AWSServiceClient {
     | TooManyRequestsException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteAlternateContact", input);
+  }
   disableRegion(
     input: DisableRegionRequest,
   ): Effect.Effect<
@@ -36,7 +40,9 @@ export declare class Account extends AWSServiceClient {
     | TooManyRequestsException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DisableRegion", input);
+  }
   enableRegion(
     input: EnableRegionRequest,
   ): Effect.Effect<
@@ -47,7 +53,9 @@ export declare class Account extends AWSServiceClient {
     | TooManyRequestsException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("EnableRegion", input);
+  }
   getAccountInformation(
     input: GetAccountInformationRequest,
   ): Effect.Effect<
@@ -57,7 +65,9 @@ export declare class Account extends AWSServiceClient {
     | TooManyRequestsException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetAccountInformation", input);
+  }
   getAlternateContact(
     input: GetAlternateContactRequest,
   ): Effect.Effect<
@@ -68,7 +78,9 @@ export declare class Account extends AWSServiceClient {
     | TooManyRequestsException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetAlternateContact", input);
+  }
   getContactInformation(
     input: GetContactInformationRequest,
   ): Effect.Effect<
@@ -79,7 +91,9 @@ export declare class Account extends AWSServiceClient {
     | TooManyRequestsException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetContactInformation", input);
+  }
   getPrimaryEmail(
     input: GetPrimaryEmailRequest,
   ): Effect.Effect<
@@ -90,7 +104,9 @@ export declare class Account extends AWSServiceClient {
     | TooManyRequestsException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetPrimaryEmail", input);
+  }
   getRegionOptStatus(
     input: GetRegionOptStatusRequest,
   ): Effect.Effect<
@@ -100,7 +116,9 @@ export declare class Account extends AWSServiceClient {
     | TooManyRequestsException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetRegionOptStatus", input);
+  }
   listRegions(
     input: ListRegionsRequest,
   ): Effect.Effect<
@@ -110,7 +128,9 @@ export declare class Account extends AWSServiceClient {
     | TooManyRequestsException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListRegions", input);
+  }
   putAccountName(
     input: PutAccountNameRequest,
   ): Effect.Effect<
@@ -120,7 +140,9 @@ export declare class Account extends AWSServiceClient {
     | TooManyRequestsException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutAccountName", input);
+  }
   putAlternateContact(
     input: PutAlternateContactRequest,
   ): Effect.Effect<
@@ -130,7 +152,9 @@ export declare class Account extends AWSServiceClient {
     | TooManyRequestsException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutAlternateContact", input);
+  }
   putContactInformation(
     input: PutContactInformationRequest,
   ): Effect.Effect<
@@ -140,7 +164,9 @@ export declare class Account extends AWSServiceClient {
     | TooManyRequestsException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutContactInformation", input);
+  }
   startPrimaryEmailUpdate(
     input: StartPrimaryEmailUpdateRequest,
   ): Effect.Effect<
@@ -152,8 +178,12 @@ export declare class Account extends AWSServiceClient {
     | TooManyRequestsException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartPrimaryEmailUpdate", input);
+  }
 }
+
+export default Account;
 
 export interface AcceptPrimaryEmailUpdateRequest {
   AccountId: string;

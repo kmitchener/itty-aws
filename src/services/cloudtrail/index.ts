@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class CloudTrail extends AWSServiceClient {
+export class CloudTrail extends AWSServiceClient {
   addTags(
     input: AddTagsRequest,
   ): Effect.Effect<
@@ -24,7 +24,9 @@ export declare class CloudTrail extends AWSServiceClient {
     | TagsLimitExceededException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AddTags", input);
+  }
   cancelQuery(
     input: CancelQueryRequest,
   ): Effect.Effect<
@@ -40,7 +42,9 @@ export declare class CloudTrail extends AWSServiceClient {
     | QueryIdNotFoundException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CancelQuery", input);
+  }
   createChannel(
     input: CreateChannelRequest,
   ): Effect.Effect<
@@ -58,7 +62,9 @@ export declare class CloudTrail extends AWSServiceClient {
     | TagsLimitExceededException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateChannel", input);
+  }
   createDashboard(
     input: CreateDashboardRequest,
   ): Effect.Effect<
@@ -72,7 +78,9 @@ export declare class CloudTrail extends AWSServiceClient {
     | ServiceQuotaExceededException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateDashboard", input);
+  }
   createEventDataStore(
     input: CreateEventDataStoreRequest,
   ): Effect.Effect<
@@ -96,7 +104,9 @@ export declare class CloudTrail extends AWSServiceClient {
     | OrganizationsNotInUseException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateEventDataStore", input);
+  }
   createTrail(
     input: CreateTrailRequest,
   ): Effect.Effect<
@@ -135,7 +145,9 @@ export declare class CloudTrail extends AWSServiceClient {
     | TrailNotProvidedException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateTrail", input);
+  }
   deleteChannel(
     input: DeleteChannelRequest,
   ): Effect.Effect<
@@ -145,7 +157,9 @@ export declare class CloudTrail extends AWSServiceClient {
     | OperationNotPermittedException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteChannel", input);
+  }
   deleteDashboard(
     input: DeleteDashboardRequest,
   ): Effect.Effect<
@@ -154,7 +168,9 @@ export declare class CloudTrail extends AWSServiceClient {
     | ResourceNotFoundException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteDashboard", input);
+  }
   deleteEventDataStore(
     input: DeleteEventDataStoreRequest,
   ): Effect.Effect<
@@ -174,7 +190,9 @@ export declare class CloudTrail extends AWSServiceClient {
     | OperationNotPermittedException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteEventDataStore", input);
+  }
   deleteResourcePolicy(
     input: DeleteResourcePolicyRequest,
   ): Effect.Effect<
@@ -187,7 +205,9 @@ export declare class CloudTrail extends AWSServiceClient {
     | ResourceTypeNotSupportedException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteResourcePolicy", input);
+  }
   deleteTrail(
     input: DeleteTrailRequest,
   ): Effect.Effect<
@@ -204,7 +224,9 @@ export declare class CloudTrail extends AWSServiceClient {
     | TrailNotFoundException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteTrail", input);
+  }
   deregisterOrganizationDelegatedAdmin(
     input: DeregisterOrganizationDelegatedAdminRequest,
   ): Effect.Effect<
@@ -221,7 +243,9 @@ export declare class CloudTrail extends AWSServiceClient {
     | OrganizationsNotInUseException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeregisterOrganizationDelegatedAdmin", input);
+  }
   describeQuery(
     input: DescribeQueryRequest,
   ): Effect.Effect<
@@ -235,7 +259,9 @@ export declare class CloudTrail extends AWSServiceClient {
     | QueryIdNotFoundException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeQuery", input);
+  }
   describeTrails(
     input: DescribeTrailsRequest,
   ): Effect.Effect<
@@ -246,7 +272,9 @@ export declare class CloudTrail extends AWSServiceClient {
     | OperationNotPermittedException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeTrails", input);
+  }
   disableFederation(
     input: DisableFederationRequest,
   ): Effect.Effect<
@@ -266,7 +294,9 @@ export declare class CloudTrail extends AWSServiceClient {
     | OrganizationsNotInUseException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DisableFederation", input);
+  }
   enableFederation(
     input: EnableFederationRequest,
   ): Effect.Effect<
@@ -287,7 +317,9 @@ export declare class CloudTrail extends AWSServiceClient {
     | OrganizationsNotInUseException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("EnableFederation", input);
+  }
   generateQuery(
     input: GenerateQueryRequest,
   ): Effect.Effect<
@@ -301,7 +333,9 @@ export declare class CloudTrail extends AWSServiceClient {
     | OperationNotPermittedException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GenerateQuery", input);
+  }
   getChannel(
     input: GetChannelRequest,
   ): Effect.Effect<
@@ -311,13 +345,17 @@ export declare class CloudTrail extends AWSServiceClient {
     | OperationNotPermittedException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetChannel", input);
+  }
   getDashboard(
     input: GetDashboardRequest,
   ): Effect.Effect<
     GetDashboardResponse,
     ResourceNotFoundException | UnsupportedOperationException | CommonAwsError
-  >;
+  > {
+    return this.call("GetDashboard", input);
+  }
   getEventConfiguration(
     input: GetEventConfigurationRequest,
   ): Effect.Effect<
@@ -333,7 +371,9 @@ export declare class CloudTrail extends AWSServiceClient {
     | OperationNotPermittedException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetEventConfiguration", input);
+  }
   getEventDataStore(
     input: GetEventDataStoreRequest,
   ): Effect.Effect<
@@ -345,7 +385,9 @@ export declare class CloudTrail extends AWSServiceClient {
     | OperationNotPermittedException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetEventDataStore", input);
+  }
   getEventSelectors(
     input: GetEventSelectorsRequest,
   ): Effect.Effect<
@@ -357,7 +399,9 @@ export declare class CloudTrail extends AWSServiceClient {
     | TrailNotFoundException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetEventSelectors", input);
+  }
   getImport(
     input: GetImportRequest,
   ): Effect.Effect<
@@ -367,7 +411,9 @@ export declare class CloudTrail extends AWSServiceClient {
     | OperationNotPermittedException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetImport", input);
+  }
   getInsightSelectors(
     input: GetInsightSelectorsRequest,
   ): Effect.Effect<
@@ -383,7 +429,9 @@ export declare class CloudTrail extends AWSServiceClient {
     | TrailNotFoundException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetInsightSelectors", input);
+  }
   getQueryResults(
     input: GetQueryResultsRequest,
   ): Effect.Effect<
@@ -400,7 +448,9 @@ export declare class CloudTrail extends AWSServiceClient {
     | QueryIdNotFoundException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetQueryResults", input);
+  }
   getResourcePolicy(
     input: GetResourcePolicyRequest,
   ): Effect.Effect<
@@ -412,7 +462,9 @@ export declare class CloudTrail extends AWSServiceClient {
     | ResourceTypeNotSupportedException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetResourcePolicy", input);
+  }
   getTrail(
     input: GetTrailRequest,
   ): Effect.Effect<
@@ -423,7 +475,9 @@ export declare class CloudTrail extends AWSServiceClient {
     | TrailNotFoundException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetTrail", input);
+  }
   getTrailStatus(
     input: GetTrailStatusRequest,
   ): Effect.Effect<
@@ -434,7 +488,9 @@ export declare class CloudTrail extends AWSServiceClient {
     | TrailNotFoundException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetTrailStatus", input);
+  }
   listChannels(
     input: ListChannelsRequest,
   ): Effect.Effect<
@@ -443,13 +499,17 @@ export declare class CloudTrail extends AWSServiceClient {
     | OperationNotPermittedException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListChannels", input);
+  }
   listDashboards(
     input: ListDashboardsRequest,
   ): Effect.Effect<
     ListDashboardsResponse,
     UnsupportedOperationException | CommonAwsError
-  >;
+  > {
+    return this.call("ListDashboards", input);
+  }
   listEventDataStores(
     input: ListEventDataStoresRequest,
   ): Effect.Effect<
@@ -460,7 +520,9 @@ export declare class CloudTrail extends AWSServiceClient {
     | OperationNotPermittedException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListEventDataStores", input);
+  }
   listImportFailures(
     input: ListImportFailuresRequest,
   ): Effect.Effect<
@@ -470,7 +532,9 @@ export declare class CloudTrail extends AWSServiceClient {
     | OperationNotPermittedException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListImportFailures", input);
+  }
   listImports(
     input: ListImportsRequest,
   ): Effect.Effect<
@@ -481,7 +545,9 @@ export declare class CloudTrail extends AWSServiceClient {
     | OperationNotPermittedException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListImports", input);
+  }
   listInsightsMetricData(
     input: ListInsightsMetricDataRequest,
   ): Effect.Effect<
@@ -490,7 +556,9 @@ export declare class CloudTrail extends AWSServiceClient {
     | OperationNotPermittedException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListInsightsMetricData", input);
+  }
   listPublicKeys(
     input: ListPublicKeysRequest,
   ): Effect.Effect<
@@ -500,7 +568,9 @@ export declare class CloudTrail extends AWSServiceClient {
     | OperationNotPermittedException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListPublicKeys", input);
+  }
   listQueries(
     input: ListQueriesRequest,
   ): Effect.Effect<
@@ -517,7 +587,9 @@ export declare class CloudTrail extends AWSServiceClient {
     | OperationNotPermittedException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListQueries", input);
+  }
   listTags(
     input: ListTagsRequest,
   ): Effect.Effect<
@@ -535,7 +607,9 @@ export declare class CloudTrail extends AWSServiceClient {
     | ResourceTypeNotSupportedException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTags", input);
+  }
   listTrails(
     input: ListTrailsRequest,
   ): Effect.Effect<
@@ -543,7 +617,9 @@ export declare class CloudTrail extends AWSServiceClient {
     | OperationNotPermittedException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTrails", input);
+  }
   lookupEvents(
     input: LookupEventsRequest,
   ): Effect.Effect<
@@ -556,7 +632,9 @@ export declare class CloudTrail extends AWSServiceClient {
     | OperationNotPermittedException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("LookupEvents", input);
+  }
   putEventConfiguration(
     input: PutEventConfigurationRequest,
   ): Effect.Effect<
@@ -578,7 +656,9 @@ export declare class CloudTrail extends AWSServiceClient {
     | ThrottlingException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutEventConfiguration", input);
+  }
   putEventSelectors(
     input: PutEventSelectorsRequest,
   ): Effect.Effect<
@@ -596,7 +676,9 @@ export declare class CloudTrail extends AWSServiceClient {
     | TrailNotFoundException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutEventSelectors", input);
+  }
   putInsightSelectors(
     input: PutInsightSelectorsRequest,
   ): Effect.Effect<
@@ -618,7 +700,9 @@ export declare class CloudTrail extends AWSServiceClient {
     | TrailNotFoundException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutInsightSelectors", input);
+  }
   putResourcePolicy(
     input: PutResourcePolicyRequest,
   ): Effect.Effect<
@@ -631,7 +715,9 @@ export declare class CloudTrail extends AWSServiceClient {
     | ResourceTypeNotSupportedException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutResourcePolicy", input);
+  }
   registerOrganizationDelegatedAdmin(
     input: RegisterOrganizationDelegatedAdminRequest,
   ): Effect.Effect<
@@ -651,7 +737,9 @@ export declare class CloudTrail extends AWSServiceClient {
     | OrganizationsNotInUseException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("RegisterOrganizationDelegatedAdmin", input);
+  }
   removeTags(
     input: RemoveTagsRequest,
   ): Effect.Effect<
@@ -672,7 +760,9 @@ export declare class CloudTrail extends AWSServiceClient {
     | ResourceTypeNotSupportedException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("RemoveTags", input);
+  }
   restoreEventDataStore(
     input: RestoreEventDataStoreRequest,
   ): Effect.Effect<
@@ -691,7 +781,9 @@ export declare class CloudTrail extends AWSServiceClient {
     | OrganizationsNotInUseException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("RestoreEventDataStore", input);
+  }
   searchSampleQueries(
     input: SearchSampleQueriesRequest,
   ): Effect.Effect<
@@ -700,7 +792,9 @@ export declare class CloudTrail extends AWSServiceClient {
     | OperationNotPermittedException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("SearchSampleQueries", input);
+  }
   startDashboardRefresh(
     input: StartDashboardRefreshRequest,
   ): Effect.Effect<
@@ -711,7 +805,9 @@ export declare class CloudTrail extends AWSServiceClient {
     | ServiceQuotaExceededException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartDashboardRefresh", input);
+  }
   startEventDataStoreIngestion(
     input: StartEventDataStoreIngestionRequest,
   ): Effect.Effect<
@@ -728,7 +824,9 @@ export declare class CloudTrail extends AWSServiceClient {
     | OperationNotPermittedException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartEventDataStoreIngestion", input);
+  }
   startImport(
     input: StartImportRequest,
   ): Effect.Effect<
@@ -746,7 +844,9 @@ export declare class CloudTrail extends AWSServiceClient {
     | OperationNotPermittedException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartImport", input);
+  }
   startLogging(
     input: StartLoggingRequest,
   ): Effect.Effect<
@@ -763,7 +863,9 @@ export declare class CloudTrail extends AWSServiceClient {
     | TrailNotFoundException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartLogging", input);
+  }
   startQuery(
     input: StartQueryRequest,
   ): Effect.Effect<
@@ -783,7 +885,9 @@ export declare class CloudTrail extends AWSServiceClient {
     | S3BucketDoesNotExistException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartQuery", input);
+  }
   stopEventDataStoreIngestion(
     input: StopEventDataStoreIngestionRequest,
   ): Effect.Effect<
@@ -800,7 +904,9 @@ export declare class CloudTrail extends AWSServiceClient {
     | OperationNotPermittedException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StopEventDataStoreIngestion", input);
+  }
   stopImport(
     input: StopImportRequest,
   ): Effect.Effect<
@@ -810,7 +916,9 @@ export declare class CloudTrail extends AWSServiceClient {
     | OperationNotPermittedException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StopImport", input);
+  }
   stopLogging(
     input: StopLoggingRequest,
   ): Effect.Effect<
@@ -827,7 +935,9 @@ export declare class CloudTrail extends AWSServiceClient {
     | TrailNotFoundException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StopLogging", input);
+  }
   updateChannel(
     input: UpdateChannelRequest,
   ): Effect.Effect<
@@ -843,7 +953,9 @@ export declare class CloudTrail extends AWSServiceClient {
     | OperationNotPermittedException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateChannel", input);
+  }
   updateDashboard(
     input: UpdateDashboardRequest,
   ): Effect.Effect<
@@ -857,7 +969,9 @@ export declare class CloudTrail extends AWSServiceClient {
     | ServiceQuotaExceededException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateDashboard", input);
+  }
   updateEventDataStore(
     input: UpdateEventDataStoreRequest,
   ): Effect.Effect<
@@ -883,7 +997,9 @@ export declare class CloudTrail extends AWSServiceClient {
     | OrganizationsNotInUseException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateEventDataStore", input);
+  }
   updateTrail(
     input: UpdateTrailRequest,
   ): Effect.Effect<
@@ -922,10 +1038,14 @@ export declare class CloudTrail extends AWSServiceClient {
     | TrailNotProvidedException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateTrail", input);
+  }
 }
 
-export declare class Cloudtrail extends CloudTrail {}
+export class Cloudtrail extends CloudTrail {}
+
+export default CloudTrail;
 
 export declare class AccessDeniedException extends EffectData.TaggedError(
   "AccessDeniedException",

@@ -2,242 +2,322 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class Batch extends AWSServiceClient {
+export class Batch extends AWSServiceClient {
   cancelJob(
     input: CancelJobRequest,
   ): Effect.Effect<
     CancelJobResponse,
     ClientException | ServerException | CommonAwsError
-  >;
+  > {
+    return this.call("CancelJob", input);
+  }
   createComputeEnvironment(
     input: CreateComputeEnvironmentRequest,
   ): Effect.Effect<
     CreateComputeEnvironmentResponse,
     ClientException | ServerException | CommonAwsError
-  >;
+  > {
+    return this.call("CreateComputeEnvironment", input);
+  }
   createConsumableResource(
     input: CreateConsumableResourceRequest,
   ): Effect.Effect<
     CreateConsumableResourceResponse,
     ClientException | ServerException | CommonAwsError
-  >;
+  > {
+    return this.call("CreateConsumableResource", input);
+  }
   createJobQueue(
     input: CreateJobQueueRequest,
   ): Effect.Effect<
     CreateJobQueueResponse,
     ClientException | ServerException | CommonAwsError
-  >;
+  > {
+    return this.call("CreateJobQueue", input);
+  }
   createSchedulingPolicy(
     input: CreateSchedulingPolicyRequest,
   ): Effect.Effect<
     CreateSchedulingPolicyResponse,
     ClientException | ServerException | CommonAwsError
-  >;
+  > {
+    return this.call("CreateSchedulingPolicy", input);
+  }
   createServiceEnvironment(
     input: CreateServiceEnvironmentRequest,
   ): Effect.Effect<
     CreateServiceEnvironmentResponse,
     ClientException | ServerException | CommonAwsError
-  >;
+  > {
+    return this.call("CreateServiceEnvironment", input);
+  }
   deleteComputeEnvironment(
     input: DeleteComputeEnvironmentRequest,
   ): Effect.Effect<
     DeleteComputeEnvironmentResponse,
     ClientException | ServerException | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteComputeEnvironment", input);
+  }
   deleteConsumableResource(
     input: DeleteConsumableResourceRequest,
   ): Effect.Effect<
     DeleteConsumableResourceResponse,
     ClientException | ServerException | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteConsumableResource", input);
+  }
   deleteJobQueue(
     input: DeleteJobQueueRequest,
   ): Effect.Effect<
     DeleteJobQueueResponse,
     ClientException | ServerException | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteJobQueue", input);
+  }
   deleteSchedulingPolicy(
     input: DeleteSchedulingPolicyRequest,
   ): Effect.Effect<
     DeleteSchedulingPolicyResponse,
     ClientException | ServerException | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteSchedulingPolicy", input);
+  }
   deleteServiceEnvironment(
     input: DeleteServiceEnvironmentRequest,
   ): Effect.Effect<
     DeleteServiceEnvironmentResponse,
     ClientException | ServerException | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteServiceEnvironment", input);
+  }
   deregisterJobDefinition(
     input: DeregisterJobDefinitionRequest,
   ): Effect.Effect<
     DeregisterJobDefinitionResponse,
     ClientException | ServerException | CommonAwsError
-  >;
+  > {
+    return this.call("DeregisterJobDefinition", input);
+  }
   describeComputeEnvironments(
     input: DescribeComputeEnvironmentsRequest,
   ): Effect.Effect<
     DescribeComputeEnvironmentsResponse,
     ClientException | ServerException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeComputeEnvironments", input);
+  }
   describeConsumableResource(
     input: DescribeConsumableResourceRequest,
   ): Effect.Effect<
     DescribeConsumableResourceResponse,
     ClientException | ServerException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeConsumableResource", input);
+  }
   describeJobDefinitions(
     input: DescribeJobDefinitionsRequest,
   ): Effect.Effect<
     DescribeJobDefinitionsResponse,
     ClientException | ServerException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeJobDefinitions", input);
+  }
   describeJobQueues(
     input: DescribeJobQueuesRequest,
   ): Effect.Effect<
     DescribeJobQueuesResponse,
     ClientException | ServerException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeJobQueues", input);
+  }
   describeJobs(
     input: DescribeJobsRequest,
   ): Effect.Effect<
     DescribeJobsResponse,
     ClientException | ServerException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeJobs", input);
+  }
   describeSchedulingPolicies(
     input: DescribeSchedulingPoliciesRequest,
   ): Effect.Effect<
     DescribeSchedulingPoliciesResponse,
     ClientException | ServerException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeSchedulingPolicies", input);
+  }
   describeServiceEnvironments(
     input: DescribeServiceEnvironmentsRequest,
   ): Effect.Effect<
     DescribeServiceEnvironmentsResponse,
     ClientException | ServerException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeServiceEnvironments", input);
+  }
   describeServiceJob(
     input: DescribeServiceJobRequest,
   ): Effect.Effect<
     DescribeServiceJobResponse,
     ClientException | ServerException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeServiceJob", input);
+  }
   getJobQueueSnapshot(
     input: GetJobQueueSnapshotRequest,
   ): Effect.Effect<
     GetJobQueueSnapshotResponse,
     ClientException | ServerException | CommonAwsError
-  >;
+  > {
+    return this.call("GetJobQueueSnapshot", input);
+  }
   listConsumableResources(
     input: ListConsumableResourcesRequest,
   ): Effect.Effect<
     ListConsumableResourcesResponse,
     ClientException | ServerException | CommonAwsError
-  >;
+  > {
+    return this.call("ListConsumableResources", input);
+  }
   listJobs(
     input: ListJobsRequest,
   ): Effect.Effect<
     ListJobsResponse,
     ClientException | ServerException | CommonAwsError
-  >;
+  > {
+    return this.call("ListJobs", input);
+  }
   listJobsByConsumableResource(
     input: ListJobsByConsumableResourceRequest,
   ): Effect.Effect<
     ListJobsByConsumableResourceResponse,
     ClientException | ServerException | CommonAwsError
-  >;
+  > {
+    return this.call("ListJobsByConsumableResource", input);
+  }
   listSchedulingPolicies(
     input: ListSchedulingPoliciesRequest,
   ): Effect.Effect<
     ListSchedulingPoliciesResponse,
     ClientException | ServerException | CommonAwsError
-  >;
+  > {
+    return this.call("ListSchedulingPolicies", input);
+  }
   listServiceJobs(
     input: ListServiceJobsRequest,
   ): Effect.Effect<
     ListServiceJobsResponse,
     ClientException | ServerException | CommonAwsError
-  >;
+  > {
+    return this.call("ListServiceJobs", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
     ClientException | ServerException | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   registerJobDefinition(
     input: RegisterJobDefinitionRequest,
   ): Effect.Effect<
     RegisterJobDefinitionResponse,
     ClientException | ServerException | CommonAwsError
-  >;
+  > {
+    return this.call("RegisterJobDefinition", input);
+  }
   submitJob(
     input: SubmitJobRequest,
   ): Effect.Effect<
     SubmitJobResponse,
     ClientException | ServerException | CommonAwsError
-  >;
+  > {
+    return this.call("SubmitJob", input);
+  }
   submitServiceJob(
     input: SubmitServiceJobRequest,
   ): Effect.Effect<
     SubmitServiceJobResponse,
     ClientException | ServerException | CommonAwsError
-  >;
+  > {
+    return this.call("SubmitServiceJob", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
     ClientException | ServerException | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   terminateJob(
     input: TerminateJobRequest,
   ): Effect.Effect<
     TerminateJobResponse,
     ClientException | ServerException | CommonAwsError
-  >;
+  > {
+    return this.call("TerminateJob", input);
+  }
   terminateServiceJob(
     input: TerminateServiceJobRequest,
   ): Effect.Effect<
     TerminateServiceJobResponse,
     ClientException | ServerException | CommonAwsError
-  >;
+  > {
+    return this.call("TerminateServiceJob", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
     ClientException | ServerException | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
   updateComputeEnvironment(
     input: UpdateComputeEnvironmentRequest,
   ): Effect.Effect<
     UpdateComputeEnvironmentResponse,
     ClientException | ServerException | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateComputeEnvironment", input);
+  }
   updateConsumableResource(
     input: UpdateConsumableResourceRequest,
   ): Effect.Effect<
     UpdateConsumableResourceResponse,
     ClientException | ServerException | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateConsumableResource", input);
+  }
   updateJobQueue(
     input: UpdateJobQueueRequest,
   ): Effect.Effect<
     UpdateJobQueueResponse,
     ClientException | ServerException | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateJobQueue", input);
+  }
   updateSchedulingPolicy(
     input: UpdateSchedulingPolicyRequest,
   ): Effect.Effect<
     UpdateSchedulingPolicyResponse,
     ClientException | ServerException | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateSchedulingPolicy", input);
+  }
   updateServiceEnvironment(
     input: UpdateServiceEnvironmentRequest,
   ): Effect.Effect<
     UpdateServiceEnvironmentResponse,
     ClientException | ServerException | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateServiceEnvironment", input);
+  }
 }
+
+export default Batch;
 
 export type ArrayJobDependency = "N_TO_N" | "SEQUENTIAL";
 export type ArrayJobStatusSummary = Record<string, number>;

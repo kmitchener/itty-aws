@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class Redshift extends AWSServiceClient {
+export class Redshift extends AWSServiceClient {
   acceptReservedNodeExchange(
     input: AcceptReservedNodeExchangeInputMessage,
   ): Effect.Effect<
@@ -15,7 +15,9 @@ export declare class Redshift extends AWSServiceClient {
     | ReservedNodeOfferingNotFoundFault
     | UnsupportedOperationFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("AcceptReservedNodeExchange", input);
+  }
   addPartner(
     input: PartnerIntegrationInputMessage,
   ): Effect.Effect<
@@ -25,13 +27,17 @@ export declare class Redshift extends AWSServiceClient {
     | UnauthorizedPartnerIntegrationFault
     | UnsupportedOperationFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("AddPartner", input);
+  }
   associateDataShareConsumer(
     input: AssociateDataShareConsumerMessage,
   ): Effect.Effect<
     DataShare,
     InvalidDataShareFault | InvalidNamespaceFault | CommonAwsError
-  >;
+  > {
+    return this.call("AssociateDataShareConsumer", input);
+  }
   authorizeClusterSecurityGroupIngress(
     input: AuthorizeClusterSecurityGroupIngressMessage,
   ): Effect.Effect<
@@ -41,10 +47,14 @@ export declare class Redshift extends AWSServiceClient {
     | ClusterSecurityGroupNotFoundFault
     | InvalidClusterSecurityGroupStateFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("AuthorizeClusterSecurityGroupIngress", input);
+  }
   authorizeDataShare(
     input: AuthorizeDataShareMessage,
-  ): Effect.Effect<DataShare, InvalidDataShareFault | CommonAwsError>;
+  ): Effect.Effect<DataShare, InvalidDataShareFault | CommonAwsError> {
+    return this.call("AuthorizeDataShare", input);
+  }
   authorizeEndpointAccess(
     input: AuthorizeEndpointAccessMessage,
   ): Effect.Effect<
@@ -56,7 +66,9 @@ export declare class Redshift extends AWSServiceClient {
     | InvalidClusterStateFault
     | UnsupportedOperationFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("AuthorizeEndpointAccess", input);
+  }
   authorizeSnapshotAccess(
     input: AuthorizeSnapshotAccessMessage,
   ): Effect.Effect<
@@ -69,13 +81,17 @@ export declare class Redshift extends AWSServiceClient {
     | LimitExceededFault
     | UnsupportedOperationFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("AuthorizeSnapshotAccess", input);
+  }
   batchDeleteClusterSnapshots(
     input: BatchDeleteClusterSnapshotsRequest,
   ): Effect.Effect<
     BatchDeleteClusterSnapshotsResult,
     BatchDeleteRequestSizeExceededFault | CommonAwsError
-  >;
+  > {
+    return this.call("BatchDeleteClusterSnapshots", input);
+  }
   batchModifyClusterSnapshots(
     input: BatchModifyClusterSnapshotsMessage,
   ): Effect.Effect<
@@ -83,7 +99,9 @@ export declare class Redshift extends AWSServiceClient {
     | BatchModifyClusterSnapshotsLimitExceededFault
     | InvalidRetentionPeriodFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("BatchModifyClusterSnapshots", input);
+  }
   cancelResize(
     input: CancelResizeMessage,
   ): Effect.Effect<
@@ -93,7 +111,9 @@ export declare class Redshift extends AWSServiceClient {
     | ResizeNotFoundFault
     | UnsupportedOperationFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("CancelResize", input);
+  }
   copyClusterSnapshot(
     input: CopyClusterSnapshotMessage,
   ): Effect.Effect<
@@ -105,7 +125,9 @@ export declare class Redshift extends AWSServiceClient {
     | InvalidClusterSnapshotStateFault
     | InvalidRetentionPeriodFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("CopyClusterSnapshot", input);
+  }
   createAuthenticationProfile(
     input: CreateAuthenticationProfileMessage,
   ): Effect.Effect<
@@ -114,7 +136,9 @@ export declare class Redshift extends AWSServiceClient {
     | AuthenticationProfileQuotaExceededFault
     | InvalidAuthenticationProfileRequestFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateAuthenticationProfile", input);
+  }
   createCluster(
     input: CreateClusterMessage,
   ): Effect.Effect<
@@ -145,7 +169,9 @@ export declare class Redshift extends AWSServiceClient {
     | UnauthorizedOperation
     | UnsupportedOperationFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateCluster", input);
+  }
   createClusterParameterGroup(
     input: CreateClusterParameterGroupMessage,
   ): Effect.Effect<
@@ -155,7 +181,9 @@ export declare class Redshift extends AWSServiceClient {
     | InvalidTagFault
     | TagLimitExceededFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateClusterParameterGroup", input);
+  }
   createClusterSecurityGroup(
     input: CreateClusterSecurityGroupMessage,
   ): Effect.Effect<
@@ -165,7 +193,9 @@ export declare class Redshift extends AWSServiceClient {
     | InvalidTagFault
     | TagLimitExceededFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateClusterSecurityGroup", input);
+  }
   createClusterSnapshot(
     input: CreateClusterSnapshotMessage,
   ): Effect.Effect<
@@ -178,7 +208,9 @@ export declare class Redshift extends AWSServiceClient {
     | InvalidTagFault
     | TagLimitExceededFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateClusterSnapshot", input);
+  }
   createClusterSubnetGroup(
     input: CreateClusterSubnetGroupMessage,
   ): Effect.Effect<
@@ -192,7 +224,9 @@ export declare class Redshift extends AWSServiceClient {
     | TagLimitExceededFault
     | UnauthorizedOperation
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateClusterSubnetGroup", input);
+  }
   createCustomDomainAssociation(
     input: CreateCustomDomainAssociationMessage,
   ): Effect.Effect<
@@ -201,7 +235,9 @@ export declare class Redshift extends AWSServiceClient {
     | CustomCnameAssociationFault
     | UnsupportedOperationFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateCustomDomainAssociation", input);
+  }
   createEndpointAccess(
     input: CreateEndpointAccessMessage,
   ): Effect.Effect<
@@ -217,7 +253,9 @@ export declare class Redshift extends AWSServiceClient {
     | UnauthorizedOperation
     | UnsupportedOperationFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateEndpointAccess", input);
+  }
   createEventSubscription(
     input: CreateEventSubscriptionMessage,
   ): Effect.Effect<
@@ -234,7 +272,9 @@ export declare class Redshift extends AWSServiceClient {
     | SubscriptionSeverityNotFoundFault
     | TagLimitExceededFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateEventSubscription", input);
+  }
   createHsmClientCertificate(
     input: CreateHsmClientCertificateMessage,
   ): Effect.Effect<
@@ -244,7 +284,9 @@ export declare class Redshift extends AWSServiceClient {
     | InvalidTagFault
     | TagLimitExceededFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateHsmClientCertificate", input);
+  }
   createHsmConfiguration(
     input: CreateHsmConfigurationMessage,
   ): Effect.Effect<
@@ -254,7 +296,9 @@ export declare class Redshift extends AWSServiceClient {
     | InvalidTagFault
     | TagLimitExceededFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateHsmConfiguration", input);
+  }
   createIntegration(
     input: CreateIntegrationMessage,
   ): Effect.Effect<
@@ -269,7 +313,9 @@ export declare class Redshift extends AWSServiceClient {
     | TagLimitExceededFault
     | UnsupportedOperationFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateIntegration", input);
+  }
   createRedshiftIdcApplication(
     input: CreateRedshiftIdcApplicationMessage,
   ): Effect.Effect<
@@ -280,7 +326,9 @@ export declare class Redshift extends AWSServiceClient {
     | RedshiftIdcApplicationQuotaExceededFault
     | UnsupportedOperationFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateRedshiftIdcApplication", input);
+  }
   createScheduledAction(
     input: CreateScheduledActionMessage,
   ): Effect.Effect<
@@ -294,7 +342,9 @@ export declare class Redshift extends AWSServiceClient {
     | UnauthorizedOperation
     | UnsupportedOperationFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateScheduledAction", input);
+  }
   createSnapshotCopyGrant(
     input: CreateSnapshotCopyGrantMessage,
   ): Effect.Effect<
@@ -306,7 +356,9 @@ export declare class Redshift extends AWSServiceClient {
     | SnapshotCopyGrantQuotaExceededFault
     | TagLimitExceededFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateSnapshotCopyGrant", input);
+  }
   createSnapshotSchedule(
     input: CreateSnapshotScheduleMessage,
   ): Effect.Effect<
@@ -318,7 +370,9 @@ export declare class Redshift extends AWSServiceClient {
     | SnapshotScheduleQuotaExceededFault
     | TagLimitExceededFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateSnapshotSchedule", input);
+  }
   createTags(
     input: CreateTagsMessage,
   ): Effect.Effect<
@@ -328,7 +382,9 @@ export declare class Redshift extends AWSServiceClient {
     | ResourceNotFoundFault
     | TagLimitExceededFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateTags", input);
+  }
   createUsageLimit(
     input: CreateUsageLimitMessage,
   ): Effect.Effect<
@@ -341,10 +397,14 @@ export declare class Redshift extends AWSServiceClient {
     | UnsupportedOperationFault
     | UsageLimitAlreadyExistsFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateUsageLimit", input);
+  }
   deauthorizeDataShare(
     input: DeauthorizeDataShareMessage,
-  ): Effect.Effect<DataShare, InvalidDataShareFault | CommonAwsError>;
+  ): Effect.Effect<DataShare, InvalidDataShareFault | CommonAwsError> {
+    return this.call("DeauthorizeDataShare", input);
+  }
   deleteAuthenticationProfile(
     input: DeleteAuthenticationProfileMessage,
   ): Effect.Effect<
@@ -352,7 +412,9 @@ export declare class Redshift extends AWSServiceClient {
     | AuthenticationProfileNotFoundFault
     | InvalidAuthenticationProfileRequestFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteAuthenticationProfile", input);
+  }
   deleteCluster(
     input: DeleteClusterMessage,
   ): Effect.Effect<
@@ -363,7 +425,9 @@ export declare class Redshift extends AWSServiceClient {
     | InvalidClusterStateFault
     | InvalidRetentionPeriodFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteCluster", input);
+  }
   deleteClusterParameterGroup(
     input: DeleteClusterParameterGroupMessage,
   ): Effect.Effect<
@@ -371,7 +435,9 @@ export declare class Redshift extends AWSServiceClient {
     | ClusterParameterGroupNotFoundFault
     | InvalidClusterParameterGroupStateFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteClusterParameterGroup", input);
+  }
   deleteClusterSecurityGroup(
     input: DeleteClusterSecurityGroupMessage,
   ): Effect.Effect<
@@ -379,7 +445,9 @@ export declare class Redshift extends AWSServiceClient {
     | ClusterSecurityGroupNotFoundFault
     | InvalidClusterSecurityGroupStateFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteClusterSecurityGroup", input);
+  }
   deleteClusterSnapshot(
     input: DeleteClusterSnapshotMessage,
   ): Effect.Effect<
@@ -387,7 +455,9 @@ export declare class Redshift extends AWSServiceClient {
     | ClusterSnapshotNotFoundFault
     | InvalidClusterSnapshotStateFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteClusterSnapshot", input);
+  }
   deleteClusterSubnetGroup(
     input: DeleteClusterSubnetGroupMessage,
   ): Effect.Effect<
@@ -396,7 +466,9 @@ export declare class Redshift extends AWSServiceClient {
     | InvalidClusterSubnetGroupStateFault
     | InvalidClusterSubnetStateFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteClusterSubnetGroup", input);
+  }
   deleteCustomDomainAssociation(
     input: DeleteCustomDomainAssociationMessage,
   ): Effect.Effect<
@@ -406,7 +478,9 @@ export declare class Redshift extends AWSServiceClient {
     | CustomDomainAssociationNotFoundFault
     | UnsupportedOperationFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteCustomDomainAssociation", input);
+  }
   deleteEndpointAccess(
     input: DeleteEndpointAccessMessage,
   ): Effect.Effect<
@@ -417,13 +491,17 @@ export declare class Redshift extends AWSServiceClient {
     | InvalidClusterStateFault
     | InvalidEndpointStateFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteEndpointAccess", input);
+  }
   deleteEventSubscription(
     input: DeleteEventSubscriptionMessage,
   ): Effect.Effect<
     {},
     InvalidSubscriptionStateFault | SubscriptionNotFoundFault | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteEventSubscription", input);
+  }
   deleteHsmClientCertificate(
     input: DeleteHsmClientCertificateMessage,
   ): Effect.Effect<
@@ -431,7 +509,9 @@ export declare class Redshift extends AWSServiceClient {
     | HsmClientCertificateNotFoundFault
     | InvalidHsmClientCertificateStateFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteHsmClientCertificate", input);
+  }
   deleteHsmConfiguration(
     input: DeleteHsmConfigurationMessage,
   ): Effect.Effect<
@@ -439,7 +519,9 @@ export declare class Redshift extends AWSServiceClient {
     | HsmConfigurationNotFoundFault
     | InvalidHsmConfigurationStateFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteHsmConfiguration", input);
+  }
   deleteIntegration(
     input: DeleteIntegrationMessage,
   ): Effect.Effect<
@@ -449,7 +531,9 @@ export declare class Redshift extends AWSServiceClient {
     | IntegrationNotFoundFault
     | UnsupportedOperationFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteIntegration", input);
+  }
   deletePartner(
     input: PartnerIntegrationInputMessage,
   ): Effect.Effect<
@@ -459,7 +543,9 @@ export declare class Redshift extends AWSServiceClient {
     | UnauthorizedPartnerIntegrationFault
     | UnsupportedOperationFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeletePartner", input);
+  }
   deleteRedshiftIdcApplication(
     input: DeleteRedshiftIdcApplicationMessage,
   ): Effect.Effect<
@@ -469,19 +555,25 @@ export declare class Redshift extends AWSServiceClient {
     | RedshiftIdcApplicationNotExistsFault
     | UnsupportedOperationFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteRedshiftIdcApplication", input);
+  }
   deleteResourcePolicy(
     input: DeleteResourcePolicyMessage,
   ): Effect.Effect<
     {},
     ResourceNotFoundFault | UnsupportedOperationFault | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteResourcePolicy", input);
+  }
   deleteScheduledAction(
     input: DeleteScheduledActionMessage,
   ): Effect.Effect<
     {},
     ScheduledActionNotFoundFault | UnauthorizedOperation | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteScheduledAction", input);
+  }
   deleteSnapshotCopyGrant(
     input: DeleteSnapshotCopyGrantMessage,
   ): Effect.Effect<
@@ -489,7 +581,9 @@ export declare class Redshift extends AWSServiceClient {
     | InvalidSnapshotCopyGrantStateFault
     | SnapshotCopyGrantNotFoundFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteSnapshotCopyGrant", input);
+  }
   deleteSnapshotSchedule(
     input: DeleteSnapshotScheduleMessage,
   ): Effect.Effect<
@@ -497,19 +591,25 @@ export declare class Redshift extends AWSServiceClient {
     | InvalidClusterSnapshotScheduleStateFault
     | SnapshotScheduleNotFoundFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteSnapshotSchedule", input);
+  }
   deleteTags(
     input: DeleteTagsMessage,
   ): Effect.Effect<
     {},
     InvalidTagFault | ResourceNotFoundFault | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteTags", input);
+  }
   deleteUsageLimit(
     input: DeleteUsageLimitMessage,
   ): Effect.Effect<
     {},
     UnsupportedOperationFault | UsageLimitNotFoundFault | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteUsageLimit", input);
+  }
   deregisterNamespace(
     input: DeregisterNamespaceInputMessage,
   ): Effect.Effect<
@@ -518,10 +618,14 @@ export declare class Redshift extends AWSServiceClient {
     | InvalidClusterStateFault
     | InvalidNamespaceFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeregisterNamespace", input);
+  }
   describeAccountAttributes(
     input: DescribeAccountAttributesMessage,
-  ): Effect.Effect<AccountAttributeList, CommonAwsError>;
+  ): Effect.Effect<AccountAttributeList, CommonAwsError> {
+    return this.call("DescribeAccountAttributes", input);
+  }
   describeAuthenticationProfiles(
     input: DescribeAuthenticationProfilesMessage,
   ): Effect.Effect<
@@ -529,37 +633,49 @@ export declare class Redshift extends AWSServiceClient {
     | AuthenticationProfileNotFoundFault
     | InvalidAuthenticationProfileRequestFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeAuthenticationProfiles", input);
+  }
   describeClusterDbRevisions(
     input: DescribeClusterDbRevisionsMessage,
   ): Effect.Effect<
     ClusterDbRevisionsMessage,
     ClusterNotFoundFault | InvalidClusterStateFault | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeClusterDbRevisions", input);
+  }
   describeClusterParameterGroups(
     input: DescribeClusterParameterGroupsMessage,
   ): Effect.Effect<
     ClusterParameterGroupsMessage,
     ClusterParameterGroupNotFoundFault | InvalidTagFault | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeClusterParameterGroups", input);
+  }
   describeClusterParameters(
     input: DescribeClusterParametersMessage,
   ): Effect.Effect<
     ClusterParameterGroupDetails,
     ClusterParameterGroupNotFoundFault | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeClusterParameters", input);
+  }
   describeClusters(
     input: DescribeClustersMessage,
   ): Effect.Effect<
     ClustersMessage,
     ClusterNotFoundFault | InvalidTagFault | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeClusters", input);
+  }
   describeClusterSecurityGroups(
     input: DescribeClusterSecurityGroupsMessage,
   ): Effect.Effect<
     ClusterSecurityGroupMessage,
     ClusterSecurityGroupNotFoundFault | InvalidTagFault | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeClusterSecurityGroups", input);
+  }
   describeClusterSnapshots(
     input: DescribeClusterSnapshotsMessage,
   ): Effect.Effect<
@@ -569,22 +685,30 @@ export declare class Redshift extends AWSServiceClient {
     | InvalidTagFault
     | UnsupportedOperationFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeClusterSnapshots", input);
+  }
   describeClusterSubnetGroups(
     input: DescribeClusterSubnetGroupsMessage,
   ): Effect.Effect<
     ClusterSubnetGroupMessage,
     ClusterSubnetGroupNotFoundFault | InvalidTagFault | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeClusterSubnetGroups", input);
+  }
   describeClusterTracks(
     input: DescribeClusterTracksMessage,
   ): Effect.Effect<
     TrackListMessage,
     InvalidClusterTrackFault | UnauthorizedOperation | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeClusterTracks", input);
+  }
   describeClusterVersions(
     input: DescribeClusterVersionsMessage,
-  ): Effect.Effect<ClusterVersionsMessage, CommonAwsError>;
+  ): Effect.Effect<ClusterVersionsMessage, CommonAwsError> {
+    return this.call("DescribeClusterVersions", input);
+  }
   describeCustomDomainAssociations(
     input: DescribeCustomDomainAssociationsMessage,
   ): Effect.Effect<
@@ -592,28 +716,38 @@ export declare class Redshift extends AWSServiceClient {
     | CustomDomainAssociationNotFoundFault
     | UnsupportedOperationFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeCustomDomainAssociations", input);
+  }
   describeDataShares(
     input: DescribeDataSharesMessage,
   ): Effect.Effect<
     DescribeDataSharesResult,
     InvalidDataShareFault | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeDataShares", input);
+  }
   describeDataSharesForConsumer(
     input: DescribeDataSharesForConsumerMessage,
   ): Effect.Effect<
     DescribeDataSharesForConsumerResult,
     InvalidNamespaceFault | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeDataSharesForConsumer", input);
+  }
   describeDataSharesForProducer(
     input: DescribeDataSharesForProducerMessage,
   ): Effect.Effect<
     DescribeDataSharesForProducerResult,
     InvalidNamespaceFault | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeDataSharesForProducer", input);
+  }
   describeDefaultClusterParameters(
     input: DescribeDefaultClusterParametersMessage,
-  ): Effect.Effect<DescribeDefaultClusterParametersResult, CommonAwsError>;
+  ): Effect.Effect<DescribeDefaultClusterParametersResult, CommonAwsError> {
+    return this.call("DescribeDefaultClusterParameters", input);
+  }
   describeEndpointAccess(
     input: DescribeEndpointAccessMessage,
   ): Effect.Effect<
@@ -622,37 +756,51 @@ export declare class Redshift extends AWSServiceClient {
     | EndpointNotFoundFault
     | InvalidClusterStateFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeEndpointAccess", input);
+  }
   describeEndpointAuthorization(
     input: DescribeEndpointAuthorizationMessage,
   ): Effect.Effect<
     EndpointAuthorizationList,
     ClusterNotFoundFault | UnsupportedOperationFault | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeEndpointAuthorization", input);
+  }
   describeEventCategories(
     input: DescribeEventCategoriesMessage,
-  ): Effect.Effect<EventCategoriesMessage, CommonAwsError>;
+  ): Effect.Effect<EventCategoriesMessage, CommonAwsError> {
+    return this.call("DescribeEventCategories", input);
+  }
   describeEvents(
     input: DescribeEventsMessage,
-  ): Effect.Effect<EventsMessage, CommonAwsError>;
+  ): Effect.Effect<EventsMessage, CommonAwsError> {
+    return this.call("DescribeEvents", input);
+  }
   describeEventSubscriptions(
     input: DescribeEventSubscriptionsMessage,
   ): Effect.Effect<
     EventSubscriptionsMessage,
     InvalidTagFault | SubscriptionNotFoundFault | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeEventSubscriptions", input);
+  }
   describeHsmClientCertificates(
     input: DescribeHsmClientCertificatesMessage,
   ): Effect.Effect<
     HsmClientCertificateMessage,
     HsmClientCertificateNotFoundFault | InvalidTagFault | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeHsmClientCertificates", input);
+  }
   describeHsmConfigurations(
     input: DescribeHsmConfigurationsMessage,
   ): Effect.Effect<
     HsmConfigurationMessage,
     HsmConfigurationNotFoundFault | InvalidTagFault | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeHsmConfigurations", input);
+  }
   describeInboundIntegrations(
     input: DescribeInboundIntegrationsMessage,
   ): Effect.Effect<
@@ -661,19 +809,25 @@ export declare class Redshift extends AWSServiceClient {
     | InvalidNamespaceFault
     | UnsupportedOperationFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeInboundIntegrations", input);
+  }
   describeIntegrations(
     input: DescribeIntegrationsMessage,
   ): Effect.Effect<
     IntegrationsMessage,
     IntegrationNotFoundFault | UnsupportedOperationFault | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeIntegrations", input);
+  }
   describeLoggingStatus(
     input: DescribeLoggingStatusMessage,
   ): Effect.Effect<
     LoggingStatus,
     ClusterNotFoundFault | UnsupportedOperationFault | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeLoggingStatus", input);
+  }
   describeNodeConfigurationOptions(
     input: DescribeNodeConfigurationOptionsMessage,
   ): Effect.Effect<
@@ -684,10 +838,14 @@ export declare class Redshift extends AWSServiceClient {
     | InvalidClusterSnapshotStateFault
     | UnsupportedOperationFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeNodeConfigurationOptions", input);
+  }
   describeOrderableClusterOptions(
     input: DescribeOrderableClusterOptionsMessage,
-  ): Effect.Effect<OrderableClusterOptionsMessage, CommonAwsError>;
+  ): Effect.Effect<OrderableClusterOptionsMessage, CommonAwsError> {
+    return this.call("DescribeOrderableClusterOptions", input);
+  }
   describePartners(
     input: DescribePartnersInputMessage,
   ): Effect.Effect<
@@ -696,7 +854,9 @@ export declare class Redshift extends AWSServiceClient {
     | UnauthorizedPartnerIntegrationFault
     | UnsupportedOperationFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribePartners", input);
+  }
   describeRedshiftIdcApplications(
     input: DescribeRedshiftIdcApplicationsMessage,
   ): Effect.Effect<
@@ -706,7 +866,9 @@ export declare class Redshift extends AWSServiceClient {
     | RedshiftIdcApplicationNotExistsFault
     | UnsupportedOperationFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeRedshiftIdcApplications", input);
+  }
   describeReservedNodeExchangeStatus(
     input: DescribeReservedNodeExchangeStatusInputMessage,
   ): Effect.Effect<
@@ -715,7 +877,9 @@ export declare class Redshift extends AWSServiceClient {
     | ReservedNodeNotFoundFault
     | UnsupportedOperationFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeReservedNodeExchangeStatus", input);
+  }
   describeReservedNodeOfferings(
     input: DescribeReservedNodeOfferingsMessage,
   ): Effect.Effect<
@@ -724,7 +888,9 @@ export declare class Redshift extends AWSServiceClient {
     | ReservedNodeOfferingNotFoundFault
     | UnsupportedOperationFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeReservedNodeOfferings", input);
+  }
   describeReservedNodes(
     input: DescribeReservedNodesMessage,
   ): Effect.Effect<
@@ -732,7 +898,9 @@ export declare class Redshift extends AWSServiceClient {
     | DependentServiceUnavailableFault
     | ReservedNodeNotFoundFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeReservedNodes", input);
+  }
   describeResize(
     input: DescribeResizeMessage,
   ): Effect.Effect<
@@ -741,44 +909,60 @@ export declare class Redshift extends AWSServiceClient {
     | ResizeNotFoundFault
     | UnsupportedOperationFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeResize", input);
+  }
   describeScheduledActions(
     input: DescribeScheduledActionsMessage,
   ): Effect.Effect<
     ScheduledActionsMessage,
     ScheduledActionNotFoundFault | UnauthorizedOperation | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeScheduledActions", input);
+  }
   describeSnapshotCopyGrants(
     input: DescribeSnapshotCopyGrantsMessage,
   ): Effect.Effect<
     SnapshotCopyGrantMessage,
     InvalidTagFault | SnapshotCopyGrantNotFoundFault | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeSnapshotCopyGrants", input);
+  }
   describeSnapshotSchedules(
     input: DescribeSnapshotSchedulesMessage,
-  ): Effect.Effect<DescribeSnapshotSchedulesOutputMessage, CommonAwsError>;
+  ): Effect.Effect<DescribeSnapshotSchedulesOutputMessage, CommonAwsError> {
+    return this.call("DescribeSnapshotSchedules", input);
+  }
   describeStorage(input: {}): Effect.Effect<
     CustomerStorageMessage,
     CommonAwsError
-  >;
+  > {
+    return this.call("DescribeStorage", input);
+  }
   describeTableRestoreStatus(
     input: DescribeTableRestoreStatusMessage,
   ): Effect.Effect<
     TableRestoreStatusMessage,
     ClusterNotFoundFault | TableRestoreNotFoundFault | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeTableRestoreStatus", input);
+  }
   describeTags(
     input: DescribeTagsMessage,
   ): Effect.Effect<
     TaggedResourceListMessage,
     InvalidTagFault | ResourceNotFoundFault | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeTags", input);
+  }
   describeUsageLimits(
     input: DescribeUsageLimitsMessage,
   ): Effect.Effect<
     UsageLimitList,
     ClusterNotFoundFault | UnsupportedOperationFault | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeUsageLimits", input);
+  }
   disableLogging(
     input: DisableLoggingMessage,
   ): Effect.Effect<
@@ -787,7 +971,9 @@ export declare class Redshift extends AWSServiceClient {
     | InvalidClusterStateFault
     | UnsupportedOperationFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("DisableLogging", input);
+  }
   disableSnapshotCopy(
     input: DisableSnapshotCopyMessage,
   ): Effect.Effect<
@@ -798,13 +984,17 @@ export declare class Redshift extends AWSServiceClient {
     | UnauthorizedOperation
     | UnsupportedOperationFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("DisableSnapshotCopy", input);
+  }
   disassociateDataShareConsumer(
     input: DisassociateDataShareConsumerMessage,
   ): Effect.Effect<
     DataShare,
     InvalidDataShareFault | InvalidNamespaceFault | CommonAwsError
-  >;
+  > {
+    return this.call("DisassociateDataShareConsumer", input);
+  }
   enableLogging(
     input: EnableLoggingMessage,
   ): Effect.Effect<
@@ -817,7 +1007,9 @@ export declare class Redshift extends AWSServiceClient {
     | InvalidS3KeyPrefixFault
     | UnsupportedOperationFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("EnableLogging", input);
+  }
   enableSnapshotCopy(
     input: EnableSnapshotCopyMessage,
   ): Effect.Effect<
@@ -834,7 +1026,9 @@ export declare class Redshift extends AWSServiceClient {
     | UnauthorizedOperation
     | UnknownSnapshotCopyRegionFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("EnableSnapshotCopy", input);
+  }
   failoverPrimaryCompute(
     input: FailoverPrimaryComputeInputMessage,
   ): Effect.Effect<
@@ -844,19 +1038,25 @@ export declare class Redshift extends AWSServiceClient {
     | UnauthorizedOperation
     | UnsupportedOperationFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("FailoverPrimaryCompute", input);
+  }
   getClusterCredentials(
     input: GetClusterCredentialsMessage,
   ): Effect.Effect<
     ClusterCredentials,
     ClusterNotFoundFault | UnsupportedOperationFault | CommonAwsError
-  >;
+  > {
+    return this.call("GetClusterCredentials", input);
+  }
   getClusterCredentialsWithIAM(
     input: GetClusterCredentialsWithIAMMessage,
   ): Effect.Effect<
     ClusterExtendedCredentials,
     ClusterNotFoundFault | UnsupportedOperationFault | CommonAwsError
-  >;
+  > {
+    return this.call("GetClusterCredentialsWithIAM", input);
+  }
   getReservedNodeExchangeConfigurationOptions(
     input: GetReservedNodeExchangeConfigurationOptionsInputMessage,
   ): Effect.Effect<
@@ -870,7 +1070,9 @@ export declare class Redshift extends AWSServiceClient {
     | ReservedNodeOfferingNotFoundFault
     | UnsupportedOperationFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetReservedNodeExchangeConfigurationOptions", input);
+  }
   getReservedNodeExchangeOfferings(
     input: GetReservedNodeExchangeOfferingsInputMessage,
   ): Effect.Effect<
@@ -882,7 +1084,9 @@ export declare class Redshift extends AWSServiceClient {
     | ReservedNodeOfferingNotFoundFault
     | UnsupportedOperationFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetReservedNodeExchangeOfferings", input);
+  }
   getResourcePolicy(
     input: GetResourcePolicyMessage,
   ): Effect.Effect<
@@ -891,13 +1095,17 @@ export declare class Redshift extends AWSServiceClient {
     | ResourceNotFoundFault
     | UnsupportedOperationFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetResourcePolicy", input);
+  }
   listRecommendations(
     input: ListRecommendationsMessage,
   ): Effect.Effect<
     ListRecommendationsResult,
     ClusterNotFoundFault | UnsupportedOperationFault | CommonAwsError
-  >;
+  > {
+    return this.call("ListRecommendations", input);
+  }
   modifyAquaConfiguration(
     input: ModifyAquaInputMessage,
   ): Effect.Effect<
@@ -906,7 +1114,9 @@ export declare class Redshift extends AWSServiceClient {
     | InvalidClusterStateFault
     | UnsupportedOperationFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("ModifyAquaConfiguration", input);
+  }
   modifyAuthenticationProfile(
     input: ModifyAuthenticationProfileMessage,
   ): Effect.Effect<
@@ -915,7 +1125,9 @@ export declare class Redshift extends AWSServiceClient {
     | AuthenticationProfileQuotaExceededFault
     | InvalidAuthenticationProfileRequestFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("ModifyAuthenticationProfile", input);
+  }
   modifyCluster(
     input: ModifyClusterMessage,
   ): Effect.Effect<
@@ -943,7 +1155,9 @@ export declare class Redshift extends AWSServiceClient {
     | UnsupportedOperationFault
     | UnsupportedOptionFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("ModifyCluster", input);
+  }
   modifyClusterDbRevision(
     input: ModifyClusterDbRevisionMessage,
   ): Effect.Effect<
@@ -953,19 +1167,25 @@ export declare class Redshift extends AWSServiceClient {
     | InvalidClusterStateFault
     | UnsupportedOperationFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("ModifyClusterDbRevision", input);
+  }
   modifyClusterIamRoles(
     input: ModifyClusterIamRolesMessage,
   ): Effect.Effect<
     ModifyClusterIamRolesResult,
     ClusterNotFoundFault | InvalidClusterStateFault | CommonAwsError
-  >;
+  > {
+    return this.call("ModifyClusterIamRoles", input);
+  }
   modifyClusterMaintenance(
     input: ModifyClusterMaintenanceMessage,
   ): Effect.Effect<
     ModifyClusterMaintenanceResult,
     ClusterNotFoundFault | InvalidClusterStateFault | CommonAwsError
-  >;
+  > {
+    return this.call("ModifyClusterMaintenance", input);
+  }
   modifyClusterParameterGroup(
     input: ModifyClusterParameterGroupMessage,
   ): Effect.Effect<
@@ -973,7 +1193,9 @@ export declare class Redshift extends AWSServiceClient {
     | ClusterParameterGroupNotFoundFault
     | InvalidClusterParameterGroupStateFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("ModifyClusterParameterGroup", input);
+  }
   modifyClusterSnapshot(
     input: ModifyClusterSnapshotMessage,
   ): Effect.Effect<
@@ -982,7 +1204,9 @@ export declare class Redshift extends AWSServiceClient {
     | InvalidClusterSnapshotStateFault
     | InvalidRetentionPeriodFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("ModifyClusterSnapshot", input);
+  }
   modifyClusterSnapshotSchedule(
     input: ModifyClusterSnapshotScheduleMessage,
   ): Effect.Effect<
@@ -991,7 +1215,9 @@ export declare class Redshift extends AWSServiceClient {
     | InvalidClusterSnapshotScheduleStateFault
     | SnapshotScheduleNotFoundFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("ModifyClusterSnapshotSchedule", input);
+  }
   modifyClusterSubnetGroup(
     input: ModifyClusterSubnetGroupMessage,
   ): Effect.Effect<
@@ -1003,7 +1229,9 @@ export declare class Redshift extends AWSServiceClient {
     | SubnetAlreadyInUse
     | UnauthorizedOperation
     | CommonAwsError
-  >;
+  > {
+    return this.call("ModifyClusterSubnetGroup", input);
+  }
   modifyCustomDomainAssociation(
     input: ModifyCustomDomainAssociationMessage,
   ): Effect.Effect<
@@ -1013,7 +1241,9 @@ export declare class Redshift extends AWSServiceClient {
     | CustomDomainAssociationNotFoundFault
     | UnsupportedOperationFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("ModifyCustomDomainAssociation", input);
+  }
   modifyEndpointAccess(
     input: ModifyEndpointAccessMessage,
   ): Effect.Effect<
@@ -1025,7 +1255,9 @@ export declare class Redshift extends AWSServiceClient {
     | InvalidEndpointStateFault
     | UnauthorizedOperation
     | CommonAwsError
-  >;
+  > {
+    return this.call("ModifyEndpointAccess", input);
+  }
   modifyEventSubscription(
     input: ModifyEventSubscriptionMessage,
   ): Effect.Effect<
@@ -1040,7 +1272,9 @@ export declare class Redshift extends AWSServiceClient {
     | SubscriptionNotFoundFault
     | SubscriptionSeverityNotFoundFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("ModifyEventSubscription", input);
+  }
   modifyIntegration(
     input: ModifyIntegrationMessage,
   ): Effect.Effect<
@@ -1051,7 +1285,9 @@ export declare class Redshift extends AWSServiceClient {
     | IntegrationNotFoundFault
     | UnsupportedOperationFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("ModifyIntegration", input);
+  }
   modifyRedshiftIdcApplication(
     input: ModifyRedshiftIdcApplicationMessage,
   ): Effect.Effect<
@@ -1061,7 +1297,9 @@ export declare class Redshift extends AWSServiceClient {
     | RedshiftIdcApplicationNotExistsFault
     | UnsupportedOperationFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("ModifyRedshiftIdcApplication", input);
+  }
   modifyScheduledAction(
     input: ModifyScheduledActionMessage,
   ): Effect.Effect<
@@ -1074,7 +1312,9 @@ export declare class Redshift extends AWSServiceClient {
     | UnauthorizedOperation
     | UnsupportedOperationFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("ModifyScheduledAction", input);
+  }
   modifySnapshotCopyRetentionPeriod(
     input: ModifySnapshotCopyRetentionPeriodMessage,
   ): Effect.Effect<
@@ -1085,7 +1325,9 @@ export declare class Redshift extends AWSServiceClient {
     | SnapshotCopyDisabledFault
     | UnauthorizedOperation
     | CommonAwsError
-  >;
+  > {
+    return this.call("ModifySnapshotCopyRetentionPeriod", input);
+  }
   modifySnapshotSchedule(
     input: ModifySnapshotScheduleMessage,
   ): Effect.Effect<
@@ -1094,7 +1336,9 @@ export declare class Redshift extends AWSServiceClient {
     | SnapshotScheduleNotFoundFault
     | SnapshotScheduleUpdateInProgressFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("ModifySnapshotSchedule", input);
+  }
   modifyUsageLimit(
     input: ModifyUsageLimitMessage,
   ): Effect.Effect<
@@ -1103,7 +1347,9 @@ export declare class Redshift extends AWSServiceClient {
     | UnsupportedOperationFault
     | UsageLimitNotFoundFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("ModifyUsageLimit", input);
+  }
   pauseCluster(
     input: PauseClusterMessage,
   ): Effect.Effect<
@@ -1112,7 +1358,9 @@ export declare class Redshift extends AWSServiceClient {
     | InvalidClusterStateFault
     | UnsupportedOperationFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("PauseCluster", input);
+  }
   purchaseReservedNodeOffering(
     input: PurchaseReservedNodeOfferingMessage,
   ): Effect.Effect<
@@ -1122,7 +1370,9 @@ export declare class Redshift extends AWSServiceClient {
     | ReservedNodeQuotaExceededFault
     | UnsupportedOperationFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("PurchaseReservedNodeOffering", input);
+  }
   putResourcePolicy(
     input: PutResourcePolicyMessage,
   ): Effect.Effect<
@@ -1132,13 +1382,17 @@ export declare class Redshift extends AWSServiceClient {
     | ResourceNotFoundFault
     | UnsupportedOperationFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutResourcePolicy", input);
+  }
   rebootCluster(
     input: RebootClusterMessage,
   ): Effect.Effect<
     RebootClusterResult,
     ClusterNotFoundFault | InvalidClusterStateFault | CommonAwsError
-  >;
+  > {
+    return this.call("RebootCluster", input);
+  }
   registerNamespace(
     input: RegisterNamespaceInputMessage,
   ): Effect.Effect<
@@ -1147,10 +1401,14 @@ export declare class Redshift extends AWSServiceClient {
     | InvalidClusterStateFault
     | InvalidNamespaceFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("RegisterNamespace", input);
+  }
   rejectDataShare(
     input: RejectDataShareMessage,
-  ): Effect.Effect<DataShare, InvalidDataShareFault | CommonAwsError>;
+  ): Effect.Effect<DataShare, InvalidDataShareFault | CommonAwsError> {
+    return this.call("RejectDataShare", input);
+  }
   resetClusterParameterGroup(
     input: ResetClusterParameterGroupMessage,
   ): Effect.Effect<
@@ -1158,7 +1416,9 @@ export declare class Redshift extends AWSServiceClient {
     | ClusterParameterGroupNotFoundFault
     | InvalidClusterParameterGroupStateFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("ResetClusterParameterGroup", input);
+  }
   resizeCluster(
     input: ResizeClusterMessage,
   ): Effect.Effect<
@@ -1179,7 +1439,9 @@ export declare class Redshift extends AWSServiceClient {
     | UnsupportedOperationFault
     | UnsupportedOptionFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("ResizeCluster", input);
+  }
   restoreFromClusterSnapshot(
     input: RestoreFromClusterSnapshotMessage,
   ): Effect.Effect<
@@ -1218,7 +1480,9 @@ export declare class Redshift extends AWSServiceClient {
     | UnauthorizedOperation
     | UnsupportedOperationFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("RestoreFromClusterSnapshot", input);
+  }
   restoreTableFromClusterSnapshot(
     input: RestoreTableFromClusterSnapshotMessage,
   ): Effect.Effect<
@@ -1231,7 +1495,9 @@ export declare class Redshift extends AWSServiceClient {
     | InvalidTableRestoreArgumentFault
     | UnsupportedOperationFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("RestoreTableFromClusterSnapshot", input);
+  }
   resumeCluster(
     input: ResumeClusterMessage,
   ): Effect.Effect<
@@ -1241,7 +1507,9 @@ export declare class Redshift extends AWSServiceClient {
     | InvalidClusterStateFault
     | UnsupportedOperationFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("ResumeCluster", input);
+  }
   revokeClusterSecurityGroupIngress(
     input: RevokeClusterSecurityGroupIngressMessage,
   ): Effect.Effect<
@@ -1250,7 +1518,9 @@ export declare class Redshift extends AWSServiceClient {
     | ClusterSecurityGroupNotFoundFault
     | InvalidClusterSecurityGroupStateFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("RevokeClusterSecurityGroupIngress", input);
+  }
   revokeEndpointAccess(
     input: RevokeEndpointAccessMessage,
   ): Effect.Effect<
@@ -1263,7 +1533,9 @@ export declare class Redshift extends AWSServiceClient {
     | InvalidClusterStateFault
     | InvalidEndpointStateFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("RevokeEndpointAccess", input);
+  }
   revokeSnapshotAccess(
     input: RevokeSnapshotAccessMessage,
   ): Effect.Effect<
@@ -1273,7 +1545,9 @@ export declare class Redshift extends AWSServiceClient {
     | ClusterSnapshotNotFoundFault
     | UnsupportedOperationFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("RevokeSnapshotAccess", input);
+  }
   rotateEncryptionKey(
     input: RotateEncryptionKeyMessage,
   ): Effect.Effect<
@@ -1283,7 +1557,9 @@ export declare class Redshift extends AWSServiceClient {
     | InvalidClusterStateFault
     | UnsupportedOperationFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("RotateEncryptionKey", input);
+  }
   updatePartnerStatus(
     input: UpdatePartnerStatusInputMessage,
   ): Effect.Effect<
@@ -1293,8 +1569,12 @@ export declare class Redshift extends AWSServiceClient {
     | UnauthorizedPartnerIntegrationFault
     | UnsupportedOperationFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdatePartnerStatus", input);
+  }
 }
+
+export default Redshift;
 
 export interface AcceptReservedNodeExchangeInputMessage {
   ReservedNodeId: string;

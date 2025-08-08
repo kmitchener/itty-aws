@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class KinesisVideoArchivedMedia extends AWSServiceClient {
+export class KinesisVideoArchivedMedia extends AWSServiceClient {
   getClip(
     input: GetClipInput,
   ): Effect.Effect<
@@ -17,7 +17,9 @@ export declare class KinesisVideoArchivedMedia extends AWSServiceClient {
     | ResourceNotFoundException
     | UnsupportedStreamMediaTypeException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetClip", input);
+  }
   getDASHStreamingSessionURL(
     input: GetDASHStreamingSessionURLInput,
   ): Effect.Effect<
@@ -31,7 +33,9 @@ export declare class KinesisVideoArchivedMedia extends AWSServiceClient {
     | ResourceNotFoundException
     | UnsupportedStreamMediaTypeException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetDASHStreamingSessionURL", input);
+  }
   getHLSStreamingSessionURL(
     input: GetHLSStreamingSessionURLInput,
   ): Effect.Effect<
@@ -45,7 +49,9 @@ export declare class KinesisVideoArchivedMedia extends AWSServiceClient {
     | ResourceNotFoundException
     | UnsupportedStreamMediaTypeException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetHLSStreamingSessionURL", input);
+  }
   getImages(
     input: GetImagesInput,
   ): Effect.Effect<
@@ -56,7 +62,9 @@ export declare class KinesisVideoArchivedMedia extends AWSServiceClient {
     | NotAuthorizedException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetImages", input);
+  }
   getMediaForFragmentList(
     input: GetMediaForFragmentListInput,
   ): Effect.Effect<
@@ -66,7 +74,9 @@ export declare class KinesisVideoArchivedMedia extends AWSServiceClient {
     | NotAuthorizedException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetMediaForFragmentList", input);
+  }
   listFragments(
     input: ListFragmentsInput,
   ): Effect.Effect<
@@ -76,8 +86,12 @@ export declare class KinesisVideoArchivedMedia extends AWSServiceClient {
     | NotAuthorizedException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListFragments", input);
+  }
 }
+
+export default KinesisVideoArchivedMedia;
 
 export declare class ClientLimitExceededException extends EffectData.TaggedError(
   "ClientLimitExceededException",

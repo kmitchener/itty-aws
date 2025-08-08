@@ -4,7 +4,7 @@ import type { Buffer } from "node:buffer";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class BedrockRuntime extends AWSServiceClient {
+export class BedrockRuntime extends AWSServiceClient {
   applyGuardrail(
     input: ApplyGuardrailRequest,
   ): Effect.Effect<
@@ -16,7 +16,9 @@ export declare class BedrockRuntime extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ApplyGuardrail", input);
+  }
   converse(
     input: ConverseRequest,
   ): Effect.Effect<
@@ -31,7 +33,9 @@ export declare class BedrockRuntime extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("Converse", input);
+  }
   converseStream(
     input: ConverseStreamRequest,
   ): Effect.Effect<
@@ -46,7 +50,9 @@ export declare class BedrockRuntime extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ConverseStream", input);
+  }
   getAsyncInvoke(
     input: GetAsyncInvokeRequest,
   ): Effect.Effect<
@@ -56,7 +62,9 @@ export declare class BedrockRuntime extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetAsyncInvoke", input);
+  }
   invokeModel(
     input: InvokeModelRequest,
   ): Effect.Effect<
@@ -72,7 +80,9 @@ export declare class BedrockRuntime extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("InvokeModel", input);
+  }
   invokeModelWithBidirectionalStream(
     input: InvokeModelWithBidirectionalStreamRequest,
   ): Effect.Effect<
@@ -89,7 +99,9 @@ export declare class BedrockRuntime extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("InvokeModelWithBidirectionalStream", input);
+  }
   invokeModelWithResponseStream(
     input: InvokeModelWithResponseStreamRequest,
   ): Effect.Effect<
@@ -106,7 +118,9 @@ export declare class BedrockRuntime extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("InvokeModelWithResponseStream", input);
+  }
   listAsyncInvokes(
     input: ListAsyncInvokesRequest,
   ): Effect.Effect<
@@ -116,7 +130,9 @@ export declare class BedrockRuntime extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListAsyncInvokes", input);
+  }
   startAsyncInvoke(
     input: StartAsyncInvokeRequest,
   ): Effect.Effect<
@@ -130,8 +146,12 @@ export declare class BedrockRuntime extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartAsyncInvoke", input);
+  }
 }
+
+export default BedrockRuntime;
 
 export declare class AccessDeniedException extends EffectData.TaggedError(
   "AccessDeniedException",

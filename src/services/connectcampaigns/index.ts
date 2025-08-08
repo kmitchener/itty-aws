@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class ConnectCampaigns extends AWSServiceClient {
+export class ConnectCampaigns extends AWSServiceClient {
   createCampaign(
     input: CreateCampaignRequest,
   ): Effect.Effect<
@@ -15,7 +15,9 @@ export declare class ConnectCampaigns extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateCampaign", input);
+  }
   deleteCampaign(
     input: DeleteCampaignRequest,
   ): Effect.Effect<
@@ -25,7 +27,9 @@ export declare class ConnectCampaigns extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteCampaign", input);
+  }
   deleteConnectInstanceConfig(
     input: DeleteConnectInstanceConfigRequest,
   ): Effect.Effect<
@@ -37,7 +41,9 @@ export declare class ConnectCampaigns extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteConnectInstanceConfig", input);
+  }
   deleteInstanceOnboardingJob(
     input: DeleteInstanceOnboardingJobRequest,
   ): Effect.Effect<
@@ -48,7 +54,9 @@ export declare class ConnectCampaigns extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteInstanceOnboardingJob", input);
+  }
   describeCampaign(
     input: DescribeCampaignRequest,
   ): Effect.Effect<
@@ -58,7 +66,9 @@ export declare class ConnectCampaigns extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeCampaign", input);
+  }
   getCampaignState(
     input: GetCampaignStateRequest,
   ): Effect.Effect<
@@ -69,7 +79,9 @@ export declare class ConnectCampaigns extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetCampaignState", input);
+  }
   getCampaignStateBatch(
     input: GetCampaignStateBatchRequest,
   ): Effect.Effect<
@@ -79,7 +91,9 @@ export declare class ConnectCampaigns extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetCampaignStateBatch", input);
+  }
   getConnectInstanceConfig(
     input: GetConnectInstanceConfigRequest,
   ): Effect.Effect<
@@ -89,7 +103,9 @@ export declare class ConnectCampaigns extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetConnectInstanceConfig", input);
+  }
   getInstanceOnboardingJobStatus(
     input: GetInstanceOnboardingJobStatusRequest,
   ): Effect.Effect<
@@ -99,7 +115,9 @@ export declare class ConnectCampaigns extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetInstanceOnboardingJobStatus", input);
+  }
   listCampaigns(
     input: ListCampaignsRequest,
   ): Effect.Effect<
@@ -108,7 +126,9 @@ export declare class ConnectCampaigns extends AWSServiceClient {
     | InternalServerException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListCampaigns", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
@@ -119,7 +139,9 @@ export declare class ConnectCampaigns extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   pauseCampaign(
     input: PauseCampaignRequest,
   ): Effect.Effect<
@@ -132,7 +154,9 @@ export declare class ConnectCampaigns extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PauseCampaign", input);
+  }
   putDialRequestBatch(
     input: PutDialRequestBatchRequest,
   ): Effect.Effect<
@@ -145,7 +169,9 @@ export declare class ConnectCampaigns extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutDialRequestBatch", input);
+  }
   resumeCampaign(
     input: ResumeCampaignRequest,
   ): Effect.Effect<
@@ -158,7 +184,9 @@ export declare class ConnectCampaigns extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ResumeCampaign", input);
+  }
   startCampaign(
     input: StartCampaignRequest,
   ): Effect.Effect<
@@ -171,7 +199,9 @@ export declare class ConnectCampaigns extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartCampaign", input);
+  }
   startInstanceOnboardingJob(
     input: StartInstanceOnboardingJobRequest,
   ): Effect.Effect<
@@ -183,7 +213,9 @@ export declare class ConnectCampaigns extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartInstanceOnboardingJob", input);
+  }
   stopCampaign(
     input: StopCampaignRequest,
   ): Effect.Effect<
@@ -196,7 +228,9 @@ export declare class ConnectCampaigns extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StopCampaign", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -207,7 +241,9 @@ export declare class ConnectCampaigns extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
@@ -218,7 +254,9 @@ export declare class ConnectCampaigns extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
   updateCampaignDialerConfig(
     input: UpdateCampaignDialerConfigRequest,
   ): Effect.Effect<
@@ -229,7 +267,9 @@ export declare class ConnectCampaigns extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateCampaignDialerConfig", input);
+  }
   updateCampaignName(
     input: UpdateCampaignNameRequest,
   ): Effect.Effect<
@@ -240,7 +280,9 @@ export declare class ConnectCampaigns extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateCampaignName", input);
+  }
   updateCampaignOutboundCallConfig(
     input: UpdateCampaignOutboundCallConfigRequest,
   ): Effect.Effect<
@@ -252,10 +294,14 @@ export declare class ConnectCampaigns extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateCampaignOutboundCallConfig", input);
+  }
 }
 
-export declare class Connectcampaigns extends ConnectCampaigns {}
+export class Connectcampaigns extends ConnectCampaigns {}
+
+export default ConnectCampaigns;
 
 export declare class AccessDeniedException extends EffectData.TaggedError(
   "AccessDeniedException",

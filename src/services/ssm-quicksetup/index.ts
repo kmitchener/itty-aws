@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class SSMQuickSetup extends AWSServiceClient {
+export class SSMQuickSetup extends AWSServiceClient {
   createConfigurationManager(
     input: CreateConfigurationManagerInput,
   ): Effect.Effect<
@@ -13,7 +13,9 @@ export declare class SSMQuickSetup extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateConfigurationManager", input);
+  }
   deleteConfigurationManager(
     input: DeleteConfigurationManagerInput,
   ): Effect.Effect<
@@ -25,7 +27,9 @@ export declare class SSMQuickSetup extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteConfigurationManager", input);
+  }
   getConfiguration(
     input: GetConfigurationInput,
   ): Effect.Effect<
@@ -37,7 +41,9 @@ export declare class SSMQuickSetup extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetConfiguration", input);
+  }
   getConfigurationManager(
     input: GetConfigurationManagerInput,
   ): Effect.Effect<
@@ -49,7 +55,9 @@ export declare class SSMQuickSetup extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetConfigurationManager", input);
+  }
   getServiceSettings(input: {}): Effect.Effect<
     GetServiceSettingsOutput,
     | AccessDeniedException
@@ -57,7 +65,9 @@ export declare class SSMQuickSetup extends AWSServiceClient {
     | InternalServerException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetServiceSettings", input);
+  }
   listConfigurationManagers(
     input: ListConfigurationManagersInput,
   ): Effect.Effect<
@@ -68,7 +78,9 @@ export declare class SSMQuickSetup extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListConfigurationManagers", input);
+  }
   listConfigurations(
     input: ListConfigurationsInput,
   ): Effect.Effect<
@@ -79,7 +91,9 @@ export declare class SSMQuickSetup extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListConfigurations", input);
+  }
   listQuickSetupTypes(input: {}): Effect.Effect<
     ListQuickSetupTypesOutput,
     | AccessDeniedException
@@ -87,7 +101,9 @@ export declare class SSMQuickSetup extends AWSServiceClient {
     | InternalServerException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListQuickSetupTypes", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
@@ -99,7 +115,9 @@ export declare class SSMQuickSetup extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   tagResource(
     input: TagResourceInput,
   ): Effect.Effect<
@@ -111,7 +129,9 @@ export declare class SSMQuickSetup extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceInput,
   ): Effect.Effect<
@@ -123,7 +143,9 @@ export declare class SSMQuickSetup extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
   updateConfigurationDefinition(
     input: UpdateConfigurationDefinitionInput,
   ): Effect.Effect<
@@ -135,7 +157,9 @@ export declare class SSMQuickSetup extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateConfigurationDefinition", input);
+  }
   updateConfigurationManager(
     input: UpdateConfigurationManagerInput,
   ): Effect.Effect<
@@ -147,7 +171,9 @@ export declare class SSMQuickSetup extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateConfigurationManager", input);
+  }
   updateServiceSettings(
     input: UpdateServiceSettingsInput,
   ): Effect.Effect<
@@ -158,10 +184,14 @@ export declare class SSMQuickSetup extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateServiceSettings", input);
+  }
 }
 
-export declare class SsmQuicksetup extends SSMQuickSetup {}
+export class SsmQuicksetup extends SSMQuickSetup {}
+
+export default SSMQuickSetup;
 
 export declare class AccessDeniedException extends EffectData.TaggedError(
   "AccessDeniedException",

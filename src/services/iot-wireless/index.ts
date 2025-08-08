@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class IoTWireless extends AWSServiceClient {
+export class IoTWireless extends AWSServiceClient {
   associateAwsAccountWithPartnerAccount(
     input: AssociateAwsAccountWithPartnerAccountRequest,
   ): Effect.Effect<
@@ -14,7 +14,9 @@ export declare class IoTWireless extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AssociateAwsAccountWithPartnerAccount", input);
+  }
   associateMulticastGroupWithFuotaTask(
     input: AssociateMulticastGroupWithFuotaTaskRequest,
   ): Effect.Effect<
@@ -26,7 +28,9 @@ export declare class IoTWireless extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AssociateMulticastGroupWithFuotaTask", input);
+  }
   associateWirelessDeviceWithFuotaTask(
     input: AssociateWirelessDeviceWithFuotaTaskRequest,
   ): Effect.Effect<
@@ -38,7 +42,9 @@ export declare class IoTWireless extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AssociateWirelessDeviceWithFuotaTask", input);
+  }
   associateWirelessDeviceWithMulticastGroup(
     input: AssociateWirelessDeviceWithMulticastGroupRequest,
   ): Effect.Effect<
@@ -50,7 +56,9 @@ export declare class IoTWireless extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AssociateWirelessDeviceWithMulticastGroup", input);
+  }
   associateWirelessDeviceWithThing(
     input: AssociateWirelessDeviceWithThingRequest,
   ): Effect.Effect<
@@ -62,7 +70,9 @@ export declare class IoTWireless extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AssociateWirelessDeviceWithThing", input);
+  }
   associateWirelessGatewayWithCertificate(
     input: AssociateWirelessGatewayWithCertificateRequest,
   ): Effect.Effect<
@@ -74,7 +84,9 @@ export declare class IoTWireless extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AssociateWirelessGatewayWithCertificate", input);
+  }
   associateWirelessGatewayWithThing(
     input: AssociateWirelessGatewayWithThingRequest,
   ): Effect.Effect<
@@ -86,7 +98,9 @@ export declare class IoTWireless extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AssociateWirelessGatewayWithThing", input);
+  }
   cancelMulticastGroupSession(
     input: CancelMulticastGroupSessionRequest,
   ): Effect.Effect<
@@ -98,7 +112,9 @@ export declare class IoTWireless extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CancelMulticastGroupSession", input);
+  }
   createDestination(
     input: CreateDestinationRequest,
   ): Effect.Effect<
@@ -110,7 +126,9 @@ export declare class IoTWireless extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateDestination", input);
+  }
   createDeviceProfile(
     input: CreateDeviceProfileRequest,
   ): Effect.Effect<
@@ -121,7 +139,9 @@ export declare class IoTWireless extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateDeviceProfile", input);
+  }
   createFuotaTask(
     input: CreateFuotaTaskRequest,
   ): Effect.Effect<
@@ -133,7 +153,9 @@ export declare class IoTWireless extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateFuotaTask", input);
+  }
   createMulticastGroup(
     input: CreateMulticastGroupRequest,
   ): Effect.Effect<
@@ -145,7 +167,9 @@ export declare class IoTWireless extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateMulticastGroup", input);
+  }
   createNetworkAnalyzerConfiguration(
     input: CreateNetworkAnalyzerConfigurationRequest,
   ): Effect.Effect<
@@ -157,7 +181,9 @@ export declare class IoTWireless extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateNetworkAnalyzerConfiguration", input);
+  }
   createServiceProfile(
     input: CreateServiceProfileRequest,
   ): Effect.Effect<
@@ -168,7 +194,9 @@ export declare class IoTWireless extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateServiceProfile", input);
+  }
   createWirelessDevice(
     input: CreateWirelessDeviceRequest,
   ): Effect.Effect<
@@ -180,7 +208,9 @@ export declare class IoTWireless extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateWirelessDevice", input);
+  }
   createWirelessGateway(
     input: CreateWirelessGatewayRequest,
   ): Effect.Effect<
@@ -191,7 +221,9 @@ export declare class IoTWireless extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateWirelessGateway", input);
+  }
   createWirelessGatewayTask(
     input: CreateWirelessGatewayTaskRequest,
   ): Effect.Effect<
@@ -203,7 +235,9 @@ export declare class IoTWireless extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateWirelessGatewayTask", input);
+  }
   createWirelessGatewayTaskDefinition(
     input: CreateWirelessGatewayTaskDefinitionRequest,
   ): Effect.Effect<
@@ -215,7 +249,9 @@ export declare class IoTWireless extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateWirelessGatewayTaskDefinition", input);
+  }
   deleteDestination(
     input: DeleteDestinationRequest,
   ): Effect.Effect<
@@ -227,7 +263,9 @@ export declare class IoTWireless extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteDestination", input);
+  }
   deleteDeviceProfile(
     input: DeleteDeviceProfileRequest,
   ): Effect.Effect<
@@ -239,7 +277,9 @@ export declare class IoTWireless extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteDeviceProfile", input);
+  }
   deleteFuotaTask(
     input: DeleteFuotaTaskRequest,
   ): Effect.Effect<
@@ -250,7 +290,9 @@ export declare class IoTWireless extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteFuotaTask", input);
+  }
   deleteMulticastGroup(
     input: DeleteMulticastGroupRequest,
   ): Effect.Effect<
@@ -262,7 +304,9 @@ export declare class IoTWireless extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteMulticastGroup", input);
+  }
   deleteNetworkAnalyzerConfiguration(
     input: DeleteNetworkAnalyzerConfigurationRequest,
   ): Effect.Effect<
@@ -274,7 +318,9 @@ export declare class IoTWireless extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteNetworkAnalyzerConfiguration", input);
+  }
   deleteQueuedMessages(
     input: DeleteQueuedMessagesRequest,
   ): Effect.Effect<
@@ -285,7 +331,9 @@ export declare class IoTWireless extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteQueuedMessages", input);
+  }
   deleteServiceProfile(
     input: DeleteServiceProfileRequest,
   ): Effect.Effect<
@@ -297,7 +345,9 @@ export declare class IoTWireless extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteServiceProfile", input);
+  }
   deleteWirelessDevice(
     input: DeleteWirelessDeviceRequest,
   ): Effect.Effect<
@@ -308,7 +358,9 @@ export declare class IoTWireless extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteWirelessDevice", input);
+  }
   deleteWirelessDeviceImportTask(
     input: DeleteWirelessDeviceImportTaskRequest,
   ): Effect.Effect<
@@ -320,7 +372,9 @@ export declare class IoTWireless extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteWirelessDeviceImportTask", input);
+  }
   deleteWirelessGateway(
     input: DeleteWirelessGatewayRequest,
   ): Effect.Effect<
@@ -331,7 +385,9 @@ export declare class IoTWireless extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteWirelessGateway", input);
+  }
   deleteWirelessGatewayTask(
     input: DeleteWirelessGatewayTaskRequest,
   ): Effect.Effect<
@@ -342,7 +398,9 @@ export declare class IoTWireless extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteWirelessGatewayTask", input);
+  }
   deleteWirelessGatewayTaskDefinition(
     input: DeleteWirelessGatewayTaskDefinitionRequest,
   ): Effect.Effect<
@@ -353,7 +411,9 @@ export declare class IoTWireless extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteWirelessGatewayTaskDefinition", input);
+  }
   deregisterWirelessDevice(
     input: DeregisterWirelessDeviceRequest,
   ): Effect.Effect<
@@ -363,7 +423,9 @@ export declare class IoTWireless extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeregisterWirelessDevice", input);
+  }
   disassociateAwsAccountFromPartnerAccount(
     input: DisassociateAwsAccountFromPartnerAccountRequest,
   ): Effect.Effect<
@@ -373,7 +435,9 @@ export declare class IoTWireless extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DisassociateAwsAccountFromPartnerAccount", input);
+  }
   disassociateMulticastGroupFromFuotaTask(
     input: DisassociateMulticastGroupFromFuotaTaskRequest,
   ): Effect.Effect<
@@ -384,7 +448,9 @@ export declare class IoTWireless extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DisassociateMulticastGroupFromFuotaTask", input);
+  }
   disassociateWirelessDeviceFromFuotaTask(
     input: DisassociateWirelessDeviceFromFuotaTaskRequest,
   ): Effect.Effect<
@@ -396,7 +462,9 @@ export declare class IoTWireless extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DisassociateWirelessDeviceFromFuotaTask", input);
+  }
   disassociateWirelessDeviceFromMulticastGroup(
     input: DisassociateWirelessDeviceFromMulticastGroupRequest,
   ): Effect.Effect<
@@ -407,7 +475,9 @@ export declare class IoTWireless extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DisassociateWirelessDeviceFromMulticastGroup", input);
+  }
   disassociateWirelessDeviceFromThing(
     input: DisassociateWirelessDeviceFromThingRequest,
   ): Effect.Effect<
@@ -419,7 +489,9 @@ export declare class IoTWireless extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DisassociateWirelessDeviceFromThing", input);
+  }
   disassociateWirelessGatewayFromCertificate(
     input: DisassociateWirelessGatewayFromCertificateRequest,
   ): Effect.Effect<
@@ -430,7 +502,9 @@ export declare class IoTWireless extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DisassociateWirelessGatewayFromCertificate", input);
+  }
   disassociateWirelessGatewayFromThing(
     input: DisassociateWirelessGatewayFromThingRequest,
   ): Effect.Effect<
@@ -442,7 +516,9 @@ export declare class IoTWireless extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DisassociateWirelessGatewayFromThing", input);
+  }
   getDestination(
     input: GetDestinationRequest,
   ): Effect.Effect<
@@ -453,7 +529,9 @@ export declare class IoTWireless extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetDestination", input);
+  }
   getDeviceProfile(
     input: GetDeviceProfileRequest,
   ): Effect.Effect<
@@ -464,7 +542,9 @@ export declare class IoTWireless extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetDeviceProfile", input);
+  }
   getEventConfigurationByResourceTypes(
     input: GetEventConfigurationByResourceTypesRequest,
   ): Effect.Effect<
@@ -473,7 +553,9 @@ export declare class IoTWireless extends AWSServiceClient {
     | InternalServerException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetEventConfigurationByResourceTypes", input);
+  }
   getFuotaTask(
     input: GetFuotaTaskRequest,
   ): Effect.Effect<
@@ -484,7 +566,9 @@ export declare class IoTWireless extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetFuotaTask", input);
+  }
   getLogLevelsByResourceTypes(
     input: GetLogLevelsByResourceTypesRequest,
   ): Effect.Effect<
@@ -495,7 +579,9 @@ export declare class IoTWireless extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetLogLevelsByResourceTypes", input);
+  }
   getMetricConfiguration(
     input: GetMetricConfigurationRequest,
   ): Effect.Effect<
@@ -507,7 +593,9 @@ export declare class IoTWireless extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetMetricConfiguration", input);
+  }
   getMetrics(
     input: GetMetricsRequest,
   ): Effect.Effect<
@@ -519,7 +607,9 @@ export declare class IoTWireless extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetMetrics", input);
+  }
   getMulticastGroup(
     input: GetMulticastGroupRequest,
   ): Effect.Effect<
@@ -530,7 +620,9 @@ export declare class IoTWireless extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetMulticastGroup", input);
+  }
   getMulticastGroupSession(
     input: GetMulticastGroupSessionRequest,
   ): Effect.Effect<
@@ -541,7 +633,9 @@ export declare class IoTWireless extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetMulticastGroupSession", input);
+  }
   getNetworkAnalyzerConfiguration(
     input: GetNetworkAnalyzerConfigurationRequest,
   ): Effect.Effect<
@@ -552,7 +646,9 @@ export declare class IoTWireless extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetNetworkAnalyzerConfiguration", input);
+  }
   getPartnerAccount(
     input: GetPartnerAccountRequest,
   ): Effect.Effect<
@@ -562,7 +658,9 @@ export declare class IoTWireless extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetPartnerAccount", input);
+  }
   getPosition(
     input: GetPositionRequest,
   ): Effect.Effect<
@@ -573,7 +671,9 @@ export declare class IoTWireless extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetPosition", input);
+  }
   getPositionConfiguration(
     input: GetPositionConfigurationRequest,
   ): Effect.Effect<
@@ -584,7 +684,9 @@ export declare class IoTWireless extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetPositionConfiguration", input);
+  }
   getPositionEstimate(
     input: GetPositionEstimateRequest,
   ): Effect.Effect<
@@ -595,7 +697,9 @@ export declare class IoTWireless extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetPositionEstimate", input);
+  }
   getResourceEventConfiguration(
     input: GetResourceEventConfigurationRequest,
   ): Effect.Effect<
@@ -606,7 +710,9 @@ export declare class IoTWireless extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetResourceEventConfiguration", input);
+  }
   getResourceLogLevel(
     input: GetResourceLogLevelRequest,
   ): Effect.Effect<
@@ -617,7 +723,9 @@ export declare class IoTWireless extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetResourceLogLevel", input);
+  }
   getResourcePosition(
     input: GetResourcePositionRequest,
   ): Effect.Effect<
@@ -628,7 +736,9 @@ export declare class IoTWireless extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetResourcePosition", input);
+  }
   getServiceEndpoint(
     input: GetServiceEndpointRequest,
   ): Effect.Effect<
@@ -638,7 +748,9 @@ export declare class IoTWireless extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetServiceEndpoint", input);
+  }
   getServiceProfile(
     input: GetServiceProfileRequest,
   ): Effect.Effect<
@@ -649,7 +761,9 @@ export declare class IoTWireless extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetServiceProfile", input);
+  }
   getWirelessDevice(
     input: GetWirelessDeviceRequest,
   ): Effect.Effect<
@@ -660,7 +774,9 @@ export declare class IoTWireless extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetWirelessDevice", input);
+  }
   getWirelessDeviceImportTask(
     input: GetWirelessDeviceImportTaskRequest,
   ): Effect.Effect<
@@ -672,7 +788,9 @@ export declare class IoTWireless extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetWirelessDeviceImportTask", input);
+  }
   getWirelessDeviceStatistics(
     input: GetWirelessDeviceStatisticsRequest,
   ): Effect.Effect<
@@ -683,7 +801,9 @@ export declare class IoTWireless extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetWirelessDeviceStatistics", input);
+  }
   getWirelessGateway(
     input: GetWirelessGatewayRequest,
   ): Effect.Effect<
@@ -694,7 +814,9 @@ export declare class IoTWireless extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetWirelessGateway", input);
+  }
   getWirelessGatewayCertificate(
     input: GetWirelessGatewayCertificateRequest,
   ): Effect.Effect<
@@ -705,7 +827,9 @@ export declare class IoTWireless extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetWirelessGatewayCertificate", input);
+  }
   getWirelessGatewayFirmwareInformation(
     input: GetWirelessGatewayFirmwareInformationRequest,
   ): Effect.Effect<
@@ -716,7 +840,9 @@ export declare class IoTWireless extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetWirelessGatewayFirmwareInformation", input);
+  }
   getWirelessGatewayStatistics(
     input: GetWirelessGatewayStatisticsRequest,
   ): Effect.Effect<
@@ -727,7 +853,9 @@ export declare class IoTWireless extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetWirelessGatewayStatistics", input);
+  }
   getWirelessGatewayTask(
     input: GetWirelessGatewayTaskRequest,
   ): Effect.Effect<
@@ -738,7 +866,9 @@ export declare class IoTWireless extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetWirelessGatewayTask", input);
+  }
   getWirelessGatewayTaskDefinition(
     input: GetWirelessGatewayTaskDefinitionRequest,
   ): Effect.Effect<
@@ -749,7 +879,9 @@ export declare class IoTWireless extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetWirelessGatewayTaskDefinition", input);
+  }
   listDestinations(
     input: ListDestinationsRequest,
   ): Effect.Effect<
@@ -759,7 +891,9 @@ export declare class IoTWireless extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListDestinations", input);
+  }
   listDeviceProfiles(
     input: ListDeviceProfilesRequest,
   ): Effect.Effect<
@@ -769,7 +903,9 @@ export declare class IoTWireless extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListDeviceProfiles", input);
+  }
   listDevicesForWirelessDeviceImportTask(
     input: ListDevicesForWirelessDeviceImportTaskRequest,
   ): Effect.Effect<
@@ -781,7 +917,9 @@ export declare class IoTWireless extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListDevicesForWirelessDeviceImportTask", input);
+  }
   listEventConfigurations(
     input: ListEventConfigurationsRequest,
   ): Effect.Effect<
@@ -791,7 +929,9 @@ export declare class IoTWireless extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListEventConfigurations", input);
+  }
   listFuotaTasks(
     input: ListFuotaTasksRequest,
   ): Effect.Effect<
@@ -801,7 +941,9 @@ export declare class IoTWireless extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListFuotaTasks", input);
+  }
   listMulticastGroups(
     input: ListMulticastGroupsRequest,
   ): Effect.Effect<
@@ -811,7 +953,9 @@ export declare class IoTWireless extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListMulticastGroups", input);
+  }
   listMulticastGroupsByFuotaTask(
     input: ListMulticastGroupsByFuotaTaskRequest,
   ): Effect.Effect<
@@ -822,7 +966,9 @@ export declare class IoTWireless extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListMulticastGroupsByFuotaTask", input);
+  }
   listNetworkAnalyzerConfigurations(
     input: ListNetworkAnalyzerConfigurationsRequest,
   ): Effect.Effect<
@@ -832,7 +978,9 @@ export declare class IoTWireless extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListNetworkAnalyzerConfigurations", input);
+  }
   listPartnerAccounts(
     input: ListPartnerAccountsRequest,
   ): Effect.Effect<
@@ -842,7 +990,9 @@ export declare class IoTWireless extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListPartnerAccounts", input);
+  }
   listPositionConfigurations(
     input: ListPositionConfigurationsRequest,
   ): Effect.Effect<
@@ -852,7 +1002,9 @@ export declare class IoTWireless extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListPositionConfigurations", input);
+  }
   listQueuedMessages(
     input: ListQueuedMessagesRequest,
   ): Effect.Effect<
@@ -863,7 +1015,9 @@ export declare class IoTWireless extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListQueuedMessages", input);
+  }
   listServiceProfiles(
     input: ListServiceProfilesRequest,
   ): Effect.Effect<
@@ -873,7 +1027,9 @@ export declare class IoTWireless extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListServiceProfiles", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
@@ -884,7 +1040,9 @@ export declare class IoTWireless extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   listWirelessDeviceImportTasks(
     input: ListWirelessDeviceImportTasksRequest,
   ): Effect.Effect<
@@ -896,7 +1054,9 @@ export declare class IoTWireless extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListWirelessDeviceImportTasks", input);
+  }
   listWirelessDevices(
     input: ListWirelessDevicesRequest,
   ): Effect.Effect<
@@ -906,7 +1066,9 @@ export declare class IoTWireless extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListWirelessDevices", input);
+  }
   listWirelessGateways(
     input: ListWirelessGatewaysRequest,
   ): Effect.Effect<
@@ -916,7 +1078,9 @@ export declare class IoTWireless extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListWirelessGateways", input);
+  }
   listWirelessGatewayTaskDefinitions(
     input: ListWirelessGatewayTaskDefinitionsRequest,
   ): Effect.Effect<
@@ -926,7 +1090,9 @@ export declare class IoTWireless extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListWirelessGatewayTaskDefinitions", input);
+  }
   putPositionConfiguration(
     input: PutPositionConfigurationRequest,
   ): Effect.Effect<
@@ -937,7 +1103,9 @@ export declare class IoTWireless extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutPositionConfiguration", input);
+  }
   putResourceLogLevel(
     input: PutResourceLogLevelRequest,
   ): Effect.Effect<
@@ -948,7 +1116,9 @@ export declare class IoTWireless extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutResourceLogLevel", input);
+  }
   resetAllResourceLogLevels(
     input: ResetAllResourceLogLevelsRequest,
   ): Effect.Effect<
@@ -959,7 +1129,9 @@ export declare class IoTWireless extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ResetAllResourceLogLevels", input);
+  }
   resetResourceLogLevel(
     input: ResetResourceLogLevelRequest,
   ): Effect.Effect<
@@ -970,7 +1142,9 @@ export declare class IoTWireless extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ResetResourceLogLevel", input);
+  }
   sendDataToMulticastGroup(
     input: SendDataToMulticastGroupRequest,
   ): Effect.Effect<
@@ -982,7 +1156,9 @@ export declare class IoTWireless extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("SendDataToMulticastGroup", input);
+  }
   sendDataToWirelessDevice(
     input: SendDataToWirelessDeviceRequest,
   ): Effect.Effect<
@@ -992,7 +1168,9 @@ export declare class IoTWireless extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("SendDataToWirelessDevice", input);
+  }
   startBulkAssociateWirelessDeviceWithMulticastGroup(
     input: StartBulkAssociateWirelessDeviceWithMulticastGroupRequest,
   ): Effect.Effect<
@@ -1003,7 +1181,12 @@ export declare class IoTWireless extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call(
+      "StartBulkAssociateWirelessDeviceWithMulticastGroup",
+      input,
+    );
+  }
   startBulkDisassociateWirelessDeviceFromMulticastGroup(
     input: StartBulkDisassociateWirelessDeviceFromMulticastGroupRequest,
   ): Effect.Effect<
@@ -1014,7 +1197,12 @@ export declare class IoTWireless extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call(
+      "StartBulkDisassociateWirelessDeviceFromMulticastGroup",
+      input,
+    );
+  }
   startFuotaTask(
     input: StartFuotaTaskRequest,
   ): Effect.Effect<
@@ -1026,7 +1214,9 @@ export declare class IoTWireless extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartFuotaTask", input);
+  }
   startMulticastGroupSession(
     input: StartMulticastGroupSessionRequest,
   ): Effect.Effect<
@@ -1038,7 +1228,9 @@ export declare class IoTWireless extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartMulticastGroupSession", input);
+  }
   startSingleWirelessDeviceImportTask(
     input: StartSingleWirelessDeviceImportTaskRequest,
   ): Effect.Effect<
@@ -1050,7 +1242,9 @@ export declare class IoTWireless extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartSingleWirelessDeviceImportTask", input);
+  }
   startWirelessDeviceImportTask(
     input: StartWirelessDeviceImportTaskRequest,
   ): Effect.Effect<
@@ -1062,7 +1256,9 @@ export declare class IoTWireless extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartWirelessDeviceImportTask", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -1074,7 +1270,9 @@ export declare class IoTWireless extends AWSServiceClient {
     | TooManyTagsException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   testWirelessDevice(
     input: TestWirelessDeviceRequest,
   ): Effect.Effect<
@@ -1084,7 +1282,9 @@ export declare class IoTWireless extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TestWirelessDevice", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
@@ -1095,7 +1295,9 @@ export declare class IoTWireless extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
   updateDestination(
     input: UpdateDestinationRequest,
   ): Effect.Effect<
@@ -1106,7 +1308,9 @@ export declare class IoTWireless extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateDestination", input);
+  }
   updateEventConfigurationByResourceTypes(
     input: UpdateEventConfigurationByResourceTypesRequest,
   ): Effect.Effect<
@@ -1116,7 +1320,9 @@ export declare class IoTWireless extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateEventConfigurationByResourceTypes", input);
+  }
   updateFuotaTask(
     input: UpdateFuotaTaskRequest,
   ): Effect.Effect<
@@ -1128,7 +1334,9 @@ export declare class IoTWireless extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateFuotaTask", input);
+  }
   updateLogLevelsByResourceTypes(
     input: UpdateLogLevelsByResourceTypesRequest,
   ): Effect.Effect<
@@ -1140,7 +1348,9 @@ export declare class IoTWireless extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateLogLevelsByResourceTypes", input);
+  }
   updateMetricConfiguration(
     input: UpdateMetricConfigurationRequest,
   ): Effect.Effect<
@@ -1152,7 +1362,9 @@ export declare class IoTWireless extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateMetricConfiguration", input);
+  }
   updateMulticastGroup(
     input: UpdateMulticastGroupRequest,
   ): Effect.Effect<
@@ -1164,7 +1376,9 @@ export declare class IoTWireless extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateMulticastGroup", input);
+  }
   updateNetworkAnalyzerConfiguration(
     input: UpdateNetworkAnalyzerConfigurationRequest,
   ): Effect.Effect<
@@ -1175,7 +1389,9 @@ export declare class IoTWireless extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateNetworkAnalyzerConfiguration", input);
+  }
   updatePartnerAccount(
     input: UpdatePartnerAccountRequest,
   ): Effect.Effect<
@@ -1185,7 +1401,9 @@ export declare class IoTWireless extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdatePartnerAccount", input);
+  }
   updatePosition(
     input: UpdatePositionRequest,
   ): Effect.Effect<
@@ -1196,7 +1414,9 @@ export declare class IoTWireless extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdatePosition", input);
+  }
   updateResourceEventConfiguration(
     input: UpdateResourceEventConfigurationRequest,
   ): Effect.Effect<
@@ -1208,7 +1428,9 @@ export declare class IoTWireless extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateResourceEventConfiguration", input);
+  }
   updateResourcePosition(
     input: UpdateResourcePositionRequest,
   ): Effect.Effect<
@@ -1219,7 +1441,9 @@ export declare class IoTWireless extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateResourcePosition", input);
+  }
   updateWirelessDevice(
     input: UpdateWirelessDeviceRequest,
   ): Effect.Effect<
@@ -1230,7 +1454,9 @@ export declare class IoTWireless extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateWirelessDevice", input);
+  }
   updateWirelessDeviceImportTask(
     input: UpdateWirelessDeviceImportTaskRequest,
   ): Effect.Effect<
@@ -1242,7 +1468,9 @@ export declare class IoTWireless extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateWirelessDeviceImportTask", input);
+  }
   updateWirelessGateway(
     input: UpdateWirelessGatewayRequest,
   ): Effect.Effect<
@@ -1253,10 +1481,14 @@ export declare class IoTWireless extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateWirelessGateway", input);
+  }
 }
 
-export declare class IotWireless extends IoTWireless {}
+export class IotWireless extends IoTWireless {}
+
+export default IoTWireless;
 
 export interface AbpV1_0_x {
   DevAddr?: string;

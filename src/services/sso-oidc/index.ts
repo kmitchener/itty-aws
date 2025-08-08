@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class SSOOIDC extends AWSServiceClient {
+export class SSOOIDC extends AWSServiceClient {
   createToken(
     input: CreateTokenRequest,
   ): Effect.Effect<
@@ -19,7 +19,9 @@ export declare class SSOOIDC extends AWSServiceClient {
     | UnauthorizedClientException
     | UnsupportedGrantTypeException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateToken", input);
+  }
   createTokenWithIAM(
     input: CreateTokenWithIAMRequest,
   ): Effect.Effect<
@@ -37,7 +39,9 @@ export declare class SSOOIDC extends AWSServiceClient {
     | UnauthorizedClientException
     | UnsupportedGrantTypeException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateTokenWithIAM", input);
+  }
   registerClient(
     input: RegisterClientRequest,
   ): Effect.Effect<
@@ -49,7 +53,9 @@ export declare class SSOOIDC extends AWSServiceClient {
     | InvalidScopeException
     | UnsupportedGrantTypeException
     | CommonAwsError
-  >;
+  > {
+    return this.call("RegisterClient", input);
+  }
   startDeviceAuthorization(
     input: StartDeviceAuthorizationRequest,
   ): Effect.Effect<
@@ -60,10 +66,14 @@ export declare class SSOOIDC extends AWSServiceClient {
     | SlowDownException
     | UnauthorizedClientException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartDeviceAuthorization", input);
+  }
 }
 
-export declare class SsoOidc extends SSOOIDC {}
+export class SsoOidc extends SSOOIDC {}
+
+export default SSOOIDC;
 
 export declare class AccessDeniedException extends EffectData.TaggedError(
   "AccessDeniedException",

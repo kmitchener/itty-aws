@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class PI extends AWSServiceClient {
+export class PI extends AWSServiceClient {
   createPerformanceAnalysisReport(
     input: CreatePerformanceAnalysisReportRequest,
   ): Effect.Effect<
@@ -11,7 +11,9 @@ export declare class PI extends AWSServiceClient {
     | InvalidArgumentException
     | NotAuthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreatePerformanceAnalysisReport", input);
+  }
   deletePerformanceAnalysisReport(
     input: DeletePerformanceAnalysisReportRequest,
   ): Effect.Effect<
@@ -20,7 +22,9 @@ export declare class PI extends AWSServiceClient {
     | InvalidArgumentException
     | NotAuthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeletePerformanceAnalysisReport", input);
+  }
   describeDimensionKeys(
     input: DescribeDimensionKeysRequest,
   ): Effect.Effect<
@@ -29,7 +33,9 @@ export declare class PI extends AWSServiceClient {
     | InvalidArgumentException
     | NotAuthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeDimensionKeys", input);
+  }
   getDimensionKeyDetails(
     input: GetDimensionKeyDetailsRequest,
   ): Effect.Effect<
@@ -38,7 +44,9 @@ export declare class PI extends AWSServiceClient {
     | InvalidArgumentException
     | NotAuthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetDimensionKeyDetails", input);
+  }
   getPerformanceAnalysisReport(
     input: GetPerformanceAnalysisReportRequest,
   ): Effect.Effect<
@@ -47,7 +55,9 @@ export declare class PI extends AWSServiceClient {
     | InvalidArgumentException
     | NotAuthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetPerformanceAnalysisReport", input);
+  }
   getResourceMetadata(
     input: GetResourceMetadataRequest,
   ): Effect.Effect<
@@ -56,7 +66,9 @@ export declare class PI extends AWSServiceClient {
     | InvalidArgumentException
     | NotAuthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetResourceMetadata", input);
+  }
   getResourceMetrics(
     input: GetResourceMetricsRequest,
   ): Effect.Effect<
@@ -65,7 +77,9 @@ export declare class PI extends AWSServiceClient {
     | InvalidArgumentException
     | NotAuthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetResourceMetrics", input);
+  }
   listAvailableResourceDimensions(
     input: ListAvailableResourceDimensionsRequest,
   ): Effect.Effect<
@@ -74,7 +88,9 @@ export declare class PI extends AWSServiceClient {
     | InvalidArgumentException
     | NotAuthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListAvailableResourceDimensions", input);
+  }
   listAvailableResourceMetrics(
     input: ListAvailableResourceMetricsRequest,
   ): Effect.Effect<
@@ -83,7 +99,9 @@ export declare class PI extends AWSServiceClient {
     | InvalidArgumentException
     | NotAuthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListAvailableResourceMetrics", input);
+  }
   listPerformanceAnalysisReports(
     input: ListPerformanceAnalysisReportsRequest,
   ): Effect.Effect<
@@ -92,7 +110,9 @@ export declare class PI extends AWSServiceClient {
     | InvalidArgumentException
     | NotAuthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListPerformanceAnalysisReports", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
@@ -101,7 +121,9 @@ export declare class PI extends AWSServiceClient {
     | InvalidArgumentException
     | NotAuthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -110,7 +132,9 @@ export declare class PI extends AWSServiceClient {
     | InvalidArgumentException
     | NotAuthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
@@ -119,10 +143,14 @@ export declare class PI extends AWSServiceClient {
     | InvalidArgumentException
     | NotAuthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
 }
 
-export declare class Pi extends PI {}
+export class Pi extends PI {}
+
+export default PI;
 
 export type AcceptLanguage = "EN_US";
 export type AdditionalMetricsList = Array<string>;

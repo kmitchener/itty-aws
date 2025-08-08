@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class WAFV2 extends AWSServiceClient {
+export class WAFV2 extends AWSServiceClient {
   associateWebACL(
     input: AssociateWebACLRequest,
   ): Effect.Effect<
@@ -13,7 +13,9 @@ export declare class WAFV2 extends AWSServiceClient {
     | WAFNonexistentItemException
     | WAFUnavailableEntityException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AssociateWebACL", input);
+  }
   checkCapacity(
     input: CheckCapacityRequest,
   ): Effect.Effect<
@@ -28,7 +30,9 @@ export declare class WAFV2 extends AWSServiceClient {
     | WAFSubscriptionNotFoundException
     | WAFUnavailableEntityException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CheckCapacity", input);
+  }
   createAPIKey(
     input: CreateAPIKeyRequest,
   ): Effect.Effect<
@@ -38,7 +42,9 @@ export declare class WAFV2 extends AWSServiceClient {
     | WAFInvalidParameterException
     | WAFLimitsExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateAPIKey", input);
+  }
   createIPSet(
     input: CreateIPSetRequest,
   ): Effect.Effect<
@@ -52,7 +58,9 @@ export declare class WAFV2 extends AWSServiceClient {
     | WAFTagOperationException
     | WAFTagOperationInternalErrorException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateIPSet", input);
+  }
   createRegexPatternSet(
     input: CreateRegexPatternSetRequest,
   ): Effect.Effect<
@@ -66,7 +74,9 @@ export declare class WAFV2 extends AWSServiceClient {
     | WAFTagOperationException
     | WAFTagOperationInternalErrorException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateRegexPatternSet", input);
+  }
   createRuleGroup(
     input: CreateRuleGroupRequest,
   ): Effect.Effect<
@@ -83,7 +93,9 @@ export declare class WAFV2 extends AWSServiceClient {
     | WAFTagOperationInternalErrorException
     | WAFUnavailableEntityException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateRuleGroup", input);
+  }
   createWebACL(
     input: CreateWebACLRequest,
   ): Effect.Effect<
@@ -103,7 +115,9 @@ export declare class WAFV2 extends AWSServiceClient {
     | WAFTagOperationInternalErrorException
     | WAFUnavailableEntityException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateWebACL", input);
+  }
   deleteAPIKey(
     input: DeleteAPIKeyRequest,
   ): Effect.Effect<
@@ -114,7 +128,9 @@ export declare class WAFV2 extends AWSServiceClient {
     | WAFNonexistentItemException
     | WAFOptimisticLockException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteAPIKey", input);
+  }
   deleteFirewallManagerRuleGroups(
     input: DeleteFirewallManagerRuleGroupsRequest,
   ): Effect.Effect<
@@ -125,7 +141,9 @@ export declare class WAFV2 extends AWSServiceClient {
     | WAFNonexistentItemException
     | WAFOptimisticLockException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteFirewallManagerRuleGroups", input);
+  }
   deleteIPSet(
     input: DeleteIPSetRequest,
   ): Effect.Effect<
@@ -139,7 +157,9 @@ export declare class WAFV2 extends AWSServiceClient {
     | WAFTagOperationException
     | WAFTagOperationInternalErrorException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteIPSet", input);
+  }
   deleteLoggingConfiguration(
     input: DeleteLoggingConfigurationRequest,
   ): Effect.Effect<
@@ -150,7 +170,9 @@ export declare class WAFV2 extends AWSServiceClient {
     | WAFNonexistentItemException
     | WAFOptimisticLockException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteLoggingConfiguration", input);
+  }
   deletePermissionPolicy(
     input: DeletePermissionPolicyRequest,
   ): Effect.Effect<
@@ -159,7 +181,9 @@ export declare class WAFV2 extends AWSServiceClient {
     | WAFInvalidParameterException
     | WAFNonexistentItemException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeletePermissionPolicy", input);
+  }
   deleteRegexPatternSet(
     input: DeleteRegexPatternSetRequest,
   ): Effect.Effect<
@@ -173,7 +197,9 @@ export declare class WAFV2 extends AWSServiceClient {
     | WAFTagOperationException
     | WAFTagOperationInternalErrorException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteRegexPatternSet", input);
+  }
   deleteRuleGroup(
     input: DeleteRuleGroupRequest,
   ): Effect.Effect<
@@ -187,7 +213,9 @@ export declare class WAFV2 extends AWSServiceClient {
     | WAFTagOperationException
     | WAFTagOperationInternalErrorException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteRuleGroup", input);
+  }
   deleteWebACL(
     input: DeleteWebACLRequest,
   ): Effect.Effect<
@@ -201,7 +229,9 @@ export declare class WAFV2 extends AWSServiceClient {
     | WAFTagOperationException
     | WAFTagOperationInternalErrorException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteWebACL", input);
+  }
   describeAllManagedProducts(
     input: DescribeAllManagedProductsRequest,
   ): Effect.Effect<
@@ -210,7 +240,9 @@ export declare class WAFV2 extends AWSServiceClient {
     | WAFInvalidOperationException
     | WAFInvalidParameterException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeAllManagedProducts", input);
+  }
   describeManagedProductsByVendor(
     input: DescribeManagedProductsByVendorRequest,
   ): Effect.Effect<
@@ -219,7 +251,9 @@ export declare class WAFV2 extends AWSServiceClient {
     | WAFInvalidOperationException
     | WAFInvalidParameterException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeManagedProductsByVendor", input);
+  }
   describeManagedRuleGroup(
     input: DescribeManagedRuleGroupRequest,
   ): Effect.Effect<
@@ -231,7 +265,9 @@ export declare class WAFV2 extends AWSServiceClient {
     | WAFInvalidResourceException
     | WAFNonexistentItemException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeManagedRuleGroup", input);
+  }
   disassociateWebACL(
     input: DisassociateWebACLRequest,
   ): Effect.Effect<
@@ -241,7 +277,9 @@ export declare class WAFV2 extends AWSServiceClient {
     | WAFInvalidParameterException
     | WAFNonexistentItemException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DisassociateWebACL", input);
+  }
   generateMobileSdkReleaseUrl(
     input: GenerateMobileSdkReleaseUrlRequest,
   ): Effect.Effect<
@@ -251,7 +289,9 @@ export declare class WAFV2 extends AWSServiceClient {
     | WAFInvalidParameterException
     | WAFNonexistentItemException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GenerateMobileSdkReleaseUrl", input);
+  }
   getDecryptedAPIKey(
     input: GetDecryptedAPIKeyRequest,
   ): Effect.Effect<
@@ -262,7 +302,9 @@ export declare class WAFV2 extends AWSServiceClient {
     | WAFInvalidResourceException
     | WAFNonexistentItemException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetDecryptedAPIKey", input);
+  }
   getIPSet(
     input: GetIPSetRequest,
   ): Effect.Effect<
@@ -272,7 +314,9 @@ export declare class WAFV2 extends AWSServiceClient {
     | WAFInvalidParameterException
     | WAFNonexistentItemException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetIPSet", input);
+  }
   getLoggingConfiguration(
     input: GetLoggingConfigurationRequest,
   ): Effect.Effect<
@@ -282,7 +326,9 @@ export declare class WAFV2 extends AWSServiceClient {
     | WAFInvalidParameterException
     | WAFNonexistentItemException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetLoggingConfiguration", input);
+  }
   getManagedRuleSet(
     input: GetManagedRuleSetRequest,
   ): Effect.Effect<
@@ -292,7 +338,9 @@ export declare class WAFV2 extends AWSServiceClient {
     | WAFInvalidParameterException
     | WAFNonexistentItemException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetManagedRuleSet", input);
+  }
   getMobileSdkRelease(
     input: GetMobileSdkReleaseRequest,
   ): Effect.Effect<
@@ -302,7 +350,9 @@ export declare class WAFV2 extends AWSServiceClient {
     | WAFInvalidParameterException
     | WAFNonexistentItemException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetMobileSdkRelease", input);
+  }
   getPermissionPolicy(
     input: GetPermissionPolicyRequest,
   ): Effect.Effect<
@@ -311,7 +361,9 @@ export declare class WAFV2 extends AWSServiceClient {
     | WAFInvalidParameterException
     | WAFNonexistentItemException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetPermissionPolicy", input);
+  }
   getRateBasedStatementManagedKeys(
     input: GetRateBasedStatementManagedKeysRequest,
   ): Effect.Effect<
@@ -322,7 +374,9 @@ export declare class WAFV2 extends AWSServiceClient {
     | WAFNonexistentItemException
     | WAFUnsupportedAggregateKeyTypeException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetRateBasedStatementManagedKeys", input);
+  }
   getRegexPatternSet(
     input: GetRegexPatternSetRequest,
   ): Effect.Effect<
@@ -332,7 +386,9 @@ export declare class WAFV2 extends AWSServiceClient {
     | WAFInvalidParameterException
     | WAFNonexistentItemException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetRegexPatternSet", input);
+  }
   getRuleGroup(
     input: GetRuleGroupRequest,
   ): Effect.Effect<
@@ -342,7 +398,9 @@ export declare class WAFV2 extends AWSServiceClient {
     | WAFInvalidParameterException
     | WAFNonexistentItemException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetRuleGroup", input);
+  }
   getSampledRequests(
     input: GetSampledRequestsRequest,
   ): Effect.Effect<
@@ -351,7 +409,9 @@ export declare class WAFV2 extends AWSServiceClient {
     | WAFInvalidParameterException
     | WAFNonexistentItemException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetSampledRequests", input);
+  }
   getWebACL(
     input: GetWebACLRequest,
   ): Effect.Effect<
@@ -361,7 +421,9 @@ export declare class WAFV2 extends AWSServiceClient {
     | WAFInvalidParameterException
     | WAFNonexistentItemException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetWebACL", input);
+  }
   getWebACLForResource(
     input: GetWebACLForResourceRequest,
   ): Effect.Effect<
@@ -372,7 +434,9 @@ export declare class WAFV2 extends AWSServiceClient {
     | WAFNonexistentItemException
     | WAFUnavailableEntityException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetWebACLForResource", input);
+  }
   listAPIKeys(
     input: ListAPIKeysRequest,
   ): Effect.Effect<
@@ -382,7 +446,9 @@ export declare class WAFV2 extends AWSServiceClient {
     | WAFInvalidParameterException
     | WAFInvalidResourceException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListAPIKeys", input);
+  }
   listAvailableManagedRuleGroups(
     input: ListAvailableManagedRuleGroupsRequest,
   ): Effect.Effect<
@@ -391,7 +457,9 @@ export declare class WAFV2 extends AWSServiceClient {
     | WAFInvalidOperationException
     | WAFInvalidParameterException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListAvailableManagedRuleGroups", input);
+  }
   listAvailableManagedRuleGroupVersions(
     input: ListAvailableManagedRuleGroupVersionsRequest,
   ): Effect.Effect<
@@ -401,7 +469,9 @@ export declare class WAFV2 extends AWSServiceClient {
     | WAFInvalidParameterException
     | WAFNonexistentItemException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListAvailableManagedRuleGroupVersions", input);
+  }
   listIPSets(
     input: ListIPSetsRequest,
   ): Effect.Effect<
@@ -410,7 +480,9 @@ export declare class WAFV2 extends AWSServiceClient {
     | WAFInvalidOperationException
     | WAFInvalidParameterException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListIPSets", input);
+  }
   listLoggingConfigurations(
     input: ListLoggingConfigurationsRequest,
   ): Effect.Effect<
@@ -419,7 +491,9 @@ export declare class WAFV2 extends AWSServiceClient {
     | WAFInvalidOperationException
     | WAFInvalidParameterException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListLoggingConfigurations", input);
+  }
   listManagedRuleSets(
     input: ListManagedRuleSetsRequest,
   ): Effect.Effect<
@@ -428,7 +502,9 @@ export declare class WAFV2 extends AWSServiceClient {
     | WAFInvalidOperationException
     | WAFInvalidParameterException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListManagedRuleSets", input);
+  }
   listMobileSdkReleases(
     input: ListMobileSdkReleasesRequest,
   ): Effect.Effect<
@@ -437,7 +513,9 @@ export declare class WAFV2 extends AWSServiceClient {
     | WAFInvalidOperationException
     | WAFInvalidParameterException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListMobileSdkReleases", input);
+  }
   listRegexPatternSets(
     input: ListRegexPatternSetsRequest,
   ): Effect.Effect<
@@ -446,7 +524,9 @@ export declare class WAFV2 extends AWSServiceClient {
     | WAFInvalidOperationException
     | WAFInvalidParameterException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListRegexPatternSets", input);
+  }
   listResourcesForWebACL(
     input: ListResourcesForWebACLRequest,
   ): Effect.Effect<
@@ -456,7 +536,9 @@ export declare class WAFV2 extends AWSServiceClient {
     | WAFInvalidParameterException
     | WAFNonexistentItemException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListResourcesForWebACL", input);
+  }
   listRuleGroups(
     input: ListRuleGroupsRequest,
   ): Effect.Effect<
@@ -465,7 +547,9 @@ export declare class WAFV2 extends AWSServiceClient {
     | WAFInvalidOperationException
     | WAFInvalidParameterException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListRuleGroups", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
@@ -477,7 +561,9 @@ export declare class WAFV2 extends AWSServiceClient {
     | WAFTagOperationException
     | WAFTagOperationInternalErrorException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   listWebACLs(
     input: ListWebACLsRequest,
   ): Effect.Effect<
@@ -486,7 +572,9 @@ export declare class WAFV2 extends AWSServiceClient {
     | WAFInvalidOperationException
     | WAFInvalidParameterException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListWebACLs", input);
+  }
   putLoggingConfiguration(
     input: PutLoggingConfigurationRequest,
   ): Effect.Effect<
@@ -500,7 +588,9 @@ export declare class WAFV2 extends AWSServiceClient {
     | WAFOptimisticLockException
     | WAFServiceLinkedRoleErrorException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutLoggingConfiguration", input);
+  }
   putManagedRuleSetVersions(
     input: PutManagedRuleSetVersionsRequest,
   ): Effect.Effect<
@@ -511,7 +601,9 @@ export declare class WAFV2 extends AWSServiceClient {
     | WAFNonexistentItemException
     | WAFOptimisticLockException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutManagedRuleSetVersions", input);
+  }
   putPermissionPolicy(
     input: PutPermissionPolicyRequest,
   ): Effect.Effect<
@@ -521,7 +613,9 @@ export declare class WAFV2 extends AWSServiceClient {
     | WAFInvalidPermissionPolicyException
     | WAFNonexistentItemException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutPermissionPolicy", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -534,7 +628,9 @@ export declare class WAFV2 extends AWSServiceClient {
     | WAFTagOperationException
     | WAFTagOperationInternalErrorException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
@@ -546,7 +642,9 @@ export declare class WAFV2 extends AWSServiceClient {
     | WAFTagOperationException
     | WAFTagOperationInternalErrorException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
   updateIPSet(
     input: UpdateIPSetRequest,
   ): Effect.Effect<
@@ -559,7 +657,9 @@ export declare class WAFV2 extends AWSServiceClient {
     | WAFNonexistentItemException
     | WAFOptimisticLockException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateIPSet", input);
+  }
   updateManagedRuleSetVersionExpiryDate(
     input: UpdateManagedRuleSetVersionExpiryDateRequest,
   ): Effect.Effect<
@@ -570,7 +670,9 @@ export declare class WAFV2 extends AWSServiceClient {
     | WAFNonexistentItemException
     | WAFOptimisticLockException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateManagedRuleSetVersionExpiryDate", input);
+  }
   updateRegexPatternSet(
     input: UpdateRegexPatternSetRequest,
   ): Effect.Effect<
@@ -583,7 +685,9 @@ export declare class WAFV2 extends AWSServiceClient {
     | WAFNonexistentItemException
     | WAFOptimisticLockException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateRegexPatternSet", input);
+  }
   updateRuleGroup(
     input: UpdateRuleGroupRequest,
   ): Effect.Effect<
@@ -599,7 +703,9 @@ export declare class WAFV2 extends AWSServiceClient {
     | WAFSubscriptionNotFoundException
     | WAFUnavailableEntityException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateRuleGroup", input);
+  }
   updateWebACL(
     input: UpdateWebACLRequest,
   ): Effect.Effect<
@@ -617,10 +723,14 @@ export declare class WAFV2 extends AWSServiceClient {
     | WAFSubscriptionNotFoundException
     | WAFUnavailableEntityException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateWebACL", input);
+  }
 }
 
-export declare class Wafv2 extends WAFV2 {}
+export class Wafv2 extends WAFV2 {}
+
+export default WAFV2;
 
 export type Action = string;
 

@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class CloudHSMV2 extends AWSServiceClient {
+export class CloudHSMV2 extends AWSServiceClient {
   copyBackupToRegion(
     input: CopyBackupToRegionRequest,
   ): Effect.Effect<
@@ -14,7 +14,9 @@ export declare class CloudHSMV2 extends AWSServiceClient {
     | CloudHsmServiceException
     | CloudHsmTagException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CopyBackupToRegion", input);
+  }
   createCluster(
     input: CreateClusterRequest,
   ): Effect.Effect<
@@ -26,7 +28,9 @@ export declare class CloudHSMV2 extends AWSServiceClient {
     | CloudHsmServiceException
     | CloudHsmTagException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateCluster", input);
+  }
   createHsm(
     input: CreateHsmRequest,
   ): Effect.Effect<
@@ -37,7 +41,9 @@ export declare class CloudHSMV2 extends AWSServiceClient {
     | CloudHsmResourceNotFoundException
     | CloudHsmServiceException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateHsm", input);
+  }
   deleteBackup(
     input: DeleteBackupRequest,
   ): Effect.Effect<
@@ -48,7 +54,9 @@ export declare class CloudHSMV2 extends AWSServiceClient {
     | CloudHsmResourceNotFoundException
     | CloudHsmServiceException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteBackup", input);
+  }
   deleteCluster(
     input: DeleteClusterRequest,
   ): Effect.Effect<
@@ -60,7 +68,9 @@ export declare class CloudHSMV2 extends AWSServiceClient {
     | CloudHsmServiceException
     | CloudHsmTagException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteCluster", input);
+  }
   deleteHsm(
     input: DeleteHsmRequest,
   ): Effect.Effect<
@@ -71,7 +81,9 @@ export declare class CloudHSMV2 extends AWSServiceClient {
     | CloudHsmResourceNotFoundException
     | CloudHsmServiceException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteHsm", input);
+  }
   deleteResourcePolicy(
     input: DeleteResourcePolicyRequest,
   ): Effect.Effect<
@@ -82,7 +94,9 @@ export declare class CloudHSMV2 extends AWSServiceClient {
     | CloudHsmResourceNotFoundException
     | CloudHsmServiceException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteResourcePolicy", input);
+  }
   describeBackups(
     input: DescribeBackupsRequest,
   ): Effect.Effect<
@@ -94,7 +108,9 @@ export declare class CloudHSMV2 extends AWSServiceClient {
     | CloudHsmServiceException
     | CloudHsmTagException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeBackups", input);
+  }
   describeClusters(
     input: DescribeClustersRequest,
   ): Effect.Effect<
@@ -105,7 +121,9 @@ export declare class CloudHSMV2 extends AWSServiceClient {
     | CloudHsmServiceException
     | CloudHsmTagException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeClusters", input);
+  }
   getResourcePolicy(
     input: GetResourcePolicyRequest,
   ): Effect.Effect<
@@ -116,7 +134,9 @@ export declare class CloudHSMV2 extends AWSServiceClient {
     | CloudHsmResourceNotFoundException
     | CloudHsmServiceException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetResourcePolicy", input);
+  }
   initializeCluster(
     input: InitializeClusterRequest,
   ): Effect.Effect<
@@ -127,7 +147,9 @@ export declare class CloudHSMV2 extends AWSServiceClient {
     | CloudHsmResourceNotFoundException
     | CloudHsmServiceException
     | CommonAwsError
-  >;
+  > {
+    return this.call("InitializeCluster", input);
+  }
   listTags(
     input: ListTagsRequest,
   ): Effect.Effect<
@@ -139,7 +161,9 @@ export declare class CloudHSMV2 extends AWSServiceClient {
     | CloudHsmServiceException
     | CloudHsmTagException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTags", input);
+  }
   modifyBackupAttributes(
     input: ModifyBackupAttributesRequest,
   ): Effect.Effect<
@@ -150,7 +174,9 @@ export declare class CloudHSMV2 extends AWSServiceClient {
     | CloudHsmResourceNotFoundException
     | CloudHsmServiceException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ModifyBackupAttributes", input);
+  }
   modifyCluster(
     input: ModifyClusterRequest,
   ): Effect.Effect<
@@ -161,7 +187,9 @@ export declare class CloudHSMV2 extends AWSServiceClient {
     | CloudHsmResourceNotFoundException
     | CloudHsmServiceException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ModifyCluster", input);
+  }
   putResourcePolicy(
     input: PutResourcePolicyRequest,
   ): Effect.Effect<
@@ -172,7 +200,9 @@ export declare class CloudHSMV2 extends AWSServiceClient {
     | CloudHsmResourceNotFoundException
     | CloudHsmServiceException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutResourcePolicy", input);
+  }
   restoreBackup(
     input: RestoreBackupRequest,
   ): Effect.Effect<
@@ -183,7 +213,9 @@ export declare class CloudHSMV2 extends AWSServiceClient {
     | CloudHsmResourceNotFoundException
     | CloudHsmServiceException
     | CommonAwsError
-  >;
+  > {
+    return this.call("RestoreBackup", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -196,7 +228,9 @@ export declare class CloudHSMV2 extends AWSServiceClient {
     | CloudHsmServiceException
     | CloudHsmTagException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
@@ -208,10 +242,14 @@ export declare class CloudHSMV2 extends AWSServiceClient {
     | CloudHsmServiceException
     | CloudHsmTagException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
 }
 
-export declare class CloudhsmV2 extends CloudHSMV2 {}
+export class CloudhsmV2 extends CloudHSMV2 {}
+
+export default CloudHSMV2;
 
 export interface Backup {
   BackupId: string;

@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class PaymentCryptography extends AWSServiceClient {
+export class PaymentCryptography extends AWSServiceClient {
   exportKey(
     input: ExportKeyInput,
   ): Effect.Effect<
@@ -15,7 +15,9 @@ export declare class PaymentCryptography extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ExportKey", input);
+  }
   getParametersForExport(
     input: GetParametersForExportInput,
   ): Effect.Effect<
@@ -29,7 +31,9 @@ export declare class PaymentCryptography extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetParametersForExport", input);
+  }
   getParametersForImport(
     input: GetParametersForImportInput,
   ): Effect.Effect<
@@ -43,7 +47,9 @@ export declare class PaymentCryptography extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetParametersForImport", input);
+  }
   getPublicKeyCertificate(
     input: GetPublicKeyCertificateInput,
   ): Effect.Effect<
@@ -55,7 +61,9 @@ export declare class PaymentCryptography extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetPublicKeyCertificate", input);
+  }
   importKey(
     input: ImportKeyInput,
   ): Effect.Effect<
@@ -69,7 +77,9 @@ export declare class PaymentCryptography extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ImportKey", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceInput,
   ): Effect.Effect<
@@ -81,7 +91,9 @@ export declare class PaymentCryptography extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   tagResource(
     input: TagResourceInput,
   ): Effect.Effect<
@@ -95,7 +107,9 @@ export declare class PaymentCryptography extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceInput,
   ): Effect.Effect<
@@ -108,8 +122,12 @@ export declare class PaymentCryptography extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
 }
+
+export default PaymentCryptography;
 
 export declare class AccessDeniedException extends EffectData.TaggedError(
   "AccessDeniedException",

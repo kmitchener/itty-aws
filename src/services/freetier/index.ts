@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class FreeTier extends AWSServiceClient {
+export class FreeTier extends AWSServiceClient {
   getAccountActivity(
     input: GetAccountActivityRequest,
   ): Effect.Effect<
@@ -12,7 +12,9 @@ export declare class FreeTier extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetAccountActivity", input);
+  }
   getAccountPlanState(
     input: GetAccountPlanStateRequest,
   ): Effect.Effect<
@@ -23,7 +25,9 @@ export declare class FreeTier extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetAccountPlanState", input);
+  }
   getFreeTierUsage(
     input: GetFreeTierUsageRequest,
   ): Effect.Effect<
@@ -32,7 +36,9 @@ export declare class FreeTier extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetFreeTierUsage", input);
+  }
   listAccountActivities(
     input: ListAccountActivitiesRequest,
   ): Effect.Effect<
@@ -41,7 +47,9 @@ export declare class FreeTier extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListAccountActivities", input);
+  }
   upgradeAccountPlan(
     input: UpgradeAccountPlanRequest,
   ): Effect.Effect<
@@ -52,10 +60,14 @@ export declare class FreeTier extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpgradeAccountPlan", input);
+  }
 }
 
-export declare class Freetier extends FreeTier {}
+export class Freetier extends FreeTier {}
+
+export default FreeTier;
 
 export declare class AccessDeniedException extends EffectData.TaggedError(
   "AccessDeniedException",

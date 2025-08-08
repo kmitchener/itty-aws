@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class SFN extends AWSServiceClient {
+export class SFN extends AWSServiceClient {
   createActivity(
     input: CreateActivityInput,
   ): Effect.Effect<
@@ -15,7 +15,9 @@ export declare class SFN extends AWSServiceClient {
     | KmsThrottlingException
     | TooManyTags
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateActivity", input);
+  }
   createStateMachine(
     input: CreateStateMachineInput,
   ): Effect.Effect<
@@ -36,7 +38,9 @@ export declare class SFN extends AWSServiceClient {
     | TooManyTags
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateStateMachine", input);
+  }
   createStateMachineAlias(
     input: CreateStateMachineAliasInput,
   ): Effect.Effect<
@@ -49,16 +53,22 @@ export declare class SFN extends AWSServiceClient {
     | StateMachineDeleting
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateStateMachineAlias", input);
+  }
   deleteActivity(
     input: DeleteActivityInput,
-  ): Effect.Effect<DeleteActivityOutput, InvalidArn | CommonAwsError>;
+  ): Effect.Effect<DeleteActivityOutput, InvalidArn | CommonAwsError> {
+    return this.call("DeleteActivity", input);
+  }
   deleteStateMachine(
     input: DeleteStateMachineInput,
   ): Effect.Effect<
     DeleteStateMachineOutput,
     InvalidArn | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteStateMachine", input);
+  }
   deleteStateMachineAlias(
     input: DeleteStateMachineAliasInput,
   ): Effect.Effect<
@@ -68,19 +78,25 @@ export declare class SFN extends AWSServiceClient {
     | ResourceNotFound
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteStateMachineAlias", input);
+  }
   deleteStateMachineVersion(
     input: DeleteStateMachineVersionInput,
   ): Effect.Effect<
     DeleteStateMachineVersionOutput,
     ConflictException | InvalidArn | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteStateMachineVersion", input);
+  }
   describeActivity(
     input: DescribeActivityInput,
   ): Effect.Effect<
     DescribeActivityOutput,
     ActivityDoesNotExist | InvalidArn | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeActivity", input);
+  }
   describeExecution(
     input: DescribeExecutionInput,
   ): Effect.Effect<
@@ -91,13 +107,17 @@ export declare class SFN extends AWSServiceClient {
     | KmsInvalidStateException
     | KmsThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeExecution", input);
+  }
   describeMapRun(
     input: DescribeMapRunInput,
   ): Effect.Effect<
     DescribeMapRunOutput,
     InvalidArn | ResourceNotFound | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeMapRun", input);
+  }
   describeStateMachine(
     input: DescribeStateMachineInput,
   ): Effect.Effect<
@@ -108,13 +128,17 @@ export declare class SFN extends AWSServiceClient {
     | KmsThrottlingException
     | StateMachineDoesNotExist
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeStateMachine", input);
+  }
   describeStateMachineAlias(
     input: DescribeStateMachineAliasInput,
   ): Effect.Effect<
     DescribeStateMachineAliasOutput,
     InvalidArn | ResourceNotFound | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeStateMachineAlias", input);
+  }
   describeStateMachineForExecution(
     input: DescribeStateMachineForExecutionInput,
   ): Effect.Effect<
@@ -125,7 +149,9 @@ export declare class SFN extends AWSServiceClient {
     | KmsInvalidStateException
     | KmsThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeStateMachineForExecution", input);
+  }
   getActivityTask(
     input: GetActivityTaskInput,
   ): Effect.Effect<
@@ -137,7 +163,9 @@ export declare class SFN extends AWSServiceClient {
     | KmsInvalidStateException
     | KmsThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetActivityTask", input);
+  }
   getExecutionHistory(
     input: GetExecutionHistoryInput,
   ): Effect.Effect<
@@ -149,10 +177,14 @@ export declare class SFN extends AWSServiceClient {
     | KmsInvalidStateException
     | KmsThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetExecutionHistory", input);
+  }
   listActivities(
     input: ListActivitiesInput,
-  ): Effect.Effect<ListActivitiesOutput, InvalidToken | CommonAwsError>;
+  ): Effect.Effect<ListActivitiesOutput, InvalidToken | CommonAwsError> {
+    return this.call("ListActivities", input);
+  }
   listExecutions(
     input: ListExecutionsInput,
   ): Effect.Effect<
@@ -164,13 +196,17 @@ export declare class SFN extends AWSServiceClient {
     | StateMachineTypeNotSupported
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListExecutions", input);
+  }
   listMapRuns(
     input: ListMapRunsInput,
   ): Effect.Effect<
     ListMapRunsOutput,
     ExecutionDoesNotExist | InvalidArn | InvalidToken | CommonAwsError
-  >;
+  > {
+    return this.call("ListMapRuns", input);
+  }
   listStateMachineAliases(
     input: ListStateMachineAliasesInput,
   ): Effect.Effect<
@@ -181,22 +217,30 @@ export declare class SFN extends AWSServiceClient {
     | StateMachineDeleting
     | StateMachineDoesNotExist
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListStateMachineAliases", input);
+  }
   listStateMachines(
     input: ListStateMachinesInput,
-  ): Effect.Effect<ListStateMachinesOutput, InvalidToken | CommonAwsError>;
+  ): Effect.Effect<ListStateMachinesOutput, InvalidToken | CommonAwsError> {
+    return this.call("ListStateMachines", input);
+  }
   listStateMachineVersions(
     input: ListStateMachineVersionsInput,
   ): Effect.Effect<
     ListStateMachineVersionsOutput,
     InvalidArn | InvalidToken | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("ListStateMachineVersions", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceInput,
   ): Effect.Effect<
     ListTagsForResourceOutput,
     InvalidArn | ResourceNotFound | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   publishStateMachineVersion(
     input: PublishStateMachineVersionInput,
   ): Effect.Effect<
@@ -208,7 +252,9 @@ export declare class SFN extends AWSServiceClient {
     | StateMachineDoesNotExist
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PublishStateMachineVersion", input);
+  }
   redriveExecution(
     input: RedriveExecutionInput,
   ): Effect.Effect<
@@ -219,7 +265,9 @@ export declare class SFN extends AWSServiceClient {
     | InvalidArn
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("RedriveExecution", input);
+  }
   sendTaskFailure(
     input: SendTaskFailureInput,
   ): Effect.Effect<
@@ -231,13 +279,17 @@ export declare class SFN extends AWSServiceClient {
     | TaskDoesNotExist
     | TaskTimedOut
     | CommonAwsError
-  >;
+  > {
+    return this.call("SendTaskFailure", input);
+  }
   sendTaskHeartbeat(
     input: SendTaskHeartbeatInput,
   ): Effect.Effect<
     SendTaskHeartbeatOutput,
     InvalidToken | TaskDoesNotExist | TaskTimedOut | CommonAwsError
-  >;
+  > {
+    return this.call("SendTaskHeartbeat", input);
+  }
   sendTaskSuccess(
     input: SendTaskSuccessInput,
   ): Effect.Effect<
@@ -250,7 +302,9 @@ export declare class SFN extends AWSServiceClient {
     | TaskDoesNotExist
     | TaskTimedOut
     | CommonAwsError
-  >;
+  > {
+    return this.call("SendTaskSuccess", input);
+  }
   startExecution(
     input: StartExecutionInput,
   ): Effect.Effect<
@@ -267,7 +321,9 @@ export declare class SFN extends AWSServiceClient {
     | StateMachineDoesNotExist
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartExecution", input);
+  }
   startSyncExecution(
     input: StartSyncExecutionInput,
   ): Effect.Effect<
@@ -282,7 +338,9 @@ export declare class SFN extends AWSServiceClient {
     | StateMachineDoesNotExist
     | StateMachineTypeNotSupported
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartSyncExecution", input);
+  }
   stopExecution(
     input: StopExecutionInput,
   ): Effect.Effect<
@@ -294,13 +352,17 @@ export declare class SFN extends AWSServiceClient {
     | KmsThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StopExecution", input);
+  }
   tagResource(
     input: TagResourceInput,
   ): Effect.Effect<
     TagResourceOutput,
     InvalidArn | ResourceNotFound | TooManyTags | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   testState(
     input: TestStateInput,
   ): Effect.Effect<
@@ -310,19 +372,25 @@ export declare class SFN extends AWSServiceClient {
     | InvalidExecutionInput
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TestState", input);
+  }
   untagResource(
     input: UntagResourceInput,
   ): Effect.Effect<
     UntagResourceOutput,
     InvalidArn | ResourceNotFound | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
   updateMapRun(
     input: UpdateMapRunInput,
   ): Effect.Effect<
     UpdateMapRunOutput,
     InvalidArn | ResourceNotFound | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateMapRun", input);
+  }
   updateStateMachine(
     input: UpdateStateMachineInput,
   ): Effect.Effect<
@@ -341,7 +409,9 @@ export declare class SFN extends AWSServiceClient {
     | StateMachineDoesNotExist
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateStateMachine", input);
+  }
   updateStateMachineAlias(
     input: UpdateStateMachineAliasInput,
   ): Effect.Effect<
@@ -352,16 +422,22 @@ export declare class SFN extends AWSServiceClient {
     | StateMachineDeleting
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateStateMachineAlias", input);
+  }
   validateStateMachineDefinition(
     input: ValidateStateMachineDefinitionInput,
   ): Effect.Effect<
     ValidateStateMachineDefinitionOutput,
     ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("ValidateStateMachineDefinition", input);
+  }
 }
 
-export declare class Sfn extends SFN {}
+export class Sfn extends SFN {}
+
+export default SFN;
 
 export declare class ActivityAlreadyExists extends EffectData.TaggedError(
   "ActivityAlreadyExists",

@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class ObservabilityAdmin extends AWSServiceClient {
+export class ObservabilityAdmin extends AWSServiceClient {
   createTelemetryRule(
     input: CreateTelemetryRuleInput,
   ): Effect.Effect<
@@ -14,7 +14,9 @@ export declare class ObservabilityAdmin extends AWSServiceClient {
     | TooManyRequestsException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateTelemetryRule", input);
+  }
   createTelemetryRuleForOrganization(
     input: CreateTelemetryRuleForOrganizationInput,
   ): Effect.Effect<
@@ -26,7 +28,9 @@ export declare class ObservabilityAdmin extends AWSServiceClient {
     | TooManyRequestsException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateTelemetryRuleForOrganization", input);
+  }
   deleteTelemetryRule(
     input: DeleteTelemetryRuleInput,
   ): Effect.Effect<
@@ -37,7 +41,9 @@ export declare class ObservabilityAdmin extends AWSServiceClient {
     | TooManyRequestsException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteTelemetryRule", input);
+  }
   deleteTelemetryRuleForOrganization(
     input: DeleteTelemetryRuleForOrganizationInput,
   ): Effect.Effect<
@@ -48,14 +54,18 @@ export declare class ObservabilityAdmin extends AWSServiceClient {
     | TooManyRequestsException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteTelemetryRuleForOrganization", input);
+  }
   getTelemetryEvaluationStatus(input: {}): Effect.Effect<
     GetTelemetryEvaluationStatusOutput,
     | AccessDeniedException
     | InternalServerException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetTelemetryEvaluationStatus", input);
+  }
   getTelemetryEvaluationStatusForOrganization(input: {}): Effect.Effect<
     GetTelemetryEvaluationStatusForOrganizationOutput,
     | AccessDeniedException
@@ -63,7 +73,9 @@ export declare class ObservabilityAdmin extends AWSServiceClient {
     | TooManyRequestsException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetTelemetryEvaluationStatusForOrganization", input);
+  }
   getTelemetryRule(
     input: GetTelemetryRuleInput,
   ): Effect.Effect<
@@ -74,7 +86,9 @@ export declare class ObservabilityAdmin extends AWSServiceClient {
     | TooManyRequestsException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetTelemetryRule", input);
+  }
   getTelemetryRuleForOrganization(
     input: GetTelemetryRuleForOrganizationInput,
   ): Effect.Effect<
@@ -85,7 +99,9 @@ export declare class ObservabilityAdmin extends AWSServiceClient {
     | TooManyRequestsException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetTelemetryRuleForOrganization", input);
+  }
   listResourceTelemetry(
     input: ListResourceTelemetryInput,
   ): Effect.Effect<
@@ -95,7 +111,9 @@ export declare class ObservabilityAdmin extends AWSServiceClient {
     | TooManyRequestsException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListResourceTelemetry", input);
+  }
   listResourceTelemetryForOrganization(
     input: ListResourceTelemetryForOrganizationInput,
   ): Effect.Effect<
@@ -105,7 +123,9 @@ export declare class ObservabilityAdmin extends AWSServiceClient {
     | TooManyRequestsException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListResourceTelemetryForOrganization", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceInput,
   ): Effect.Effect<
@@ -116,7 +136,9 @@ export declare class ObservabilityAdmin extends AWSServiceClient {
     | TooManyRequestsException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   listTelemetryRules(
     input: ListTelemetryRulesInput,
   ): Effect.Effect<
@@ -126,7 +148,9 @@ export declare class ObservabilityAdmin extends AWSServiceClient {
     | TooManyRequestsException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTelemetryRules", input);
+  }
   listTelemetryRulesForOrganization(
     input: ListTelemetryRulesForOrganizationInput,
   ): Effect.Effect<
@@ -136,7 +160,9 @@ export declare class ObservabilityAdmin extends AWSServiceClient {
     | TooManyRequestsException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTelemetryRulesForOrganization", input);
+  }
   startTelemetryEvaluation(input: {}): Effect.Effect<
     {},
     | AccessDeniedException
@@ -144,7 +170,9 @@ export declare class ObservabilityAdmin extends AWSServiceClient {
     | TooManyRequestsException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartTelemetryEvaluation", input);
+  }
   startTelemetryEvaluationForOrganization(input: {}): Effect.Effect<
     {},
     | AccessDeniedException
@@ -152,7 +180,9 @@ export declare class ObservabilityAdmin extends AWSServiceClient {
     | TooManyRequestsException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartTelemetryEvaluationForOrganization", input);
+  }
   stopTelemetryEvaluation(input: {}): Effect.Effect<
     {},
     | AccessDeniedException
@@ -160,7 +190,9 @@ export declare class ObservabilityAdmin extends AWSServiceClient {
     | TooManyRequestsException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StopTelemetryEvaluation", input);
+  }
   stopTelemetryEvaluationForOrganization(input: {}): Effect.Effect<
     {},
     | AccessDeniedException
@@ -168,7 +200,9 @@ export declare class ObservabilityAdmin extends AWSServiceClient {
     | TooManyRequestsException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StopTelemetryEvaluationForOrganization", input);
+  }
   tagResource(
     input: TagResourceInput,
   ): Effect.Effect<
@@ -180,7 +214,9 @@ export declare class ObservabilityAdmin extends AWSServiceClient {
     | TooManyRequestsException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceInput,
   ): Effect.Effect<
@@ -191,7 +227,9 @@ export declare class ObservabilityAdmin extends AWSServiceClient {
     | TooManyRequestsException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
   updateTelemetryRule(
     input: UpdateTelemetryRuleInput,
   ): Effect.Effect<
@@ -203,7 +241,9 @@ export declare class ObservabilityAdmin extends AWSServiceClient {
     | TooManyRequestsException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateTelemetryRule", input);
+  }
   updateTelemetryRuleForOrganization(
     input: UpdateTelemetryRuleForOrganizationInput,
   ): Effect.Effect<
@@ -215,10 +255,14 @@ export declare class ObservabilityAdmin extends AWSServiceClient {
     | TooManyRequestsException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateTelemetryRuleForOrganization", input);
+  }
 }
 
-export declare class Observabilityadmin extends ObservabilityAdmin {}
+export class Observabilityadmin extends ObservabilityAdmin {}
+
+export default ObservabilityAdmin;
 
 export declare class AccessDeniedException extends EffectData.TaggedError(
   "AccessDeniedException",

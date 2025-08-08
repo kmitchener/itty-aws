@@ -2,19 +2,23 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class IotDeviceAdvisor extends AWSServiceClient {
+export class IotDeviceAdvisor extends AWSServiceClient {
   createSuiteDefinition(
     input: CreateSuiteDefinitionRequest,
   ): Effect.Effect<
     CreateSuiteDefinitionResponse,
     InternalServerException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("CreateSuiteDefinition", input);
+  }
   deleteSuiteDefinition(
     input: DeleteSuiteDefinitionRequest,
   ): Effect.Effect<
     DeleteSuiteDefinitionResponse,
     InternalServerException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteSuiteDefinition", input);
+  }
   getEndpoint(
     input: GetEndpointRequest,
   ): Effect.Effect<
@@ -23,7 +27,9 @@ export declare class IotDeviceAdvisor extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetEndpoint", input);
+  }
   getSuiteDefinition(
     input: GetSuiteDefinitionRequest,
   ): Effect.Effect<
@@ -32,7 +38,9 @@ export declare class IotDeviceAdvisor extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetSuiteDefinition", input);
+  }
   getSuiteRun(
     input: GetSuiteRunRequest,
   ): Effect.Effect<
@@ -41,7 +49,9 @@ export declare class IotDeviceAdvisor extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetSuiteRun", input);
+  }
   getSuiteRunReport(
     input: GetSuiteRunReportRequest,
   ): Effect.Effect<
@@ -50,19 +60,25 @@ export declare class IotDeviceAdvisor extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetSuiteRunReport", input);
+  }
   listSuiteDefinitions(
     input: ListSuiteDefinitionsRequest,
   ): Effect.Effect<
     ListSuiteDefinitionsResponse,
     InternalServerException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("ListSuiteDefinitions", input);
+  }
   listSuiteRuns(
     input: ListSuiteRunsRequest,
   ): Effect.Effect<
     ListSuiteRunsResponse,
     InternalServerException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("ListSuiteRuns", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
@@ -71,7 +87,9 @@ export declare class IotDeviceAdvisor extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   startSuiteRun(
     input: StartSuiteRunRequest,
   ): Effect.Effect<
@@ -80,7 +98,9 @@ export declare class IotDeviceAdvisor extends AWSServiceClient {
     | InternalServerException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartSuiteRun", input);
+  }
   stopSuiteRun(
     input: StopSuiteRunRequest,
   ): Effect.Effect<
@@ -89,7 +109,9 @@ export declare class IotDeviceAdvisor extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StopSuiteRun", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -98,7 +120,9 @@ export declare class IotDeviceAdvisor extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
@@ -107,16 +131,22 @@ export declare class IotDeviceAdvisor extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
   updateSuiteDefinition(
     input: UpdateSuiteDefinitionRequest,
   ): Effect.Effect<
     UpdateSuiteDefinitionResponse,
     InternalServerException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateSuiteDefinition", input);
+  }
 }
 
-export declare class Iotdeviceadvisor extends IotDeviceAdvisor {}
+export class Iotdeviceadvisor extends IotDeviceAdvisor {}
+
+export default IotDeviceAdvisor;
 
 export type AmazonResourceName = string;
 

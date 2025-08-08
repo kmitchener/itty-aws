@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class ConnectContactLens extends AWSServiceClient {
+export class ConnectContactLens extends AWSServiceClient {
   listRealtimeContactAnalysisSegments(
     input: ListRealtimeContactAnalysisSegmentsRequest,
   ): Effect.Effect<
@@ -13,8 +13,12 @@ export declare class ConnectContactLens extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListRealtimeContactAnalysisSegments", input);
+  }
 }
+
+export default ConnectContactLens;
 
 export declare class AccessDeniedException extends EffectData.TaggedError(
   "AccessDeniedException",

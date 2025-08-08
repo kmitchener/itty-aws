@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class ComputeOptimizer extends AWSServiceClient {
+export class ComputeOptimizer extends AWSServiceClient {
   deleteRecommendationPreferences(
     input: DeleteRecommendationPreferencesRequest,
   ): Effect.Effect<
@@ -16,7 +16,9 @@ export declare class ComputeOptimizer extends AWSServiceClient {
     | ServiceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteRecommendationPreferences", input);
+  }
   describeRecommendationExportJobs(
     input: DescribeRecommendationExportJobsRequest,
   ): Effect.Effect<
@@ -30,7 +32,9 @@ export declare class ComputeOptimizer extends AWSServiceClient {
     | ServiceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeRecommendationExportJobs", input);
+  }
   exportAutoScalingGroupRecommendations(
     input: ExportAutoScalingGroupRecommendationsRequest,
   ): Effect.Effect<
@@ -44,7 +48,9 @@ export declare class ComputeOptimizer extends AWSServiceClient {
     | ServiceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ExportAutoScalingGroupRecommendations", input);
+  }
   exportEBSVolumeRecommendations(
     input: ExportEBSVolumeRecommendationsRequest,
   ): Effect.Effect<
@@ -58,7 +64,9 @@ export declare class ComputeOptimizer extends AWSServiceClient {
     | ServiceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ExportEBSVolumeRecommendations", input);
+  }
   exportEC2InstanceRecommendations(
     input: ExportEC2InstanceRecommendationsRequest,
   ): Effect.Effect<
@@ -72,7 +80,9 @@ export declare class ComputeOptimizer extends AWSServiceClient {
     | ServiceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ExportEC2InstanceRecommendations", input);
+  }
   exportECSServiceRecommendations(
     input: ExportECSServiceRecommendationsRequest,
   ): Effect.Effect<
@@ -86,7 +96,9 @@ export declare class ComputeOptimizer extends AWSServiceClient {
     | ServiceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ExportECSServiceRecommendations", input);
+  }
   exportIdleRecommendations(
     input: ExportIdleRecommendationsRequest,
   ): Effect.Effect<
@@ -100,7 +112,9 @@ export declare class ComputeOptimizer extends AWSServiceClient {
     | ServiceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ExportIdleRecommendations", input);
+  }
   exportLambdaFunctionRecommendations(
     input: ExportLambdaFunctionRecommendationsRequest,
   ): Effect.Effect<
@@ -114,7 +128,9 @@ export declare class ComputeOptimizer extends AWSServiceClient {
     | ServiceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ExportLambdaFunctionRecommendations", input);
+  }
   exportLicenseRecommendations(
     input: ExportLicenseRecommendationsRequest,
   ): Effect.Effect<
@@ -128,7 +144,9 @@ export declare class ComputeOptimizer extends AWSServiceClient {
     | ServiceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ExportLicenseRecommendations", input);
+  }
   exportRDSDatabaseRecommendations(
     input: ExportRDSDatabaseRecommendationsRequest,
   ): Effect.Effect<
@@ -142,7 +160,9 @@ export declare class ComputeOptimizer extends AWSServiceClient {
     | ServiceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ExportRDSDatabaseRecommendations", input);
+  }
   getAutoScalingGroupRecommendations(
     input: GetAutoScalingGroupRecommendationsRequest,
   ): Effect.Effect<
@@ -156,7 +176,9 @@ export declare class ComputeOptimizer extends AWSServiceClient {
     | ServiceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetAutoScalingGroupRecommendations", input);
+  }
   getEBSVolumeRecommendations(
     input: GetEBSVolumeRecommendationsRequest,
   ): Effect.Effect<
@@ -170,7 +192,9 @@ export declare class ComputeOptimizer extends AWSServiceClient {
     | ServiceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetEBSVolumeRecommendations", input);
+  }
   getEC2InstanceRecommendations(
     input: GetEC2InstanceRecommendationsRequest,
   ): Effect.Effect<
@@ -184,7 +208,9 @@ export declare class ComputeOptimizer extends AWSServiceClient {
     | ServiceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetEC2InstanceRecommendations", input);
+  }
   getEC2RecommendationProjectedMetrics(
     input: GetEC2RecommendationProjectedMetricsRequest,
   ): Effect.Effect<
@@ -198,7 +224,9 @@ export declare class ComputeOptimizer extends AWSServiceClient {
     | ServiceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetEC2RecommendationProjectedMetrics", input);
+  }
   getECSServiceRecommendationProjectedMetrics(
     input: GetECSServiceRecommendationProjectedMetricsRequest,
   ): Effect.Effect<
@@ -212,7 +240,9 @@ export declare class ComputeOptimizer extends AWSServiceClient {
     | ServiceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetECSServiceRecommendationProjectedMetrics", input);
+  }
   getECSServiceRecommendations(
     input: GetECSServiceRecommendationsRequest,
   ): Effect.Effect<
@@ -226,7 +256,9 @@ export declare class ComputeOptimizer extends AWSServiceClient {
     | ServiceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetECSServiceRecommendations", input);
+  }
   getEffectiveRecommendationPreferences(
     input: GetEffectiveRecommendationPreferencesRequest,
   ): Effect.Effect<
@@ -240,7 +272,9 @@ export declare class ComputeOptimizer extends AWSServiceClient {
     | ServiceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetEffectiveRecommendationPreferences", input);
+  }
   getEnrollmentStatus(
     input: GetEnrollmentStatusRequest,
   ): Effect.Effect<
@@ -252,7 +286,9 @@ export declare class ComputeOptimizer extends AWSServiceClient {
     | ServiceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetEnrollmentStatus", input);
+  }
   getEnrollmentStatusesForOrganization(
     input: GetEnrollmentStatusesForOrganizationRequest,
   ): Effect.Effect<
@@ -264,7 +300,9 @@ export declare class ComputeOptimizer extends AWSServiceClient {
     | ServiceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetEnrollmentStatusesForOrganization", input);
+  }
   getIdleRecommendations(
     input: GetIdleRecommendationsRequest,
   ): Effect.Effect<
@@ -278,7 +316,9 @@ export declare class ComputeOptimizer extends AWSServiceClient {
     | ServiceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetIdleRecommendations", input);
+  }
   getLambdaFunctionRecommendations(
     input: GetLambdaFunctionRecommendationsRequest,
   ): Effect.Effect<
@@ -292,7 +332,9 @@ export declare class ComputeOptimizer extends AWSServiceClient {
     | ServiceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetLambdaFunctionRecommendations", input);
+  }
   getLicenseRecommendations(
     input: GetLicenseRecommendationsRequest,
   ): Effect.Effect<
@@ -306,7 +348,9 @@ export declare class ComputeOptimizer extends AWSServiceClient {
     | ServiceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetLicenseRecommendations", input);
+  }
   getRDSDatabaseRecommendationProjectedMetrics(
     input: GetRDSDatabaseRecommendationProjectedMetricsRequest,
   ): Effect.Effect<
@@ -320,7 +364,9 @@ export declare class ComputeOptimizer extends AWSServiceClient {
     | ServiceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetRDSDatabaseRecommendationProjectedMetrics", input);
+  }
   getRDSDatabaseRecommendations(
     input: GetRDSDatabaseRecommendationsRequest,
   ): Effect.Effect<
@@ -334,7 +380,9 @@ export declare class ComputeOptimizer extends AWSServiceClient {
     | ServiceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetRDSDatabaseRecommendations", input);
+  }
   getRecommendationPreferences(
     input: GetRecommendationPreferencesRequest,
   ): Effect.Effect<
@@ -348,7 +396,9 @@ export declare class ComputeOptimizer extends AWSServiceClient {
     | ServiceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetRecommendationPreferences", input);
+  }
   getRecommendationSummaries(
     input: GetRecommendationSummariesRequest,
   ): Effect.Effect<
@@ -361,7 +411,9 @@ export declare class ComputeOptimizer extends AWSServiceClient {
     | ServiceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetRecommendationSummaries", input);
+  }
   putRecommendationPreferences(
     input: PutRecommendationPreferencesRequest,
   ): Effect.Effect<
@@ -375,7 +427,9 @@ export declare class ComputeOptimizer extends AWSServiceClient {
     | ServiceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutRecommendationPreferences", input);
+  }
   updateEnrollmentStatus(
     input: UpdateEnrollmentStatusRequest,
   ): Effect.Effect<
@@ -387,8 +441,12 @@ export declare class ComputeOptimizer extends AWSServiceClient {
     | ServiceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateEnrollmentStatus", input);
+  }
 }
+
+export default ComputeOptimizer;
 
 export declare class AccessDeniedException extends EffectData.TaggedError(
   "AccessDeniedException",

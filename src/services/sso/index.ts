@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class SSO extends AWSServiceClient {
+export class SSO extends AWSServiceClient {
   getRoleCredentials(
     input: GetRoleCredentialsRequest,
   ): Effect.Effect<
@@ -12,7 +12,9 @@ export declare class SSO extends AWSServiceClient {
     | TooManyRequestsException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetRoleCredentials", input);
+  }
   listAccountRoles(
     input: ListAccountRolesRequest,
   ): Effect.Effect<
@@ -22,7 +24,9 @@ export declare class SSO extends AWSServiceClient {
     | TooManyRequestsException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListAccountRoles", input);
+  }
   listAccounts(
     input: ListAccountsRequest,
   ): Effect.Effect<
@@ -32,7 +36,9 @@ export declare class SSO extends AWSServiceClient {
     | TooManyRequestsException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListAccounts", input);
+  }
   logout(
     input: LogoutRequest,
   ): Effect.Effect<
@@ -41,10 +47,14 @@ export declare class SSO extends AWSServiceClient {
     | TooManyRequestsException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("Logout", input);
+  }
 }
 
-export declare class Sso extends SSO {}
+export class Sso extends SSO {}
+
+export default SSO;
 
 export type AccessKeyType = string;
 

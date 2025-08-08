@@ -2,55 +2,71 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class ARCRegionswitch extends AWSServiceClient {
+export class ARCRegionswitch extends AWSServiceClient {
   approvePlanExecutionStep(
     input: ApprovePlanExecutionStepRequest,
   ): Effect.Effect<
     ApprovePlanExecutionStepResponse,
     AccessDeniedException | ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("ApprovePlanExecutionStep", input);
+  }
   cancelPlanExecution(
     input: CancelPlanExecutionRequest,
   ): Effect.Effect<
     CancelPlanExecutionResponse,
     AccessDeniedException | ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("CancelPlanExecution", input);
+  }
   getPlanEvaluationStatus(
     input: GetPlanEvaluationStatusRequest,
   ): Effect.Effect<
     GetPlanEvaluationStatusResponse,
     AccessDeniedException | ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("GetPlanEvaluationStatus", input);
+  }
   getPlanExecution(
     input: GetPlanExecutionRequest,
   ): Effect.Effect<
     GetPlanExecutionResponse,
     AccessDeniedException | ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("GetPlanExecution", input);
+  }
   getPlanInRegion(
     input: GetPlanInRegionRequest,
   ): Effect.Effect<
     GetPlanInRegionResponse,
     AccessDeniedException | ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("GetPlanInRegion", input);
+  }
   listPlanExecutionEvents(
     input: ListPlanExecutionEventsRequest,
   ): Effect.Effect<
     ListPlanExecutionEventsResponse,
     AccessDeniedException | ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("ListPlanExecutionEvents", input);
+  }
   listPlanExecutions(
     input: ListPlanExecutionsRequest,
   ): Effect.Effect<
     ListPlanExecutionsResponse,
     AccessDeniedException | ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("ListPlanExecutions", input);
+  }
   listPlansInRegion(
     input: ListPlansInRegionRequest,
   ): Effect.Effect<
     ListPlansInRegionResponse,
     AccessDeniedException | CommonAwsError
-  >;
+  > {
+    return this.call("ListPlansInRegion", input);
+  }
   listRoute53HealthChecks(
     input: ListRoute53HealthChecksRequest,
   ): Effect.Effect<
@@ -59,7 +75,9 @@ export declare class ARCRegionswitch extends AWSServiceClient {
     | InternalServerException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListRoute53HealthChecks", input);
+  }
   startPlanExecution(
     input: StartPlanExecutionRequest,
   ): Effect.Effect<
@@ -69,7 +87,9 @@ export declare class ARCRegionswitch extends AWSServiceClient {
     | IllegalStateException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartPlanExecution", input);
+  }
   updatePlanExecution(
     input: UpdatePlanExecutionRequest,
   ): Effect.Effect<
@@ -78,14 +98,20 @@ export declare class ARCRegionswitch extends AWSServiceClient {
     | IllegalStateException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdatePlanExecution", input);
+  }
   updatePlanExecutionStep(
     input: UpdatePlanExecutionStepRequest,
   ): Effect.Effect<
     UpdatePlanExecutionStepResponse,
     AccessDeniedException | ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("UpdatePlanExecutionStep", input);
+  }
 }
+
+export default ARCRegionswitch;
 
 export interface AbbreviatedExecution {
   planArn: string;

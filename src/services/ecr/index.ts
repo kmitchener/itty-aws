@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class ECR extends AWSServiceClient {
+export class ECR extends AWSServiceClient {
   batchCheckLayerAvailability(
     input: BatchCheckLayerAvailabilityRequest,
   ): Effect.Effect<
@@ -11,7 +11,9 @@ export declare class ECR extends AWSServiceClient {
     | RepositoryNotFoundException
     | ServerException
     | CommonAwsError
-  >;
+  > {
+    return this.call("BatchCheckLayerAvailability", input);
+  }
   batchDeleteImage(
     input: BatchDeleteImageRequest,
   ): Effect.Effect<
@@ -20,7 +22,9 @@ export declare class ECR extends AWSServiceClient {
     | RepositoryNotFoundException
     | ServerException
     | CommonAwsError
-  >;
+  > {
+    return this.call("BatchDeleteImage", input);
+  }
   batchGetImage(
     input: BatchGetImageRequest,
   ): Effect.Effect<
@@ -31,7 +35,9 @@ export declare class ECR extends AWSServiceClient {
     | ServerException
     | UnableToGetUpstreamImageException
     | CommonAwsError
-  >;
+  > {
+    return this.call("BatchGetImage", input);
+  }
   batchGetRepositoryScanningConfiguration(
     input: BatchGetRepositoryScanningConfigurationRequest,
   ): Effect.Effect<
@@ -41,7 +47,9 @@ export declare class ECR extends AWSServiceClient {
     | ServerException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("BatchGetRepositoryScanningConfiguration", input);
+  }
   completeLayerUpload(
     input: CompleteLayerUploadRequest,
   ): Effect.Effect<
@@ -56,7 +64,9 @@ export declare class ECR extends AWSServiceClient {
     | ServerException
     | UploadNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CompleteLayerUpload", input);
+  }
   createPullThroughCacheRule(
     input: CreatePullThroughCacheRuleRequest,
   ): Effect.Effect<
@@ -71,7 +81,9 @@ export declare class ECR extends AWSServiceClient {
     | UnsupportedUpstreamRegistryException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreatePullThroughCacheRule", input);
+  }
   createRepository(
     input: CreateRepositoryRequest,
   ): Effect.Effect<
@@ -84,7 +96,9 @@ export declare class ECR extends AWSServiceClient {
     | ServerException
     | TooManyTagsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateRepository", input);
+  }
   createRepositoryCreationTemplate(
     input: CreateRepositoryCreationTemplateRequest,
   ): Effect.Effect<
@@ -95,7 +109,9 @@ export declare class ECR extends AWSServiceClient {
     | TemplateAlreadyExistsException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateRepositoryCreationTemplate", input);
+  }
   deleteLifecyclePolicy(
     input: DeleteLifecyclePolicyRequest,
   ): Effect.Effect<
@@ -106,7 +122,9 @@ export declare class ECR extends AWSServiceClient {
     | ServerException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteLifecyclePolicy", input);
+  }
   deletePullThroughCacheRule(
     input: DeletePullThroughCacheRuleRequest,
   ): Effect.Effect<
@@ -116,7 +134,9 @@ export declare class ECR extends AWSServiceClient {
     | ServerException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeletePullThroughCacheRule", input);
+  }
   deleteRegistryPolicy(
     input: DeleteRegistryPolicyRequest,
   ): Effect.Effect<
@@ -126,7 +146,9 @@ export declare class ECR extends AWSServiceClient {
     | ServerException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteRegistryPolicy", input);
+  }
   deleteRepository(
     input: DeleteRepositoryRequest,
   ): Effect.Effect<
@@ -137,7 +159,9 @@ export declare class ECR extends AWSServiceClient {
     | RepositoryNotFoundException
     | ServerException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteRepository", input);
+  }
   deleteRepositoryCreationTemplate(
     input: DeleteRepositoryCreationTemplateRequest,
   ): Effect.Effect<
@@ -147,7 +171,9 @@ export declare class ECR extends AWSServiceClient {
     | TemplateNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteRepositoryCreationTemplate", input);
+  }
   deleteRepositoryPolicy(
     input: DeleteRepositoryPolicyRequest,
   ): Effect.Effect<
@@ -157,7 +183,9 @@ export declare class ECR extends AWSServiceClient {
     | RepositoryPolicyNotFoundException
     | ServerException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteRepositoryPolicy", input);
+  }
   describeImageReplicationStatus(
     input: DescribeImageReplicationStatusRequest,
   ): Effect.Effect<
@@ -168,7 +196,9 @@ export declare class ECR extends AWSServiceClient {
     | ServerException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeImageReplicationStatus", input);
+  }
   describeImages(
     input: DescribeImagesRequest,
   ): Effect.Effect<
@@ -178,7 +208,9 @@ export declare class ECR extends AWSServiceClient {
     | RepositoryNotFoundException
     | ServerException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeImages", input);
+  }
   describeImageScanFindings(
     input: DescribeImageScanFindingsRequest,
   ): Effect.Effect<
@@ -190,7 +222,9 @@ export declare class ECR extends AWSServiceClient {
     | ServerException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeImageScanFindings", input);
+  }
   describePullThroughCacheRules(
     input: DescribePullThroughCacheRulesRequest,
   ): Effect.Effect<
@@ -200,7 +234,9 @@ export declare class ECR extends AWSServiceClient {
     | ServerException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribePullThroughCacheRules", input);
+  }
   describeRegistry(
     input: DescribeRegistryRequest,
   ): Effect.Effect<
@@ -209,7 +245,9 @@ export declare class ECR extends AWSServiceClient {
     | ServerException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeRegistry", input);
+  }
   describeRepositories(
     input: DescribeRepositoriesRequest,
   ): Effect.Effect<
@@ -218,7 +256,9 @@ export declare class ECR extends AWSServiceClient {
     | RepositoryNotFoundException
     | ServerException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeRepositories", input);
+  }
   describeRepositoryCreationTemplates(
     input: DescribeRepositoryCreationTemplatesRequest,
   ): Effect.Effect<
@@ -227,7 +267,9 @@ export declare class ECR extends AWSServiceClient {
     | ServerException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeRepositoryCreationTemplates", input);
+  }
   getAccountSetting(
     input: GetAccountSettingRequest,
   ): Effect.Effect<
@@ -236,13 +278,17 @@ export declare class ECR extends AWSServiceClient {
     | ServerException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetAccountSetting", input);
+  }
   getAuthorizationToken(
     input: GetAuthorizationTokenRequest,
   ): Effect.Effect<
     GetAuthorizationTokenResponse,
     InvalidParameterException | ServerException | CommonAwsError
-  >;
+  > {
+    return this.call("GetAuthorizationToken", input);
+  }
   getDownloadUrlForLayer(
     input: GetDownloadUrlForLayerRequest,
   ): Effect.Effect<
@@ -254,7 +300,9 @@ export declare class ECR extends AWSServiceClient {
     | ServerException
     | UnableToGetUpstreamLayerException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetDownloadUrlForLayer", input);
+  }
   getLifecyclePolicy(
     input: GetLifecyclePolicyRequest,
   ): Effect.Effect<
@@ -265,7 +313,9 @@ export declare class ECR extends AWSServiceClient {
     | ServerException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetLifecyclePolicy", input);
+  }
   getLifecyclePolicyPreview(
     input: GetLifecyclePolicyPreviewRequest,
   ): Effect.Effect<
@@ -276,7 +326,9 @@ export declare class ECR extends AWSServiceClient {
     | ServerException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetLifecyclePolicyPreview", input);
+  }
   getRegistryPolicy(
     input: GetRegistryPolicyRequest,
   ): Effect.Effect<
@@ -286,7 +338,9 @@ export declare class ECR extends AWSServiceClient {
     | ServerException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetRegistryPolicy", input);
+  }
   getRegistryScanningConfiguration(
     input: GetRegistryScanningConfigurationRequest,
   ): Effect.Effect<
@@ -295,7 +349,9 @@ export declare class ECR extends AWSServiceClient {
     | ServerException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetRegistryScanningConfiguration", input);
+  }
   getRepositoryPolicy(
     input: GetRepositoryPolicyRequest,
   ): Effect.Effect<
@@ -305,7 +361,9 @@ export declare class ECR extends AWSServiceClient {
     | RepositoryPolicyNotFoundException
     | ServerException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetRepositoryPolicy", input);
+  }
   initiateLayerUpload(
     input: InitiateLayerUploadRequest,
   ): Effect.Effect<
@@ -315,7 +373,9 @@ export declare class ECR extends AWSServiceClient {
     | RepositoryNotFoundException
     | ServerException
     | CommonAwsError
-  >;
+  > {
+    return this.call("InitiateLayerUpload", input);
+  }
   listImages(
     input: ListImagesRequest,
   ): Effect.Effect<
@@ -324,7 +384,9 @@ export declare class ECR extends AWSServiceClient {
     | RepositoryNotFoundException
     | ServerException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListImages", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
@@ -333,7 +395,9 @@ export declare class ECR extends AWSServiceClient {
     | RepositoryNotFoundException
     | ServerException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   putAccountSetting(
     input: PutAccountSettingRequest,
   ): Effect.Effect<
@@ -343,7 +407,9 @@ export declare class ECR extends AWSServiceClient {
     | ServerException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutAccountSetting", input);
+  }
   putImage(
     input: PutImageRequest,
   ): Effect.Effect<
@@ -359,7 +425,9 @@ export declare class ECR extends AWSServiceClient {
     | RepositoryNotFoundException
     | ServerException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutImage", input);
+  }
   putImageScanningConfiguration(
     input: PutImageScanningConfigurationRequest,
   ): Effect.Effect<
@@ -369,7 +437,9 @@ export declare class ECR extends AWSServiceClient {
     | ServerException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutImageScanningConfiguration", input);
+  }
   putImageTagMutability(
     input: PutImageTagMutabilityRequest,
   ): Effect.Effect<
@@ -378,7 +448,9 @@ export declare class ECR extends AWSServiceClient {
     | RepositoryNotFoundException
     | ServerException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutImageTagMutability", input);
+  }
   putLifecyclePolicy(
     input: PutLifecyclePolicyRequest,
   ): Effect.Effect<
@@ -388,7 +460,9 @@ export declare class ECR extends AWSServiceClient {
     | ServerException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutLifecyclePolicy", input);
+  }
   putRegistryPolicy(
     input: PutRegistryPolicyRequest,
   ): Effect.Effect<
@@ -397,7 +471,9 @@ export declare class ECR extends AWSServiceClient {
     | ServerException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutRegistryPolicy", input);
+  }
   putRegistryScanningConfiguration(
     input: PutRegistryScanningConfigurationRequest,
   ): Effect.Effect<
@@ -406,7 +482,9 @@ export declare class ECR extends AWSServiceClient {
     | ServerException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutRegistryScanningConfiguration", input);
+  }
   putReplicationConfiguration(
     input: PutReplicationConfigurationRequest,
   ): Effect.Effect<
@@ -415,7 +493,9 @@ export declare class ECR extends AWSServiceClient {
     | ServerException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutReplicationConfiguration", input);
+  }
   setRepositoryPolicy(
     input: SetRepositoryPolicyRequest,
   ): Effect.Effect<
@@ -424,7 +504,9 @@ export declare class ECR extends AWSServiceClient {
     | RepositoryNotFoundException
     | ServerException
     | CommonAwsError
-  >;
+  > {
+    return this.call("SetRepositoryPolicy", input);
+  }
   startImageScan(
     input: StartImageScanRequest,
   ): Effect.Effect<
@@ -437,7 +519,9 @@ export declare class ECR extends AWSServiceClient {
     | UnsupportedImageTypeException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartImageScan", input);
+  }
   startLifecyclePolicyPreview(
     input: StartLifecyclePolicyPreviewRequest,
   ): Effect.Effect<
@@ -449,7 +533,9 @@ export declare class ECR extends AWSServiceClient {
     | ServerException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartLifecyclePolicyPreview", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -460,7 +546,9 @@ export declare class ECR extends AWSServiceClient {
     | ServerException
     | TooManyTagsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
@@ -471,7 +559,9 @@ export declare class ECR extends AWSServiceClient {
     | ServerException
     | TooManyTagsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
   updatePullThroughCacheRule(
     input: UpdatePullThroughCacheRuleRequest,
   ): Effect.Effect<
@@ -484,7 +574,9 @@ export declare class ECR extends AWSServiceClient {
     | UnableToDecryptSecretValueException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdatePullThroughCacheRule", input);
+  }
   updateRepositoryCreationTemplate(
     input: UpdateRepositoryCreationTemplateRequest,
   ): Effect.Effect<
@@ -494,7 +586,9 @@ export declare class ECR extends AWSServiceClient {
     | TemplateNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateRepositoryCreationTemplate", input);
+  }
   uploadLayerPart(
     input: UploadLayerPartRequest,
   ): Effect.Effect<
@@ -507,7 +601,9 @@ export declare class ECR extends AWSServiceClient {
     | ServerException
     | UploadNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UploadLayerPart", input);
+  }
   validatePullThroughCacheRule(
     input: ValidatePullThroughCacheRuleRequest,
   ): Effect.Effect<
@@ -517,10 +613,14 @@ export declare class ECR extends AWSServiceClient {
     | ServerException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ValidatePullThroughCacheRule", input);
+  }
 }
 
-export declare class Ecr extends ECR {}
+export class Ecr extends ECR {}
+
+export default ECR;
 
 export type AccountSettingName = string;
 

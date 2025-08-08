@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class AppSync extends AWSServiceClient {
+export class AppSync extends AWSServiceClient {
   associateApi(
     input: AssociateApiRequest,
   ): Effect.Effect<
@@ -12,7 +12,9 @@ export declare class AppSync extends AWSServiceClient {
     | InternalFailureException
     | NotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AssociateApi", input);
+  }
   associateMergedGraphqlApi(
     input: AssociateMergedGraphqlApiRequest,
   ): Effect.Effect<
@@ -24,7 +26,9 @@ export declare class AppSync extends AWSServiceClient {
     | NotFoundException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AssociateMergedGraphqlApi", input);
+  }
   associateSourceGraphqlApi(
     input: AssociateSourceGraphqlApiRequest,
   ): Effect.Effect<
@@ -36,7 +40,9 @@ export declare class AppSync extends AWSServiceClient {
     | NotFoundException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AssociateSourceGraphqlApi", input);
+  }
   createApi(
     input: CreateApiRequest,
   ): Effect.Effect<
@@ -47,7 +53,9 @@ export declare class AppSync extends AWSServiceClient {
     | ServiceQuotaExceededException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateApi", input);
+  }
   createApiCache(
     input: CreateApiCacheRequest,
   ): Effect.Effect<
@@ -58,7 +66,9 @@ export declare class AppSync extends AWSServiceClient {
     | NotFoundException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateApiCache", input);
+  }
   createApiKey(
     input: CreateApiKeyRequest,
   ): Effect.Effect<
@@ -71,7 +81,9 @@ export declare class AppSync extends AWSServiceClient {
     | NotFoundException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateApiKey", input);
+  }
   createChannelNamespace(
     input: CreateChannelNamespaceRequest,
   ): Effect.Effect<
@@ -84,7 +96,9 @@ export declare class AppSync extends AWSServiceClient {
     | ServiceQuotaExceededException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateChannelNamespace", input);
+  }
   createDataSource(
     input: CreateDataSourceRequest,
   ): Effect.Effect<
@@ -95,7 +109,9 @@ export declare class AppSync extends AWSServiceClient {
     | NotFoundException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateDataSource", input);
+  }
   createDomainName(
     input: CreateDomainNameRequest,
   ): Effect.Effect<
@@ -104,7 +120,9 @@ export declare class AppSync extends AWSServiceClient {
     | BadRequestException
     | InternalFailureException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateDomainName", input);
+  }
   createFunction(
     input: CreateFunctionRequest,
   ): Effect.Effect<
@@ -115,7 +133,9 @@ export declare class AppSync extends AWSServiceClient {
     | NotFoundException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateFunction", input);
+  }
   createGraphqlApi(
     input: CreateGraphqlApiRequest,
   ): Effect.Effect<
@@ -127,7 +147,9 @@ export declare class AppSync extends AWSServiceClient {
     | LimitExceededException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateGraphqlApi", input);
+  }
   createResolver(
     input: CreateResolverRequest,
   ): Effect.Effect<
@@ -138,7 +160,9 @@ export declare class AppSync extends AWSServiceClient {
     | NotFoundException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateResolver", input);
+  }
   createType(
     input: CreateTypeRequest,
   ): Effect.Effect<
@@ -149,7 +173,9 @@ export declare class AppSync extends AWSServiceClient {
     | NotFoundException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateType", input);
+  }
   deleteApi(
     input: DeleteApiRequest,
   ): Effect.Effect<
@@ -161,7 +187,9 @@ export declare class AppSync extends AWSServiceClient {
     | NotFoundException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteApi", input);
+  }
   deleteApiCache(
     input: DeleteApiCacheRequest,
   ): Effect.Effect<
@@ -172,7 +200,9 @@ export declare class AppSync extends AWSServiceClient {
     | NotFoundException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteApiCache", input);
+  }
   deleteApiKey(
     input: DeleteApiKeyRequest,
   ): Effect.Effect<
@@ -182,7 +212,9 @@ export declare class AppSync extends AWSServiceClient {
     | NotFoundException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteApiKey", input);
+  }
   deleteChannelNamespace(
     input: DeleteChannelNamespaceRequest,
   ): Effect.Effect<
@@ -194,7 +226,9 @@ export declare class AppSync extends AWSServiceClient {
     | NotFoundException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteChannelNamespace", input);
+  }
   deleteDataSource(
     input: DeleteDataSourceRequest,
   ): Effect.Effect<
@@ -205,7 +239,9 @@ export declare class AppSync extends AWSServiceClient {
     | NotFoundException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteDataSource", input);
+  }
   deleteDomainName(
     input: DeleteDomainNameRequest,
   ): Effect.Effect<
@@ -216,7 +252,9 @@ export declare class AppSync extends AWSServiceClient {
     | InternalFailureException
     | NotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteDomainName", input);
+  }
   deleteFunction(
     input: DeleteFunctionRequest,
   ): Effect.Effect<
@@ -227,7 +265,9 @@ export declare class AppSync extends AWSServiceClient {
     | NotFoundException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteFunction", input);
+  }
   deleteGraphqlApi(
     input: DeleteGraphqlApiRequest,
   ): Effect.Effect<
@@ -239,7 +279,9 @@ export declare class AppSync extends AWSServiceClient {
     | NotFoundException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteGraphqlApi", input);
+  }
   deleteResolver(
     input: DeleteResolverRequest,
   ): Effect.Effect<
@@ -250,7 +292,9 @@ export declare class AppSync extends AWSServiceClient {
     | NotFoundException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteResolver", input);
+  }
   deleteType(
     input: DeleteTypeRequest,
   ): Effect.Effect<
@@ -261,7 +305,9 @@ export declare class AppSync extends AWSServiceClient {
     | NotFoundException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteType", input);
+  }
   disassociateApi(
     input: DisassociateApiRequest,
   ): Effect.Effect<
@@ -272,7 +318,9 @@ export declare class AppSync extends AWSServiceClient {
     | InternalFailureException
     | NotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DisassociateApi", input);
+  }
   disassociateMergedGraphqlApi(
     input: DisassociateMergedGraphqlApiRequest,
   ): Effect.Effect<
@@ -283,7 +331,9 @@ export declare class AppSync extends AWSServiceClient {
     | NotFoundException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DisassociateMergedGraphqlApi", input);
+  }
   disassociateSourceGraphqlApi(
     input: DisassociateSourceGraphqlApiRequest,
   ): Effect.Effect<
@@ -294,7 +344,9 @@ export declare class AppSync extends AWSServiceClient {
     | NotFoundException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DisassociateSourceGraphqlApi", input);
+  }
   evaluateCode(
     input: EvaluateCodeRequest,
   ): Effect.Effect<
@@ -303,7 +355,9 @@ export declare class AppSync extends AWSServiceClient {
     | BadRequestException
     | InternalFailureException
     | CommonAwsError
-  >;
+  > {
+    return this.call("EvaluateCode", input);
+  }
   evaluateMappingTemplate(
     input: EvaluateMappingTemplateRequest,
   ): Effect.Effect<
@@ -312,7 +366,9 @@ export declare class AppSync extends AWSServiceClient {
     | BadRequestException
     | InternalFailureException
     | CommonAwsError
-  >;
+  > {
+    return this.call("EvaluateMappingTemplate", input);
+  }
   flushApiCache(
     input: FlushApiCacheRequest,
   ): Effect.Effect<
@@ -323,7 +379,9 @@ export declare class AppSync extends AWSServiceClient {
     | NotFoundException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("FlushApiCache", input);
+  }
   getApi(
     input: GetApiRequest,
   ): Effect.Effect<
@@ -334,7 +392,9 @@ export declare class AppSync extends AWSServiceClient {
     | NotFoundException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetApi", input);
+  }
   getApiAssociation(
     input: GetApiAssociationRequest,
   ): Effect.Effect<
@@ -344,7 +404,9 @@ export declare class AppSync extends AWSServiceClient {
     | InternalFailureException
     | NotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetApiAssociation", input);
+  }
   getApiCache(
     input: GetApiCacheRequest,
   ): Effect.Effect<
@@ -355,7 +417,9 @@ export declare class AppSync extends AWSServiceClient {
     | NotFoundException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetApiCache", input);
+  }
   getChannelNamespace(
     input: GetChannelNamespaceRequest,
   ): Effect.Effect<
@@ -366,7 +430,9 @@ export declare class AppSync extends AWSServiceClient {
     | NotFoundException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetChannelNamespace", input);
+  }
   getDataSource(
     input: GetDataSourceRequest,
   ): Effect.Effect<
@@ -377,7 +443,9 @@ export declare class AppSync extends AWSServiceClient {
     | NotFoundException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetDataSource", input);
+  }
   getDataSourceIntrospection(
     input: GetDataSourceIntrospectionRequest,
   ): Effect.Effect<
@@ -386,7 +454,9 @@ export declare class AppSync extends AWSServiceClient {
     | InternalFailureException
     | NotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetDataSourceIntrospection", input);
+  }
   getDomainName(
     input: GetDomainNameRequest,
   ): Effect.Effect<
@@ -396,7 +466,9 @@ export declare class AppSync extends AWSServiceClient {
     | InternalFailureException
     | NotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetDomainName", input);
+  }
   getFunction(
     input: GetFunctionRequest,
   ): Effect.Effect<
@@ -405,7 +477,9 @@ export declare class AppSync extends AWSServiceClient {
     | NotFoundException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetFunction", input);
+  }
   getGraphqlApi(
     input: GetGraphqlApiRequest,
   ): Effect.Effect<
@@ -416,7 +490,9 @@ export declare class AppSync extends AWSServiceClient {
     | NotFoundException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetGraphqlApi", input);
+  }
   getGraphqlApiEnvironmentVariables(
     input: GetGraphqlApiEnvironmentVariablesRequest,
   ): Effect.Effect<
@@ -427,7 +503,9 @@ export declare class AppSync extends AWSServiceClient {
     | NotFoundException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetGraphqlApiEnvironmentVariables", input);
+  }
   getIntrospectionSchema(
     input: GetIntrospectionSchemaRequest,
   ): Effect.Effect<
@@ -437,7 +515,9 @@ export declare class AppSync extends AWSServiceClient {
     | NotFoundException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetIntrospectionSchema", input);
+  }
   getResolver(
     input: GetResolverRequest,
   ): Effect.Effect<
@@ -446,7 +526,9 @@ export declare class AppSync extends AWSServiceClient {
     | NotFoundException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetResolver", input);
+  }
   getSchemaCreationStatus(
     input: GetSchemaCreationStatusRequest,
   ): Effect.Effect<
@@ -456,7 +538,9 @@ export declare class AppSync extends AWSServiceClient {
     | NotFoundException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetSchemaCreationStatus", input);
+  }
   getSourceApiAssociation(
     input: GetSourceApiAssociationRequest,
   ): Effect.Effect<
@@ -466,7 +550,9 @@ export declare class AppSync extends AWSServiceClient {
     | NotFoundException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetSourceApiAssociation", input);
+  }
   getType(
     input: GetTypeRequest,
   ): Effect.Effect<
@@ -477,7 +563,9 @@ export declare class AppSync extends AWSServiceClient {
     | NotFoundException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetType", input);
+  }
   listApiKeys(
     input: ListApiKeysRequest,
   ): Effect.Effect<
@@ -487,7 +575,9 @@ export declare class AppSync extends AWSServiceClient {
     | NotFoundException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListApiKeys", input);
+  }
   listApis(
     input: ListApisRequest,
   ): Effect.Effect<
@@ -496,7 +586,9 @@ export declare class AppSync extends AWSServiceClient {
     | InternalFailureException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListApis", input);
+  }
   listChannelNamespaces(
     input: ListChannelNamespacesRequest,
   ): Effect.Effect<
@@ -506,7 +598,9 @@ export declare class AppSync extends AWSServiceClient {
     | NotFoundException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListChannelNamespaces", input);
+  }
   listDataSources(
     input: ListDataSourcesRequest,
   ): Effect.Effect<
@@ -516,7 +610,9 @@ export declare class AppSync extends AWSServiceClient {
     | NotFoundException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListDataSources", input);
+  }
   listDomainNames(
     input: ListDomainNamesRequest,
   ): Effect.Effect<
@@ -525,7 +621,9 @@ export declare class AppSync extends AWSServiceClient {
     | BadRequestException
     | InternalFailureException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListDomainNames", input);
+  }
   listFunctions(
     input: ListFunctionsRequest,
   ): Effect.Effect<
@@ -535,7 +633,9 @@ export declare class AppSync extends AWSServiceClient {
     | NotFoundException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListFunctions", input);
+  }
   listGraphqlApis(
     input: ListGraphqlApisRequest,
   ): Effect.Effect<
@@ -544,7 +644,9 @@ export declare class AppSync extends AWSServiceClient {
     | InternalFailureException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListGraphqlApis", input);
+  }
   listResolvers(
     input: ListResolversRequest,
   ): Effect.Effect<
@@ -554,7 +656,9 @@ export declare class AppSync extends AWSServiceClient {
     | NotFoundException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListResolvers", input);
+  }
   listResolversByFunction(
     input: ListResolversByFunctionRequest,
   ): Effect.Effect<
@@ -564,7 +668,9 @@ export declare class AppSync extends AWSServiceClient {
     | NotFoundException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListResolversByFunction", input);
+  }
   listSourceApiAssociations(
     input: ListSourceApiAssociationsRequest,
   ): Effect.Effect<
@@ -574,7 +680,9 @@ export declare class AppSync extends AWSServiceClient {
     | NotFoundException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListSourceApiAssociations", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
@@ -586,7 +694,9 @@ export declare class AppSync extends AWSServiceClient {
     | NotFoundException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   listTypes(
     input: ListTypesRequest,
   ): Effect.Effect<
@@ -597,7 +707,9 @@ export declare class AppSync extends AWSServiceClient {
     | NotFoundException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTypes", input);
+  }
   listTypesByAssociation(
     input: ListTypesByAssociationRequest,
   ): Effect.Effect<
@@ -608,7 +720,9 @@ export declare class AppSync extends AWSServiceClient {
     | NotFoundException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTypesByAssociation", input);
+  }
   putGraphqlApiEnvironmentVariables(
     input: PutGraphqlApiEnvironmentVariablesRequest,
   ): Effect.Effect<
@@ -620,7 +734,9 @@ export declare class AppSync extends AWSServiceClient {
     | NotFoundException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutGraphqlApiEnvironmentVariables", input);
+  }
   startDataSourceIntrospection(
     input: StartDataSourceIntrospectionRequest,
   ): Effect.Effect<
@@ -630,7 +746,9 @@ export declare class AppSync extends AWSServiceClient {
     | NotFoundException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartDataSourceIntrospection", input);
+  }
   startSchemaCreation(
     input: StartSchemaCreationRequest,
   ): Effect.Effect<
@@ -641,7 +759,9 @@ export declare class AppSync extends AWSServiceClient {
     | NotFoundException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartSchemaCreation", input);
+  }
   startSchemaMerge(
     input: StartSchemaMergeRequest,
   ): Effect.Effect<
@@ -652,7 +772,9 @@ export declare class AppSync extends AWSServiceClient {
     | NotFoundException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartSchemaMerge", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -664,7 +786,9 @@ export declare class AppSync extends AWSServiceClient {
     | NotFoundException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
@@ -676,7 +800,9 @@ export declare class AppSync extends AWSServiceClient {
     | NotFoundException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
   updateApi(
     input: UpdateApiRequest,
   ): Effect.Effect<
@@ -688,7 +814,9 @@ export declare class AppSync extends AWSServiceClient {
     | NotFoundException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateApi", input);
+  }
   updateApiCache(
     input: UpdateApiCacheRequest,
   ): Effect.Effect<
@@ -699,7 +827,9 @@ export declare class AppSync extends AWSServiceClient {
     | NotFoundException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateApiCache", input);
+  }
   updateApiKey(
     input: UpdateApiKeyRequest,
   ): Effect.Effect<
@@ -711,7 +841,9 @@ export declare class AppSync extends AWSServiceClient {
     | NotFoundException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateApiKey", input);
+  }
   updateChannelNamespace(
     input: UpdateChannelNamespaceRequest,
   ): Effect.Effect<
@@ -723,7 +855,9 @@ export declare class AppSync extends AWSServiceClient {
     | NotFoundException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateChannelNamespace", input);
+  }
   updateDataSource(
     input: UpdateDataSourceRequest,
   ): Effect.Effect<
@@ -734,7 +868,9 @@ export declare class AppSync extends AWSServiceClient {
     | NotFoundException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateDataSource", input);
+  }
   updateDomainName(
     input: UpdateDomainNameRequest,
   ): Effect.Effect<
@@ -745,7 +881,9 @@ export declare class AppSync extends AWSServiceClient {
     | InternalFailureException
     | NotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateDomainName", input);
+  }
   updateFunction(
     input: UpdateFunctionRequest,
   ): Effect.Effect<
@@ -756,7 +894,9 @@ export declare class AppSync extends AWSServiceClient {
     | NotFoundException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateFunction", input);
+  }
   updateGraphqlApi(
     input: UpdateGraphqlApiRequest,
   ): Effect.Effect<
@@ -768,7 +908,9 @@ export declare class AppSync extends AWSServiceClient {
     | NotFoundException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateGraphqlApi", input);
+  }
   updateResolver(
     input: UpdateResolverRequest,
   ): Effect.Effect<
@@ -779,7 +921,9 @@ export declare class AppSync extends AWSServiceClient {
     | NotFoundException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateResolver", input);
+  }
   updateSourceApiAssociation(
     input: UpdateSourceApiAssociationRequest,
   ): Effect.Effect<
@@ -790,7 +934,9 @@ export declare class AppSync extends AWSServiceClient {
     | NotFoundException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateSourceApiAssociation", input);
+  }
   updateType(
     input: UpdateTypeRequest,
   ): Effect.Effect<
@@ -801,10 +947,14 @@ export declare class AppSync extends AWSServiceClient {
     | NotFoundException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateType", input);
+  }
 }
 
-export declare class Appsync extends AppSync {}
+export class Appsync extends AppSync {}
+
+export default AppSync;
 
 export declare class AccessDeniedException extends EffectData.TaggedError(
   "AccessDeniedException",

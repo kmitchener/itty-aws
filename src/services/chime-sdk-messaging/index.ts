@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class ChimeSDKMessaging extends AWSServiceClient {
+export class ChimeSDKMessaging extends AWSServiceClient {
   associateChannelFlow(
     input: AssociateChannelFlowRequest,
   ): Effect.Effect<
@@ -16,7 +16,9 @@ export declare class ChimeSDKMessaging extends AWSServiceClient {
     | ThrottledClientException
     | UnauthorizedClientException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AssociateChannelFlow", input);
+  }
   batchCreateChannelMembership(
     input: BatchCreateChannelMembershipRequest,
   ): Effect.Effect<
@@ -30,7 +32,9 @@ export declare class ChimeSDKMessaging extends AWSServiceClient {
     | ThrottledClientException
     | UnauthorizedClientException
     | CommonAwsError
-  >;
+  > {
+    return this.call("BatchCreateChannelMembership", input);
+  }
   channelFlowCallback(
     input: ChannelFlowCallbackRequest,
   ): Effect.Effect<
@@ -43,7 +47,9 @@ export declare class ChimeSDKMessaging extends AWSServiceClient {
     | ThrottledClientException
     | UnauthorizedClientException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ChannelFlowCallback", input);
+  }
   createChannel(
     input: CreateChannelRequest,
   ): Effect.Effect<
@@ -57,7 +63,9 @@ export declare class ChimeSDKMessaging extends AWSServiceClient {
     | ThrottledClientException
     | UnauthorizedClientException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateChannel", input);
+  }
   createChannelBan(
     input: CreateChannelBanRequest,
   ): Effect.Effect<
@@ -71,7 +79,9 @@ export declare class ChimeSDKMessaging extends AWSServiceClient {
     | ThrottledClientException
     | UnauthorizedClientException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateChannelBan", input);
+  }
   createChannelFlow(
     input: CreateChannelFlowRequest,
   ): Effect.Effect<
@@ -85,7 +95,9 @@ export declare class ChimeSDKMessaging extends AWSServiceClient {
     | ThrottledClientException
     | UnauthorizedClientException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateChannelFlow", input);
+  }
   createChannelMembership(
     input: CreateChannelMembershipRequest,
   ): Effect.Effect<
@@ -100,7 +112,9 @@ export declare class ChimeSDKMessaging extends AWSServiceClient {
     | ThrottledClientException
     | UnauthorizedClientException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateChannelMembership", input);
+  }
   createChannelModerator(
     input: CreateChannelModeratorRequest,
   ): Effect.Effect<
@@ -114,7 +128,9 @@ export declare class ChimeSDKMessaging extends AWSServiceClient {
     | ThrottledClientException
     | UnauthorizedClientException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateChannelModerator", input);
+  }
   deleteChannel(
     input: DeleteChannelRequest,
   ): Effect.Effect<
@@ -127,7 +143,9 @@ export declare class ChimeSDKMessaging extends AWSServiceClient {
     | ThrottledClientException
     | UnauthorizedClientException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteChannel", input);
+  }
   deleteChannelBan(
     input: DeleteChannelBanRequest,
   ): Effect.Effect<
@@ -139,7 +157,9 @@ export declare class ChimeSDKMessaging extends AWSServiceClient {
     | ThrottledClientException
     | UnauthorizedClientException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteChannelBan", input);
+  }
   deleteChannelFlow(
     input: DeleteChannelFlowRequest,
   ): Effect.Effect<
@@ -152,7 +172,9 @@ export declare class ChimeSDKMessaging extends AWSServiceClient {
     | ThrottledClientException
     | UnauthorizedClientException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteChannelFlow", input);
+  }
   deleteChannelMembership(
     input: DeleteChannelMembershipRequest,
   ): Effect.Effect<
@@ -165,7 +187,9 @@ export declare class ChimeSDKMessaging extends AWSServiceClient {
     | ThrottledClientException
     | UnauthorizedClientException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteChannelMembership", input);
+  }
   deleteChannelMessage(
     input: DeleteChannelMessageRequest,
   ): Effect.Effect<
@@ -177,7 +201,9 @@ export declare class ChimeSDKMessaging extends AWSServiceClient {
     | ThrottledClientException
     | UnauthorizedClientException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteChannelMessage", input);
+  }
   deleteChannelModerator(
     input: DeleteChannelModeratorRequest,
   ): Effect.Effect<
@@ -189,7 +215,9 @@ export declare class ChimeSDKMessaging extends AWSServiceClient {
     | ThrottledClientException
     | UnauthorizedClientException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteChannelModerator", input);
+  }
   deleteMessagingStreamingConfigurations(
     input: DeleteMessagingStreamingConfigurationsRequest,
   ): Effect.Effect<
@@ -201,7 +229,9 @@ export declare class ChimeSDKMessaging extends AWSServiceClient {
     | ThrottledClientException
     | UnauthorizedClientException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteMessagingStreamingConfigurations", input);
+  }
   describeChannel(
     input: DescribeChannelRequest,
   ): Effect.Effect<
@@ -213,7 +243,9 @@ export declare class ChimeSDKMessaging extends AWSServiceClient {
     | ThrottledClientException
     | UnauthorizedClientException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeChannel", input);
+  }
   describeChannelBan(
     input: DescribeChannelBanRequest,
   ): Effect.Effect<
@@ -226,7 +258,9 @@ export declare class ChimeSDKMessaging extends AWSServiceClient {
     | ThrottledClientException
     | UnauthorizedClientException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeChannelBan", input);
+  }
   describeChannelFlow(
     input: DescribeChannelFlowRequest,
   ): Effect.Effect<
@@ -238,7 +272,9 @@ export declare class ChimeSDKMessaging extends AWSServiceClient {
     | ThrottledClientException
     | UnauthorizedClientException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeChannelFlow", input);
+  }
   describeChannelMembership(
     input: DescribeChannelMembershipRequest,
   ): Effect.Effect<
@@ -251,7 +287,9 @@ export declare class ChimeSDKMessaging extends AWSServiceClient {
     | ThrottledClientException
     | UnauthorizedClientException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeChannelMembership", input);
+  }
   describeChannelMembershipForAppInstanceUser(
     input: DescribeChannelMembershipForAppInstanceUserRequest,
   ): Effect.Effect<
@@ -263,7 +301,9 @@ export declare class ChimeSDKMessaging extends AWSServiceClient {
     | ThrottledClientException
     | UnauthorizedClientException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeChannelMembershipForAppInstanceUser", input);
+  }
   describeChannelModeratedByAppInstanceUser(
     input: DescribeChannelModeratedByAppInstanceUserRequest,
   ): Effect.Effect<
@@ -275,7 +315,9 @@ export declare class ChimeSDKMessaging extends AWSServiceClient {
     | ThrottledClientException
     | UnauthorizedClientException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeChannelModeratedByAppInstanceUser", input);
+  }
   describeChannelModerator(
     input: DescribeChannelModeratorRequest,
   ): Effect.Effect<
@@ -288,7 +330,9 @@ export declare class ChimeSDKMessaging extends AWSServiceClient {
     | ThrottledClientException
     | UnauthorizedClientException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeChannelModerator", input);
+  }
   disassociateChannelFlow(
     input: DisassociateChannelFlowRequest,
   ): Effect.Effect<
@@ -302,7 +346,9 @@ export declare class ChimeSDKMessaging extends AWSServiceClient {
     | ThrottledClientException
     | UnauthorizedClientException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DisassociateChannelFlow", input);
+  }
   getChannelMembershipPreferences(
     input: GetChannelMembershipPreferencesRequest,
   ): Effect.Effect<
@@ -314,7 +360,9 @@ export declare class ChimeSDKMessaging extends AWSServiceClient {
     | ThrottledClientException
     | UnauthorizedClientException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetChannelMembershipPreferences", input);
+  }
   getChannelMessage(
     input: GetChannelMessageRequest,
   ): Effect.Effect<
@@ -327,7 +375,9 @@ export declare class ChimeSDKMessaging extends AWSServiceClient {
     | ThrottledClientException
     | UnauthorizedClientException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetChannelMessage", input);
+  }
   getChannelMessageStatus(
     input: GetChannelMessageStatusRequest,
   ): Effect.Effect<
@@ -339,7 +389,9 @@ export declare class ChimeSDKMessaging extends AWSServiceClient {
     | ThrottledClientException
     | UnauthorizedClientException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetChannelMessageStatus", input);
+  }
   getMessagingSessionEndpoint(
     input: GetMessagingSessionEndpointRequest,
   ): Effect.Effect<
@@ -350,7 +402,9 @@ export declare class ChimeSDKMessaging extends AWSServiceClient {
     | ThrottledClientException
     | UnauthorizedClientException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetMessagingSessionEndpoint", input);
+  }
   getMessagingStreamingConfigurations(
     input: GetMessagingStreamingConfigurationsRequest,
   ): Effect.Effect<
@@ -363,7 +417,9 @@ export declare class ChimeSDKMessaging extends AWSServiceClient {
     | ThrottledClientException
     | UnauthorizedClientException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetMessagingStreamingConfigurations", input);
+  }
   listChannelBans(
     input: ListChannelBansRequest,
   ): Effect.Effect<
@@ -375,7 +431,9 @@ export declare class ChimeSDKMessaging extends AWSServiceClient {
     | ThrottledClientException
     | UnauthorizedClientException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListChannelBans", input);
+  }
   listChannelFlows(
     input: ListChannelFlowsRequest,
   ): Effect.Effect<
@@ -387,7 +445,9 @@ export declare class ChimeSDKMessaging extends AWSServiceClient {
     | ThrottledClientException
     | UnauthorizedClientException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListChannelFlows", input);
+  }
   listChannelMemberships(
     input: ListChannelMembershipsRequest,
   ): Effect.Effect<
@@ -399,7 +459,9 @@ export declare class ChimeSDKMessaging extends AWSServiceClient {
     | ThrottledClientException
     | UnauthorizedClientException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListChannelMemberships", input);
+  }
   listChannelMembershipsForAppInstanceUser(
     input: ListChannelMembershipsForAppInstanceUserRequest,
   ): Effect.Effect<
@@ -411,7 +473,9 @@ export declare class ChimeSDKMessaging extends AWSServiceClient {
     | ThrottledClientException
     | UnauthorizedClientException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListChannelMembershipsForAppInstanceUser", input);
+  }
   listChannelMessages(
     input: ListChannelMessagesRequest,
   ): Effect.Effect<
@@ -423,7 +487,9 @@ export declare class ChimeSDKMessaging extends AWSServiceClient {
     | ThrottledClientException
     | UnauthorizedClientException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListChannelMessages", input);
+  }
   listChannelModerators(
     input: ListChannelModeratorsRequest,
   ): Effect.Effect<
@@ -435,7 +501,9 @@ export declare class ChimeSDKMessaging extends AWSServiceClient {
     | ThrottledClientException
     | UnauthorizedClientException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListChannelModerators", input);
+  }
   listChannels(
     input: ListChannelsRequest,
   ): Effect.Effect<
@@ -447,7 +515,9 @@ export declare class ChimeSDKMessaging extends AWSServiceClient {
     | ThrottledClientException
     | UnauthorizedClientException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListChannels", input);
+  }
   listChannelsAssociatedWithChannelFlow(
     input: ListChannelsAssociatedWithChannelFlowRequest,
   ): Effect.Effect<
@@ -459,7 +529,9 @@ export declare class ChimeSDKMessaging extends AWSServiceClient {
     | ThrottledClientException
     | UnauthorizedClientException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListChannelsAssociatedWithChannelFlow", input);
+  }
   listChannelsModeratedByAppInstanceUser(
     input: ListChannelsModeratedByAppInstanceUserRequest,
   ): Effect.Effect<
@@ -471,7 +543,9 @@ export declare class ChimeSDKMessaging extends AWSServiceClient {
     | ThrottledClientException
     | UnauthorizedClientException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListChannelsModeratedByAppInstanceUser", input);
+  }
   listSubChannels(
     input: ListSubChannelsRequest,
   ): Effect.Effect<
@@ -483,7 +557,9 @@ export declare class ChimeSDKMessaging extends AWSServiceClient {
     | ThrottledClientException
     | UnauthorizedClientException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListSubChannels", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
@@ -495,7 +571,9 @@ export declare class ChimeSDKMessaging extends AWSServiceClient {
     | ThrottledClientException
     | UnauthorizedClientException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   putChannelExpirationSettings(
     input: PutChannelExpirationSettingsRequest,
   ): Effect.Effect<
@@ -508,7 +586,9 @@ export declare class ChimeSDKMessaging extends AWSServiceClient {
     | ThrottledClientException
     | UnauthorizedClientException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutChannelExpirationSettings", input);
+  }
   putChannelMembershipPreferences(
     input: PutChannelMembershipPreferencesRequest,
   ): Effect.Effect<
@@ -521,7 +601,9 @@ export declare class ChimeSDKMessaging extends AWSServiceClient {
     | ThrottledClientException
     | UnauthorizedClientException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutChannelMembershipPreferences", input);
+  }
   putMessagingStreamingConfigurations(
     input: PutMessagingStreamingConfigurationsRequest,
   ): Effect.Effect<
@@ -535,7 +617,9 @@ export declare class ChimeSDKMessaging extends AWSServiceClient {
     | ThrottledClientException
     | UnauthorizedClientException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutMessagingStreamingConfigurations", input);
+  }
   redactChannelMessage(
     input: RedactChannelMessageRequest,
   ): Effect.Effect<
@@ -548,7 +632,9 @@ export declare class ChimeSDKMessaging extends AWSServiceClient {
     | ThrottledClientException
     | UnauthorizedClientException
     | CommonAwsError
-  >;
+  > {
+    return this.call("RedactChannelMessage", input);
+  }
   searchChannels(
     input: SearchChannelsRequest,
   ): Effect.Effect<
@@ -560,7 +646,9 @@ export declare class ChimeSDKMessaging extends AWSServiceClient {
     | ThrottledClientException
     | UnauthorizedClientException
     | CommonAwsError
-  >;
+  > {
+    return this.call("SearchChannels", input);
+  }
   sendChannelMessage(
     input: SendChannelMessageRequest,
   ): Effect.Effect<
@@ -573,7 +661,9 @@ export declare class ChimeSDKMessaging extends AWSServiceClient {
     | ThrottledClientException
     | UnauthorizedClientException
     | CommonAwsError
-  >;
+  > {
+    return this.call("SendChannelMessage", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -586,7 +676,9 @@ export declare class ChimeSDKMessaging extends AWSServiceClient {
     | ThrottledClientException
     | UnauthorizedClientException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
@@ -598,7 +690,9 @@ export declare class ChimeSDKMessaging extends AWSServiceClient {
     | ThrottledClientException
     | UnauthorizedClientException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
   updateChannel(
     input: UpdateChannelRequest,
   ): Effect.Effect<
@@ -611,7 +705,9 @@ export declare class ChimeSDKMessaging extends AWSServiceClient {
     | ThrottledClientException
     | UnauthorizedClientException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateChannel", input);
+  }
   updateChannelFlow(
     input: UpdateChannelFlowRequest,
   ): Effect.Effect<
@@ -624,7 +720,9 @@ export declare class ChimeSDKMessaging extends AWSServiceClient {
     | ThrottledClientException
     | UnauthorizedClientException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateChannelFlow", input);
+  }
   updateChannelMessage(
     input: UpdateChannelMessageRequest,
   ): Effect.Effect<
@@ -637,7 +735,9 @@ export declare class ChimeSDKMessaging extends AWSServiceClient {
     | ThrottledClientException
     | UnauthorizedClientException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateChannelMessage", input);
+  }
   updateChannelReadMarker(
     input: UpdateChannelReadMarkerRequest,
   ): Effect.Effect<
@@ -650,10 +750,14 @@ export declare class ChimeSDKMessaging extends AWSServiceClient {
     | ThrottledClientException
     | UnauthorizedClientException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateChannelReadMarker", input);
+  }
 }
 
-export declare class ChimeSdkMessaging extends ChimeSDKMessaging {}
+export class ChimeSdkMessaging extends ChimeSDKMessaging {}
+
+export default ChimeSDKMessaging;
 
 export type AllowNotifications = "ALL" | "NONE" | "FILTERED";
 export interface AppInstanceUserMembershipSummary {

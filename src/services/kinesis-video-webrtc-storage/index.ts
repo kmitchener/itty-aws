@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class KinesisVideoWebRTCStorage extends AWSServiceClient {
+export class KinesisVideoWebRTCStorage extends AWSServiceClient {
   joinStorageSession(
     input: JoinStorageSessionInput,
   ): Effect.Effect<
@@ -12,7 +12,9 @@ export declare class KinesisVideoWebRTCStorage extends AWSServiceClient {
     | InvalidArgumentException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("JoinStorageSession", input);
+  }
   joinStorageSessionAsViewer(
     input: JoinStorageSessionAsViewerInput,
   ): Effect.Effect<
@@ -22,10 +24,14 @@ export declare class KinesisVideoWebRTCStorage extends AWSServiceClient {
     | InvalidArgumentException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("JoinStorageSessionAsViewer", input);
+  }
 }
 
-export declare class KinesisVideoWebrtcStorage extends KinesisVideoWebRTCStorage {}
+export class KinesisVideoWebrtcStorage extends KinesisVideoWebRTCStorage {}
+
+export default KinesisVideoWebRTCStorage;
 
 export declare class AccessDeniedException extends EffectData.TaggedError(
   "AccessDeniedException",

@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class MediaConnect extends AWSServiceClient {
+export class MediaConnect extends AWSServiceClient {
   listEntitlements(
     input: ListEntitlementsRequest,
   ): Effect.Effect<
@@ -12,7 +12,9 @@ export declare class MediaConnect extends AWSServiceClient {
     | ServiceUnavailableException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListEntitlements", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
@@ -21,7 +23,9 @@ export declare class MediaConnect extends AWSServiceClient {
     | InternalServerErrorException
     | NotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -30,7 +34,9 @@ export declare class MediaConnect extends AWSServiceClient {
     | InternalServerErrorException
     | NotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
@@ -39,10 +45,14 @@ export declare class MediaConnect extends AWSServiceClient {
     | InternalServerErrorException
     | NotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
 }
 
-export declare class Mediaconnect extends MediaConnect {}
+export class Mediaconnect extends MediaConnect {}
+
+export default MediaConnect;
 
 export type __listOfAddBridgeOutputRequest = Array<AddBridgeOutputRequest>;
 export type __listOfAddBridgeSourceRequest = Array<AddBridgeSourceRequest>;

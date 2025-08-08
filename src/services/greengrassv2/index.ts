@@ -2,13 +2,15 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class GreengrassV2 extends AWSServiceClient {
+export class GreengrassV2 extends AWSServiceClient {
   associateServiceRoleToAccount(
     input: AssociateServiceRoleToAccountRequest,
   ): Effect.Effect<
     AssociateServiceRoleToAccountResponse,
     InternalServerException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("AssociateServiceRoleToAccount", input);
+  }
   batchAssociateClientDeviceWithCoreDevice(
     input: BatchAssociateClientDeviceWithCoreDeviceRequest,
   ): Effect.Effect<
@@ -19,7 +21,9 @@ export declare class GreengrassV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("BatchAssociateClientDeviceWithCoreDevice", input);
+  }
   batchDisassociateClientDeviceFromCoreDevice(
     input: BatchDisassociateClientDeviceFromCoreDeviceRequest,
   ): Effect.Effect<
@@ -30,7 +34,9 @@ export declare class GreengrassV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("BatchDisassociateClientDeviceFromCoreDevice", input);
+  }
   cancelDeployment(
     input: CancelDeploymentRequest,
   ): Effect.Effect<
@@ -42,7 +48,9 @@ export declare class GreengrassV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CancelDeployment", input);
+  }
   createComponentVersion(
     input: CreateComponentVersionRequest,
   ): Effect.Effect<
@@ -55,7 +63,9 @@ export declare class GreengrassV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateComponentVersion", input);
+  }
   createDeployment(
     input: CreateDeploymentRequest,
   ): Effect.Effect<
@@ -68,7 +78,9 @@ export declare class GreengrassV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateDeployment", input);
+  }
   deleteComponent(
     input: DeleteComponentRequest,
   ): Effect.Effect<
@@ -80,7 +92,9 @@ export declare class GreengrassV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteComponent", input);
+  }
   deleteCoreDevice(
     input: DeleteCoreDeviceRequest,
   ): Effect.Effect<
@@ -92,7 +106,9 @@ export declare class GreengrassV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteCoreDevice", input);
+  }
   deleteDeployment(
     input: DeleteDeploymentRequest,
   ): Effect.Effect<
@@ -104,7 +120,9 @@ export declare class GreengrassV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteDeployment", input);
+  }
   describeComponent(
     input: DescribeComponentRequest,
   ): Effect.Effect<
@@ -115,13 +133,17 @@ export declare class GreengrassV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeComponent", input);
+  }
   disassociateServiceRoleFromAccount(
     input: DisassociateServiceRoleFromAccountRequest,
   ): Effect.Effect<
     DisassociateServiceRoleFromAccountResponse,
     InternalServerException | CommonAwsError
-  >;
+  > {
+    return this.call("DisassociateServiceRoleFromAccount", input);
+  }
   getComponent(
     input: GetComponentRequest,
   ): Effect.Effect<
@@ -132,7 +154,9 @@ export declare class GreengrassV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetComponent", input);
+  }
   getComponentVersionArtifact(
     input: GetComponentVersionArtifactRequest,
   ): Effect.Effect<
@@ -143,13 +167,17 @@ export declare class GreengrassV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetComponentVersionArtifact", input);
+  }
   getConnectivityInfo(
     input: GetConnectivityInfoRequest,
   ): Effect.Effect<
     GetConnectivityInfoResponse,
     InternalServerException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("GetConnectivityInfo", input);
+  }
   getCoreDevice(
     input: GetCoreDeviceRequest,
   ): Effect.Effect<
@@ -160,7 +188,9 @@ export declare class GreengrassV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetCoreDevice", input);
+  }
   getDeployment(
     input: GetDeploymentRequest,
   ): Effect.Effect<
@@ -171,13 +201,17 @@ export declare class GreengrassV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetDeployment", input);
+  }
   getServiceRoleForAccount(
     input: GetServiceRoleForAccountRequest,
   ): Effect.Effect<
     GetServiceRoleForAccountResponse,
     InternalServerException | CommonAwsError
-  >;
+  > {
+    return this.call("GetServiceRoleForAccount", input);
+  }
   listClientDevicesAssociatedWithCoreDevice(
     input: ListClientDevicesAssociatedWithCoreDeviceRequest,
   ): Effect.Effect<
@@ -188,7 +222,9 @@ export declare class GreengrassV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListClientDevicesAssociatedWithCoreDevice", input);
+  }
   listComponents(
     input: ListComponentsRequest,
   ): Effect.Effect<
@@ -199,7 +235,9 @@ export declare class GreengrassV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListComponents", input);
+  }
   listComponentVersions(
     input: ListComponentVersionsRequest,
   ): Effect.Effect<
@@ -210,7 +248,9 @@ export declare class GreengrassV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListComponentVersions", input);
+  }
   listCoreDevices(
     input: ListCoreDevicesRequest,
   ): Effect.Effect<
@@ -220,7 +260,9 @@ export declare class GreengrassV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListCoreDevices", input);
+  }
   listDeployments(
     input: ListDeploymentsRequest,
   ): Effect.Effect<
@@ -230,7 +272,9 @@ export declare class GreengrassV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListDeployments", input);
+  }
   listEffectiveDeployments(
     input: ListEffectiveDeploymentsRequest,
   ): Effect.Effect<
@@ -241,7 +285,9 @@ export declare class GreengrassV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListEffectiveDeployments", input);
+  }
   listInstalledComponents(
     input: ListInstalledComponentsRequest,
   ): Effect.Effect<
@@ -252,7 +298,9 @@ export declare class GreengrassV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListInstalledComponents", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
@@ -261,7 +309,9 @@ export declare class GreengrassV2 extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   resolveComponentCandidates(
     input: ResolveComponentCandidatesRequest,
   ): Effect.Effect<
@@ -273,7 +323,9 @@ export declare class GreengrassV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ResolveComponentCandidates", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -282,7 +334,9 @@ export declare class GreengrassV2 extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
@@ -291,16 +345,22 @@ export declare class GreengrassV2 extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
   updateConnectivityInfo(
     input: UpdateConnectivityInfoRequest,
   ): Effect.Effect<
     UpdateConnectivityInfoResponse,
     InternalServerException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateConnectivityInfo", input);
+  }
 }
 
-export declare class Greengrassv2 extends GreengrassV2 {}
+export class Greengrassv2 extends GreengrassV2 {}
+
+export default GreengrassV2;
 
 export declare class AccessDeniedException extends EffectData.TaggedError(
   "AccessDeniedException",

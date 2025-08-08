@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class Inspector extends AWSServiceClient {
+export class Inspector extends AWSServiceClient {
   addAttributesToFindings(
     input: AddAttributesToFindingsRequest,
   ): Effect.Effect<
@@ -13,7 +13,9 @@ export declare class Inspector extends AWSServiceClient {
     | NoSuchEntityException
     | ServiceTemporarilyUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AddAttributesToFindings", input);
+  }
   createAssessmentTarget(
     input: CreateAssessmentTargetRequest,
   ): Effect.Effect<
@@ -26,7 +28,9 @@ export declare class Inspector extends AWSServiceClient {
     | NoSuchEntityException
     | ServiceTemporarilyUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateAssessmentTarget", input);
+  }
   createAssessmentTemplate(
     input: CreateAssessmentTemplateRequest,
   ): Effect.Effect<
@@ -38,7 +42,9 @@ export declare class Inspector extends AWSServiceClient {
     | NoSuchEntityException
     | ServiceTemporarilyUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateAssessmentTemplate", input);
+  }
   createExclusionsPreview(
     input: CreateExclusionsPreviewRequest,
   ): Effect.Effect<
@@ -50,7 +56,9 @@ export declare class Inspector extends AWSServiceClient {
     | PreviewGenerationInProgressException
     | ServiceTemporarilyUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateExclusionsPreview", input);
+  }
   createResourceGroup(
     input: CreateResourceGroupRequest,
   ): Effect.Effect<
@@ -61,7 +69,9 @@ export declare class Inspector extends AWSServiceClient {
     | LimitExceededException
     | ServiceTemporarilyUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateResourceGroup", input);
+  }
   deleteAssessmentRun(
     input: DeleteAssessmentRunRequest,
   ): Effect.Effect<
@@ -73,7 +83,9 @@ export declare class Inspector extends AWSServiceClient {
     | NoSuchEntityException
     | ServiceTemporarilyUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteAssessmentRun", input);
+  }
   deleteAssessmentTarget(
     input: DeleteAssessmentTargetRequest,
   ): Effect.Effect<
@@ -85,7 +97,9 @@ export declare class Inspector extends AWSServiceClient {
     | NoSuchEntityException
     | ServiceTemporarilyUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteAssessmentTarget", input);
+  }
   deleteAssessmentTemplate(
     input: DeleteAssessmentTemplateRequest,
   ): Effect.Effect<
@@ -97,53 +111,71 @@ export declare class Inspector extends AWSServiceClient {
     | NoSuchEntityException
     | ServiceTemporarilyUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteAssessmentTemplate", input);
+  }
   describeAssessmentRuns(
     input: DescribeAssessmentRunsRequest,
   ): Effect.Effect<
     DescribeAssessmentRunsResponse,
     InternalException | InvalidInputException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeAssessmentRuns", input);
+  }
   describeAssessmentTargets(
     input: DescribeAssessmentTargetsRequest,
   ): Effect.Effect<
     DescribeAssessmentTargetsResponse,
     InternalException | InvalidInputException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeAssessmentTargets", input);
+  }
   describeAssessmentTemplates(
     input: DescribeAssessmentTemplatesRequest,
   ): Effect.Effect<
     DescribeAssessmentTemplatesResponse,
     InternalException | InvalidInputException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeAssessmentTemplates", input);
+  }
   describeCrossAccountAccessRole(input: {}): Effect.Effect<
     DescribeCrossAccountAccessRoleResponse,
     InternalException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeCrossAccountAccessRole", input);
+  }
   describeExclusions(
     input: DescribeExclusionsRequest,
   ): Effect.Effect<
     DescribeExclusionsResponse,
     InternalException | InvalidInputException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeExclusions", input);
+  }
   describeFindings(
     input: DescribeFindingsRequest,
   ): Effect.Effect<
     DescribeFindingsResponse,
     InternalException | InvalidInputException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeFindings", input);
+  }
   describeResourceGroups(
     input: DescribeResourceGroupsRequest,
   ): Effect.Effect<
     DescribeResourceGroupsResponse,
     InternalException | InvalidInputException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeResourceGroups", input);
+  }
   describeRulesPackages(
     input: DescribeRulesPackagesRequest,
   ): Effect.Effect<
     DescribeRulesPackagesResponse,
     InternalException | InvalidInputException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeRulesPackages", input);
+  }
   getAssessmentReport(
     input: GetAssessmentReportRequest,
   ): Effect.Effect<
@@ -156,7 +188,9 @@ export declare class Inspector extends AWSServiceClient {
     | ServiceTemporarilyUnavailableException
     | UnsupportedFeatureException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetAssessmentReport", input);
+  }
   getExclusionsPreview(
     input: GetExclusionsPreviewRequest,
   ): Effect.Effect<
@@ -166,7 +200,9 @@ export declare class Inspector extends AWSServiceClient {
     | InvalidInputException
     | NoSuchEntityException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetExclusionsPreview", input);
+  }
   getTelemetryMetadata(
     input: GetTelemetryMetadataRequest,
   ): Effect.Effect<
@@ -176,7 +212,9 @@ export declare class Inspector extends AWSServiceClient {
     | InvalidInputException
     | NoSuchEntityException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetTelemetryMetadata", input);
+  }
   listAssessmentRunAgents(
     input: ListAssessmentRunAgentsRequest,
   ): Effect.Effect<
@@ -186,7 +224,9 @@ export declare class Inspector extends AWSServiceClient {
     | InvalidInputException
     | NoSuchEntityException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListAssessmentRunAgents", input);
+  }
   listAssessmentRuns(
     input: ListAssessmentRunsRequest,
   ): Effect.Effect<
@@ -196,7 +236,9 @@ export declare class Inspector extends AWSServiceClient {
     | InvalidInputException
     | NoSuchEntityException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListAssessmentRuns", input);
+  }
   listAssessmentTargets(
     input: ListAssessmentTargetsRequest,
   ): Effect.Effect<
@@ -205,7 +247,9 @@ export declare class Inspector extends AWSServiceClient {
     | InternalException
     | InvalidInputException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListAssessmentTargets", input);
+  }
   listAssessmentTemplates(
     input: ListAssessmentTemplatesRequest,
   ): Effect.Effect<
@@ -215,7 +259,9 @@ export declare class Inspector extends AWSServiceClient {
     | InvalidInputException
     | NoSuchEntityException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListAssessmentTemplates", input);
+  }
   listEventSubscriptions(
     input: ListEventSubscriptionsRequest,
   ): Effect.Effect<
@@ -225,7 +271,9 @@ export declare class Inspector extends AWSServiceClient {
     | InvalidInputException
     | NoSuchEntityException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListEventSubscriptions", input);
+  }
   listExclusions(
     input: ListExclusionsRequest,
   ): Effect.Effect<
@@ -235,7 +283,9 @@ export declare class Inspector extends AWSServiceClient {
     | InvalidInputException
     | NoSuchEntityException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListExclusions", input);
+  }
   listFindings(
     input: ListFindingsRequest,
   ): Effect.Effect<
@@ -245,7 +295,9 @@ export declare class Inspector extends AWSServiceClient {
     | InvalidInputException
     | NoSuchEntityException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListFindings", input);
+  }
   listRulesPackages(
     input: ListRulesPackagesRequest,
   ): Effect.Effect<
@@ -254,7 +306,9 @@ export declare class Inspector extends AWSServiceClient {
     | InternalException
     | InvalidInputException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListRulesPackages", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
@@ -264,7 +318,9 @@ export declare class Inspector extends AWSServiceClient {
     | InvalidInputException
     | NoSuchEntityException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   previewAgents(
     input: PreviewAgentsRequest,
   ): Effect.Effect<
@@ -275,7 +331,9 @@ export declare class Inspector extends AWSServiceClient {
     | InvalidInputException
     | NoSuchEntityException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PreviewAgents", input);
+  }
   registerCrossAccountAccessRole(
     input: RegisterCrossAccountAccessRoleRequest,
   ): Effect.Effect<
@@ -286,7 +344,9 @@ export declare class Inspector extends AWSServiceClient {
     | InvalidInputException
     | ServiceTemporarilyUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("RegisterCrossAccountAccessRole", input);
+  }
   removeAttributesFromFindings(
     input: RemoveAttributesFromFindingsRequest,
   ): Effect.Effect<
@@ -297,7 +357,9 @@ export declare class Inspector extends AWSServiceClient {
     | NoSuchEntityException
     | ServiceTemporarilyUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("RemoveAttributesFromFindings", input);
+  }
   setTagsForResource(
     input: SetTagsForResourceRequest,
   ): Effect.Effect<
@@ -308,7 +370,9 @@ export declare class Inspector extends AWSServiceClient {
     | NoSuchEntityException
     | ServiceTemporarilyUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("SetTagsForResource", input);
+  }
   startAssessmentRun(
     input: StartAssessmentRunRequest,
   ): Effect.Effect<
@@ -322,7 +386,9 @@ export declare class Inspector extends AWSServiceClient {
     | NoSuchEntityException
     | ServiceTemporarilyUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartAssessmentRun", input);
+  }
   stopAssessmentRun(
     input: StopAssessmentRunRequest,
   ): Effect.Effect<
@@ -333,7 +399,9 @@ export declare class Inspector extends AWSServiceClient {
     | NoSuchEntityException
     | ServiceTemporarilyUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StopAssessmentRun", input);
+  }
   subscribeToEvent(
     input: SubscribeToEventRequest,
   ): Effect.Effect<
@@ -345,7 +413,9 @@ export declare class Inspector extends AWSServiceClient {
     | NoSuchEntityException
     | ServiceTemporarilyUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("SubscribeToEvent", input);
+  }
   unsubscribeFromEvent(
     input: UnsubscribeFromEventRequest,
   ): Effect.Effect<
@@ -356,7 +426,9 @@ export declare class Inspector extends AWSServiceClient {
     | NoSuchEntityException
     | ServiceTemporarilyUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UnsubscribeFromEvent", input);
+  }
   updateAssessmentTarget(
     input: UpdateAssessmentTargetRequest,
   ): Effect.Effect<
@@ -367,8 +439,12 @@ export declare class Inspector extends AWSServiceClient {
     | NoSuchEntityException
     | ServiceTemporarilyUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateAssessmentTarget", input);
+  }
 }
+
+export default Inspector;
 
 export type AccessDeniedErrorCode =
   | "ACCESS_DENIED_TO_ASSESSMENT_TARGET"

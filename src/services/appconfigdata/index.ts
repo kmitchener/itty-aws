@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class AppConfigData extends AWSServiceClient {
+export class AppConfigData extends AWSServiceClient {
   getLatestConfiguration(
     input: GetLatestConfigurationRequest,
   ): Effect.Effect<
@@ -12,10 +12,14 @@ export declare class AppConfigData extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetLatestConfiguration", input);
+  }
 }
 
-export declare class Appconfigdata extends AppConfigData {}
+export class Appconfigdata extends AppConfigData {}
+
+export default AppConfigData;
 
 interface _BadRequestDetails {
   InvalidParameters?: Record<string, InvalidParameterDetail>;

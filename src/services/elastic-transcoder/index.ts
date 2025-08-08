@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class ElasticTranscoder extends AWSServiceClient {
+export class ElasticTranscoder extends AWSServiceClient {
   cancelJob(
     input: CancelJobRequest,
   ): Effect.Effect<
@@ -14,7 +14,9 @@ export declare class ElasticTranscoder extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CancelJob", input);
+  }
   createJob(
     input: CreateJobRequest,
   ): Effect.Effect<
@@ -26,7 +28,9 @@ export declare class ElasticTranscoder extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateJob", input);
+  }
   createPipeline(
     input: CreatePipelineRequest,
   ): Effect.Effect<
@@ -38,7 +42,9 @@ export declare class ElasticTranscoder extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreatePipeline", input);
+  }
   createPreset(
     input: CreatePresetRequest,
   ): Effect.Effect<
@@ -49,7 +55,9 @@ export declare class ElasticTranscoder extends AWSServiceClient {
     | LimitExceededException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreatePreset", input);
+  }
   deletePipeline(
     input: DeletePipelineRequest,
   ): Effect.Effect<
@@ -61,7 +69,9 @@ export declare class ElasticTranscoder extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeletePipeline", input);
+  }
   deletePreset(
     input: DeletePresetRequest,
   ): Effect.Effect<
@@ -72,7 +82,9 @@ export declare class ElasticTranscoder extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeletePreset", input);
+  }
   listJobsByPipeline(
     input: ListJobsByPipelineRequest,
   ): Effect.Effect<
@@ -83,7 +95,9 @@ export declare class ElasticTranscoder extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListJobsByPipeline", input);
+  }
   listJobsByStatus(
     input: ListJobsByStatusRequest,
   ): Effect.Effect<
@@ -94,7 +108,9 @@ export declare class ElasticTranscoder extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListJobsByStatus", input);
+  }
   listPipelines(
     input: ListPipelinesRequest,
   ): Effect.Effect<
@@ -104,7 +120,9 @@ export declare class ElasticTranscoder extends AWSServiceClient {
     | InternalServiceException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListPipelines", input);
+  }
   listPresets(
     input: ListPresetsRequest,
   ): Effect.Effect<
@@ -114,7 +132,9 @@ export declare class ElasticTranscoder extends AWSServiceClient {
     | InternalServiceException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListPresets", input);
+  }
   readJob(
     input: ReadJobRequest,
   ): Effect.Effect<
@@ -125,7 +145,9 @@ export declare class ElasticTranscoder extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ReadJob", input);
+  }
   readPipeline(
     input: ReadPipelineRequest,
   ): Effect.Effect<
@@ -136,7 +158,9 @@ export declare class ElasticTranscoder extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ReadPipeline", input);
+  }
   readPreset(
     input: ReadPresetRequest,
   ): Effect.Effect<
@@ -147,7 +171,9 @@ export declare class ElasticTranscoder extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ReadPreset", input);
+  }
   testRole(
     input: TestRoleRequest,
   ): Effect.Effect<
@@ -158,7 +184,9 @@ export declare class ElasticTranscoder extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TestRole", input);
+  }
   updatePipeline(
     input: UpdatePipelineRequest,
   ): Effect.Effect<
@@ -170,7 +198,9 @@ export declare class ElasticTranscoder extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdatePipeline", input);
+  }
   updatePipelineNotifications(
     input: UpdatePipelineNotificationsRequest,
   ): Effect.Effect<
@@ -182,7 +212,9 @@ export declare class ElasticTranscoder extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdatePipelineNotifications", input);
+  }
   updatePipelineStatus(
     input: UpdatePipelineStatusRequest,
   ): Effect.Effect<
@@ -194,8 +226,12 @@ export declare class ElasticTranscoder extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdatePipelineStatus", input);
+  }
 }
+
+export default ElasticTranscoder;
 
 export type AccessControl = string;
 

@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class S3Vectors extends AWSServiceClient {
+export class S3Vectors extends AWSServiceClient {
   createIndex(
     input: CreateIndexInput,
   ): Effect.Effect<
@@ -11,31 +11,41 @@ export declare class S3Vectors extends AWSServiceClient {
     | NotFoundException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateIndex", input);
+  }
   createVectorBucket(
     input: CreateVectorBucketInput,
   ): Effect.Effect<
     CreateVectorBucketOutput,
     ConflictException | ServiceUnavailableException | CommonAwsError
-  >;
+  > {
+    return this.call("CreateVectorBucket", input);
+  }
   deleteIndex(
     input: DeleteIndexInput,
   ): Effect.Effect<
     DeleteIndexOutput,
     ServiceUnavailableException | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteIndex", input);
+  }
   deleteVectorBucket(
     input: DeleteVectorBucketInput,
   ): Effect.Effect<
     DeleteVectorBucketOutput,
     ConflictException | ServiceUnavailableException | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteVectorBucket", input);
+  }
   deleteVectorBucketPolicy(
     input: DeleteVectorBucketPolicyInput,
   ): Effect.Effect<
     DeleteVectorBucketPolicyOutput,
     NotFoundException | ServiceUnavailableException | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteVectorBucketPolicy", input);
+  }
   deleteVectors(
     input: DeleteVectorsInput,
   ): Effect.Effect<
@@ -48,25 +58,33 @@ export declare class S3Vectors extends AWSServiceClient {
     | NotFoundException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteVectors", input);
+  }
   getIndex(
     input: GetIndexInput,
   ): Effect.Effect<
     GetIndexOutput,
     NotFoundException | ServiceUnavailableException | CommonAwsError
-  >;
+  > {
+    return this.call("GetIndex", input);
+  }
   getVectorBucket(
     input: GetVectorBucketInput,
   ): Effect.Effect<
     GetVectorBucketOutput,
     NotFoundException | ServiceUnavailableException | CommonAwsError
-  >;
+  > {
+    return this.call("GetVectorBucket", input);
+  }
   getVectorBucketPolicy(
     input: GetVectorBucketPolicyInput,
   ): Effect.Effect<
     GetVectorBucketPolicyOutput,
     NotFoundException | ServiceUnavailableException | CommonAwsError
-  >;
+  > {
+    return this.call("GetVectorBucketPolicy", input);
+  }
   getVectors(
     input: GetVectorsInput,
   ): Effect.Effect<
@@ -78,19 +96,25 @@ export declare class S3Vectors extends AWSServiceClient {
     | NotFoundException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetVectors", input);
+  }
   listIndexes(
     input: ListIndexesInput,
   ): Effect.Effect<
     ListIndexesOutput,
     NotFoundException | ServiceUnavailableException | CommonAwsError
-  >;
+  > {
+    return this.call("ListIndexes", input);
+  }
   listVectorBuckets(
     input: ListVectorBucketsInput,
   ): Effect.Effect<
     ListVectorBucketsOutput,
     ServiceUnavailableException | CommonAwsError
-  >;
+  > {
+    return this.call("ListVectorBuckets", input);
+  }
   listVectors(
     input: ListVectorsInput,
   ): Effect.Effect<
@@ -99,13 +123,17 @@ export declare class S3Vectors extends AWSServiceClient {
     | NotFoundException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListVectors", input);
+  }
   putVectorBucketPolicy(
     input: PutVectorBucketPolicyInput,
   ): Effect.Effect<
     PutVectorBucketPolicyOutput,
     NotFoundException | ServiceUnavailableException | CommonAwsError
-  >;
+  > {
+    return this.call("PutVectorBucketPolicy", input);
+  }
   putVectors(
     input: PutVectorsInput,
   ): Effect.Effect<
@@ -118,7 +146,9 @@ export declare class S3Vectors extends AWSServiceClient {
     | NotFoundException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutVectors", input);
+  }
   queryVectors(
     input: QueryVectorsInput,
   ): Effect.Effect<
@@ -130,10 +160,14 @@ export declare class S3Vectors extends AWSServiceClient {
     | NotFoundException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("QueryVectors", input);
+  }
 }
 
-export declare class S3vectors extends S3Vectors {}
+export class S3vectors extends S3Vectors {}
+
+export default S3Vectors;
 
 export declare class AccessDeniedException extends EffectData.TaggedError(
   "AccessDeniedException",

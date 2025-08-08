@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class SnowDeviceManagement extends AWSServiceClient {
+export class SnowDeviceManagement extends AWSServiceClient {
   listTagsForResource(
     input: ListTagsForResourceInput,
   ): Effect.Effect<
@@ -11,7 +11,9 @@ export declare class SnowDeviceManagement extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   tagResource(
     input: TagResourceInput,
   ): Effect.Effect<
@@ -20,7 +22,9 @@ export declare class SnowDeviceManagement extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceInput,
   ): Effect.Effect<
@@ -29,8 +33,12 @@ export declare class SnowDeviceManagement extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
 }
+
+export default SnowDeviceManagement;
 
 export declare class AccessDeniedException extends EffectData.TaggedError(
   "AccessDeniedException",

@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class VerifiedPermissions extends AWSServiceClient {
+export class VerifiedPermissions extends AWSServiceClient {
   listTagsForResource(
     input: ListTagsForResourceInput,
   ): Effect.Effect<
@@ -12,7 +12,9 @@ export declare class VerifiedPermissions extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   tagResource(
     input: TagResourceInput,
   ): Effect.Effect<
@@ -23,7 +25,9 @@ export declare class VerifiedPermissions extends AWSServiceClient {
     | ThrottlingException
     | TooManyTagsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceInput,
   ): Effect.Effect<
@@ -33,10 +37,14 @@ export declare class VerifiedPermissions extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
 }
 
-export declare class Verifiedpermissions extends VerifiedPermissions {}
+export class Verifiedpermissions extends VerifiedPermissions {}
+
+export default VerifiedPermissions;
 
 export declare class AccessDeniedException extends EffectData.TaggedError(
   "AccessDeniedException",

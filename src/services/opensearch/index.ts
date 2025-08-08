@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class OpenSearch extends AWSServiceClient {
+export class OpenSearch extends AWSServiceClient {
   acceptInboundConnection(
     input: AcceptInboundConnectionRequest,
   ): Effect.Effect<
@@ -11,7 +11,9 @@ export declare class OpenSearch extends AWSServiceClient {
     | LimitExceededException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AcceptInboundConnection", input);
+  }
   addDataSource(
     input: AddDataSourceRequest,
   ): Effect.Effect<
@@ -24,7 +26,9 @@ export declare class OpenSearch extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AddDataSource", input);
+  }
   addDirectQueryDataSource(
     input: AddDirectQueryDataSourceRequest,
   ): Effect.Effect<
@@ -36,7 +40,9 @@ export declare class OpenSearch extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AddDirectQueryDataSource", input);
+  }
   addTags(
     input: AddTagsRequest,
   ): Effect.Effect<
@@ -46,7 +52,9 @@ export declare class OpenSearch extends AWSServiceClient {
     | LimitExceededException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AddTags", input);
+  }
   associatePackage(
     input: AssociatePackageRequest,
   ): Effect.Effect<
@@ -58,7 +66,9 @@ export declare class OpenSearch extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AssociatePackage", input);
+  }
   associatePackages(
     input: AssociatePackagesRequest,
   ): Effect.Effect<
@@ -70,7 +80,9 @@ export declare class OpenSearch extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AssociatePackages", input);
+  }
   authorizeVpcEndpointAccess(
     input: AuthorizeVpcEndpointAccessRequest,
   ): Effect.Effect<
@@ -82,7 +94,9 @@ export declare class OpenSearch extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AuthorizeVpcEndpointAccess", input);
+  }
   cancelDomainConfigChange(
     input: CancelDomainConfigChangeRequest,
   ): Effect.Effect<
@@ -93,7 +107,9 @@ export declare class OpenSearch extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CancelDomainConfigChange", input);
+  }
   cancelServiceSoftwareUpdate(
     input: CancelServiceSoftwareUpdateRequest,
   ): Effect.Effect<
@@ -103,7 +119,9 @@ export declare class OpenSearch extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CancelServiceSoftwareUpdate", input);
+  }
   createApplication(
     input: CreateApplicationRequest,
   ): Effect.Effect<
@@ -115,7 +133,9 @@ export declare class OpenSearch extends AWSServiceClient {
     | InternalException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateApplication", input);
+  }
   createDomain(
     input: CreateDomainRequest,
   ): Effect.Effect<
@@ -128,7 +148,9 @@ export declare class OpenSearch extends AWSServiceClient {
     | ResourceAlreadyExistsException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateDomain", input);
+  }
   createOutboundConnection(
     input: CreateOutboundConnectionRequest,
   ): Effect.Effect<
@@ -138,7 +160,9 @@ export declare class OpenSearch extends AWSServiceClient {
     | LimitExceededException
     | ResourceAlreadyExistsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateOutboundConnection", input);
+  }
   createPackage(
     input: CreatePackageRequest,
   ): Effect.Effect<
@@ -151,7 +175,9 @@ export declare class OpenSearch extends AWSServiceClient {
     | ResourceAlreadyExistsException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreatePackage", input);
+  }
   createVpcEndpoint(
     input: CreateVpcEndpointRequest,
   ): Effect.Effect<
@@ -163,7 +189,9 @@ export declare class OpenSearch extends AWSServiceClient {
     | LimitExceededException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateVpcEndpoint", input);
+  }
   deleteApplication(
     input: DeleteApplicationRequest,
   ): Effect.Effect<
@@ -176,7 +204,9 @@ export declare class OpenSearch extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteApplication", input);
+  }
   deleteDataSource(
     input: DeleteDataSourceRequest,
   ): Effect.Effect<
@@ -188,7 +218,9 @@ export declare class OpenSearch extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteDataSource", input);
+  }
   deleteDirectQueryDataSource(
     input: DeleteDirectQueryDataSourceRequest,
   ): Effect.Effect<
@@ -199,7 +231,9 @@ export declare class OpenSearch extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteDirectQueryDataSource", input);
+  }
   deleteDomain(
     input: DeleteDomainRequest,
   ): Effect.Effect<
@@ -209,19 +243,25 @@ export declare class OpenSearch extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteDomain", input);
+  }
   deleteInboundConnection(
     input: DeleteInboundConnectionRequest,
   ): Effect.Effect<
     DeleteInboundConnectionResponse,
     DisabledOperationException | ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteInboundConnection", input);
+  }
   deleteOutboundConnection(
     input: DeleteOutboundConnectionRequest,
   ): Effect.Effect<
     DeleteOutboundConnectionResponse,
     DisabledOperationException | ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteOutboundConnection", input);
+  }
   deletePackage(
     input: DeletePackageRequest,
   ): Effect.Effect<
@@ -233,7 +273,9 @@ export declare class OpenSearch extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeletePackage", input);
+  }
   deleteVpcEndpoint(
     input: DeleteVpcEndpointRequest,
   ): Effect.Effect<
@@ -243,7 +285,9 @@ export declare class OpenSearch extends AWSServiceClient {
     | InternalException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteVpcEndpoint", input);
+  }
   describeDomain(
     input: DescribeDomainRequest,
   ): Effect.Effect<
@@ -253,7 +297,9 @@ export declare class OpenSearch extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeDomain", input);
+  }
   describeDomainAutoTunes(
     input: DescribeDomainAutoTunesRequest,
   ): Effect.Effect<
@@ -263,7 +309,9 @@ export declare class OpenSearch extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeDomainAutoTunes", input);
+  }
   describeDomainChangeProgress(
     input: DescribeDomainChangeProgressRequest,
   ): Effect.Effect<
@@ -273,7 +321,9 @@ export declare class OpenSearch extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeDomainChangeProgress", input);
+  }
   describeDomainConfig(
     input: DescribeDomainConfigRequest,
   ): Effect.Effect<
@@ -283,7 +333,9 @@ export declare class OpenSearch extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeDomainConfig", input);
+  }
   describeDomainHealth(
     input: DescribeDomainHealthRequest,
   ): Effect.Effect<
@@ -294,7 +346,9 @@ export declare class OpenSearch extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeDomainHealth", input);
+  }
   describeDomainNodes(
     input: DescribeDomainNodesRequest,
   ): Effect.Effect<
@@ -306,13 +360,17 @@ export declare class OpenSearch extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeDomainNodes", input);
+  }
   describeDomains(
     input: DescribeDomainsRequest,
   ): Effect.Effect<
     DescribeDomainsResponse,
     BaseException | InternalException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeDomains", input);
+  }
   describeDryRunProgress(
     input: DescribeDryRunProgressRequest,
   ): Effect.Effect<
@@ -323,7 +381,9 @@ export declare class OpenSearch extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeDryRunProgress", input);
+  }
   describeInboundConnections(
     input: DescribeInboundConnectionsRequest,
   ): Effect.Effect<
@@ -331,7 +391,9 @@ export declare class OpenSearch extends AWSServiceClient {
     | DisabledOperationException
     | InvalidPaginationTokenException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeInboundConnections", input);
+  }
   describeInstanceTypeLimits(
     input: DescribeInstanceTypeLimitsRequest,
   ): Effect.Effect<
@@ -343,7 +405,9 @@ export declare class OpenSearch extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeInstanceTypeLimits", input);
+  }
   describeOutboundConnections(
     input: DescribeOutboundConnectionsRequest,
   ): Effect.Effect<
@@ -351,7 +415,9 @@ export declare class OpenSearch extends AWSServiceClient {
     | DisabledOperationException
     | InvalidPaginationTokenException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeOutboundConnections", input);
+  }
   describePackages(
     input: DescribePackagesRequest,
   ): Effect.Effect<
@@ -362,7 +428,9 @@ export declare class OpenSearch extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribePackages", input);
+  }
   describeReservedInstanceOfferings(
     input: DescribeReservedInstanceOfferingsRequest,
   ): Effect.Effect<
@@ -372,7 +440,9 @@ export declare class OpenSearch extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeReservedInstanceOfferings", input);
+  }
   describeReservedInstances(
     input: DescribeReservedInstancesRequest,
   ): Effect.Effect<
@@ -382,7 +452,9 @@ export declare class OpenSearch extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeReservedInstances", input);
+  }
   describeVpcEndpoints(
     input: DescribeVpcEndpointsRequest,
   ): Effect.Effect<
@@ -392,7 +464,9 @@ export declare class OpenSearch extends AWSServiceClient {
     | InternalException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeVpcEndpoints", input);
+  }
   dissociatePackage(
     input: DissociatePackageRequest,
   ): Effect.Effect<
@@ -404,7 +478,9 @@ export declare class OpenSearch extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DissociatePackage", input);
+  }
   dissociatePackages(
     input: DissociatePackagesRequest,
   ): Effect.Effect<
@@ -416,7 +492,9 @@ export declare class OpenSearch extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DissociatePackages", input);
+  }
   getApplication(
     input: GetApplicationRequest,
   ): Effect.Effect<
@@ -428,7 +506,9 @@ export declare class OpenSearch extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetApplication", input);
+  }
   getCompatibleVersions(
     input: GetCompatibleVersionsRequest,
   ): Effect.Effect<
@@ -439,7 +519,9 @@ export declare class OpenSearch extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetCompatibleVersions", input);
+  }
   getDataSource(
     input: GetDataSourceRequest,
   ): Effect.Effect<
@@ -451,7 +533,9 @@ export declare class OpenSearch extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetDataSource", input);
+  }
   getDirectQueryDataSource(
     input: GetDirectQueryDataSourceRequest,
   ): Effect.Effect<
@@ -462,7 +546,9 @@ export declare class OpenSearch extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetDirectQueryDataSource", input);
+  }
   getDomainMaintenanceStatus(
     input: GetDomainMaintenanceStatusRequest,
   ): Effect.Effect<
@@ -473,7 +559,9 @@ export declare class OpenSearch extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetDomainMaintenanceStatus", input);
+  }
   getPackageVersionHistory(
     input: GetPackageVersionHistoryRequest,
   ): Effect.Effect<
@@ -484,7 +572,9 @@ export declare class OpenSearch extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetPackageVersionHistory", input);
+  }
   getUpgradeHistory(
     input: GetUpgradeHistoryRequest,
   ): Effect.Effect<
@@ -495,7 +585,9 @@ export declare class OpenSearch extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetUpgradeHistory", input);
+  }
   getUpgradeStatus(
     input: GetUpgradeStatusRequest,
   ): Effect.Effect<
@@ -506,7 +598,9 @@ export declare class OpenSearch extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetUpgradeStatus", input);
+  }
   listApplications(
     input: ListApplicationsRequest,
   ): Effect.Effect<
@@ -518,7 +612,9 @@ export declare class OpenSearch extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListApplications", input);
+  }
   listDataSources(
     input: ListDataSourcesRequest,
   ): Effect.Effect<
@@ -530,7 +626,9 @@ export declare class OpenSearch extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListDataSources", input);
+  }
   listDirectQueryDataSources(
     input: ListDirectQueryDataSourcesRequest,
   ): Effect.Effect<
@@ -541,7 +639,9 @@ export declare class OpenSearch extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListDirectQueryDataSources", input);
+  }
   listDomainMaintenances(
     input: ListDomainMaintenancesRequest,
   ): Effect.Effect<
@@ -552,13 +652,17 @@ export declare class OpenSearch extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListDomainMaintenances", input);
+  }
   listDomainNames(
     input: ListDomainNamesRequest,
   ): Effect.Effect<
     ListDomainNamesResponse,
     BaseException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("ListDomainNames", input);
+  }
   listDomainsForPackage(
     input: ListDomainsForPackageRequest,
   ): Effect.Effect<
@@ -569,7 +673,9 @@ export declare class OpenSearch extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListDomainsForPackage", input);
+  }
   listInstanceTypeDetails(
     input: ListInstanceTypeDetailsRequest,
   ): Effect.Effect<
@@ -579,7 +685,9 @@ export declare class OpenSearch extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListInstanceTypeDetails", input);
+  }
   listPackagesForDomain(
     input: ListPackagesForDomainRequest,
   ): Effect.Effect<
@@ -590,7 +698,9 @@ export declare class OpenSearch extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListPackagesForDomain", input);
+  }
   listScheduledActions(
     input: ListScheduledActionsRequest,
   ): Effect.Effect<
@@ -601,7 +711,9 @@ export declare class OpenSearch extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListScheduledActions", input);
+  }
   listTags(
     input: ListTagsRequest,
   ): Effect.Effect<
@@ -611,7 +723,9 @@ export declare class OpenSearch extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTags", input);
+  }
   listVersions(
     input: ListVersionsRequest,
   ): Effect.Effect<
@@ -621,7 +735,9 @@ export declare class OpenSearch extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListVersions", input);
+  }
   listVpcEndpointAccess(
     input: ListVpcEndpointAccessRequest,
   ): Effect.Effect<
@@ -631,7 +747,9 @@ export declare class OpenSearch extends AWSServiceClient {
     | InternalException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListVpcEndpointAccess", input);
+  }
   listVpcEndpoints(
     input: ListVpcEndpointsRequest,
   ): Effect.Effect<
@@ -640,7 +758,9 @@ export declare class OpenSearch extends AWSServiceClient {
     | DisabledOperationException
     | InternalException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListVpcEndpoints", input);
+  }
   listVpcEndpointsForDomain(
     input: ListVpcEndpointsForDomainRequest,
   ): Effect.Effect<
@@ -650,7 +770,9 @@ export declare class OpenSearch extends AWSServiceClient {
     | InternalException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListVpcEndpointsForDomain", input);
+  }
   purchaseReservedInstanceOffering(
     input: PurchaseReservedInstanceOfferingRequest,
   ): Effect.Effect<
@@ -662,19 +784,25 @@ export declare class OpenSearch extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PurchaseReservedInstanceOffering", input);
+  }
   rejectInboundConnection(
     input: RejectInboundConnectionRequest,
   ): Effect.Effect<
     RejectInboundConnectionResponse,
     DisabledOperationException | ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("RejectInboundConnection", input);
+  }
   removeTags(
     input: RemoveTagsRequest,
   ): Effect.Effect<
     {},
     BaseException | InternalException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("RemoveTags", input);
+  }
   revokeVpcEndpointAccess(
     input: RevokeVpcEndpointAccessRequest,
   ): Effect.Effect<
@@ -685,7 +813,9 @@ export declare class OpenSearch extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("RevokeVpcEndpointAccess", input);
+  }
   startDomainMaintenance(
     input: StartDomainMaintenanceRequest,
   ): Effect.Effect<
@@ -696,7 +826,9 @@ export declare class OpenSearch extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartDomainMaintenance", input);
+  }
   startServiceSoftwareUpdate(
     input: StartServiceSoftwareUpdateRequest,
   ): Effect.Effect<
@@ -706,7 +838,9 @@ export declare class OpenSearch extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartServiceSoftwareUpdate", input);
+  }
   updateApplication(
     input: UpdateApplicationRequest,
   ): Effect.Effect<
@@ -719,7 +853,9 @@ export declare class OpenSearch extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateApplication", input);
+  }
   updateDataSource(
     input: UpdateDataSourceRequest,
   ): Effect.Effect<
@@ -731,7 +867,9 @@ export declare class OpenSearch extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateDataSource", input);
+  }
   updateDirectQueryDataSource(
     input: UpdateDirectQueryDataSourceRequest,
   ): Effect.Effect<
@@ -742,7 +880,9 @@ export declare class OpenSearch extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateDirectQueryDataSource", input);
+  }
   updateDomainConfig(
     input: UpdateDomainConfigRequest,
   ): Effect.Effect<
@@ -754,7 +894,9 @@ export declare class OpenSearch extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateDomainConfig", input);
+  }
   updatePackage(
     input: UpdatePackageRequest,
   ): Effect.Effect<
@@ -766,7 +908,9 @@ export declare class OpenSearch extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdatePackage", input);
+  }
   updatePackageScope(
     input: UpdatePackageScopeRequest,
   ): Effect.Effect<
@@ -777,7 +921,9 @@ export declare class OpenSearch extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdatePackageScope", input);
+  }
   updateScheduledAction(
     input: UpdateScheduledActionRequest,
   ): Effect.Effect<
@@ -790,7 +936,9 @@ export declare class OpenSearch extends AWSServiceClient {
     | SlotNotAvailableException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateScheduledAction", input);
+  }
   updateVpcEndpoint(
     input: UpdateVpcEndpointRequest,
   ): Effect.Effect<
@@ -802,7 +950,9 @@ export declare class OpenSearch extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateVpcEndpoint", input);
+  }
   upgradeDomain(
     input: UpgradeDomainRequest,
   ): Effect.Effect<
@@ -814,10 +964,14 @@ export declare class OpenSearch extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpgradeDomain", input);
+  }
 }
 
-export declare class Opensearch extends OpenSearch {}
+export class Opensearch extends OpenSearch {}
+
+export default OpenSearch;
 
 export interface AcceptInboundConnectionRequest {
   ConnectionId: string;

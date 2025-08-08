@@ -2,26 +2,34 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class PersonalizeRuntime extends AWSServiceClient {
+export class PersonalizeRuntime extends AWSServiceClient {
   getActionRecommendations(
     input: GetActionRecommendationsRequest,
   ): Effect.Effect<
     GetActionRecommendationsResponse,
     InvalidInputException | ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("GetActionRecommendations", input);
+  }
   getPersonalizedRanking(
     input: GetPersonalizedRankingRequest,
   ): Effect.Effect<
     GetPersonalizedRankingResponse,
     InvalidInputException | ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("GetPersonalizedRanking", input);
+  }
   getRecommendations(
     input: GetRecommendationsRequest,
   ): Effect.Effect<
     GetRecommendationsResponse,
     InvalidInputException | ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("GetRecommendations", input);
+  }
 }
+
+export default PersonalizeRuntime;
 
 export type ActionID = string;
 

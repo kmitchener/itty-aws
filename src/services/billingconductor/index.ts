@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class billingconductor extends AWSServiceClient {
+export class billingconductor extends AWSServiceClient {
   getBillingGroupCostReport(
     input: GetBillingGroupCostReportInput,
   ): Effect.Effect<
@@ -13,7 +13,9 @@ export declare class billingconductor extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetBillingGroupCostReport", input);
+  }
   listAccountAssociations(
     input: ListAccountAssociationsInput,
   ): Effect.Effect<
@@ -24,7 +26,9 @@ export declare class billingconductor extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListAccountAssociations", input);
+  }
   listBillingGroupCostReports(
     input: ListBillingGroupCostReportsInput,
   ): Effect.Effect<
@@ -35,7 +39,9 @@ export declare class billingconductor extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListBillingGroupCostReports", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
@@ -46,7 +52,9 @@ export declare class billingconductor extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -57,7 +65,9 @@ export declare class billingconductor extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
@@ -68,10 +78,14 @@ export declare class billingconductor extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
 }
 
-export declare class Billingconductor extends billingconductor {}
+export class Billingconductor extends billingconductor {}
+
+export default billingconductor;
 
 export declare class AccessDeniedException extends EffectData.TaggedError(
   "AccessDeniedException",

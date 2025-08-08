@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class Route53Profiles extends AWSServiceClient {
+export class Route53Profiles extends AWSServiceClient {
   associateProfile(
     input: AssociateProfileRequest,
   ): Effect.Effect<
@@ -16,7 +16,9 @@ export declare class Route53Profiles extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AssociateProfile", input);
+  }
   associateResourceToProfile(
     input: AssociateResourceToProfileRequest,
   ): Effect.Effect<
@@ -30,7 +32,9 @@ export declare class Route53Profiles extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AssociateResourceToProfile", input);
+  }
   createProfile(
     input: CreateProfileRequest,
   ): Effect.Effect<
@@ -41,7 +45,9 @@ export declare class Route53Profiles extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateProfile", input);
+  }
   deleteProfile(
     input: DeleteProfileRequest,
   ): Effect.Effect<
@@ -52,7 +58,9 @@ export declare class Route53Profiles extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteProfile", input);
+  }
   disassociateProfile(
     input: DisassociateProfileRequest,
   ): Effect.Effect<
@@ -64,7 +72,9 @@ export declare class Route53Profiles extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DisassociateProfile", input);
+  }
   disassociateResourceFromProfile(
     input: DisassociateResourceFromProfileRequest,
   ): Effect.Effect<
@@ -78,7 +88,9 @@ export declare class Route53Profiles extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DisassociateResourceFromProfile", input);
+  }
   getProfile(
     input: GetProfileRequest,
   ): Effect.Effect<
@@ -88,7 +100,9 @@ export declare class Route53Profiles extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetProfile", input);
+  }
   getProfileAssociation(
     input: GetProfileAssociationRequest,
   ): Effect.Effect<
@@ -98,7 +112,9 @@ export declare class Route53Profiles extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetProfileAssociation", input);
+  }
   getProfileResourceAssociation(
     input: GetProfileResourceAssociationRequest,
   ): Effect.Effect<
@@ -109,7 +125,9 @@ export declare class Route53Profiles extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetProfileResourceAssociation", input);
+  }
   listProfileAssociations(
     input: ListProfileAssociationsRequest,
   ): Effect.Effect<
@@ -120,7 +138,9 @@ export declare class Route53Profiles extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListProfileAssociations", input);
+  }
   listProfileResourceAssociations(
     input: ListProfileResourceAssociationsRequest,
   ): Effect.Effect<
@@ -133,7 +153,9 @@ export declare class Route53Profiles extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListProfileResourceAssociations", input);
+  }
   listProfiles(
     input: ListProfilesRequest,
   ): Effect.Effect<
@@ -144,7 +166,9 @@ export declare class Route53Profiles extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListProfiles", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
@@ -155,7 +179,9 @@ export declare class Route53Profiles extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -165,7 +191,9 @@ export declare class Route53Profiles extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
@@ -176,7 +204,9 @@ export declare class Route53Profiles extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
   updateProfileResourceAssociation(
     input: UpdateProfileResourceAssociationRequest,
   ): Effect.Effect<
@@ -190,10 +220,14 @@ export declare class Route53Profiles extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateProfileResourceAssociation", input);
+  }
 }
 
-export declare class Route53profiles extends Route53Profiles {}
+export class Route53profiles extends Route53Profiles {}
+
+export default Route53Profiles;
 
 export declare class AccessDeniedException extends EffectData.TaggedError(
   "AccessDeniedException",

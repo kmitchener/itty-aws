@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class ECS extends AWSServiceClient {
+export class ECS extends AWSServiceClient {
   createCapacityProvider(
     input: CreateCapacityProviderRequest,
   ): Effect.Effect<
@@ -13,7 +13,9 @@ export declare class ECS extends AWSServiceClient {
     | ServerException
     | UpdateInProgressException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateCapacityProvider", input);
+  }
   createCluster(
     input: CreateClusterRequest,
   ): Effect.Effect<
@@ -23,7 +25,9 @@ export declare class ECS extends AWSServiceClient {
     | NamespaceNotFoundException
     | ServerException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateCluster", input);
+  }
   createService(
     input: CreateServiceRequest,
   ): Effect.Effect<
@@ -38,7 +42,9 @@ export declare class ECS extends AWSServiceClient {
     | ServerException
     | UnsupportedFeatureException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateService", input);
+  }
   createTaskSet(
     input: CreateTaskSetRequest,
   ): Effect.Effect<
@@ -55,7 +61,9 @@ export declare class ECS extends AWSServiceClient {
     | ServiceNotFoundException
     | UnsupportedFeatureException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateTaskSet", input);
+  }
   deleteAccountSetting(
     input: DeleteAccountSettingRequest,
   ): Effect.Effect<
@@ -64,7 +72,9 @@ export declare class ECS extends AWSServiceClient {
     | InvalidParameterException
     | ServerException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteAccountSetting", input);
+  }
   deleteAttributes(
     input: DeleteAttributesRequest,
   ): Effect.Effect<
@@ -73,7 +83,9 @@ export declare class ECS extends AWSServiceClient {
     | InvalidParameterException
     | TargetNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteAttributes", input);
+  }
   deleteCapacityProvider(
     input: DeleteCapacityProviderRequest,
   ): Effect.Effect<
@@ -82,7 +94,9 @@ export declare class ECS extends AWSServiceClient {
     | InvalidParameterException
     | ServerException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteCapacityProvider", input);
+  }
   deleteCluster(
     input: DeleteClusterRequest,
   ): Effect.Effect<
@@ -96,7 +110,9 @@ export declare class ECS extends AWSServiceClient {
     | ServerException
     | UpdateInProgressException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteCluster", input);
+  }
   deleteService(
     input: DeleteServiceRequest,
   ): Effect.Effect<
@@ -107,7 +123,9 @@ export declare class ECS extends AWSServiceClient {
     | ServerException
     | ServiceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteService", input);
+  }
   deleteTaskDefinitions(
     input: DeleteTaskDefinitionsRequest,
   ): Effect.Effect<
@@ -117,7 +135,9 @@ export declare class ECS extends AWSServiceClient {
     | InvalidParameterException
     | ServerException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteTaskDefinitions", input);
+  }
   deleteTaskSet(
     input: DeleteTaskSetRequest,
   ): Effect.Effect<
@@ -132,7 +152,9 @@ export declare class ECS extends AWSServiceClient {
     | TaskSetNotFoundException
     | UnsupportedFeatureException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteTaskSet", input);
+  }
   deregisterContainerInstance(
     input: DeregisterContainerInstanceRequest,
   ): Effect.Effect<
@@ -142,7 +164,9 @@ export declare class ECS extends AWSServiceClient {
     | InvalidParameterException
     | ServerException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeregisterContainerInstance", input);
+  }
   deregisterTaskDefinition(
     input: DeregisterTaskDefinitionRequest,
   ): Effect.Effect<
@@ -151,7 +175,9 @@ export declare class ECS extends AWSServiceClient {
     | InvalidParameterException
     | ServerException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeregisterTaskDefinition", input);
+  }
   describeCapacityProviders(
     input: DescribeCapacityProvidersRequest,
   ): Effect.Effect<
@@ -160,7 +186,9 @@ export declare class ECS extends AWSServiceClient {
     | InvalidParameterException
     | ServerException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeCapacityProviders", input);
+  }
   describeClusters(
     input: DescribeClustersRequest,
   ): Effect.Effect<
@@ -169,7 +197,9 @@ export declare class ECS extends AWSServiceClient {
     | InvalidParameterException
     | ServerException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeClusters", input);
+  }
   describeContainerInstances(
     input: DescribeContainerInstancesRequest,
   ): Effect.Effect<
@@ -179,7 +209,9 @@ export declare class ECS extends AWSServiceClient {
     | InvalidParameterException
     | ServerException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeContainerInstances", input);
+  }
   describeServiceDeployments(
     input: DescribeServiceDeploymentsRequest,
   ): Effect.Effect<
@@ -192,7 +224,9 @@ export declare class ECS extends AWSServiceClient {
     | ServiceNotFoundException
     | UnsupportedFeatureException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeServiceDeployments", input);
+  }
   describeServiceRevisions(
     input: DescribeServiceRevisionsRequest,
   ): Effect.Effect<
@@ -205,7 +239,9 @@ export declare class ECS extends AWSServiceClient {
     | ServiceNotFoundException
     | UnsupportedFeatureException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeServiceRevisions", input);
+  }
   describeServices(
     input: DescribeServicesRequest,
   ): Effect.Effect<
@@ -215,7 +251,9 @@ export declare class ECS extends AWSServiceClient {
     | InvalidParameterException
     | ServerException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeServices", input);
+  }
   describeTaskDefinition(
     input: DescribeTaskDefinitionRequest,
   ): Effect.Effect<
@@ -224,7 +262,9 @@ export declare class ECS extends AWSServiceClient {
     | InvalidParameterException
     | ServerException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeTaskDefinition", input);
+  }
   describeTasks(
     input: DescribeTasksRequest,
   ): Effect.Effect<
@@ -234,7 +274,9 @@ export declare class ECS extends AWSServiceClient {
     | InvalidParameterException
     | ServerException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeTasks", input);
+  }
   describeTaskSets(
     input: DescribeTaskSetsRequest,
   ): Effect.Effect<
@@ -248,13 +290,17 @@ export declare class ECS extends AWSServiceClient {
     | ServiceNotFoundException
     | UnsupportedFeatureException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeTaskSets", input);
+  }
   discoverPollEndpoint(
     input: DiscoverPollEndpointRequest,
   ): Effect.Effect<
     DiscoverPollEndpointResponse,
     ClientException | ServerException | CommonAwsError
-  >;
+  > {
+    return this.call("DiscoverPollEndpoint", input);
+  }
   executeCommand(
     input: ExecuteCommandRequest,
   ): Effect.Effect<
@@ -266,7 +312,9 @@ export declare class ECS extends AWSServiceClient {
     | ServerException
     | TargetNotConnectedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ExecuteCommand", input);
+  }
   getTaskProtection(
     input: GetTaskProtectionRequest,
   ): Effect.Effect<
@@ -279,7 +327,9 @@ export declare class ECS extends AWSServiceClient {
     | ServerException
     | UnsupportedFeatureException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetTaskProtection", input);
+  }
   listAccountSettings(
     input: ListAccountSettingsRequest,
   ): Effect.Effect<
@@ -288,13 +338,17 @@ export declare class ECS extends AWSServiceClient {
     | InvalidParameterException
     | ServerException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListAccountSettings", input);
+  }
   listAttributes(
     input: ListAttributesRequest,
   ): Effect.Effect<
     ListAttributesResponse,
     ClusterNotFoundException | InvalidParameterException | CommonAwsError
-  >;
+  > {
+    return this.call("ListAttributes", input);
+  }
   listClusters(
     input: ListClustersRequest,
   ): Effect.Effect<
@@ -303,7 +357,9 @@ export declare class ECS extends AWSServiceClient {
     | InvalidParameterException
     | ServerException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListClusters", input);
+  }
   listContainerInstances(
     input: ListContainerInstancesRequest,
   ): Effect.Effect<
@@ -313,7 +369,9 @@ export declare class ECS extends AWSServiceClient {
     | InvalidParameterException
     | ServerException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListContainerInstances", input);
+  }
   listServiceDeployments(
     input: ListServiceDeploymentsRequest,
   ): Effect.Effect<
@@ -325,7 +383,9 @@ export declare class ECS extends AWSServiceClient {
     | ServiceNotFoundException
     | UnsupportedFeatureException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListServiceDeployments", input);
+  }
   listServices(
     input: ListServicesRequest,
   ): Effect.Effect<
@@ -335,7 +395,9 @@ export declare class ECS extends AWSServiceClient {
     | InvalidParameterException
     | ServerException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListServices", input);
+  }
   listServicesByNamespace(
     input: ListServicesByNamespaceRequest,
   ): Effect.Effect<
@@ -345,7 +407,9 @@ export declare class ECS extends AWSServiceClient {
     | NamespaceNotFoundException
     | ServerException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListServicesByNamespace", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
@@ -355,7 +419,9 @@ export declare class ECS extends AWSServiceClient {
     | InvalidParameterException
     | ServerException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   listTaskDefinitionFamilies(
     input: ListTaskDefinitionFamiliesRequest,
   ): Effect.Effect<
@@ -364,7 +430,9 @@ export declare class ECS extends AWSServiceClient {
     | InvalidParameterException
     | ServerException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTaskDefinitionFamilies", input);
+  }
   listTaskDefinitions(
     input: ListTaskDefinitionsRequest,
   ): Effect.Effect<
@@ -373,7 +441,9 @@ export declare class ECS extends AWSServiceClient {
     | InvalidParameterException
     | ServerException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTaskDefinitions", input);
+  }
   listTasks(
     input: ListTasksRequest,
   ): Effect.Effect<
@@ -384,7 +454,9 @@ export declare class ECS extends AWSServiceClient {
     | ServerException
     | ServiceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTasks", input);
+  }
   putAccountSetting(
     input: PutAccountSettingRequest,
   ): Effect.Effect<
@@ -393,7 +465,9 @@ export declare class ECS extends AWSServiceClient {
     | InvalidParameterException
     | ServerException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutAccountSetting", input);
+  }
   putAccountSettingDefault(
     input: PutAccountSettingDefaultRequest,
   ): Effect.Effect<
@@ -402,7 +476,9 @@ export declare class ECS extends AWSServiceClient {
     | InvalidParameterException
     | ServerException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutAccountSettingDefault", input);
+  }
   putAttributes(
     input: PutAttributesRequest,
   ): Effect.Effect<
@@ -412,7 +488,9 @@ export declare class ECS extends AWSServiceClient {
     | InvalidParameterException
     | TargetNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutAttributes", input);
+  }
   putClusterCapacityProviders(
     input: PutClusterCapacityProvidersRequest,
   ): Effect.Effect<
@@ -424,7 +502,9 @@ export declare class ECS extends AWSServiceClient {
     | ServerException
     | UpdateInProgressException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutClusterCapacityProviders", input);
+  }
   registerContainerInstance(
     input: RegisterContainerInstanceRequest,
   ): Effect.Effect<
@@ -433,7 +513,9 @@ export declare class ECS extends AWSServiceClient {
     | InvalidParameterException
     | ServerException
     | CommonAwsError
-  >;
+  > {
+    return this.call("RegisterContainerInstance", input);
+  }
   registerTaskDefinition(
     input: RegisterTaskDefinitionRequest,
   ): Effect.Effect<
@@ -442,7 +524,9 @@ export declare class ECS extends AWSServiceClient {
     | InvalidParameterException
     | ServerException
     | CommonAwsError
-  >;
+  > {
+    return this.call("RegisterTaskDefinition", input);
+  }
   runTask(
     input: RunTaskRequest,
   ): Effect.Effect<
@@ -458,7 +542,9 @@ export declare class ECS extends AWSServiceClient {
     | ServerException
     | UnsupportedFeatureException
     | CommonAwsError
-  >;
+  > {
+    return this.call("RunTask", input);
+  }
   startTask(
     input: StartTaskRequest,
   ): Effect.Effect<
@@ -469,7 +555,9 @@ export declare class ECS extends AWSServiceClient {
     | ServerException
     | UnsupportedFeatureException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartTask", input);
+  }
   stopServiceDeployment(
     input: StopServiceDeploymentRequest,
   ): Effect.Effect<
@@ -482,7 +570,9 @@ export declare class ECS extends AWSServiceClient {
     | ServiceDeploymentNotFoundException
     | UnsupportedFeatureException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StopServiceDeployment", input);
+  }
   stopTask(
     input: StopTaskRequest,
   ): Effect.Effect<
@@ -492,7 +582,9 @@ export declare class ECS extends AWSServiceClient {
     | InvalidParameterException
     | ServerException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StopTask", input);
+  }
   submitAttachmentStateChanges(
     input: SubmitAttachmentStateChangesRequest,
   ): Effect.Effect<
@@ -502,13 +594,17 @@ export declare class ECS extends AWSServiceClient {
     | InvalidParameterException
     | ServerException
     | CommonAwsError
-  >;
+  > {
+    return this.call("SubmitAttachmentStateChanges", input);
+  }
   submitContainerStateChange(
     input: SubmitContainerStateChangeRequest,
   ): Effect.Effect<
     SubmitContainerStateChangeResponse,
     AccessDeniedException | ClientException | ServerException | CommonAwsError
-  >;
+  > {
+    return this.call("SubmitContainerStateChange", input);
+  }
   submitTaskStateChange(
     input: SubmitTaskStateChangeRequest,
   ): Effect.Effect<
@@ -518,7 +614,9 @@ export declare class ECS extends AWSServiceClient {
     | InvalidParameterException
     | ServerException
     | CommonAwsError
-  >;
+  > {
+    return this.call("SubmitTaskStateChange", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -529,7 +627,9 @@ export declare class ECS extends AWSServiceClient {
     | ResourceNotFoundException
     | ServerException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
@@ -540,7 +640,9 @@ export declare class ECS extends AWSServiceClient {
     | ResourceNotFoundException
     | ServerException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
   updateCapacityProvider(
     input: UpdateCapacityProviderRequest,
   ): Effect.Effect<
@@ -549,7 +651,9 @@ export declare class ECS extends AWSServiceClient {
     | InvalidParameterException
     | ServerException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateCapacityProvider", input);
+  }
   updateCluster(
     input: UpdateClusterRequest,
   ): Effect.Effect<
@@ -560,7 +664,9 @@ export declare class ECS extends AWSServiceClient {
     | NamespaceNotFoundException
     | ServerException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateCluster", input);
+  }
   updateClusterSettings(
     input: UpdateClusterSettingsRequest,
   ): Effect.Effect<
@@ -570,7 +676,9 @@ export declare class ECS extends AWSServiceClient {
     | InvalidParameterException
     | ServerException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateClusterSettings", input);
+  }
   updateContainerAgent(
     input: UpdateContainerAgentRequest,
   ): Effect.Effect<
@@ -583,7 +691,9 @@ export declare class ECS extends AWSServiceClient {
     | ServerException
     | UpdateInProgressException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateContainerAgent", input);
+  }
   updateContainerInstancesState(
     input: UpdateContainerInstancesStateRequest,
   ): Effect.Effect<
@@ -593,7 +703,9 @@ export declare class ECS extends AWSServiceClient {
     | InvalidParameterException
     | ServerException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateContainerInstancesState", input);
+  }
   updateService(
     input: UpdateServiceRequest,
   ): Effect.Effect<
@@ -610,7 +722,9 @@ export declare class ECS extends AWSServiceClient {
     | ServiceNotFoundException
     | UnsupportedFeatureException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateService", input);
+  }
   updateServicePrimaryTaskSet(
     input: UpdateServicePrimaryTaskSetRequest,
   ): Effect.Effect<
@@ -625,7 +739,9 @@ export declare class ECS extends AWSServiceClient {
     | TaskSetNotFoundException
     | UnsupportedFeatureException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateServicePrimaryTaskSet", input);
+  }
   updateTaskProtection(
     input: UpdateTaskProtectionRequest,
   ): Effect.Effect<
@@ -638,7 +754,9 @@ export declare class ECS extends AWSServiceClient {
     | ServerException
     | UnsupportedFeatureException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateTaskProtection", input);
+  }
   updateTaskSet(
     input: UpdateTaskSetRequest,
   ): Effect.Effect<
@@ -653,10 +771,14 @@ export declare class ECS extends AWSServiceClient {
     | TaskSetNotFoundException
     | UnsupportedFeatureException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateTaskSet", input);
+  }
 }
 
-export declare class Ecs extends ECS {}
+export class Ecs extends ECS {}
+
+export default ECS;
 
 export declare class AccessDeniedException extends EffectData.TaggedError(
   "AccessDeniedException",

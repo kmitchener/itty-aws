@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class ApplicationAutoScaling extends AWSServiceClient {
+export class ApplicationAutoScaling extends AWSServiceClient {
   deleteScalingPolicy(
     input: DeleteScalingPolicyRequest,
   ): Effect.Effect<
@@ -12,7 +12,9 @@ export declare class ApplicationAutoScaling extends AWSServiceClient {
     | ObjectNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteScalingPolicy", input);
+  }
   deleteScheduledAction(
     input: DeleteScheduledActionRequest,
   ): Effect.Effect<
@@ -22,7 +24,9 @@ export declare class ApplicationAutoScaling extends AWSServiceClient {
     | ObjectNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteScheduledAction", input);
+  }
   deregisterScalableTarget(
     input: DeregisterScalableTargetRequest,
   ): Effect.Effect<
@@ -32,7 +36,9 @@ export declare class ApplicationAutoScaling extends AWSServiceClient {
     | ObjectNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeregisterScalableTarget", input);
+  }
   describeScalableTargets(
     input: DescribeScalableTargetsRequest,
   ): Effect.Effect<
@@ -42,7 +48,9 @@ export declare class ApplicationAutoScaling extends AWSServiceClient {
     | InvalidNextTokenException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeScalableTargets", input);
+  }
   describeScalingActivities(
     input: DescribeScalingActivitiesRequest,
   ): Effect.Effect<
@@ -52,7 +60,9 @@ export declare class ApplicationAutoScaling extends AWSServiceClient {
     | InvalidNextTokenException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeScalingActivities", input);
+  }
   describeScalingPolicies(
     input: DescribeScalingPoliciesRequest,
   ): Effect.Effect<
@@ -63,7 +73,9 @@ export declare class ApplicationAutoScaling extends AWSServiceClient {
     | InvalidNextTokenException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeScalingPolicies", input);
+  }
   describeScheduledActions(
     input: DescribeScheduledActionsRequest,
   ): Effect.Effect<
@@ -73,19 +85,25 @@ export declare class ApplicationAutoScaling extends AWSServiceClient {
     | InvalidNextTokenException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeScheduledActions", input);
+  }
   getPredictiveScalingForecast(
     input: GetPredictiveScalingForecastRequest,
   ): Effect.Effect<
     GetPredictiveScalingForecastResponse,
     InternalServiceException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("GetPredictiveScalingForecast", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
     ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   putScalingPolicy(
     input: PutScalingPolicyRequest,
   ): Effect.Effect<
@@ -97,7 +115,9 @@ export declare class ApplicationAutoScaling extends AWSServiceClient {
     | ObjectNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutScalingPolicy", input);
+  }
   putScheduledAction(
     input: PutScheduledActionRequest,
   ): Effect.Effect<
@@ -108,7 +128,9 @@ export declare class ApplicationAutoScaling extends AWSServiceClient {
     | ObjectNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutScheduledAction", input);
+  }
   registerScalableTarget(
     input: RegisterScalableTargetRequest,
   ): Effect.Effect<
@@ -118,7 +140,9 @@ export declare class ApplicationAutoScaling extends AWSServiceClient {
     | LimitExceededException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("RegisterScalableTarget", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -127,14 +151,20 @@ export declare class ApplicationAutoScaling extends AWSServiceClient {
     | TooManyTagsException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
     ResourceNotFoundException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
 }
+
+export default ApplicationAutoScaling;
 
 export type AdjustmentType =
   | "ChangeInCapacity"

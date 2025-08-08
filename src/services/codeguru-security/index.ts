@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class CodeGuruSecurity extends AWSServiceClient {
+export class CodeGuruSecurity extends AWSServiceClient {
   batchGetFindings(
     input: BatchGetFindingsRequest,
   ): Effect.Effect<
@@ -12,7 +12,9 @@ export declare class CodeGuruSecurity extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("BatchGetFindings", input);
+  }
   createScan(
     input: CreateScanRequest,
   ): Effect.Effect<
@@ -24,7 +26,9 @@ export declare class CodeGuruSecurity extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateScan", input);
+  }
   createUploadUrl(
     input: CreateUploadUrlRequest,
   ): Effect.Effect<
@@ -34,7 +38,9 @@ export declare class CodeGuruSecurity extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateUploadUrl", input);
+  }
   getAccountConfiguration(
     input: GetAccountConfigurationRequest,
   ): Effect.Effect<
@@ -44,7 +50,9 @@ export declare class CodeGuruSecurity extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetAccountConfiguration", input);
+  }
   getFindings(
     input: GetFindingsRequest,
   ): Effect.Effect<
@@ -56,7 +64,9 @@ export declare class CodeGuruSecurity extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetFindings", input);
+  }
   getMetricsSummary(
     input: GetMetricsSummaryRequest,
   ): Effect.Effect<
@@ -66,7 +76,9 @@ export declare class CodeGuruSecurity extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetMetricsSummary", input);
+  }
   getScan(
     input: GetScanRequest,
   ): Effect.Effect<
@@ -77,7 +89,9 @@ export declare class CodeGuruSecurity extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetScan", input);
+  }
   listFindingsMetrics(
     input: ListFindingsMetricsRequest,
   ): Effect.Effect<
@@ -87,7 +101,9 @@ export declare class CodeGuruSecurity extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListFindingsMetrics", input);
+  }
   listScans(
     input: ListScansRequest,
   ): Effect.Effect<
@@ -97,7 +113,9 @@ export declare class CodeGuruSecurity extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListScans", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
@@ -109,7 +127,9 @@ export declare class CodeGuruSecurity extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -121,7 +141,9 @@ export declare class CodeGuruSecurity extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
@@ -133,7 +155,9 @@ export declare class CodeGuruSecurity extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
   updateAccountConfiguration(
     input: UpdateAccountConfigurationRequest,
   ): Effect.Effect<
@@ -144,10 +168,14 @@ export declare class CodeGuruSecurity extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateAccountConfiguration", input);
+  }
 }
 
-export declare class CodeguruSecurity extends CodeGuruSecurity {}
+export class CodeguruSecurity extends CodeGuruSecurity {}
+
+export default CodeGuruSecurity;
 
 export declare class AccessDeniedException extends EffectData.TaggedError(
   "AccessDeniedException",

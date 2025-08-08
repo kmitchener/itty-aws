@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class RoboMaker extends AWSServiceClient {
+export class RoboMaker extends AWSServiceClient {
   batchDeleteWorlds(
     input: BatchDeleteWorldsRequest,
   ): Effect.Effect<
@@ -11,7 +11,9 @@ export declare class RoboMaker extends AWSServiceClient {
     | InvalidParameterException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("BatchDeleteWorlds", input);
+  }
   batchDescribeSimulationJob(
     input: BatchDescribeSimulationJobRequest,
   ): Effect.Effect<
@@ -21,7 +23,9 @@ export declare class RoboMaker extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("BatchDescribeSimulationJob", input);
+  }
   cancelDeploymentJob(
     input: CancelDeploymentJobRequest,
   ): Effect.Effect<
@@ -31,7 +35,9 @@ export declare class RoboMaker extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CancelDeploymentJob", input);
+  }
   cancelSimulationJob(
     input: CancelSimulationJobRequest,
   ): Effect.Effect<
@@ -41,7 +47,9 @@ export declare class RoboMaker extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CancelSimulationJob", input);
+  }
   cancelSimulationJobBatch(
     input: CancelSimulationJobBatchRequest,
   ): Effect.Effect<
@@ -51,7 +59,9 @@ export declare class RoboMaker extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CancelSimulationJobBatch", input);
+  }
   cancelWorldExportJob(
     input: CancelWorldExportJobRequest,
   ): Effect.Effect<
@@ -61,7 +71,9 @@ export declare class RoboMaker extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CancelWorldExportJob", input);
+  }
   cancelWorldGenerationJob(
     input: CancelWorldGenerationJobRequest,
   ): Effect.Effect<
@@ -71,7 +83,9 @@ export declare class RoboMaker extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CancelWorldGenerationJob", input);
+  }
   createDeploymentJob(
     input: CreateDeploymentJobRequest,
   ): Effect.Effect<
@@ -84,7 +98,9 @@ export declare class RoboMaker extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateDeploymentJob", input);
+  }
   createFleet(
     input: CreateFleetRequest,
   ): Effect.Effect<
@@ -94,7 +110,9 @@ export declare class RoboMaker extends AWSServiceClient {
     | LimitExceededException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateFleet", input);
+  }
   createRobot(
     input: CreateRobotRequest,
   ): Effect.Effect<
@@ -105,7 +123,9 @@ export declare class RoboMaker extends AWSServiceClient {
     | ResourceAlreadyExistsException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateRobot", input);
+  }
   createRobotApplication(
     input: CreateRobotApplicationRequest,
   ): Effect.Effect<
@@ -117,7 +137,9 @@ export declare class RoboMaker extends AWSServiceClient {
     | ResourceAlreadyExistsException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateRobotApplication", input);
+  }
   createRobotApplicationVersion(
     input: CreateRobotApplicationVersionRequest,
   ): Effect.Effect<
@@ -128,7 +150,9 @@ export declare class RoboMaker extends AWSServiceClient {
     | LimitExceededException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateRobotApplicationVersion", input);
+  }
   createSimulationApplication(
     input: CreateSimulationApplicationRequest,
   ): Effect.Effect<
@@ -140,7 +164,9 @@ export declare class RoboMaker extends AWSServiceClient {
     | ResourceAlreadyExistsException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateSimulationApplication", input);
+  }
   createSimulationApplicationVersion(
     input: CreateSimulationApplicationVersionRequest,
   ): Effect.Effect<
@@ -151,7 +177,9 @@ export declare class RoboMaker extends AWSServiceClient {
     | LimitExceededException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateSimulationApplicationVersion", input);
+  }
   createSimulationJob(
     input: CreateSimulationJobRequest,
   ): Effect.Effect<
@@ -164,7 +192,9 @@ export declare class RoboMaker extends AWSServiceClient {
     | ServiceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateSimulationJob", input);
+  }
   createWorldExportJob(
     input: CreateWorldExportJobRequest,
   ): Effect.Effect<
@@ -176,7 +206,9 @@ export declare class RoboMaker extends AWSServiceClient {
     | ServiceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateWorldExportJob", input);
+  }
   createWorldGenerationJob(
     input: CreateWorldGenerationJobRequest,
   ): Effect.Effect<
@@ -189,7 +221,9 @@ export declare class RoboMaker extends AWSServiceClient {
     | ServiceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateWorldGenerationJob", input);
+  }
   createWorldTemplate(
     input: CreateWorldTemplateRequest,
   ): Effect.Effect<
@@ -201,7 +235,9 @@ export declare class RoboMaker extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateWorldTemplate", input);
+  }
   deleteFleet(
     input: DeleteFleetRequest,
   ): Effect.Effect<
@@ -210,7 +246,9 @@ export declare class RoboMaker extends AWSServiceClient {
     | InvalidParameterException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteFleet", input);
+  }
   deleteRobot(
     input: DeleteRobotRequest,
   ): Effect.Effect<
@@ -219,7 +257,9 @@ export declare class RoboMaker extends AWSServiceClient {
     | InvalidParameterException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteRobot", input);
+  }
   deleteRobotApplication(
     input: DeleteRobotApplicationRequest,
   ): Effect.Effect<
@@ -228,7 +268,9 @@ export declare class RoboMaker extends AWSServiceClient {
     | InvalidParameterException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteRobotApplication", input);
+  }
   deleteSimulationApplication(
     input: DeleteSimulationApplicationRequest,
   ): Effect.Effect<
@@ -237,7 +279,9 @@ export declare class RoboMaker extends AWSServiceClient {
     | InvalidParameterException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteSimulationApplication", input);
+  }
   deleteWorldTemplate(
     input: DeleteWorldTemplateRequest,
   ): Effect.Effect<
@@ -247,7 +291,9 @@ export declare class RoboMaker extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteWorldTemplate", input);
+  }
   deregisterRobot(
     input: DeregisterRobotRequest,
   ): Effect.Effect<
@@ -257,7 +303,9 @@ export declare class RoboMaker extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeregisterRobot", input);
+  }
   describeDeploymentJob(
     input: DescribeDeploymentJobRequest,
   ): Effect.Effect<
@@ -267,7 +315,9 @@ export declare class RoboMaker extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeDeploymentJob", input);
+  }
   describeFleet(
     input: DescribeFleetRequest,
   ): Effect.Effect<
@@ -277,7 +327,9 @@ export declare class RoboMaker extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeFleet", input);
+  }
   describeRobot(
     input: DescribeRobotRequest,
   ): Effect.Effect<
@@ -287,7 +339,9 @@ export declare class RoboMaker extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeRobot", input);
+  }
   describeRobotApplication(
     input: DescribeRobotApplicationRequest,
   ): Effect.Effect<
@@ -297,7 +351,9 @@ export declare class RoboMaker extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeRobotApplication", input);
+  }
   describeSimulationApplication(
     input: DescribeSimulationApplicationRequest,
   ): Effect.Effect<
@@ -307,7 +363,9 @@ export declare class RoboMaker extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeSimulationApplication", input);
+  }
   describeSimulationJob(
     input: DescribeSimulationJobRequest,
   ): Effect.Effect<
@@ -317,7 +375,9 @@ export declare class RoboMaker extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeSimulationJob", input);
+  }
   describeSimulationJobBatch(
     input: DescribeSimulationJobBatchRequest,
   ): Effect.Effect<
@@ -326,7 +386,9 @@ export declare class RoboMaker extends AWSServiceClient {
     | InvalidParameterException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeSimulationJobBatch", input);
+  }
   describeWorld(
     input: DescribeWorldRequest,
   ): Effect.Effect<
@@ -336,7 +398,9 @@ export declare class RoboMaker extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeWorld", input);
+  }
   describeWorldExportJob(
     input: DescribeWorldExportJobRequest,
   ): Effect.Effect<
@@ -346,7 +410,9 @@ export declare class RoboMaker extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeWorldExportJob", input);
+  }
   describeWorldGenerationJob(
     input: DescribeWorldGenerationJobRequest,
   ): Effect.Effect<
@@ -356,7 +422,9 @@ export declare class RoboMaker extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeWorldGenerationJob", input);
+  }
   describeWorldTemplate(
     input: DescribeWorldTemplateRequest,
   ): Effect.Effect<
@@ -366,7 +434,9 @@ export declare class RoboMaker extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeWorldTemplate", input);
+  }
   getWorldTemplateBody(
     input: GetWorldTemplateBodyRequest,
   ): Effect.Effect<
@@ -376,7 +446,9 @@ export declare class RoboMaker extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetWorldTemplateBody", input);
+  }
   listDeploymentJobs(
     input: ListDeploymentJobsRequest,
   ): Effect.Effect<
@@ -386,7 +458,9 @@ export declare class RoboMaker extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListDeploymentJobs", input);
+  }
   listFleets(
     input: ListFleetsRequest,
   ): Effect.Effect<
@@ -396,7 +470,9 @@ export declare class RoboMaker extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListFleets", input);
+  }
   listRobotApplications(
     input: ListRobotApplicationsRequest,
   ): Effect.Effect<
@@ -405,7 +481,9 @@ export declare class RoboMaker extends AWSServiceClient {
     | InvalidParameterException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListRobotApplications", input);
+  }
   listRobots(
     input: ListRobotsRequest,
   ): Effect.Effect<
@@ -415,7 +493,9 @@ export declare class RoboMaker extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListRobots", input);
+  }
   listSimulationApplications(
     input: ListSimulationApplicationsRequest,
   ): Effect.Effect<
@@ -424,13 +504,17 @@ export declare class RoboMaker extends AWSServiceClient {
     | InvalidParameterException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListSimulationApplications", input);
+  }
   listSimulationJobBatches(
     input: ListSimulationJobBatchesRequest,
   ): Effect.Effect<
     ListSimulationJobBatchesResponse,
     InternalServerException | InvalidParameterException | CommonAwsError
-  >;
+  > {
+    return this.call("ListSimulationJobBatches", input);
+  }
   listSimulationJobs(
     input: ListSimulationJobsRequest,
   ): Effect.Effect<
@@ -439,7 +523,9 @@ export declare class RoboMaker extends AWSServiceClient {
     | InvalidParameterException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListSimulationJobs", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
@@ -449,7 +535,9 @@ export declare class RoboMaker extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   listWorldExportJobs(
     input: ListWorldExportJobsRequest,
   ): Effect.Effect<
@@ -458,7 +546,9 @@ export declare class RoboMaker extends AWSServiceClient {
     | InvalidParameterException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListWorldExportJobs", input);
+  }
   listWorldGenerationJobs(
     input: ListWorldGenerationJobsRequest,
   ): Effect.Effect<
@@ -467,7 +557,9 @@ export declare class RoboMaker extends AWSServiceClient {
     | InvalidParameterException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListWorldGenerationJobs", input);
+  }
   listWorlds(
     input: ListWorldsRequest,
   ): Effect.Effect<
@@ -476,7 +568,9 @@ export declare class RoboMaker extends AWSServiceClient {
     | InvalidParameterException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListWorlds", input);
+  }
   listWorldTemplates(
     input: ListWorldTemplatesRequest,
   ): Effect.Effect<
@@ -485,7 +579,9 @@ export declare class RoboMaker extends AWSServiceClient {
     | InvalidParameterException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListWorldTemplates", input);
+  }
   registerRobot(
     input: RegisterRobotRequest,
   ): Effect.Effect<
@@ -496,7 +592,9 @@ export declare class RoboMaker extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("RegisterRobot", input);
+  }
   restartSimulationJob(
     input: RestartSimulationJobRequest,
   ): Effect.Effect<
@@ -507,7 +605,9 @@ export declare class RoboMaker extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("RestartSimulationJob", input);
+  }
   startSimulationJobBatch(
     input: StartSimulationJobBatchRequest,
   ): Effect.Effect<
@@ -518,7 +618,9 @@ export declare class RoboMaker extends AWSServiceClient {
     | LimitExceededException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartSimulationJobBatch", input);
+  }
   syncDeploymentJob(
     input: SyncDeploymentJobRequest,
   ): Effect.Effect<
@@ -531,7 +633,9 @@ export declare class RoboMaker extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("SyncDeploymentJob", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -541,7 +645,9 @@ export declare class RoboMaker extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
@@ -551,7 +657,9 @@ export declare class RoboMaker extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
   updateRobotApplication(
     input: UpdateRobotApplicationRequest,
   ): Effect.Effect<
@@ -562,7 +670,9 @@ export declare class RoboMaker extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateRobotApplication", input);
+  }
   updateSimulationApplication(
     input: UpdateSimulationApplicationRequest,
   ): Effect.Effect<
@@ -573,7 +683,9 @@ export declare class RoboMaker extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateSimulationApplication", input);
+  }
   updateWorldTemplate(
     input: UpdateWorldTemplateRequest,
   ): Effect.Effect<
@@ -583,10 +695,14 @@ export declare class RoboMaker extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateWorldTemplate", input);
+  }
 }
 
-export declare class Robomaker extends RoboMaker {}
+export class Robomaker extends RoboMaker {}
+
+export default RoboMaker;
 
 export type Architecture = "X86_64" | "ARM64" | "ARMHF";
 export type Arn = string;

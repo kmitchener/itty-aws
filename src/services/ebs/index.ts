@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class EBS extends AWSServiceClient {
+export class EBS extends AWSServiceClient {
   completeSnapshot(
     input: CompleteSnapshotRequest,
   ): Effect.Effect<
@@ -14,7 +14,9 @@ export declare class EBS extends AWSServiceClient {
     | ServiceQuotaExceededException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CompleteSnapshot", input);
+  }
   getSnapshotBlock(
     input: GetSnapshotBlockRequest,
   ): Effect.Effect<
@@ -26,7 +28,9 @@ export declare class EBS extends AWSServiceClient {
     | ServiceQuotaExceededException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetSnapshotBlock", input);
+  }
   listChangedBlocks(
     input: ListChangedBlocksRequest,
   ): Effect.Effect<
@@ -38,7 +42,9 @@ export declare class EBS extends AWSServiceClient {
     | ServiceQuotaExceededException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListChangedBlocks", input);
+  }
   listSnapshotBlocks(
     input: ListSnapshotBlocksRequest,
   ): Effect.Effect<
@@ -50,7 +56,9 @@ export declare class EBS extends AWSServiceClient {
     | ServiceQuotaExceededException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListSnapshotBlocks", input);
+  }
   putSnapshotBlock(
     input: PutSnapshotBlockRequest,
   ): Effect.Effect<
@@ -62,7 +70,9 @@ export declare class EBS extends AWSServiceClient {
     | ServiceQuotaExceededException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutSnapshotBlock", input);
+  }
   startSnapshot(
     input: StartSnapshotRequest,
   ): Effect.Effect<
@@ -76,8 +86,12 @@ export declare class EBS extends AWSServiceClient {
     | ServiceQuotaExceededException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartSnapshot", input);
+  }
 }
+
+export default EBS;
 
 export declare class AccessDeniedException extends EffectData.TaggedError(
   "AccessDeniedException",

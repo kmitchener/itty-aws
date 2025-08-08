@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class SageMakerFeatureStoreRuntime extends AWSServiceClient {
+export class SageMakerFeatureStoreRuntime extends AWSServiceClient {
   batchGetRecord(
     input: BatchGetRecordRequest,
   ): Effect.Effect<
@@ -12,7 +12,9 @@ export declare class SageMakerFeatureStoreRuntime extends AWSServiceClient {
     | ServiceUnavailable
     | ValidationError
     | CommonAwsError
-  >;
+  > {
+    return this.call("BatchGetRecord", input);
+  }
   deleteRecord(
     input: DeleteRecordRequest,
   ): Effect.Effect<
@@ -22,7 +24,9 @@ export declare class SageMakerFeatureStoreRuntime extends AWSServiceClient {
     | ServiceUnavailable
     | ValidationError
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteRecord", input);
+  }
   getRecord(
     input: GetRecordRequest,
   ): Effect.Effect<
@@ -33,7 +37,9 @@ export declare class SageMakerFeatureStoreRuntime extends AWSServiceClient {
     | ServiceUnavailable
     | ValidationError
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetRecord", input);
+  }
   putRecord(
     input: PutRecordRequest,
   ): Effect.Effect<
@@ -43,10 +49,14 @@ export declare class SageMakerFeatureStoreRuntime extends AWSServiceClient {
     | ServiceUnavailable
     | ValidationError
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutRecord", input);
+  }
 }
 
-export declare class SagemakerFeaturestoreRuntime extends SageMakerFeatureStoreRuntime {}
+export class SagemakerFeaturestoreRuntime extends SageMakerFeatureStoreRuntime {}
+
+export default SageMakerFeatureStoreRuntime;
 
 export declare class AccessForbidden extends EffectData.TaggedError(
   "AccessForbidden",

@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class TranscribeStreaming extends AWSServiceClient {
+export class TranscribeStreaming extends AWSServiceClient {
   getMedicalScribeStream(
     input: GetMedicalScribeStreamRequest,
   ): Effect.Effect<
@@ -12,7 +12,9 @@ export declare class TranscribeStreaming extends AWSServiceClient {
     | LimitExceededException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetMedicalScribeStream", input);
+  }
   startCallAnalyticsStreamTranscription(
     input: StartCallAnalyticsStreamTranscriptionRequest,
   ): Effect.Effect<
@@ -23,7 +25,9 @@ export declare class TranscribeStreaming extends AWSServiceClient {
     | LimitExceededException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartCallAnalyticsStreamTranscription", input);
+  }
   startMedicalScribeStream(
     input: StartMedicalScribeStreamRequest,
   ): Effect.Effect<
@@ -34,7 +38,9 @@ export declare class TranscribeStreaming extends AWSServiceClient {
     | LimitExceededException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartMedicalScribeStream", input);
+  }
   startMedicalStreamTranscription(
     input: StartMedicalStreamTranscriptionRequest,
   ): Effect.Effect<
@@ -45,7 +51,9 @@ export declare class TranscribeStreaming extends AWSServiceClient {
     | LimitExceededException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartMedicalStreamTranscription", input);
+  }
   startStreamTranscription(
     input: StartStreamTranscriptionRequest,
   ): Effect.Effect<
@@ -56,8 +64,12 @@ export declare class TranscribeStreaming extends AWSServiceClient {
     | LimitExceededException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartStreamTranscription", input);
+  }
 }
+
+export default TranscribeStreaming;
 
 export interface Alternative {
   Transcript?: string;

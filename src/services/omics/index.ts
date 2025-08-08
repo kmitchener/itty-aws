@@ -2,7 +2,7 @@ import type { Effect, Stream, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class Omics extends AWSServiceClient {
+export class Omics extends AWSServiceClient {
   deleteS3AccessPolicy(
     input: DeleteS3AccessPolicyRequest,
   ): Effect.Effect<
@@ -15,7 +15,9 @@ export declare class Omics extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteS3AccessPolicy", input);
+  }
   getS3AccessPolicy(
     input: GetS3AccessPolicyRequest,
   ): Effect.Effect<
@@ -29,7 +31,9 @@ export declare class Omics extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetS3AccessPolicy", input);
+  }
   putS3AccessPolicy(
     input: PutS3AccessPolicyRequest,
   ): Effect.Effect<
@@ -42,8 +46,12 @@ export declare class Omics extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutS3AccessPolicy", input);
+  }
 }
+
+export default Omics;
 
 export interface AbortMultipartReadSetUploadRequest {
   sequenceStoreId: string;

@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class repostspace extends AWSServiceClient {
+export class repostspace extends AWSServiceClient {
   batchAddChannelRoleToAccessors(
     input: BatchAddChannelRoleToAccessorsInput,
   ): Effect.Effect<
@@ -13,7 +13,9 @@ export declare class repostspace extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("BatchAddChannelRoleToAccessors", input);
+  }
   batchAddRole(
     input: BatchAddRoleInput,
   ): Effect.Effect<
@@ -24,7 +26,9 @@ export declare class repostspace extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("BatchAddRole", input);
+  }
   batchRemoveChannelRoleFromAccessors(
     input: BatchRemoveChannelRoleFromAccessorsInput,
   ): Effect.Effect<
@@ -35,7 +39,9 @@ export declare class repostspace extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("BatchRemoveChannelRoleFromAccessors", input);
+  }
   batchRemoveRole(
     input: BatchRemoveRoleInput,
   ): Effect.Effect<
@@ -46,7 +52,9 @@ export declare class repostspace extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("BatchRemoveRole", input);
+  }
   createChannel(
     input: CreateChannelInput,
   ): Effect.Effect<
@@ -59,7 +67,9 @@ export declare class repostspace extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateChannel", input);
+  }
   createSpace(
     input: CreateSpaceInput,
   ): Effect.Effect<
@@ -72,7 +82,9 @@ export declare class repostspace extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateSpace", input);
+  }
   deleteSpace(
     input: DeleteSpaceInput,
   ): Effect.Effect<
@@ -83,7 +95,9 @@ export declare class repostspace extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteSpace", input);
+  }
   deregisterAdmin(
     input: DeregisterAdminInput,
   ): Effect.Effect<
@@ -94,7 +108,9 @@ export declare class repostspace extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeregisterAdmin", input);
+  }
   getChannel(
     input: GetChannelInput,
   ): Effect.Effect<
@@ -105,7 +121,9 @@ export declare class repostspace extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetChannel", input);
+  }
   getSpace(
     input: GetSpaceInput,
   ): Effect.Effect<
@@ -116,7 +134,9 @@ export declare class repostspace extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetSpace", input);
+  }
   listChannels(
     input: ListChannelsInput,
   ): Effect.Effect<
@@ -126,7 +146,9 @@ export declare class repostspace extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListChannels", input);
+  }
   listSpaces(
     input: ListSpacesInput,
   ): Effect.Effect<
@@ -136,7 +158,9 @@ export declare class repostspace extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListSpaces", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
@@ -147,7 +171,9 @@ export declare class repostspace extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   registerAdmin(
     input: RegisterAdminInput,
   ): Effect.Effect<
@@ -158,7 +184,9 @@ export declare class repostspace extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("RegisterAdmin", input);
+  }
   sendInvites(
     input: SendInvitesInput,
   ): Effect.Effect<
@@ -169,7 +197,9 @@ export declare class repostspace extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("SendInvites", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -180,7 +210,9 @@ export declare class repostspace extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
@@ -191,7 +223,9 @@ export declare class repostspace extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
   updateChannel(
     input: UpdateChannelInput,
   ): Effect.Effect<
@@ -203,7 +237,9 @@ export declare class repostspace extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateChannel", input);
+  }
   updateSpace(
     input: UpdateSpaceInput,
   ): Effect.Effect<
@@ -215,10 +251,14 @@ export declare class repostspace extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateSpace", input);
+  }
 }
 
-export declare class Repostspace extends repostspace {}
+export class Repostspace extends repostspace {}
+
+export default repostspace;
 
 export declare class AccessDeniedException extends EffectData.TaggedError(
   "AccessDeniedException",

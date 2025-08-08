@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class Transcribe extends AWSServiceClient {
+export class Transcribe extends AWSServiceClient {
   createCallAnalyticsCategory(
     input: CreateCallAnalyticsCategoryRequest,
   ): Effect.Effect<
@@ -12,7 +12,9 @@ export declare class Transcribe extends AWSServiceClient {
     | InternalFailureException
     | LimitExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateCallAnalyticsCategory", input);
+  }
   createLanguageModel(
     input: CreateLanguageModelRequest,
   ): Effect.Effect<
@@ -22,7 +24,9 @@ export declare class Transcribe extends AWSServiceClient {
     | InternalFailureException
     | LimitExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateLanguageModel", input);
+  }
   createMedicalVocabulary(
     input: CreateMedicalVocabularyRequest,
   ): Effect.Effect<
@@ -32,7 +36,9 @@ export declare class Transcribe extends AWSServiceClient {
     | InternalFailureException
     | LimitExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateMedicalVocabulary", input);
+  }
   createVocabulary(
     input: CreateVocabularyRequest,
   ): Effect.Effect<
@@ -42,7 +48,9 @@ export declare class Transcribe extends AWSServiceClient {
     | InternalFailureException
     | LimitExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateVocabulary", input);
+  }
   createVocabularyFilter(
     input: CreateVocabularyFilterRequest,
   ): Effect.Effect<
@@ -52,7 +60,9 @@ export declare class Transcribe extends AWSServiceClient {
     | InternalFailureException
     | LimitExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateVocabularyFilter", input);
+  }
   deleteCallAnalyticsCategory(
     input: DeleteCallAnalyticsCategoryRequest,
   ): Effect.Effect<
@@ -62,7 +72,9 @@ export declare class Transcribe extends AWSServiceClient {
     | LimitExceededException
     | NotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteCallAnalyticsCategory", input);
+  }
   deleteCallAnalyticsJob(
     input: DeleteCallAnalyticsJobRequest,
   ): Effect.Effect<
@@ -71,7 +83,9 @@ export declare class Transcribe extends AWSServiceClient {
     | InternalFailureException
     | LimitExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteCallAnalyticsJob", input);
+  }
   deleteLanguageModel(
     input: DeleteLanguageModelRequest,
   ): Effect.Effect<
@@ -80,7 +94,9 @@ export declare class Transcribe extends AWSServiceClient {
     | InternalFailureException
     | LimitExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteLanguageModel", input);
+  }
   deleteMedicalScribeJob(
     input: DeleteMedicalScribeJobRequest,
   ): Effect.Effect<
@@ -89,7 +105,9 @@ export declare class Transcribe extends AWSServiceClient {
     | InternalFailureException
     | LimitExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteMedicalScribeJob", input);
+  }
   deleteMedicalTranscriptionJob(
     input: DeleteMedicalTranscriptionJobRequest,
   ): Effect.Effect<
@@ -98,7 +116,9 @@ export declare class Transcribe extends AWSServiceClient {
     | InternalFailureException
     | LimitExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteMedicalTranscriptionJob", input);
+  }
   deleteMedicalVocabulary(
     input: DeleteMedicalVocabularyRequest,
   ): Effect.Effect<
@@ -108,7 +128,9 @@ export declare class Transcribe extends AWSServiceClient {
     | LimitExceededException
     | NotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteMedicalVocabulary", input);
+  }
   deleteTranscriptionJob(
     input: DeleteTranscriptionJobRequest,
   ): Effect.Effect<
@@ -117,7 +139,9 @@ export declare class Transcribe extends AWSServiceClient {
     | InternalFailureException
     | LimitExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteTranscriptionJob", input);
+  }
   deleteVocabulary(
     input: DeleteVocabularyRequest,
   ): Effect.Effect<
@@ -127,7 +151,9 @@ export declare class Transcribe extends AWSServiceClient {
     | LimitExceededException
     | NotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteVocabulary", input);
+  }
   deleteVocabularyFilter(
     input: DeleteVocabularyFilterRequest,
   ): Effect.Effect<
@@ -137,7 +163,9 @@ export declare class Transcribe extends AWSServiceClient {
     | LimitExceededException
     | NotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteVocabularyFilter", input);
+  }
   describeLanguageModel(
     input: DescribeLanguageModelRequest,
   ): Effect.Effect<
@@ -147,7 +175,9 @@ export declare class Transcribe extends AWSServiceClient {
     | LimitExceededException
     | NotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeLanguageModel", input);
+  }
   getCallAnalyticsCategory(
     input: GetCallAnalyticsCategoryRequest,
   ): Effect.Effect<
@@ -157,7 +187,9 @@ export declare class Transcribe extends AWSServiceClient {
     | LimitExceededException
     | NotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetCallAnalyticsCategory", input);
+  }
   getCallAnalyticsJob(
     input: GetCallAnalyticsJobRequest,
   ): Effect.Effect<
@@ -167,7 +199,9 @@ export declare class Transcribe extends AWSServiceClient {
     | LimitExceededException
     | NotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetCallAnalyticsJob", input);
+  }
   getMedicalScribeJob(
     input: GetMedicalScribeJobRequest,
   ): Effect.Effect<
@@ -177,7 +211,9 @@ export declare class Transcribe extends AWSServiceClient {
     | LimitExceededException
     | NotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetMedicalScribeJob", input);
+  }
   getMedicalTranscriptionJob(
     input: GetMedicalTranscriptionJobRequest,
   ): Effect.Effect<
@@ -187,7 +223,9 @@ export declare class Transcribe extends AWSServiceClient {
     | LimitExceededException
     | NotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetMedicalTranscriptionJob", input);
+  }
   getMedicalVocabulary(
     input: GetMedicalVocabularyRequest,
   ): Effect.Effect<
@@ -197,7 +235,9 @@ export declare class Transcribe extends AWSServiceClient {
     | LimitExceededException
     | NotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetMedicalVocabulary", input);
+  }
   getTranscriptionJob(
     input: GetTranscriptionJobRequest,
   ): Effect.Effect<
@@ -207,7 +247,9 @@ export declare class Transcribe extends AWSServiceClient {
     | LimitExceededException
     | NotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetTranscriptionJob", input);
+  }
   getVocabulary(
     input: GetVocabularyRequest,
   ): Effect.Effect<
@@ -217,7 +259,9 @@ export declare class Transcribe extends AWSServiceClient {
     | LimitExceededException
     | NotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetVocabulary", input);
+  }
   getVocabularyFilter(
     input: GetVocabularyFilterRequest,
   ): Effect.Effect<
@@ -227,7 +271,9 @@ export declare class Transcribe extends AWSServiceClient {
     | LimitExceededException
     | NotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetVocabularyFilter", input);
+  }
   listCallAnalyticsCategories(
     input: ListCallAnalyticsCategoriesRequest,
   ): Effect.Effect<
@@ -236,7 +282,9 @@ export declare class Transcribe extends AWSServiceClient {
     | InternalFailureException
     | LimitExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListCallAnalyticsCategories", input);
+  }
   listCallAnalyticsJobs(
     input: ListCallAnalyticsJobsRequest,
   ): Effect.Effect<
@@ -245,7 +293,9 @@ export declare class Transcribe extends AWSServiceClient {
     | InternalFailureException
     | LimitExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListCallAnalyticsJobs", input);
+  }
   listLanguageModels(
     input: ListLanguageModelsRequest,
   ): Effect.Effect<
@@ -254,7 +304,9 @@ export declare class Transcribe extends AWSServiceClient {
     | InternalFailureException
     | LimitExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListLanguageModels", input);
+  }
   listMedicalScribeJobs(
     input: ListMedicalScribeJobsRequest,
   ): Effect.Effect<
@@ -263,7 +315,9 @@ export declare class Transcribe extends AWSServiceClient {
     | InternalFailureException
     | LimitExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListMedicalScribeJobs", input);
+  }
   listMedicalTranscriptionJobs(
     input: ListMedicalTranscriptionJobsRequest,
   ): Effect.Effect<
@@ -272,7 +326,9 @@ export declare class Transcribe extends AWSServiceClient {
     | InternalFailureException
     | LimitExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListMedicalTranscriptionJobs", input);
+  }
   listMedicalVocabularies(
     input: ListMedicalVocabulariesRequest,
   ): Effect.Effect<
@@ -281,7 +337,9 @@ export declare class Transcribe extends AWSServiceClient {
     | InternalFailureException
     | LimitExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListMedicalVocabularies", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
@@ -291,7 +349,9 @@ export declare class Transcribe extends AWSServiceClient {
     | LimitExceededException
     | NotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   listTranscriptionJobs(
     input: ListTranscriptionJobsRequest,
   ): Effect.Effect<
@@ -300,7 +360,9 @@ export declare class Transcribe extends AWSServiceClient {
     | InternalFailureException
     | LimitExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTranscriptionJobs", input);
+  }
   listVocabularies(
     input: ListVocabulariesRequest,
   ): Effect.Effect<
@@ -309,7 +371,9 @@ export declare class Transcribe extends AWSServiceClient {
     | InternalFailureException
     | LimitExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListVocabularies", input);
+  }
   listVocabularyFilters(
     input: ListVocabularyFiltersRequest,
   ): Effect.Effect<
@@ -318,7 +382,9 @@ export declare class Transcribe extends AWSServiceClient {
     | InternalFailureException
     | LimitExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListVocabularyFilters", input);
+  }
   startCallAnalyticsJob(
     input: StartCallAnalyticsJobRequest,
   ): Effect.Effect<
@@ -328,7 +394,9 @@ export declare class Transcribe extends AWSServiceClient {
     | InternalFailureException
     | LimitExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartCallAnalyticsJob", input);
+  }
   startMedicalScribeJob(
     input: StartMedicalScribeJobRequest,
   ): Effect.Effect<
@@ -338,7 +406,9 @@ export declare class Transcribe extends AWSServiceClient {
     | InternalFailureException
     | LimitExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartMedicalScribeJob", input);
+  }
   startMedicalTranscriptionJob(
     input: StartMedicalTranscriptionJobRequest,
   ): Effect.Effect<
@@ -348,7 +418,9 @@ export declare class Transcribe extends AWSServiceClient {
     | InternalFailureException
     | LimitExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartMedicalTranscriptionJob", input);
+  }
   startTranscriptionJob(
     input: StartTranscriptionJobRequest,
   ): Effect.Effect<
@@ -358,7 +430,9 @@ export declare class Transcribe extends AWSServiceClient {
     | InternalFailureException
     | LimitExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartTranscriptionJob", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -369,7 +443,9 @@ export declare class Transcribe extends AWSServiceClient {
     | LimitExceededException
     | NotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
@@ -380,7 +456,9 @@ export declare class Transcribe extends AWSServiceClient {
     | LimitExceededException
     | NotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
   updateCallAnalyticsCategory(
     input: UpdateCallAnalyticsCategoryRequest,
   ): Effect.Effect<
@@ -391,7 +469,9 @@ export declare class Transcribe extends AWSServiceClient {
     | LimitExceededException
     | NotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateCallAnalyticsCategory", input);
+  }
   updateMedicalVocabulary(
     input: UpdateMedicalVocabularyRequest,
   ): Effect.Effect<
@@ -402,7 +482,9 @@ export declare class Transcribe extends AWSServiceClient {
     | LimitExceededException
     | NotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateMedicalVocabulary", input);
+  }
   updateVocabulary(
     input: UpdateVocabularyRequest,
   ): Effect.Effect<
@@ -413,7 +495,9 @@ export declare class Transcribe extends AWSServiceClient {
     | LimitExceededException
     | NotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateVocabulary", input);
+  }
   updateVocabularyFilter(
     input: UpdateVocabularyFilterRequest,
   ): Effect.Effect<
@@ -423,8 +507,12 @@ export declare class Transcribe extends AWSServiceClient {
     | LimitExceededException
     | NotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateVocabularyFilter", input);
+  }
 }
+
+export default Transcribe;
 
 export interface AbsoluteTimeRange {
   StartTime?: number;

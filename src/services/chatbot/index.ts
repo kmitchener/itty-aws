@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class chatbot extends AWSServiceClient {
+export class chatbot extends AWSServiceClient {
   associateToConfiguration(
     input: AssociateToConfigurationRequest,
   ): Effect.Effect<
@@ -11,7 +11,9 @@ export declare class chatbot extends AWSServiceClient {
     | InvalidRequestException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AssociateToConfiguration", input);
+  }
   createChimeWebhookConfiguration(
     input: CreateChimeWebhookConfigurationRequest,
   ): Effect.Effect<
@@ -22,7 +24,9 @@ export declare class chatbot extends AWSServiceClient {
     | InvalidRequestException
     | LimitExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateChimeWebhookConfiguration", input);
+  }
   createMicrosoftTeamsChannelConfiguration(
     input: CreateTeamsChannelConfigurationRequest,
   ): Effect.Effect<
@@ -33,7 +37,9 @@ export declare class chatbot extends AWSServiceClient {
     | InvalidRequestException
     | LimitExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateMicrosoftTeamsChannelConfiguration", input);
+  }
   createSlackChannelConfiguration(
     input: CreateSlackChannelConfigurationRequest,
   ): Effect.Effect<
@@ -44,7 +50,9 @@ export declare class chatbot extends AWSServiceClient {
     | InvalidRequestException
     | LimitExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateSlackChannelConfiguration", input);
+  }
   deleteChimeWebhookConfiguration(
     input: DeleteChimeWebhookConfigurationRequest,
   ): Effect.Effect<
@@ -54,7 +62,9 @@ export declare class chatbot extends AWSServiceClient {
     | InvalidRequestException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteChimeWebhookConfiguration", input);
+  }
   deleteMicrosoftTeamsChannelConfiguration(
     input: DeleteTeamsChannelConfigurationRequest,
   ): Effect.Effect<
@@ -64,7 +74,9 @@ export declare class chatbot extends AWSServiceClient {
     | InvalidRequestException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteMicrosoftTeamsChannelConfiguration", input);
+  }
   deleteMicrosoftTeamsConfiguredTeam(
     input: DeleteTeamsConfiguredTeamRequest,
   ): Effect.Effect<
@@ -72,7 +84,9 @@ export declare class chatbot extends AWSServiceClient {
     | DeleteTeamsConfiguredTeamException
     | InvalidParameterException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteMicrosoftTeamsConfiguredTeam", input);
+  }
   deleteMicrosoftTeamsUserIdentity(
     input: DeleteMicrosoftTeamsUserIdentityRequest,
   ): Effect.Effect<
@@ -81,7 +95,9 @@ export declare class chatbot extends AWSServiceClient {
     | InvalidParameterException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteMicrosoftTeamsUserIdentity", input);
+  }
   deleteSlackChannelConfiguration(
     input: DeleteSlackChannelConfigurationRequest,
   ): Effect.Effect<
@@ -91,7 +107,9 @@ export declare class chatbot extends AWSServiceClient {
     | InvalidRequestException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteSlackChannelConfiguration", input);
+  }
   deleteSlackUserIdentity(
     input: DeleteSlackUserIdentityRequest,
   ): Effect.Effect<
@@ -100,7 +118,9 @@ export declare class chatbot extends AWSServiceClient {
     | InvalidParameterException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteSlackUserIdentity", input);
+  }
   deleteSlackWorkspaceAuthorization(
     input: DeleteSlackWorkspaceAuthorizationRequest,
   ): Effect.Effect<
@@ -108,7 +128,9 @@ export declare class chatbot extends AWSServiceClient {
     | DeleteSlackWorkspaceAuthorizationFault
     | InvalidParameterException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteSlackWorkspaceAuthorization", input);
+  }
   describeChimeWebhookConfigurations(
     input: DescribeChimeWebhookConfigurationsRequest,
   ): Effect.Effect<
@@ -117,7 +139,9 @@ export declare class chatbot extends AWSServiceClient {
     | InvalidParameterException
     | InvalidRequestException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeChimeWebhookConfigurations", input);
+  }
   describeSlackChannelConfigurations(
     input: DescribeSlackChannelConfigurationsRequest,
   ): Effect.Effect<
@@ -126,7 +150,9 @@ export declare class chatbot extends AWSServiceClient {
     | InvalidParameterException
     | InvalidRequestException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeSlackChannelConfigurations", input);
+  }
   describeSlackUserIdentities(
     input: DescribeSlackUserIdentitiesRequest,
   ): Effect.Effect<
@@ -135,7 +161,9 @@ export declare class chatbot extends AWSServiceClient {
     | InvalidParameterException
     | InvalidRequestException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeSlackUserIdentities", input);
+  }
   describeSlackWorkspaces(
     input: DescribeSlackWorkspacesRequest,
   ): Effect.Effect<
@@ -144,7 +172,9 @@ export declare class chatbot extends AWSServiceClient {
     | InvalidParameterException
     | InvalidRequestException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeSlackWorkspaces", input);
+  }
   disassociateFromConfiguration(
     input: DisassociateFromConfigurationRequest,
   ): Effect.Effect<
@@ -153,13 +183,17 @@ export declare class chatbot extends AWSServiceClient {
     | InvalidRequestException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DisassociateFromConfiguration", input);
+  }
   getAccountPreferences(
     input: GetAccountPreferencesRequest,
   ): Effect.Effect<
     GetAccountPreferencesResult,
     GetAccountPreferencesException | InvalidRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("GetAccountPreferences", input);
+  }
   getMicrosoftTeamsChannelConfiguration(
     input: GetTeamsChannelConfigurationRequest,
   ): Effect.Effect<
@@ -168,10 +202,14 @@ export declare class chatbot extends AWSServiceClient {
     | InvalidParameterException
     | InvalidRequestException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetMicrosoftTeamsChannelConfiguration", input);
+  }
   listAssociations(
     input: ListAssociationsRequest,
-  ): Effect.Effect<ListAssociationsResult, CommonAwsError>;
+  ): Effect.Effect<ListAssociationsResult, CommonAwsError> {
+    return this.call("ListAssociations", input);
+  }
   listMicrosoftTeamsChannelConfigurations(
     input: ListTeamsChannelConfigurationsRequest,
   ): Effect.Effect<
@@ -180,7 +218,9 @@ export declare class chatbot extends AWSServiceClient {
     | InvalidRequestException
     | ListTeamsChannelConfigurationsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListMicrosoftTeamsChannelConfigurations", input);
+  }
   listMicrosoftTeamsConfiguredTeams(
     input: ListMicrosoftTeamsConfiguredTeamsRequest,
   ): Effect.Effect<
@@ -189,7 +229,9 @@ export declare class chatbot extends AWSServiceClient {
     | InvalidRequestException
     | ListMicrosoftTeamsConfiguredTeamsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListMicrosoftTeamsConfiguredTeams", input);
+  }
   listMicrosoftTeamsUserIdentities(
     input: ListMicrosoftTeamsUserIdentitiesRequest,
   ): Effect.Effect<
@@ -198,7 +240,9 @@ export declare class chatbot extends AWSServiceClient {
     | InvalidRequestException
     | ListMicrosoftTeamsUserIdentitiesException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListMicrosoftTeamsUserIdentities", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
@@ -207,7 +251,9 @@ export declare class chatbot extends AWSServiceClient {
     | ResourceNotFoundException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -217,7 +263,9 @@ export declare class chatbot extends AWSServiceClient {
     | ServiceUnavailableException
     | TooManyTagsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
@@ -226,7 +274,9 @@ export declare class chatbot extends AWSServiceClient {
     | ResourceNotFoundException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
   updateAccountPreferences(
     input: UpdateAccountPreferencesRequest,
   ): Effect.Effect<
@@ -235,7 +285,9 @@ export declare class chatbot extends AWSServiceClient {
     | InvalidRequestException
     | UpdateAccountPreferencesException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateAccountPreferences", input);
+  }
   updateChimeWebhookConfiguration(
     input: UpdateChimeWebhookConfigurationRequest,
   ): Effect.Effect<
@@ -245,7 +297,9 @@ export declare class chatbot extends AWSServiceClient {
     | ResourceNotFoundException
     | UpdateChimeWebhookConfigurationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateChimeWebhookConfiguration", input);
+  }
   updateMicrosoftTeamsChannelConfiguration(
     input: UpdateTeamsChannelConfigurationRequest,
   ): Effect.Effect<
@@ -255,7 +309,9 @@ export declare class chatbot extends AWSServiceClient {
     | ResourceNotFoundException
     | UpdateTeamsChannelConfigurationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateMicrosoftTeamsChannelConfiguration", input);
+  }
   updateSlackChannelConfiguration(
     input: UpdateSlackChannelConfigurationRequest,
   ): Effect.Effect<
@@ -265,10 +321,14 @@ export declare class chatbot extends AWSServiceClient {
     | ResourceNotFoundException
     | UpdateSlackChannelConfigurationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateSlackChannelConfiguration", input);
+  }
 }
 
-export declare class Chatbot extends chatbot {}
+export class Chatbot extends chatbot {}
+
+export default chatbot;
 
 export interface AccountPreferences {
   UserAuthorizationRequired?: boolean;

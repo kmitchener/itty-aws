@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class KendraRanking extends AWSServiceClient {
+export class KendraRanking extends AWSServiceClient {
   createRescoreExecutionPlan(
     input: CreateRescoreExecutionPlanRequest,
   ): Effect.Effect<
@@ -14,7 +14,9 @@ export declare class KendraRanking extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateRescoreExecutionPlan", input);
+  }
   deleteRescoreExecutionPlan(
     input: DeleteRescoreExecutionPlanRequest,
   ): Effect.Effect<
@@ -26,7 +28,9 @@ export declare class KendraRanking extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteRescoreExecutionPlan", input);
+  }
   describeRescoreExecutionPlan(
     input: DescribeRescoreExecutionPlanRequest,
   ): Effect.Effect<
@@ -37,7 +41,9 @@ export declare class KendraRanking extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeRescoreExecutionPlan", input);
+  }
   listRescoreExecutionPlans(
     input: ListRescoreExecutionPlansRequest,
   ): Effect.Effect<
@@ -47,7 +53,9 @@ export declare class KendraRanking extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListRescoreExecutionPlans", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
@@ -58,7 +66,9 @@ export declare class KendraRanking extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   rescore(
     input: RescoreRequest,
   ): Effect.Effect<
@@ -70,7 +80,9 @@ export declare class KendraRanking extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("Rescore", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -81,7 +93,9 @@ export declare class KendraRanking extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
@@ -92,7 +106,9 @@ export declare class KendraRanking extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
   updateRescoreExecutionPlan(
     input: UpdateRescoreExecutionPlanRequest,
   ): Effect.Effect<
@@ -105,8 +121,12 @@ export declare class KendraRanking extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateRescoreExecutionPlan", input);
+  }
 }
+
+export default KendraRanking;
 
 export declare class AccessDeniedException extends EffectData.TaggedError(
   "AccessDeniedException",

@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class DataPipeline extends AWSServiceClient {
+export class DataPipeline extends AWSServiceClient {
   activatePipeline(
     input: ActivatePipelineInput,
   ): Effect.Effect<
@@ -12,7 +12,9 @@ export declare class DataPipeline extends AWSServiceClient {
     | PipelineDeletedException
     | PipelineNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ActivatePipeline", input);
+  }
   addTags(
     input: AddTagsInput,
   ): Effect.Effect<
@@ -22,13 +24,17 @@ export declare class DataPipeline extends AWSServiceClient {
     | PipelineDeletedException
     | PipelineNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AddTags", input);
+  }
   createPipeline(
     input: CreatePipelineInput,
   ): Effect.Effect<
     CreatePipelineOutput,
     InternalServiceError | InvalidRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("CreatePipeline", input);
+  }
   deactivatePipeline(
     input: DeactivatePipelineInput,
   ): Effect.Effect<
@@ -38,7 +44,9 @@ export declare class DataPipeline extends AWSServiceClient {
     | PipelineDeletedException
     | PipelineNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeactivatePipeline", input);
+  }
   deletePipeline(
     input: DeletePipelineInput,
   ): Effect.Effect<
@@ -47,7 +55,9 @@ export declare class DataPipeline extends AWSServiceClient {
     | InvalidRequestException
     | PipelineNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeletePipeline", input);
+  }
   describeObjects(
     input: DescribeObjectsInput,
   ): Effect.Effect<
@@ -57,7 +67,9 @@ export declare class DataPipeline extends AWSServiceClient {
     | PipelineDeletedException
     | PipelineNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeObjects", input);
+  }
   describePipelines(
     input: DescribePipelinesInput,
   ): Effect.Effect<
@@ -67,7 +79,9 @@ export declare class DataPipeline extends AWSServiceClient {
     | PipelineDeletedException
     | PipelineNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribePipelines", input);
+  }
   evaluateExpression(
     input: EvaluateExpressionInput,
   ): Effect.Effect<
@@ -78,7 +92,9 @@ export declare class DataPipeline extends AWSServiceClient {
     | PipelineNotFoundException
     | TaskNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("EvaluateExpression", input);
+  }
   getPipelineDefinition(
     input: GetPipelineDefinitionInput,
   ): Effect.Effect<
@@ -88,13 +104,17 @@ export declare class DataPipeline extends AWSServiceClient {
     | PipelineDeletedException
     | PipelineNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetPipelineDefinition", input);
+  }
   listPipelines(
     input: ListPipelinesInput,
   ): Effect.Effect<
     ListPipelinesOutput,
     InternalServiceError | InvalidRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("ListPipelines", input);
+  }
   pollForTask(
     input: PollForTaskInput,
   ): Effect.Effect<
@@ -103,7 +123,9 @@ export declare class DataPipeline extends AWSServiceClient {
     | InvalidRequestException
     | TaskNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PollForTask", input);
+  }
   putPipelineDefinition(
     input: PutPipelineDefinitionInput,
   ): Effect.Effect<
@@ -113,7 +135,9 @@ export declare class DataPipeline extends AWSServiceClient {
     | PipelineDeletedException
     | PipelineNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutPipelineDefinition", input);
+  }
   queryObjects(
     input: QueryObjectsInput,
   ): Effect.Effect<
@@ -123,7 +147,9 @@ export declare class DataPipeline extends AWSServiceClient {
     | PipelineDeletedException
     | PipelineNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("QueryObjects", input);
+  }
   removeTags(
     input: RemoveTagsInput,
   ): Effect.Effect<
@@ -133,7 +159,9 @@ export declare class DataPipeline extends AWSServiceClient {
     | PipelineDeletedException
     | PipelineNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("RemoveTags", input);
+  }
   reportTaskProgress(
     input: ReportTaskProgressInput,
   ): Effect.Effect<
@@ -144,13 +172,17 @@ export declare class DataPipeline extends AWSServiceClient {
     | PipelineNotFoundException
     | TaskNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ReportTaskProgress", input);
+  }
   reportTaskRunnerHeartbeat(
     input: ReportTaskRunnerHeartbeatInput,
   ): Effect.Effect<
     ReportTaskRunnerHeartbeatOutput,
     InternalServiceError | InvalidRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("ReportTaskRunnerHeartbeat", input);
+  }
   setStatus(
     input: SetStatusInput,
   ): Effect.Effect<
@@ -160,7 +192,9 @@ export declare class DataPipeline extends AWSServiceClient {
     | PipelineDeletedException
     | PipelineNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("SetStatus", input);
+  }
   setTaskStatus(
     input: SetTaskStatusInput,
   ): Effect.Effect<
@@ -171,7 +205,9 @@ export declare class DataPipeline extends AWSServiceClient {
     | PipelineNotFoundException
     | TaskNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("SetTaskStatus", input);
+  }
   validatePipelineDefinition(
     input: ValidatePipelineDefinitionInput,
   ): Effect.Effect<
@@ -181,8 +217,12 @@ export declare class DataPipeline extends AWSServiceClient {
     | PipelineDeletedException
     | PipelineNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ValidatePipelineDefinition", input);
+  }
 }
+
+export default DataPipeline;
 
 export interface ActivatePipelineInput {
   pipelineId: string;

@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class BCMDataExports extends AWSServiceClient {
+export class BCMDataExports extends AWSServiceClient {
   createExport(
     input: CreateExportRequest,
   ): Effect.Effect<
@@ -12,7 +12,9 @@ export declare class BCMDataExports extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateExport", input);
+  }
   deleteExport(
     input: DeleteExportRequest,
   ): Effect.Effect<
@@ -22,7 +24,9 @@ export declare class BCMDataExports extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteExport", input);
+  }
   getExecution(
     input: GetExecutionRequest,
   ): Effect.Effect<
@@ -32,7 +36,9 @@ export declare class BCMDataExports extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetExecution", input);
+  }
   getExport(
     input: GetExportRequest,
   ): Effect.Effect<
@@ -42,7 +48,9 @@ export declare class BCMDataExports extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetExport", input);
+  }
   getTable(
     input: GetTableRequest,
   ): Effect.Effect<
@@ -51,7 +59,9 @@ export declare class BCMDataExports extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetTable", input);
+  }
   listExecutions(
     input: ListExecutionsRequest,
   ): Effect.Effect<
@@ -61,7 +71,9 @@ export declare class BCMDataExports extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListExecutions", input);
+  }
   listExports(
     input: ListExportsRequest,
   ): Effect.Effect<
@@ -70,7 +82,9 @@ export declare class BCMDataExports extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListExports", input);
+  }
   listTables(
     input: ListTablesRequest,
   ): Effect.Effect<
@@ -79,7 +93,9 @@ export declare class BCMDataExports extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTables", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
@@ -89,7 +105,9 @@ export declare class BCMDataExports extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -99,7 +117,9 @@ export declare class BCMDataExports extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
@@ -109,7 +129,9 @@ export declare class BCMDataExports extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
   updateExport(
     input: UpdateExportRequest,
   ): Effect.Effect<
@@ -119,10 +141,14 @@ export declare class BCMDataExports extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateExport", input);
+  }
 }
 
-export declare class BcmDataExports extends BCMDataExports {}
+export class BcmDataExports extends BCMDataExports {}
+
+export default BCMDataExports;
 
 export type Arn = string;
 

@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class forecast extends AWSServiceClient {
+export class forecast extends AWSServiceClient {
   createAutoPredictor(
     input: CreateAutoPredictorRequest,
   ): Effect.Effect<
@@ -13,7 +13,9 @@ export declare class forecast extends AWSServiceClient {
     | ResourceInUseException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateAutoPredictor", input);
+  }
   createDataset(
     input: CreateDatasetRequest,
   ): Effect.Effect<
@@ -22,7 +24,9 @@ export declare class forecast extends AWSServiceClient {
     | LimitExceededException
     | ResourceAlreadyExistsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateDataset", input);
+  }
   createDatasetGroup(
     input: CreateDatasetGroupRequest,
   ): Effect.Effect<
@@ -33,7 +37,9 @@ export declare class forecast extends AWSServiceClient {
     | ResourceInUseException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateDatasetGroup", input);
+  }
   createDatasetImportJob(
     input: CreateDatasetImportJobRequest,
   ): Effect.Effect<
@@ -44,7 +50,9 @@ export declare class forecast extends AWSServiceClient {
     | ResourceInUseException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateDatasetImportJob", input);
+  }
   createExplainability(
     input: CreateExplainabilityRequest,
   ): Effect.Effect<
@@ -55,7 +63,9 @@ export declare class forecast extends AWSServiceClient {
     | ResourceInUseException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateExplainability", input);
+  }
   createExplainabilityExport(
     input: CreateExplainabilityExportRequest,
   ): Effect.Effect<
@@ -66,7 +76,9 @@ export declare class forecast extends AWSServiceClient {
     | ResourceInUseException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateExplainabilityExport", input);
+  }
   createForecast(
     input: CreateForecastRequest,
   ): Effect.Effect<
@@ -77,7 +89,9 @@ export declare class forecast extends AWSServiceClient {
     | ResourceInUseException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateForecast", input);
+  }
   createForecastExportJob(
     input: CreateForecastExportJobRequest,
   ): Effect.Effect<
@@ -88,7 +102,9 @@ export declare class forecast extends AWSServiceClient {
     | ResourceInUseException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateForecastExportJob", input);
+  }
   createMonitor(
     input: CreateMonitorRequest,
   ): Effect.Effect<
@@ -99,7 +115,9 @@ export declare class forecast extends AWSServiceClient {
     | ResourceInUseException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateMonitor", input);
+  }
   createPredictor(
     input: CreatePredictorRequest,
   ): Effect.Effect<
@@ -110,7 +128,9 @@ export declare class forecast extends AWSServiceClient {
     | ResourceInUseException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreatePredictor", input);
+  }
   createPredictorBacktestExportJob(
     input: CreatePredictorBacktestExportJobRequest,
   ): Effect.Effect<
@@ -121,7 +141,9 @@ export declare class forecast extends AWSServiceClient {
     | ResourceInUseException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreatePredictorBacktestExportJob", input);
+  }
   createWhatIfAnalysis(
     input: CreateWhatIfAnalysisRequest,
   ): Effect.Effect<
@@ -132,7 +154,9 @@ export declare class forecast extends AWSServiceClient {
     | ResourceInUseException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateWhatIfAnalysis", input);
+  }
   createWhatIfForecast(
     input: CreateWhatIfForecastRequest,
   ): Effect.Effect<
@@ -143,7 +167,9 @@ export declare class forecast extends AWSServiceClient {
     | ResourceInUseException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateWhatIfForecast", input);
+  }
   createWhatIfForecastExport(
     input: CreateWhatIfForecastExportRequest,
   ): Effect.Effect<
@@ -154,7 +180,9 @@ export declare class forecast extends AWSServiceClient {
     | ResourceInUseException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateWhatIfForecastExport", input);
+  }
   deleteDataset(
     input: DeleteDatasetRequest,
   ): Effect.Effect<
@@ -163,7 +191,9 @@ export declare class forecast extends AWSServiceClient {
     | ResourceInUseException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteDataset", input);
+  }
   deleteDatasetGroup(
     input: DeleteDatasetGroupRequest,
   ): Effect.Effect<
@@ -172,7 +202,9 @@ export declare class forecast extends AWSServiceClient {
     | ResourceInUseException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteDatasetGroup", input);
+  }
   deleteDatasetImportJob(
     input: DeleteDatasetImportJobRequest,
   ): Effect.Effect<
@@ -181,7 +213,9 @@ export declare class forecast extends AWSServiceClient {
     | ResourceInUseException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteDatasetImportJob", input);
+  }
   deleteExplainability(
     input: DeleteExplainabilityRequest,
   ): Effect.Effect<
@@ -190,7 +224,9 @@ export declare class forecast extends AWSServiceClient {
     | ResourceInUseException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteExplainability", input);
+  }
   deleteExplainabilityExport(
     input: DeleteExplainabilityExportRequest,
   ): Effect.Effect<
@@ -199,7 +235,9 @@ export declare class forecast extends AWSServiceClient {
     | ResourceInUseException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteExplainabilityExport", input);
+  }
   deleteForecast(
     input: DeleteForecastRequest,
   ): Effect.Effect<
@@ -208,7 +246,9 @@ export declare class forecast extends AWSServiceClient {
     | ResourceInUseException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteForecast", input);
+  }
   deleteForecastExportJob(
     input: DeleteForecastExportJobRequest,
   ): Effect.Effect<
@@ -217,7 +257,9 @@ export declare class forecast extends AWSServiceClient {
     | ResourceInUseException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteForecastExportJob", input);
+  }
   deleteMonitor(
     input: DeleteMonitorRequest,
   ): Effect.Effect<
@@ -226,7 +268,9 @@ export declare class forecast extends AWSServiceClient {
     | ResourceInUseException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteMonitor", input);
+  }
   deletePredictor(
     input: DeletePredictorRequest,
   ): Effect.Effect<
@@ -235,7 +279,9 @@ export declare class forecast extends AWSServiceClient {
     | ResourceInUseException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeletePredictor", input);
+  }
   deletePredictorBacktestExportJob(
     input: DeletePredictorBacktestExportJobRequest,
   ): Effect.Effect<
@@ -244,7 +290,9 @@ export declare class forecast extends AWSServiceClient {
     | ResourceInUseException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeletePredictorBacktestExportJob", input);
+  }
   deleteResourceTree(
     input: DeleteResourceTreeRequest,
   ): Effect.Effect<
@@ -253,7 +301,9 @@ export declare class forecast extends AWSServiceClient {
     | ResourceInUseException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteResourceTree", input);
+  }
   deleteWhatIfAnalysis(
     input: DeleteWhatIfAnalysisRequest,
   ): Effect.Effect<
@@ -262,7 +312,9 @@ export declare class forecast extends AWSServiceClient {
     | ResourceInUseException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteWhatIfAnalysis", input);
+  }
   deleteWhatIfForecast(
     input: DeleteWhatIfForecastRequest,
   ): Effect.Effect<
@@ -271,7 +323,9 @@ export declare class forecast extends AWSServiceClient {
     | ResourceInUseException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteWhatIfForecast", input);
+  }
   deleteWhatIfForecastExport(
     input: DeleteWhatIfForecastExportRequest,
   ): Effect.Effect<
@@ -280,91 +334,121 @@ export declare class forecast extends AWSServiceClient {
     | ResourceInUseException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteWhatIfForecastExport", input);
+  }
   describeAutoPredictor(
     input: DescribeAutoPredictorRequest,
   ): Effect.Effect<
     DescribeAutoPredictorResponse,
     InvalidInputException | ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeAutoPredictor", input);
+  }
   describeDataset(
     input: DescribeDatasetRequest,
   ): Effect.Effect<
     DescribeDatasetResponse,
     InvalidInputException | ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeDataset", input);
+  }
   describeDatasetGroup(
     input: DescribeDatasetGroupRequest,
   ): Effect.Effect<
     DescribeDatasetGroupResponse,
     InvalidInputException | ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeDatasetGroup", input);
+  }
   describeDatasetImportJob(
     input: DescribeDatasetImportJobRequest,
   ): Effect.Effect<
     DescribeDatasetImportJobResponse,
     InvalidInputException | ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeDatasetImportJob", input);
+  }
   describeExplainability(
     input: DescribeExplainabilityRequest,
   ): Effect.Effect<
     DescribeExplainabilityResponse,
     InvalidInputException | ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeExplainability", input);
+  }
   describeExplainabilityExport(
     input: DescribeExplainabilityExportRequest,
   ): Effect.Effect<
     DescribeExplainabilityExportResponse,
     InvalidInputException | ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeExplainabilityExport", input);
+  }
   describeForecast(
     input: DescribeForecastRequest,
   ): Effect.Effect<
     DescribeForecastResponse,
     InvalidInputException | ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeForecast", input);
+  }
   describeForecastExportJob(
     input: DescribeForecastExportJobRequest,
   ): Effect.Effect<
     DescribeForecastExportJobResponse,
     InvalidInputException | ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeForecastExportJob", input);
+  }
   describeMonitor(
     input: DescribeMonitorRequest,
   ): Effect.Effect<
     DescribeMonitorResponse,
     InvalidInputException | ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeMonitor", input);
+  }
   describePredictor(
     input: DescribePredictorRequest,
   ): Effect.Effect<
     DescribePredictorResponse,
     InvalidInputException | ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribePredictor", input);
+  }
   describePredictorBacktestExportJob(
     input: DescribePredictorBacktestExportJobRequest,
   ): Effect.Effect<
     DescribePredictorBacktestExportJobResponse,
     InvalidInputException | ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribePredictorBacktestExportJob", input);
+  }
   describeWhatIfAnalysis(
     input: DescribeWhatIfAnalysisRequest,
   ): Effect.Effect<
     DescribeWhatIfAnalysisResponse,
     InvalidInputException | ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeWhatIfAnalysis", input);
+  }
   describeWhatIfForecast(
     input: DescribeWhatIfForecastRequest,
   ): Effect.Effect<
     DescribeWhatIfForecastResponse,
     InvalidInputException | ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeWhatIfForecast", input);
+  }
   describeWhatIfForecastExport(
     input: DescribeWhatIfForecastExportRequest,
   ): Effect.Effect<
     DescribeWhatIfForecastExportResponse,
     InvalidInputException | ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeWhatIfForecastExport", input);
+  }
   getAccuracyMetrics(
     input: GetAccuracyMetricsRequest,
   ): Effect.Effect<
@@ -373,49 +457,65 @@ export declare class forecast extends AWSServiceClient {
     | ResourceInUseException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetAccuracyMetrics", input);
+  }
   listDatasetGroups(
     input: ListDatasetGroupsRequest,
   ): Effect.Effect<
     ListDatasetGroupsResponse,
     InvalidNextTokenException | CommonAwsError
-  >;
+  > {
+    return this.call("ListDatasetGroups", input);
+  }
   listDatasetImportJobs(
     input: ListDatasetImportJobsRequest,
   ): Effect.Effect<
     ListDatasetImportJobsResponse,
     InvalidInputException | InvalidNextTokenException | CommonAwsError
-  >;
+  > {
+    return this.call("ListDatasetImportJobs", input);
+  }
   listDatasets(
     input: ListDatasetsRequest,
   ): Effect.Effect<
     ListDatasetsResponse,
     InvalidNextTokenException | CommonAwsError
-  >;
+  > {
+    return this.call("ListDatasets", input);
+  }
   listExplainabilities(
     input: ListExplainabilitiesRequest,
   ): Effect.Effect<
     ListExplainabilitiesResponse,
     InvalidInputException | InvalidNextTokenException | CommonAwsError
-  >;
+  > {
+    return this.call("ListExplainabilities", input);
+  }
   listExplainabilityExports(
     input: ListExplainabilityExportsRequest,
   ): Effect.Effect<
     ListExplainabilityExportsResponse,
     InvalidInputException | InvalidNextTokenException | CommonAwsError
-  >;
+  > {
+    return this.call("ListExplainabilityExports", input);
+  }
   listForecastExportJobs(
     input: ListForecastExportJobsRequest,
   ): Effect.Effect<
     ListForecastExportJobsResponse,
     InvalidInputException | InvalidNextTokenException | CommonAwsError
-  >;
+  > {
+    return this.call("ListForecastExportJobs", input);
+  }
   listForecasts(
     input: ListForecastsRequest,
   ): Effect.Effect<
     ListForecastsResponse,
     InvalidInputException | InvalidNextTokenException | CommonAwsError
-  >;
+  > {
+    return this.call("ListForecasts", input);
+  }
   listMonitorEvaluations(
     input: ListMonitorEvaluationsRequest,
   ): Effect.Effect<
@@ -424,49 +524,65 @@ export declare class forecast extends AWSServiceClient {
     | InvalidNextTokenException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListMonitorEvaluations", input);
+  }
   listMonitors(
     input: ListMonitorsRequest,
   ): Effect.Effect<
     ListMonitorsResponse,
     InvalidInputException | InvalidNextTokenException | CommonAwsError
-  >;
+  > {
+    return this.call("ListMonitors", input);
+  }
   listPredictorBacktestExportJobs(
     input: ListPredictorBacktestExportJobsRequest,
   ): Effect.Effect<
     ListPredictorBacktestExportJobsResponse,
     InvalidInputException | InvalidNextTokenException | CommonAwsError
-  >;
+  > {
+    return this.call("ListPredictorBacktestExportJobs", input);
+  }
   listPredictors(
     input: ListPredictorsRequest,
   ): Effect.Effect<
     ListPredictorsResponse,
     InvalidInputException | InvalidNextTokenException | CommonAwsError
-  >;
+  > {
+    return this.call("ListPredictors", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
     InvalidInputException | ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   listWhatIfAnalyses(
     input: ListWhatIfAnalysesRequest,
   ): Effect.Effect<
     ListWhatIfAnalysesResponse,
     InvalidInputException | InvalidNextTokenException | CommonAwsError
-  >;
+  > {
+    return this.call("ListWhatIfAnalyses", input);
+  }
   listWhatIfForecastExports(
     input: ListWhatIfForecastExportsRequest,
   ): Effect.Effect<
     ListWhatIfForecastExportsResponse,
     InvalidInputException | InvalidNextTokenException | CommonAwsError
-  >;
+  > {
+    return this.call("ListWhatIfForecastExports", input);
+  }
   listWhatIfForecasts(
     input: ListWhatIfForecastsRequest,
   ): Effect.Effect<
     ListWhatIfForecastsResponse,
     InvalidInputException | InvalidNextTokenException | CommonAwsError
-  >;
+  > {
+    return this.call("ListWhatIfForecasts", input);
+  }
   resumeResource(
     input: ResumeResourceRequest,
   ): Effect.Effect<
@@ -476,7 +592,9 @@ export declare class forecast extends AWSServiceClient {
     | ResourceInUseException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ResumeResource", input);
+  }
   stopResource(
     input: StopResourceRequest,
   ): Effect.Effect<
@@ -485,7 +603,9 @@ export declare class forecast extends AWSServiceClient {
     | LimitExceededException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StopResource", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -494,13 +614,17 @@ export declare class forecast extends AWSServiceClient {
     | LimitExceededException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
     InvalidInputException | ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
   updateDatasetGroup(
     input: UpdateDatasetGroupRequest,
   ): Effect.Effect<
@@ -509,10 +633,14 @@ export declare class forecast extends AWSServiceClient {
     | ResourceInUseException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateDatasetGroup", input);
+  }
 }
 
-export declare class Forecast extends forecast {}
+export class Forecast extends forecast {}
+
+export default forecast;
 
 export interface Action {
   AttributeName: string;

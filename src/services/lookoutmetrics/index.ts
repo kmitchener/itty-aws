@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class LookoutMetrics extends AWSServiceClient {
+export class LookoutMetrics extends AWSServiceClient {
   activateAnomalyDetector(
     input: ActivateAnomalyDetectorRequest,
   ): Effect.Effect<
@@ -14,7 +14,9 @@ export declare class LookoutMetrics extends AWSServiceClient {
     | TooManyRequestsException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ActivateAnomalyDetector", input);
+  }
   backTestAnomalyDetector(
     input: BackTestAnomalyDetectorRequest,
   ): Effect.Effect<
@@ -25,7 +27,9 @@ export declare class LookoutMetrics extends AWSServiceClient {
     | TooManyRequestsException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("BackTestAnomalyDetector", input);
+  }
   createAlert(
     input: CreateAlertRequest,
   ): Effect.Effect<
@@ -38,7 +42,9 @@ export declare class LookoutMetrics extends AWSServiceClient {
     | TooManyRequestsException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateAlert", input);
+  }
   createAnomalyDetector(
     input: CreateAnomalyDetectorRequest,
   ): Effect.Effect<
@@ -50,7 +56,9 @@ export declare class LookoutMetrics extends AWSServiceClient {
     | TooManyRequestsException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateAnomalyDetector", input);
+  }
   createMetricSet(
     input: CreateMetricSetRequest,
   ): Effect.Effect<
@@ -63,7 +71,9 @@ export declare class LookoutMetrics extends AWSServiceClient {
     | TooManyRequestsException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateMetricSet", input);
+  }
   deactivateAnomalyDetector(
     input: DeactivateAnomalyDetectorRequest,
   ): Effect.Effect<
@@ -75,7 +85,9 @@ export declare class LookoutMetrics extends AWSServiceClient {
     | TooManyRequestsException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeactivateAnomalyDetector", input);
+  }
   deleteAlert(
     input: DeleteAlertRequest,
   ): Effect.Effect<
@@ -86,7 +98,9 @@ export declare class LookoutMetrics extends AWSServiceClient {
     | TooManyRequestsException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteAlert", input);
+  }
   deleteAnomalyDetector(
     input: DeleteAnomalyDetectorRequest,
   ): Effect.Effect<
@@ -98,7 +112,9 @@ export declare class LookoutMetrics extends AWSServiceClient {
     | TooManyRequestsException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteAnomalyDetector", input);
+  }
   describeAlert(
     input: DescribeAlertRequest,
   ): Effect.Effect<
@@ -109,7 +125,9 @@ export declare class LookoutMetrics extends AWSServiceClient {
     | TooManyRequestsException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeAlert", input);
+  }
   describeAnomalyDetectionExecutions(
     input: DescribeAnomalyDetectionExecutionsRequest,
   ): Effect.Effect<
@@ -120,7 +138,9 @@ export declare class LookoutMetrics extends AWSServiceClient {
     | TooManyRequestsException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeAnomalyDetectionExecutions", input);
+  }
   describeAnomalyDetector(
     input: DescribeAnomalyDetectorRequest,
   ): Effect.Effect<
@@ -131,7 +151,9 @@ export declare class LookoutMetrics extends AWSServiceClient {
     | TooManyRequestsException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeAnomalyDetector", input);
+  }
   describeMetricSet(
     input: DescribeMetricSetRequest,
   ): Effect.Effect<
@@ -142,7 +164,9 @@ export declare class LookoutMetrics extends AWSServiceClient {
     | TooManyRequestsException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeMetricSet", input);
+  }
   detectMetricSetConfig(
     input: DetectMetricSetConfigRequest,
   ): Effect.Effect<
@@ -153,7 +177,9 @@ export declare class LookoutMetrics extends AWSServiceClient {
     | TooManyRequestsException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DetectMetricSetConfig", input);
+  }
   getAnomalyGroup(
     input: GetAnomalyGroupRequest,
   ): Effect.Effect<
@@ -164,7 +190,9 @@ export declare class LookoutMetrics extends AWSServiceClient {
     | TooManyRequestsException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetAnomalyGroup", input);
+  }
   getDataQualityMetrics(
     input: GetDataQualityMetricsRequest,
   ): Effect.Effect<
@@ -175,7 +203,9 @@ export declare class LookoutMetrics extends AWSServiceClient {
     | TooManyRequestsException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetDataQualityMetrics", input);
+  }
   getFeedback(
     input: GetFeedbackRequest,
   ): Effect.Effect<
@@ -186,7 +216,9 @@ export declare class LookoutMetrics extends AWSServiceClient {
     | TooManyRequestsException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetFeedback", input);
+  }
   getSampleData(
     input: GetSampleDataRequest,
   ): Effect.Effect<
@@ -197,7 +229,9 @@ export declare class LookoutMetrics extends AWSServiceClient {
     | TooManyRequestsException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetSampleData", input);
+  }
   listAlerts(
     input: ListAlertsRequest,
   ): Effect.Effect<
@@ -208,7 +242,9 @@ export declare class LookoutMetrics extends AWSServiceClient {
     | TooManyRequestsException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListAlerts", input);
+  }
   listAnomalyDetectors(
     input: ListAnomalyDetectorsRequest,
   ): Effect.Effect<
@@ -219,7 +255,9 @@ export declare class LookoutMetrics extends AWSServiceClient {
     | TooManyRequestsException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListAnomalyDetectors", input);
+  }
   listAnomalyGroupRelatedMetrics(
     input: ListAnomalyGroupRelatedMetricsRequest,
   ): Effect.Effect<
@@ -230,7 +268,9 @@ export declare class LookoutMetrics extends AWSServiceClient {
     | TooManyRequestsException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListAnomalyGroupRelatedMetrics", input);
+  }
   listAnomalyGroupSummaries(
     input: ListAnomalyGroupSummariesRequest,
   ): Effect.Effect<
@@ -241,7 +281,9 @@ export declare class LookoutMetrics extends AWSServiceClient {
     | TooManyRequestsException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListAnomalyGroupSummaries", input);
+  }
   listAnomalyGroupTimeSeries(
     input: ListAnomalyGroupTimeSeriesRequest,
   ): Effect.Effect<
@@ -252,7 +294,9 @@ export declare class LookoutMetrics extends AWSServiceClient {
     | TooManyRequestsException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListAnomalyGroupTimeSeries", input);
+  }
   listMetricSets(
     input: ListMetricSetsRequest,
   ): Effect.Effect<
@@ -263,7 +307,9 @@ export declare class LookoutMetrics extends AWSServiceClient {
     | TooManyRequestsException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListMetricSets", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
@@ -272,7 +318,9 @@ export declare class LookoutMetrics extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   putFeedback(
     input: PutFeedbackRequest,
   ): Effect.Effect<
@@ -283,7 +331,9 @@ export declare class LookoutMetrics extends AWSServiceClient {
     | TooManyRequestsException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutFeedback", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -292,7 +342,9 @@ export declare class LookoutMetrics extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
@@ -301,7 +353,9 @@ export declare class LookoutMetrics extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
   updateAlert(
     input: UpdateAlertRequest,
   ): Effect.Effect<
@@ -312,7 +366,9 @@ export declare class LookoutMetrics extends AWSServiceClient {
     | TooManyRequestsException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateAlert", input);
+  }
   updateAnomalyDetector(
     input: UpdateAnomalyDetectorRequest,
   ): Effect.Effect<
@@ -323,7 +379,9 @@ export declare class LookoutMetrics extends AWSServiceClient {
     | TooManyRequestsException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateAnomalyDetector", input);
+  }
   updateMetricSet(
     input: UpdateMetricSetRequest,
   ): Effect.Effect<
@@ -335,10 +393,14 @@ export declare class LookoutMetrics extends AWSServiceClient {
     | TooManyRequestsException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateMetricSet", input);
+  }
 }
 
-export declare class Lookoutmetrics extends LookoutMetrics {}
+export class Lookoutmetrics extends LookoutMetrics {}
+
+export default LookoutMetrics;
 
 export declare class AccessDeniedException extends EffectData.TaggedError(
   "AccessDeniedException",

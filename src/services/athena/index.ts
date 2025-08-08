@@ -2,49 +2,63 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class Athena extends AWSServiceClient {
+export class Athena extends AWSServiceClient {
   batchGetNamedQuery(
     input: BatchGetNamedQueryInput,
   ): Effect.Effect<
     BatchGetNamedQueryOutput,
     InternalServerException | InvalidRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("BatchGetNamedQuery", input);
+  }
   batchGetPreparedStatement(
     input: BatchGetPreparedStatementInput,
   ): Effect.Effect<
     BatchGetPreparedStatementOutput,
     InternalServerException | InvalidRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("BatchGetPreparedStatement", input);
+  }
   batchGetQueryExecution(
     input: BatchGetQueryExecutionInput,
   ): Effect.Effect<
     BatchGetQueryExecutionOutput,
     InternalServerException | InvalidRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("BatchGetQueryExecution", input);
+  }
   cancelCapacityReservation(
     input: CancelCapacityReservationInput,
   ): Effect.Effect<
     CancelCapacityReservationOutput,
     InternalServerException | InvalidRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("CancelCapacityReservation", input);
+  }
   createCapacityReservation(
     input: CreateCapacityReservationInput,
   ): Effect.Effect<
     CreateCapacityReservationOutput,
     InternalServerException | InvalidRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("CreateCapacityReservation", input);
+  }
   createDataCatalog(
     input: CreateDataCatalogInput,
   ): Effect.Effect<
     CreateDataCatalogOutput,
     InternalServerException | InvalidRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("CreateDataCatalog", input);
+  }
   createNamedQuery(
     input: CreateNamedQueryInput,
   ): Effect.Effect<
     CreateNamedQueryOutput,
     InternalServerException | InvalidRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("CreateNamedQuery", input);
+  }
   createNotebook(
     input: CreateNotebookInput,
   ): Effect.Effect<
@@ -53,13 +67,17 @@ export declare class Athena extends AWSServiceClient {
     | InvalidRequestException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateNotebook", input);
+  }
   createPreparedStatement(
     input: CreatePreparedStatementInput,
   ): Effect.Effect<
     CreatePreparedStatementOutput,
     InternalServerException | InvalidRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("CreatePreparedStatement", input);
+  }
   createPresignedNotebookUrl(
     input: CreatePresignedNotebookUrlRequest,
   ): Effect.Effect<
@@ -68,31 +86,41 @@ export declare class Athena extends AWSServiceClient {
     | InvalidRequestException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreatePresignedNotebookUrl", input);
+  }
   createWorkGroup(
     input: CreateWorkGroupInput,
   ): Effect.Effect<
     CreateWorkGroupOutput,
     InternalServerException | InvalidRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("CreateWorkGroup", input);
+  }
   deleteCapacityReservation(
     input: DeleteCapacityReservationInput,
   ): Effect.Effect<
     DeleteCapacityReservationOutput,
     InternalServerException | InvalidRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteCapacityReservation", input);
+  }
   deleteDataCatalog(
     input: DeleteDataCatalogInput,
   ): Effect.Effect<
     DeleteDataCatalogOutput,
     InternalServerException | InvalidRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteDataCatalog", input);
+  }
   deleteNamedQuery(
     input: DeleteNamedQueryInput,
   ): Effect.Effect<
     DeleteNamedQueryOutput,
     InternalServerException | InvalidRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteNamedQuery", input);
+  }
   deleteNotebook(
     input: DeleteNotebookInput,
   ): Effect.Effect<
@@ -101,7 +129,9 @@ export declare class Athena extends AWSServiceClient {
     | InvalidRequestException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteNotebook", input);
+  }
   deletePreparedStatement(
     input: DeletePreparedStatementInput,
   ): Effect.Effect<
@@ -110,13 +140,17 @@ export declare class Athena extends AWSServiceClient {
     | InvalidRequestException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeletePreparedStatement", input);
+  }
   deleteWorkGroup(
     input: DeleteWorkGroupInput,
   ): Effect.Effect<
     DeleteWorkGroupOutput,
     InternalServerException | InvalidRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteWorkGroup", input);
+  }
   exportNotebook(
     input: ExportNotebookInput,
   ): Effect.Effect<
@@ -125,7 +159,9 @@ export declare class Athena extends AWSServiceClient {
     | InvalidRequestException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ExportNotebook", input);
+  }
   getCalculationExecution(
     input: GetCalculationExecutionRequest,
   ): Effect.Effect<
@@ -134,7 +170,9 @@ export declare class Athena extends AWSServiceClient {
     | InvalidRequestException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetCalculationExecution", input);
+  }
   getCalculationExecutionCode(
     input: GetCalculationExecutionCodeRequest,
   ): Effect.Effect<
@@ -143,7 +181,9 @@ export declare class Athena extends AWSServiceClient {
     | InvalidRequestException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetCalculationExecutionCode", input);
+  }
   getCalculationExecutionStatus(
     input: GetCalculationExecutionStatusRequest,
   ): Effect.Effect<
@@ -152,19 +192,25 @@ export declare class Athena extends AWSServiceClient {
     | InvalidRequestException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetCalculationExecutionStatus", input);
+  }
   getCapacityAssignmentConfiguration(
     input: GetCapacityAssignmentConfigurationInput,
   ): Effect.Effect<
     GetCapacityAssignmentConfigurationOutput,
     InternalServerException | InvalidRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("GetCapacityAssignmentConfiguration", input);
+  }
   getCapacityReservation(
     input: GetCapacityReservationInput,
   ): Effect.Effect<
     GetCapacityReservationOutput,
     InternalServerException | InvalidRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("GetCapacityReservation", input);
+  }
   getDatabase(
     input: GetDatabaseInput,
   ): Effect.Effect<
@@ -173,19 +219,25 @@ export declare class Athena extends AWSServiceClient {
     | InvalidRequestException
     | MetadataException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetDatabase", input);
+  }
   getDataCatalog(
     input: GetDataCatalogInput,
   ): Effect.Effect<
     GetDataCatalogOutput,
     InternalServerException | InvalidRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("GetDataCatalog", input);
+  }
   getNamedQuery(
     input: GetNamedQueryInput,
   ): Effect.Effect<
     GetNamedQueryOutput,
     InternalServerException | InvalidRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("GetNamedQuery", input);
+  }
   getNotebookMetadata(
     input: GetNotebookMetadataInput,
   ): Effect.Effect<
@@ -194,7 +246,9 @@ export declare class Athena extends AWSServiceClient {
     | InvalidRequestException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetNotebookMetadata", input);
+  }
   getPreparedStatement(
     input: GetPreparedStatementInput,
   ): Effect.Effect<
@@ -203,13 +257,17 @@ export declare class Athena extends AWSServiceClient {
     | InvalidRequestException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetPreparedStatement", input);
+  }
   getQueryExecution(
     input: GetQueryExecutionInput,
   ): Effect.Effect<
     GetQueryExecutionOutput,
     InternalServerException | InvalidRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("GetQueryExecution", input);
+  }
   getQueryResults(
     input: GetQueryResultsInput,
   ): Effect.Effect<
@@ -218,13 +276,17 @@ export declare class Athena extends AWSServiceClient {
     | InvalidRequestException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetQueryResults", input);
+  }
   getQueryRuntimeStatistics(
     input: GetQueryRuntimeStatisticsInput,
   ): Effect.Effect<
     GetQueryRuntimeStatisticsOutput,
     InternalServerException | InvalidRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("GetQueryRuntimeStatistics", input);
+  }
   getSession(
     input: GetSessionRequest,
   ): Effect.Effect<
@@ -233,7 +295,9 @@ export declare class Athena extends AWSServiceClient {
     | InvalidRequestException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetSession", input);
+  }
   getSessionStatus(
     input: GetSessionStatusRequest,
   ): Effect.Effect<
@@ -242,7 +306,9 @@ export declare class Athena extends AWSServiceClient {
     | InvalidRequestException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetSessionStatus", input);
+  }
   getTableMetadata(
     input: GetTableMetadataInput,
   ): Effect.Effect<
@@ -251,13 +317,17 @@ export declare class Athena extends AWSServiceClient {
     | InvalidRequestException
     | MetadataException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetTableMetadata", input);
+  }
   getWorkGroup(
     input: GetWorkGroupInput,
   ): Effect.Effect<
     GetWorkGroupOutput,
     InternalServerException | InvalidRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("GetWorkGroup", input);
+  }
   importNotebook(
     input: ImportNotebookInput,
   ): Effect.Effect<
@@ -266,7 +336,9 @@ export declare class Athena extends AWSServiceClient {
     | InvalidRequestException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ImportNotebook", input);
+  }
   listApplicationDPUSizes(
     input: ListApplicationDPUSizesInput,
   ): Effect.Effect<
@@ -275,7 +347,9 @@ export declare class Athena extends AWSServiceClient {
     | InvalidRequestException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListApplicationDPUSizes", input);
+  }
   listCalculationExecutions(
     input: ListCalculationExecutionsRequest,
   ): Effect.Effect<
@@ -284,13 +358,17 @@ export declare class Athena extends AWSServiceClient {
     | InvalidRequestException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListCalculationExecutions", input);
+  }
   listCapacityReservations(
     input: ListCapacityReservationsInput,
   ): Effect.Effect<
     ListCapacityReservationsOutput,
     InternalServerException | InvalidRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("ListCapacityReservations", input);
+  }
   listDatabases(
     input: ListDatabasesInput,
   ): Effect.Effect<
@@ -299,19 +377,25 @@ export declare class Athena extends AWSServiceClient {
     | InvalidRequestException
     | MetadataException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListDatabases", input);
+  }
   listDataCatalogs(
     input: ListDataCatalogsInput,
   ): Effect.Effect<
     ListDataCatalogsOutput,
     InternalServerException | InvalidRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("ListDataCatalogs", input);
+  }
   listEngineVersions(
     input: ListEngineVersionsInput,
   ): Effect.Effect<
     ListEngineVersionsOutput,
     InternalServerException | InvalidRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("ListEngineVersions", input);
+  }
   listExecutors(
     input: ListExecutorsRequest,
   ): Effect.Effect<
@@ -320,13 +404,17 @@ export declare class Athena extends AWSServiceClient {
     | InvalidRequestException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListExecutors", input);
+  }
   listNamedQueries(
     input: ListNamedQueriesInput,
   ): Effect.Effect<
     ListNamedQueriesOutput,
     InternalServerException | InvalidRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("ListNamedQueries", input);
+  }
   listNotebookMetadata(
     input: ListNotebookMetadataInput,
   ): Effect.Effect<
@@ -335,7 +423,9 @@ export declare class Athena extends AWSServiceClient {
     | InvalidRequestException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListNotebookMetadata", input);
+  }
   listNotebookSessions(
     input: ListNotebookSessionsRequest,
   ): Effect.Effect<
@@ -344,19 +434,25 @@ export declare class Athena extends AWSServiceClient {
     | InvalidRequestException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListNotebookSessions", input);
+  }
   listPreparedStatements(
     input: ListPreparedStatementsInput,
   ): Effect.Effect<
     ListPreparedStatementsOutput,
     InternalServerException | InvalidRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("ListPreparedStatements", input);
+  }
   listQueryExecutions(
     input: ListQueryExecutionsInput,
   ): Effect.Effect<
     ListQueryExecutionsOutput,
     InternalServerException | InvalidRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("ListQueryExecutions", input);
+  }
   listSessions(
     input: ListSessionsRequest,
   ): Effect.Effect<
@@ -365,7 +461,9 @@ export declare class Athena extends AWSServiceClient {
     | InvalidRequestException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListSessions", input);
+  }
   listTableMetadata(
     input: ListTableMetadataInput,
   ): Effect.Effect<
@@ -374,7 +472,9 @@ export declare class Athena extends AWSServiceClient {
     | InvalidRequestException
     | MetadataException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTableMetadata", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceInput,
   ): Effect.Effect<
@@ -383,19 +483,25 @@ export declare class Athena extends AWSServiceClient {
     | InvalidRequestException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   listWorkGroups(
     input: ListWorkGroupsInput,
   ): Effect.Effect<
     ListWorkGroupsOutput,
     InternalServerException | InvalidRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("ListWorkGroups", input);
+  }
   putCapacityAssignmentConfiguration(
     input: PutCapacityAssignmentConfigurationInput,
   ): Effect.Effect<
     PutCapacityAssignmentConfigurationOutput,
     InternalServerException | InvalidRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("PutCapacityAssignmentConfiguration", input);
+  }
   startCalculationExecution(
     input: StartCalculationExecutionRequest,
   ): Effect.Effect<
@@ -404,7 +510,9 @@ export declare class Athena extends AWSServiceClient {
     | InvalidRequestException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartCalculationExecution", input);
+  }
   startQueryExecution(
     input: StartQueryExecutionInput,
   ): Effect.Effect<
@@ -413,7 +521,9 @@ export declare class Athena extends AWSServiceClient {
     | InvalidRequestException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartQueryExecution", input);
+  }
   startSession(
     input: StartSessionRequest,
   ): Effect.Effect<
@@ -424,7 +534,9 @@ export declare class Athena extends AWSServiceClient {
     | SessionAlreadyExistsException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartSession", input);
+  }
   stopCalculationExecution(
     input: StopCalculationExecutionRequest,
   ): Effect.Effect<
@@ -433,13 +545,17 @@ export declare class Athena extends AWSServiceClient {
     | InvalidRequestException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StopCalculationExecution", input);
+  }
   stopQueryExecution(
     input: StopQueryExecutionInput,
   ): Effect.Effect<
     StopQueryExecutionOutput,
     InternalServerException | InvalidRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("StopQueryExecution", input);
+  }
   tagResource(
     input: TagResourceInput,
   ): Effect.Effect<
@@ -448,7 +564,9 @@ export declare class Athena extends AWSServiceClient {
     | InvalidRequestException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   terminateSession(
     input: TerminateSessionRequest,
   ): Effect.Effect<
@@ -457,7 +575,9 @@ export declare class Athena extends AWSServiceClient {
     | InvalidRequestException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TerminateSession", input);
+  }
   untagResource(
     input: UntagResourceInput,
   ): Effect.Effect<
@@ -466,25 +586,33 @@ export declare class Athena extends AWSServiceClient {
     | InvalidRequestException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
   updateCapacityReservation(
     input: UpdateCapacityReservationInput,
   ): Effect.Effect<
     UpdateCapacityReservationOutput,
     InternalServerException | InvalidRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateCapacityReservation", input);
+  }
   updateDataCatalog(
     input: UpdateDataCatalogInput,
   ): Effect.Effect<
     UpdateDataCatalogOutput,
     InternalServerException | InvalidRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateDataCatalog", input);
+  }
   updateNamedQuery(
     input: UpdateNamedQueryInput,
   ): Effect.Effect<
     UpdateNamedQueryOutput,
     InternalServerException | InvalidRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateNamedQuery", input);
+  }
   updateNotebook(
     input: UpdateNotebookInput,
   ): Effect.Effect<
@@ -493,7 +621,9 @@ export declare class Athena extends AWSServiceClient {
     | InvalidRequestException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateNotebook", input);
+  }
   updateNotebookMetadata(
     input: UpdateNotebookMetadataInput,
   ): Effect.Effect<
@@ -502,7 +632,9 @@ export declare class Athena extends AWSServiceClient {
     | InvalidRequestException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateNotebookMetadata", input);
+  }
   updatePreparedStatement(
     input: UpdatePreparedStatementInput,
   ): Effect.Effect<
@@ -511,14 +643,20 @@ export declare class Athena extends AWSServiceClient {
     | InvalidRequestException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdatePreparedStatement", input);
+  }
   updateWorkGroup(
     input: UpdateWorkGroupInput,
   ): Effect.Effect<
     UpdateWorkGroupOutput,
     InternalServerException | InvalidRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateWorkGroup", input);
+  }
 }
+
+export default Athena;
 
 export interface AclConfiguration {
   S3AclOption: S3AclOption;

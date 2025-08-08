@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class KinesisVideo extends AWSServiceClient {
+export class KinesisVideo extends AWSServiceClient {
   createSignalingChannel(
     input: CreateSignalingChannelInput,
   ): Effect.Effect<
@@ -14,7 +14,9 @@ export declare class KinesisVideo extends AWSServiceClient {
     | ResourceInUseException
     | TagsPerResourceExceededLimitException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateSignalingChannel", input);
+  }
   createStream(
     input: CreateStreamInput,
   ): Effect.Effect<
@@ -27,7 +29,9 @@ export declare class KinesisVideo extends AWSServiceClient {
     | ResourceInUseException
     | TagsPerResourceExceededLimitException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateStream", input);
+  }
   deleteEdgeConfiguration(
     input: DeleteEdgeConfigurationInput,
   ): Effect.Effect<
@@ -38,7 +42,9 @@ export declare class KinesisVideo extends AWSServiceClient {
     | ResourceNotFoundException
     | StreamEdgeConfigurationNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteEdgeConfiguration", input);
+  }
   deleteSignalingChannel(
     input: DeleteSignalingChannelInput,
   ): Effect.Effect<
@@ -50,7 +56,9 @@ export declare class KinesisVideo extends AWSServiceClient {
     | ResourceNotFoundException
     | VersionMismatchException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteSignalingChannel", input);
+  }
   deleteStream(
     input: DeleteStreamInput,
   ): Effect.Effect<
@@ -62,7 +70,9 @@ export declare class KinesisVideo extends AWSServiceClient {
     | ResourceNotFoundException
     | VersionMismatchException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteStream", input);
+  }
   describeEdgeConfiguration(
     input: DescribeEdgeConfigurationInput,
   ): Effect.Effect<
@@ -73,7 +83,9 @@ export declare class KinesisVideo extends AWSServiceClient {
     | ResourceNotFoundException
     | StreamEdgeConfigurationNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeEdgeConfiguration", input);
+  }
   describeImageGenerationConfiguration(
     input: DescribeImageGenerationConfigurationInput,
   ): Effect.Effect<
@@ -83,7 +95,9 @@ export declare class KinesisVideo extends AWSServiceClient {
     | InvalidArgumentException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeImageGenerationConfiguration", input);
+  }
   describeMappedResourceConfiguration(
     input: DescribeMappedResourceConfigurationInput,
   ): Effect.Effect<
@@ -93,7 +107,9 @@ export declare class KinesisVideo extends AWSServiceClient {
     | InvalidArgumentException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeMappedResourceConfiguration", input);
+  }
   describeMediaStorageConfiguration(
     input: DescribeMediaStorageConfigurationInput,
   ): Effect.Effect<
@@ -103,7 +119,9 @@ export declare class KinesisVideo extends AWSServiceClient {
     | InvalidArgumentException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeMediaStorageConfiguration", input);
+  }
   describeNotificationConfiguration(
     input: DescribeNotificationConfigurationInput,
   ): Effect.Effect<
@@ -113,7 +131,9 @@ export declare class KinesisVideo extends AWSServiceClient {
     | InvalidArgumentException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeNotificationConfiguration", input);
+  }
   describeSignalingChannel(
     input: DescribeSignalingChannelInput,
   ): Effect.Effect<
@@ -123,7 +143,9 @@ export declare class KinesisVideo extends AWSServiceClient {
     | InvalidArgumentException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeSignalingChannel", input);
+  }
   describeStream(
     input: DescribeStreamInput,
   ): Effect.Effect<
@@ -133,7 +155,9 @@ export declare class KinesisVideo extends AWSServiceClient {
     | NotAuthorizedException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeStream", input);
+  }
   getDataEndpoint(
     input: GetDataEndpointInput,
   ): Effect.Effect<
@@ -143,7 +167,9 @@ export declare class KinesisVideo extends AWSServiceClient {
     | NotAuthorizedException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetDataEndpoint", input);
+  }
   getSignalingChannelEndpoint(
     input: GetSignalingChannelEndpointInput,
   ): Effect.Effect<
@@ -154,7 +180,9 @@ export declare class KinesisVideo extends AWSServiceClient {
     | ResourceInUseException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetSignalingChannelEndpoint", input);
+  }
   listEdgeAgentConfigurations(
     input: ListEdgeAgentConfigurationsInput,
   ): Effect.Effect<
@@ -163,7 +191,9 @@ export declare class KinesisVideo extends AWSServiceClient {
     | InvalidArgumentException
     | NotAuthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListEdgeAgentConfigurations", input);
+  }
   listSignalingChannels(
     input: ListSignalingChannelsInput,
   ): Effect.Effect<
@@ -172,13 +202,17 @@ export declare class KinesisVideo extends AWSServiceClient {
     | ClientLimitExceededException
     | InvalidArgumentException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListSignalingChannels", input);
+  }
   listStreams(
     input: ListStreamsInput,
   ): Effect.Effect<
     ListStreamsOutput,
     ClientLimitExceededException | InvalidArgumentException | CommonAwsError
-  >;
+  > {
+    return this.call("ListStreams", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceInput,
   ): Effect.Effect<
@@ -188,7 +222,9 @@ export declare class KinesisVideo extends AWSServiceClient {
     | InvalidArgumentException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   listTagsForStream(
     input: ListTagsForStreamInput,
   ): Effect.Effect<
@@ -199,7 +235,9 @@ export declare class KinesisVideo extends AWSServiceClient {
     | NotAuthorizedException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForStream", input);
+  }
   startEdgeConfigurationUpdate(
     input: StartEdgeConfigurationUpdateInput,
   ): Effect.Effect<
@@ -211,7 +249,9 @@ export declare class KinesisVideo extends AWSServiceClient {
     | ResourceInUseException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartEdgeConfigurationUpdate", input);
+  }
   tagResource(
     input: TagResourceInput,
   ): Effect.Effect<
@@ -222,7 +262,9 @@ export declare class KinesisVideo extends AWSServiceClient {
     | ResourceNotFoundException
     | TagsPerResourceExceededLimitException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   tagStream(
     input: TagStreamInput,
   ): Effect.Effect<
@@ -234,7 +276,9 @@ export declare class KinesisVideo extends AWSServiceClient {
     | ResourceNotFoundException
     | TagsPerResourceExceededLimitException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagStream", input);
+  }
   untagResource(
     input: UntagResourceInput,
   ): Effect.Effect<
@@ -244,7 +288,9 @@ export declare class KinesisVideo extends AWSServiceClient {
     | InvalidArgumentException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
   untagStream(
     input: UntagStreamInput,
   ): Effect.Effect<
@@ -255,7 +301,9 @@ export declare class KinesisVideo extends AWSServiceClient {
     | NotAuthorizedException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagStream", input);
+  }
   updateDataRetention(
     input: UpdateDataRetentionInput,
   ): Effect.Effect<
@@ -267,7 +315,9 @@ export declare class KinesisVideo extends AWSServiceClient {
     | ResourceNotFoundException
     | VersionMismatchException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateDataRetention", input);
+  }
   updateImageGenerationConfiguration(
     input: UpdateImageGenerationConfigurationInput,
   ): Effect.Effect<
@@ -279,7 +329,9 @@ export declare class KinesisVideo extends AWSServiceClient {
     | ResourceInUseException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateImageGenerationConfiguration", input);
+  }
   updateMediaStorageConfiguration(
     input: UpdateMediaStorageConfigurationInput,
   ): Effect.Effect<
@@ -291,7 +343,9 @@ export declare class KinesisVideo extends AWSServiceClient {
     | ResourceInUseException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateMediaStorageConfiguration", input);
+  }
   updateNotificationConfiguration(
     input: UpdateNotificationConfigurationInput,
   ): Effect.Effect<
@@ -303,7 +357,9 @@ export declare class KinesisVideo extends AWSServiceClient {
     | ResourceInUseException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateNotificationConfiguration", input);
+  }
   updateSignalingChannel(
     input: UpdateSignalingChannelInput,
   ): Effect.Effect<
@@ -315,7 +371,9 @@ export declare class KinesisVideo extends AWSServiceClient {
     | ResourceNotFoundException
     | VersionMismatchException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateSignalingChannel", input);
+  }
   updateStream(
     input: UpdateStreamInput,
   ): Effect.Effect<
@@ -327,8 +385,12 @@ export declare class KinesisVideo extends AWSServiceClient {
     | ResourceNotFoundException
     | VersionMismatchException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateStream", input);
+  }
 }
+
+export default KinesisVideo;
 
 export declare class AccessDeniedException extends EffectData.TaggedError(
   "AccessDeniedException",

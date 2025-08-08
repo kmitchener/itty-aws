@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class DAX extends AWSServiceClient {
+export class DAX extends AWSServiceClient {
   createCluster(
     input: CreateClusterRequest,
   ): Effect.Effect<
@@ -23,7 +23,9 @@ export declare class DAX extends AWSServiceClient {
     | SubnetGroupNotFoundFault
     | TagQuotaPerResourceExceeded
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateCluster", input);
+  }
   createParameterGroup(
     input: CreateParameterGroupRequest,
   ): Effect.Effect<
@@ -35,7 +37,9 @@ export declare class DAX extends AWSServiceClient {
     | ParameterGroupQuotaExceededFault
     | ServiceLinkedRoleNotFoundFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateParameterGroup", input);
+  }
   createSubnetGroup(
     input: CreateSubnetGroupRequest,
   ): Effect.Effect<
@@ -46,7 +50,9 @@ export declare class DAX extends AWSServiceClient {
     | SubnetGroupQuotaExceededFault
     | SubnetQuotaExceededFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateSubnetGroup", input);
+  }
   decreaseReplicationFactor(
     input: DecreaseReplicationFactorRequest,
   ): Effect.Effect<
@@ -58,7 +64,9 @@ export declare class DAX extends AWSServiceClient {
     | NodeNotFoundFault
     | ServiceLinkedRoleNotFoundFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("DecreaseReplicationFactor", input);
+  }
   deleteCluster(
     input: DeleteClusterRequest,
   ): Effect.Effect<
@@ -69,7 +77,9 @@ export declare class DAX extends AWSServiceClient {
     | InvalidParameterValueException
     | ServiceLinkedRoleNotFoundFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteCluster", input);
+  }
   deleteParameterGroup(
     input: DeleteParameterGroupRequest,
   ): Effect.Effect<
@@ -80,7 +90,9 @@ export declare class DAX extends AWSServiceClient {
     | ParameterGroupNotFoundFault
     | ServiceLinkedRoleNotFoundFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteParameterGroup", input);
+  }
   deleteSubnetGroup(
     input: DeleteSubnetGroupRequest,
   ): Effect.Effect<
@@ -89,7 +101,9 @@ export declare class DAX extends AWSServiceClient {
     | SubnetGroupInUseFault
     | SubnetGroupNotFoundFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteSubnetGroup", input);
+  }
   describeClusters(
     input: DescribeClustersRequest,
   ): Effect.Effect<
@@ -99,7 +113,9 @@ export declare class DAX extends AWSServiceClient {
     | InvalidParameterValueException
     | ServiceLinkedRoleNotFoundFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeClusters", input);
+  }
   describeDefaultParameters(
     input: DescribeDefaultParametersRequest,
   ): Effect.Effect<
@@ -108,7 +124,9 @@ export declare class DAX extends AWSServiceClient {
     | InvalidParameterValueException
     | ServiceLinkedRoleNotFoundFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeDefaultParameters", input);
+  }
   describeEvents(
     input: DescribeEventsRequest,
   ): Effect.Effect<
@@ -117,7 +135,9 @@ export declare class DAX extends AWSServiceClient {
     | InvalidParameterValueException
     | ServiceLinkedRoleNotFoundFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeEvents", input);
+  }
   describeParameterGroups(
     input: DescribeParameterGroupsRequest,
   ): Effect.Effect<
@@ -127,7 +147,9 @@ export declare class DAX extends AWSServiceClient {
     | ParameterGroupNotFoundFault
     | ServiceLinkedRoleNotFoundFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeParameterGroups", input);
+  }
   describeParameters(
     input: DescribeParametersRequest,
   ): Effect.Effect<
@@ -137,13 +159,17 @@ export declare class DAX extends AWSServiceClient {
     | ParameterGroupNotFoundFault
     | ServiceLinkedRoleNotFoundFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeParameters", input);
+  }
   describeSubnetGroups(
     input: DescribeSubnetGroupsRequest,
   ): Effect.Effect<
     DescribeSubnetGroupsResponse,
     ServiceLinkedRoleNotFoundFault | SubnetGroupNotFoundFault | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeSubnetGroups", input);
+  }
   increaseReplicationFactor(
     input: IncreaseReplicationFactorRequest,
   ): Effect.Effect<
@@ -158,7 +184,9 @@ export declare class DAX extends AWSServiceClient {
     | NodeQuotaForCustomerExceededFault
     | ServiceLinkedRoleNotFoundFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("IncreaseReplicationFactor", input);
+  }
   listTags(
     input: ListTagsRequest,
   ): Effect.Effect<
@@ -170,7 +198,9 @@ export declare class DAX extends AWSServiceClient {
     | InvalidParameterValueException
     | ServiceLinkedRoleNotFoundFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTags", input);
+  }
   rebootNode(
     input: RebootNodeRequest,
   ): Effect.Effect<
@@ -182,7 +212,9 @@ export declare class DAX extends AWSServiceClient {
     | NodeNotFoundFault
     | ServiceLinkedRoleNotFoundFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("RebootNode", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -195,7 +227,9 @@ export declare class DAX extends AWSServiceClient {
     | ServiceLinkedRoleNotFoundFault
     | TagQuotaPerResourceExceeded
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
@@ -208,7 +242,9 @@ export declare class DAX extends AWSServiceClient {
     | ServiceLinkedRoleNotFoundFault
     | TagNotFoundFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
   updateCluster(
     input: UpdateClusterRequest,
   ): Effect.Effect<
@@ -221,7 +257,9 @@ export declare class DAX extends AWSServiceClient {
     | ParameterGroupNotFoundFault
     | ServiceLinkedRoleNotFoundFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateCluster", input);
+  }
   updateParameterGroup(
     input: UpdateParameterGroupRequest,
   ): Effect.Effect<
@@ -232,7 +270,9 @@ export declare class DAX extends AWSServiceClient {
     | ParameterGroupNotFoundFault
     | ServiceLinkedRoleNotFoundFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateParameterGroup", input);
+  }
   updateSubnetGroup(
     input: UpdateSubnetGroupRequest,
   ): Effect.Effect<
@@ -243,10 +283,14 @@ export declare class DAX extends AWSServiceClient {
     | SubnetInUse
     | SubnetQuotaExceededFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateSubnetGroup", input);
+  }
 }
 
-export declare class Dax extends DAX {}
+export class Dax extends DAX {}
+
+export default DAX;
 
 export type AvailabilityZoneList = Array<string>;
 export type AwsQueryErrorMessage = string;

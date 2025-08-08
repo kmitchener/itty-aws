@@ -2,91 +2,119 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class StorageGateway extends AWSServiceClient {
+export class StorageGateway extends AWSServiceClient {
   activateGateway(
     input: ActivateGatewayInput,
   ): Effect.Effect<
     ActivateGatewayOutput,
     InternalServerError | InvalidGatewayRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("ActivateGateway", input);
+  }
   addCache(
     input: AddCacheInput,
   ): Effect.Effect<
     AddCacheOutput,
     InternalServerError | InvalidGatewayRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("AddCache", input);
+  }
   addTagsToResource(
     input: AddTagsToResourceInput,
   ): Effect.Effect<
     AddTagsToResourceOutput,
     InternalServerError | InvalidGatewayRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("AddTagsToResource", input);
+  }
   addUploadBuffer(
     input: AddUploadBufferInput,
   ): Effect.Effect<
     AddUploadBufferOutput,
     InternalServerError | InvalidGatewayRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("AddUploadBuffer", input);
+  }
   addWorkingStorage(
     input: AddWorkingStorageInput,
   ): Effect.Effect<
     AddWorkingStorageOutput,
     InternalServerError | InvalidGatewayRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("AddWorkingStorage", input);
+  }
   assignTapePool(
     input: AssignTapePoolInput,
   ): Effect.Effect<
     AssignTapePoolOutput,
     InternalServerError | InvalidGatewayRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("AssignTapePool", input);
+  }
   associateFileSystem(
     input: AssociateFileSystemInput,
   ): Effect.Effect<
     AssociateFileSystemOutput,
     InternalServerError | InvalidGatewayRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("AssociateFileSystem", input);
+  }
   attachVolume(
     input: AttachVolumeInput,
   ): Effect.Effect<
     AttachVolumeOutput,
     InternalServerError | InvalidGatewayRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("AttachVolume", input);
+  }
   cancelArchival(
     input: CancelArchivalInput,
   ): Effect.Effect<
     CancelArchivalOutput,
     InternalServerError | InvalidGatewayRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("CancelArchival", input);
+  }
   cancelCacheReport(
     input: CancelCacheReportInput,
   ): Effect.Effect<
     CancelCacheReportOutput,
     InternalServerError | InvalidGatewayRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("CancelCacheReport", input);
+  }
   cancelRetrieval(
     input: CancelRetrievalInput,
   ): Effect.Effect<
     CancelRetrievalOutput,
     InternalServerError | InvalidGatewayRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("CancelRetrieval", input);
+  }
   createCachediSCSIVolume(
     input: CreateCachediSCSIVolumeInput,
   ): Effect.Effect<
     CreateCachediSCSIVolumeOutput,
     InternalServerError | InvalidGatewayRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("CreateCachediSCSIVolume", input);
+  }
   createNFSFileShare(
     input: CreateNFSFileShareInput,
   ): Effect.Effect<
     CreateNFSFileShareOutput,
     InternalServerError | InvalidGatewayRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("CreateNFSFileShare", input);
+  }
   createSMBFileShare(
     input: CreateSMBFileShareInput,
   ): Effect.Effect<
     CreateSMBFileShareOutput,
     InternalServerError | InvalidGatewayRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("CreateSMBFileShare", input);
+  }
   createSnapshot(
     input: CreateSnapshotInput,
   ): Effect.Effect<
@@ -95,7 +123,9 @@ export declare class StorageGateway extends AWSServiceClient {
     | InvalidGatewayRequestException
     | ServiceUnavailableError
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateSnapshot", input);
+  }
   createSnapshotFromVolumeRecoveryPoint(
     input: CreateSnapshotFromVolumeRecoveryPointInput,
   ): Effect.Effect<
@@ -104,488 +134,652 @@ export declare class StorageGateway extends AWSServiceClient {
     | InvalidGatewayRequestException
     | ServiceUnavailableError
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateSnapshotFromVolumeRecoveryPoint", input);
+  }
   createStorediSCSIVolume(
     input: CreateStorediSCSIVolumeInput,
   ): Effect.Effect<
     CreateStorediSCSIVolumeOutput,
     InternalServerError | InvalidGatewayRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("CreateStorediSCSIVolume", input);
+  }
   createTapePool(
     input: CreateTapePoolInput,
   ): Effect.Effect<
     CreateTapePoolOutput,
     InternalServerError | InvalidGatewayRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("CreateTapePool", input);
+  }
   createTapes(
     input: CreateTapesInput,
   ): Effect.Effect<
     CreateTapesOutput,
     InternalServerError | InvalidGatewayRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("CreateTapes", input);
+  }
   createTapeWithBarcode(
     input: CreateTapeWithBarcodeInput,
   ): Effect.Effect<
     CreateTapeWithBarcodeOutput,
     InternalServerError | InvalidGatewayRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("CreateTapeWithBarcode", input);
+  }
   deleteAutomaticTapeCreationPolicy(
     input: DeleteAutomaticTapeCreationPolicyInput,
   ): Effect.Effect<
     DeleteAutomaticTapeCreationPolicyOutput,
     InternalServerError | InvalidGatewayRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteAutomaticTapeCreationPolicy", input);
+  }
   deleteBandwidthRateLimit(
     input: DeleteBandwidthRateLimitInput,
   ): Effect.Effect<
     DeleteBandwidthRateLimitOutput,
     InternalServerError | InvalidGatewayRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteBandwidthRateLimit", input);
+  }
   deleteCacheReport(
     input: DeleteCacheReportInput,
   ): Effect.Effect<
     DeleteCacheReportOutput,
     InternalServerError | InvalidGatewayRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteCacheReport", input);
+  }
   deleteChapCredentials(
     input: DeleteChapCredentialsInput,
   ): Effect.Effect<
     DeleteChapCredentialsOutput,
     InternalServerError | InvalidGatewayRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteChapCredentials", input);
+  }
   deleteFileShare(
     input: DeleteFileShareInput,
   ): Effect.Effect<
     DeleteFileShareOutput,
     InternalServerError | InvalidGatewayRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteFileShare", input);
+  }
   deleteGateway(
     input: DeleteGatewayInput,
   ): Effect.Effect<
     DeleteGatewayOutput,
     InternalServerError | InvalidGatewayRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteGateway", input);
+  }
   deleteSnapshotSchedule(
     input: DeleteSnapshotScheduleInput,
   ): Effect.Effect<
     DeleteSnapshotScheduleOutput,
     InternalServerError | InvalidGatewayRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteSnapshotSchedule", input);
+  }
   deleteTape(
     input: DeleteTapeInput,
   ): Effect.Effect<
     DeleteTapeOutput,
     InternalServerError | InvalidGatewayRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteTape", input);
+  }
   deleteTapeArchive(
     input: DeleteTapeArchiveInput,
   ): Effect.Effect<
     DeleteTapeArchiveOutput,
     InternalServerError | InvalidGatewayRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteTapeArchive", input);
+  }
   deleteTapePool(
     input: DeleteTapePoolInput,
   ): Effect.Effect<
     DeleteTapePoolOutput,
     InternalServerError | InvalidGatewayRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteTapePool", input);
+  }
   deleteVolume(
     input: DeleteVolumeInput,
   ): Effect.Effect<
     DeleteVolumeOutput,
     InternalServerError | InvalidGatewayRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteVolume", input);
+  }
   describeAvailabilityMonitorTest(
     input: DescribeAvailabilityMonitorTestInput,
   ): Effect.Effect<
     DescribeAvailabilityMonitorTestOutput,
     InternalServerError | InvalidGatewayRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeAvailabilityMonitorTest", input);
+  }
   describeBandwidthRateLimit(
     input: DescribeBandwidthRateLimitInput,
   ): Effect.Effect<
     DescribeBandwidthRateLimitOutput,
     InternalServerError | InvalidGatewayRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeBandwidthRateLimit", input);
+  }
   describeBandwidthRateLimitSchedule(
     input: DescribeBandwidthRateLimitScheduleInput,
   ): Effect.Effect<
     DescribeBandwidthRateLimitScheduleOutput,
     InternalServerError | InvalidGatewayRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeBandwidthRateLimitSchedule", input);
+  }
   describeCache(
     input: DescribeCacheInput,
   ): Effect.Effect<
     DescribeCacheOutput,
     InternalServerError | InvalidGatewayRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeCache", input);
+  }
   describeCachediSCSIVolumes(
     input: DescribeCachediSCSIVolumesInput,
   ): Effect.Effect<
     DescribeCachediSCSIVolumesOutput,
     InternalServerError | InvalidGatewayRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeCachediSCSIVolumes", input);
+  }
   describeCacheReport(
     input: DescribeCacheReportInput,
   ): Effect.Effect<
     DescribeCacheReportOutput,
     InternalServerError | InvalidGatewayRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeCacheReport", input);
+  }
   describeChapCredentials(
     input: DescribeChapCredentialsInput,
   ): Effect.Effect<
     DescribeChapCredentialsOutput,
     InternalServerError | InvalidGatewayRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeChapCredentials", input);
+  }
   describeFileSystemAssociations(
     input: DescribeFileSystemAssociationsInput,
   ): Effect.Effect<
     DescribeFileSystemAssociationsOutput,
     InternalServerError | InvalidGatewayRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeFileSystemAssociations", input);
+  }
   describeGatewayInformation(
     input: DescribeGatewayInformationInput,
   ): Effect.Effect<
     DescribeGatewayInformationOutput,
     InternalServerError | InvalidGatewayRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeGatewayInformation", input);
+  }
   describeMaintenanceStartTime(
     input: DescribeMaintenanceStartTimeInput,
   ): Effect.Effect<
     DescribeMaintenanceStartTimeOutput,
     InternalServerError | InvalidGatewayRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeMaintenanceStartTime", input);
+  }
   describeNFSFileShares(
     input: DescribeNFSFileSharesInput,
   ): Effect.Effect<
     DescribeNFSFileSharesOutput,
     InternalServerError | InvalidGatewayRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeNFSFileShares", input);
+  }
   describeSMBFileShares(
     input: DescribeSMBFileSharesInput,
   ): Effect.Effect<
     DescribeSMBFileSharesOutput,
     InternalServerError | InvalidGatewayRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeSMBFileShares", input);
+  }
   describeSMBSettings(
     input: DescribeSMBSettingsInput,
   ): Effect.Effect<
     DescribeSMBSettingsOutput,
     InternalServerError | InvalidGatewayRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeSMBSettings", input);
+  }
   describeSnapshotSchedule(
     input: DescribeSnapshotScheduleInput,
   ): Effect.Effect<
     DescribeSnapshotScheduleOutput,
     InternalServerError | InvalidGatewayRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeSnapshotSchedule", input);
+  }
   describeStorediSCSIVolumes(
     input: DescribeStorediSCSIVolumesInput,
   ): Effect.Effect<
     DescribeStorediSCSIVolumesOutput,
     InternalServerError | InvalidGatewayRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeStorediSCSIVolumes", input);
+  }
   describeTapeArchives(
     input: DescribeTapeArchivesInput,
   ): Effect.Effect<
     DescribeTapeArchivesOutput,
     InternalServerError | InvalidGatewayRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeTapeArchives", input);
+  }
   describeTapeRecoveryPoints(
     input: DescribeTapeRecoveryPointsInput,
   ): Effect.Effect<
     DescribeTapeRecoveryPointsOutput,
     InternalServerError | InvalidGatewayRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeTapeRecoveryPoints", input);
+  }
   describeTapes(
     input: DescribeTapesInput,
   ): Effect.Effect<
     DescribeTapesOutput,
     InternalServerError | InvalidGatewayRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeTapes", input);
+  }
   describeUploadBuffer(
     input: DescribeUploadBufferInput,
   ): Effect.Effect<
     DescribeUploadBufferOutput,
     InternalServerError | InvalidGatewayRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeUploadBuffer", input);
+  }
   describeVTLDevices(
     input: DescribeVTLDevicesInput,
   ): Effect.Effect<
     DescribeVTLDevicesOutput,
     InternalServerError | InvalidGatewayRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeVTLDevices", input);
+  }
   describeWorkingStorage(
     input: DescribeWorkingStorageInput,
   ): Effect.Effect<
     DescribeWorkingStorageOutput,
     InternalServerError | InvalidGatewayRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeWorkingStorage", input);
+  }
   detachVolume(
     input: DetachVolumeInput,
   ): Effect.Effect<
     DetachVolumeOutput,
     InternalServerError | InvalidGatewayRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("DetachVolume", input);
+  }
   disableGateway(
     input: DisableGatewayInput,
   ): Effect.Effect<
     DisableGatewayOutput,
     InternalServerError | InvalidGatewayRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("DisableGateway", input);
+  }
   disassociateFileSystem(
     input: DisassociateFileSystemInput,
   ): Effect.Effect<
     DisassociateFileSystemOutput,
     InternalServerError | InvalidGatewayRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("DisassociateFileSystem", input);
+  }
   evictFilesFailingUpload(
     input: EvictFilesFailingUploadInput,
   ): Effect.Effect<
     EvictFilesFailingUploadOutput,
     InternalServerError | InvalidGatewayRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("EvictFilesFailingUpload", input);
+  }
   joinDomain(
     input: JoinDomainInput,
   ): Effect.Effect<
     JoinDomainOutput,
     InternalServerError | InvalidGatewayRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("JoinDomain", input);
+  }
   listAutomaticTapeCreationPolicies(
     input: ListAutomaticTapeCreationPoliciesInput,
   ): Effect.Effect<
     ListAutomaticTapeCreationPoliciesOutput,
     InternalServerError | InvalidGatewayRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("ListAutomaticTapeCreationPolicies", input);
+  }
   listCacheReports(
     input: ListCacheReportsInput,
   ): Effect.Effect<
     ListCacheReportsOutput,
     InternalServerError | InvalidGatewayRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("ListCacheReports", input);
+  }
   listFileShares(
     input: ListFileSharesInput,
   ): Effect.Effect<
     ListFileSharesOutput,
     InternalServerError | InvalidGatewayRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("ListFileShares", input);
+  }
   listFileSystemAssociations(
     input: ListFileSystemAssociationsInput,
   ): Effect.Effect<
     ListFileSystemAssociationsOutput,
     InternalServerError | InvalidGatewayRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("ListFileSystemAssociations", input);
+  }
   listGateways(
     input: ListGatewaysInput,
   ): Effect.Effect<
     ListGatewaysOutput,
     InternalServerError | InvalidGatewayRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("ListGateways", input);
+  }
   listLocalDisks(
     input: ListLocalDisksInput,
   ): Effect.Effect<
     ListLocalDisksOutput,
     InternalServerError | InvalidGatewayRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("ListLocalDisks", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceInput,
   ): Effect.Effect<
     ListTagsForResourceOutput,
     InternalServerError | InvalidGatewayRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   listTapePools(
     input: ListTapePoolsInput,
   ): Effect.Effect<
     ListTapePoolsOutput,
     InternalServerError | InvalidGatewayRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("ListTapePools", input);
+  }
   listTapes(
     input: ListTapesInput,
   ): Effect.Effect<
     ListTapesOutput,
     InternalServerError | InvalidGatewayRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("ListTapes", input);
+  }
   listVolumeInitiators(
     input: ListVolumeInitiatorsInput,
   ): Effect.Effect<
     ListVolumeInitiatorsOutput,
     InternalServerError | InvalidGatewayRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("ListVolumeInitiators", input);
+  }
   listVolumeRecoveryPoints(
     input: ListVolumeRecoveryPointsInput,
   ): Effect.Effect<
     ListVolumeRecoveryPointsOutput,
     InternalServerError | InvalidGatewayRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("ListVolumeRecoveryPoints", input);
+  }
   listVolumes(
     input: ListVolumesInput,
   ): Effect.Effect<
     ListVolumesOutput,
     InternalServerError | InvalidGatewayRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("ListVolumes", input);
+  }
   notifyWhenUploaded(
     input: NotifyWhenUploadedInput,
   ): Effect.Effect<
     NotifyWhenUploadedOutput,
     InternalServerError | InvalidGatewayRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("NotifyWhenUploaded", input);
+  }
   refreshCache(
     input: RefreshCacheInput,
   ): Effect.Effect<
     RefreshCacheOutput,
     InternalServerError | InvalidGatewayRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("RefreshCache", input);
+  }
   removeTagsFromResource(
     input: RemoveTagsFromResourceInput,
   ): Effect.Effect<
     RemoveTagsFromResourceOutput,
     InternalServerError | InvalidGatewayRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("RemoveTagsFromResource", input);
+  }
   resetCache(
     input: ResetCacheInput,
   ): Effect.Effect<
     ResetCacheOutput,
     InternalServerError | InvalidGatewayRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("ResetCache", input);
+  }
   retrieveTapeArchive(
     input: RetrieveTapeArchiveInput,
   ): Effect.Effect<
     RetrieveTapeArchiveOutput,
     InternalServerError | InvalidGatewayRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("RetrieveTapeArchive", input);
+  }
   retrieveTapeRecoveryPoint(
     input: RetrieveTapeRecoveryPointInput,
   ): Effect.Effect<
     RetrieveTapeRecoveryPointOutput,
     InternalServerError | InvalidGatewayRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("RetrieveTapeRecoveryPoint", input);
+  }
   setLocalConsolePassword(
     input: SetLocalConsolePasswordInput,
   ): Effect.Effect<
     SetLocalConsolePasswordOutput,
     InternalServerError | InvalidGatewayRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("SetLocalConsolePassword", input);
+  }
   setSMBGuestPassword(
     input: SetSMBGuestPasswordInput,
   ): Effect.Effect<
     SetSMBGuestPasswordOutput,
     InternalServerError | InvalidGatewayRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("SetSMBGuestPassword", input);
+  }
   shutdownGateway(
     input: ShutdownGatewayInput,
   ): Effect.Effect<
     ShutdownGatewayOutput,
     InternalServerError | InvalidGatewayRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("ShutdownGateway", input);
+  }
   startAvailabilityMonitorTest(
     input: StartAvailabilityMonitorTestInput,
   ): Effect.Effect<
     StartAvailabilityMonitorTestOutput,
     InternalServerError | InvalidGatewayRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("StartAvailabilityMonitorTest", input);
+  }
   startCacheReport(
     input: StartCacheReportInput,
   ): Effect.Effect<
     StartCacheReportOutput,
     InternalServerError | InvalidGatewayRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("StartCacheReport", input);
+  }
   startGateway(
     input: StartGatewayInput,
   ): Effect.Effect<
     StartGatewayOutput,
     InternalServerError | InvalidGatewayRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("StartGateway", input);
+  }
   updateAutomaticTapeCreationPolicy(
     input: UpdateAutomaticTapeCreationPolicyInput,
   ): Effect.Effect<
     UpdateAutomaticTapeCreationPolicyOutput,
     InternalServerError | InvalidGatewayRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateAutomaticTapeCreationPolicy", input);
+  }
   updateBandwidthRateLimit(
     input: UpdateBandwidthRateLimitInput,
   ): Effect.Effect<
     UpdateBandwidthRateLimitOutput,
     InternalServerError | InvalidGatewayRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateBandwidthRateLimit", input);
+  }
   updateBandwidthRateLimitSchedule(
     input: UpdateBandwidthRateLimitScheduleInput,
   ): Effect.Effect<
     UpdateBandwidthRateLimitScheduleOutput,
     InternalServerError | InvalidGatewayRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateBandwidthRateLimitSchedule", input);
+  }
   updateChapCredentials(
     input: UpdateChapCredentialsInput,
   ): Effect.Effect<
     UpdateChapCredentialsOutput,
     InternalServerError | InvalidGatewayRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateChapCredentials", input);
+  }
   updateFileSystemAssociation(
     input: UpdateFileSystemAssociationInput,
   ): Effect.Effect<
     UpdateFileSystemAssociationOutput,
     InternalServerError | InvalidGatewayRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateFileSystemAssociation", input);
+  }
   updateGatewayInformation(
     input: UpdateGatewayInformationInput,
   ): Effect.Effect<
     UpdateGatewayInformationOutput,
     InternalServerError | InvalidGatewayRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateGatewayInformation", input);
+  }
   updateGatewaySoftwareNow(
     input: UpdateGatewaySoftwareNowInput,
   ): Effect.Effect<
     UpdateGatewaySoftwareNowOutput,
     InternalServerError | InvalidGatewayRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateGatewaySoftwareNow", input);
+  }
   updateMaintenanceStartTime(
     input: UpdateMaintenanceStartTimeInput,
   ): Effect.Effect<
     UpdateMaintenanceStartTimeOutput,
     InternalServerError | InvalidGatewayRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateMaintenanceStartTime", input);
+  }
   updateNFSFileShare(
     input: UpdateNFSFileShareInput,
   ): Effect.Effect<
     UpdateNFSFileShareOutput,
     InternalServerError | InvalidGatewayRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateNFSFileShare", input);
+  }
   updateSMBFileShare(
     input: UpdateSMBFileShareInput,
   ): Effect.Effect<
     UpdateSMBFileShareOutput,
     InternalServerError | InvalidGatewayRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateSMBFileShare", input);
+  }
   updateSMBFileShareVisibility(
     input: UpdateSMBFileShareVisibilityInput,
   ): Effect.Effect<
     UpdateSMBFileShareVisibilityOutput,
     InternalServerError | InvalidGatewayRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateSMBFileShareVisibility", input);
+  }
   updateSMBLocalGroups(
     input: UpdateSMBLocalGroupsInput,
   ): Effect.Effect<
     UpdateSMBLocalGroupsOutput,
     InternalServerError | InvalidGatewayRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateSMBLocalGroups", input);
+  }
   updateSMBSecurityStrategy(
     input: UpdateSMBSecurityStrategyInput,
   ): Effect.Effect<
     UpdateSMBSecurityStrategyOutput,
     InternalServerError | InvalidGatewayRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateSMBSecurityStrategy", input);
+  }
   updateSnapshotSchedule(
     input: UpdateSnapshotScheduleInput,
   ): Effect.Effect<
     UpdateSnapshotScheduleOutput,
     InternalServerError | InvalidGatewayRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateSnapshotSchedule", input);
+  }
   updateVTLDeviceType(
     input: UpdateVTLDeviceTypeInput,
   ): Effect.Effect<
     UpdateVTLDeviceTypeOutput,
     InternalServerError | InvalidGatewayRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateVTLDeviceType", input);
+  }
 }
+
+export default StorageGateway;
 
 export interface ActivateGatewayInput {
   ActivationKey: string;

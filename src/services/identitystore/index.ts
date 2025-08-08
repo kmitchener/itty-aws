@@ -2,40 +2,52 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class identitystore extends AWSServiceClient {
+export class identitystore extends AWSServiceClient {
   getGroupId(
     input: GetGroupIdRequest,
   ): Effect.Effect<
     GetGroupIdResponse,
     ResourceNotFoundException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("GetGroupId", input);
+  }
   getGroupMembershipId(
     input: GetGroupMembershipIdRequest,
   ): Effect.Effect<
     GetGroupMembershipIdResponse,
     ResourceNotFoundException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("GetGroupMembershipId", input);
+  }
   getUserId(
     input: GetUserIdRequest,
   ): Effect.Effect<
     GetUserIdResponse,
     ResourceNotFoundException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("GetUserId", input);
+  }
   isMemberInGroups(
     input: IsMemberInGroupsRequest,
   ): Effect.Effect<
     IsMemberInGroupsResponse,
     ResourceNotFoundException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("IsMemberInGroups", input);
+  }
   listGroupMembershipsForMember(
     input: ListGroupMembershipsForMemberRequest,
   ): Effect.Effect<
     ListGroupMembershipsForMemberResponse,
     ResourceNotFoundException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("ListGroupMembershipsForMember", input);
+  }
 }
 
-export declare class Identitystore extends identitystore {}
+export class Identitystore extends identitystore {}
+
+export default identitystore;
 
 export declare class AccessDeniedException extends EffectData.TaggedError(
   "AccessDeniedException",

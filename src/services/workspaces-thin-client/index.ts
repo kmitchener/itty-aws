@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class WorkSpacesThinClient extends AWSServiceClient {
+export class WorkSpacesThinClient extends AWSServiceClient {
   createEnvironment(
     input: CreateEnvironmentRequest,
   ): Effect.Effect<
@@ -15,7 +15,9 @@ export declare class WorkSpacesThinClient extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateEnvironment", input);
+  }
   deleteDevice(
     input: DeleteDeviceRequest,
   ): Effect.Effect<
@@ -27,7 +29,9 @@ export declare class WorkSpacesThinClient extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteDevice", input);
+  }
   deleteEnvironment(
     input: DeleteEnvironmentRequest,
   ): Effect.Effect<
@@ -39,7 +43,9 @@ export declare class WorkSpacesThinClient extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteEnvironment", input);
+  }
   deregisterDevice(
     input: DeregisterDeviceRequest,
   ): Effect.Effect<
@@ -51,7 +57,9 @@ export declare class WorkSpacesThinClient extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeregisterDevice", input);
+  }
   getDevice(
     input: GetDeviceRequest,
   ): Effect.Effect<
@@ -62,7 +70,9 @@ export declare class WorkSpacesThinClient extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetDevice", input);
+  }
   getEnvironment(
     input: GetEnvironmentRequest,
   ): Effect.Effect<
@@ -73,7 +83,9 @@ export declare class WorkSpacesThinClient extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetEnvironment", input);
+  }
   getSoftwareSet(
     input: GetSoftwareSetRequest,
   ): Effect.Effect<
@@ -84,7 +96,9 @@ export declare class WorkSpacesThinClient extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetSoftwareSet", input);
+  }
   listDevices(
     input: ListDevicesRequest,
   ): Effect.Effect<
@@ -94,7 +108,9 @@ export declare class WorkSpacesThinClient extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListDevices", input);
+  }
   listEnvironments(
     input: ListEnvironmentsRequest,
   ): Effect.Effect<
@@ -104,7 +120,9 @@ export declare class WorkSpacesThinClient extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListEnvironments", input);
+  }
   listSoftwareSets(
     input: ListSoftwareSetsRequest,
   ): Effect.Effect<
@@ -114,7 +132,9 @@ export declare class WorkSpacesThinClient extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListSoftwareSets", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
@@ -125,7 +145,9 @@ export declare class WorkSpacesThinClient extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -137,7 +159,9 @@ export declare class WorkSpacesThinClient extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
@@ -149,7 +173,9 @@ export declare class WorkSpacesThinClient extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
   updateDevice(
     input: UpdateDeviceRequest,
   ): Effect.Effect<
@@ -160,7 +186,9 @@ export declare class WorkSpacesThinClient extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateDevice", input);
+  }
   updateEnvironment(
     input: UpdateEnvironmentRequest,
   ): Effect.Effect<
@@ -172,7 +200,9 @@ export declare class WorkSpacesThinClient extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateEnvironment", input);
+  }
   updateSoftwareSet(
     input: UpdateSoftwareSetRequest,
   ): Effect.Effect<
@@ -183,10 +213,14 @@ export declare class WorkSpacesThinClient extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateSoftwareSet", input);
+  }
 }
 
-export declare class WorkspacesThinClient extends WorkSpacesThinClient {}
+export class WorkspacesThinClient extends WorkSpacesThinClient {}
+
+export default WorkSpacesThinClient;
 
 export declare class AccessDeniedException extends EffectData.TaggedError(
   "AccessDeniedException",

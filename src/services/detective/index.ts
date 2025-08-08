@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class Detective extends AWSServiceClient {
+export class Detective extends AWSServiceClient {
   acceptInvitation(
     input: AcceptInvitationRequest,
   ): Effect.Effect<
@@ -13,7 +13,9 @@ export declare class Detective extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AcceptInvitation", input);
+  }
   batchGetGraphMemberDatasources(
     input: BatchGetGraphMemberDatasourcesRequest,
   ): Effect.Effect<
@@ -23,7 +25,9 @@ export declare class Detective extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("BatchGetGraphMemberDatasources", input);
+  }
   batchGetMembershipDatasources(
     input: BatchGetMembershipDatasourcesRequest,
   ): Effect.Effect<
@@ -33,7 +37,9 @@ export declare class Detective extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("BatchGetMembershipDatasources", input);
+  }
   createGraph(
     input: CreateGraphRequest,
   ): Effect.Effect<
@@ -43,7 +49,9 @@ export declare class Detective extends AWSServiceClient {
     | InternalServerException
     | ServiceQuotaExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateGraph", input);
+  }
   createMembers(
     input: CreateMembersRequest,
   ): Effect.Effect<
@@ -54,7 +62,9 @@ export declare class Detective extends AWSServiceClient {
     | ServiceQuotaExceededException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateMembers", input);
+  }
   deleteGraph(
     input: DeleteGraphRequest,
   ): Effect.Effect<
@@ -64,7 +74,9 @@ export declare class Detective extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteGraph", input);
+  }
   deleteMembers(
     input: DeleteMembersRequest,
   ): Effect.Effect<
@@ -75,7 +87,9 @@ export declare class Detective extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteMembers", input);
+  }
   describeOrganizationConfiguration(
     input: DescribeOrganizationConfigurationRequest,
   ): Effect.Effect<
@@ -85,7 +99,9 @@ export declare class Detective extends AWSServiceClient {
     | TooManyRequestsException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeOrganizationConfiguration", input);
+  }
   disableOrganizationAdminAccount(input: {}): Effect.Effect<
     {},
     | AccessDeniedException
@@ -93,7 +109,9 @@ export declare class Detective extends AWSServiceClient {
     | TooManyRequestsException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DisableOrganizationAdminAccount", input);
+  }
   disassociateMembership(
     input: DisassociateMembershipRequest,
   ): Effect.Effect<
@@ -104,7 +122,9 @@ export declare class Detective extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DisassociateMembership", input);
+  }
   enableOrganizationAdminAccount(
     input: EnableOrganizationAdminAccountRequest,
   ): Effect.Effect<
@@ -114,7 +134,9 @@ export declare class Detective extends AWSServiceClient {
     | TooManyRequestsException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("EnableOrganizationAdminAccount", input);
+  }
   getInvestigation(
     input: GetInvestigationRequest,
   ): Effect.Effect<
@@ -125,7 +147,9 @@ export declare class Detective extends AWSServiceClient {
     | TooManyRequestsException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetInvestigation", input);
+  }
   getMembers(
     input: GetMembersRequest,
   ): Effect.Effect<
@@ -135,7 +159,9 @@ export declare class Detective extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetMembers", input);
+  }
   listDatasourcePackages(
     input: ListDatasourcePackagesRequest,
   ): Effect.Effect<
@@ -145,7 +171,9 @@ export declare class Detective extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListDatasourcePackages", input);
+  }
   listGraphs(
     input: ListGraphsRequest,
   ): Effect.Effect<
@@ -154,7 +182,9 @@ export declare class Detective extends AWSServiceClient {
     | InternalServerException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListGraphs", input);
+  }
   listIndicators(
     input: ListIndicatorsRequest,
   ): Effect.Effect<
@@ -165,7 +195,9 @@ export declare class Detective extends AWSServiceClient {
     | TooManyRequestsException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListIndicators", input);
+  }
   listInvestigations(
     input: ListInvestigationsRequest,
   ): Effect.Effect<
@@ -176,7 +208,9 @@ export declare class Detective extends AWSServiceClient {
     | TooManyRequestsException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListInvestigations", input);
+  }
   listInvitations(
     input: ListInvitationsRequest,
   ): Effect.Effect<
@@ -185,7 +219,9 @@ export declare class Detective extends AWSServiceClient {
     | InternalServerException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListInvitations", input);
+  }
   listMembers(
     input: ListMembersRequest,
   ): Effect.Effect<
@@ -195,7 +231,9 @@ export declare class Detective extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListMembers", input);
+  }
   listOrganizationAdminAccounts(
     input: ListOrganizationAdminAccountsRequest,
   ): Effect.Effect<
@@ -205,7 +243,9 @@ export declare class Detective extends AWSServiceClient {
     | TooManyRequestsException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListOrganizationAdminAccounts", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
@@ -215,7 +255,9 @@ export declare class Detective extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   rejectInvitation(
     input: RejectInvitationRequest,
   ): Effect.Effect<
@@ -226,7 +268,9 @@ export declare class Detective extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("RejectInvitation", input);
+  }
   startInvestigation(
     input: StartInvestigationRequest,
   ): Effect.Effect<
@@ -237,7 +281,9 @@ export declare class Detective extends AWSServiceClient {
     | TooManyRequestsException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartInvestigation", input);
+  }
   startMonitoringMember(
     input: StartMonitoringMemberRequest,
   ): Effect.Effect<
@@ -249,7 +295,9 @@ export declare class Detective extends AWSServiceClient {
     | ServiceQuotaExceededException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartMonitoringMember", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -259,7 +307,9 @@ export declare class Detective extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
@@ -269,7 +319,9 @@ export declare class Detective extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
   updateDatasourcePackages(
     input: UpdateDatasourcePackagesRequest,
   ): Effect.Effect<
@@ -280,7 +332,9 @@ export declare class Detective extends AWSServiceClient {
     | ServiceQuotaExceededException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateDatasourcePackages", input);
+  }
   updateInvestigationState(
     input: UpdateInvestigationStateRequest,
   ): Effect.Effect<
@@ -291,7 +345,9 @@ export declare class Detective extends AWSServiceClient {
     | TooManyRequestsException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateInvestigationState", input);
+  }
   updateOrganizationConfiguration(
     input: UpdateOrganizationConfigurationRequest,
   ): Effect.Effect<
@@ -301,8 +357,12 @@ export declare class Detective extends AWSServiceClient {
     | TooManyRequestsException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateOrganizationConfiguration", input);
+  }
 }
+
+export default Detective;
 
 export interface AcceptInvitationRequest {
   GraphArn: string;

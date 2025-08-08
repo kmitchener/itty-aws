@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class codeartifact extends AWSServiceClient {
+export class codeartifact extends AWSServiceClient {
   associateExternalConnection(
     input: AssociateExternalConnectionRequest,
   ): Effect.Effect<
@@ -15,7 +15,9 @@ export declare class codeartifact extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AssociateExternalConnection", input);
+  }
   copyPackageVersions(
     input: CopyPackageVersionsRequest,
   ): Effect.Effect<
@@ -28,7 +30,9 @@ export declare class codeartifact extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CopyPackageVersions", input);
+  }
   createDomain(
     input: CreateDomainRequest,
   ): Effect.Effect<
@@ -41,7 +45,9 @@ export declare class codeartifact extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateDomain", input);
+  }
   createPackageGroup(
     input: CreatePackageGroupRequest,
   ): Effect.Effect<
@@ -54,7 +60,9 @@ export declare class codeartifact extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreatePackageGroup", input);
+  }
   createRepository(
     input: CreateRepositoryRequest,
   ): Effect.Effect<
@@ -67,7 +75,9 @@ export declare class codeartifact extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateRepository", input);
+  }
   deleteDomain(
     input: DeleteDomainRequest,
   ): Effect.Effect<
@@ -78,7 +88,9 @@ export declare class codeartifact extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteDomain", input);
+  }
   deleteDomainPermissionsPolicy(
     input: DeleteDomainPermissionsPolicyRequest,
   ): Effect.Effect<
@@ -90,7 +102,9 @@ export declare class codeartifact extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteDomainPermissionsPolicy", input);
+  }
   deletePackage(
     input: DeletePackageRequest,
   ): Effect.Effect<
@@ -102,7 +116,9 @@ export declare class codeartifact extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeletePackage", input);
+  }
   deletePackageGroup(
     input: DeletePackageGroupRequest,
   ): Effect.Effect<
@@ -115,7 +131,9 @@ export declare class codeartifact extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeletePackageGroup", input);
+  }
   deletePackageVersions(
     input: DeletePackageVersionsRequest,
   ): Effect.Effect<
@@ -127,7 +145,9 @@ export declare class codeartifact extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeletePackageVersions", input);
+  }
   deleteRepository(
     input: DeleteRepositoryRequest,
   ): Effect.Effect<
@@ -139,7 +159,9 @@ export declare class codeartifact extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteRepository", input);
+  }
   deleteRepositoryPermissionsPolicy(
     input: DeleteRepositoryPermissionsPolicyRequest,
   ): Effect.Effect<
@@ -151,7 +173,9 @@ export declare class codeartifact extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteRepositoryPermissionsPolicy", input);
+  }
   describeDomain(
     input: DescribeDomainRequest,
   ): Effect.Effect<
@@ -162,7 +186,9 @@ export declare class codeartifact extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeDomain", input);
+  }
   describePackage(
     input: DescribePackageRequest,
   ): Effect.Effect<
@@ -173,7 +199,9 @@ export declare class codeartifact extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribePackage", input);
+  }
   describePackageGroup(
     input: DescribePackageGroupRequest,
   ): Effect.Effect<
@@ -184,7 +212,9 @@ export declare class codeartifact extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribePackageGroup", input);
+  }
   describePackageVersion(
     input: DescribePackageVersionRequest,
   ): Effect.Effect<
@@ -196,7 +226,9 @@ export declare class codeartifact extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribePackageVersion", input);
+  }
   describeRepository(
     input: DescribeRepositoryRequest,
   ): Effect.Effect<
@@ -207,7 +239,9 @@ export declare class codeartifact extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeRepository", input);
+  }
   disassociateExternalConnection(
     input: DisassociateExternalConnectionRequest,
   ): Effect.Effect<
@@ -220,7 +254,9 @@ export declare class codeartifact extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DisassociateExternalConnection", input);
+  }
   disposePackageVersions(
     input: DisposePackageVersionsRequest,
   ): Effect.Effect<
@@ -232,7 +268,9 @@ export declare class codeartifact extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DisposePackageVersions", input);
+  }
   getAssociatedPackageGroup(
     input: GetAssociatedPackageGroupRequest,
   ): Effect.Effect<
@@ -242,7 +280,9 @@ export declare class codeartifact extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetAssociatedPackageGroup", input);
+  }
   getAuthorizationToken(
     input: GetAuthorizationTokenRequest,
   ): Effect.Effect<
@@ -253,7 +293,9 @@ export declare class codeartifact extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetAuthorizationToken", input);
+  }
   getDomainPermissionsPolicy(
     input: GetDomainPermissionsPolicyRequest,
   ): Effect.Effect<
@@ -264,7 +306,9 @@ export declare class codeartifact extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetDomainPermissionsPolicy", input);
+  }
   getPackageVersionAsset(
     input: GetPackageVersionAssetRequest,
   ): Effect.Effect<
@@ -276,7 +320,9 @@ export declare class codeartifact extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetPackageVersionAsset", input);
+  }
   getPackageVersionReadme(
     input: GetPackageVersionReadmeRequest,
   ): Effect.Effect<
@@ -287,7 +333,9 @@ export declare class codeartifact extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetPackageVersionReadme", input);
+  }
   getRepositoryEndpoint(
     input: GetRepositoryEndpointRequest,
   ): Effect.Effect<
@@ -298,7 +346,9 @@ export declare class codeartifact extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetRepositoryEndpoint", input);
+  }
   getRepositoryPermissionsPolicy(
     input: GetRepositoryPermissionsPolicyRequest,
   ): Effect.Effect<
@@ -309,7 +359,9 @@ export declare class codeartifact extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetRepositoryPermissionsPolicy", input);
+  }
   listAllowedRepositoriesForGroup(
     input: ListAllowedRepositoriesForGroupRequest,
   ): Effect.Effect<
@@ -321,7 +373,9 @@ export declare class codeartifact extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListAllowedRepositoriesForGroup", input);
+  }
   listAssociatedPackages(
     input: ListAssociatedPackagesRequest,
   ): Effect.Effect<
@@ -331,7 +385,9 @@ export declare class codeartifact extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListAssociatedPackages", input);
+  }
   listDomains(
     input: ListDomainsRequest,
   ): Effect.Effect<
@@ -341,7 +397,9 @@ export declare class codeartifact extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListDomains", input);
+  }
   listPackageGroups(
     input: ListPackageGroupsRequest,
   ): Effect.Effect<
@@ -352,7 +410,9 @@ export declare class codeartifact extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListPackageGroups", input);
+  }
   listPackages(
     input: ListPackagesRequest,
   ): Effect.Effect<
@@ -363,7 +423,9 @@ export declare class codeartifact extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListPackages", input);
+  }
   listPackageVersionAssets(
     input: ListPackageVersionAssetsRequest,
   ): Effect.Effect<
@@ -374,7 +436,9 @@ export declare class codeartifact extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListPackageVersionAssets", input);
+  }
   listPackageVersionDependencies(
     input: ListPackageVersionDependenciesRequest,
   ): Effect.Effect<
@@ -385,7 +449,9 @@ export declare class codeartifact extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListPackageVersionDependencies", input);
+  }
   listPackageVersions(
     input: ListPackageVersionsRequest,
   ): Effect.Effect<
@@ -396,7 +462,9 @@ export declare class codeartifact extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListPackageVersions", input);
+  }
   listRepositories(
     input: ListRepositoriesRequest,
   ): Effect.Effect<
@@ -406,7 +474,9 @@ export declare class codeartifact extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListRepositories", input);
+  }
   listRepositoriesInDomain(
     input: ListRepositoriesInDomainRequest,
   ): Effect.Effect<
@@ -417,7 +487,9 @@ export declare class codeartifact extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListRepositoriesInDomain", input);
+  }
   listSubPackageGroups(
     input: ListSubPackageGroupsRequest,
   ): Effect.Effect<
@@ -428,7 +500,9 @@ export declare class codeartifact extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListSubPackageGroups", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
@@ -438,7 +512,9 @@ export declare class codeartifact extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   publishPackageVersion(
     input: PublishPackageVersionRequest,
   ): Effect.Effect<
@@ -451,7 +527,9 @@ export declare class codeartifact extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PublishPackageVersion", input);
+  }
   putDomainPermissionsPolicy(
     input: PutDomainPermissionsPolicyRequest,
   ): Effect.Effect<
@@ -464,7 +542,9 @@ export declare class codeartifact extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutDomainPermissionsPolicy", input);
+  }
   putPackageOriginConfiguration(
     input: PutPackageOriginConfigurationRequest,
   ): Effect.Effect<
@@ -475,7 +555,9 @@ export declare class codeartifact extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutPackageOriginConfiguration", input);
+  }
   putRepositoryPermissionsPolicy(
     input: PutRepositoryPermissionsPolicyRequest,
   ): Effect.Effect<
@@ -488,7 +570,9 @@ export declare class codeartifact extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutRepositoryPermissionsPolicy", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -499,7 +583,9 @@ export declare class codeartifact extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
@@ -509,7 +595,9 @@ export declare class codeartifact extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
   updatePackageGroup(
     input: UpdatePackageGroupRequest,
   ): Effect.Effect<
@@ -521,7 +609,9 @@ export declare class codeartifact extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdatePackageGroup", input);
+  }
   updatePackageGroupOriginConfiguration(
     input: UpdatePackageGroupOriginConfigurationRequest,
   ): Effect.Effect<
@@ -533,7 +623,9 @@ export declare class codeartifact extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdatePackageGroupOriginConfiguration", input);
+  }
   updatePackageVersionsStatus(
     input: UpdatePackageVersionsStatusRequest,
   ): Effect.Effect<
@@ -545,7 +637,9 @@ export declare class codeartifact extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdatePackageVersionsStatus", input);
+  }
   updateRepository(
     input: UpdateRepositoryRequest,
   ): Effect.Effect<
@@ -558,10 +652,14 @@ export declare class codeartifact extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateRepository", input);
+  }
 }
 
-export declare class Codeartifact extends codeartifact {}
+export class Codeartifact extends codeartifact {}
+
+export default codeartifact;
 
 export declare class AccessDeniedException extends EffectData.TaggedError(
   "AccessDeniedException",

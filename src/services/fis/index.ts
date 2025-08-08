@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class fis extends AWSServiceClient {
+export class fis extends AWSServiceClient {
   createExperimentTemplate(
     input: CreateExperimentTemplateRequest,
   ): Effect.Effect<
@@ -12,7 +12,9 @@ export declare class fis extends AWSServiceClient {
     | ServiceQuotaExceededException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateExperimentTemplate", input);
+  }
   createTargetAccountConfiguration(
     input: CreateTargetAccountConfigurationRequest,
   ): Effect.Effect<
@@ -22,103 +24,139 @@ export declare class fis extends AWSServiceClient {
     | ServiceQuotaExceededException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateTargetAccountConfiguration", input);
+  }
   deleteExperimentTemplate(
     input: DeleteExperimentTemplateRequest,
   ): Effect.Effect<
     DeleteExperimentTemplateResponse,
     ResourceNotFoundException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteExperimentTemplate", input);
+  }
   deleteTargetAccountConfiguration(
     input: DeleteTargetAccountConfigurationRequest,
   ): Effect.Effect<
     DeleteTargetAccountConfigurationResponse,
     ResourceNotFoundException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteTargetAccountConfiguration", input);
+  }
   getAction(
     input: GetActionRequest,
   ): Effect.Effect<
     GetActionResponse,
     ResourceNotFoundException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("GetAction", input);
+  }
   getExperiment(
     input: GetExperimentRequest,
   ): Effect.Effect<
     GetExperimentResponse,
     ResourceNotFoundException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("GetExperiment", input);
+  }
   getExperimentTargetAccountConfiguration(
     input: GetExperimentTargetAccountConfigurationRequest,
   ): Effect.Effect<
     GetExperimentTargetAccountConfigurationResponse,
     ResourceNotFoundException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("GetExperimentTargetAccountConfiguration", input);
+  }
   getExperimentTemplate(
     input: GetExperimentTemplateRequest,
   ): Effect.Effect<
     GetExperimentTemplateResponse,
     ResourceNotFoundException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("GetExperimentTemplate", input);
+  }
   getSafetyLever(
     input: GetSafetyLeverRequest,
   ): Effect.Effect<
     GetSafetyLeverResponse,
     ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("GetSafetyLever", input);
+  }
   getTargetAccountConfiguration(
     input: GetTargetAccountConfigurationRequest,
   ): Effect.Effect<
     GetTargetAccountConfigurationResponse,
     ResourceNotFoundException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("GetTargetAccountConfiguration", input);
+  }
   getTargetResourceType(
     input: GetTargetResourceTypeRequest,
   ): Effect.Effect<
     GetTargetResourceTypeResponse,
     ResourceNotFoundException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("GetTargetResourceType", input);
+  }
   listActions(
     input: ListActionsRequest,
-  ): Effect.Effect<ListActionsResponse, ValidationException | CommonAwsError>;
+  ): Effect.Effect<ListActionsResponse, ValidationException | CommonAwsError> {
+    return this.call("ListActions", input);
+  }
   listExperimentResolvedTargets(
     input: ListExperimentResolvedTargetsRequest,
   ): Effect.Effect<
     ListExperimentResolvedTargetsResponse,
     ResourceNotFoundException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("ListExperimentResolvedTargets", input);
+  }
   listExperiments(
     input: ListExperimentsRequest,
   ): Effect.Effect<
     ListExperimentsResponse,
     ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("ListExperiments", input);
+  }
   listExperimentTargetAccountConfigurations(
     input: ListExperimentTargetAccountConfigurationsRequest,
   ): Effect.Effect<
     ListExperimentTargetAccountConfigurationsResponse,
     ResourceNotFoundException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("ListExperimentTargetAccountConfigurations", input);
+  }
   listExperimentTemplates(
     input: ListExperimentTemplatesRequest,
   ): Effect.Effect<
     ListExperimentTemplatesResponse,
     ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("ListExperimentTemplates", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
-  ): Effect.Effect<ListTagsForResourceResponse, CommonAwsError>;
+  ): Effect.Effect<ListTagsForResourceResponse, CommonAwsError> {
+    return this.call("ListTagsForResource", input);
+  }
   listTargetAccountConfigurations(
     input: ListTargetAccountConfigurationsRequest,
   ): Effect.Effect<
     ListTargetAccountConfigurationsResponse,
     ResourceNotFoundException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("ListTargetAccountConfigurations", input);
+  }
   listTargetResourceTypes(
     input: ListTargetResourceTypesRequest,
   ): Effect.Effect<
     ListTargetResourceTypesResponse,
     ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("ListTargetResourceTypes", input);
+  }
   startExperiment(
     input: StartExperimentRequest,
   ): Effect.Effect<
@@ -128,19 +166,27 @@ export declare class fis extends AWSServiceClient {
     | ServiceQuotaExceededException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartExperiment", input);
+  }
   stopExperiment(
     input: StopExperimentRequest,
   ): Effect.Effect<
     StopExperimentResponse,
     ResourceNotFoundException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("StopExperiment", input);
+  }
   tagResource(
     input: TagResourceRequest,
-  ): Effect.Effect<TagResourceResponse, CommonAwsError>;
+  ): Effect.Effect<TagResourceResponse, CommonAwsError> {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceRequest,
-  ): Effect.Effect<UntagResourceResponse, CommonAwsError>;
+  ): Effect.Effect<UntagResourceResponse, CommonAwsError> {
+    return this.call("UntagResource", input);
+  }
   updateExperimentTemplate(
     input: UpdateExperimentTemplateRequest,
   ): Effect.Effect<
@@ -149,7 +195,9 @@ export declare class fis extends AWSServiceClient {
     | ServiceQuotaExceededException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateExperimentTemplate", input);
+  }
   updateSafetyLeverState(
     input: UpdateSafetyLeverStateRequest,
   ): Effect.Effect<
@@ -158,16 +206,22 @@ export declare class fis extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateSafetyLeverState", input);
+  }
   updateTargetAccountConfiguration(
     input: UpdateTargetAccountConfigurationRequest,
   ): Effect.Effect<
     UpdateTargetAccountConfigurationResponse,
     ResourceNotFoundException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateTargetAccountConfiguration", input);
+  }
 }
 
-export declare class Fis extends fis {}
+export class Fis extends fis {}
+
+export default fis;
 
 export type AccountTargeting = "SINGLE_ACCOUNT" | "MULTI_ACCOUNT";
 export interface Action {

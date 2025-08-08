@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class ServerlessApplicationRepository extends AWSServiceClient {
+export class ServerlessApplicationRepository extends AWSServiceClient {
   createApplication(
     input: CreateApplicationRequest,
   ): Effect.Effect<
@@ -13,7 +13,9 @@ export declare class ServerlessApplicationRepository extends AWSServiceClient {
     | InternalServerErrorException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateApplication", input);
+  }
   createApplicationVersion(
     input: CreateApplicationVersionRequest,
   ): Effect.Effect<
@@ -24,7 +26,9 @@ export declare class ServerlessApplicationRepository extends AWSServiceClient {
     | InternalServerErrorException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateApplicationVersion", input);
+  }
   createCloudFormationChangeSet(
     input: CreateCloudFormationChangeSetRequest,
   ): Effect.Effect<
@@ -34,7 +38,9 @@ export declare class ServerlessApplicationRepository extends AWSServiceClient {
     | InternalServerErrorException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateCloudFormationChangeSet", input);
+  }
   createCloudFormationTemplate(
     input: CreateCloudFormationTemplateRequest,
   ): Effect.Effect<
@@ -45,7 +51,9 @@ export declare class ServerlessApplicationRepository extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateCloudFormationTemplate", input);
+  }
   deleteApplication(
     input: DeleteApplicationRequest,
   ): Effect.Effect<
@@ -57,7 +65,9 @@ export declare class ServerlessApplicationRepository extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteApplication", input);
+  }
   getApplication(
     input: GetApplicationRequest,
   ): Effect.Effect<
@@ -68,7 +78,9 @@ export declare class ServerlessApplicationRepository extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetApplication", input);
+  }
   getApplicationPolicy(
     input: GetApplicationPolicyRequest,
   ): Effect.Effect<
@@ -79,7 +91,9 @@ export declare class ServerlessApplicationRepository extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetApplicationPolicy", input);
+  }
   getCloudFormationTemplate(
     input: GetCloudFormationTemplateRequest,
   ): Effect.Effect<
@@ -90,7 +104,9 @@ export declare class ServerlessApplicationRepository extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetCloudFormationTemplate", input);
+  }
   listApplicationDependencies(
     input: ListApplicationDependenciesRequest,
   ): Effect.Effect<
@@ -101,7 +117,9 @@ export declare class ServerlessApplicationRepository extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListApplicationDependencies", input);
+  }
   listApplications(
     input: ListApplicationsRequest,
   ): Effect.Effect<
@@ -111,7 +129,9 @@ export declare class ServerlessApplicationRepository extends AWSServiceClient {
     | InternalServerErrorException
     | NotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListApplications", input);
+  }
   listApplicationVersions(
     input: ListApplicationVersionsRequest,
   ): Effect.Effect<
@@ -122,7 +142,9 @@ export declare class ServerlessApplicationRepository extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListApplicationVersions", input);
+  }
   putApplicationPolicy(
     input: PutApplicationPolicyRequest,
   ): Effect.Effect<
@@ -133,7 +155,9 @@ export declare class ServerlessApplicationRepository extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutApplicationPolicy", input);
+  }
   unshareApplication(
     input: UnshareApplicationRequest,
   ): Effect.Effect<
@@ -144,7 +168,9 @@ export declare class ServerlessApplicationRepository extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UnshareApplication", input);
+  }
   updateApplication(
     input: UpdateApplicationRequest,
   ): Effect.Effect<
@@ -156,10 +182,14 @@ export declare class ServerlessApplicationRepository extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateApplication", input);
+  }
 }
 
-export declare class Serverlessapplicationrepository extends ServerlessApplicationRepository {}
+export class Serverlessapplicationrepository extends ServerlessApplicationRepository {}
+
+export default ServerlessApplicationRepository;
 
 export type __boolean = boolean;
 

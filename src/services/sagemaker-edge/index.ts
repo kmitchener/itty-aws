@@ -2,23 +2,31 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class SagemakerEdge extends AWSServiceClient {
+export class SagemakerEdge extends AWSServiceClient {
   getDeployments(
     input: GetDeploymentsRequest,
   ): Effect.Effect<
     GetDeploymentsResult,
     InternalServiceException | CommonAwsError
-  >;
+  > {
+    return this.call("GetDeployments", input);
+  }
   getDeviceRegistration(
     input: GetDeviceRegistrationRequest,
   ): Effect.Effect<
     GetDeviceRegistrationResult,
     InternalServiceException | CommonAwsError
-  >;
+  > {
+    return this.call("GetDeviceRegistration", input);
+  }
   sendHeartbeat(
     input: SendHeartbeatRequest,
-  ): Effect.Effect<{}, InternalServiceException | CommonAwsError>;
+  ): Effect.Effect<{}, InternalServiceException | CommonAwsError> {
+    return this.call("SendHeartbeat", input);
+  }
 }
+
+export default SagemakerEdge;
 
 export type CacheTTLSeconds = string;
 

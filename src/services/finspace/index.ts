@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class finspace extends AWSServiceClient {
+export class finspace extends AWSServiceClient {
   createEnvironment(
     input: CreateEnvironmentRequest,
   ): Effect.Effect<
@@ -14,7 +14,9 @@ export declare class finspace extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateEnvironment", input);
+  }
   createKxChangeset(
     input: CreateKxChangesetRequest,
   ): Effect.Effect<
@@ -27,7 +29,9 @@ export declare class finspace extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateKxChangeset", input);
+  }
   createKxCluster(
     input: CreateKxClusterRequest,
   ): Effect.Effect<
@@ -40,7 +44,9 @@ export declare class finspace extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateKxCluster", input);
+  }
   createKxDatabase(
     input: CreateKxDatabaseRequest,
   ): Effect.Effect<
@@ -54,7 +60,9 @@ export declare class finspace extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateKxDatabase", input);
+  }
   createKxDataview(
     input: CreateKxDataviewRequest,
   ): Effect.Effect<
@@ -68,7 +76,9 @@ export declare class finspace extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateKxDataview", input);
+  }
   createKxEnvironment(
     input: CreateKxEnvironmentRequest,
   ): Effect.Effect<
@@ -81,7 +91,9 @@ export declare class finspace extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateKxEnvironment", input);
+  }
   createKxScalingGroup(
     input: CreateKxScalingGroupRequest,
   ): Effect.Effect<
@@ -94,7 +106,9 @@ export declare class finspace extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateKxScalingGroup", input);
+  }
   createKxUser(
     input: CreateKxUserRequest,
   ): Effect.Effect<
@@ -108,7 +122,9 @@ export declare class finspace extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateKxUser", input);
+  }
   createKxVolume(
     input: CreateKxVolumeRequest,
   ): Effect.Effect<
@@ -122,7 +138,9 @@ export declare class finspace extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateKxVolume", input);
+  }
   deleteEnvironment(
     input: DeleteEnvironmentRequest,
   ): Effect.Effect<
@@ -133,7 +151,9 @@ export declare class finspace extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteEnvironment", input);
+  }
   deleteKxCluster(
     input: DeleteKxClusterRequest,
   ): Effect.Effect<
@@ -146,7 +166,9 @@ export declare class finspace extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteKxCluster", input);
+  }
   deleteKxClusterNode(
     input: DeleteKxClusterNodeRequest,
   ): Effect.Effect<
@@ -157,7 +179,9 @@ export declare class finspace extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteKxClusterNode", input);
+  }
   deleteKxDatabase(
     input: DeleteKxDatabaseRequest,
   ): Effect.Effect<
@@ -169,7 +193,9 @@ export declare class finspace extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteKxDatabase", input);
+  }
   deleteKxDataview(
     input: DeleteKxDataviewRequest,
   ): Effect.Effect<
@@ -181,7 +207,9 @@ export declare class finspace extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteKxDataview", input);
+  }
   deleteKxEnvironment(
     input: DeleteKxEnvironmentRequest,
   ): Effect.Effect<
@@ -193,7 +221,9 @@ export declare class finspace extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteKxEnvironment", input);
+  }
   deleteKxScalingGroup(
     input: DeleteKxScalingGroupRequest,
   ): Effect.Effect<
@@ -206,7 +236,9 @@ export declare class finspace extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteKxScalingGroup", input);
+  }
   deleteKxUser(
     input: DeleteKxUserRequest,
   ): Effect.Effect<
@@ -218,7 +250,9 @@ export declare class finspace extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteKxUser", input);
+  }
   deleteKxVolume(
     input: DeleteKxVolumeRequest,
   ): Effect.Effect<
@@ -231,7 +265,9 @@ export declare class finspace extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteKxVolume", input);
+  }
   getEnvironment(
     input: GetEnvironmentRequest,
   ): Effect.Effect<
@@ -241,7 +277,9 @@ export declare class finspace extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetEnvironment", input);
+  }
   getKxChangeset(
     input: GetKxChangesetRequest,
   ): Effect.Effect<
@@ -252,7 +290,9 @@ export declare class finspace extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetKxChangeset", input);
+  }
   getKxCluster(
     input: GetKxClusterRequest,
   ): Effect.Effect<
@@ -265,7 +305,9 @@ export declare class finspace extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetKxCluster", input);
+  }
   getKxConnectionString(
     input: GetKxConnectionStringRequest,
   ): Effect.Effect<
@@ -276,7 +318,9 @@ export declare class finspace extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetKxConnectionString", input);
+  }
   getKxDatabase(
     input: GetKxDatabaseRequest,
   ): Effect.Effect<
@@ -287,7 +331,9 @@ export declare class finspace extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetKxDatabase", input);
+  }
   getKxDataview(
     input: GetKxDataviewRequest,
   ): Effect.Effect<
@@ -298,7 +344,9 @@ export declare class finspace extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetKxDataview", input);
+  }
   getKxEnvironment(
     input: GetKxEnvironmentRequest,
   ): Effect.Effect<
@@ -309,7 +357,9 @@ export declare class finspace extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetKxEnvironment", input);
+  }
   getKxScalingGroup(
     input: GetKxScalingGroupRequest,
   ): Effect.Effect<
@@ -322,7 +372,9 @@ export declare class finspace extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetKxScalingGroup", input);
+  }
   getKxUser(
     input: GetKxUserRequest,
   ): Effect.Effect<
@@ -333,7 +385,9 @@ export declare class finspace extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetKxUser", input);
+  }
   getKxVolume(
     input: GetKxVolumeRequest,
   ): Effect.Effect<
@@ -346,7 +400,9 @@ export declare class finspace extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetKxVolume", input);
+  }
   listEnvironments(
     input: ListEnvironmentsRequest,
   ): Effect.Effect<
@@ -355,7 +411,9 @@ export declare class finspace extends AWSServiceClient {
     | InternalServerException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListEnvironments", input);
+  }
   listKxChangesets(
     input: ListKxChangesetsRequest,
   ): Effect.Effect<
@@ -366,7 +424,9 @@ export declare class finspace extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListKxChangesets", input);
+  }
   listKxClusterNodes(
     input: ListKxClusterNodesRequest,
   ): Effect.Effect<
@@ -378,7 +438,9 @@ export declare class finspace extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListKxClusterNodes", input);
+  }
   listKxClusters(
     input: ListKxClustersRequest,
   ): Effect.Effect<
@@ -391,7 +453,9 @@ export declare class finspace extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListKxClusters", input);
+  }
   listKxDatabases(
     input: ListKxDatabasesRequest,
   ): Effect.Effect<
@@ -402,7 +466,9 @@ export declare class finspace extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListKxDatabases", input);
+  }
   listKxDataviews(
     input: ListKxDataviewsRequest,
   ): Effect.Effect<
@@ -413,7 +479,9 @@ export declare class finspace extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListKxDataviews", input);
+  }
   listKxEnvironments(
     input: ListKxEnvironmentsRequest,
   ): Effect.Effect<
@@ -422,7 +490,9 @@ export declare class finspace extends AWSServiceClient {
     | InternalServerException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListKxEnvironments", input);
+  }
   listKxScalingGroups(
     input: ListKxScalingGroupsRequest,
   ): Effect.Effect<
@@ -435,7 +505,9 @@ export declare class finspace extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListKxScalingGroups", input);
+  }
   listKxUsers(
     input: ListKxUsersRequest,
   ): Effect.Effect<
@@ -446,7 +518,9 @@ export declare class finspace extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListKxUsers", input);
+  }
   listKxVolumes(
     input: ListKxVolumesRequest,
   ): Effect.Effect<
@@ -459,7 +533,9 @@ export declare class finspace extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListKxVolumes", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
@@ -468,7 +544,9 @@ export declare class finspace extends AWSServiceClient {
     | InvalidRequestException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -477,7 +555,9 @@ export declare class finspace extends AWSServiceClient {
     | InvalidRequestException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
@@ -486,7 +566,9 @@ export declare class finspace extends AWSServiceClient {
     | InvalidRequestException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
   updateEnvironment(
     input: UpdateEnvironmentRequest,
   ): Effect.Effect<
@@ -497,7 +579,9 @@ export declare class finspace extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateEnvironment", input);
+  }
   updateKxClusterCodeConfiguration(
     input: UpdateKxClusterCodeConfigurationRequest,
   ): Effect.Effect<
@@ -510,7 +594,9 @@ export declare class finspace extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateKxClusterCodeConfiguration", input);
+  }
   updateKxClusterDatabases(
     input: UpdateKxClusterDatabasesRequest,
   ): Effect.Effect<
@@ -523,7 +609,9 @@ export declare class finspace extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateKxClusterDatabases", input);
+  }
   updateKxDatabase(
     input: UpdateKxDatabaseRequest,
   ): Effect.Effect<
@@ -535,7 +623,9 @@ export declare class finspace extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateKxDatabase", input);
+  }
   updateKxDataview(
     input: UpdateKxDataviewRequest,
   ): Effect.Effect<
@@ -548,7 +638,9 @@ export declare class finspace extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateKxDataview", input);
+  }
   updateKxEnvironment(
     input: UpdateKxEnvironmentRequest,
   ): Effect.Effect<
@@ -560,7 +652,9 @@ export declare class finspace extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateKxEnvironment", input);
+  }
   updateKxEnvironmentNetwork(
     input: UpdateKxEnvironmentNetworkRequest,
   ): Effect.Effect<
@@ -572,7 +666,9 @@ export declare class finspace extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateKxEnvironmentNetwork", input);
+  }
   updateKxUser(
     input: UpdateKxUserRequest,
   ): Effect.Effect<
@@ -585,7 +681,9 @@ export declare class finspace extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateKxUser", input);
+  }
   updateKxVolume(
     input: UpdateKxVolumeRequest,
   ): Effect.Effect<
@@ -598,10 +696,14 @@ export declare class finspace extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateKxVolume", input);
+  }
 }
 
-export declare class Finspace extends finspace {}
+export class Finspace extends finspace {}
+
+export default finspace;
 
 export declare class AccessDeniedException extends EffectData.TaggedError(
   "AccessDeniedException",

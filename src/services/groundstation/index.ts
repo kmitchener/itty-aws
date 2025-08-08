@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class GroundStation extends AWSServiceClient {
+export class GroundStation extends AWSServiceClient {
   getMinuteUsage(
     input: GetMinuteUsageRequest,
   ): Effect.Effect<
@@ -11,7 +11,9 @@ export declare class GroundStation extends AWSServiceClient {
     | InvalidParameterException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetMinuteUsage", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
@@ -20,7 +22,9 @@ export declare class GroundStation extends AWSServiceClient {
     | InvalidParameterException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -29,7 +33,9 @@ export declare class GroundStation extends AWSServiceClient {
     | InvalidParameterException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
@@ -38,10 +44,14 @@ export declare class GroundStation extends AWSServiceClient {
     | InvalidParameterException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
 }
 
-export declare class Groundstation extends GroundStation {}
+export class Groundstation extends GroundStation {}
+
+export default GroundStation;
 
 export type AgentCpuCoresList = Array<number>;
 export interface AgentDetails {

@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class ManagedBlockchainQuery extends AWSServiceClient {
+export class ManagedBlockchainQuery extends AWSServiceClient {
   batchGetTokenBalance(
     input: BatchGetTokenBalanceInput,
   ): Effect.Effect<
@@ -14,7 +14,9 @@ export declare class ManagedBlockchainQuery extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("BatchGetTokenBalance", input);
+  }
   getAssetContract(
     input: GetAssetContractInput,
   ): Effect.Effect<
@@ -26,7 +28,9 @@ export declare class ManagedBlockchainQuery extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetAssetContract", input);
+  }
   getTokenBalance(
     input: GetTokenBalanceInput,
   ): Effect.Effect<
@@ -38,7 +42,9 @@ export declare class ManagedBlockchainQuery extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetTokenBalance", input);
+  }
   getTransaction(
     input: GetTransactionInput,
   ): Effect.Effect<
@@ -50,7 +56,9 @@ export declare class ManagedBlockchainQuery extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetTransaction", input);
+  }
   listAssetContracts(
     input: ListAssetContractsInput,
   ): Effect.Effect<
@@ -61,7 +69,9 @@ export declare class ManagedBlockchainQuery extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListAssetContracts", input);
+  }
   listFilteredTransactionEvents(
     input: ListFilteredTransactionEventsInput,
   ): Effect.Effect<
@@ -72,7 +82,9 @@ export declare class ManagedBlockchainQuery extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListFilteredTransactionEvents", input);
+  }
   listTokenBalances(
     input: ListTokenBalancesInput,
   ): Effect.Effect<
@@ -83,7 +95,9 @@ export declare class ManagedBlockchainQuery extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTokenBalances", input);
+  }
   listTransactionEvents(
     input: ListTransactionEventsInput,
   ): Effect.Effect<
@@ -94,7 +108,9 @@ export declare class ManagedBlockchainQuery extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTransactionEvents", input);
+  }
   listTransactions(
     input: ListTransactionsInput,
   ): Effect.Effect<
@@ -105,10 +121,14 @@ export declare class ManagedBlockchainQuery extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTransactions", input);
+  }
 }
 
-export declare class ManagedblockchainQuery extends ManagedBlockchainQuery {}
+export class ManagedblockchainQuery extends ManagedBlockchainQuery {}
+
+export default ManagedBlockchainQuery;
 
 export declare class AccessDeniedException extends EffectData.TaggedError(
   "AccessDeniedException",

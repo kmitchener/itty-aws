@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class KinesisVideoSignaling extends AWSServiceClient {
+export class KinesisVideoSignaling extends AWSServiceClient {
   getIceServerConfig(
     input: GetIceServerConfigRequest,
   ): Effect.Effect<
@@ -14,7 +14,9 @@ export declare class KinesisVideoSignaling extends AWSServiceClient {
     | ResourceNotFoundException
     | SessionExpiredException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetIceServerConfig", input);
+  }
   sendAlexaOfferToMaster(
     input: SendAlexaOfferToMasterRequest,
   ): Effect.Effect<
@@ -24,8 +26,12 @@ export declare class KinesisVideoSignaling extends AWSServiceClient {
     | NotAuthorizedException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("SendAlexaOfferToMaster", input);
+  }
 }
+
+export default KinesisVideoSignaling;
 
 export type Answer = string;
 

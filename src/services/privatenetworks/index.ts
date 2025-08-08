@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class PrivateNetworks extends AWSServiceClient {
+export class PrivateNetworks extends AWSServiceClient {
   acknowledgeOrderReceipt(
     input: AcknowledgeOrderReceiptRequest,
   ): Effect.Effect<
@@ -11,7 +11,9 @@ export declare class PrivateNetworks extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AcknowledgeOrderReceipt", input);
+  }
   activateDeviceIdentifier(
     input: ActivateDeviceIdentifierRequest,
   ): Effect.Effect<
@@ -20,7 +22,9 @@ export declare class PrivateNetworks extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ActivateDeviceIdentifier", input);
+  }
   activateNetworkSite(
     input: ActivateNetworkSiteRequest,
   ): Effect.Effect<
@@ -29,7 +33,9 @@ export declare class PrivateNetworks extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ActivateNetworkSite", input);
+  }
   configureAccessPoint(
     input: ConfigureAccessPointRequest,
   ): Effect.Effect<
@@ -38,7 +44,9 @@ export declare class PrivateNetworks extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ConfigureAccessPoint", input);
+  }
   createNetwork(
     input: CreateNetworkRequest,
   ): Effect.Effect<
@@ -47,7 +55,9 @@ export declare class PrivateNetworks extends AWSServiceClient {
     | LimitExceededException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateNetwork", input);
+  }
   createNetworkSite(
     input: CreateNetworkSiteRequest,
   ): Effect.Effect<
@@ -56,7 +66,9 @@ export declare class PrivateNetworks extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateNetworkSite", input);
+  }
   deactivateDeviceIdentifier(
     input: DeactivateDeviceIdentifierRequest,
   ): Effect.Effect<
@@ -65,7 +77,9 @@ export declare class PrivateNetworks extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeactivateDeviceIdentifier", input);
+  }
   deleteNetwork(
     input: DeleteNetworkRequest,
   ): Effect.Effect<
@@ -75,7 +89,9 @@ export declare class PrivateNetworks extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteNetwork", input);
+  }
   deleteNetworkSite(
     input: DeleteNetworkSiteRequest,
   ): Effect.Effect<
@@ -85,7 +101,9 @@ export declare class PrivateNetworks extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteNetworkSite", input);
+  }
   getDeviceIdentifier(
     input: GetDeviceIdentifierRequest,
   ): Effect.Effect<
@@ -94,7 +112,9 @@ export declare class PrivateNetworks extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetDeviceIdentifier", input);
+  }
   getNetwork(
     input: GetNetworkRequest,
   ): Effect.Effect<
@@ -103,7 +123,9 @@ export declare class PrivateNetworks extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetNetwork", input);
+  }
   getNetworkResource(
     input: GetNetworkResourceRequest,
   ): Effect.Effect<
@@ -112,7 +134,9 @@ export declare class PrivateNetworks extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetNetworkResource", input);
+  }
   getNetworkSite(
     input: GetNetworkSiteRequest,
   ): Effect.Effect<
@@ -121,7 +145,9 @@ export declare class PrivateNetworks extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetNetworkSite", input);
+  }
   getOrder(
     input: GetOrderRequest,
   ): Effect.Effect<
@@ -130,7 +156,9 @@ export declare class PrivateNetworks extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetOrder", input);
+  }
   listDeviceIdentifiers(
     input: ListDeviceIdentifiersRequest,
   ): Effect.Effect<
@@ -139,7 +167,9 @@ export declare class PrivateNetworks extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListDeviceIdentifiers", input);
+  }
   listNetworkResources(
     input: ListNetworkResourcesRequest,
   ): Effect.Effect<
@@ -148,7 +178,9 @@ export declare class PrivateNetworks extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListNetworkResources", input);
+  }
   listNetworks(
     input: ListNetworksRequest,
   ): Effect.Effect<
@@ -157,7 +189,9 @@ export declare class PrivateNetworks extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListNetworks", input);
+  }
   listNetworkSites(
     input: ListNetworkSitesRequest,
   ): Effect.Effect<
@@ -166,7 +200,9 @@ export declare class PrivateNetworks extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListNetworkSites", input);
+  }
   listOrders(
     input: ListOrdersRequest,
   ): Effect.Effect<
@@ -175,7 +211,9 @@ export declare class PrivateNetworks extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListOrders", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
@@ -186,11 +224,15 @@ export declare class PrivateNetworks extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   ping(input: {}): Effect.Effect<
     PingResponse,
     InternalServerException | CommonAwsError
-  >;
+  > {
+    return this.call("Ping", input);
+  }
   startNetworkResourceUpdate(
     input: StartNetworkResourceUpdateRequest,
   ): Effect.Effect<
@@ -199,7 +241,9 @@ export declare class PrivateNetworks extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartNetworkResourceUpdate", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -210,7 +254,9 @@ export declare class PrivateNetworks extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
@@ -221,7 +267,9 @@ export declare class PrivateNetworks extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
   updateNetworkSite(
     input: UpdateNetworkSiteRequest,
   ): Effect.Effect<
@@ -230,7 +278,9 @@ export declare class PrivateNetworks extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateNetworkSite", input);
+  }
   updateNetworkSitePlan(
     input: UpdateNetworkSitePlanRequest,
   ): Effect.Effect<
@@ -239,10 +289,14 @@ export declare class PrivateNetworks extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateNetworkSitePlan", input);
+  }
 }
 
-export declare class Privatenetworks extends PrivateNetworks {}
+export class Privatenetworks extends PrivateNetworks {}
+
+export default PrivateNetworks;
 
 export declare class AccessDeniedException extends EffectData.TaggedError(
   "AccessDeniedException",

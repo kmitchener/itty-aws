@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class ARCZonalShift extends AWSServiceClient {
+export class ARCZonalShift extends AWSServiceClient {
   cancelPracticeRun(
     input: CancelPracticeRunRequest,
   ): Effect.Effect<
@@ -14,7 +14,9 @@ export declare class ARCZonalShift extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CancelPracticeRun", input);
+  }
   cancelZonalShift(
     input: CancelZonalShiftRequest,
   ): Effect.Effect<
@@ -26,7 +28,9 @@ export declare class ARCZonalShift extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CancelZonalShift", input);
+  }
   createPracticeRunConfiguration(
     input: CreatePracticeRunConfigurationRequest,
   ): Effect.Effect<
@@ -38,7 +42,9 @@ export declare class ARCZonalShift extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreatePracticeRunConfiguration", input);
+  }
   deletePracticeRunConfiguration(
     input: DeletePracticeRunConfigurationRequest,
   ): Effect.Effect<
@@ -50,7 +56,9 @@ export declare class ARCZonalShift extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeletePracticeRunConfiguration", input);
+  }
   getAutoshiftObserverNotificationStatus(
     input: GetAutoshiftObserverNotificationStatusRequest,
   ): Effect.Effect<
@@ -59,7 +67,9 @@ export declare class ARCZonalShift extends AWSServiceClient {
     | InternalServerException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetAutoshiftObserverNotificationStatus", input);
+  }
   getManagedResource(
     input: GetManagedResourceRequest,
   ): Effect.Effect<
@@ -70,7 +80,9 @@ export declare class ARCZonalShift extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetManagedResource", input);
+  }
   listAutoshifts(
     input: ListAutoshiftsRequest,
   ): Effect.Effect<
@@ -80,7 +92,9 @@ export declare class ARCZonalShift extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListAutoshifts", input);
+  }
   listManagedResources(
     input: ListManagedResourcesRequest,
   ): Effect.Effect<
@@ -90,7 +104,9 @@ export declare class ARCZonalShift extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListManagedResources", input);
+  }
   listZonalShifts(
     input: ListZonalShiftsRequest,
   ): Effect.Effect<
@@ -100,7 +116,9 @@ export declare class ARCZonalShift extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListZonalShifts", input);
+  }
   startPracticeRun(
     input: StartPracticeRunRequest,
   ): Effect.Effect<
@@ -112,7 +130,9 @@ export declare class ARCZonalShift extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartPracticeRun", input);
+  }
   startZonalShift(
     input: StartZonalShiftRequest,
   ): Effect.Effect<
@@ -124,7 +144,9 @@ export declare class ARCZonalShift extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartZonalShift", input);
+  }
   updateAutoshiftObserverNotificationStatus(
     input: UpdateAutoshiftObserverNotificationStatusRequest,
   ): Effect.Effect<
@@ -134,7 +156,9 @@ export declare class ARCZonalShift extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateAutoshiftObserverNotificationStatus", input);
+  }
   updatePracticeRunConfiguration(
     input: UpdatePracticeRunConfigurationRequest,
   ): Effect.Effect<
@@ -146,7 +170,9 @@ export declare class ARCZonalShift extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdatePracticeRunConfiguration", input);
+  }
   updateZonalAutoshiftConfiguration(
     input: UpdateZonalAutoshiftConfigurationRequest,
   ): Effect.Effect<
@@ -158,7 +184,9 @@ export declare class ARCZonalShift extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateZonalAutoshiftConfiguration", input);
+  }
   updateZonalShift(
     input: UpdateZonalShiftRequest,
   ): Effect.Effect<
@@ -170,10 +198,14 @@ export declare class ARCZonalShift extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateZonalShift", input);
+  }
 }
 
-export declare class ArcZonalShift extends ARCZonalShift {}
+export class ArcZonalShift extends ARCZonalShift {}
+
+export default ARCZonalShift;
 
 export declare class AccessDeniedException extends EffectData.TaggedError(
   "AccessDeniedException",

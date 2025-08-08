@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class PaymentCryptographyData extends AWSServiceClient {
+export class PaymentCryptographyData extends AWSServiceClient {
   decryptData(
     input: DecryptDataInput,
   ): Effect.Effect<
@@ -13,7 +13,9 @@ export declare class PaymentCryptographyData extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DecryptData", input);
+  }
   encryptData(
     input: EncryptDataInput,
   ): Effect.Effect<
@@ -24,7 +26,9 @@ export declare class PaymentCryptographyData extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("EncryptData", input);
+  }
   generateCardValidationData(
     input: GenerateCardValidationDataInput,
   ): Effect.Effect<
@@ -35,7 +39,9 @@ export declare class PaymentCryptographyData extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GenerateCardValidationData", input);
+  }
   generateMac(
     input: GenerateMacInput,
   ): Effect.Effect<
@@ -46,7 +52,9 @@ export declare class PaymentCryptographyData extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GenerateMac", input);
+  }
   generateMacEmvPinChange(
     input: GenerateMacEmvPinChangeInput,
   ): Effect.Effect<
@@ -57,7 +65,9 @@ export declare class PaymentCryptographyData extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GenerateMacEmvPinChange", input);
+  }
   generatePinData(
     input: GeneratePinDataInput,
   ): Effect.Effect<
@@ -68,7 +78,9 @@ export declare class PaymentCryptographyData extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GeneratePinData", input);
+  }
   reEncryptData(
     input: ReEncryptDataInput,
   ): Effect.Effect<
@@ -79,7 +91,9 @@ export declare class PaymentCryptographyData extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ReEncryptData", input);
+  }
   translatePinData(
     input: TranslatePinDataInput,
   ): Effect.Effect<
@@ -90,7 +104,9 @@ export declare class PaymentCryptographyData extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TranslatePinData", input);
+  }
   verifyAuthRequestCryptogram(
     input: VerifyAuthRequestCryptogramInput,
   ): Effect.Effect<
@@ -102,7 +118,9 @@ export declare class PaymentCryptographyData extends AWSServiceClient {
     | ValidationException
     | VerificationFailedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("VerifyAuthRequestCryptogram", input);
+  }
   verifyCardValidationData(
     input: VerifyCardValidationDataInput,
   ): Effect.Effect<
@@ -114,7 +132,9 @@ export declare class PaymentCryptographyData extends AWSServiceClient {
     | ValidationException
     | VerificationFailedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("VerifyCardValidationData", input);
+  }
   verifyMac(
     input: VerifyMacInput,
   ): Effect.Effect<
@@ -126,7 +146,9 @@ export declare class PaymentCryptographyData extends AWSServiceClient {
     | ValidationException
     | VerificationFailedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("VerifyMac", input);
+  }
   verifyPinData(
     input: VerifyPinDataInput,
   ): Effect.Effect<
@@ -138,8 +160,12 @@ export declare class PaymentCryptographyData extends AWSServiceClient {
     | ValidationException
     | VerificationFailedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("VerifyPinData", input);
+  }
 }
+
+export default PaymentCryptographyData;
 
 export declare class AccessDeniedException extends EffectData.TaggedError(
   "AccessDeniedException",

@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class MarketplaceCatalog extends AWSServiceClient {
+export class MarketplaceCatalog extends AWSServiceClient {
   batchDescribeEntities(
     input: BatchDescribeEntitiesRequest,
   ): Effect.Effect<
@@ -12,7 +12,9 @@ export declare class MarketplaceCatalog extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("BatchDescribeEntities", input);
+  }
   cancelChangeSet(
     input: CancelChangeSetRequest,
   ): Effect.Effect<
@@ -24,7 +26,9 @@ export declare class MarketplaceCatalog extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CancelChangeSet", input);
+  }
   deleteResourcePolicy(
     input: DeleteResourcePolicyRequest,
   ): Effect.Effect<
@@ -35,7 +39,9 @@ export declare class MarketplaceCatalog extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteResourcePolicy", input);
+  }
   describeChangeSet(
     input: DescribeChangeSetRequest,
   ): Effect.Effect<
@@ -46,7 +52,9 @@ export declare class MarketplaceCatalog extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeChangeSet", input);
+  }
   describeEntity(
     input: DescribeEntityRequest,
   ): Effect.Effect<
@@ -58,7 +66,9 @@ export declare class MarketplaceCatalog extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeEntity", input);
+  }
   getResourcePolicy(
     input: GetResourcePolicyRequest,
   ): Effect.Effect<
@@ -69,7 +79,9 @@ export declare class MarketplaceCatalog extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetResourcePolicy", input);
+  }
   listChangeSets(
     input: ListChangeSetsRequest,
   ): Effect.Effect<
@@ -79,7 +91,9 @@ export declare class MarketplaceCatalog extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListChangeSets", input);
+  }
   listEntities(
     input: ListEntitiesRequest,
   ): Effect.Effect<
@@ -90,7 +104,9 @@ export declare class MarketplaceCatalog extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListEntities", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
@@ -101,7 +117,9 @@ export declare class MarketplaceCatalog extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   putResourcePolicy(
     input: PutResourcePolicyRequest,
   ): Effect.Effect<
@@ -112,7 +130,9 @@ export declare class MarketplaceCatalog extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutResourcePolicy", input);
+  }
   startChangeSet(
     input: StartChangeSetRequest,
   ): Effect.Effect<
@@ -125,7 +145,9 @@ export declare class MarketplaceCatalog extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartChangeSet", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -136,7 +158,9 @@ export declare class MarketplaceCatalog extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
@@ -147,8 +171,12 @@ export declare class MarketplaceCatalog extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
 }
+
+export default MarketplaceCatalog;
 
 export declare class AccessDeniedException extends EffectData.TaggedError(
   "AccessDeniedException",

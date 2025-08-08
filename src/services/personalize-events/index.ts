@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class PersonalizeEvents extends AWSServiceClient {
+export class PersonalizeEvents extends AWSServiceClient {
   putActionInteractions(
     input: PutActionInteractionsRequest,
   ): Effect.Effect<
@@ -11,7 +11,9 @@ export declare class PersonalizeEvents extends AWSServiceClient {
     | ResourceInUseException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutActionInteractions", input);
+  }
   putActions(
     input: PutActionsRequest,
   ): Effect.Effect<
@@ -20,10 +22,14 @@ export declare class PersonalizeEvents extends AWSServiceClient {
     | ResourceInUseException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutActions", input);
+  }
   putEvents(
     input: PutEventsRequest,
-  ): Effect.Effect<{}, InvalidInputException | CommonAwsError>;
+  ): Effect.Effect<{}, InvalidInputException | CommonAwsError> {
+    return this.call("PutEvents", input);
+  }
   putItems(
     input: PutItemsRequest,
   ): Effect.Effect<
@@ -32,7 +38,9 @@ export declare class PersonalizeEvents extends AWSServiceClient {
     | ResourceInUseException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutItems", input);
+  }
   putUsers(
     input: PutUsersRequest,
   ): Effect.Effect<
@@ -41,8 +49,12 @@ export declare class PersonalizeEvents extends AWSServiceClient {
     | ResourceInUseException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutUsers", input);
+  }
 }
+
+export default PersonalizeEvents;
 
 export interface Action {
   actionId: string;

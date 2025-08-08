@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class IoT extends AWSServiceClient {
+export class IoT extends AWSServiceClient {
   acceptCertificateTransfer(
     input: AcceptCertificateTransferRequest,
   ): Effect.Effect<
@@ -15,7 +15,9 @@ export declare class IoT extends AWSServiceClient {
     | TransferAlreadyCompletedException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AcceptCertificateTransfer", input);
+  }
   addThingToBillingGroup(
     input: AddThingToBillingGroupRequest,
   ): Effect.Effect<
@@ -25,7 +27,9 @@ export declare class IoT extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AddThingToBillingGroup", input);
+  }
   addThingToThingGroup(
     input: AddThingToThingGroupRequest,
   ): Effect.Effect<
@@ -35,7 +39,9 @@ export declare class IoT extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AddThingToThingGroup", input);
+  }
   associateSbomWithPackageVersion(
     input: AssociateSbomWithPackageVersionRequest,
   ): Effect.Effect<
@@ -47,7 +53,9 @@ export declare class IoT extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AssociateSbomWithPackageVersion", input);
+  }
   associateTargetsWithJob(
     input: AssociateTargetsWithJobRequest,
   ): Effect.Effect<
@@ -58,7 +66,9 @@ export declare class IoT extends AWSServiceClient {
     | ServiceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AssociateTargetsWithJob", input);
+  }
   attachPolicy(
     input: AttachPolicyRequest,
   ): Effect.Effect<
@@ -71,7 +81,9 @@ export declare class IoT extends AWSServiceClient {
     | ThrottlingException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AttachPolicy", input);
+  }
   attachPrincipalPolicy(
     input: AttachPrincipalPolicyRequest,
   ): Effect.Effect<
@@ -84,7 +96,9 @@ export declare class IoT extends AWSServiceClient {
     | ThrottlingException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AttachPrincipalPolicy", input);
+  }
   attachSecurityProfile(
     input: AttachSecurityProfileRequest,
   ): Effect.Effect<
@@ -96,7 +110,9 @@ export declare class IoT extends AWSServiceClient {
     | ThrottlingException
     | VersionConflictException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AttachSecurityProfile", input);
+  }
   attachThingPrincipal(
     input: AttachThingPrincipalRequest,
   ): Effect.Effect<
@@ -108,7 +124,9 @@ export declare class IoT extends AWSServiceClient {
     | ThrottlingException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AttachThingPrincipal", input);
+  }
   cancelAuditMitigationActionsTask(
     input: CancelAuditMitigationActionsTaskRequest,
   ): Effect.Effect<
@@ -118,7 +136,9 @@ export declare class IoT extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CancelAuditMitigationActionsTask", input);
+  }
   cancelAuditTask(
     input: CancelAuditTaskRequest,
   ): Effect.Effect<
@@ -128,7 +148,9 @@ export declare class IoT extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CancelAuditTask", input);
+  }
   cancelCertificateTransfer(
     input: CancelCertificateTransferRequest,
   ): Effect.Effect<
@@ -141,7 +163,9 @@ export declare class IoT extends AWSServiceClient {
     | TransferAlreadyCompletedException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CancelCertificateTransfer", input);
+  }
   cancelDetectMitigationActionsTask(
     input: CancelDetectMitigationActionsTaskRequest,
   ): Effect.Effect<
@@ -151,7 +175,9 @@ export declare class IoT extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CancelDetectMitigationActionsTask", input);
+  }
   cancelJob(
     input: CancelJobRequest,
   ): Effect.Effect<
@@ -162,7 +188,9 @@ export declare class IoT extends AWSServiceClient {
     | ServiceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CancelJob", input);
+  }
   cancelJobExecution(
     input: CancelJobExecutionRequest,
   ): Effect.Effect<
@@ -174,7 +202,9 @@ export declare class IoT extends AWSServiceClient {
     | ThrottlingException
     | VersionConflictException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CancelJobExecution", input);
+  }
   clearDefaultAuthorizer(
     input: ClearDefaultAuthorizerRequest,
   ): Effect.Effect<
@@ -186,7 +216,9 @@ export declare class IoT extends AWSServiceClient {
     | ThrottlingException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ClearDefaultAuthorizer", input);
+  }
   confirmTopicRuleDestination(
     input: ConfirmTopicRuleDestinationRequest,
   ): Effect.Effect<
@@ -197,7 +229,9 @@ export declare class IoT extends AWSServiceClient {
     | ServiceUnavailableException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ConfirmTopicRuleDestination", input);
+  }
   createAuditSuppression(
     input: CreateAuditSuppressionRequest,
   ): Effect.Effect<
@@ -208,7 +242,9 @@ export declare class IoT extends AWSServiceClient {
     | ResourceAlreadyExistsException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateAuditSuppression", input);
+  }
   createAuthorizer(
     input: CreateAuthorizerRequest,
   ): Effect.Effect<
@@ -221,7 +257,9 @@ export declare class IoT extends AWSServiceClient {
     | ThrottlingException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateAuthorizer", input);
+  }
   createBillingGroup(
     input: CreateBillingGroupRequest,
   ): Effect.Effect<
@@ -231,7 +269,9 @@ export declare class IoT extends AWSServiceClient {
     | ResourceAlreadyExistsException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateBillingGroup", input);
+  }
   createCertificateFromCsr(
     input: CreateCertificateFromCsrRequest,
   ): Effect.Effect<
@@ -242,7 +282,9 @@ export declare class IoT extends AWSServiceClient {
     | ThrottlingException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateCertificateFromCsr", input);
+  }
   createCertificateProvider(
     input: CreateCertificateProviderRequest,
   ): Effect.Effect<
@@ -255,7 +297,9 @@ export declare class IoT extends AWSServiceClient {
     | ThrottlingException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateCertificateProvider", input);
+  }
   createCommand(
     input: CreateCommandRequest,
   ): Effect.Effect<
@@ -266,7 +310,9 @@ export declare class IoT extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateCommand", input);
+  }
   createCustomMetric(
     input: CreateCustomMetricRequest,
   ): Effect.Effect<
@@ -277,7 +323,9 @@ export declare class IoT extends AWSServiceClient {
     | ResourceAlreadyExistsException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateCustomMetric", input);
+  }
   createDimension(
     input: CreateDimensionRequest,
   ): Effect.Effect<
@@ -288,7 +336,9 @@ export declare class IoT extends AWSServiceClient {
     | ResourceAlreadyExistsException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateDimension", input);
+  }
   createDomainConfiguration(
     input: CreateDomainConfigurationRequest,
   ): Effect.Effect<
@@ -302,7 +352,9 @@ export declare class IoT extends AWSServiceClient {
     | ThrottlingException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateDomainConfiguration", input);
+  }
   createDynamicThingGroup(
     input: CreateDynamicThingGroupRequest,
   ): Effect.Effect<
@@ -315,7 +367,9 @@ export declare class IoT extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateDynamicThingGroup", input);
+  }
   createFleetMetric(
     input: CreateFleetMetricRequest,
   ): Effect.Effect<
@@ -332,7 +386,9 @@ export declare class IoT extends AWSServiceClient {
     | ThrottlingException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateFleetMetric", input);
+  }
   createJob(
     input: CreateJobRequest,
   ): Effect.Effect<
@@ -344,7 +400,9 @@ export declare class IoT extends AWSServiceClient {
     | ServiceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateJob", input);
+  }
   createJobTemplate(
     input: CreateJobTemplateRequest,
   ): Effect.Effect<
@@ -356,7 +414,9 @@ export declare class IoT extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateJobTemplate", input);
+  }
   createKeysAndCertificate(
     input: CreateKeysAndCertificateRequest,
   ): Effect.Effect<
@@ -367,7 +427,9 @@ export declare class IoT extends AWSServiceClient {
     | ThrottlingException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateKeysAndCertificate", input);
+  }
   createMitigationAction(
     input: CreateMitigationActionRequest,
   ): Effect.Effect<
@@ -378,7 +440,9 @@ export declare class IoT extends AWSServiceClient {
     | ResourceAlreadyExistsException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateMitigationAction", input);
+  }
   createOTAUpdate(
     input: CreateOTAUpdateRequest,
   ): Effect.Effect<
@@ -392,7 +456,9 @@ export declare class IoT extends AWSServiceClient {
     | ThrottlingException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateOTAUpdate", input);
+  }
   createPackage(
     input: CreatePackageRequest,
   ): Effect.Effect<
@@ -403,7 +469,9 @@ export declare class IoT extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreatePackage", input);
+  }
   createPackageVersion(
     input: CreatePackageVersionRequest,
   ): Effect.Effect<
@@ -414,7 +482,9 @@ export declare class IoT extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreatePackageVersion", input);
+  }
   createPolicy(
     input: CreatePolicyRequest,
   ): Effect.Effect<
@@ -427,7 +497,9 @@ export declare class IoT extends AWSServiceClient {
     | ThrottlingException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreatePolicy", input);
+  }
   createPolicyVersion(
     input: CreatePolicyVersionRequest,
   ): Effect.Effect<
@@ -441,7 +513,9 @@ export declare class IoT extends AWSServiceClient {
     | UnauthorizedException
     | VersionsLimitExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreatePolicyVersion", input);
+  }
   createProvisioningClaim(
     input: CreateProvisioningClaimRequest,
   ): Effect.Effect<
@@ -453,7 +527,9 @@ export declare class IoT extends AWSServiceClient {
     | ThrottlingException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateProvisioningClaim", input);
+  }
   createProvisioningTemplate(
     input: CreateProvisioningTemplateRequest,
   ): Effect.Effect<
@@ -465,7 +541,9 @@ export declare class IoT extends AWSServiceClient {
     | ThrottlingException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateProvisioningTemplate", input);
+  }
   createProvisioningTemplateVersion(
     input: CreateProvisioningTemplateVersionRequest,
   ): Effect.Effect<
@@ -478,7 +556,9 @@ export declare class IoT extends AWSServiceClient {
     | UnauthorizedException
     | VersionsLimitExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateProvisioningTemplateVersion", input);
+  }
   createRoleAlias(
     input: CreateRoleAliasRequest,
   ): Effect.Effect<
@@ -491,7 +571,9 @@ export declare class IoT extends AWSServiceClient {
     | ThrottlingException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateRoleAlias", input);
+  }
   createScheduledAudit(
     input: CreateScheduledAuditRequest,
   ): Effect.Effect<
@@ -502,7 +584,9 @@ export declare class IoT extends AWSServiceClient {
     | ResourceAlreadyExistsException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateScheduledAudit", input);
+  }
   createSecurityProfile(
     input: CreateSecurityProfileRequest,
   ): Effect.Effect<
@@ -512,7 +596,9 @@ export declare class IoT extends AWSServiceClient {
     | ResourceAlreadyExistsException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateSecurityProfile", input);
+  }
   createStream(
     input: CreateStreamRequest,
   ): Effect.Effect<
@@ -526,7 +612,9 @@ export declare class IoT extends AWSServiceClient {
     | ThrottlingException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateStream", input);
+  }
   createThing(
     input: CreateThingRequest,
   ): Effect.Effect<
@@ -539,7 +627,9 @@ export declare class IoT extends AWSServiceClient {
     | ThrottlingException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateThing", input);
+  }
   createThingGroup(
     input: CreateThingGroupRequest,
   ): Effect.Effect<
@@ -549,7 +639,9 @@ export declare class IoT extends AWSServiceClient {
     | ResourceAlreadyExistsException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateThingGroup", input);
+  }
   createThingType(
     input: CreateThingTypeRequest,
   ): Effect.Effect<
@@ -561,7 +653,9 @@ export declare class IoT extends AWSServiceClient {
     | ThrottlingException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateThingType", input);
+  }
   createTopicRule(
     input: CreateTopicRuleRequest,
   ): Effect.Effect<
@@ -574,7 +668,9 @@ export declare class IoT extends AWSServiceClient {
     | SqlParseException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateTopicRule", input);
+  }
   createTopicRuleDestination(
     input: CreateTopicRuleDestinationRequest,
   ): Effect.Effect<
@@ -586,7 +682,9 @@ export declare class IoT extends AWSServiceClient {
     | ServiceUnavailableException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateTopicRuleDestination", input);
+  }
   deleteAccountAuditConfiguration(
     input: DeleteAccountAuditConfigurationRequest,
   ): Effect.Effect<
@@ -596,7 +694,9 @@ export declare class IoT extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteAccountAuditConfiguration", input);
+  }
   deleteAuditSuppression(
     input: DeleteAuditSuppressionRequest,
   ): Effect.Effect<
@@ -605,7 +705,9 @@ export declare class IoT extends AWSServiceClient {
     | InvalidRequestException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteAuditSuppression", input);
+  }
   deleteAuthorizer(
     input: DeleteAuthorizerRequest,
   ): Effect.Effect<
@@ -618,7 +720,9 @@ export declare class IoT extends AWSServiceClient {
     | ThrottlingException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteAuthorizer", input);
+  }
   deleteBillingGroup(
     input: DeleteBillingGroupRequest,
   ): Effect.Effect<
@@ -628,7 +732,9 @@ export declare class IoT extends AWSServiceClient {
     | ThrottlingException
     | VersionConflictException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteBillingGroup", input);
+  }
   deleteCACertificate(
     input: DeleteCACertificateRequest,
   ): Effect.Effect<
@@ -641,7 +747,9 @@ export declare class IoT extends AWSServiceClient {
     | ThrottlingException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteCACertificate", input);
+  }
   deleteCertificate(
     input: DeleteCertificateRequest,
   ): Effect.Effect<
@@ -655,7 +763,9 @@ export declare class IoT extends AWSServiceClient {
     | ThrottlingException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteCertificate", input);
+  }
   deleteCertificateProvider(
     input: DeleteCertificateProviderRequest,
   ): Effect.Effect<
@@ -668,7 +778,9 @@ export declare class IoT extends AWSServiceClient {
     | ThrottlingException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteCertificateProvider", input);
+  }
   deleteCommand(
     input: DeleteCommandRequest,
   ): Effect.Effect<
@@ -678,7 +790,9 @@ export declare class IoT extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteCommand", input);
+  }
   deleteCommandExecution(
     input: DeleteCommandExecutionRequest,
   ): Effect.Effect<
@@ -688,7 +802,9 @@ export declare class IoT extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteCommandExecution", input);
+  }
   deleteCustomMetric(
     input: DeleteCustomMetricRequest,
   ): Effect.Effect<
@@ -697,7 +813,9 @@ export declare class IoT extends AWSServiceClient {
     | InvalidRequestException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteCustomMetric", input);
+  }
   deleteDimension(
     input: DeleteDimensionRequest,
   ): Effect.Effect<
@@ -706,7 +824,9 @@ export declare class IoT extends AWSServiceClient {
     | InvalidRequestException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteDimension", input);
+  }
   deleteDomainConfiguration(
     input: DeleteDomainConfigurationRequest,
   ): Effect.Effect<
@@ -718,7 +838,9 @@ export declare class IoT extends AWSServiceClient {
     | ThrottlingException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteDomainConfiguration", input);
+  }
   deleteDynamicThingGroup(
     input: DeleteDynamicThingGroupRequest,
   ): Effect.Effect<
@@ -728,7 +850,9 @@ export declare class IoT extends AWSServiceClient {
     | ThrottlingException
     | VersionConflictException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteDynamicThingGroup", input);
+  }
   deleteFleetMetric(
     input: DeleteFleetMetricRequest,
   ): Effect.Effect<
@@ -740,7 +864,9 @@ export declare class IoT extends AWSServiceClient {
     | UnauthorizedException
     | VersionConflictException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteFleetMetric", input);
+  }
   deleteJob(
     input: DeleteJobRequest,
   ): Effect.Effect<
@@ -752,7 +878,9 @@ export declare class IoT extends AWSServiceClient {
     | ServiceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteJob", input);
+  }
   deleteJobExecution(
     input: DeleteJobExecutionRequest,
   ): Effect.Effect<
@@ -763,7 +891,9 @@ export declare class IoT extends AWSServiceClient {
     | ServiceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteJobExecution", input);
+  }
   deleteJobTemplate(
     input: DeleteJobTemplateRequest,
   ): Effect.Effect<
@@ -773,7 +903,9 @@ export declare class IoT extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteJobTemplate", input);
+  }
   deleteMitigationAction(
     input: DeleteMitigationActionRequest,
   ): Effect.Effect<
@@ -782,7 +914,9 @@ export declare class IoT extends AWSServiceClient {
     | InvalidRequestException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteMitigationAction", input);
+  }
   deleteOTAUpdate(
     input: DeleteOTAUpdateRequest,
   ): Effect.Effect<
@@ -795,7 +929,9 @@ export declare class IoT extends AWSServiceClient {
     | UnauthorizedException
     | VersionConflictException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteOTAUpdate", input);
+  }
   deletePackage(
     input: DeletePackageRequest,
   ): Effect.Effect<
@@ -804,7 +940,9 @@ export declare class IoT extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeletePackage", input);
+  }
   deletePackageVersion(
     input: DeletePackageVersionRequest,
   ): Effect.Effect<
@@ -813,7 +951,9 @@ export declare class IoT extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeletePackageVersion", input);
+  }
   deletePolicy(
     input: DeletePolicyRequest,
   ): Effect.Effect<
@@ -826,7 +966,9 @@ export declare class IoT extends AWSServiceClient {
     | ThrottlingException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeletePolicy", input);
+  }
   deletePolicyVersion(
     input: DeletePolicyVersionRequest,
   ): Effect.Effect<
@@ -839,7 +981,9 @@ export declare class IoT extends AWSServiceClient {
     | ThrottlingException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeletePolicyVersion", input);
+  }
   deleteProvisioningTemplate(
     input: DeleteProvisioningTemplateRequest,
   ): Effect.Effect<
@@ -852,7 +996,9 @@ export declare class IoT extends AWSServiceClient {
     | ThrottlingException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteProvisioningTemplate", input);
+  }
   deleteProvisioningTemplateVersion(
     input: DeleteProvisioningTemplateVersionRequest,
   ): Effect.Effect<
@@ -865,7 +1011,9 @@ export declare class IoT extends AWSServiceClient {
     | ThrottlingException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteProvisioningTemplateVersion", input);
+  }
   deleteRegistrationCode(
     input: DeleteRegistrationCodeRequest,
   ): Effect.Effect<
@@ -876,7 +1024,9 @@ export declare class IoT extends AWSServiceClient {
     | ThrottlingException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteRegistrationCode", input);
+  }
   deleteRoleAlias(
     input: DeleteRoleAliasRequest,
   ): Effect.Effect<
@@ -889,7 +1039,9 @@ export declare class IoT extends AWSServiceClient {
     | ThrottlingException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteRoleAlias", input);
+  }
   deleteScheduledAudit(
     input: DeleteScheduledAuditRequest,
   ): Effect.Effect<
@@ -899,7 +1051,9 @@ export declare class IoT extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteScheduledAudit", input);
+  }
   deleteSecurityProfile(
     input: DeleteSecurityProfileRequest,
   ): Effect.Effect<
@@ -909,7 +1063,9 @@ export declare class IoT extends AWSServiceClient {
     | ThrottlingException
     | VersionConflictException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteSecurityProfile", input);
+  }
   deleteStream(
     input: DeleteStreamRequest,
   ): Effect.Effect<
@@ -922,7 +1078,9 @@ export declare class IoT extends AWSServiceClient {
     | ThrottlingException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteStream", input);
+  }
   deleteThing(
     input: DeleteThingRequest,
   ): Effect.Effect<
@@ -935,7 +1093,9 @@ export declare class IoT extends AWSServiceClient {
     | UnauthorizedException
     | VersionConflictException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteThing", input);
+  }
   deleteThingGroup(
     input: DeleteThingGroupRequest,
   ): Effect.Effect<
@@ -945,7 +1105,9 @@ export declare class IoT extends AWSServiceClient {
     | ThrottlingException
     | VersionConflictException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteThingGroup", input);
+  }
   deleteThingType(
     input: DeleteThingTypeRequest,
   ): Effect.Effect<
@@ -957,7 +1119,9 @@ export declare class IoT extends AWSServiceClient {
     | ThrottlingException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteThingType", input);
+  }
   deleteTopicRule(
     input: DeleteTopicRuleRequest,
   ): Effect.Effect<
@@ -968,7 +1132,9 @@ export declare class IoT extends AWSServiceClient {
     | ServiceUnavailableException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteTopicRule", input);
+  }
   deleteTopicRuleDestination(
     input: DeleteTopicRuleDestinationRequest,
   ): Effect.Effect<
@@ -979,7 +1145,9 @@ export declare class IoT extends AWSServiceClient {
     | ServiceUnavailableException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteTopicRuleDestination", input);
+  }
   deleteV2LoggingLevel(
     input: DeleteV2LoggingLevelRequest,
   ): Effect.Effect<
@@ -988,7 +1156,9 @@ export declare class IoT extends AWSServiceClient {
     | InvalidRequestException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteV2LoggingLevel", input);
+  }
   deprecateThingType(
     input: DeprecateThingTypeRequest,
   ): Effect.Effect<
@@ -1000,13 +1170,17 @@ export declare class IoT extends AWSServiceClient {
     | ThrottlingException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeprecateThingType", input);
+  }
   describeAccountAuditConfiguration(
     input: DescribeAccountAuditConfigurationRequest,
   ): Effect.Effect<
     DescribeAccountAuditConfigurationResponse,
     InternalFailureException | ThrottlingException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeAccountAuditConfiguration", input);
+  }
   describeAuditFinding(
     input: DescribeAuditFindingRequest,
   ): Effect.Effect<
@@ -1016,7 +1190,9 @@ export declare class IoT extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeAuditFinding", input);
+  }
   describeAuditMitigationActionsTask(
     input: DescribeAuditMitigationActionsTaskRequest,
   ): Effect.Effect<
@@ -1026,7 +1202,9 @@ export declare class IoT extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeAuditMitigationActionsTask", input);
+  }
   describeAuditSuppression(
     input: DescribeAuditSuppressionRequest,
   ): Effect.Effect<
@@ -1036,7 +1214,9 @@ export declare class IoT extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeAuditSuppression", input);
+  }
   describeAuditTask(
     input: DescribeAuditTaskRequest,
   ): Effect.Effect<
@@ -1046,7 +1226,9 @@ export declare class IoT extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeAuditTask", input);
+  }
   describeAuthorizer(
     input: DescribeAuthorizerRequest,
   ): Effect.Effect<
@@ -1058,7 +1240,9 @@ export declare class IoT extends AWSServiceClient {
     | ThrottlingException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeAuthorizer", input);
+  }
   describeBillingGroup(
     input: DescribeBillingGroupRequest,
   ): Effect.Effect<
@@ -1068,7 +1252,9 @@ export declare class IoT extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeBillingGroup", input);
+  }
   describeCACertificate(
     input: DescribeCACertificateRequest,
   ): Effect.Effect<
@@ -1080,7 +1266,9 @@ export declare class IoT extends AWSServiceClient {
     | ThrottlingException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeCACertificate", input);
+  }
   describeCertificate(
     input: DescribeCertificateRequest,
   ): Effect.Effect<
@@ -1092,7 +1280,9 @@ export declare class IoT extends AWSServiceClient {
     | ThrottlingException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeCertificate", input);
+  }
   describeCertificateProvider(
     input: DescribeCertificateProviderRequest,
   ): Effect.Effect<
@@ -1104,7 +1294,9 @@ export declare class IoT extends AWSServiceClient {
     | ThrottlingException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeCertificateProvider", input);
+  }
   describeCustomMetric(
     input: DescribeCustomMetricRequest,
   ): Effect.Effect<
@@ -1114,7 +1306,9 @@ export declare class IoT extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeCustomMetric", input);
+  }
   describeDefaultAuthorizer(
     input: DescribeDefaultAuthorizerRequest,
   ): Effect.Effect<
@@ -1126,7 +1320,9 @@ export declare class IoT extends AWSServiceClient {
     | ThrottlingException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeDefaultAuthorizer", input);
+  }
   describeDetectMitigationActionsTask(
     input: DescribeDetectMitigationActionsTaskRequest,
   ): Effect.Effect<
@@ -1136,7 +1332,9 @@ export declare class IoT extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeDetectMitigationActionsTask", input);
+  }
   describeDimension(
     input: DescribeDimensionRequest,
   ): Effect.Effect<
@@ -1146,7 +1344,9 @@ export declare class IoT extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeDimension", input);
+  }
   describeDomainConfiguration(
     input: DescribeDomainConfigurationRequest,
   ): Effect.Effect<
@@ -1158,7 +1358,9 @@ export declare class IoT extends AWSServiceClient {
     | ThrottlingException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeDomainConfiguration", input);
+  }
   describeEncryptionConfiguration(
     input: DescribeEncryptionConfigurationRequest,
   ): Effect.Effect<
@@ -1169,7 +1371,9 @@ export declare class IoT extends AWSServiceClient {
     | ThrottlingException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeEncryptionConfiguration", input);
+  }
   describeEndpoint(
     input: DescribeEndpointRequest,
   ): Effect.Effect<
@@ -1179,13 +1383,17 @@ export declare class IoT extends AWSServiceClient {
     | ThrottlingException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeEndpoint", input);
+  }
   describeEventConfigurations(
     input: DescribeEventConfigurationsRequest,
   ): Effect.Effect<
     DescribeEventConfigurationsResponse,
     InternalFailureException | ThrottlingException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeEventConfigurations", input);
+  }
   describeFleetMetric(
     input: DescribeFleetMetricRequest,
   ): Effect.Effect<
@@ -1197,7 +1405,9 @@ export declare class IoT extends AWSServiceClient {
     | ThrottlingException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeFleetMetric", input);
+  }
   describeIndex(
     input: DescribeIndexRequest,
   ): Effect.Effect<
@@ -1209,7 +1419,9 @@ export declare class IoT extends AWSServiceClient {
     | ThrottlingException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeIndex", input);
+  }
   describeJob(
     input: DescribeJobRequest,
   ): Effect.Effect<
@@ -1219,7 +1431,9 @@ export declare class IoT extends AWSServiceClient {
     | ServiceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeJob", input);
+  }
   describeJobExecution(
     input: DescribeJobExecutionRequest,
   ): Effect.Effect<
@@ -1229,7 +1443,9 @@ export declare class IoT extends AWSServiceClient {
     | ServiceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeJobExecution", input);
+  }
   describeJobTemplate(
     input: DescribeJobTemplateRequest,
   ): Effect.Effect<
@@ -1239,7 +1455,9 @@ export declare class IoT extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeJobTemplate", input);
+  }
   describeManagedJobTemplate(
     input: DescribeManagedJobTemplateRequest,
   ): Effect.Effect<
@@ -1249,7 +1467,9 @@ export declare class IoT extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeManagedJobTemplate", input);
+  }
   describeMitigationAction(
     input: DescribeMitigationActionRequest,
   ): Effect.Effect<
@@ -1259,7 +1479,9 @@ export declare class IoT extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeMitigationAction", input);
+  }
   describeProvisioningTemplate(
     input: DescribeProvisioningTemplateRequest,
   ): Effect.Effect<
@@ -1270,7 +1492,9 @@ export declare class IoT extends AWSServiceClient {
     | ThrottlingException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeProvisioningTemplate", input);
+  }
   describeProvisioningTemplateVersion(
     input: DescribeProvisioningTemplateVersionRequest,
   ): Effect.Effect<
@@ -1281,7 +1505,9 @@ export declare class IoT extends AWSServiceClient {
     | ThrottlingException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeProvisioningTemplateVersion", input);
+  }
   describeRoleAlias(
     input: DescribeRoleAliasRequest,
   ): Effect.Effect<
@@ -1293,7 +1519,9 @@ export declare class IoT extends AWSServiceClient {
     | ThrottlingException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeRoleAlias", input);
+  }
   describeScheduledAudit(
     input: DescribeScheduledAuditRequest,
   ): Effect.Effect<
@@ -1303,7 +1531,9 @@ export declare class IoT extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeScheduledAudit", input);
+  }
   describeSecurityProfile(
     input: DescribeSecurityProfileRequest,
   ): Effect.Effect<
@@ -1313,7 +1543,9 @@ export declare class IoT extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeSecurityProfile", input);
+  }
   describeStream(
     input: DescribeStreamRequest,
   ): Effect.Effect<
@@ -1325,7 +1557,9 @@ export declare class IoT extends AWSServiceClient {
     | ThrottlingException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeStream", input);
+  }
   describeThing(
     input: DescribeThingRequest,
   ): Effect.Effect<
@@ -1337,7 +1571,9 @@ export declare class IoT extends AWSServiceClient {
     | ThrottlingException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeThing", input);
+  }
   describeThingGroup(
     input: DescribeThingGroupRequest,
   ): Effect.Effect<
@@ -1347,7 +1583,9 @@ export declare class IoT extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeThingGroup", input);
+  }
   describeThingRegistrationTask(
     input: DescribeThingRegistrationTaskRequest,
   ): Effect.Effect<
@@ -1358,7 +1596,9 @@ export declare class IoT extends AWSServiceClient {
     | ThrottlingException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeThingRegistrationTask", input);
+  }
   describeThingType(
     input: DescribeThingTypeRequest,
   ): Effect.Effect<
@@ -1370,7 +1610,9 @@ export declare class IoT extends AWSServiceClient {
     | ThrottlingException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeThingType", input);
+  }
   detachPolicy(
     input: DetachPolicyRequest,
   ): Effect.Effect<
@@ -1382,7 +1624,9 @@ export declare class IoT extends AWSServiceClient {
     | ThrottlingException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DetachPolicy", input);
+  }
   detachPrincipalPolicy(
     input: DetachPrincipalPolicyRequest,
   ): Effect.Effect<
@@ -1394,7 +1638,9 @@ export declare class IoT extends AWSServiceClient {
     | ThrottlingException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DetachPrincipalPolicy", input);
+  }
   detachSecurityProfile(
     input: DetachSecurityProfileRequest,
   ): Effect.Effect<
@@ -1404,7 +1650,9 @@ export declare class IoT extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DetachSecurityProfile", input);
+  }
   detachThingPrincipal(
     input: DetachThingPrincipalRequest,
   ): Effect.Effect<
@@ -1416,7 +1664,9 @@ export declare class IoT extends AWSServiceClient {
     | ThrottlingException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DetachThingPrincipal", input);
+  }
   disableTopicRule(
     input: DisableTopicRuleRequest,
   ): Effect.Effect<
@@ -1427,7 +1677,9 @@ export declare class IoT extends AWSServiceClient {
     | ServiceUnavailableException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DisableTopicRule", input);
+  }
   disassociateSbomFromPackageVersion(
     input: DisassociateSbomFromPackageVersionRequest,
   ): Effect.Effect<
@@ -1438,7 +1690,9 @@ export declare class IoT extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DisassociateSbomFromPackageVersion", input);
+  }
   enableTopicRule(
     input: EnableTopicRuleRequest,
   ): Effect.Effect<
@@ -1449,7 +1703,9 @@ export declare class IoT extends AWSServiceClient {
     | ServiceUnavailableException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("EnableTopicRule", input);
+  }
   getBehaviorModelTrainingSummaries(
     input: GetBehaviorModelTrainingSummariesRequest,
   ): Effect.Effect<
@@ -1459,7 +1715,9 @@ export declare class IoT extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetBehaviorModelTrainingSummaries", input);
+  }
   getBucketsAggregation(
     input: GetBucketsAggregationRequest,
   ): Effect.Effect<
@@ -1474,7 +1732,9 @@ export declare class IoT extends AWSServiceClient {
     | ThrottlingException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetBucketsAggregation", input);
+  }
   getCardinality(
     input: GetCardinalityRequest,
   ): Effect.Effect<
@@ -1489,7 +1749,9 @@ export declare class IoT extends AWSServiceClient {
     | ThrottlingException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetCardinality", input);
+  }
   getCommand(
     input: GetCommandRequest,
   ): Effect.Effect<
@@ -1499,7 +1761,9 @@ export declare class IoT extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetCommand", input);
+  }
   getCommandExecution(
     input: GetCommandExecutionRequest,
   ): Effect.Effect<
@@ -1509,7 +1773,9 @@ export declare class IoT extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetCommandExecution", input);
+  }
   getEffectivePolicies(
     input: GetEffectivePoliciesRequest,
   ): Effect.Effect<
@@ -1522,7 +1788,9 @@ export declare class IoT extends AWSServiceClient {
     | ThrottlingException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetEffectivePolicies", input);
+  }
   getIndexingConfiguration(
     input: GetIndexingConfigurationRequest,
   ): Effect.Effect<
@@ -1533,7 +1801,9 @@ export declare class IoT extends AWSServiceClient {
     | ThrottlingException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetIndexingConfiguration", input);
+  }
   getJobDocument(
     input: GetJobDocumentRequest,
   ): Effect.Effect<
@@ -1543,7 +1813,9 @@ export declare class IoT extends AWSServiceClient {
     | ServiceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetJobDocument", input);
+  }
   getLoggingOptions(
     input: GetLoggingOptionsRequest,
   ): Effect.Effect<
@@ -1552,7 +1824,9 @@ export declare class IoT extends AWSServiceClient {
     | InvalidRequestException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetLoggingOptions", input);
+  }
   getOTAUpdate(
     input: GetOTAUpdateRequest,
   ): Effect.Effect<
@@ -1564,7 +1838,9 @@ export declare class IoT extends AWSServiceClient {
     | ThrottlingException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetOTAUpdate", input);
+  }
   getPackage(
     input: GetPackageRequest,
   ): Effect.Effect<
@@ -1574,13 +1850,17 @@ export declare class IoT extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetPackage", input);
+  }
   getPackageConfiguration(
     input: GetPackageConfigurationRequest,
   ): Effect.Effect<
     GetPackageConfigurationResponse,
     InternalServerException | ThrottlingException | CommonAwsError
-  >;
+  > {
+    return this.call("GetPackageConfiguration", input);
+  }
   getPackageVersion(
     input: GetPackageVersionRequest,
   ): Effect.Effect<
@@ -1590,7 +1870,9 @@ export declare class IoT extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetPackageVersion", input);
+  }
   getPercentiles(
     input: GetPercentilesRequest,
   ): Effect.Effect<
@@ -1605,7 +1887,9 @@ export declare class IoT extends AWSServiceClient {
     | ThrottlingException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetPercentiles", input);
+  }
   getPolicy(
     input: GetPolicyRequest,
   ): Effect.Effect<
@@ -1617,7 +1901,9 @@ export declare class IoT extends AWSServiceClient {
     | ThrottlingException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetPolicy", input);
+  }
   getPolicyVersion(
     input: GetPolicyVersionRequest,
   ): Effect.Effect<
@@ -1629,7 +1915,9 @@ export declare class IoT extends AWSServiceClient {
     | ThrottlingException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetPolicyVersion", input);
+  }
   getRegistrationCode(
     input: GetRegistrationCodeRequest,
   ): Effect.Effect<
@@ -1640,7 +1928,9 @@ export declare class IoT extends AWSServiceClient {
     | ThrottlingException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetRegistrationCode", input);
+  }
   getStatistics(
     input: GetStatisticsRequest,
   ): Effect.Effect<
@@ -1655,7 +1945,9 @@ export declare class IoT extends AWSServiceClient {
     | ThrottlingException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetStatistics", input);
+  }
   getThingConnectivityData(
     input: GetThingConnectivityDataRequest,
   ): Effect.Effect<
@@ -1668,7 +1960,9 @@ export declare class IoT extends AWSServiceClient {
     | ThrottlingException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetThingConnectivityData", input);
+  }
   getTopicRule(
     input: GetTopicRuleRequest,
   ): Effect.Effect<
@@ -1678,7 +1972,9 @@ export declare class IoT extends AWSServiceClient {
     | ServiceUnavailableException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetTopicRule", input);
+  }
   getTopicRuleDestination(
     input: GetTopicRuleDestinationRequest,
   ): Effect.Effect<
@@ -1688,7 +1984,9 @@ export declare class IoT extends AWSServiceClient {
     | ServiceUnavailableException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetTopicRuleDestination", input);
+  }
   getV2LoggingOptions(
     input: GetV2LoggingOptionsRequest,
   ): Effect.Effect<
@@ -1697,7 +1995,9 @@ export declare class IoT extends AWSServiceClient {
     | NotConfiguredException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetV2LoggingOptions", input);
+  }
   listActiveViolations(
     input: ListActiveViolationsRequest,
   ): Effect.Effect<
@@ -1707,7 +2007,9 @@ export declare class IoT extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListActiveViolations", input);
+  }
   listAttachedPolicies(
     input: ListAttachedPoliciesRequest,
   ): Effect.Effect<
@@ -1720,7 +2022,9 @@ export declare class IoT extends AWSServiceClient {
     | ThrottlingException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListAttachedPolicies", input);
+  }
   listAuditFindings(
     input: ListAuditFindingsRequest,
   ): Effect.Effect<
@@ -1729,7 +2033,9 @@ export declare class IoT extends AWSServiceClient {
     | InvalidRequestException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListAuditFindings", input);
+  }
   listAuditMitigationActionsExecutions(
     input: ListAuditMitigationActionsExecutionsRequest,
   ): Effect.Effect<
@@ -1738,7 +2044,9 @@ export declare class IoT extends AWSServiceClient {
     | InvalidRequestException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListAuditMitigationActionsExecutions", input);
+  }
   listAuditMitigationActionsTasks(
     input: ListAuditMitigationActionsTasksRequest,
   ): Effect.Effect<
@@ -1747,7 +2055,9 @@ export declare class IoT extends AWSServiceClient {
     | InvalidRequestException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListAuditMitigationActionsTasks", input);
+  }
   listAuditSuppressions(
     input: ListAuditSuppressionsRequest,
   ): Effect.Effect<
@@ -1756,7 +2066,9 @@ export declare class IoT extends AWSServiceClient {
     | InvalidRequestException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListAuditSuppressions", input);
+  }
   listAuditTasks(
     input: ListAuditTasksRequest,
   ): Effect.Effect<
@@ -1765,7 +2077,9 @@ export declare class IoT extends AWSServiceClient {
     | InvalidRequestException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListAuditTasks", input);
+  }
   listAuthorizers(
     input: ListAuthorizersRequest,
   ): Effect.Effect<
@@ -1776,7 +2090,9 @@ export declare class IoT extends AWSServiceClient {
     | ThrottlingException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListAuthorizers", input);
+  }
   listBillingGroups(
     input: ListBillingGroupsRequest,
   ): Effect.Effect<
@@ -1786,7 +2102,9 @@ export declare class IoT extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListBillingGroups", input);
+  }
   listCACertificates(
     input: ListCACertificatesRequest,
   ): Effect.Effect<
@@ -1797,7 +2115,9 @@ export declare class IoT extends AWSServiceClient {
     | ThrottlingException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListCACertificates", input);
+  }
   listCertificateProviders(
     input: ListCertificateProvidersRequest,
   ): Effect.Effect<
@@ -1808,7 +2128,9 @@ export declare class IoT extends AWSServiceClient {
     | ThrottlingException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListCertificateProviders", input);
+  }
   listCertificates(
     input: ListCertificatesRequest,
   ): Effect.Effect<
@@ -1819,7 +2141,9 @@ export declare class IoT extends AWSServiceClient {
     | ThrottlingException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListCertificates", input);
+  }
   listCertificatesByCA(
     input: ListCertificatesByCARequest,
   ): Effect.Effect<
@@ -1830,7 +2154,9 @@ export declare class IoT extends AWSServiceClient {
     | ThrottlingException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListCertificatesByCA", input);
+  }
   listCommandExecutions(
     input: ListCommandExecutionsRequest,
   ): Effect.Effect<
@@ -1840,7 +2166,9 @@ export declare class IoT extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListCommandExecutions", input);
+  }
   listCommands(
     input: ListCommandsRequest,
   ): Effect.Effect<
@@ -1849,7 +2177,9 @@ export declare class IoT extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListCommands", input);
+  }
   listCustomMetrics(
     input: ListCustomMetricsRequest,
   ): Effect.Effect<
@@ -1858,7 +2188,9 @@ export declare class IoT extends AWSServiceClient {
     | InvalidRequestException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListCustomMetrics", input);
+  }
   listDetectMitigationActionsExecutions(
     input: ListDetectMitigationActionsExecutionsRequest,
   ): Effect.Effect<
@@ -1867,7 +2199,9 @@ export declare class IoT extends AWSServiceClient {
     | InvalidRequestException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListDetectMitigationActionsExecutions", input);
+  }
   listDetectMitigationActionsTasks(
     input: ListDetectMitigationActionsTasksRequest,
   ): Effect.Effect<
@@ -1876,7 +2210,9 @@ export declare class IoT extends AWSServiceClient {
     | InvalidRequestException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListDetectMitigationActionsTasks", input);
+  }
   listDimensions(
     input: ListDimensionsRequest,
   ): Effect.Effect<
@@ -1885,7 +2221,9 @@ export declare class IoT extends AWSServiceClient {
     | InvalidRequestException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListDimensions", input);
+  }
   listDomainConfigurations(
     input: ListDomainConfigurationsRequest,
   ): Effect.Effect<
@@ -1896,7 +2234,9 @@ export declare class IoT extends AWSServiceClient {
     | ThrottlingException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListDomainConfigurations", input);
+  }
   listFleetMetrics(
     input: ListFleetMetricsRequest,
   ): Effect.Effect<
@@ -1907,7 +2247,9 @@ export declare class IoT extends AWSServiceClient {
     | ThrottlingException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListFleetMetrics", input);
+  }
   listIndices(
     input: ListIndicesRequest,
   ): Effect.Effect<
@@ -1918,7 +2260,9 @@ export declare class IoT extends AWSServiceClient {
     | ThrottlingException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListIndices", input);
+  }
   listJobExecutionsForJob(
     input: ListJobExecutionsForJobRequest,
   ): Effect.Effect<
@@ -1928,7 +2272,9 @@ export declare class IoT extends AWSServiceClient {
     | ServiceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListJobExecutionsForJob", input);
+  }
   listJobExecutionsForThing(
     input: ListJobExecutionsForThingRequest,
   ): Effect.Effect<
@@ -1938,7 +2284,9 @@ export declare class IoT extends AWSServiceClient {
     | ServiceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListJobExecutionsForThing", input);
+  }
   listJobs(
     input: ListJobsRequest,
   ): Effect.Effect<
@@ -1948,7 +2296,9 @@ export declare class IoT extends AWSServiceClient {
     | ServiceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListJobs", input);
+  }
   listJobTemplates(
     input: ListJobTemplatesRequest,
   ): Effect.Effect<
@@ -1957,7 +2307,9 @@ export declare class IoT extends AWSServiceClient {
     | InvalidRequestException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListJobTemplates", input);
+  }
   listManagedJobTemplates(
     input: ListManagedJobTemplatesRequest,
   ): Effect.Effect<
@@ -1967,7 +2319,9 @@ export declare class IoT extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListManagedJobTemplates", input);
+  }
   listMetricValues(
     input: ListMetricValuesRequest,
   ): Effect.Effect<
@@ -1977,7 +2331,9 @@ export declare class IoT extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListMetricValues", input);
+  }
   listMitigationActions(
     input: ListMitigationActionsRequest,
   ): Effect.Effect<
@@ -1986,7 +2342,9 @@ export declare class IoT extends AWSServiceClient {
     | InvalidRequestException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListMitigationActions", input);
+  }
   listOTAUpdates(
     input: ListOTAUpdatesRequest,
   ): Effect.Effect<
@@ -1997,7 +2355,9 @@ export declare class IoT extends AWSServiceClient {
     | ThrottlingException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListOTAUpdates", input);
+  }
   listOutgoingCertificates(
     input: ListOutgoingCertificatesRequest,
   ): Effect.Effect<
@@ -2008,7 +2368,9 @@ export declare class IoT extends AWSServiceClient {
     | ThrottlingException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListOutgoingCertificates", input);
+  }
   listPackages(
     input: ListPackagesRequest,
   ): Effect.Effect<
@@ -2017,7 +2379,9 @@ export declare class IoT extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListPackages", input);
+  }
   listPackageVersions(
     input: ListPackageVersionsRequest,
   ): Effect.Effect<
@@ -2026,7 +2390,9 @@ export declare class IoT extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListPackageVersions", input);
+  }
   listPolicies(
     input: ListPoliciesRequest,
   ): Effect.Effect<
@@ -2037,7 +2403,9 @@ export declare class IoT extends AWSServiceClient {
     | ThrottlingException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListPolicies", input);
+  }
   listPolicyPrincipals(
     input: ListPolicyPrincipalsRequest,
   ): Effect.Effect<
@@ -2049,7 +2417,9 @@ export declare class IoT extends AWSServiceClient {
     | ThrottlingException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListPolicyPrincipals", input);
+  }
   listPolicyVersions(
     input: ListPolicyVersionsRequest,
   ): Effect.Effect<
@@ -2061,7 +2431,9 @@ export declare class IoT extends AWSServiceClient {
     | ThrottlingException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListPolicyVersions", input);
+  }
   listPrincipalPolicies(
     input: ListPrincipalPoliciesRequest,
   ): Effect.Effect<
@@ -2073,7 +2445,9 @@ export declare class IoT extends AWSServiceClient {
     | ThrottlingException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListPrincipalPolicies", input);
+  }
   listPrincipalThings(
     input: ListPrincipalThingsRequest,
   ): Effect.Effect<
@@ -2085,7 +2459,9 @@ export declare class IoT extends AWSServiceClient {
     | ThrottlingException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListPrincipalThings", input);
+  }
   listPrincipalThingsV2(
     input: ListPrincipalThingsV2Request,
   ): Effect.Effect<
@@ -2097,7 +2473,9 @@ export declare class IoT extends AWSServiceClient {
     | ThrottlingException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListPrincipalThingsV2", input);
+  }
   listProvisioningTemplates(
     input: ListProvisioningTemplatesRequest,
   ): Effect.Effect<
@@ -2107,7 +2485,9 @@ export declare class IoT extends AWSServiceClient {
     | ThrottlingException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListProvisioningTemplates", input);
+  }
   listProvisioningTemplateVersions(
     input: ListProvisioningTemplateVersionsRequest,
   ): Effect.Effect<
@@ -2118,7 +2498,9 @@ export declare class IoT extends AWSServiceClient {
     | ThrottlingException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListProvisioningTemplateVersions", input);
+  }
   listRelatedResourcesForAuditFinding(
     input: ListRelatedResourcesForAuditFindingRequest,
   ): Effect.Effect<
@@ -2128,7 +2510,9 @@ export declare class IoT extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListRelatedResourcesForAuditFinding", input);
+  }
   listRoleAliases(
     input: ListRoleAliasesRequest,
   ): Effect.Effect<
@@ -2139,7 +2523,9 @@ export declare class IoT extends AWSServiceClient {
     | ThrottlingException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListRoleAliases", input);
+  }
   listSbomValidationResults(
     input: ListSbomValidationResultsRequest,
   ): Effect.Effect<
@@ -2149,7 +2535,9 @@ export declare class IoT extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListSbomValidationResults", input);
+  }
   listScheduledAudits(
     input: ListScheduledAuditsRequest,
   ): Effect.Effect<
@@ -2158,7 +2546,9 @@ export declare class IoT extends AWSServiceClient {
     | InvalidRequestException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListScheduledAudits", input);
+  }
   listSecurityProfiles(
     input: ListSecurityProfilesRequest,
   ): Effect.Effect<
@@ -2168,7 +2558,9 @@ export declare class IoT extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListSecurityProfiles", input);
+  }
   listSecurityProfilesForTarget(
     input: ListSecurityProfilesForTargetRequest,
   ): Effect.Effect<
@@ -2178,7 +2570,9 @@ export declare class IoT extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListSecurityProfilesForTarget", input);
+  }
   listStreams(
     input: ListStreamsRequest,
   ): Effect.Effect<
@@ -2189,7 +2583,9 @@ export declare class IoT extends AWSServiceClient {
     | ThrottlingException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListStreams", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
@@ -2199,7 +2595,9 @@ export declare class IoT extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   listTargetsForPolicy(
     input: ListTargetsForPolicyRequest,
   ): Effect.Effect<
@@ -2212,7 +2610,9 @@ export declare class IoT extends AWSServiceClient {
     | ThrottlingException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTargetsForPolicy", input);
+  }
   listTargetsForSecurityProfile(
     input: ListTargetsForSecurityProfileRequest,
   ): Effect.Effect<
@@ -2222,7 +2622,9 @@ export declare class IoT extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTargetsForSecurityProfile", input);
+  }
   listThingGroups(
     input: ListThingGroupsRequest,
   ): Effect.Effect<
@@ -2232,7 +2634,9 @@ export declare class IoT extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListThingGroups", input);
+  }
   listThingGroupsForThing(
     input: ListThingGroupsForThingRequest,
   ): Effect.Effect<
@@ -2242,7 +2646,9 @@ export declare class IoT extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListThingGroupsForThing", input);
+  }
   listThingPrincipals(
     input: ListThingPrincipalsRequest,
   ): Effect.Effect<
@@ -2254,7 +2660,9 @@ export declare class IoT extends AWSServiceClient {
     | ThrottlingException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListThingPrincipals", input);
+  }
   listThingPrincipalsV2(
     input: ListThingPrincipalsV2Request,
   ): Effect.Effect<
@@ -2266,7 +2674,9 @@ export declare class IoT extends AWSServiceClient {
     | ThrottlingException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListThingPrincipalsV2", input);
+  }
   listThingRegistrationTaskReports(
     input: ListThingRegistrationTaskReportsRequest,
   ): Effect.Effect<
@@ -2276,7 +2686,9 @@ export declare class IoT extends AWSServiceClient {
     | ThrottlingException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListThingRegistrationTaskReports", input);
+  }
   listThingRegistrationTasks(
     input: ListThingRegistrationTasksRequest,
   ): Effect.Effect<
@@ -2286,7 +2698,9 @@ export declare class IoT extends AWSServiceClient {
     | ThrottlingException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListThingRegistrationTasks", input);
+  }
   listThings(
     input: ListThingsRequest,
   ): Effect.Effect<
@@ -2297,7 +2711,9 @@ export declare class IoT extends AWSServiceClient {
     | ThrottlingException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListThings", input);
+  }
   listThingsInBillingGroup(
     input: ListThingsInBillingGroupRequest,
   ): Effect.Effect<
@@ -2307,7 +2723,9 @@ export declare class IoT extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListThingsInBillingGroup", input);
+  }
   listThingsInThingGroup(
     input: ListThingsInThingGroupRequest,
   ): Effect.Effect<
@@ -2317,7 +2735,9 @@ export declare class IoT extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListThingsInThingGroup", input);
+  }
   listThingTypes(
     input: ListThingTypesRequest,
   ): Effect.Effect<
@@ -2328,7 +2748,9 @@ export declare class IoT extends AWSServiceClient {
     | ThrottlingException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListThingTypes", input);
+  }
   listTopicRuleDestinations(
     input: ListTopicRuleDestinationsRequest,
   ): Effect.Effect<
@@ -2338,7 +2760,9 @@ export declare class IoT extends AWSServiceClient {
     | ServiceUnavailableException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTopicRuleDestinations", input);
+  }
   listTopicRules(
     input: ListTopicRulesRequest,
   ): Effect.Effect<
@@ -2348,7 +2772,9 @@ export declare class IoT extends AWSServiceClient {
     | ServiceUnavailableException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTopicRules", input);
+  }
   listV2LoggingLevels(
     input: ListV2LoggingLevelsRequest,
   ): Effect.Effect<
@@ -2358,7 +2784,9 @@ export declare class IoT extends AWSServiceClient {
     | NotConfiguredException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListV2LoggingLevels", input);
+  }
   listViolationEvents(
     input: ListViolationEventsRequest,
   ): Effect.Effect<
@@ -2367,7 +2795,9 @@ export declare class IoT extends AWSServiceClient {
     | InvalidRequestException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListViolationEvents", input);
+  }
   putVerificationStateOnViolation(
     input: PutVerificationStateOnViolationRequest,
   ): Effect.Effect<
@@ -2376,7 +2806,9 @@ export declare class IoT extends AWSServiceClient {
     | InvalidRequestException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutVerificationStateOnViolation", input);
+  }
   registerCACertificate(
     input: RegisterCACertificateRequest,
   ): Effect.Effect<
@@ -2392,7 +2824,9 @@ export declare class IoT extends AWSServiceClient {
     | ThrottlingException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("RegisterCACertificate", input);
+  }
   registerCertificate(
     input: RegisterCertificateRequest,
   ): Effect.Effect<
@@ -2407,7 +2841,9 @@ export declare class IoT extends AWSServiceClient {
     | ThrottlingException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("RegisterCertificate", input);
+  }
   registerCertificateWithoutCA(
     input: RegisterCertificateWithoutCARequest,
   ): Effect.Effect<
@@ -2421,7 +2857,9 @@ export declare class IoT extends AWSServiceClient {
     | ThrottlingException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("RegisterCertificateWithoutCA", input);
+  }
   registerThing(
     input: RegisterThingRequest,
   ): Effect.Effect<
@@ -2434,7 +2872,9 @@ export declare class IoT extends AWSServiceClient {
     | ThrottlingException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("RegisterThing", input);
+  }
   rejectCertificateTransfer(
     input: RejectCertificateTransferRequest,
   ): Effect.Effect<
@@ -2447,7 +2887,9 @@ export declare class IoT extends AWSServiceClient {
     | TransferAlreadyCompletedException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("RejectCertificateTransfer", input);
+  }
   removeThingFromBillingGroup(
     input: RemoveThingFromBillingGroupRequest,
   ): Effect.Effect<
@@ -2457,7 +2899,9 @@ export declare class IoT extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("RemoveThingFromBillingGroup", input);
+  }
   removeThingFromThingGroup(
     input: RemoveThingFromThingGroupRequest,
   ): Effect.Effect<
@@ -2467,7 +2911,9 @@ export declare class IoT extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("RemoveThingFromThingGroup", input);
+  }
   replaceTopicRule(
     input: ReplaceTopicRuleRequest,
   ): Effect.Effect<
@@ -2479,7 +2925,9 @@ export declare class IoT extends AWSServiceClient {
     | SqlParseException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ReplaceTopicRule", input);
+  }
   searchIndex(
     input: SearchIndexRequest,
   ): Effect.Effect<
@@ -2493,7 +2941,9 @@ export declare class IoT extends AWSServiceClient {
     | ThrottlingException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("SearchIndex", input);
+  }
   setDefaultAuthorizer(
     input: SetDefaultAuthorizerRequest,
   ): Effect.Effect<
@@ -2506,7 +2956,9 @@ export declare class IoT extends AWSServiceClient {
     | ThrottlingException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("SetDefaultAuthorizer", input);
+  }
   setDefaultPolicyVersion(
     input: SetDefaultPolicyVersionRequest,
   ): Effect.Effect<
@@ -2518,7 +2970,9 @@ export declare class IoT extends AWSServiceClient {
     | ThrottlingException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("SetDefaultPolicyVersion", input);
+  }
   setLoggingOptions(
     input: SetLoggingOptionsRequest,
   ): Effect.Effect<
@@ -2527,7 +2981,9 @@ export declare class IoT extends AWSServiceClient {
     | InvalidRequestException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("SetLoggingOptions", input);
+  }
   setV2LoggingLevel(
     input: SetV2LoggingLevelRequest,
   ): Effect.Effect<
@@ -2538,7 +2994,9 @@ export declare class IoT extends AWSServiceClient {
     | NotConfiguredException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("SetV2LoggingLevel", input);
+  }
   setV2LoggingOptions(
     input: SetV2LoggingOptionsRequest,
   ): Effect.Effect<
@@ -2547,7 +3005,9 @@ export declare class IoT extends AWSServiceClient {
     | InvalidRequestException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("SetV2LoggingOptions", input);
+  }
   startAuditMitigationActionsTask(
     input: StartAuditMitigationActionsTaskRequest,
   ): Effect.Effect<
@@ -2558,7 +3018,9 @@ export declare class IoT extends AWSServiceClient {
     | TaskAlreadyExistsException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartAuditMitigationActionsTask", input);
+  }
   startDetectMitigationActionsTask(
     input: StartDetectMitigationActionsTaskRequest,
   ): Effect.Effect<
@@ -2569,7 +3031,9 @@ export declare class IoT extends AWSServiceClient {
     | TaskAlreadyExistsException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartDetectMitigationActionsTask", input);
+  }
   startOnDemandAuditTask(
     input: StartOnDemandAuditTaskRequest,
   ): Effect.Effect<
@@ -2579,7 +3043,9 @@ export declare class IoT extends AWSServiceClient {
     | LimitExceededException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartOnDemandAuditTask", input);
+  }
   startThingRegistrationTask(
     input: StartThingRegistrationTaskRequest,
   ): Effect.Effect<
@@ -2589,7 +3055,9 @@ export declare class IoT extends AWSServiceClient {
     | ThrottlingException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartThingRegistrationTask", input);
+  }
   stopThingRegistrationTask(
     input: StopThingRegistrationTaskRequest,
   ): Effect.Effect<
@@ -2600,7 +3068,9 @@ export declare class IoT extends AWSServiceClient {
     | ThrottlingException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StopThingRegistrationTask", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -2611,7 +3081,9 @@ export declare class IoT extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   testAuthorization(
     input: TestAuthorizationRequest,
   ): Effect.Effect<
@@ -2624,7 +3096,9 @@ export declare class IoT extends AWSServiceClient {
     | ThrottlingException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TestAuthorization", input);
+  }
   testInvokeAuthorizer(
     input: TestInvokeAuthorizerRequest,
   ): Effect.Effect<
@@ -2637,7 +3111,9 @@ export declare class IoT extends AWSServiceClient {
     | ThrottlingException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TestInvokeAuthorizer", input);
+  }
   transferCertificate(
     input: TransferCertificateRequest,
   ): Effect.Effect<
@@ -2651,7 +3127,9 @@ export declare class IoT extends AWSServiceClient {
     | TransferConflictException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TransferCertificate", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
@@ -2661,7 +3139,9 @@ export declare class IoT extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
   updateAccountAuditConfiguration(
     input: UpdateAccountAuditConfigurationRequest,
   ): Effect.Effect<
@@ -2670,7 +3150,9 @@ export declare class IoT extends AWSServiceClient {
     | InvalidRequestException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateAccountAuditConfiguration", input);
+  }
   updateAuditSuppression(
     input: UpdateAuditSuppressionRequest,
   ): Effect.Effect<
@@ -2680,7 +3162,9 @@ export declare class IoT extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateAuditSuppression", input);
+  }
   updateAuthorizer(
     input: UpdateAuthorizerRequest,
   ): Effect.Effect<
@@ -2693,7 +3177,9 @@ export declare class IoT extends AWSServiceClient {
     | ThrottlingException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateAuthorizer", input);
+  }
   updateBillingGroup(
     input: UpdateBillingGroupRequest,
   ): Effect.Effect<
@@ -2704,7 +3190,9 @@ export declare class IoT extends AWSServiceClient {
     | ThrottlingException
     | VersionConflictException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateBillingGroup", input);
+  }
   updateCACertificate(
     input: UpdateCACertificateRequest,
   ): Effect.Effect<
@@ -2716,7 +3204,9 @@ export declare class IoT extends AWSServiceClient {
     | ThrottlingException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateCACertificate", input);
+  }
   updateCertificate(
     input: UpdateCertificateRequest,
   ): Effect.Effect<
@@ -2729,7 +3219,9 @@ export declare class IoT extends AWSServiceClient {
     | ThrottlingException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateCertificate", input);
+  }
   updateCertificateProvider(
     input: UpdateCertificateProviderRequest,
   ): Effect.Effect<
@@ -2741,7 +3233,9 @@ export declare class IoT extends AWSServiceClient {
     | ThrottlingException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateCertificateProvider", input);
+  }
   updateCommand(
     input: UpdateCommandRequest,
   ): Effect.Effect<
@@ -2752,7 +3246,9 @@ export declare class IoT extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateCommand", input);
+  }
   updateCustomMetric(
     input: UpdateCustomMetricRequest,
   ): Effect.Effect<
@@ -2762,7 +3258,9 @@ export declare class IoT extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateCustomMetric", input);
+  }
   updateDimension(
     input: UpdateDimensionRequest,
   ): Effect.Effect<
@@ -2772,7 +3270,9 @@ export declare class IoT extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateDimension", input);
+  }
   updateDomainConfiguration(
     input: UpdateDomainConfigurationRequest,
   ): Effect.Effect<
@@ -2785,7 +3285,9 @@ export declare class IoT extends AWSServiceClient {
     | ThrottlingException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateDomainConfiguration", input);
+  }
   updateDynamicThingGroup(
     input: UpdateDynamicThingGroupRequest,
   ): Effect.Effect<
@@ -2797,7 +3299,9 @@ export declare class IoT extends AWSServiceClient {
     | ThrottlingException
     | VersionConflictException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateDynamicThingGroup", input);
+  }
   updateEncryptionConfiguration(
     input: UpdateEncryptionConfigurationRequest,
   ): Effect.Effect<
@@ -2808,7 +3312,9 @@ export declare class IoT extends AWSServiceClient {
     | ThrottlingException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateEncryptionConfiguration", input);
+  }
   updateEventConfigurations(
     input: UpdateEventConfigurationsRequest,
   ): Effect.Effect<
@@ -2817,7 +3323,9 @@ export declare class IoT extends AWSServiceClient {
     | InvalidRequestException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateEventConfigurations", input);
+  }
   updateFleetMetric(
     input: UpdateFleetMetricRequest,
   ): Effect.Effect<
@@ -2833,7 +3341,9 @@ export declare class IoT extends AWSServiceClient {
     | UnauthorizedException
     | VersionConflictException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateFleetMetric", input);
+  }
   updateIndexingConfiguration(
     input: UpdateIndexingConfigurationRequest,
   ): Effect.Effect<
@@ -2844,7 +3354,9 @@ export declare class IoT extends AWSServiceClient {
     | ThrottlingException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateIndexingConfiguration", input);
+  }
   updateJob(
     input: UpdateJobRequest,
   ): Effect.Effect<
@@ -2854,7 +3366,9 @@ export declare class IoT extends AWSServiceClient {
     | ServiceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateJob", input);
+  }
   updateMitigationAction(
     input: UpdateMitigationActionRequest,
   ): Effect.Effect<
@@ -2864,7 +3378,9 @@ export declare class IoT extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateMitigationAction", input);
+  }
   updatePackage(
     input: UpdatePackageRequest,
   ): Effect.Effect<
@@ -2875,7 +3391,9 @@ export declare class IoT extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdatePackage", input);
+  }
   updatePackageConfiguration(
     input: UpdatePackageConfigurationRequest,
   ): Effect.Effect<
@@ -2885,7 +3403,9 @@ export declare class IoT extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdatePackageConfiguration", input);
+  }
   updatePackageVersion(
     input: UpdatePackageVersionRequest,
   ): Effect.Effect<
@@ -2896,7 +3416,9 @@ export declare class IoT extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdatePackageVersion", input);
+  }
   updateProvisioningTemplate(
     input: UpdateProvisioningTemplateRequest,
   ): Effect.Effect<
@@ -2907,7 +3429,9 @@ export declare class IoT extends AWSServiceClient {
     | ResourceNotFoundException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateProvisioningTemplate", input);
+  }
   updateRoleAlias(
     input: UpdateRoleAliasRequest,
   ): Effect.Effect<
@@ -2919,7 +3443,9 @@ export declare class IoT extends AWSServiceClient {
     | ThrottlingException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateRoleAlias", input);
+  }
   updateScheduledAudit(
     input: UpdateScheduledAuditRequest,
   ): Effect.Effect<
@@ -2929,7 +3455,9 @@ export declare class IoT extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateScheduledAudit", input);
+  }
   updateSecurityProfile(
     input: UpdateSecurityProfileRequest,
   ): Effect.Effect<
@@ -2940,7 +3468,9 @@ export declare class IoT extends AWSServiceClient {
     | ThrottlingException
     | VersionConflictException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateSecurityProfile", input);
+  }
   updateStream(
     input: UpdateStreamRequest,
   ): Effect.Effect<
@@ -2953,7 +3483,9 @@ export declare class IoT extends AWSServiceClient {
     | ThrottlingException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateStream", input);
+  }
   updateThing(
     input: UpdateThingRequest,
   ): Effect.Effect<
@@ -2966,7 +3498,9 @@ export declare class IoT extends AWSServiceClient {
     | UnauthorizedException
     | VersionConflictException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateThing", input);
+  }
   updateThingGroup(
     input: UpdateThingGroupRequest,
   ): Effect.Effect<
@@ -2977,7 +3511,9 @@ export declare class IoT extends AWSServiceClient {
     | ThrottlingException
     | VersionConflictException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateThingGroup", input);
+  }
   updateThingGroupsForThing(
     input: UpdateThingGroupsForThingRequest,
   ): Effect.Effect<
@@ -2987,7 +3523,9 @@ export declare class IoT extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateThingGroupsForThing", input);
+  }
   updateThingType(
     input: UpdateThingTypeRequest,
   ): Effect.Effect<
@@ -2999,7 +3537,9 @@ export declare class IoT extends AWSServiceClient {
     | ThrottlingException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateThingType", input);
+  }
   updateTopicRuleDestination(
     input: UpdateTopicRuleDestinationRequest,
   ): Effect.Effect<
@@ -3010,7 +3550,9 @@ export declare class IoT extends AWSServiceClient {
     | ServiceUnavailableException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateTopicRuleDestination", input);
+  }
   validateSecurityProfileBehaviors(
     input: ValidateSecurityProfileBehaviorsRequest,
   ): Effect.Effect<
@@ -3019,10 +3561,14 @@ export declare class IoT extends AWSServiceClient {
     | InvalidRequestException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ValidateSecurityProfileBehaviors", input);
+  }
 }
 
-export declare class Iot extends IoT {}
+export class Iot extends IoT {}
+
+export default IoT;
 
 export type AbortAction = "CANCEL";
 export interface AbortConfig {

@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class CloudSearch extends AWSServiceClient {
+export class CloudSearch extends AWSServiceClient {
   buildSuggesters(
     input: BuildSuggestersRequest,
   ): Effect.Effect<
@@ -12,7 +12,9 @@ export declare class CloudSearch extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("BuildSuggesters", input);
+  }
   createDomain(
     input: CreateDomainRequest,
   ): Effect.Effect<
@@ -23,7 +25,9 @@ export declare class CloudSearch extends AWSServiceClient {
     | ResourceAlreadyExistsException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateDomain", input);
+  }
   defineAnalysisScheme(
     input: DefineAnalysisSchemeRequest,
   ): Effect.Effect<
@@ -35,7 +39,9 @@ export declare class CloudSearch extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DefineAnalysisScheme", input);
+  }
   defineExpression(
     input: DefineExpressionRequest,
   ): Effect.Effect<
@@ -47,7 +53,9 @@ export declare class CloudSearch extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DefineExpression", input);
+  }
   defineIndexField(
     input: DefineIndexFieldRequest,
   ): Effect.Effect<
@@ -59,7 +67,9 @@ export declare class CloudSearch extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DefineIndexField", input);
+  }
   defineSuggester(
     input: DefineSuggesterRequest,
   ): Effect.Effect<
@@ -71,7 +81,9 @@ export declare class CloudSearch extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DefineSuggester", input);
+  }
   deleteAnalysisScheme(
     input: DeleteAnalysisSchemeRequest,
   ): Effect.Effect<
@@ -82,13 +94,17 @@ export declare class CloudSearch extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteAnalysisScheme", input);
+  }
   deleteDomain(
     input: DeleteDomainRequest,
   ): Effect.Effect<
     DeleteDomainResponse,
     BaseException | InternalException | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteDomain", input);
+  }
   deleteExpression(
     input: DeleteExpressionRequest,
   ): Effect.Effect<
@@ -99,7 +115,9 @@ export declare class CloudSearch extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteExpression", input);
+  }
   deleteIndexField(
     input: DeleteIndexFieldRequest,
   ): Effect.Effect<
@@ -110,7 +128,9 @@ export declare class CloudSearch extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteIndexField", input);
+  }
   deleteSuggester(
     input: DeleteSuggesterRequest,
   ): Effect.Effect<
@@ -121,7 +141,9 @@ export declare class CloudSearch extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteSuggester", input);
+  }
   describeAnalysisSchemes(
     input: DescribeAnalysisSchemesRequest,
   ): Effect.Effect<
@@ -130,7 +152,9 @@ export declare class CloudSearch extends AWSServiceClient {
     | InternalException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeAnalysisSchemes", input);
+  }
   describeAvailabilityOptions(
     input: DescribeAvailabilityOptionsRequest,
   ): Effect.Effect<
@@ -142,7 +166,9 @@ export declare class CloudSearch extends AWSServiceClient {
     | LimitExceededException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeAvailabilityOptions", input);
+  }
   describeDomainEndpointOptions(
     input: DescribeDomainEndpointOptionsRequest,
   ): Effect.Effect<
@@ -153,13 +179,17 @@ export declare class CloudSearch extends AWSServiceClient {
     | LimitExceededException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeDomainEndpointOptions", input);
+  }
   describeDomains(
     input: DescribeDomainsRequest,
   ): Effect.Effect<
     DescribeDomainsResponse,
     BaseException | InternalException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeDomains", input);
+  }
   describeExpressions(
     input: DescribeExpressionsRequest,
   ): Effect.Effect<
@@ -168,7 +198,9 @@ export declare class CloudSearch extends AWSServiceClient {
     | InternalException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeExpressions", input);
+  }
   describeIndexFields(
     input: DescribeIndexFieldsRequest,
   ): Effect.Effect<
@@ -177,7 +209,9 @@ export declare class CloudSearch extends AWSServiceClient {
     | InternalException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeIndexFields", input);
+  }
   describeScalingParameters(
     input: DescribeScalingParametersRequest,
   ): Effect.Effect<
@@ -186,7 +220,9 @@ export declare class CloudSearch extends AWSServiceClient {
     | InternalException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeScalingParameters", input);
+  }
   describeServiceAccessPolicies(
     input: DescribeServiceAccessPoliciesRequest,
   ): Effect.Effect<
@@ -195,7 +231,9 @@ export declare class CloudSearch extends AWSServiceClient {
     | InternalException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeServiceAccessPolicies", input);
+  }
   describeSuggesters(
     input: DescribeSuggestersRequest,
   ): Effect.Effect<
@@ -204,7 +242,9 @@ export declare class CloudSearch extends AWSServiceClient {
     | InternalException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeSuggesters", input);
+  }
   indexDocuments(
     input: IndexDocumentsRequest,
   ): Effect.Effect<
@@ -214,11 +254,15 @@ export declare class CloudSearch extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("IndexDocuments", input);
+  }
   listDomainNames(input: {}): Effect.Effect<
     ListDomainNamesResponse,
     BaseException | CommonAwsError
-  >;
+  > {
+    return this.call("ListDomainNames", input);
+  }
   updateAvailabilityOptions(
     input: UpdateAvailabilityOptionsRequest,
   ): Effect.Effect<
@@ -231,7 +275,9 @@ export declare class CloudSearch extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateAvailabilityOptions", input);
+  }
   updateDomainEndpointOptions(
     input: UpdateDomainEndpointOptionsRequest,
   ): Effect.Effect<
@@ -244,7 +290,9 @@ export declare class CloudSearch extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateDomainEndpointOptions", input);
+  }
   updateScalingParameters(
     input: UpdateScalingParametersRequest,
   ): Effect.Effect<
@@ -256,7 +304,9 @@ export declare class CloudSearch extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateScalingParameters", input);
+  }
   updateServiceAccessPolicies(
     input: UpdateServiceAccessPoliciesRequest,
   ): Effect.Effect<
@@ -268,10 +318,14 @@ export declare class CloudSearch extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateServiceAccessPolicies", input);
+  }
 }
 
-export declare class Cloudsearch extends CloudSearch {}
+export class Cloudsearch extends CloudSearch {}
+
+export default CloudSearch;
 
 export interface AccessPoliciesStatus {
   Options: string;

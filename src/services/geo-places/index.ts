@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class GeoPlaces extends AWSServiceClient {
+export class GeoPlaces extends AWSServiceClient {
   autocomplete(
     input: AutocompleteRequest,
   ): Effect.Effect<
@@ -12,7 +12,9 @@ export declare class GeoPlaces extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("Autocomplete", input);
+  }
   geocode(
     input: GeocodeRequest,
   ): Effect.Effect<
@@ -22,7 +24,9 @@ export declare class GeoPlaces extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("Geocode", input);
+  }
   getPlace(
     input: GetPlaceRequest,
   ): Effect.Effect<
@@ -32,7 +36,9 @@ export declare class GeoPlaces extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetPlace", input);
+  }
   reverseGeocode(
     input: ReverseGeocodeRequest,
   ): Effect.Effect<
@@ -42,7 +48,9 @@ export declare class GeoPlaces extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ReverseGeocode", input);
+  }
   searchNearby(
     input: SearchNearbyRequest,
   ): Effect.Effect<
@@ -52,7 +60,9 @@ export declare class GeoPlaces extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("SearchNearby", input);
+  }
   searchText(
     input: SearchTextRequest,
   ): Effect.Effect<
@@ -62,7 +72,9 @@ export declare class GeoPlaces extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("SearchText", input);
+  }
   suggest(
     input: SuggestRequest,
   ): Effect.Effect<
@@ -72,8 +84,12 @@ export declare class GeoPlaces extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("Suggest", input);
+  }
 }
+
+export default GeoPlaces;
 
 export declare class AccessDeniedException extends EffectData.TaggedError(
   "AccessDeniedException",

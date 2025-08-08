@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class AppFabric extends AWSServiceClient {
+export class AppFabric extends AWSServiceClient {
   batchGetUserAccessTasks(
     input: BatchGetUserAccessTasksRequest,
   ): Effect.Effect<
@@ -13,7 +13,9 @@ export declare class AppFabric extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("BatchGetUserAccessTasks", input);
+  }
   connectAppAuthorization(
     input: ConnectAppAuthorizationRequest,
   ): Effect.Effect<
@@ -24,7 +26,9 @@ export declare class AppFabric extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ConnectAppAuthorization", input);
+  }
   createAppAuthorization(
     input: CreateAppAuthorizationRequest,
   ): Effect.Effect<
@@ -37,7 +41,9 @@ export declare class AppFabric extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateAppAuthorization", input);
+  }
   createAppBundle(
     input: CreateAppBundleRequest,
   ): Effect.Effect<
@@ -49,7 +55,9 @@ export declare class AppFabric extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateAppBundle", input);
+  }
   createIngestion(
     input: CreateIngestionRequest,
   ): Effect.Effect<
@@ -61,7 +69,9 @@ export declare class AppFabric extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateIngestion", input);
+  }
   createIngestionDestination(
     input: CreateIngestionDestinationRequest,
   ): Effect.Effect<
@@ -73,7 +83,9 @@ export declare class AppFabric extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateIngestionDestination", input);
+  }
   deleteAppAuthorization(
     input: DeleteAppAuthorizationRequest,
   ): Effect.Effect<
@@ -84,7 +96,9 @@ export declare class AppFabric extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteAppAuthorization", input);
+  }
   deleteAppBundle(
     input: DeleteAppBundleRequest,
   ): Effect.Effect<
@@ -95,7 +109,9 @@ export declare class AppFabric extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteAppBundle", input);
+  }
   deleteIngestion(
     input: DeleteIngestionRequest,
   ): Effect.Effect<
@@ -106,7 +122,9 @@ export declare class AppFabric extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteIngestion", input);
+  }
   deleteIngestionDestination(
     input: DeleteIngestionDestinationRequest,
   ): Effect.Effect<
@@ -117,7 +135,9 @@ export declare class AppFabric extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteIngestionDestination", input);
+  }
   getAppAuthorization(
     input: GetAppAuthorizationRequest,
   ): Effect.Effect<
@@ -128,7 +148,9 @@ export declare class AppFabric extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetAppAuthorization", input);
+  }
   getAppBundle(
     input: GetAppBundleRequest,
   ): Effect.Effect<
@@ -139,7 +161,9 @@ export declare class AppFabric extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetAppBundle", input);
+  }
   getIngestion(
     input: GetIngestionRequest,
   ): Effect.Effect<
@@ -150,7 +174,9 @@ export declare class AppFabric extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetIngestion", input);
+  }
   getIngestionDestination(
     input: GetIngestionDestinationRequest,
   ): Effect.Effect<
@@ -161,7 +187,9 @@ export declare class AppFabric extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetIngestionDestination", input);
+  }
   listAppAuthorizations(
     input: ListAppAuthorizationsRequest,
   ): Effect.Effect<
@@ -172,7 +200,9 @@ export declare class AppFabric extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListAppAuthorizations", input);
+  }
   listAppBundles(
     input: ListAppBundlesRequest,
   ): Effect.Effect<
@@ -182,7 +212,9 @@ export declare class AppFabric extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListAppBundles", input);
+  }
   listIngestionDestinations(
     input: ListIngestionDestinationsRequest,
   ): Effect.Effect<
@@ -193,7 +225,9 @@ export declare class AppFabric extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListIngestionDestinations", input);
+  }
   listIngestions(
     input: ListIngestionsRequest,
   ): Effect.Effect<
@@ -204,7 +238,9 @@ export declare class AppFabric extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListIngestions", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
@@ -215,7 +251,9 @@ export declare class AppFabric extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   startIngestion(
     input: StartIngestionRequest,
   ): Effect.Effect<
@@ -227,7 +265,9 @@ export declare class AppFabric extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartIngestion", input);
+  }
   startUserAccessTasks(
     input: StartUserAccessTasksRequest,
   ): Effect.Effect<
@@ -238,7 +278,9 @@ export declare class AppFabric extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartUserAccessTasks", input);
+  }
   stopIngestion(
     input: StopIngestionRequest,
   ): Effect.Effect<
@@ -250,7 +292,9 @@ export declare class AppFabric extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StopIngestion", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -261,7 +305,9 @@ export declare class AppFabric extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
@@ -272,7 +318,9 @@ export declare class AppFabric extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
   updateAppAuthorization(
     input: UpdateAppAuthorizationRequest,
   ): Effect.Effect<
@@ -283,7 +331,9 @@ export declare class AppFabric extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateAppAuthorization", input);
+  }
   updateIngestionDestination(
     input: UpdateIngestionDestinationRequest,
   ): Effect.Effect<
@@ -296,10 +346,14 @@ export declare class AppFabric extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateIngestionDestination", input);
+  }
 }
 
-export declare class Appfabric extends AppFabric {}
+export class Appfabric extends AppFabric {}
+
+export default AppFabric;
 
 export declare class AccessDeniedException extends EffectData.TaggedError(
   "AccessDeniedException",

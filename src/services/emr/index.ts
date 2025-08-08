@@ -2,322 +2,447 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class EMR extends AWSServiceClient {
+export class EMR extends AWSServiceClient {
   addInstanceFleet(
     input: AddInstanceFleetInput,
   ): Effect.Effect<
     AddInstanceFleetOutput,
     InternalServerException | InvalidRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("AddInstanceFleet", input);
+  }
   addInstanceGroups(
     input: AddInstanceGroupsInput,
   ): Effect.Effect<
     AddInstanceGroupsOutput,
     InternalServerError | CommonAwsError
-  >;
+  > {
+    return this.call("AddInstanceGroups", input);
+  }
   addJobFlowSteps(
     input: AddJobFlowStepsInput,
-  ): Effect.Effect<AddJobFlowStepsOutput, InternalServerError | CommonAwsError>;
+  ): Effect.Effect<
+    AddJobFlowStepsOutput,
+    InternalServerError | CommonAwsError
+  > {
+    return this.call("AddJobFlowSteps", input);
+  }
   addTags(
     input: AddTagsInput,
   ): Effect.Effect<
     AddTagsOutput,
     InternalServerException | InvalidRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("AddTags", input);
+  }
   cancelSteps(
     input: CancelStepsInput,
   ): Effect.Effect<
     CancelStepsOutput,
     InternalServerError | InvalidRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("CancelSteps", input);
+  }
   createPersistentAppUI(
     input: CreatePersistentAppUIInput,
   ): Effect.Effect<
     CreatePersistentAppUIOutput,
     InternalServerException | InvalidRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("CreatePersistentAppUI", input);
+  }
   createSecurityConfiguration(
     input: CreateSecurityConfigurationInput,
   ): Effect.Effect<
     CreateSecurityConfigurationOutput,
     InternalServerException | InvalidRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("CreateSecurityConfiguration", input);
+  }
   createStudio(
     input: CreateStudioInput,
   ): Effect.Effect<
     CreateStudioOutput,
     InternalServerException | InvalidRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("CreateStudio", input);
+  }
   createStudioSessionMapping(
     input: CreateStudioSessionMappingInput,
   ): Effect.Effect<
     {},
     InternalServerError | InvalidRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("CreateStudioSessionMapping", input);
+  }
   deleteSecurityConfiguration(
     input: DeleteSecurityConfigurationInput,
   ): Effect.Effect<
     DeleteSecurityConfigurationOutput,
     InternalServerException | InvalidRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteSecurityConfiguration", input);
+  }
   deleteStudio(
     input: DeleteStudioInput,
   ): Effect.Effect<
     {},
     InternalServerException | InvalidRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteStudio", input);
+  }
   deleteStudioSessionMapping(
     input: DeleteStudioSessionMappingInput,
   ): Effect.Effect<
     {},
     InternalServerError | InvalidRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteStudioSessionMapping", input);
+  }
   describeCluster(
     input: DescribeClusterInput,
   ): Effect.Effect<
     DescribeClusterOutput,
     InternalServerException | InvalidRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeCluster", input);
+  }
   describeJobFlows(
     input: DescribeJobFlowsInput,
   ): Effect.Effect<
     DescribeJobFlowsOutput,
     InternalServerError | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeJobFlows", input);
+  }
   describeNotebookExecution(
     input: DescribeNotebookExecutionInput,
   ): Effect.Effect<
     DescribeNotebookExecutionOutput,
     InternalServerError | InvalidRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeNotebookExecution", input);
+  }
   describePersistentAppUI(
     input: DescribePersistentAppUIInput,
   ): Effect.Effect<
     DescribePersistentAppUIOutput,
     InternalServerException | InvalidRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribePersistentAppUI", input);
+  }
   describeReleaseLabel(
     input: DescribeReleaseLabelInput,
   ): Effect.Effect<
     DescribeReleaseLabelOutput,
     InternalServerException | InvalidRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeReleaseLabel", input);
+  }
   describeSecurityConfiguration(
     input: DescribeSecurityConfigurationInput,
   ): Effect.Effect<
     DescribeSecurityConfigurationOutput,
     InternalServerException | InvalidRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeSecurityConfiguration", input);
+  }
   describeStep(
     input: DescribeStepInput,
   ): Effect.Effect<
     DescribeStepOutput,
     InternalServerException | InvalidRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeStep", input);
+  }
   describeStudio(
     input: DescribeStudioInput,
   ): Effect.Effect<
     DescribeStudioOutput,
     InternalServerException | InvalidRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeStudio", input);
+  }
   getAutoTerminationPolicy(
     input: GetAutoTerminationPolicyInput,
-  ): Effect.Effect<GetAutoTerminationPolicyOutput, CommonAwsError>;
+  ): Effect.Effect<GetAutoTerminationPolicyOutput, CommonAwsError> {
+    return this.call("GetAutoTerminationPolicy", input);
+  }
   getBlockPublicAccessConfiguration(
     input: GetBlockPublicAccessConfigurationInput,
   ): Effect.Effect<
     GetBlockPublicAccessConfigurationOutput,
     InternalServerException | InvalidRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("GetBlockPublicAccessConfiguration", input);
+  }
   getClusterSessionCredentials(
     input: GetClusterSessionCredentialsInput,
   ): Effect.Effect<
     GetClusterSessionCredentialsOutput,
     InternalServerError | InvalidRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("GetClusterSessionCredentials", input);
+  }
   getManagedScalingPolicy(
     input: GetManagedScalingPolicyInput,
-  ): Effect.Effect<GetManagedScalingPolicyOutput, CommonAwsError>;
+  ): Effect.Effect<GetManagedScalingPolicyOutput, CommonAwsError> {
+    return this.call("GetManagedScalingPolicy", input);
+  }
   getOnClusterAppUIPresignedURL(
     input: GetOnClusterAppUIPresignedURLInput,
   ): Effect.Effect<
     GetOnClusterAppUIPresignedURLOutput,
     InternalServerError | InvalidRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("GetOnClusterAppUIPresignedURL", input);
+  }
   getPersistentAppUIPresignedURL(
     input: GetPersistentAppUIPresignedURLInput,
   ): Effect.Effect<
     GetPersistentAppUIPresignedURLOutput,
     InternalServerError | InvalidRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("GetPersistentAppUIPresignedURL", input);
+  }
   getStudioSessionMapping(
     input: GetStudioSessionMappingInput,
   ): Effect.Effect<
     GetStudioSessionMappingOutput,
     InternalServerError | InvalidRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("GetStudioSessionMapping", input);
+  }
   listBootstrapActions(
     input: ListBootstrapActionsInput,
   ): Effect.Effect<
     ListBootstrapActionsOutput,
     InternalServerException | InvalidRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("ListBootstrapActions", input);
+  }
   listClusters(
     input: ListClustersInput,
   ): Effect.Effect<
     ListClustersOutput,
     InternalServerException | InvalidRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("ListClusters", input);
+  }
   listInstanceFleets(
     input: ListInstanceFleetsInput,
   ): Effect.Effect<
     ListInstanceFleetsOutput,
     InternalServerException | InvalidRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("ListInstanceFleets", input);
+  }
   listInstanceGroups(
     input: ListInstanceGroupsInput,
   ): Effect.Effect<
     ListInstanceGroupsOutput,
     InternalServerException | InvalidRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("ListInstanceGroups", input);
+  }
   listInstances(
     input: ListInstancesInput,
   ): Effect.Effect<
     ListInstancesOutput,
     InternalServerException | InvalidRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("ListInstances", input);
+  }
   listNotebookExecutions(
     input: ListNotebookExecutionsInput,
   ): Effect.Effect<
     ListNotebookExecutionsOutput,
     InternalServerError | InvalidRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("ListNotebookExecutions", input);
+  }
   listReleaseLabels(
     input: ListReleaseLabelsInput,
   ): Effect.Effect<
     ListReleaseLabelsOutput,
     InternalServerException | InvalidRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("ListReleaseLabels", input);
+  }
   listSecurityConfigurations(
     input: ListSecurityConfigurationsInput,
   ): Effect.Effect<
     ListSecurityConfigurationsOutput,
     InternalServerException | InvalidRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("ListSecurityConfigurations", input);
+  }
   listSteps(
     input: ListStepsInput,
   ): Effect.Effect<
     ListStepsOutput,
     InternalServerException | InvalidRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("ListSteps", input);
+  }
   listStudios(
     input: ListStudiosInput,
   ): Effect.Effect<
     ListStudiosOutput,
     InternalServerException | InvalidRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("ListStudios", input);
+  }
   listStudioSessionMappings(
     input: ListStudioSessionMappingsInput,
   ): Effect.Effect<
     ListStudioSessionMappingsOutput,
     InternalServerError | InvalidRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("ListStudioSessionMappings", input);
+  }
   listSupportedInstanceTypes(
     input: ListSupportedInstanceTypesInput,
   ): Effect.Effect<
     ListSupportedInstanceTypesOutput,
     InternalServerException | InvalidRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("ListSupportedInstanceTypes", input);
+  }
   modifyCluster(
     input: ModifyClusterInput,
   ): Effect.Effect<
     ModifyClusterOutput,
     InternalServerError | InvalidRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("ModifyCluster", input);
+  }
   modifyInstanceFleet(
     input: ModifyInstanceFleetInput,
   ): Effect.Effect<
     {},
     InternalServerException | InvalidRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("ModifyInstanceFleet", input);
+  }
   modifyInstanceGroups(
     input: ModifyInstanceGroupsInput,
-  ): Effect.Effect<{}, InternalServerError | CommonAwsError>;
+  ): Effect.Effect<{}, InternalServerError | CommonAwsError> {
+    return this.call("ModifyInstanceGroups", input);
+  }
   putAutoScalingPolicy(
     input: PutAutoScalingPolicyInput,
-  ): Effect.Effect<PutAutoScalingPolicyOutput, CommonAwsError>;
+  ): Effect.Effect<PutAutoScalingPolicyOutput, CommonAwsError> {
+    return this.call("PutAutoScalingPolicy", input);
+  }
   putAutoTerminationPolicy(
     input: PutAutoTerminationPolicyInput,
-  ): Effect.Effect<PutAutoTerminationPolicyOutput, CommonAwsError>;
+  ): Effect.Effect<PutAutoTerminationPolicyOutput, CommonAwsError> {
+    return this.call("PutAutoTerminationPolicy", input);
+  }
   putBlockPublicAccessConfiguration(
     input: PutBlockPublicAccessConfigurationInput,
   ): Effect.Effect<
     PutBlockPublicAccessConfigurationOutput,
     InternalServerException | InvalidRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("PutBlockPublicAccessConfiguration", input);
+  }
   putManagedScalingPolicy(
     input: PutManagedScalingPolicyInput,
-  ): Effect.Effect<PutManagedScalingPolicyOutput, CommonAwsError>;
+  ): Effect.Effect<PutManagedScalingPolicyOutput, CommonAwsError> {
+    return this.call("PutManagedScalingPolicy", input);
+  }
   removeAutoScalingPolicy(
     input: RemoveAutoScalingPolicyInput,
-  ): Effect.Effect<RemoveAutoScalingPolicyOutput, CommonAwsError>;
+  ): Effect.Effect<RemoveAutoScalingPolicyOutput, CommonAwsError> {
+    return this.call("RemoveAutoScalingPolicy", input);
+  }
   removeAutoTerminationPolicy(
     input: RemoveAutoTerminationPolicyInput,
-  ): Effect.Effect<RemoveAutoTerminationPolicyOutput, CommonAwsError>;
+  ): Effect.Effect<RemoveAutoTerminationPolicyOutput, CommonAwsError> {
+    return this.call("RemoveAutoTerminationPolicy", input);
+  }
   removeManagedScalingPolicy(
     input: RemoveManagedScalingPolicyInput,
-  ): Effect.Effect<RemoveManagedScalingPolicyOutput, CommonAwsError>;
+  ): Effect.Effect<RemoveManagedScalingPolicyOutput, CommonAwsError> {
+    return this.call("RemoveManagedScalingPolicy", input);
+  }
   removeTags(
     input: RemoveTagsInput,
   ): Effect.Effect<
     RemoveTagsOutput,
     InternalServerException | InvalidRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("RemoveTags", input);
+  }
   runJobFlow(
     input: RunJobFlowInput,
-  ): Effect.Effect<RunJobFlowOutput, InternalServerError | CommonAwsError>;
+  ): Effect.Effect<RunJobFlowOutput, InternalServerError | CommonAwsError> {
+    return this.call("RunJobFlow", input);
+  }
   setKeepJobFlowAliveWhenNoSteps(
     input: SetKeepJobFlowAliveWhenNoStepsInput,
-  ): Effect.Effect<{}, InternalServerError | CommonAwsError>;
+  ): Effect.Effect<{}, InternalServerError | CommonAwsError> {
+    return this.call("SetKeepJobFlowAliveWhenNoSteps", input);
+  }
   setTerminationProtection(
     input: SetTerminationProtectionInput,
-  ): Effect.Effect<{}, InternalServerError | CommonAwsError>;
+  ): Effect.Effect<{}, InternalServerError | CommonAwsError> {
+    return this.call("SetTerminationProtection", input);
+  }
   setUnhealthyNodeReplacement(
     input: SetUnhealthyNodeReplacementInput,
-  ): Effect.Effect<{}, InternalServerError | CommonAwsError>;
+  ): Effect.Effect<{}, InternalServerError | CommonAwsError> {
+    return this.call("SetUnhealthyNodeReplacement", input);
+  }
   setVisibleToAllUsers(
     input: SetVisibleToAllUsersInput,
-  ): Effect.Effect<{}, InternalServerError | CommonAwsError>;
+  ): Effect.Effect<{}, InternalServerError | CommonAwsError> {
+    return this.call("SetVisibleToAllUsers", input);
+  }
   startNotebookExecution(
     input: StartNotebookExecutionInput,
   ): Effect.Effect<
     StartNotebookExecutionOutput,
     InternalServerException | InvalidRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("StartNotebookExecution", input);
+  }
   stopNotebookExecution(
     input: StopNotebookExecutionInput,
   ): Effect.Effect<
     {},
     InternalServerError | InvalidRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("StopNotebookExecution", input);
+  }
   terminateJobFlows(
     input: TerminateJobFlowsInput,
-  ): Effect.Effect<{}, InternalServerError | CommonAwsError>;
+  ): Effect.Effect<{}, InternalServerError | CommonAwsError> {
+    return this.call("TerminateJobFlows", input);
+  }
   updateStudio(
     input: UpdateStudioInput,
   ): Effect.Effect<
     {},
     InternalServerException | InvalidRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateStudio", input);
+  }
   updateStudioSessionMapping(
     input: UpdateStudioSessionMappingInput,
   ): Effect.Effect<
     {},
     InternalServerError | InvalidRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateStudioSessionMapping", input);
+  }
 }
 
-export declare class Emr extends EMR {}
+export class Emr extends EMR {}
+
+export default EMR;
 
 export type ActionOnFailure =
   | "TERMINATE_JOB_FLOW"

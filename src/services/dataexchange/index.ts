@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class DataExchange extends AWSServiceClient {
+export class DataExchange extends AWSServiceClient {
   acceptDataGrant(
     input: AcceptDataGrantRequest,
   ): Effect.Effect<
@@ -14,7 +14,9 @@ export declare class DataExchange extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AcceptDataGrant", input);
+  }
   cancelJob(
     input: CancelJobRequest,
   ): Effect.Effect<
@@ -25,7 +27,9 @@ export declare class DataExchange extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CancelJob", input);
+  }
   createDataGrant(
     input: CreateDataGrantRequest,
   ): Effect.Effect<
@@ -37,7 +41,9 @@ export declare class DataExchange extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateDataGrant", input);
+  }
   createDataSet(
     input: CreateDataSetRequest,
   ): Effect.Effect<
@@ -48,7 +54,9 @@ export declare class DataExchange extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateDataSet", input);
+  }
   createEventAction(
     input: CreateEventActionRequest,
   ): Effect.Effect<
@@ -59,7 +67,9 @@ export declare class DataExchange extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateEventAction", input);
+  }
   createJob(
     input: CreateJobRequest,
   ): Effect.Effect<
@@ -71,7 +81,9 @@ export declare class DataExchange extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateJob", input);
+  }
   createRevision(
     input: CreateRevisionRequest,
   ): Effect.Effect<
@@ -82,7 +94,9 @@ export declare class DataExchange extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateRevision", input);
+  }
   deleteAsset(
     input: DeleteAssetRequest,
   ): Effect.Effect<
@@ -94,7 +108,9 @@ export declare class DataExchange extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteAsset", input);
+  }
   deleteDataGrant(
     input: DeleteDataGrantRequest,
   ): Effect.Effect<
@@ -105,7 +121,9 @@ export declare class DataExchange extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteDataGrant", input);
+  }
   deleteDataSet(
     input: DeleteDataSetRequest,
   ): Effect.Effect<
@@ -117,7 +135,9 @@ export declare class DataExchange extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteDataSet", input);
+  }
   deleteEventAction(
     input: DeleteEventActionRequest,
   ): Effect.Effect<
@@ -127,7 +147,9 @@ export declare class DataExchange extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteEventAction", input);
+  }
   deleteRevision(
     input: DeleteRevisionRequest,
   ): Effect.Effect<
@@ -139,7 +161,9 @@ export declare class DataExchange extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteRevision", input);
+  }
   getAsset(
     input: GetAssetRequest,
   ): Effect.Effect<
@@ -149,7 +173,9 @@ export declare class DataExchange extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetAsset", input);
+  }
   getDataGrant(
     input: GetDataGrantRequest,
   ): Effect.Effect<
@@ -160,7 +186,9 @@ export declare class DataExchange extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetDataGrant", input);
+  }
   getDataSet(
     input: GetDataSetRequest,
   ): Effect.Effect<
@@ -170,7 +198,9 @@ export declare class DataExchange extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetDataSet", input);
+  }
   getEventAction(
     input: GetEventActionRequest,
   ): Effect.Effect<
@@ -180,7 +210,9 @@ export declare class DataExchange extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetEventAction", input);
+  }
   getJob(
     input: GetJobRequest,
   ): Effect.Effect<
@@ -190,7 +222,9 @@ export declare class DataExchange extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetJob", input);
+  }
   getReceivedDataGrant(
     input: GetReceivedDataGrantRequest,
   ): Effect.Effect<
@@ -201,7 +235,9 @@ export declare class DataExchange extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetReceivedDataGrant", input);
+  }
   getRevision(
     input: GetRevisionRequest,
   ): Effect.Effect<
@@ -211,7 +247,9 @@ export declare class DataExchange extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetRevision", input);
+  }
   listDataGrants(
     input: ListDataGrantsRequest,
   ): Effect.Effect<
@@ -222,7 +260,9 @@ export declare class DataExchange extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListDataGrants", input);
+  }
   listDataSetRevisions(
     input: ListDataSetRevisionsRequest,
   ): Effect.Effect<
@@ -232,7 +272,9 @@ export declare class DataExchange extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListDataSetRevisions", input);
+  }
   listDataSets(
     input: ListDataSetsRequest,
   ): Effect.Effect<
@@ -242,7 +284,9 @@ export declare class DataExchange extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListDataSets", input);
+  }
   listEventActions(
     input: ListEventActionsRequest,
   ): Effect.Effect<
@@ -252,7 +296,9 @@ export declare class DataExchange extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListEventActions", input);
+  }
   listJobs(
     input: ListJobsRequest,
   ): Effect.Effect<
@@ -262,7 +308,9 @@ export declare class DataExchange extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListJobs", input);
+  }
   listReceivedDataGrants(
     input: ListReceivedDataGrantsRequest,
   ): Effect.Effect<
@@ -273,7 +321,9 @@ export declare class DataExchange extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListReceivedDataGrants", input);
+  }
   listRevisionAssets(
     input: ListRevisionAssetsRequest,
   ): Effect.Effect<
@@ -283,10 +333,14 @@ export declare class DataExchange extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListRevisionAssets", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
-  ): Effect.Effect<ListTagsForResourceResponse, CommonAwsError>;
+  ): Effect.Effect<ListTagsForResourceResponse, CommonAwsError> {
+    return this.call("ListTagsForResource", input);
+  }
   revokeRevision(
     input: RevokeRevisionRequest,
   ): Effect.Effect<
@@ -298,7 +352,9 @@ export declare class DataExchange extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("RevokeRevision", input);
+  }
   sendApiAsset(
     input: SendApiAssetRequest,
   ): Effect.Effect<
@@ -309,7 +365,9 @@ export declare class DataExchange extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("SendApiAsset", input);
+  }
   sendDataSetNotification(
     input: SendDataSetNotificationRequest,
   ): Effect.Effect<
@@ -321,7 +379,9 @@ export declare class DataExchange extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("SendDataSetNotification", input);
+  }
   startJob(
     input: StartJobRequest,
   ): Effect.Effect<
@@ -333,9 +393,17 @@ export declare class DataExchange extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
-  tagResource(input: TagResourceRequest): Effect.Effect<{}, CommonAwsError>;
-  untagResource(input: UntagResourceRequest): Effect.Effect<{}, CommonAwsError>;
+  > {
+    return this.call("StartJob", input);
+  }
+  tagResource(input: TagResourceRequest): Effect.Effect<{}, CommonAwsError> {
+    return this.call("TagResource", input);
+  }
+  untagResource(
+    input: UntagResourceRequest,
+  ): Effect.Effect<{}, CommonAwsError> {
+    return this.call("UntagResource", input);
+  }
   updateAsset(
     input: UpdateAssetRequest,
   ): Effect.Effect<
@@ -347,7 +415,9 @@ export declare class DataExchange extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateAsset", input);
+  }
   updateDataSet(
     input: UpdateDataSetRequest,
   ): Effect.Effect<
@@ -358,7 +428,9 @@ export declare class DataExchange extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateDataSet", input);
+  }
   updateEventAction(
     input: UpdateEventActionRequest,
   ): Effect.Effect<
@@ -369,7 +441,9 @@ export declare class DataExchange extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateEventAction", input);
+  }
   updateRevision(
     input: UpdateRevisionRequest,
   ): Effect.Effect<
@@ -381,10 +455,14 @@ export declare class DataExchange extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateRevision", input);
+  }
 }
 
-export declare class Dataexchange extends DataExchange {}
+export class Dataexchange extends DataExchange {}
+
+export default DataExchange;
 
 export type __boolean = boolean;
 

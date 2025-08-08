@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class Outposts extends AWSServiceClient {
+export class Outposts extends AWSServiceClient {
   cancelCapacityTask(
     input: CancelCapacityTaskInput,
   ): Effect.Effect<
@@ -13,7 +13,9 @@ export declare class Outposts extends AWSServiceClient {
     | NotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CancelCapacityTask", input);
+  }
   cancelOrder(
     input: CancelOrderInput,
   ): Effect.Effect<
@@ -24,7 +26,9 @@ export declare class Outposts extends AWSServiceClient {
     | NotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CancelOrder", input);
+  }
   createOrder(
     input: CreateOrderInput,
   ): Effect.Effect<
@@ -36,7 +40,9 @@ export declare class Outposts extends AWSServiceClient {
     | ServiceQuotaExceededException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateOrder", input);
+  }
   createOutpost(
     input: CreateOutpostInput,
   ): Effect.Effect<
@@ -48,7 +54,9 @@ export declare class Outposts extends AWSServiceClient {
     | ServiceQuotaExceededException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateOutpost", input);
+  }
   createSite(
     input: CreateSiteInput,
   ): Effect.Effect<
@@ -59,7 +67,9 @@ export declare class Outposts extends AWSServiceClient {
     | ServiceQuotaExceededException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateSite", input);
+  }
   deleteOutpost(
     input: DeleteOutpostInput,
   ): Effect.Effect<
@@ -70,7 +80,9 @@ export declare class Outposts extends AWSServiceClient {
     | NotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteOutpost", input);
+  }
   deleteSite(
     input: DeleteSiteInput,
   ): Effect.Effect<
@@ -81,7 +93,9 @@ export declare class Outposts extends AWSServiceClient {
     | NotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteSite", input);
+  }
   getCapacityTask(
     input: GetCapacityTaskInput,
   ): Effect.Effect<
@@ -91,7 +105,9 @@ export declare class Outposts extends AWSServiceClient {
     | NotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetCapacityTask", input);
+  }
   getCatalogItem(
     input: GetCatalogItemInput,
   ): Effect.Effect<
@@ -101,7 +117,9 @@ export declare class Outposts extends AWSServiceClient {
     | NotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetCatalogItem", input);
+  }
   getConnection(
     input: GetConnectionRequest,
   ): Effect.Effect<
@@ -111,7 +129,9 @@ export declare class Outposts extends AWSServiceClient {
     | NotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetConnection", input);
+  }
   getOrder(
     input: GetOrderInput,
   ): Effect.Effect<
@@ -120,7 +140,9 @@ export declare class Outposts extends AWSServiceClient {
     | NotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetOrder", input);
+  }
   getOutpost(
     input: GetOutpostInput,
   ): Effect.Effect<
@@ -130,7 +152,9 @@ export declare class Outposts extends AWSServiceClient {
     | NotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetOutpost", input);
+  }
   getOutpostBillingInformation(
     input: GetOutpostBillingInformationInput,
   ): Effect.Effect<
@@ -139,7 +163,9 @@ export declare class Outposts extends AWSServiceClient {
     | InternalServerException
     | NotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetOutpostBillingInformation", input);
+  }
   getOutpostInstanceTypes(
     input: GetOutpostInstanceTypesInput,
   ): Effect.Effect<
@@ -149,7 +175,9 @@ export declare class Outposts extends AWSServiceClient {
     | NotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetOutpostInstanceTypes", input);
+  }
   getOutpostSupportedInstanceTypes(
     input: GetOutpostSupportedInstanceTypesInput,
   ): Effect.Effect<
@@ -159,7 +187,9 @@ export declare class Outposts extends AWSServiceClient {
     | NotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetOutpostSupportedInstanceTypes", input);
+  }
   getSite(
     input: GetSiteInput,
   ): Effect.Effect<
@@ -169,7 +199,9 @@ export declare class Outposts extends AWSServiceClient {
     | NotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetSite", input);
+  }
   getSiteAddress(
     input: GetSiteAddressInput,
   ): Effect.Effect<
@@ -179,7 +211,9 @@ export declare class Outposts extends AWSServiceClient {
     | NotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetSiteAddress", input);
+  }
   listAssetInstances(
     input: ListAssetInstancesInput,
   ): Effect.Effect<
@@ -189,7 +223,9 @@ export declare class Outposts extends AWSServiceClient {
     | NotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListAssetInstances", input);
+  }
   listAssets(
     input: ListAssetsInput,
   ): Effect.Effect<
@@ -199,7 +235,9 @@ export declare class Outposts extends AWSServiceClient {
     | NotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListAssets", input);
+  }
   listBlockingInstancesForCapacityTask(
     input: ListBlockingInstancesForCapacityTaskInput,
   ): Effect.Effect<
@@ -209,7 +247,9 @@ export declare class Outposts extends AWSServiceClient {
     | NotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListBlockingInstancesForCapacityTask", input);
+  }
   listCapacityTasks(
     input: ListCapacityTasksInput,
   ): Effect.Effect<
@@ -219,7 +259,9 @@ export declare class Outposts extends AWSServiceClient {
     | NotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListCapacityTasks", input);
+  }
   listCatalogItems(
     input: ListCatalogItemsInput,
   ): Effect.Effect<
@@ -229,7 +271,9 @@ export declare class Outposts extends AWSServiceClient {
     | NotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListCatalogItems", input);
+  }
   listOrders(
     input: ListOrdersInput,
   ): Effect.Effect<
@@ -239,7 +283,9 @@ export declare class Outposts extends AWSServiceClient {
     | NotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListOrders", input);
+  }
   listOutposts(
     input: ListOutpostsInput,
   ): Effect.Effect<
@@ -248,7 +294,9 @@ export declare class Outposts extends AWSServiceClient {
     | InternalServerException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListOutposts", input);
+  }
   listSites(
     input: ListSitesInput,
   ): Effect.Effect<
@@ -257,7 +305,9 @@ export declare class Outposts extends AWSServiceClient {
     | InternalServerException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListSites", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
@@ -266,7 +316,9 @@ export declare class Outposts extends AWSServiceClient {
     | NotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   startCapacityTask(
     input: StartCapacityTaskInput,
   ): Effect.Effect<
@@ -277,7 +329,9 @@ export declare class Outposts extends AWSServiceClient {
     | NotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartCapacityTask", input);
+  }
   startConnection(
     input: StartConnectionRequest,
   ): Effect.Effect<
@@ -287,7 +341,9 @@ export declare class Outposts extends AWSServiceClient {
     | NotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartConnection", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -296,7 +352,9 @@ export declare class Outposts extends AWSServiceClient {
     | NotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
@@ -305,7 +363,9 @@ export declare class Outposts extends AWSServiceClient {
     | NotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
   updateOutpost(
     input: UpdateOutpostInput,
   ): Effect.Effect<
@@ -316,7 +376,9 @@ export declare class Outposts extends AWSServiceClient {
     | NotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateOutpost", input);
+  }
   updateSite(
     input: UpdateSiteInput,
   ): Effect.Effect<
@@ -327,7 +389,9 @@ export declare class Outposts extends AWSServiceClient {
     | NotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateSite", input);
+  }
   updateSiteAddress(
     input: UpdateSiteAddressInput,
   ): Effect.Effect<
@@ -338,7 +402,9 @@ export declare class Outposts extends AWSServiceClient {
     | NotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateSiteAddress", input);
+  }
   updateSiteRackPhysicalProperties(
     input: UpdateSiteRackPhysicalPropertiesInput,
   ): Effect.Effect<
@@ -349,8 +415,12 @@ export declare class Outposts extends AWSServiceClient {
     | NotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateSiteRackPhysicalProperties", input);
+  }
 }
+
+export default Outposts;
 
 export declare class AccessDeniedException extends EffectData.TaggedError(
   "AccessDeniedException",

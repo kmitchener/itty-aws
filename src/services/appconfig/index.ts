@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class AppConfig extends AWSServiceClient {
+export class AppConfig extends AWSServiceClient {
   createApplication(
     input: CreateApplicationRequest,
   ): Effect.Effect<
@@ -11,7 +11,9 @@ export declare class AppConfig extends AWSServiceClient {
     | InternalServerException
     | ServiceQuotaExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateApplication", input);
+  }
   createConfigurationProfile(
     input: CreateConfigurationProfileRequest,
   ): Effect.Effect<
@@ -21,7 +23,9 @@ export declare class AppConfig extends AWSServiceClient {
     | ResourceNotFoundException
     | ServiceQuotaExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateConfigurationProfile", input);
+  }
   createDeploymentStrategy(
     input: CreateDeploymentStrategyRequest,
   ): Effect.Effect<
@@ -30,7 +34,9 @@ export declare class AppConfig extends AWSServiceClient {
     | InternalServerException
     | ServiceQuotaExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateDeploymentStrategy", input);
+  }
   createEnvironment(
     input: CreateEnvironmentRequest,
   ): Effect.Effect<
@@ -40,7 +46,9 @@ export declare class AppConfig extends AWSServiceClient {
     | ResourceNotFoundException
     | ServiceQuotaExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateEnvironment", input);
+  }
   createExtension(
     input: CreateExtensionRequest,
   ): Effect.Effect<
@@ -50,7 +58,9 @@ export declare class AppConfig extends AWSServiceClient {
     | InternalServerException
     | ServiceQuotaExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateExtension", input);
+  }
   createExtensionAssociation(
     input: CreateExtensionAssociationRequest,
   ): Effect.Effect<
@@ -60,7 +70,9 @@ export declare class AppConfig extends AWSServiceClient {
     | ResourceNotFoundException
     | ServiceQuotaExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateExtensionAssociation", input);
+  }
   createHostedConfigurationVersion(
     input: CreateHostedConfigurationVersionRequest,
   ): Effect.Effect<
@@ -72,7 +84,9 @@ export declare class AppConfig extends AWSServiceClient {
     | ResourceNotFoundException
     | ServiceQuotaExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateHostedConfigurationVersion", input);
+  }
   deleteApplication(
     input: DeleteApplicationRequest,
   ): Effect.Effect<
@@ -81,7 +95,9 @@ export declare class AppConfig extends AWSServiceClient {
     | InternalServerException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteApplication", input);
+  }
   deleteConfigurationProfile(
     input: DeleteConfigurationProfileRequest,
   ): Effect.Effect<
@@ -91,7 +107,9 @@ export declare class AppConfig extends AWSServiceClient {
     | InternalServerException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteConfigurationProfile", input);
+  }
   deleteDeploymentStrategy(
     input: DeleteDeploymentStrategyRequest,
   ): Effect.Effect<
@@ -100,7 +118,9 @@ export declare class AppConfig extends AWSServiceClient {
     | InternalServerException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteDeploymentStrategy", input);
+  }
   deleteEnvironment(
     input: DeleteEnvironmentRequest,
   ): Effect.Effect<
@@ -110,7 +130,9 @@ export declare class AppConfig extends AWSServiceClient {
     | InternalServerException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteEnvironment", input);
+  }
   deleteExtension(
     input: DeleteExtensionRequest,
   ): Effect.Effect<
@@ -119,7 +141,9 @@ export declare class AppConfig extends AWSServiceClient {
     | InternalServerException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteExtension", input);
+  }
   deleteExtensionAssociation(
     input: DeleteExtensionAssociationRequest,
   ): Effect.Effect<
@@ -128,7 +152,9 @@ export declare class AppConfig extends AWSServiceClient {
     | InternalServerException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteExtensionAssociation", input);
+  }
   deleteHostedConfigurationVersion(
     input: DeleteHostedConfigurationVersionRequest,
   ): Effect.Effect<
@@ -137,11 +163,15 @@ export declare class AppConfig extends AWSServiceClient {
     | InternalServerException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteHostedConfigurationVersion", input);
+  }
   getAccountSettings(input: {}): Effect.Effect<
     AccountSettings,
     BadRequestException | InternalServerException | CommonAwsError
-  >;
+  > {
+    return this.call("GetAccountSettings", input);
+  }
   getApplication(
     input: GetApplicationRequest,
   ): Effect.Effect<
@@ -150,7 +180,9 @@ export declare class AppConfig extends AWSServiceClient {
     | InternalServerException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetApplication", input);
+  }
   getConfiguration(
     input: GetConfigurationRequest,
   ): Effect.Effect<
@@ -159,7 +191,9 @@ export declare class AppConfig extends AWSServiceClient {
     | InternalServerException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetConfiguration", input);
+  }
   getConfigurationProfile(
     input: GetConfigurationProfileRequest,
   ): Effect.Effect<
@@ -168,7 +202,9 @@ export declare class AppConfig extends AWSServiceClient {
     | InternalServerException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetConfigurationProfile", input);
+  }
   getDeployment(
     input: GetDeploymentRequest,
   ): Effect.Effect<
@@ -177,7 +213,9 @@ export declare class AppConfig extends AWSServiceClient {
     | InternalServerException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetDeployment", input);
+  }
   getDeploymentStrategy(
     input: GetDeploymentStrategyRequest,
   ): Effect.Effect<
@@ -186,7 +224,9 @@ export declare class AppConfig extends AWSServiceClient {
     | InternalServerException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetDeploymentStrategy", input);
+  }
   getEnvironment(
     input: GetEnvironmentRequest,
   ): Effect.Effect<
@@ -195,7 +235,9 @@ export declare class AppConfig extends AWSServiceClient {
     | InternalServerException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetEnvironment", input);
+  }
   getExtension(
     input: GetExtensionRequest,
   ): Effect.Effect<
@@ -204,7 +246,9 @@ export declare class AppConfig extends AWSServiceClient {
     | InternalServerException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetExtension", input);
+  }
   getExtensionAssociation(
     input: GetExtensionAssociationRequest,
   ): Effect.Effect<
@@ -213,7 +257,9 @@ export declare class AppConfig extends AWSServiceClient {
     | InternalServerException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetExtensionAssociation", input);
+  }
   getHostedConfigurationVersion(
     input: GetHostedConfigurationVersionRequest,
   ): Effect.Effect<
@@ -222,13 +268,17 @@ export declare class AppConfig extends AWSServiceClient {
     | InternalServerException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetHostedConfigurationVersion", input);
+  }
   listApplications(
     input: ListApplicationsRequest,
   ): Effect.Effect<
     Applications,
     BadRequestException | InternalServerException | CommonAwsError
-  >;
+  > {
+    return this.call("ListApplications", input);
+  }
   listConfigurationProfiles(
     input: ListConfigurationProfilesRequest,
   ): Effect.Effect<
@@ -237,7 +287,9 @@ export declare class AppConfig extends AWSServiceClient {
     | InternalServerException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListConfigurationProfiles", input);
+  }
   listDeployments(
     input: ListDeploymentsRequest,
   ): Effect.Effect<
@@ -246,13 +298,17 @@ export declare class AppConfig extends AWSServiceClient {
     | InternalServerException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListDeployments", input);
+  }
   listDeploymentStrategies(
     input: ListDeploymentStrategiesRequest,
   ): Effect.Effect<
     DeploymentStrategies,
     BadRequestException | InternalServerException | CommonAwsError
-  >;
+  > {
+    return this.call("ListDeploymentStrategies", input);
+  }
   listEnvironments(
     input: ListEnvironmentsRequest,
   ): Effect.Effect<
@@ -261,19 +317,25 @@ export declare class AppConfig extends AWSServiceClient {
     | InternalServerException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListEnvironments", input);
+  }
   listExtensionAssociations(
     input: ListExtensionAssociationsRequest,
   ): Effect.Effect<
     ExtensionAssociations,
     BadRequestException | InternalServerException | CommonAwsError
-  >;
+  > {
+    return this.call("ListExtensionAssociations", input);
+  }
   listExtensions(
     input: ListExtensionsRequest,
   ): Effect.Effect<
     Extensions,
     BadRequestException | InternalServerException | CommonAwsError
-  >;
+  > {
+    return this.call("ListExtensions", input);
+  }
   listHostedConfigurationVersions(
     input: ListHostedConfigurationVersionsRequest,
   ): Effect.Effect<
@@ -282,7 +344,9 @@ export declare class AppConfig extends AWSServiceClient {
     | InternalServerException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListHostedConfigurationVersions", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
@@ -291,7 +355,9 @@ export declare class AppConfig extends AWSServiceClient {
     | InternalServerException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   startDeployment(
     input: StartDeploymentRequest,
   ): Effect.Effect<
@@ -301,7 +367,9 @@ export declare class AppConfig extends AWSServiceClient {
     | InternalServerException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartDeployment", input);
+  }
   stopDeployment(
     input: StopDeploymentRequest,
   ): Effect.Effect<
@@ -310,7 +378,9 @@ export declare class AppConfig extends AWSServiceClient {
     | InternalServerException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StopDeployment", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -319,7 +389,9 @@ export declare class AppConfig extends AWSServiceClient {
     | InternalServerException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
@@ -328,13 +400,17 @@ export declare class AppConfig extends AWSServiceClient {
     | InternalServerException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
   updateAccountSettings(
     input: UpdateAccountSettingsRequest,
   ): Effect.Effect<
     AccountSettings,
     BadRequestException | InternalServerException | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateAccountSettings", input);
+  }
   updateApplication(
     input: UpdateApplicationRequest,
   ): Effect.Effect<
@@ -343,7 +419,9 @@ export declare class AppConfig extends AWSServiceClient {
     | InternalServerException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateApplication", input);
+  }
   updateConfigurationProfile(
     input: UpdateConfigurationProfileRequest,
   ): Effect.Effect<
@@ -352,7 +430,9 @@ export declare class AppConfig extends AWSServiceClient {
     | InternalServerException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateConfigurationProfile", input);
+  }
   updateDeploymentStrategy(
     input: UpdateDeploymentStrategyRequest,
   ): Effect.Effect<
@@ -361,7 +441,9 @@ export declare class AppConfig extends AWSServiceClient {
     | InternalServerException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateDeploymentStrategy", input);
+  }
   updateEnvironment(
     input: UpdateEnvironmentRequest,
   ): Effect.Effect<
@@ -370,7 +452,9 @@ export declare class AppConfig extends AWSServiceClient {
     | InternalServerException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateEnvironment", input);
+  }
   updateExtension(
     input: UpdateExtensionRequest,
   ): Effect.Effect<
@@ -380,7 +464,9 @@ export declare class AppConfig extends AWSServiceClient {
     | InternalServerException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateExtension", input);
+  }
   updateExtensionAssociation(
     input: UpdateExtensionAssociationRequest,
   ): Effect.Effect<
@@ -389,7 +475,9 @@ export declare class AppConfig extends AWSServiceClient {
     | InternalServerException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateExtensionAssociation", input);
+  }
   validateConfiguration(
     input: ValidateConfigurationRequest,
   ): Effect.Effect<
@@ -398,10 +486,14 @@ export declare class AppConfig extends AWSServiceClient {
     | InternalServerException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ValidateConfiguration", input);
+  }
 }
 
-export declare class Appconfig extends AppConfig {}
+export class Appconfig extends AppConfig {}
+
+export default AppConfig;
 
 export interface AccountSettings {
   DeletionProtection?: DeletionProtectionSettings;

@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class RolesAnywhere extends AWSServiceClient {
+export class RolesAnywhere extends AWSServiceClient {
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
@@ -11,7 +11,9 @@ export declare class RolesAnywhere extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   putNotificationSettings(
     input: PutNotificationSettingsRequest,
   ): Effect.Effect<
@@ -20,7 +22,9 @@ export declare class RolesAnywhere extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutNotificationSettings", input);
+  }
   resetNotificationSettings(
     input: ResetNotificationSettingsRequest,
   ): Effect.Effect<
@@ -29,7 +33,9 @@ export declare class RolesAnywhere extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ResetNotificationSettings", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -39,7 +45,9 @@ export declare class RolesAnywhere extends AWSServiceClient {
     | TooManyTagsException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
@@ -48,10 +56,14 @@ export declare class RolesAnywhere extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
 }
 
-export declare class Rolesanywhere extends RolesAnywhere {}
+export class Rolesanywhere extends RolesAnywhere {}
+
+export default RolesAnywhere;
 
 export declare class AccessDeniedException extends EffectData.TaggedError(
   "AccessDeniedException",

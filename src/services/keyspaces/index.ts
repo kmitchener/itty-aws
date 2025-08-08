@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class Keyspaces extends AWSServiceClient {
+export class Keyspaces extends AWSServiceClient {
   createKeyspace(
     input: CreateKeyspaceRequest,
   ): Effect.Effect<
@@ -13,7 +13,9 @@ export declare class Keyspaces extends AWSServiceClient {
     | ServiceQuotaExceededException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateKeyspace", input);
+  }
   createTable(
     input: CreateTableRequest,
   ): Effect.Effect<
@@ -25,7 +27,9 @@ export declare class Keyspaces extends AWSServiceClient {
     | ServiceQuotaExceededException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateTable", input);
+  }
   createType(
     input: CreateTypeRequest,
   ): Effect.Effect<
@@ -37,7 +41,9 @@ export declare class Keyspaces extends AWSServiceClient {
     | ServiceQuotaExceededException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateType", input);
+  }
   deleteKeyspace(
     input: DeleteKeyspaceRequest,
   ): Effect.Effect<
@@ -49,7 +55,9 @@ export declare class Keyspaces extends AWSServiceClient {
     | ServiceQuotaExceededException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteKeyspace", input);
+  }
   deleteTable(
     input: DeleteTableRequest,
   ): Effect.Effect<
@@ -61,7 +69,9 @@ export declare class Keyspaces extends AWSServiceClient {
     | ServiceQuotaExceededException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteTable", input);
+  }
   deleteType(
     input: DeleteTypeRequest,
   ): Effect.Effect<
@@ -73,7 +83,9 @@ export declare class Keyspaces extends AWSServiceClient {
     | ServiceQuotaExceededException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteType", input);
+  }
   getKeyspace(
     input: GetKeyspaceRequest,
   ): Effect.Effect<
@@ -84,7 +96,9 @@ export declare class Keyspaces extends AWSServiceClient {
     | ServiceQuotaExceededException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetKeyspace", input);
+  }
   getTable(
     input: GetTableRequest,
   ): Effect.Effect<
@@ -95,7 +109,9 @@ export declare class Keyspaces extends AWSServiceClient {
     | ServiceQuotaExceededException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetTable", input);
+  }
   getTableAutoScalingSettings(
     input: GetTableAutoScalingSettingsRequest,
   ): Effect.Effect<
@@ -106,7 +122,9 @@ export declare class Keyspaces extends AWSServiceClient {
     | ServiceQuotaExceededException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetTableAutoScalingSettings", input);
+  }
   getType(
     input: GetTypeRequest,
   ): Effect.Effect<
@@ -117,7 +135,9 @@ export declare class Keyspaces extends AWSServiceClient {
     | ServiceQuotaExceededException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetType", input);
+  }
   listKeyspaces(
     input: ListKeyspacesRequest,
   ): Effect.Effect<
@@ -128,7 +148,9 @@ export declare class Keyspaces extends AWSServiceClient {
     | ServiceQuotaExceededException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListKeyspaces", input);
+  }
   listTables(
     input: ListTablesRequest,
   ): Effect.Effect<
@@ -139,7 +161,9 @@ export declare class Keyspaces extends AWSServiceClient {
     | ServiceQuotaExceededException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTables", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
@@ -150,7 +174,9 @@ export declare class Keyspaces extends AWSServiceClient {
     | ServiceQuotaExceededException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   listTypes(
     input: ListTypesRequest,
   ): Effect.Effect<
@@ -161,7 +187,9 @@ export declare class Keyspaces extends AWSServiceClient {
     | ServiceQuotaExceededException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTypes", input);
+  }
   restoreTable(
     input: RestoreTableRequest,
   ): Effect.Effect<
@@ -173,7 +201,9 @@ export declare class Keyspaces extends AWSServiceClient {
     | ServiceQuotaExceededException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("RestoreTable", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -185,7 +215,9 @@ export declare class Keyspaces extends AWSServiceClient {
     | ServiceQuotaExceededException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
@@ -197,7 +229,9 @@ export declare class Keyspaces extends AWSServiceClient {
     | ServiceQuotaExceededException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
   updateKeyspace(
     input: UpdateKeyspaceRequest,
   ): Effect.Effect<
@@ -209,7 +243,9 @@ export declare class Keyspaces extends AWSServiceClient {
     | ServiceQuotaExceededException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateKeyspace", input);
+  }
   updateTable(
     input: UpdateTableRequest,
   ): Effect.Effect<
@@ -221,8 +257,12 @@ export declare class Keyspaces extends AWSServiceClient {
     | ServiceQuotaExceededException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateTable", input);
+  }
 }
+
+export default Keyspaces;
 
 export declare class AccessDeniedException extends EffectData.TaggedError(
   "AccessDeniedException",

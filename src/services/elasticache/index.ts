@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class ElastiCache extends AWSServiceClient {
+export class ElastiCache extends AWSServiceClient {
   addTagsToResource(
     input: AddTagsToResourceMessage,
   ): Effect.Effect<
@@ -24,7 +24,9 @@ export declare class ElastiCache extends AWSServiceClient {
     | UserGroupNotFoundFault
     | UserNotFoundFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("AddTagsToResource", input);
+  }
   authorizeCacheSecurityGroupIngress(
     input: AuthorizeCacheSecurityGroupIngressMessage,
   ): Effect.Effect<
@@ -35,19 +37,25 @@ export declare class ElastiCache extends AWSServiceClient {
     | InvalidParameterCombinationException
     | InvalidParameterValueException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AuthorizeCacheSecurityGroupIngress", input);
+  }
   batchApplyUpdateAction(
     input: BatchApplyUpdateActionMessage,
   ): Effect.Effect<
     UpdateActionResultsMessage,
     InvalidParameterValueException | ServiceUpdateNotFoundFault | CommonAwsError
-  >;
+  > {
+    return this.call("BatchApplyUpdateAction", input);
+  }
   batchStopUpdateAction(
     input: BatchStopUpdateActionMessage,
   ): Effect.Effect<
     UpdateActionResultsMessage,
     InvalidParameterValueException | ServiceUpdateNotFoundFault | CommonAwsError
-  >;
+  > {
+    return this.call("BatchStopUpdateAction", input);
+  }
   completeMigration(
     input: CompleteMigrationMessage,
   ): Effect.Effect<
@@ -56,7 +64,9 @@ export declare class ElastiCache extends AWSServiceClient {
     | ReplicationGroupNotFoundFault
     | ReplicationGroupNotUnderMigrationFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("CompleteMigration", input);
+  }
   copyServerlessCacheSnapshot(
     input: CopyServerlessCacheSnapshotRequest,
   ): Effect.Effect<
@@ -70,7 +80,9 @@ export declare class ElastiCache extends AWSServiceClient {
     | ServiceLinkedRoleNotFoundFault
     | TagQuotaPerResourceExceeded
     | CommonAwsError
-  >;
+  > {
+    return this.call("CopyServerlessCacheSnapshot", input);
+  }
   copySnapshot(
     input: CopySnapshotMessage,
   ): Effect.Effect<
@@ -83,7 +95,9 @@ export declare class ElastiCache extends AWSServiceClient {
     | SnapshotQuotaExceededFault
     | TagQuotaPerResourceExceeded
     | CommonAwsError
-  >;
+  > {
+    return this.call("CopySnapshot", input);
+  }
   createCacheCluster(
     input: CreateCacheClusterMessage,
   ): Effect.Effect<
@@ -103,7 +117,9 @@ export declare class ElastiCache extends AWSServiceClient {
     | ReplicationGroupNotFoundFault
     | TagQuotaPerResourceExceeded
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateCacheCluster", input);
+  }
   createCacheParameterGroup(
     input: CreateCacheParameterGroupMessage,
   ): Effect.Effect<
@@ -115,7 +131,9 @@ export declare class ElastiCache extends AWSServiceClient {
     | InvalidParameterValueException
     | TagQuotaPerResourceExceeded
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateCacheParameterGroup", input);
+  }
   createCacheSecurityGroup(
     input: CreateCacheSecurityGroupMessage,
   ): Effect.Effect<
@@ -126,7 +144,9 @@ export declare class ElastiCache extends AWSServiceClient {
     | InvalidParameterValueException
     | TagQuotaPerResourceExceeded
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateCacheSecurityGroup", input);
+  }
   createCacheSubnetGroup(
     input: CreateCacheSubnetGroupMessage,
   ): Effect.Effect<
@@ -138,7 +158,9 @@ export declare class ElastiCache extends AWSServiceClient {
     | SubnetNotAllowedFault
     | TagQuotaPerResourceExceeded
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateCacheSubnetGroup", input);
+  }
   createGlobalReplicationGroup(
     input: CreateGlobalReplicationGroupMessage,
   ): Effect.Effect<
@@ -149,7 +171,9 @@ export declare class ElastiCache extends AWSServiceClient {
     | ReplicationGroupNotFoundFault
     | ServiceLinkedRoleNotFoundFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateGlobalReplicationGroup", input);
+  }
   createReplicationGroup(
     input: CreateReplicationGroupMessage,
   ): Effect.Effect<
@@ -174,7 +198,9 @@ export declare class ElastiCache extends AWSServiceClient {
     | TagQuotaPerResourceExceeded
     | UserGroupNotFoundFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateReplicationGroup", input);
+  }
   createServerlessCache(
     input: CreateServerlessCacheRequest,
   ): Effect.Effect<
@@ -191,7 +217,9 @@ export declare class ElastiCache extends AWSServiceClient {
     | TagQuotaPerResourceExceeded
     | UserGroupNotFoundFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateServerlessCache", input);
+  }
   createServerlessCacheSnapshot(
     input: CreateServerlessCacheSnapshotRequest,
   ): Effect.Effect<
@@ -205,7 +233,9 @@ export declare class ElastiCache extends AWSServiceClient {
     | ServiceLinkedRoleNotFoundFault
     | TagQuotaPerResourceExceeded
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateServerlessCacheSnapshot", input);
+  }
   createSnapshot(
     input: CreateSnapshotMessage,
   ): Effect.Effect<
@@ -221,7 +251,9 @@ export declare class ElastiCache extends AWSServiceClient {
     | SnapshotQuotaExceededFault
     | TagQuotaPerResourceExceeded
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateSnapshot", input);
+  }
   createUser(
     input: CreateUserMessage,
   ): Effect.Effect<
@@ -234,7 +266,9 @@ export declare class ElastiCache extends AWSServiceClient {
     | UserAlreadyExistsFault
     | UserQuotaExceededFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateUser", input);
+  }
   createUserGroup(
     input: CreateUserGroupMessage,
   ): Effect.Effect<
@@ -248,7 +282,9 @@ export declare class ElastiCache extends AWSServiceClient {
     | UserGroupQuotaExceededFault
     | UserNotFoundFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateUserGroup", input);
+  }
   decreaseNodeGroupsInGlobalReplicationGroup(
     input: DecreaseNodeGroupsInGlobalReplicationGroupMessage,
   ): Effect.Effect<
@@ -258,7 +294,9 @@ export declare class ElastiCache extends AWSServiceClient {
     | InvalidParameterCombinationException
     | InvalidParameterValueException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DecreaseNodeGroupsInGlobalReplicationGroup", input);
+  }
   decreaseReplicaCount(
     input: DecreaseReplicaCountMessage,
   ): Effect.Effect<
@@ -276,7 +314,9 @@ export declare class ElastiCache extends AWSServiceClient {
     | ReplicationGroupNotFoundFault
     | ServiceLinkedRoleNotFoundFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("DecreaseReplicaCount", input);
+  }
   deleteCacheCluster(
     input: DeleteCacheClusterMessage,
   ): Effect.Effect<
@@ -289,7 +329,9 @@ export declare class ElastiCache extends AWSServiceClient {
     | SnapshotFeatureNotSupportedFault
     | SnapshotQuotaExceededFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteCacheCluster", input);
+  }
   deleteCacheParameterGroup(
     input: DeleteCacheParameterGroupMessage,
   ): Effect.Effect<
@@ -299,7 +341,9 @@ export declare class ElastiCache extends AWSServiceClient {
     | InvalidParameterCombinationException
     | InvalidParameterValueException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteCacheParameterGroup", input);
+  }
   deleteCacheSecurityGroup(
     input: DeleteCacheSecurityGroupMessage,
   ): Effect.Effect<
@@ -309,13 +353,17 @@ export declare class ElastiCache extends AWSServiceClient {
     | InvalidParameterCombinationException
     | InvalidParameterValueException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteCacheSecurityGroup", input);
+  }
   deleteCacheSubnetGroup(
     input: DeleteCacheSubnetGroupMessage,
   ): Effect.Effect<
     {},
     CacheSubnetGroupInUse | CacheSubnetGroupNotFoundFault | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteCacheSubnetGroup", input);
+  }
   deleteGlobalReplicationGroup(
     input: DeleteGlobalReplicationGroupMessage,
   ): Effect.Effect<
@@ -324,7 +372,9 @@ export declare class ElastiCache extends AWSServiceClient {
     | InvalidGlobalReplicationGroupStateFault
     | InvalidParameterValueException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteGlobalReplicationGroup", input);
+  }
   deleteReplicationGroup(
     input: DeleteReplicationGroupMessage,
   ): Effect.Effect<
@@ -337,7 +387,9 @@ export declare class ElastiCache extends AWSServiceClient {
     | SnapshotFeatureNotSupportedFault
     | SnapshotQuotaExceededFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteReplicationGroup", input);
+  }
   deleteServerlessCache(
     input: DeleteServerlessCacheRequest,
   ): Effect.Effect<
@@ -350,7 +402,9 @@ export declare class ElastiCache extends AWSServiceClient {
     | ServerlessCacheSnapshotAlreadyExistsFault
     | ServiceLinkedRoleNotFoundFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteServerlessCache", input);
+  }
   deleteServerlessCacheSnapshot(
     input: DeleteServerlessCacheSnapshotRequest,
   ): Effect.Effect<
@@ -360,7 +414,9 @@ export declare class ElastiCache extends AWSServiceClient {
     | ServerlessCacheSnapshotNotFoundFault
     | ServiceLinkedRoleNotFoundFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteServerlessCacheSnapshot", input);
+  }
   deleteSnapshot(
     input: DeleteSnapshotMessage,
   ): Effect.Effect<
@@ -370,7 +426,9 @@ export declare class ElastiCache extends AWSServiceClient {
     | InvalidSnapshotStateFault
     | SnapshotNotFoundFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteSnapshot", input);
+  }
   deleteUser(
     input: DeleteUserMessage,
   ): Effect.Effect<
@@ -381,7 +439,9 @@ export declare class ElastiCache extends AWSServiceClient {
     | ServiceLinkedRoleNotFoundFault
     | UserNotFoundFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteUser", input);
+  }
   deleteUserGroup(
     input: DeleteUserGroupMessage,
   ): Effect.Effect<
@@ -391,7 +451,9 @@ export declare class ElastiCache extends AWSServiceClient {
     | ServiceLinkedRoleNotFoundFault
     | UserGroupNotFoundFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteUserGroup", input);
+  }
   describeCacheClusters(
     input: DescribeCacheClustersMessage,
   ): Effect.Effect<
@@ -400,10 +462,14 @@ export declare class ElastiCache extends AWSServiceClient {
     | InvalidParameterCombinationException
     | InvalidParameterValueException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeCacheClusters", input);
+  }
   describeCacheEngineVersions(
     input: DescribeCacheEngineVersionsMessage,
-  ): Effect.Effect<CacheEngineVersionMessage, CommonAwsError>;
+  ): Effect.Effect<CacheEngineVersionMessage, CommonAwsError> {
+    return this.call("DescribeCacheEngineVersions", input);
+  }
   describeCacheParameterGroups(
     input: DescribeCacheParameterGroupsMessage,
   ): Effect.Effect<
@@ -412,7 +478,9 @@ export declare class ElastiCache extends AWSServiceClient {
     | InvalidParameterCombinationException
     | InvalidParameterValueException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeCacheParameterGroups", input);
+  }
   describeCacheParameters(
     input: DescribeCacheParametersMessage,
   ): Effect.Effect<
@@ -421,7 +489,9 @@ export declare class ElastiCache extends AWSServiceClient {
     | InvalidParameterCombinationException
     | InvalidParameterValueException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeCacheParameters", input);
+  }
   describeCacheSecurityGroups(
     input: DescribeCacheSecurityGroupsMessage,
   ): Effect.Effect<
@@ -430,13 +500,17 @@ export declare class ElastiCache extends AWSServiceClient {
     | InvalidParameterCombinationException
     | InvalidParameterValueException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeCacheSecurityGroups", input);
+  }
   describeCacheSubnetGroups(
     input: DescribeCacheSubnetGroupsMessage,
   ): Effect.Effect<
     CacheSubnetGroupMessage,
     CacheSubnetGroupNotFoundFault | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeCacheSubnetGroups", input);
+  }
   describeEngineDefaultParameters(
     input: DescribeEngineDefaultParametersMessage,
   ): Effect.Effect<
@@ -444,7 +518,9 @@ export declare class ElastiCache extends AWSServiceClient {
     | InvalidParameterCombinationException
     | InvalidParameterValueException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeEngineDefaultParameters", input);
+  }
   describeEvents(
     input: DescribeEventsMessage,
   ): Effect.Effect<
@@ -452,7 +528,9 @@ export declare class ElastiCache extends AWSServiceClient {
     | InvalidParameterCombinationException
     | InvalidParameterValueException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeEvents", input);
+  }
   describeGlobalReplicationGroups(
     input: DescribeGlobalReplicationGroupsMessage,
   ): Effect.Effect<
@@ -461,7 +539,9 @@ export declare class ElastiCache extends AWSServiceClient {
     | InvalidParameterCombinationException
     | InvalidParameterValueException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeGlobalReplicationGroups", input);
+  }
   describeReplicationGroups(
     input: DescribeReplicationGroupsMessage,
   ): Effect.Effect<
@@ -470,7 +550,9 @@ export declare class ElastiCache extends AWSServiceClient {
     | InvalidParameterValueException
     | ReplicationGroupNotFoundFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeReplicationGroups", input);
+  }
   describeReservedCacheNodes(
     input: DescribeReservedCacheNodesMessage,
   ): Effect.Effect<
@@ -479,7 +561,9 @@ export declare class ElastiCache extends AWSServiceClient {
     | InvalidParameterValueException
     | ReservedCacheNodeNotFoundFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeReservedCacheNodes", input);
+  }
   describeReservedCacheNodesOfferings(
     input: DescribeReservedCacheNodesOfferingsMessage,
   ): Effect.Effect<
@@ -488,7 +572,9 @@ export declare class ElastiCache extends AWSServiceClient {
     | InvalidParameterValueException
     | ReservedCacheNodesOfferingNotFoundFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeReservedCacheNodesOfferings", input);
+  }
   describeServerlessCaches(
     input: DescribeServerlessCachesRequest,
   ): Effect.Effect<
@@ -497,7 +583,9 @@ export declare class ElastiCache extends AWSServiceClient {
     | InvalidParameterValueException
     | ServerlessCacheNotFoundFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeServerlessCaches", input);
+  }
   describeServerlessCacheSnapshots(
     input: DescribeServerlessCacheSnapshotsRequest,
   ): Effect.Effect<
@@ -507,7 +595,9 @@ export declare class ElastiCache extends AWSServiceClient {
     | ServerlessCacheNotFoundFault
     | ServerlessCacheSnapshotNotFoundFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeServerlessCacheSnapshots", input);
+  }
   describeServiceUpdates(
     input: DescribeServiceUpdatesMessage,
   ): Effect.Effect<
@@ -516,7 +606,9 @@ export declare class ElastiCache extends AWSServiceClient {
     | InvalidParameterValueException
     | ServiceUpdateNotFoundFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeServiceUpdates", input);
+  }
   describeSnapshots(
     input: DescribeSnapshotsMessage,
   ): Effect.Effect<
@@ -526,7 +618,9 @@ export declare class ElastiCache extends AWSServiceClient {
     | InvalidParameterValueException
     | SnapshotNotFoundFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeSnapshots", input);
+  }
   describeUpdateActions(
     input: DescribeUpdateActionsMessage,
   ): Effect.Effect<
@@ -534,7 +628,9 @@ export declare class ElastiCache extends AWSServiceClient {
     | InvalidParameterCombinationException
     | InvalidParameterValueException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeUpdateActions", input);
+  }
   describeUserGroups(
     input: DescribeUserGroupsMessage,
   ): Effect.Effect<
@@ -543,7 +639,9 @@ export declare class ElastiCache extends AWSServiceClient {
     | ServiceLinkedRoleNotFoundFault
     | UserGroupNotFoundFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeUserGroups", input);
+  }
   describeUsers(
     input: DescribeUsersMessage,
   ): Effect.Effect<
@@ -552,7 +650,9 @@ export declare class ElastiCache extends AWSServiceClient {
     | ServiceLinkedRoleNotFoundFault
     | UserNotFoundFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeUsers", input);
+  }
   disassociateGlobalReplicationGroup(
     input: DisassociateGlobalReplicationGroupMessage,
   ): Effect.Effect<
@@ -562,7 +662,9 @@ export declare class ElastiCache extends AWSServiceClient {
     | InvalidParameterCombinationException
     | InvalidParameterValueException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DisassociateGlobalReplicationGroup", input);
+  }
   exportServerlessCacheSnapshot(
     input: ExportServerlessCacheSnapshotRequest,
   ): Effect.Effect<
@@ -572,7 +674,9 @@ export declare class ElastiCache extends AWSServiceClient {
     | ServerlessCacheSnapshotNotFoundFault
     | ServiceLinkedRoleNotFoundFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("ExportServerlessCacheSnapshot", input);
+  }
   failoverGlobalReplicationGroup(
     input: FailoverGlobalReplicationGroupMessage,
   ): Effect.Effect<
@@ -582,7 +686,9 @@ export declare class ElastiCache extends AWSServiceClient {
     | InvalidParameterCombinationException
     | InvalidParameterValueException
     | CommonAwsError
-  >;
+  > {
+    return this.call("FailoverGlobalReplicationGroup", input);
+  }
   increaseNodeGroupsInGlobalReplicationGroup(
     input: IncreaseNodeGroupsInGlobalReplicationGroupMessage,
   ): Effect.Effect<
@@ -591,7 +697,9 @@ export declare class ElastiCache extends AWSServiceClient {
     | InvalidGlobalReplicationGroupStateFault
     | InvalidParameterValueException
     | CommonAwsError
-  >;
+  > {
+    return this.call("IncreaseNodeGroupsInGlobalReplicationGroup", input);
+  }
   increaseReplicaCount(
     input: IncreaseReplicaCountMessage,
   ): Effect.Effect<
@@ -609,7 +717,9 @@ export declare class ElastiCache extends AWSServiceClient {
     | NoOperationFault
     | ReplicationGroupNotFoundFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("IncreaseReplicaCount", input);
+  }
   listAllowedNodeTypeModifications(
     input: ListAllowedNodeTypeModificationsMessage,
   ): Effect.Effect<
@@ -619,7 +729,9 @@ export declare class ElastiCache extends AWSServiceClient {
     | InvalidParameterValueException
     | ReplicationGroupNotFoundFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListAllowedNodeTypeModifications", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceMessage,
   ): Effect.Effect<
@@ -640,7 +752,9 @@ export declare class ElastiCache extends AWSServiceClient {
     | UserGroupNotFoundFault
     | UserNotFoundFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   modifyCacheCluster(
     input: ModifyCacheClusterMessage,
   ): Effect.Effect<
@@ -657,7 +771,9 @@ export declare class ElastiCache extends AWSServiceClient {
     | NodeQuotaForClusterExceededFault
     | NodeQuotaForCustomerExceededFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("ModifyCacheCluster", input);
+  }
   modifyCacheParameterGroup(
     input: ModifyCacheParameterGroupMessage,
   ): Effect.Effect<
@@ -668,7 +784,9 @@ export declare class ElastiCache extends AWSServiceClient {
     | InvalidParameterCombinationException
     | InvalidParameterValueException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ModifyCacheParameterGroup", input);
+  }
   modifyCacheSubnetGroup(
     input: ModifyCacheSubnetGroupMessage,
   ): Effect.Effect<
@@ -679,7 +797,9 @@ export declare class ElastiCache extends AWSServiceClient {
     | SubnetInUse
     | SubnetNotAllowedFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("ModifyCacheSubnetGroup", input);
+  }
   modifyGlobalReplicationGroup(
     input: ModifyGlobalReplicationGroupMessage,
   ): Effect.Effect<
@@ -688,7 +808,9 @@ export declare class ElastiCache extends AWSServiceClient {
     | InvalidGlobalReplicationGroupStateFault
     | InvalidParameterValueException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ModifyGlobalReplicationGroup", input);
+  }
   modifyReplicationGroup(
     input: ModifyReplicationGroupMessage,
   ): Effect.Effect<
@@ -710,7 +832,9 @@ export declare class ElastiCache extends AWSServiceClient {
     | ReplicationGroupNotFoundFault
     | UserGroupNotFoundFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("ModifyReplicationGroup", input);
+  }
   modifyReplicationGroupShardConfiguration(
     input: ModifyReplicationGroupShardConfigurationMessage,
   ): Effect.Effect<
@@ -726,7 +850,9 @@ export declare class ElastiCache extends AWSServiceClient {
     | NodeQuotaForCustomerExceededFault
     | ReplicationGroupNotFoundFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("ModifyReplicationGroupShardConfiguration", input);
+  }
   modifyServerlessCache(
     input: ModifyServerlessCacheRequest,
   ): Effect.Effect<
@@ -740,7 +866,9 @@ export declare class ElastiCache extends AWSServiceClient {
     | ServiceLinkedRoleNotFoundFault
     | UserGroupNotFoundFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("ModifyServerlessCache", input);
+  }
   modifyUser(
     input: ModifyUserMessage,
   ): Effect.Effect<
@@ -751,7 +879,9 @@ export declare class ElastiCache extends AWSServiceClient {
     | ServiceLinkedRoleNotFoundFault
     | UserNotFoundFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("ModifyUser", input);
+  }
   modifyUserGroup(
     input: ModifyUserGroupMessage,
   ): Effect.Effect<
@@ -765,7 +895,9 @@ export declare class ElastiCache extends AWSServiceClient {
     | UserGroupNotFoundFault
     | UserNotFoundFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("ModifyUserGroup", input);
+  }
   purchaseReservedCacheNodesOffering(
     input: PurchaseReservedCacheNodesOfferingMessage,
   ): Effect.Effect<
@@ -777,7 +909,9 @@ export declare class ElastiCache extends AWSServiceClient {
     | ReservedCacheNodesOfferingNotFoundFault
     | TagQuotaPerResourceExceeded
     | CommonAwsError
-  >;
+  > {
+    return this.call("PurchaseReservedCacheNodesOffering", input);
+  }
   rebalanceSlotsInGlobalReplicationGroup(
     input: RebalanceSlotsInGlobalReplicationGroupMessage,
   ): Effect.Effect<
@@ -786,13 +920,17 @@ export declare class ElastiCache extends AWSServiceClient {
     | InvalidGlobalReplicationGroupStateFault
     | InvalidParameterValueException
     | CommonAwsError
-  >;
+  > {
+    return this.call("RebalanceSlotsInGlobalReplicationGroup", input);
+  }
   rebootCacheCluster(
     input: RebootCacheClusterMessage,
   ): Effect.Effect<
     RebootCacheClusterResult,
     CacheClusterNotFoundFault | InvalidCacheClusterStateFault | CommonAwsError
-  >;
+  > {
+    return this.call("RebootCacheCluster", input);
+  }
   removeTagsFromResource(
     input: RemoveTagsFromResourceMessage,
   ): Effect.Effect<
@@ -814,7 +952,9 @@ export declare class ElastiCache extends AWSServiceClient {
     | UserGroupNotFoundFault
     | UserNotFoundFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("RemoveTagsFromResource", input);
+  }
   resetCacheParameterGroup(
     input: ResetCacheParameterGroupMessage,
   ): Effect.Effect<
@@ -825,7 +965,9 @@ export declare class ElastiCache extends AWSServiceClient {
     | InvalidParameterCombinationException
     | InvalidParameterValueException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ResetCacheParameterGroup", input);
+  }
   revokeCacheSecurityGroupIngress(
     input: RevokeCacheSecurityGroupIngressMessage,
   ): Effect.Effect<
@@ -836,7 +978,9 @@ export declare class ElastiCache extends AWSServiceClient {
     | InvalidParameterCombinationException
     | InvalidParameterValueException
     | CommonAwsError
-  >;
+  > {
+    return this.call("RevokeCacheSecurityGroupIngress", input);
+  }
   startMigration(
     input: StartMigrationMessage,
   ): Effect.Effect<
@@ -846,7 +990,9 @@ export declare class ElastiCache extends AWSServiceClient {
     | ReplicationGroupAlreadyUnderMigrationFault
     | ReplicationGroupNotFoundFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartMigration", input);
+  }
   testFailover(
     input: TestFailoverMessage,
   ): Effect.Effect<
@@ -861,7 +1007,9 @@ export declare class ElastiCache extends AWSServiceClient {
     | ReplicationGroupNotFoundFault
     | TestFailoverNotAvailableFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("TestFailover", input);
+  }
   testMigration(
     input: TestMigrationMessage,
   ): Effect.Effect<
@@ -871,10 +1019,14 @@ export declare class ElastiCache extends AWSServiceClient {
     | ReplicationGroupAlreadyUnderMigrationFault
     | ReplicationGroupNotFoundFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("TestMigration", input);
+  }
 }
 
-export declare class Elasticache extends ElastiCache {}
+export class Elasticache extends ElastiCache {}
+
+export default ElastiCache;
 
 export type AccessString = string;
 

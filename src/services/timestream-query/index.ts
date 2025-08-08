@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class TimestreamQuery extends AWSServiceClient {
+export class TimestreamQuery extends AWSServiceClient {
   cancelQuery(
     input: CancelQueryRequest,
   ): Effect.Effect<
@@ -13,7 +13,9 @@ export declare class TimestreamQuery extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CancelQuery", input);
+  }
   createScheduledQuery(
     input: CreateScheduledQueryRequest,
   ): Effect.Effect<
@@ -26,7 +28,9 @@ export declare class TimestreamQuery extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateScheduledQuery", input);
+  }
   deleteScheduledQuery(
     input: DeleteScheduledQueryRequest,
   ): Effect.Effect<
@@ -38,7 +42,9 @@ export declare class TimestreamQuery extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteScheduledQuery", input);
+  }
   describeAccountSettings(
     input: DescribeAccountSettingsRequest,
   ): Effect.Effect<
@@ -48,7 +54,9 @@ export declare class TimestreamQuery extends AWSServiceClient {
     | InvalidEndpointException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeAccountSettings", input);
+  }
   describeEndpoints(
     input: DescribeEndpointsRequest,
   ): Effect.Effect<
@@ -57,7 +65,9 @@ export declare class TimestreamQuery extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeEndpoints", input);
+  }
   describeScheduledQuery(
     input: DescribeScheduledQueryRequest,
   ): Effect.Effect<
@@ -69,7 +79,9 @@ export declare class TimestreamQuery extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeScheduledQuery", input);
+  }
   executeScheduledQuery(
     input: ExecuteScheduledQueryRequest,
   ): Effect.Effect<
@@ -81,7 +93,9 @@ export declare class TimestreamQuery extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ExecuteScheduledQuery", input);
+  }
   listScheduledQueries(
     input: ListScheduledQueriesRequest,
   ): Effect.Effect<
@@ -92,7 +106,9 @@ export declare class TimestreamQuery extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListScheduledQueries", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
@@ -102,7 +118,9 @@ export declare class TimestreamQuery extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   prepareQuery(
     input: PrepareQueryRequest,
   ): Effect.Effect<
@@ -113,7 +131,9 @@ export declare class TimestreamQuery extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PrepareQuery", input);
+  }
   query(
     input: QueryRequest,
   ): Effect.Effect<
@@ -126,7 +146,9 @@ export declare class TimestreamQuery extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("Query", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -137,7 +159,9 @@ export declare class TimestreamQuery extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
@@ -147,7 +171,9 @@ export declare class TimestreamQuery extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
   updateAccountSettings(
     input: UpdateAccountSettingsRequest,
   ): Effect.Effect<
@@ -158,7 +184,9 @@ export declare class TimestreamQuery extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateAccountSettings", input);
+  }
   updateScheduledQuery(
     input: UpdateScheduledQueryRequest,
   ): Effect.Effect<
@@ -170,8 +198,12 @@ export declare class TimestreamQuery extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateScheduledQuery", input);
+  }
 }
+
+export default TimestreamQuery;
 
 export declare class AccessDeniedException extends EffectData.TaggedError(
   "AccessDeniedException",

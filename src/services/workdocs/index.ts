@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class WorkDocs extends AWSServiceClient {
+export class WorkDocs extends AWSServiceClient {
   abortDocumentVersionUpload(
     input: AbortDocumentVersionUploadRequest,
   ): Effect.Effect<
@@ -15,7 +15,9 @@ export declare class WorkDocs extends AWSServiceClient {
     | UnauthorizedOperationException
     | UnauthorizedResourceAccessException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AbortDocumentVersionUpload", input);
+  }
   activateUser(
     input: ActivateUserRequest,
   ): Effect.Effect<
@@ -26,7 +28,9 @@ export declare class WorkDocs extends AWSServiceClient {
     | UnauthorizedOperationException
     | UnauthorizedResourceAccessException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ActivateUser", input);
+  }
   addResourcePermissions(
     input: AddResourcePermissionsRequest,
   ): Effect.Effect<
@@ -37,7 +41,9 @@ export declare class WorkDocs extends AWSServiceClient {
     | UnauthorizedOperationException
     | UnauthorizedResourceAccessException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AddResourcePermissions", input);
+  }
   createComment(
     input: CreateCommentRequest,
   ): Effect.Effect<
@@ -51,7 +57,9 @@ export declare class WorkDocs extends AWSServiceClient {
     | UnauthorizedOperationException
     | UnauthorizedResourceAccessException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateComment", input);
+  }
   createCustomMetadata(
     input: CreateCustomMetadataRequest,
   ): Effect.Effect<
@@ -64,7 +72,9 @@ export declare class WorkDocs extends AWSServiceClient {
     | UnauthorizedOperationException
     | UnauthorizedResourceAccessException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateCustomMetadata", input);
+  }
   createFolder(
     input: CreateFolderRequest,
   ): Effect.Effect<
@@ -80,7 +90,9 @@ export declare class WorkDocs extends AWSServiceClient {
     | UnauthorizedOperationException
     | UnauthorizedResourceAccessException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateFolder", input);
+  }
   createLabels(
     input: CreateLabelsRequest,
   ): Effect.Effect<
@@ -92,7 +104,9 @@ export declare class WorkDocs extends AWSServiceClient {
     | UnauthorizedOperationException
     | UnauthorizedResourceAccessException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateLabels", input);
+  }
   createNotificationSubscription(
     input: CreateNotificationSubscriptionRequest,
   ): Effect.Effect<
@@ -102,7 +116,9 @@ export declare class WorkDocs extends AWSServiceClient {
     | TooManySubscriptionsException
     | UnauthorizedResourceAccessException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateNotificationSubscription", input);
+  }
   createUser(
     input: CreateUserRequest,
   ): Effect.Effect<
@@ -113,7 +129,9 @@ export declare class WorkDocs extends AWSServiceClient {
     | UnauthorizedOperationException
     | UnauthorizedResourceAccessException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateUser", input);
+  }
   deactivateUser(
     input: DeactivateUserRequest,
   ): Effect.Effect<
@@ -124,7 +142,9 @@ export declare class WorkDocs extends AWSServiceClient {
     | UnauthorizedOperationException
     | UnauthorizedResourceAccessException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeactivateUser", input);
+  }
   deleteComment(
     input: DeleteCommentRequest,
   ): Effect.Effect<
@@ -137,7 +157,9 @@ export declare class WorkDocs extends AWSServiceClient {
     | UnauthorizedOperationException
     | UnauthorizedResourceAccessException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteComment", input);
+  }
   deleteCustomMetadata(
     input: DeleteCustomMetadataRequest,
   ): Effect.Effect<
@@ -149,7 +171,9 @@ export declare class WorkDocs extends AWSServiceClient {
     | UnauthorizedOperationException
     | UnauthorizedResourceAccessException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteCustomMetadata", input);
+  }
   deleteDocument(
     input: DeleteDocumentRequest,
   ): Effect.Effect<
@@ -164,7 +188,9 @@ export declare class WorkDocs extends AWSServiceClient {
     | UnauthorizedOperationException
     | UnauthorizedResourceAccessException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteDocument", input);
+  }
   deleteDocumentVersion(
     input: DeleteDocumentVersionRequest,
   ): Effect.Effect<
@@ -178,7 +204,9 @@ export declare class WorkDocs extends AWSServiceClient {
     | UnauthorizedOperationException
     | UnauthorizedResourceAccessException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteDocumentVersion", input);
+  }
   deleteFolder(
     input: DeleteFolderRequest,
   ): Effect.Effect<
@@ -193,7 +221,9 @@ export declare class WorkDocs extends AWSServiceClient {
     | UnauthorizedOperationException
     | UnauthorizedResourceAccessException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteFolder", input);
+  }
   deleteFolderContents(
     input: DeleteFolderContentsRequest,
   ): Effect.Effect<
@@ -206,7 +236,9 @@ export declare class WorkDocs extends AWSServiceClient {
     | UnauthorizedOperationException
     | UnauthorizedResourceAccessException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteFolderContents", input);
+  }
   deleteLabels(
     input: DeleteLabelsRequest,
   ): Effect.Effect<
@@ -218,7 +250,9 @@ export declare class WorkDocs extends AWSServiceClient {
     | UnauthorizedOperationException
     | UnauthorizedResourceAccessException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteLabels", input);
+  }
   deleteNotificationSubscription(
     input: DeleteNotificationSubscriptionRequest,
   ): Effect.Effect<
@@ -228,7 +262,9 @@ export declare class WorkDocs extends AWSServiceClient {
     | ServiceUnavailableException
     | UnauthorizedResourceAccessException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteNotificationSubscription", input);
+  }
   deleteUser(
     input: DeleteUserRequest,
   ): Effect.Effect<
@@ -239,7 +275,9 @@ export declare class WorkDocs extends AWSServiceClient {
     | UnauthorizedOperationException
     | UnauthorizedResourceAccessException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteUser", input);
+  }
   describeActivities(
     input: DescribeActivitiesRequest,
   ): Effect.Effect<
@@ -250,7 +288,9 @@ export declare class WorkDocs extends AWSServiceClient {
     | UnauthorizedOperationException
     | UnauthorizedResourceAccessException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeActivities", input);
+  }
   describeComments(
     input: DescribeCommentsRequest,
   ): Effect.Effect<
@@ -262,7 +302,9 @@ export declare class WorkDocs extends AWSServiceClient {
     | UnauthorizedOperationException
     | UnauthorizedResourceAccessException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeComments", input);
+  }
   describeDocumentVersions(
     input: DescribeDocumentVersionsRequest,
   ): Effect.Effect<
@@ -276,7 +318,9 @@ export declare class WorkDocs extends AWSServiceClient {
     | UnauthorizedOperationException
     | UnauthorizedResourceAccessException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeDocumentVersions", input);
+  }
   describeFolderContents(
     input: DescribeFolderContentsRequest,
   ): Effect.Effect<
@@ -288,7 +332,9 @@ export declare class WorkDocs extends AWSServiceClient {
     | ServiceUnavailableException
     | UnauthorizedResourceAccessException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeFolderContents", input);
+  }
   describeGroups(
     input: DescribeGroupsRequest,
   ): Effect.Effect<
@@ -298,7 +344,9 @@ export declare class WorkDocs extends AWSServiceClient {
     | UnauthorizedOperationException
     | UnauthorizedResourceAccessException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeGroups", input);
+  }
   describeNotificationSubscriptions(
     input: DescribeNotificationSubscriptionsRequest,
   ): Effect.Effect<
@@ -307,7 +355,9 @@ export declare class WorkDocs extends AWSServiceClient {
     | ServiceUnavailableException
     | UnauthorizedResourceAccessException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeNotificationSubscriptions", input);
+  }
   describeResourcePermissions(
     input: DescribeResourcePermissionsRequest,
   ): Effect.Effect<
@@ -318,7 +368,9 @@ export declare class WorkDocs extends AWSServiceClient {
     | UnauthorizedOperationException
     | UnauthorizedResourceAccessException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeResourcePermissions", input);
+  }
   describeRootFolders(
     input: DescribeRootFoldersRequest,
   ): Effect.Effect<
@@ -329,7 +381,9 @@ export declare class WorkDocs extends AWSServiceClient {
     | UnauthorizedOperationException
     | UnauthorizedResourceAccessException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeRootFolders", input);
+  }
   describeUsers(
     input: DescribeUsersRequest,
   ): Effect.Effect<
@@ -342,7 +396,9 @@ export declare class WorkDocs extends AWSServiceClient {
     | UnauthorizedOperationException
     | UnauthorizedResourceAccessException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeUsers", input);
+  }
   getCurrentUser(
     input: GetCurrentUserRequest,
   ): Effect.Effect<
@@ -353,7 +409,9 @@ export declare class WorkDocs extends AWSServiceClient {
     | UnauthorizedOperationException
     | UnauthorizedResourceAccessException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetCurrentUser", input);
+  }
   getDocument(
     input: GetDocumentRequest,
   ): Effect.Effect<
@@ -366,7 +424,9 @@ export declare class WorkDocs extends AWSServiceClient {
     | UnauthorizedOperationException
     | UnauthorizedResourceAccessException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetDocument", input);
+  }
   getDocumentPath(
     input: GetDocumentPathRequest,
   ): Effect.Effect<
@@ -377,7 +437,9 @@ export declare class WorkDocs extends AWSServiceClient {
     | UnauthorizedOperationException
     | UnauthorizedResourceAccessException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetDocumentPath", input);
+  }
   getDocumentVersion(
     input: GetDocumentVersionRequest,
   ): Effect.Effect<
@@ -390,7 +452,9 @@ export declare class WorkDocs extends AWSServiceClient {
     | UnauthorizedOperationException
     | UnauthorizedResourceAccessException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetDocumentVersion", input);
+  }
   getFolder(
     input: GetFolderRequest,
   ): Effect.Effect<
@@ -403,7 +467,9 @@ export declare class WorkDocs extends AWSServiceClient {
     | UnauthorizedOperationException
     | UnauthorizedResourceAccessException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetFolder", input);
+  }
   getFolderPath(
     input: GetFolderPathRequest,
   ): Effect.Effect<
@@ -414,7 +480,9 @@ export declare class WorkDocs extends AWSServiceClient {
     | UnauthorizedOperationException
     | UnauthorizedResourceAccessException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetFolderPath", input);
+  }
   getResources(
     input: GetResourcesRequest,
   ): Effect.Effect<
@@ -425,7 +493,9 @@ export declare class WorkDocs extends AWSServiceClient {
     | UnauthorizedOperationException
     | UnauthorizedResourceAccessException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetResources", input);
+  }
   initiateDocumentVersionUpload(
     input: InitiateDocumentVersionUploadRequest,
   ): Effect.Effect<
@@ -445,7 +515,9 @@ export declare class WorkDocs extends AWSServiceClient {
     | UnauthorizedOperationException
     | UnauthorizedResourceAccessException
     | CommonAwsError
-  >;
+  > {
+    return this.call("InitiateDocumentVersionUpload", input);
+  }
   removeAllResourcePermissions(
     input: RemoveAllResourcePermissionsRequest,
   ): Effect.Effect<
@@ -455,7 +527,9 @@ export declare class WorkDocs extends AWSServiceClient {
     | UnauthorizedOperationException
     | UnauthorizedResourceAccessException
     | CommonAwsError
-  >;
+  > {
+    return this.call("RemoveAllResourcePermissions", input);
+  }
   removeResourcePermission(
     input: RemoveResourcePermissionRequest,
   ): Effect.Effect<
@@ -465,7 +539,9 @@ export declare class WorkDocs extends AWSServiceClient {
     | UnauthorizedOperationException
     | UnauthorizedResourceAccessException
     | CommonAwsError
-  >;
+  > {
+    return this.call("RemoveResourcePermission", input);
+  }
   restoreDocumentVersions(
     input: RestoreDocumentVersionsRequest,
   ): Effect.Effect<
@@ -479,7 +555,9 @@ export declare class WorkDocs extends AWSServiceClient {
     | UnauthorizedOperationException
     | UnauthorizedResourceAccessException
     | CommonAwsError
-  >;
+  > {
+    return this.call("RestoreDocumentVersions", input);
+  }
   searchResources(
     input: SearchResourcesRequest,
   ): Effect.Effect<
@@ -489,7 +567,9 @@ export declare class WorkDocs extends AWSServiceClient {
     | UnauthorizedOperationException
     | UnauthorizedResourceAccessException
     | CommonAwsError
-  >;
+  > {
+    return this.call("SearchResources", input);
+  }
   updateDocument(
     input: UpdateDocumentRequest,
   ): Effect.Effect<
@@ -505,7 +585,9 @@ export declare class WorkDocs extends AWSServiceClient {
     | UnauthorizedOperationException
     | UnauthorizedResourceAccessException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateDocument", input);
+  }
   updateDocumentVersion(
     input: UpdateDocumentVersionRequest,
   ): Effect.Effect<
@@ -519,7 +601,9 @@ export declare class WorkDocs extends AWSServiceClient {
     | UnauthorizedOperationException
     | UnauthorizedResourceAccessException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateDocumentVersion", input);
+  }
   updateFolder(
     input: UpdateFolderRequest,
   ): Effect.Effect<
@@ -535,7 +619,9 @@ export declare class WorkDocs extends AWSServiceClient {
     | UnauthorizedOperationException
     | UnauthorizedResourceAccessException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateFolder", input);
+  }
   updateUser(
     input: UpdateUserRequest,
   ): Effect.Effect<
@@ -550,10 +636,14 @@ export declare class WorkDocs extends AWSServiceClient {
     | UnauthorizedOperationException
     | UnauthorizedResourceAccessException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateUser", input);
+  }
 }
 
-export declare class Workdocs extends WorkDocs {}
+export class Workdocs extends WorkDocs {}
+
+export default WorkDocs;
 
 export interface AbortDocumentVersionUploadRequest {
   AuthenticationToken?: string;

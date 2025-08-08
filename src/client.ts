@@ -54,7 +54,7 @@ export interface AWSClientConfig {
 }
 
 // Base AWS service class that all services extend
-export abstract class AWSServiceClient {
+export class AWSServiceClient {
   protected readonly config: Required<AWSClientConfig>;
   constructor(config?: AWSClientConfig) {
     this.config = {
@@ -62,6 +62,13 @@ export abstract class AWSServiceClient {
       credentials: config?.credentials ?? (undefined as any), // Will be resolved later
       endpoint: config?.endpoint ?? (undefined as any), // Will be resolved per service
     };
+  }
+
+  // Method that service classes will call to make AWS API requests
+  protected call(action: string, input: unknown): any {
+    // Get the service name from the constructor name
+    const serviceName = this.constructor.name.toLowerCase();
+    return (createServiceProxy(serviceName, this.config) as any)[action](input);
   }
 }
 
@@ -175,7 +182,10 @@ export function createServiceProxy<T>(
                   requestId = (errorData as any).$metadata?.requestId;
                 } else {
                   // AWS JSON protocol format (plain object)
-                  errorType = (errorData as any).__type || (errorData as any).code || "UnknownError";
+                  errorType =
+                    (errorData as any).__type ||
+                    (errorData as any).code ||
+                    "UnknownError";
                   errorMessage = (errorData as any).message || "Unknown error";
                 }
               }

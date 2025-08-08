@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class CloudTrailData extends AWSServiceClient {
+export class CloudTrailData extends AWSServiceClient {
   putAuditEvents(
     input: PutAuditEventsRequest,
   ): Effect.Effect<
@@ -14,10 +14,14 @@ export declare class CloudTrailData extends AWSServiceClient {
     | InvalidChannelARN
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutAuditEvents", input);
+  }
 }
 
-export declare class CloudtrailData extends CloudTrailData {}
+export class CloudtrailData extends CloudTrailData {}
+
+export default CloudTrailData;
 
 export interface AuditEvent {
   id: string;

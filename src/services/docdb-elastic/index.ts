@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class DocDBElastic extends AWSServiceClient {
+export class DocDBElastic extends AWSServiceClient {
   applyPendingMaintenanceAction(
     input: ApplyPendingMaintenanceActionInput,
   ): Effect.Effect<
@@ -14,7 +14,9 @@ export declare class DocDBElastic extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ApplyPendingMaintenanceAction", input);
+  }
   copyClusterSnapshot(
     input: CopyClusterSnapshotInput,
   ): Effect.Effect<
@@ -27,7 +29,9 @@ export declare class DocDBElastic extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CopyClusterSnapshot", input);
+  }
   createCluster(
     input: CreateClusterInput,
   ): Effect.Effect<
@@ -39,7 +43,9 @@ export declare class DocDBElastic extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateCluster", input);
+  }
   createClusterSnapshot(
     input: CreateClusterSnapshotInput,
   ): Effect.Effect<
@@ -52,7 +58,9 @@ export declare class DocDBElastic extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateClusterSnapshot", input);
+  }
   deleteCluster(
     input: DeleteClusterInput,
   ): Effect.Effect<
@@ -64,7 +72,9 @@ export declare class DocDBElastic extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteCluster", input);
+  }
   deleteClusterSnapshot(
     input: DeleteClusterSnapshotInput,
   ): Effect.Effect<
@@ -76,7 +86,9 @@ export declare class DocDBElastic extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteClusterSnapshot", input);
+  }
   getCluster(
     input: GetClusterInput,
   ): Effect.Effect<
@@ -87,7 +99,9 @@ export declare class DocDBElastic extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetCluster", input);
+  }
   getClusterSnapshot(
     input: GetClusterSnapshotInput,
   ): Effect.Effect<
@@ -98,7 +112,9 @@ export declare class DocDBElastic extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetClusterSnapshot", input);
+  }
   getPendingMaintenanceAction(
     input: GetPendingMaintenanceActionInput,
   ): Effect.Effect<
@@ -110,7 +126,9 @@ export declare class DocDBElastic extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetPendingMaintenanceAction", input);
+  }
   listClusters(
     input: ListClustersInput,
   ): Effect.Effect<
@@ -120,7 +138,9 @@ export declare class DocDBElastic extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListClusters", input);
+  }
   listClusterSnapshots(
     input: ListClusterSnapshotsInput,
   ): Effect.Effect<
@@ -130,7 +150,9 @@ export declare class DocDBElastic extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListClusterSnapshots", input);
+  }
   listPendingMaintenanceActions(
     input: ListPendingMaintenanceActionsInput,
   ): Effect.Effect<
@@ -140,7 +162,9 @@ export declare class DocDBElastic extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListPendingMaintenanceActions", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
@@ -150,7 +174,9 @@ export declare class DocDBElastic extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   restoreClusterFromSnapshot(
     input: RestoreClusterFromSnapshotInput,
   ): Effect.Effect<
@@ -163,7 +189,9 @@ export declare class DocDBElastic extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("RestoreClusterFromSnapshot", input);
+  }
   startCluster(
     input: StartClusterInput,
   ): Effect.Effect<
@@ -174,7 +202,9 @@ export declare class DocDBElastic extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartCluster", input);
+  }
   stopCluster(
     input: StopClusterInput,
   ): Effect.Effect<
@@ -185,7 +215,9 @@ export declare class DocDBElastic extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StopCluster", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -195,7 +227,9 @@ export declare class DocDBElastic extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
@@ -205,7 +239,9 @@ export declare class DocDBElastic extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
   updateCluster(
     input: UpdateClusterInput,
   ): Effect.Effect<
@@ -217,10 +253,14 @@ export declare class DocDBElastic extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateCluster", input);
+  }
 }
 
-export declare class DocdbElastic extends DocDBElastic {}
+export class DocdbElastic extends DocDBElastic {}
+
+export default DocDBElastic;
 
 export declare class AccessDeniedException extends EffectData.TaggedError(
   "AccessDeniedException",

@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class Appflow extends AWSServiceClient {
+export class Appflow extends AWSServiceClient {
   cancelFlowExecutions(
     input: CancelFlowExecutionsRequest,
   ): Effect.Effect<
@@ -13,7 +13,9 @@ export declare class Appflow extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CancelFlowExecutions", input);
+  }
   createConnectorProfile(
     input: CreateConnectorProfileRequest,
   ): Effect.Effect<
@@ -24,7 +26,9 @@ export declare class Appflow extends AWSServiceClient {
     | ServiceQuotaExceededException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateConnectorProfile", input);
+  }
   createFlow(
     input: CreateFlowRequest,
   ): Effect.Effect<
@@ -38,7 +42,9 @@ export declare class Appflow extends AWSServiceClient {
     | ServiceQuotaExceededException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateFlow", input);
+  }
   deleteConnectorProfile(
     input: DeleteConnectorProfileRequest,
   ): Effect.Effect<
@@ -47,7 +53,9 @@ export declare class Appflow extends AWSServiceClient {
     | InternalServerException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteConnectorProfile", input);
+  }
   deleteFlow(
     input: DeleteFlowRequest,
   ): Effect.Effect<
@@ -56,7 +64,9 @@ export declare class Appflow extends AWSServiceClient {
     | InternalServerException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteFlow", input);
+  }
   describeConnector(
     input: DescribeConnectorRequest,
   ): Effect.Effect<
@@ -65,7 +75,9 @@ export declare class Appflow extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeConnector", input);
+  }
   describeConnectorEntity(
     input: DescribeConnectorEntityRequest,
   ): Effect.Effect<
@@ -76,25 +88,33 @@ export declare class Appflow extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeConnectorEntity", input);
+  }
   describeConnectorProfiles(
     input: DescribeConnectorProfilesRequest,
   ): Effect.Effect<
     DescribeConnectorProfilesResponse,
     InternalServerException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeConnectorProfiles", input);
+  }
   describeConnectors(
     input: DescribeConnectorsRequest,
   ): Effect.Effect<
     DescribeConnectorsResponse,
     InternalServerException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeConnectors", input);
+  }
   describeFlow(
     input: DescribeFlowRequest,
   ): Effect.Effect<
     DescribeFlowResponse,
     InternalServerException | ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeFlow", input);
+  }
   describeFlowExecutionRecords(
     input: DescribeFlowExecutionRecordsRequest,
   ): Effect.Effect<
@@ -103,7 +123,9 @@ export declare class Appflow extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeFlowExecutionRecords", input);
+  }
   listConnectorEntities(
     input: ListConnectorEntitiesRequest,
   ): Effect.Effect<
@@ -114,19 +136,25 @@ export declare class Appflow extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListConnectorEntities", input);
+  }
   listConnectors(
     input: ListConnectorsRequest,
   ): Effect.Effect<
     ListConnectorsResponse,
     InternalServerException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("ListConnectors", input);
+  }
   listFlows(
     input: ListFlowsRequest,
   ): Effect.Effect<
     ListFlowsResponse,
     InternalServerException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("ListFlows", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
@@ -135,7 +163,9 @@ export declare class Appflow extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   registerConnector(
     input: RegisterConnectorRequest,
   ): Effect.Effect<
@@ -150,7 +180,9 @@ export declare class Appflow extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("RegisterConnector", input);
+  }
   resetConnectorMetadataCache(
     input: ResetConnectorMetadataCacheRequest,
   ): Effect.Effect<
@@ -160,7 +192,9 @@ export declare class Appflow extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ResetConnectorMetadataCache", input);
+  }
   startFlow(
     input: StartFlowRequest,
   ): Effect.Effect<
@@ -170,7 +204,9 @@ export declare class Appflow extends AWSServiceClient {
     | ResourceNotFoundException
     | ServiceQuotaExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartFlow", input);
+  }
   stopFlow(
     input: StopFlowRequest,
   ): Effect.Effect<
@@ -180,7 +216,9 @@ export declare class Appflow extends AWSServiceClient {
     | ResourceNotFoundException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StopFlow", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -189,7 +227,9 @@ export declare class Appflow extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   unregisterConnector(
     input: UnregisterConnectorRequest,
   ): Effect.Effect<
@@ -198,7 +238,9 @@ export declare class Appflow extends AWSServiceClient {
     | InternalServerException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UnregisterConnector", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
@@ -207,7 +249,9 @@ export declare class Appflow extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
   updateConnectorProfile(
     input: UpdateConnectorProfileRequest,
   ): Effect.Effect<
@@ -218,7 +262,9 @@ export declare class Appflow extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateConnectorProfile", input);
+  }
   updateConnectorRegistration(
     input: UpdateConnectorRegistrationRequest,
   ): Effect.Effect<
@@ -233,7 +279,9 @@ export declare class Appflow extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateConnectorRegistration", input);
+  }
   updateFlow(
     input: UpdateFlowRequest,
   ): Effect.Effect<
@@ -247,8 +295,12 @@ export declare class Appflow extends AWSServiceClient {
     | ServiceQuotaExceededException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateFlow", input);
+  }
 }
+
+export default Appflow;
 
 export declare class AccessDeniedException extends EffectData.TaggedError(
   "AccessDeniedException",

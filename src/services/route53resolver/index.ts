@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class Route53Resolver extends AWSServiceClient {
+export class Route53Resolver extends AWSServiceClient {
   associateFirewallRuleGroup(
     input: AssociateFirewallRuleGroupRequest,
   ): Effect.Effect<
@@ -15,7 +15,9 @@ export declare class Route53Resolver extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AssociateFirewallRuleGroup", input);
+  }
   associateResolverEndpointIpAddress(
     input: AssociateResolverEndpointIpAddressRequest,
   ): Effect.Effect<
@@ -28,7 +30,9 @@ export declare class Route53Resolver extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AssociateResolverEndpointIpAddress", input);
+  }
   associateResolverQueryLogConfig(
     input: AssociateResolverQueryLogConfigRequest,
   ): Effect.Effect<
@@ -42,7 +46,9 @@ export declare class Route53Resolver extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AssociateResolverQueryLogConfig", input);
+  }
   associateResolverRule(
     input: AssociateResolverRuleRequest,
   ): Effect.Effect<
@@ -56,7 +62,9 @@ export declare class Route53Resolver extends AWSServiceClient {
     | ResourceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AssociateResolverRule", input);
+  }
   createFirewallDomainList(
     input: CreateFirewallDomainListRequest,
   ): Effect.Effect<
@@ -67,7 +75,9 @@ export declare class Route53Resolver extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateFirewallDomainList", input);
+  }
   createFirewallRule(
     input: CreateFirewallRuleRequest,
   ): Effect.Effect<
@@ -79,7 +89,9 @@ export declare class Route53Resolver extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateFirewallRule", input);
+  }
   createFirewallRuleGroup(
     input: CreateFirewallRuleGroupRequest,
   ): Effect.Effect<
@@ -90,7 +102,9 @@ export declare class Route53Resolver extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateFirewallRuleGroup", input);
+  }
   createOutpostResolver(
     input: CreateOutpostResolverRequest,
   ): Effect.Effect<
@@ -102,7 +116,9 @@ export declare class Route53Resolver extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateOutpostResolver", input);
+  }
   createResolverEndpoint(
     input: CreateResolverEndpointRequest,
   ): Effect.Effect<
@@ -116,7 +132,9 @@ export declare class Route53Resolver extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateResolverEndpoint", input);
+  }
   createResolverQueryLogConfig(
     input: CreateResolverQueryLogConfigRequest,
   ): Effect.Effect<
@@ -130,7 +148,9 @@ export declare class Route53Resolver extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateResolverQueryLogConfig", input);
+  }
   createResolverRule(
     input: CreateResolverRuleRequest,
   ): Effect.Effect<
@@ -145,7 +165,9 @@ export declare class Route53Resolver extends AWSServiceClient {
     | ResourceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateResolverRule", input);
+  }
   deleteFirewallDomainList(
     input: DeleteFirewallDomainListRequest,
   ): Effect.Effect<
@@ -156,7 +178,9 @@ export declare class Route53Resolver extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteFirewallDomainList", input);
+  }
   deleteFirewallRule(
     input: DeleteFirewallRuleRequest,
   ): Effect.Effect<
@@ -167,7 +191,9 @@ export declare class Route53Resolver extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteFirewallRule", input);
+  }
   deleteFirewallRuleGroup(
     input: DeleteFirewallRuleGroupRequest,
   ): Effect.Effect<
@@ -179,7 +205,9 @@ export declare class Route53Resolver extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteFirewallRuleGroup", input);
+  }
   deleteOutpostResolver(
     input: DeleteOutpostResolverRequest,
   ): Effect.Effect<
@@ -191,7 +219,9 @@ export declare class Route53Resolver extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteOutpostResolver", input);
+  }
   deleteResolverEndpoint(
     input: DeleteResolverEndpointRequest,
   ): Effect.Effect<
@@ -202,7 +232,9 @@ export declare class Route53Resolver extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteResolverEndpoint", input);
+  }
   deleteResolverQueryLogConfig(
     input: DeleteResolverQueryLogConfigRequest,
   ): Effect.Effect<
@@ -214,7 +246,9 @@ export declare class Route53Resolver extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteResolverQueryLogConfig", input);
+  }
   deleteResolverRule(
     input: DeleteResolverRuleRequest,
   ): Effect.Effect<
@@ -225,7 +259,9 @@ export declare class Route53Resolver extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteResolverRule", input);
+  }
   disassociateFirewallRuleGroup(
     input: DisassociateFirewallRuleGroupRequest,
   ): Effect.Effect<
@@ -237,7 +273,9 @@ export declare class Route53Resolver extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DisassociateFirewallRuleGroup", input);
+  }
   disassociateResolverEndpointIpAddress(
     input: DisassociateResolverEndpointIpAddressRequest,
   ): Effect.Effect<
@@ -249,7 +287,9 @@ export declare class Route53Resolver extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DisassociateResolverEndpointIpAddress", input);
+  }
   disassociateResolverQueryLogConfig(
     input: DisassociateResolverQueryLogConfigRequest,
   ): Effect.Effect<
@@ -261,7 +301,9 @@ export declare class Route53Resolver extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DisassociateResolverQueryLogConfig", input);
+  }
   disassociateResolverRule(
     input: DisassociateResolverRuleRequest,
   ): Effect.Effect<
@@ -271,7 +313,9 @@ export declare class Route53Resolver extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DisassociateResolverRule", input);
+  }
   getFirewallConfig(
     input: GetFirewallConfigRequest,
   ): Effect.Effect<
@@ -282,7 +326,9 @@ export declare class Route53Resolver extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetFirewallConfig", input);
+  }
   getFirewallDomainList(
     input: GetFirewallDomainListRequest,
   ): Effect.Effect<
@@ -292,7 +338,9 @@ export declare class Route53Resolver extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetFirewallDomainList", input);
+  }
   getFirewallRuleGroup(
     input: GetFirewallRuleGroupRequest,
   ): Effect.Effect<
@@ -302,7 +350,9 @@ export declare class Route53Resolver extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetFirewallRuleGroup", input);
+  }
   getFirewallRuleGroupAssociation(
     input: GetFirewallRuleGroupAssociationRequest,
   ): Effect.Effect<
@@ -312,7 +362,9 @@ export declare class Route53Resolver extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetFirewallRuleGroupAssociation", input);
+  }
   getFirewallRuleGroupPolicy(
     input: GetFirewallRuleGroupPolicyRequest,
   ): Effect.Effect<
@@ -323,7 +375,9 @@ export declare class Route53Resolver extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetFirewallRuleGroupPolicy", input);
+  }
   getOutpostResolver(
     input: GetOutpostResolverRequest,
   ): Effect.Effect<
@@ -334,7 +388,9 @@ export declare class Route53Resolver extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetOutpostResolver", input);
+  }
   getResolverConfig(
     input: GetResolverConfigRequest,
   ): Effect.Effect<
@@ -346,7 +402,9 @@ export declare class Route53Resolver extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetResolverConfig", input);
+  }
   getResolverDnssecConfig(
     input: GetResolverDnssecConfigRequest,
   ): Effect.Effect<
@@ -358,7 +416,9 @@ export declare class Route53Resolver extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetResolverDnssecConfig", input);
+  }
   getResolverEndpoint(
     input: GetResolverEndpointRequest,
   ): Effect.Effect<
@@ -368,7 +428,9 @@ export declare class Route53Resolver extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetResolverEndpoint", input);
+  }
   getResolverQueryLogConfig(
     input: GetResolverQueryLogConfigRequest,
   ): Effect.Effect<
@@ -380,7 +442,9 @@ export declare class Route53Resolver extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetResolverQueryLogConfig", input);
+  }
   getResolverQueryLogConfigAssociation(
     input: GetResolverQueryLogConfigAssociationRequest,
   ): Effect.Effect<
@@ -392,7 +456,9 @@ export declare class Route53Resolver extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetResolverQueryLogConfigAssociation", input);
+  }
   getResolverQueryLogConfigPolicy(
     input: GetResolverQueryLogConfigPolicyRequest,
   ): Effect.Effect<
@@ -403,7 +469,9 @@ export declare class Route53Resolver extends AWSServiceClient {
     | InvalidRequestException
     | UnknownResourceException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetResolverQueryLogConfigPolicy", input);
+  }
   getResolverRule(
     input: GetResolverRuleRequest,
   ): Effect.Effect<
@@ -413,7 +481,9 @@ export declare class Route53Resolver extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetResolverRule", input);
+  }
   getResolverRuleAssociation(
     input: GetResolverRuleAssociationRequest,
   ): Effect.Effect<
@@ -423,7 +493,9 @@ export declare class Route53Resolver extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetResolverRuleAssociation", input);
+  }
   getResolverRulePolicy(
     input: GetResolverRulePolicyRequest,
   ): Effect.Effect<
@@ -433,7 +505,9 @@ export declare class Route53Resolver extends AWSServiceClient {
     | InvalidParameterException
     | UnknownResourceException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetResolverRulePolicy", input);
+  }
   importFirewallDomains(
     input: ImportFirewallDomainsRequest,
   ): Effect.Effect<
@@ -446,7 +520,9 @@ export declare class Route53Resolver extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ImportFirewallDomains", input);
+  }
   listFirewallConfigs(
     input: ListFirewallConfigsRequest,
   ): Effect.Effect<
@@ -456,7 +532,9 @@ export declare class Route53Resolver extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListFirewallConfigs", input);
+  }
   listFirewallDomainLists(
     input: ListFirewallDomainListsRequest,
   ): Effect.Effect<
@@ -466,7 +544,9 @@ export declare class Route53Resolver extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListFirewallDomainLists", input);
+  }
   listFirewallDomains(
     input: ListFirewallDomainsRequest,
   ): Effect.Effect<
@@ -477,7 +557,9 @@ export declare class Route53Resolver extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListFirewallDomains", input);
+  }
   listFirewallRuleGroupAssociations(
     input: ListFirewallRuleGroupAssociationsRequest,
   ): Effect.Effect<
@@ -487,7 +569,9 @@ export declare class Route53Resolver extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListFirewallRuleGroupAssociations", input);
+  }
   listFirewallRuleGroups(
     input: ListFirewallRuleGroupsRequest,
   ): Effect.Effect<
@@ -497,7 +581,9 @@ export declare class Route53Resolver extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListFirewallRuleGroups", input);
+  }
   listFirewallRules(
     input: ListFirewallRulesRequest,
   ): Effect.Effect<
@@ -508,7 +594,9 @@ export declare class Route53Resolver extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListFirewallRules", input);
+  }
   listOutpostResolvers(
     input: ListOutpostResolversRequest,
   ): Effect.Effect<
@@ -519,7 +607,9 @@ export declare class Route53Resolver extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListOutpostResolvers", input);
+  }
   listResolverConfigs(
     input: ListResolverConfigsRequest,
   ): Effect.Effect<
@@ -532,7 +622,9 @@ export declare class Route53Resolver extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListResolverConfigs", input);
+  }
   listResolverDnssecConfigs(
     input: ListResolverDnssecConfigsRequest,
   ): Effect.Effect<
@@ -544,7 +636,9 @@ export declare class Route53Resolver extends AWSServiceClient {
     | InvalidRequestException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListResolverDnssecConfigs", input);
+  }
   listResolverEndpointIpAddresses(
     input: ListResolverEndpointIpAddressesRequest,
   ): Effect.Effect<
@@ -555,7 +649,9 @@ export declare class Route53Resolver extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListResolverEndpointIpAddresses", input);
+  }
   listResolverEndpoints(
     input: ListResolverEndpointsRequest,
   ): Effect.Effect<
@@ -566,7 +662,9 @@ export declare class Route53Resolver extends AWSServiceClient {
     | InvalidRequestException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListResolverEndpoints", input);
+  }
   listResolverQueryLogConfigAssociations(
     input: ListResolverQueryLogConfigAssociationsRequest,
   ): Effect.Effect<
@@ -578,7 +676,9 @@ export declare class Route53Resolver extends AWSServiceClient {
     | LimitExceededException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListResolverQueryLogConfigAssociations", input);
+  }
   listResolverQueryLogConfigs(
     input: ListResolverQueryLogConfigsRequest,
   ): Effect.Effect<
@@ -590,7 +690,9 @@ export declare class Route53Resolver extends AWSServiceClient {
     | InvalidRequestException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListResolverQueryLogConfigs", input);
+  }
   listResolverRuleAssociations(
     input: ListResolverRuleAssociationsRequest,
   ): Effect.Effect<
@@ -601,7 +703,9 @@ export declare class Route53Resolver extends AWSServiceClient {
     | InvalidRequestException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListResolverRuleAssociations", input);
+  }
   listResolverRules(
     input: ListResolverRulesRequest,
   ): Effect.Effect<
@@ -612,7 +716,9 @@ export declare class Route53Resolver extends AWSServiceClient {
     | InvalidRequestException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListResolverRules", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
@@ -624,7 +730,9 @@ export declare class Route53Resolver extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   putFirewallRuleGroupPolicy(
     input: PutFirewallRuleGroupPolicyRequest,
   ): Effect.Effect<
@@ -635,7 +743,9 @@ export declare class Route53Resolver extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutFirewallRuleGroupPolicy", input);
+  }
   putResolverQueryLogConfigPolicy(
     input: PutResolverQueryLogConfigPolicyRequest,
   ): Effect.Effect<
@@ -647,7 +757,9 @@ export declare class Route53Resolver extends AWSServiceClient {
     | InvalidRequestException
     | UnknownResourceException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutResolverQueryLogConfigPolicy", input);
+  }
   putResolverRulePolicy(
     input: PutResolverRulePolicyRequest,
   ): Effect.Effect<
@@ -658,7 +770,9 @@ export declare class Route53Resolver extends AWSServiceClient {
     | InvalidPolicyDocument
     | UnknownResourceException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutResolverRulePolicy", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -671,7 +785,9 @@ export declare class Route53Resolver extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
@@ -682,7 +798,9 @@ export declare class Route53Resolver extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
   updateFirewallConfig(
     input: UpdateFirewallConfigRequest,
   ): Effect.Effect<
@@ -693,7 +811,9 @@ export declare class Route53Resolver extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateFirewallConfig", input);
+  }
   updateFirewallDomains(
     input: UpdateFirewallDomainsRequest,
   ): Effect.Effect<
@@ -706,7 +826,9 @@ export declare class Route53Resolver extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateFirewallDomains", input);
+  }
   updateFirewallRule(
     input: UpdateFirewallRuleRequest,
   ): Effect.Effect<
@@ -718,7 +840,9 @@ export declare class Route53Resolver extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateFirewallRule", input);
+  }
   updateFirewallRuleGroupAssociation(
     input: UpdateFirewallRuleGroupAssociationRequest,
   ): Effect.Effect<
@@ -730,7 +854,9 @@ export declare class Route53Resolver extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateFirewallRuleGroupAssociation", input);
+  }
   updateOutpostResolver(
     input: UpdateOutpostResolverRequest,
   ): Effect.Effect<
@@ -743,7 +869,9 @@ export declare class Route53Resolver extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateOutpostResolver", input);
+  }
   updateResolverConfig(
     input: UpdateResolverConfigRequest,
   ): Effect.Effect<
@@ -758,7 +886,9 @@ export declare class Route53Resolver extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateResolverConfig", input);
+  }
   updateResolverDnssecConfig(
     input: UpdateResolverDnssecConfigRequest,
   ): Effect.Effect<
@@ -770,7 +900,9 @@ export declare class Route53Resolver extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateResolverDnssecConfig", input);
+  }
   updateResolverEndpoint(
     input: UpdateResolverEndpointRequest,
   ): Effect.Effect<
@@ -782,7 +914,9 @@ export declare class Route53Resolver extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateResolverEndpoint", input);
+  }
   updateResolverRule(
     input: UpdateResolverRuleRequest,
   ): Effect.Effect<
@@ -796,10 +930,14 @@ export declare class Route53Resolver extends AWSServiceClient {
     | ResourceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateResolverRule", input);
+  }
 }
 
-export declare class Route53resolver extends Route53Resolver {}
+export class Route53resolver extends Route53Resolver {}
+
+export default Route53Resolver;
 
 export declare class AccessDeniedException extends EffectData.TaggedError(
   "AccessDeniedException",

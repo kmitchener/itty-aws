@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class PartnerCentralSelling extends AWSServiceClient {
+export class PartnerCentralSelling extends AWSServiceClient {
   getSellingSystemSettings(
     input: GetSellingSystemSettingsRequest,
   ): Effect.Effect<
@@ -12,7 +12,9 @@ export declare class PartnerCentralSelling extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetSellingSystemSettings", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
@@ -23,7 +25,9 @@ export declare class PartnerCentralSelling extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   putSellingSystemSettings(
     input: PutSellingSystemSettingsRequest,
   ): Effect.Effect<
@@ -33,7 +37,9 @@ export declare class PartnerCentralSelling extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutSellingSystemSettings", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -45,7 +51,9 @@ export declare class PartnerCentralSelling extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
@@ -57,10 +65,14 @@ export declare class PartnerCentralSelling extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
 }
 
-export declare class PartnercentralSelling extends PartnerCentralSelling {}
+export class PartnercentralSelling extends PartnerCentralSelling {}
+
+export default PartnerCentralSelling;
 
 export interface AcceptEngagementInvitationRequest {
   Catalog: string;

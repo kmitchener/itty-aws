@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class synthetics extends AWSServiceClient {
+export class synthetics extends AWSServiceClient {
   associateResource(
     input: AssociateResourceRequest,
   ): Effect.Effect<
@@ -13,7 +13,9 @@ export declare class synthetics extends AWSServiceClient {
     | ServiceQuotaExceededException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AssociateResource", input);
+  }
   createCanary(
     input: CreateCanaryRequest,
   ): Effect.Effect<
@@ -22,7 +24,9 @@ export declare class synthetics extends AWSServiceClient {
     | RequestEntityTooLargeException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateCanary", input);
+  }
   createGroup(
     input: CreateGroupRequest,
   ): Effect.Effect<
@@ -32,7 +36,9 @@ export declare class synthetics extends AWSServiceClient {
     | ServiceQuotaExceededException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateGroup", input);
+  }
   deleteCanary(
     input: DeleteCanaryRequest,
   ): Effect.Effect<
@@ -42,7 +48,9 @@ export declare class synthetics extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteCanary", input);
+  }
   deleteGroup(
     input: DeleteGroupRequest,
   ): Effect.Effect<
@@ -52,25 +60,33 @@ export declare class synthetics extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteGroup", input);
+  }
   describeCanaries(
     input: DescribeCanariesRequest,
   ): Effect.Effect<
     DescribeCanariesResponse,
     InternalServerException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeCanaries", input);
+  }
   describeCanariesLastRun(
     input: DescribeCanariesLastRunRequest,
   ): Effect.Effect<
     DescribeCanariesLastRunResponse,
     InternalServerException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeCanariesLastRun", input);
+  }
   describeRuntimeVersions(
     input: DescribeRuntimeVersionsRequest,
   ): Effect.Effect<
     DescribeRuntimeVersionsResponse,
     InternalServerException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeRuntimeVersions", input);
+  }
   disassociateResource(
     input: DisassociateResourceRequest,
   ): Effect.Effect<
@@ -80,13 +96,17 @@ export declare class synthetics extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DisassociateResource", input);
+  }
   getCanary(
     input: GetCanaryRequest,
   ): Effect.Effect<
     GetCanaryResponse,
     InternalServerException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("GetCanary", input);
+  }
   getCanaryRuns(
     input: GetCanaryRunsRequest,
   ): Effect.Effect<
@@ -95,7 +115,9 @@ export declare class synthetics extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetCanaryRuns", input);
+  }
   getGroup(
     input: GetGroupRequest,
   ): Effect.Effect<
@@ -105,7 +127,9 @@ export declare class synthetics extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetGroup", input);
+  }
   listAssociatedGroups(
     input: ListAssociatedGroupsRequest,
   ): Effect.Effect<
@@ -114,7 +138,9 @@ export declare class synthetics extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListAssociatedGroups", input);
+  }
   listGroupResources(
     input: ListGroupResourcesRequest,
   ): Effect.Effect<
@@ -124,13 +150,17 @@ export declare class synthetics extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListGroupResources", input);
+  }
   listGroups(
     input: ListGroupsRequest,
   ): Effect.Effect<
     ListGroupsResponse,
     InternalServerException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("ListGroups", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
@@ -141,7 +171,9 @@ export declare class synthetics extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   startCanary(
     input: StartCanaryRequest,
   ): Effect.Effect<
@@ -151,7 +183,9 @@ export declare class synthetics extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartCanary", input);
+  }
   startCanaryDryRun(
     input: StartCanaryDryRunRequest,
   ): Effect.Effect<
@@ -162,7 +196,9 @@ export declare class synthetics extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartCanaryDryRun", input);
+  }
   stopCanary(
     input: StopCanaryRequest,
   ): Effect.Effect<
@@ -172,7 +208,9 @@ export declare class synthetics extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StopCanary", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -183,7 +221,9 @@ export declare class synthetics extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
@@ -194,7 +234,9 @@ export declare class synthetics extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
   updateCanary(
     input: UpdateCanaryRequest,
   ): Effect.Effect<
@@ -206,8 +248,12 @@ export declare class synthetics extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateCanary", input);
+  }
 }
+
+export default synthetics;
 
 export declare class AccessDeniedException extends EffectData.TaggedError(
   "AccessDeniedException",

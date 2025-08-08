@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class neptunedata extends AWSServiceClient {
+export class neptunedata extends AWSServiceClient {
   cancelGremlinQuery(
     input: CancelGremlinQueryInput,
   ): Effect.Effect<
@@ -22,7 +22,9 @@ export declare class neptunedata extends AWSServiceClient {
     | TooManyRequestsException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CancelGremlinQuery", input);
+  }
   cancelLoaderJob(
     input: CancelLoaderJobInput,
   ): Effect.Effect<
@@ -41,7 +43,9 @@ export declare class neptunedata extends AWSServiceClient {
     | TooManyRequestsException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CancelLoaderJob", input);
+  }
   cancelMLDataProcessingJob(
     input: CancelMLDataProcessingJobInput,
   ): Effect.Effect<
@@ -58,7 +62,9 @@ export declare class neptunedata extends AWSServiceClient {
     | TooManyRequestsException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CancelMLDataProcessingJob", input);
+  }
   cancelMLModelTrainingJob(
     input: CancelMLModelTrainingJobInput,
   ): Effect.Effect<
@@ -75,7 +81,9 @@ export declare class neptunedata extends AWSServiceClient {
     | TooManyRequestsException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CancelMLModelTrainingJob", input);
+  }
   cancelMLModelTransformJob(
     input: CancelMLModelTransformJobInput,
   ): Effect.Effect<
@@ -92,7 +100,9 @@ export declare class neptunedata extends AWSServiceClient {
     | TooManyRequestsException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CancelMLModelTransformJob", input);
+  }
   cancelOpenCypherQuery(
     input: CancelOpenCypherQueryInput,
   ): Effect.Effect<
@@ -113,7 +123,9 @@ export declare class neptunedata extends AWSServiceClient {
     | TooManyRequestsException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CancelOpenCypherQuery", input);
+  }
   createMLEndpoint(
     input: CreateMLEndpointInput,
   ): Effect.Effect<
@@ -130,7 +142,9 @@ export declare class neptunedata extends AWSServiceClient {
     | TooManyRequestsException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateMLEndpoint", input);
+  }
   deleteMLEndpoint(
     input: DeleteMLEndpointInput,
   ): Effect.Effect<
@@ -147,7 +161,9 @@ export declare class neptunedata extends AWSServiceClient {
     | TooManyRequestsException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteMLEndpoint", input);
+  }
   deletePropertygraphStatistics(input: {}): Effect.Effect<
     DeletePropertygraphStatisticsOutput,
     | AccessDeniedException
@@ -164,7 +180,9 @@ export declare class neptunedata extends AWSServiceClient {
     | TooManyRequestsException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeletePropertygraphStatistics", input);
+  }
   deleteSparqlStatistics(input: {}): Effect.Effect<
     DeleteSparqlStatisticsOutput,
     | AccessDeniedException
@@ -181,7 +199,9 @@ export declare class neptunedata extends AWSServiceClient {
     | TooManyRequestsException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteSparqlStatistics", input);
+  }
   executeFastReset(
     input: ExecuteFastResetInput,
   ): Effect.Effect<
@@ -200,7 +220,9 @@ export declare class neptunedata extends AWSServiceClient {
     | TooManyRequestsException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ExecuteFastReset", input);
+  }
   executeGremlinExplainQuery(
     input: ExecuteGremlinExplainQueryInput,
   ): Effect.Effect<
@@ -226,7 +248,9 @@ export declare class neptunedata extends AWSServiceClient {
     | TooManyRequestsException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ExecuteGremlinExplainQuery", input);
+  }
   executeGremlinProfileQuery(
     input: ExecuteGremlinProfileQueryInput,
   ): Effect.Effect<
@@ -252,7 +276,9 @@ export declare class neptunedata extends AWSServiceClient {
     | TooManyRequestsException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ExecuteGremlinProfileQuery", input);
+  }
   executeGremlinQuery(
     input: ExecuteGremlinQueryInput,
   ): Effect.Effect<
@@ -278,7 +304,9 @@ export declare class neptunedata extends AWSServiceClient {
     | TooManyRequestsException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ExecuteGremlinQuery", input);
+  }
   executeOpenCypherExplainQuery(
     input: ExecuteOpenCypherExplainQueryInput,
   ): Effect.Effect<
@@ -305,7 +333,9 @@ export declare class neptunedata extends AWSServiceClient {
     | TooManyRequestsException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ExecuteOpenCypherExplainQuery", input);
+  }
   executeOpenCypherQuery(
     input: ExecuteOpenCypherQueryInput,
   ): Effect.Effect<
@@ -332,7 +362,9 @@ export declare class neptunedata extends AWSServiceClient {
     | TooManyRequestsException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ExecuteOpenCypherQuery", input);
+  }
   getEngineStatus(input: {}): Effect.Effect<
     GetEngineStatusOutput,
     | ClientTimeoutException
@@ -344,7 +376,9 @@ export declare class neptunedata extends AWSServiceClient {
     | TooManyRequestsException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetEngineStatus", input);
+  }
   getGremlinQueryStatus(
     input: GetGremlinQueryStatusInput,
   ): Effect.Effect<
@@ -366,7 +400,9 @@ export declare class neptunedata extends AWSServiceClient {
     | TooManyRequestsException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetGremlinQueryStatus", input);
+  }
   getLoaderJobStatus(
     input: GetLoaderJobStatusInput,
   ): Effect.Effect<
@@ -385,7 +421,9 @@ export declare class neptunedata extends AWSServiceClient {
     | TooManyRequestsException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetLoaderJobStatus", input);
+  }
   getMLDataProcessingJob(
     input: GetMLDataProcessingJobInput,
   ): Effect.Effect<
@@ -402,7 +440,9 @@ export declare class neptunedata extends AWSServiceClient {
     | TooManyRequestsException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetMLDataProcessingJob", input);
+  }
   getMLEndpoint(
     input: GetMLEndpointInput,
   ): Effect.Effect<
@@ -419,7 +459,9 @@ export declare class neptunedata extends AWSServiceClient {
     | TooManyRequestsException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetMLEndpoint", input);
+  }
   getMLModelTrainingJob(
     input: GetMLModelTrainingJobInput,
   ): Effect.Effect<
@@ -436,7 +478,9 @@ export declare class neptunedata extends AWSServiceClient {
     | TooManyRequestsException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetMLModelTrainingJob", input);
+  }
   getMLModelTransformJob(
     input: GetMLModelTransformJobInput,
   ): Effect.Effect<
@@ -453,7 +497,9 @@ export declare class neptunedata extends AWSServiceClient {
     | TooManyRequestsException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetMLModelTransformJob", input);
+  }
   getOpenCypherQueryStatus(
     input: GetOpenCypherQueryStatusInput,
   ): Effect.Effect<
@@ -476,7 +522,9 @@ export declare class neptunedata extends AWSServiceClient {
     | TooManyRequestsException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetOpenCypherQueryStatus", input);
+  }
   getPropertygraphStatistics(input: {}): Effect.Effect<
     GetPropertygraphStatisticsOutput,
     | AccessDeniedException
@@ -493,7 +541,9 @@ export declare class neptunedata extends AWSServiceClient {
     | TooManyRequestsException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetPropertygraphStatistics", input);
+  }
   getPropertygraphStream(
     input: GetPropertygraphStreamInput,
   ): Effect.Effect<
@@ -511,7 +561,9 @@ export declare class neptunedata extends AWSServiceClient {
     | TooManyRequestsException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetPropertygraphStream", input);
+  }
   getPropertygraphSummary(
     input: GetPropertygraphSummaryInput,
   ): Effect.Effect<
@@ -530,7 +582,9 @@ export declare class neptunedata extends AWSServiceClient {
     | TooManyRequestsException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetPropertygraphSummary", input);
+  }
   getRDFGraphSummary(
     input: GetRDFGraphSummaryInput,
   ): Effect.Effect<
@@ -549,7 +603,9 @@ export declare class neptunedata extends AWSServiceClient {
     | TooManyRequestsException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetRDFGraphSummary", input);
+  }
   getSparqlStatistics(input: {}): Effect.Effect<
     GetSparqlStatisticsOutput,
     | AccessDeniedException
@@ -566,7 +622,9 @@ export declare class neptunedata extends AWSServiceClient {
     | TooManyRequestsException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetSparqlStatistics", input);
+  }
   getSparqlStream(
     input: GetSparqlStreamInput,
   ): Effect.Effect<
@@ -584,7 +642,9 @@ export declare class neptunedata extends AWSServiceClient {
     | TooManyRequestsException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetSparqlStream", input);
+  }
   listGremlinQueries(
     input: ListGremlinQueriesInput,
   ): Effect.Effect<
@@ -606,7 +666,9 @@ export declare class neptunedata extends AWSServiceClient {
     | TooManyRequestsException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListGremlinQueries", input);
+  }
   listLoaderJobs(
     input: ListLoaderJobsInput,
   ): Effect.Effect<
@@ -624,7 +686,9 @@ export declare class neptunedata extends AWSServiceClient {
     | TooManyRequestsException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListLoaderJobs", input);
+  }
   listMLDataProcessingJobs(
     input: ListMLDataProcessingJobsInput,
   ): Effect.Effect<
@@ -641,7 +705,9 @@ export declare class neptunedata extends AWSServiceClient {
     | TooManyRequestsException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListMLDataProcessingJobs", input);
+  }
   listMLEndpoints(
     input: ListMLEndpointsInput,
   ): Effect.Effect<
@@ -658,7 +724,9 @@ export declare class neptunedata extends AWSServiceClient {
     | TooManyRequestsException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListMLEndpoints", input);
+  }
   listMLModelTrainingJobs(
     input: ListMLModelTrainingJobsInput,
   ): Effect.Effect<
@@ -675,7 +743,9 @@ export declare class neptunedata extends AWSServiceClient {
     | TooManyRequestsException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListMLModelTrainingJobs", input);
+  }
   listMLModelTransformJobs(
     input: ListMLModelTransformJobsInput,
   ): Effect.Effect<
@@ -692,7 +762,9 @@ export declare class neptunedata extends AWSServiceClient {
     | TooManyRequestsException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListMLModelTransformJobs", input);
+  }
   listOpenCypherQueries(
     input: ListOpenCypherQueriesInput,
   ): Effect.Effect<
@@ -715,7 +787,9 @@ export declare class neptunedata extends AWSServiceClient {
     | TooManyRequestsException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListOpenCypherQueries", input);
+  }
   managePropertygraphStatistics(
     input: ManagePropertygraphStatisticsInput,
   ): Effect.Effect<
@@ -734,7 +808,9 @@ export declare class neptunedata extends AWSServiceClient {
     | TooManyRequestsException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ManagePropertygraphStatistics", input);
+  }
   manageSparqlStatistics(
     input: ManageSparqlStatisticsInput,
   ): Effect.Effect<
@@ -753,7 +829,9 @@ export declare class neptunedata extends AWSServiceClient {
     | TooManyRequestsException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ManageSparqlStatistics", input);
+  }
   startLoaderJob(
     input: StartLoaderJobInput,
   ): Effect.Effect<
@@ -773,7 +851,9 @@ export declare class neptunedata extends AWSServiceClient {
     | TooManyRequestsException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartLoaderJob", input);
+  }
   startMLDataProcessingJob(
     input: StartMLDataProcessingJobInput,
   ): Effect.Effect<
@@ -790,7 +870,9 @@ export declare class neptunedata extends AWSServiceClient {
     | TooManyRequestsException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartMLDataProcessingJob", input);
+  }
   startMLModelTrainingJob(
     input: StartMLModelTrainingJobInput,
   ): Effect.Effect<
@@ -807,7 +889,9 @@ export declare class neptunedata extends AWSServiceClient {
     | TooManyRequestsException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartMLModelTrainingJob", input);
+  }
   startMLModelTransformJob(
     input: StartMLModelTransformJobInput,
   ): Effect.Effect<
@@ -824,10 +908,14 @@ export declare class neptunedata extends AWSServiceClient {
     | TooManyRequestsException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartMLModelTransformJob", input);
+  }
 }
 
-export declare class Neptunedata extends neptunedata {}
+export class Neptunedata extends neptunedata {}
+
+export default neptunedata;
 
 export declare class AccessDeniedException extends EffectData.TaggedError(
   "AccessDeniedException",

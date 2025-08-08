@@ -2,34 +2,44 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class CloudFormation extends AWSServiceClient {
+export class CloudFormation extends AWSServiceClient {
   activateOrganizationsAccess(
     input: ActivateOrganizationsAccessInput,
   ): Effect.Effect<
     ActivateOrganizationsAccessOutput,
     InvalidOperationException | OperationNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("ActivateOrganizationsAccess", input);
+  }
   activateType(
     input: ActivateTypeInput,
   ): Effect.Effect<
     ActivateTypeOutput,
     CFNRegistryException | TypeNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("ActivateType", input);
+  }
   batchDescribeTypeConfigurations(
     input: BatchDescribeTypeConfigurationsInput,
   ): Effect.Effect<
     BatchDescribeTypeConfigurationsOutput,
     CFNRegistryException | TypeConfigurationNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("BatchDescribeTypeConfigurations", input);
+  }
   cancelUpdateStack(
     input: CancelUpdateStackInput,
-  ): Effect.Effect<{}, TokenAlreadyExistsException | CommonAwsError>;
+  ): Effect.Effect<{}, TokenAlreadyExistsException | CommonAwsError> {
+    return this.call("CancelUpdateStack", input);
+  }
   continueUpdateRollback(
     input: ContinueUpdateRollbackInput,
   ): Effect.Effect<
     ContinueUpdateRollbackOutput,
     TokenAlreadyExistsException | CommonAwsError
-  >;
+  > {
+    return this.call("ContinueUpdateRollback", input);
+  }
   createChangeSet(
     input: CreateChangeSetInput,
   ): Effect.Effect<
@@ -38,7 +48,9 @@ export declare class CloudFormation extends AWSServiceClient {
     | InsufficientCapabilitiesException
     | LimitExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateChangeSet", input);
+  }
   createGeneratedTemplate(
     input: CreateGeneratedTemplateInput,
   ): Effect.Effect<
@@ -47,7 +59,9 @@ export declare class CloudFormation extends AWSServiceClient {
     | ConcurrentResourcesLimitExceededException
     | LimitExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateGeneratedTemplate", input);
+  }
   createStack(
     input: CreateStackInput,
   ): Effect.Effect<
@@ -57,7 +71,9 @@ export declare class CloudFormation extends AWSServiceClient {
     | LimitExceededException
     | TokenAlreadyExistsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateStack", input);
+  }
   createStackInstances(
     input: CreateStackInstancesInput,
   ): Effect.Effect<
@@ -69,10 +85,14 @@ export declare class CloudFormation extends AWSServiceClient {
     | StackSetNotFoundException
     | StaleRequestException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateStackInstances", input);
+  }
   createStackRefactor(
     input: CreateStackRefactorInput,
-  ): Effect.Effect<CreateStackRefactorOutput, CommonAwsError>;
+  ): Effect.Effect<CreateStackRefactorOutput, CommonAwsError> {
+    return this.call("CreateStackRefactor", input);
+  }
   createStackSet(
     input: CreateStackSetInput,
   ): Effect.Effect<
@@ -81,25 +101,33 @@ export declare class CloudFormation extends AWSServiceClient {
     | LimitExceededException
     | NameAlreadyExistsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateStackSet", input);
+  }
   deactivateOrganizationsAccess(
     input: DeactivateOrganizationsAccessInput,
   ): Effect.Effect<
     DeactivateOrganizationsAccessOutput,
     InvalidOperationException | OperationNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("DeactivateOrganizationsAccess", input);
+  }
   deactivateType(
     input: DeactivateTypeInput,
   ): Effect.Effect<
     DeactivateTypeOutput,
     CFNRegistryException | TypeNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("DeactivateType", input);
+  }
   deleteChangeSet(
     input: DeleteChangeSetInput,
   ): Effect.Effect<
     DeleteChangeSetOutput,
     InvalidChangeSetStatusException | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteChangeSet", input);
+  }
   deleteGeneratedTemplate(
     input: DeleteGeneratedTemplateInput,
   ): Effect.Effect<
@@ -107,10 +135,14 @@ export declare class CloudFormation extends AWSServiceClient {
     | ConcurrentResourcesLimitExceededException
     | GeneratedTemplateNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteGeneratedTemplate", input);
+  }
   deleteStack(
     input: DeleteStackInput,
-  ): Effect.Effect<{}, TokenAlreadyExistsException | CommonAwsError>;
+  ): Effect.Effect<{}, TokenAlreadyExistsException | CommonAwsError> {
+    return this.call("DeleteStack", input);
+  }
   deleteStackInstances(
     input: DeleteStackInstancesInput,
   ): Effect.Effect<
@@ -121,118 +153,166 @@ export declare class CloudFormation extends AWSServiceClient {
     | StackSetNotFoundException
     | StaleRequestException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteStackInstances", input);
+  }
   deleteStackSet(
     input: DeleteStackSetInput,
   ): Effect.Effect<
     DeleteStackSetOutput,
     OperationInProgressException | StackSetNotEmptyException | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteStackSet", input);
+  }
   deregisterType(
     input: DeregisterTypeInput,
   ): Effect.Effect<
     DeregisterTypeOutput,
     CFNRegistryException | TypeNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("DeregisterType", input);
+  }
   describeAccountLimits(
     input: DescribeAccountLimitsInput,
-  ): Effect.Effect<DescribeAccountLimitsOutput, CommonAwsError>;
+  ): Effect.Effect<DescribeAccountLimitsOutput, CommonAwsError> {
+    return this.call("DescribeAccountLimits", input);
+  }
   describeChangeSet(
     input: DescribeChangeSetInput,
   ): Effect.Effect<
     DescribeChangeSetOutput,
     ChangeSetNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeChangeSet", input);
+  }
   describeChangeSetHooks(
     input: DescribeChangeSetHooksInput,
   ): Effect.Effect<
     DescribeChangeSetHooksOutput,
     ChangeSetNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeChangeSetHooks", input);
+  }
   describeGeneratedTemplate(
     input: DescribeGeneratedTemplateInput,
   ): Effect.Effect<
     DescribeGeneratedTemplateOutput,
     GeneratedTemplateNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeGeneratedTemplate", input);
+  }
   describeOrganizationsAccess(
     input: DescribeOrganizationsAccessInput,
   ): Effect.Effect<
     DescribeOrganizationsAccessOutput,
     InvalidOperationException | OperationNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeOrganizationsAccess", input);
+  }
   describePublisher(
     input: DescribePublisherInput,
   ): Effect.Effect<
     DescribePublisherOutput,
     CFNRegistryException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribePublisher", input);
+  }
   describeResourceScan(
     input: DescribeResourceScanInput,
   ): Effect.Effect<
     DescribeResourceScanOutput,
     ResourceScanNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeResourceScan", input);
+  }
   describeStackDriftDetectionStatus(
     input: DescribeStackDriftDetectionStatusInput,
-  ): Effect.Effect<DescribeStackDriftDetectionStatusOutput, CommonAwsError>;
+  ): Effect.Effect<DescribeStackDriftDetectionStatusOutput, CommonAwsError> {
+    return this.call("DescribeStackDriftDetectionStatus", input);
+  }
   describeStackEvents(
     input: DescribeStackEventsInput,
-  ): Effect.Effect<DescribeStackEventsOutput, CommonAwsError>;
+  ): Effect.Effect<DescribeStackEventsOutput, CommonAwsError> {
+    return this.call("DescribeStackEvents", input);
+  }
   describeStackInstance(
     input: DescribeStackInstanceInput,
   ): Effect.Effect<
     DescribeStackInstanceOutput,
     StackInstanceNotFoundException | StackSetNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeStackInstance", input);
+  }
   describeStackRefactor(
     input: DescribeStackRefactorInput,
   ): Effect.Effect<
     DescribeStackRefactorOutput,
     StackRefactorNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeStackRefactor", input);
+  }
   describeStackResource(
     input: DescribeStackResourceInput,
-  ): Effect.Effect<DescribeStackResourceOutput, CommonAwsError>;
+  ): Effect.Effect<DescribeStackResourceOutput, CommonAwsError> {
+    return this.call("DescribeStackResource", input);
+  }
   describeStackResourceDrifts(
     input: DescribeStackResourceDriftsInput,
-  ): Effect.Effect<DescribeStackResourceDriftsOutput, CommonAwsError>;
+  ): Effect.Effect<DescribeStackResourceDriftsOutput, CommonAwsError> {
+    return this.call("DescribeStackResourceDrifts", input);
+  }
   describeStackResources(
     input: DescribeStackResourcesInput,
-  ): Effect.Effect<DescribeStackResourcesOutput, CommonAwsError>;
+  ): Effect.Effect<DescribeStackResourcesOutput, CommonAwsError> {
+    return this.call("DescribeStackResources", input);
+  }
   describeStacks(
     input: DescribeStacksInput,
-  ): Effect.Effect<DescribeStacksOutput, CommonAwsError>;
+  ): Effect.Effect<DescribeStacksOutput, CommonAwsError> {
+    return this.call("DescribeStacks", input);
+  }
   describeStackSet(
     input: DescribeStackSetInput,
   ): Effect.Effect<
     DescribeStackSetOutput,
     StackSetNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeStackSet", input);
+  }
   describeStackSetOperation(
     input: DescribeStackSetOperationInput,
   ): Effect.Effect<
     DescribeStackSetOperationOutput,
     OperationNotFoundException | StackSetNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeStackSetOperation", input);
+  }
   describeType(
     input: DescribeTypeInput,
   ): Effect.Effect<
     DescribeTypeOutput,
     CFNRegistryException | TypeNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeType", input);
+  }
   describeTypeRegistration(
     input: DescribeTypeRegistrationInput,
   ): Effect.Effect<
     DescribeTypeRegistrationOutput,
     CFNRegistryException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeTypeRegistration", input);
+  }
   detectStackDrift(
     input: DetectStackDriftInput,
-  ): Effect.Effect<DetectStackDriftOutput, CommonAwsError>;
+  ): Effect.Effect<DetectStackDriftOutput, CommonAwsError> {
+    return this.call("DetectStackDrift", input);
+  }
   detectStackResourceDrift(
     input: DetectStackResourceDriftInput,
-  ): Effect.Effect<DetectStackResourceDriftOutput, CommonAwsError>;
+  ): Effect.Effect<DetectStackResourceDriftOutput, CommonAwsError> {
+    return this.call("DetectStackResourceDrift", input);
+  }
   detectStackSetDrift(
     input: DetectStackSetDriftInput,
   ): Effect.Effect<
@@ -241,10 +321,14 @@ export declare class CloudFormation extends AWSServiceClient {
     | OperationInProgressException
     | StackSetNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DetectStackSetDrift", input);
+  }
   estimateTemplateCost(
     input: EstimateTemplateCostInput,
-  ): Effect.Effect<EstimateTemplateCostOutput, CommonAwsError>;
+  ): Effect.Effect<EstimateTemplateCostOutput, CommonAwsError> {
+    return this.call("EstimateTemplateCost", input);
+  }
   executeChangeSet(
     input: ExecuteChangeSetInput,
   ): Effect.Effect<
@@ -254,31 +338,43 @@ export declare class CloudFormation extends AWSServiceClient {
     | InvalidChangeSetStatusException
     | TokenAlreadyExistsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ExecuteChangeSet", input);
+  }
   executeStackRefactor(
     input: ExecuteStackRefactorInput,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, CommonAwsError> {
+    return this.call("ExecuteStackRefactor", input);
+  }
   getGeneratedTemplate(
     input: GetGeneratedTemplateInput,
   ): Effect.Effect<
     GetGeneratedTemplateOutput,
     GeneratedTemplateNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("GetGeneratedTemplate", input);
+  }
   getStackPolicy(
     input: GetStackPolicyInput,
-  ): Effect.Effect<GetStackPolicyOutput, CommonAwsError>;
+  ): Effect.Effect<GetStackPolicyOutput, CommonAwsError> {
+    return this.call("GetStackPolicy", input);
+  }
   getTemplate(
     input: GetTemplateInput,
   ): Effect.Effect<
     GetTemplateOutput,
     ChangeSetNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("GetTemplate", input);
+  }
   getTemplateSummary(
     input: GetTemplateSummaryInput,
   ): Effect.Effect<
     GetTemplateSummaryOutput,
     StackSetNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("GetTemplateSummary", input);
+  }
   importStacksToStackSet(
     input: ImportStacksToStackSetInput,
   ): Effect.Effect<
@@ -291,25 +387,37 @@ export declare class CloudFormation extends AWSServiceClient {
     | StackSetNotFoundException
     | StaleRequestException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ImportStacksToStackSet", input);
+  }
   listChangeSets(
     input: ListChangeSetsInput,
-  ): Effect.Effect<ListChangeSetsOutput, CommonAwsError>;
+  ): Effect.Effect<ListChangeSetsOutput, CommonAwsError> {
+    return this.call("ListChangeSets", input);
+  }
   listExports(
     input: ListExportsInput,
-  ): Effect.Effect<ListExportsOutput, CommonAwsError>;
+  ): Effect.Effect<ListExportsOutput, CommonAwsError> {
+    return this.call("ListExports", input);
+  }
   listGeneratedTemplates(
     input: ListGeneratedTemplatesInput,
-  ): Effect.Effect<ListGeneratedTemplatesOutput, CommonAwsError>;
+  ): Effect.Effect<ListGeneratedTemplatesOutput, CommonAwsError> {
+    return this.call("ListGeneratedTemplates", input);
+  }
   listHookResults(
     input: ListHookResultsInput,
   ): Effect.Effect<
     ListHookResultsOutput,
     HookResultNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("ListHookResults", input);
+  }
   listImports(
     input: ListImportsInput,
-  ): Effect.Effect<ListImportsOutput, CommonAwsError>;
+  ): Effect.Effect<ListImportsOutput, CommonAwsError> {
+    return this.call("ListImports", input);
+  }
   listResourceScanRelatedResources(
     input: ListResourceScanRelatedResourcesInput,
   ): Effect.Effect<
@@ -317,7 +425,9 @@ export declare class CloudFormation extends AWSServiceClient {
     | ResourceScanInProgressException
     | ResourceScanNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListResourceScanRelatedResources", input);
+  }
   listResourceScanResources(
     input: ListResourceScanResourcesInput,
   ): Effect.Effect<
@@ -325,10 +435,14 @@ export declare class CloudFormation extends AWSServiceClient {
     | ResourceScanInProgressException
     | ResourceScanNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListResourceScanResources", input);
+  }
   listResourceScans(
     input: ListResourceScansInput,
-  ): Effect.Effect<ListResourceScansOutput, CommonAwsError>;
+  ): Effect.Effect<ListResourceScansOutput, CommonAwsError> {
+    return this.call("ListResourceScans", input);
+  }
   listStackInstanceResourceDrifts(
     input: ListStackInstanceResourceDriftsInput,
   ): Effect.Effect<
@@ -337,67 +451,95 @@ export declare class CloudFormation extends AWSServiceClient {
     | StackInstanceNotFoundException
     | StackSetNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListStackInstanceResourceDrifts", input);
+  }
   listStackInstances(
     input: ListStackInstancesInput,
   ): Effect.Effect<
     ListStackInstancesOutput,
     StackSetNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("ListStackInstances", input);
+  }
   listStackRefactorActions(
     input: ListStackRefactorActionsInput,
-  ): Effect.Effect<ListStackRefactorActionsOutput, CommonAwsError>;
+  ): Effect.Effect<ListStackRefactorActionsOutput, CommonAwsError> {
+    return this.call("ListStackRefactorActions", input);
+  }
   listStackRefactors(
     input: ListStackRefactorsInput,
-  ): Effect.Effect<ListStackRefactorsOutput, CommonAwsError>;
+  ): Effect.Effect<ListStackRefactorsOutput, CommonAwsError> {
+    return this.call("ListStackRefactors", input);
+  }
   listStackResources(
     input: ListStackResourcesInput,
-  ): Effect.Effect<ListStackResourcesOutput, CommonAwsError>;
+  ): Effect.Effect<ListStackResourcesOutput, CommonAwsError> {
+    return this.call("ListStackResources", input);
+  }
   listStacks(
     input: ListStacksInput,
-  ): Effect.Effect<ListStacksOutput, CommonAwsError>;
+  ): Effect.Effect<ListStacksOutput, CommonAwsError> {
+    return this.call("ListStacks", input);
+  }
   listStackSetAutoDeploymentTargets(
     input: ListStackSetAutoDeploymentTargetsInput,
   ): Effect.Effect<
     ListStackSetAutoDeploymentTargetsOutput,
     StackSetNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("ListStackSetAutoDeploymentTargets", input);
+  }
   listStackSetOperationResults(
     input: ListStackSetOperationResultsInput,
   ): Effect.Effect<
     ListStackSetOperationResultsOutput,
     OperationNotFoundException | StackSetNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("ListStackSetOperationResults", input);
+  }
   listStackSetOperations(
     input: ListStackSetOperationsInput,
   ): Effect.Effect<
     ListStackSetOperationsOutput,
     StackSetNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("ListStackSetOperations", input);
+  }
   listStackSets(
     input: ListStackSetsInput,
-  ): Effect.Effect<ListStackSetsOutput, CommonAwsError>;
+  ): Effect.Effect<ListStackSetsOutput, CommonAwsError> {
+    return this.call("ListStackSets", input);
+  }
   listTypeRegistrations(
     input: ListTypeRegistrationsInput,
   ): Effect.Effect<
     ListTypeRegistrationsOutput,
     CFNRegistryException | CommonAwsError
-  >;
+  > {
+    return this.call("ListTypeRegistrations", input);
+  }
   listTypes(
     input: ListTypesInput,
-  ): Effect.Effect<ListTypesOutput, CFNRegistryException | CommonAwsError>;
+  ): Effect.Effect<ListTypesOutput, CFNRegistryException | CommonAwsError> {
+    return this.call("ListTypes", input);
+  }
   listTypeVersions(
     input: ListTypeVersionsInput,
   ): Effect.Effect<
     ListTypeVersionsOutput,
     CFNRegistryException | CommonAwsError
-  >;
+  > {
+    return this.call("ListTypeVersions", input);
+  }
   publishType(
     input: PublishTypeInput,
   ): Effect.Effect<
     PublishTypeOutput,
     CFNRegistryException | TypeNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("PublishType", input);
+  }
   recordHandlerProgress(
     input: RecordHandlerProgressInput,
   ): Effect.Effect<
@@ -405,36 +547,56 @@ export declare class CloudFormation extends AWSServiceClient {
     | InvalidStateTransitionException
     | OperationStatusCheckFailedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("RecordHandlerProgress", input);
+  }
   registerPublisher(
     input: RegisterPublisherInput,
   ): Effect.Effect<
     RegisterPublisherOutput,
     CFNRegistryException | CommonAwsError
-  >;
+  > {
+    return this.call("RegisterPublisher", input);
+  }
   registerType(
     input: RegisterTypeInput,
-  ): Effect.Effect<RegisterTypeOutput, CFNRegistryException | CommonAwsError>;
+  ): Effect.Effect<RegisterTypeOutput, CFNRegistryException | CommonAwsError> {
+    return this.call("RegisterType", input);
+  }
   rollbackStack(
     input: RollbackStackInput,
   ): Effect.Effect<
     RollbackStackOutput,
     TokenAlreadyExistsException | CommonAwsError
-  >;
-  setStackPolicy(input: SetStackPolicyInput): Effect.Effect<{}, CommonAwsError>;
+  > {
+    return this.call("RollbackStack", input);
+  }
+  setStackPolicy(
+    input: SetStackPolicyInput,
+  ): Effect.Effect<{}, CommonAwsError> {
+    return this.call("SetStackPolicy", input);
+  }
   setTypeConfiguration(
     input: SetTypeConfigurationInput,
   ): Effect.Effect<
     SetTypeConfigurationOutput,
     CFNRegistryException | TypeNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("SetTypeConfiguration", input);
+  }
   setTypeDefaultVersion(
     input: SetTypeDefaultVersionInput,
   ): Effect.Effect<
     SetTypeDefaultVersionOutput,
     CFNRegistryException | TypeNotFoundException | CommonAwsError
-  >;
-  signalResource(input: SignalResourceInput): Effect.Effect<{}, CommonAwsError>;
+  > {
+    return this.call("SetTypeDefaultVersion", input);
+  }
+  signalResource(
+    input: SignalResourceInput,
+  ): Effect.Effect<{}, CommonAwsError> {
+    return this.call("SignalResource", input);
+  }
   startResourceScan(
     input: StartResourceScanInput,
   ): Effect.Effect<
@@ -442,7 +604,9 @@ export declare class CloudFormation extends AWSServiceClient {
     | ResourceScanInProgressException
     | ResourceScanLimitExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartResourceScan", input);
+  }
   stopStackSetOperation(
     input: StopStackSetOperationInput,
   ): Effect.Effect<
@@ -451,13 +615,17 @@ export declare class CloudFormation extends AWSServiceClient {
     | OperationNotFoundException
     | StackSetNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StopStackSetOperation", input);
+  }
   testType(
     input: TestTypeInput,
   ): Effect.Effect<
     TestTypeOutput,
     CFNRegistryException | TypeNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("TestType", input);
+  }
   updateGeneratedTemplate(
     input: UpdateGeneratedTemplateInput,
   ): Effect.Effect<
@@ -466,7 +634,9 @@ export declare class CloudFormation extends AWSServiceClient {
     | GeneratedTemplateNotFoundException
     | LimitExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateGeneratedTemplate", input);
+  }
   updateStack(
     input: UpdateStackInput,
   ): Effect.Effect<
@@ -474,7 +644,9 @@ export declare class CloudFormation extends AWSServiceClient {
     | InsufficientCapabilitiesException
     | TokenAlreadyExistsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateStack", input);
+  }
   updateStackInstances(
     input: UpdateStackInstancesInput,
   ): Effect.Effect<
@@ -486,7 +658,9 @@ export declare class CloudFormation extends AWSServiceClient {
     | StackSetNotFoundException
     | StaleRequestException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateStackInstances", input);
+  }
   updateStackSet(
     input: UpdateStackSetInput,
   ): Effect.Effect<
@@ -498,16 +672,24 @@ export declare class CloudFormation extends AWSServiceClient {
     | StackSetNotFoundException
     | StaleRequestException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateStackSet", input);
+  }
   updateTerminationProtection(
     input: UpdateTerminationProtectionInput,
-  ): Effect.Effect<UpdateTerminationProtectionOutput, CommonAwsError>;
+  ): Effect.Effect<UpdateTerminationProtectionOutput, CommonAwsError> {
+    return this.call("UpdateTerminationProtection", input);
+  }
   validateTemplate(
     input: ValidateTemplateInput,
-  ): Effect.Effect<ValidateTemplateOutput, CommonAwsError>;
+  ): Effect.Effect<ValidateTemplateOutput, CommonAwsError> {
+    return this.call("ValidateTemplate", input);
+  }
 }
 
-export declare class Cloudformation extends CloudFormation {}
+export class Cloudformation extends CloudFormation {}
+
+export default CloudFormation;
 
 export type AcceptTermsAndConditions = boolean;
 

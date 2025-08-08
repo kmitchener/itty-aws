@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class ServiceCatalog extends AWSServiceClient {
+export class ServiceCatalog extends AWSServiceClient {
   acceptPortfolioShare(
     input: AcceptPortfolioShareInput,
   ): Effect.Effect<
@@ -11,7 +11,9 @@ export declare class ServiceCatalog extends AWSServiceClient {
     | LimitExceededException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AcceptPortfolioShare", input);
+  }
   associateBudgetWithResource(
     input: AssociateBudgetWithResourceInput,
   ): Effect.Effect<
@@ -21,7 +23,9 @@ export declare class ServiceCatalog extends AWSServiceClient {
     | LimitExceededException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AssociateBudgetWithResource", input);
+  }
   associatePrincipalWithPortfolio(
     input: AssociatePrincipalWithPortfolioInput,
   ): Effect.Effect<
@@ -30,7 +34,9 @@ export declare class ServiceCatalog extends AWSServiceClient {
     | LimitExceededException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AssociatePrincipalWithPortfolio", input);
+  }
   associateProductWithPortfolio(
     input: AssociateProductWithPortfolioInput,
   ): Effect.Effect<
@@ -39,7 +45,9 @@ export declare class ServiceCatalog extends AWSServiceClient {
     | LimitExceededException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AssociateProductWithPortfolio", input);
+  }
   associateServiceActionWithProvisioningArtifact(
     input: AssociateServiceActionWithProvisioningArtifactInput,
   ): Effect.Effect<
@@ -49,7 +57,9 @@ export declare class ServiceCatalog extends AWSServiceClient {
     | LimitExceededException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AssociateServiceActionWithProvisioningArtifact", input);
+  }
   associateTagOptionWithResource(
     input: AssociateTagOptionWithResourceInput,
   ): Effect.Effect<
@@ -61,25 +71,39 @@ export declare class ServiceCatalog extends AWSServiceClient {
     | ResourceNotFoundException
     | TagOptionNotMigratedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AssociateTagOptionWithResource", input);
+  }
   batchAssociateServiceActionWithProvisioningArtifact(
     input: BatchAssociateServiceActionWithProvisioningArtifactInput,
   ): Effect.Effect<
     BatchAssociateServiceActionWithProvisioningArtifactOutput,
     InvalidParametersException | CommonAwsError
-  >;
+  > {
+    return this.call(
+      "BatchAssociateServiceActionWithProvisioningArtifact",
+      input,
+    );
+  }
   batchDisassociateServiceActionFromProvisioningArtifact(
     input: BatchDisassociateServiceActionFromProvisioningArtifactInput,
   ): Effect.Effect<
     BatchDisassociateServiceActionFromProvisioningArtifactOutput,
     InvalidParametersException | CommonAwsError
-  >;
+  > {
+    return this.call(
+      "BatchDisassociateServiceActionFromProvisioningArtifact",
+      input,
+    );
+  }
   copyProduct(
     input: CopyProductInput,
   ): Effect.Effect<
     CopyProductOutput,
     InvalidParametersException | ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("CopyProduct", input);
+  }
   createConstraint(
     input: CreateConstraintInput,
   ): Effect.Effect<
@@ -89,7 +113,9 @@ export declare class ServiceCatalog extends AWSServiceClient {
     | LimitExceededException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateConstraint", input);
+  }
   createPortfolio(
     input: CreatePortfolioInput,
   ): Effect.Effect<
@@ -98,7 +124,9 @@ export declare class ServiceCatalog extends AWSServiceClient {
     | LimitExceededException
     | TagOptionNotMigratedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreatePortfolio", input);
+  }
   createPortfolioShare(
     input: CreatePortfolioShareInput,
   ): Effect.Effect<
@@ -109,7 +137,9 @@ export declare class ServiceCatalog extends AWSServiceClient {
     | OperationNotSupportedException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreatePortfolioShare", input);
+  }
   createProduct(
     input: CreateProductInput,
   ): Effect.Effect<
@@ -118,7 +148,9 @@ export declare class ServiceCatalog extends AWSServiceClient {
     | LimitExceededException
     | TagOptionNotMigratedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateProduct", input);
+  }
   createProvisionedProductPlan(
     input: CreateProvisionedProductPlanInput,
   ): Effect.Effect<
@@ -127,7 +159,9 @@ export declare class ServiceCatalog extends AWSServiceClient {
     | InvalidStateException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateProvisionedProductPlan", input);
+  }
   createProvisioningArtifact(
     input: CreateProvisioningArtifactInput,
   ): Effect.Effect<
@@ -136,13 +170,17 @@ export declare class ServiceCatalog extends AWSServiceClient {
     | LimitExceededException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateProvisioningArtifact", input);
+  }
   createServiceAction(
     input: CreateServiceActionInput,
   ): Effect.Effect<
     CreateServiceActionOutput,
     InvalidParametersException | LimitExceededException | CommonAwsError
-  >;
+  > {
+    return this.call("CreateServiceAction", input);
+  }
   createTagOption(
     input: CreateTagOptionInput,
   ): Effect.Effect<
@@ -151,13 +189,17 @@ export declare class ServiceCatalog extends AWSServiceClient {
     | LimitExceededException
     | TagOptionNotMigratedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateTagOption", input);
+  }
   deleteConstraint(
     input: DeleteConstraintInput,
   ): Effect.Effect<
     DeleteConstraintOutput,
     InvalidParametersException | ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteConstraint", input);
+  }
   deletePortfolio(
     input: DeletePortfolioInput,
   ): Effect.Effect<
@@ -167,7 +209,9 @@ export declare class ServiceCatalog extends AWSServiceClient {
     | ResourceNotFoundException
     | TagOptionNotMigratedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeletePortfolio", input);
+  }
   deletePortfolioShare(
     input: DeletePortfolioShareInput,
   ): Effect.Effect<
@@ -177,7 +221,9 @@ export declare class ServiceCatalog extends AWSServiceClient {
     | OperationNotSupportedException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeletePortfolioShare", input);
+  }
   deleteProduct(
     input: DeleteProductInput,
   ): Effect.Effect<
@@ -187,13 +233,17 @@ export declare class ServiceCatalog extends AWSServiceClient {
     | ResourceNotFoundException
     | TagOptionNotMigratedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteProduct", input);
+  }
   deleteProvisionedProductPlan(
     input: DeleteProvisionedProductPlanInput,
   ): Effect.Effect<
     DeleteProvisionedProductPlanOutput,
     InvalidParametersException | ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteProvisionedProductPlan", input);
+  }
   deleteProvisioningArtifact(
     input: DeleteProvisioningArtifactInput,
   ): Effect.Effect<
@@ -202,7 +252,9 @@ export declare class ServiceCatalog extends AWSServiceClient {
     | ResourceInUseException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteProvisioningArtifact", input);
+  }
   deleteServiceAction(
     input: DeleteServiceActionInput,
   ): Effect.Effect<
@@ -211,7 +263,9 @@ export declare class ServiceCatalog extends AWSServiceClient {
     | ResourceInUseException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteServiceAction", input);
+  }
   deleteTagOption(
     input: DeleteTagOptionInput,
   ): Effect.Effect<
@@ -220,31 +274,41 @@ export declare class ServiceCatalog extends AWSServiceClient {
     | ResourceNotFoundException
     | TagOptionNotMigratedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteTagOption", input);
+  }
   describeConstraint(
     input: DescribeConstraintInput,
   ): Effect.Effect<
     DescribeConstraintOutput,
     ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeConstraint", input);
+  }
   describeCopyProductStatus(
     input: DescribeCopyProductStatusInput,
   ): Effect.Effect<
     DescribeCopyProductStatusOutput,
     ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeCopyProductStatus", input);
+  }
   describePortfolio(
     input: DescribePortfolioInput,
   ): Effect.Effect<
     DescribePortfolioOutput,
     ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribePortfolio", input);
+  }
   describePortfolioShares(
     input: DescribePortfolioSharesInput,
   ): Effect.Effect<
     DescribePortfolioSharesOutput,
     InvalidParametersException | ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribePortfolioShares", input);
+  }
   describePortfolioShareStatus(
     input: DescribePortfolioShareStatusInput,
   ): Effect.Effect<
@@ -253,73 +317,97 @@ export declare class ServiceCatalog extends AWSServiceClient {
     | OperationNotSupportedException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribePortfolioShareStatus", input);
+  }
   describeProduct(
     input: DescribeProductInput,
   ): Effect.Effect<
     DescribeProductOutput,
     InvalidParametersException | ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeProduct", input);
+  }
   describeProductAsAdmin(
     input: DescribeProductAsAdminInput,
   ): Effect.Effect<
     DescribeProductAsAdminOutput,
     InvalidParametersException | ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeProductAsAdmin", input);
+  }
   describeProductView(
     input: DescribeProductViewInput,
   ): Effect.Effect<
     DescribeProductViewOutput,
     InvalidParametersException | ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeProductView", input);
+  }
   describeProvisionedProduct(
     input: DescribeProvisionedProductInput,
   ): Effect.Effect<
     DescribeProvisionedProductOutput,
     InvalidParametersException | ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeProvisionedProduct", input);
+  }
   describeProvisionedProductPlan(
     input: DescribeProvisionedProductPlanInput,
   ): Effect.Effect<
     DescribeProvisionedProductPlanOutput,
     InvalidParametersException | ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeProvisionedProductPlan", input);
+  }
   describeProvisioningArtifact(
     input: DescribeProvisioningArtifactInput,
   ): Effect.Effect<
     DescribeProvisioningArtifactOutput,
     InvalidParametersException | ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeProvisioningArtifact", input);
+  }
   describeProvisioningParameters(
     input: DescribeProvisioningParametersInput,
   ): Effect.Effect<
     DescribeProvisioningParametersOutput,
     InvalidParametersException | ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeProvisioningParameters", input);
+  }
   describeRecord(
     input: DescribeRecordInput,
   ): Effect.Effect<
     DescribeRecordOutput,
     ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeRecord", input);
+  }
   describeServiceAction(
     input: DescribeServiceActionInput,
   ): Effect.Effect<
     DescribeServiceActionOutput,
     ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeServiceAction", input);
+  }
   describeServiceActionExecutionParameters(
     input: DescribeServiceActionExecutionParametersInput,
   ): Effect.Effect<
     DescribeServiceActionExecutionParametersOutput,
     InvalidParametersException | ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeServiceActionExecutionParameters", input);
+  }
   describeTagOption(
     input: DescribeTagOptionInput,
   ): Effect.Effect<
     DescribeTagOptionOutput,
     ResourceNotFoundException | TagOptionNotMigratedException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeTagOption", input);
+  }
   disableAWSOrganizationsAccess(
     input: DisableAWSOrganizationsAccessInput,
   ): Effect.Effect<
@@ -328,19 +416,25 @@ export declare class ServiceCatalog extends AWSServiceClient {
     | OperationNotSupportedException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DisableAWSOrganizationsAccess", input);
+  }
   disassociateBudgetFromResource(
     input: DisassociateBudgetFromResourceInput,
   ): Effect.Effect<
     DisassociateBudgetFromResourceOutput,
     ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("DisassociateBudgetFromResource", input);
+  }
   disassociatePrincipalFromPortfolio(
     input: DisassociatePrincipalFromPortfolioInput,
   ): Effect.Effect<
     DisassociatePrincipalFromPortfolioOutput,
     InvalidParametersException | ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("DisassociatePrincipalFromPortfolio", input);
+  }
   disassociateProductFromPortfolio(
     input: DisassociateProductFromPortfolioInput,
   ): Effect.Effect<
@@ -349,19 +443,28 @@ export declare class ServiceCatalog extends AWSServiceClient {
     | ResourceInUseException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DisassociateProductFromPortfolio", input);
+  }
   disassociateServiceActionFromProvisioningArtifact(
     input: DisassociateServiceActionFromProvisioningArtifactInput,
   ): Effect.Effect<
     DisassociateServiceActionFromProvisioningArtifactOutput,
     InvalidParametersException | ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call(
+      "DisassociateServiceActionFromProvisioningArtifact",
+      input,
+    );
+  }
   disassociateTagOptionFromResource(
     input: DisassociateTagOptionFromResourceInput,
   ): Effect.Effect<
     DisassociateTagOptionFromResourceOutput,
     ResourceNotFoundException | TagOptionNotMigratedException | CommonAwsError
-  >;
+  > {
+    return this.call("DisassociateTagOptionFromResource", input);
+  }
   enableAWSOrganizationsAccess(
     input: EnableAWSOrganizationsAccessInput,
   ): Effect.Effect<
@@ -370,7 +473,9 @@ export declare class ServiceCatalog extends AWSServiceClient {
     | OperationNotSupportedException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("EnableAWSOrganizationsAccess", input);
+  }
   executeProvisionedProductPlan(
     input: ExecuteProvisionedProductPlanInput,
   ): Effect.Effect<
@@ -379,7 +484,9 @@ export declare class ServiceCatalog extends AWSServiceClient {
     | InvalidStateException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ExecuteProvisionedProductPlan", input);
+  }
   executeProvisionedProductServiceAction(
     input: ExecuteProvisionedProductServiceActionInput,
   ): Effect.Effect<
@@ -388,19 +495,25 @@ export declare class ServiceCatalog extends AWSServiceClient {
     | InvalidStateException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ExecuteProvisionedProductServiceAction", input);
+  }
   getAWSOrganizationsAccessStatus(
     input: GetAWSOrganizationsAccessStatusInput,
   ): Effect.Effect<
     GetAWSOrganizationsAccessStatusOutput,
     OperationNotSupportedException | ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("GetAWSOrganizationsAccessStatus", input);
+  }
   getProvisionedProductOutputs(
     input: GetProvisionedProductOutputsInput,
   ): Effect.Effect<
     GetProvisionedProductOutputsOutput,
     InvalidParametersException | ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("GetProvisionedProductOutputs", input);
+  }
   importAsProvisionedProduct(
     input: ImportAsProvisionedProductInput,
   ): Effect.Effect<
@@ -410,31 +523,41 @@ export declare class ServiceCatalog extends AWSServiceClient {
     | InvalidStateException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ImportAsProvisionedProduct", input);
+  }
   listAcceptedPortfolioShares(
     input: ListAcceptedPortfolioSharesInput,
   ): Effect.Effect<
     ListAcceptedPortfolioSharesOutput,
     InvalidParametersException | OperationNotSupportedException | CommonAwsError
-  >;
+  > {
+    return this.call("ListAcceptedPortfolioShares", input);
+  }
   listBudgetsForResource(
     input: ListBudgetsForResourceInput,
   ): Effect.Effect<
     ListBudgetsForResourceOutput,
     InvalidParametersException | ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("ListBudgetsForResource", input);
+  }
   listConstraintsForPortfolio(
     input: ListConstraintsForPortfolioInput,
   ): Effect.Effect<
     ListConstraintsForPortfolioOutput,
     InvalidParametersException | ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("ListConstraintsForPortfolio", input);
+  }
   listLaunchPaths(
     input: ListLaunchPathsInput,
   ): Effect.Effect<
     ListLaunchPathsOutput,
     InvalidParametersException | ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("ListLaunchPaths", input);
+  }
   listOrganizationPortfolioAccess(
     input: ListOrganizationPortfolioAccessInput,
   ): Effect.Effect<
@@ -443,55 +566,73 @@ export declare class ServiceCatalog extends AWSServiceClient {
     | OperationNotSupportedException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListOrganizationPortfolioAccess", input);
+  }
   listPortfolioAccess(
     input: ListPortfolioAccessInput,
   ): Effect.Effect<
     ListPortfolioAccessOutput,
     InvalidParametersException | ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("ListPortfolioAccess", input);
+  }
   listPortfolios(
     input: ListPortfoliosInput,
   ): Effect.Effect<
     ListPortfoliosOutput,
     InvalidParametersException | CommonAwsError
-  >;
+  > {
+    return this.call("ListPortfolios", input);
+  }
   listPortfoliosForProduct(
     input: ListPortfoliosForProductInput,
   ): Effect.Effect<
     ListPortfoliosForProductOutput,
     InvalidParametersException | ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("ListPortfoliosForProduct", input);
+  }
   listPrincipalsForPortfolio(
     input: ListPrincipalsForPortfolioInput,
   ): Effect.Effect<
     ListPrincipalsForPortfolioOutput,
     InvalidParametersException | ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("ListPrincipalsForPortfolio", input);
+  }
   listProvisionedProductPlans(
     input: ListProvisionedProductPlansInput,
   ): Effect.Effect<
     ListProvisionedProductPlansOutput,
     InvalidParametersException | ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("ListProvisionedProductPlans", input);
+  }
   listProvisioningArtifacts(
     input: ListProvisioningArtifactsInput,
   ): Effect.Effect<
     ListProvisioningArtifactsOutput,
     InvalidParametersException | ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("ListProvisioningArtifacts", input);
+  }
   listProvisioningArtifactsForServiceAction(
     input: ListProvisioningArtifactsForServiceActionInput,
   ): Effect.Effect<
     ListProvisioningArtifactsForServiceActionOutput,
     InvalidParametersException | ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("ListProvisioningArtifactsForServiceAction", input);
+  }
   listRecordHistory(
     input: ListRecordHistoryInput,
   ): Effect.Effect<
     ListRecordHistoryOutput,
     InvalidParametersException | CommonAwsError
-  >;
+  > {
+    return this.call("ListRecordHistory", input);
+  }
   listResourcesForTagOption(
     input: ListResourcesForTagOptionInput,
   ): Effect.Effect<
@@ -500,49 +641,71 @@ export declare class ServiceCatalog extends AWSServiceClient {
     | ResourceNotFoundException
     | TagOptionNotMigratedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListResourcesForTagOption", input);
+  }
   listServiceActions(
     input: ListServiceActionsInput,
   ): Effect.Effect<
     ListServiceActionsOutput,
     InvalidParametersException | CommonAwsError
-  >;
+  > {
+    return this.call("ListServiceActions", input);
+  }
   listServiceActionsForProvisioningArtifact(
     input: ListServiceActionsForProvisioningArtifactInput,
   ): Effect.Effect<
     ListServiceActionsForProvisioningArtifactOutput,
     InvalidParametersException | ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("ListServiceActionsForProvisioningArtifact", input);
+  }
   listStackInstancesForProvisionedProduct(
     input: ListStackInstancesForProvisionedProductInput,
   ): Effect.Effect<
     ListStackInstancesForProvisionedProductOutput,
     InvalidParametersException | ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("ListStackInstancesForProvisionedProduct", input);
+  }
   listTagOptions(
     input: ListTagOptionsInput,
   ): Effect.Effect<
     ListTagOptionsOutput,
     InvalidParametersException | TagOptionNotMigratedException | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagOptions", input);
+  }
   notifyProvisionProductEngineWorkflowResult(
     input: NotifyProvisionProductEngineWorkflowResultInput,
   ): Effect.Effect<
     NotifyProvisionProductEngineWorkflowResultOutput,
     InvalidParametersException | ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("NotifyProvisionProductEngineWorkflowResult", input);
+  }
   notifyTerminateProvisionedProductEngineWorkflowResult(
     input: NotifyTerminateProvisionedProductEngineWorkflowResultInput,
   ): Effect.Effect<
     NotifyTerminateProvisionedProductEngineWorkflowResultOutput,
     InvalidParametersException | ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call(
+      "NotifyTerminateProvisionedProductEngineWorkflowResult",
+      input,
+    );
+  }
   notifyUpdateProvisionedProductEngineWorkflowResult(
     input: NotifyUpdateProvisionedProductEngineWorkflowResultInput,
   ): Effect.Effect<
     NotifyUpdateProvisionedProductEngineWorkflowResultOutput,
     InvalidParametersException | ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call(
+      "NotifyUpdateProvisionedProductEngineWorkflowResult",
+      input,
+    );
+  }
   provisionProduct(
     input: ProvisionProductInput,
   ): Effect.Effect<
@@ -551,49 +714,65 @@ export declare class ServiceCatalog extends AWSServiceClient {
     | InvalidParametersException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ProvisionProduct", input);
+  }
   rejectPortfolioShare(
     input: RejectPortfolioShareInput,
   ): Effect.Effect<
     RejectPortfolioShareOutput,
     ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("RejectPortfolioShare", input);
+  }
   scanProvisionedProducts(
     input: ScanProvisionedProductsInput,
   ): Effect.Effect<
     ScanProvisionedProductsOutput,
     InvalidParametersException | CommonAwsError
-  >;
+  > {
+    return this.call("ScanProvisionedProducts", input);
+  }
   searchProducts(
     input: SearchProductsInput,
   ): Effect.Effect<
     SearchProductsOutput,
     InvalidParametersException | CommonAwsError
-  >;
+  > {
+    return this.call("SearchProducts", input);
+  }
   searchProductsAsAdmin(
     input: SearchProductsAsAdminInput,
   ): Effect.Effect<
     SearchProductsAsAdminOutput,
     InvalidParametersException | ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("SearchProductsAsAdmin", input);
+  }
   searchProvisionedProducts(
     input: SearchProvisionedProductsInput,
   ): Effect.Effect<
     SearchProvisionedProductsOutput,
     InvalidParametersException | CommonAwsError
-  >;
+  > {
+    return this.call("SearchProvisionedProducts", input);
+  }
   terminateProvisionedProduct(
     input: TerminateProvisionedProductInput,
   ): Effect.Effect<
     TerminateProvisionedProductOutput,
     ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("TerminateProvisionedProduct", input);
+  }
   updateConstraint(
     input: UpdateConstraintInput,
   ): Effect.Effect<
     UpdateConstraintOutput,
     InvalidParametersException | ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateConstraint", input);
+  }
   updatePortfolio(
     input: UpdatePortfolioInput,
   ): Effect.Effect<
@@ -603,7 +782,9 @@ export declare class ServiceCatalog extends AWSServiceClient {
     | ResourceNotFoundException
     | TagOptionNotMigratedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdatePortfolio", input);
+  }
   updatePortfolioShare(
     input: UpdatePortfolioShareInput,
   ): Effect.Effect<
@@ -613,7 +794,9 @@ export declare class ServiceCatalog extends AWSServiceClient {
     | OperationNotSupportedException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdatePortfolioShare", input);
+  }
   updateProduct(
     input: UpdateProductInput,
   ): Effect.Effect<
@@ -622,13 +805,17 @@ export declare class ServiceCatalog extends AWSServiceClient {
     | ResourceNotFoundException
     | TagOptionNotMigratedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateProduct", input);
+  }
   updateProvisionedProduct(
     input: UpdateProvisionedProductInput,
   ): Effect.Effect<
     UpdateProvisionedProductOutput,
     InvalidParametersException | ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateProvisionedProduct", input);
+  }
   updateProvisionedProductProperties(
     input: UpdateProvisionedProductPropertiesInput,
   ): Effect.Effect<
@@ -637,19 +824,25 @@ export declare class ServiceCatalog extends AWSServiceClient {
     | InvalidStateException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateProvisionedProductProperties", input);
+  }
   updateProvisioningArtifact(
     input: UpdateProvisioningArtifactInput,
   ): Effect.Effect<
     UpdateProvisioningArtifactOutput,
     InvalidParametersException | ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateProvisioningArtifact", input);
+  }
   updateServiceAction(
     input: UpdateServiceActionInput,
   ): Effect.Effect<
     UpdateServiceActionOutput,
     InvalidParametersException | ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateServiceAction", input);
+  }
   updateTagOption(
     input: UpdateTagOptionInput,
   ): Effect.Effect<
@@ -659,8 +852,12 @@ export declare class ServiceCatalog extends AWSServiceClient {
     | ResourceNotFoundException
     | TagOptionNotMigratedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateTagOption", input);
+  }
 }
+
+export default ServiceCatalog;
 
 export type AcceptLanguage = string;
 

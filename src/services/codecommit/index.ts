@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class CodeCommit extends AWSServiceClient {
+export class CodeCommit extends AWSServiceClient {
   associateApprovalRuleTemplateWithRepository(
     input: AssociateApprovalRuleTemplateWithRepositoryInput,
   ): Effect.Effect<
@@ -20,7 +20,9 @@ export declare class CodeCommit extends AWSServiceClient {
     | RepositoryDoesNotExistException
     | RepositoryNameRequiredException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AssociateApprovalRuleTemplateWithRepository", input);
+  }
   batchAssociateApprovalRuleTemplateWithRepositories(
     input: BatchAssociateApprovalRuleTemplateWithRepositoriesInput,
   ): Effect.Effect<
@@ -36,7 +38,12 @@ export declare class CodeCommit extends AWSServiceClient {
     | MaximumRepositoryNamesExceededException
     | RepositoryNamesRequiredException
     | CommonAwsError
-  >;
+  > {
+    return this.call(
+      "BatchAssociateApprovalRuleTemplateWithRepositories",
+      input,
+    );
+  }
   batchDescribeMergeConflicts(
     input: BatchDescribeMergeConflictsInput,
   ): Effect.Effect<
@@ -63,7 +70,9 @@ export declare class CodeCommit extends AWSServiceClient {
     | RepositoryNameRequiredException
     | TipsDivergenceExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("BatchDescribeMergeConflicts", input);
+  }
   batchDisassociateApprovalRuleTemplateFromRepositories(
     input: BatchDisassociateApprovalRuleTemplateFromRepositoriesInput,
   ): Effect.Effect<
@@ -79,7 +88,12 @@ export declare class CodeCommit extends AWSServiceClient {
     | MaximumRepositoryNamesExceededException
     | RepositoryNamesRequiredException
     | CommonAwsError
-  >;
+  > {
+    return this.call(
+      "BatchDisassociateApprovalRuleTemplateFromRepositories",
+      input,
+    );
+  }
   batchGetCommits(
     input: BatchGetCommitsInput,
   ): Effect.Effect<
@@ -95,7 +109,9 @@ export declare class CodeCommit extends AWSServiceClient {
     | RepositoryDoesNotExistException
     | RepositoryNameRequiredException
     | CommonAwsError
-  >;
+  > {
+    return this.call("BatchGetCommits", input);
+  }
   batchGetRepositories(
     input: BatchGetRepositoriesInput,
   ): Effect.Effect<
@@ -109,7 +125,9 @@ export declare class CodeCommit extends AWSServiceClient {
     | MaximumRepositoryNamesExceededException
     | RepositoryNamesRequiredException
     | CommonAwsError
-  >;
+  > {
+    return this.call("BatchGetRepositories", input);
+  }
   createApprovalRuleTemplate(
     input: CreateApprovalRuleTemplateInput,
   ): Effect.Effect<
@@ -122,7 +140,9 @@ export declare class CodeCommit extends AWSServiceClient {
     | InvalidApprovalRuleTemplateNameException
     | NumberOfRuleTemplatesExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateApprovalRuleTemplate", input);
+  }
   createBranch(
     input: CreateBranchInput,
   ): Effect.Effect<
@@ -142,7 +162,9 @@ export declare class CodeCommit extends AWSServiceClient {
     | RepositoryDoesNotExistException
     | RepositoryNameRequiredException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateBranch", input);
+  }
   createCommit(
     input: CreateCommitInput,
   ): Effect.Effect<
@@ -186,7 +208,9 @@ export declare class CodeCommit extends AWSServiceClient {
     | SamePathRequestException
     | SourceFileOrContentRequiredException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateCommit", input);
+  }
   createPullRequest(
     input: CreatePullRequestInput,
   ): Effect.Effect<
@@ -217,7 +241,9 @@ export declare class CodeCommit extends AWSServiceClient {
     | TargetsRequiredException
     | TitleRequiredException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreatePullRequest", input);
+  }
   createPullRequestApprovalRule(
     input: CreatePullRequestApprovalRuleInput,
   ): Effect.Effect<
@@ -238,7 +264,9 @@ export declare class CodeCommit extends AWSServiceClient {
     | PullRequestDoesNotExistException
     | PullRequestIdRequiredException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreatePullRequestApprovalRule", input);
+  }
   createRepository(
     input: CreateRepositoryInput,
   ): Effect.Effect<
@@ -261,7 +289,9 @@ export declare class CodeCommit extends AWSServiceClient {
     | TagPolicyException
     | TooManyTagsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateRepository", input);
+  }
   createUnreferencedMergeCommit(
     input: CreateUnreferencedMergeCommitInput,
   ): Effect.Effect<
@@ -303,7 +333,9 @@ export declare class CodeCommit extends AWSServiceClient {
     | RepositoryNameRequiredException
     | TipsDivergenceExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateUnreferencedMergeCommit", input);
+  }
   deleteApprovalRuleTemplate(
     input: DeleteApprovalRuleTemplateInput,
   ): Effect.Effect<
@@ -312,7 +344,9 @@ export declare class CodeCommit extends AWSServiceClient {
     | ApprovalRuleTemplateNameRequiredException
     | InvalidApprovalRuleTemplateNameException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteApprovalRuleTemplate", input);
+  }
   deleteBranch(
     input: DeleteBranchInput,
   ): Effect.Effect<
@@ -329,7 +363,9 @@ export declare class CodeCommit extends AWSServiceClient {
     | RepositoryDoesNotExistException
     | RepositoryNameRequiredException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteBranch", input);
+  }
   deleteCommentContent(
     input: DeleteCommentContentInput,
   ): Effect.Effect<
@@ -339,7 +375,9 @@ export declare class CodeCommit extends AWSServiceClient {
     | CommentIdRequiredException
     | InvalidCommentIdException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteCommentContent", input);
+  }
   deleteFile(
     input: DeleteFileInput,
   ): Effect.Effect<
@@ -367,7 +405,9 @@ export declare class CodeCommit extends AWSServiceClient {
     | RepositoryDoesNotExistException
     | RepositoryNameRequiredException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteFile", input);
+  }
   deletePullRequestApprovalRule(
     input: DeletePullRequestApprovalRuleInput,
   ): Effect.Effect<
@@ -385,7 +425,9 @@ export declare class CodeCommit extends AWSServiceClient {
     | PullRequestDoesNotExistException
     | PullRequestIdRequiredException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeletePullRequestApprovalRule", input);
+  }
   deleteRepository(
     input: DeleteRepositoryInput,
   ): Effect.Effect<
@@ -398,7 +440,9 @@ export declare class CodeCommit extends AWSServiceClient {
     | InvalidRepositoryNameException
     | RepositoryNameRequiredException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteRepository", input);
+  }
   describeMergeConflicts(
     input: DescribeMergeConflictsInput,
   ): Effect.Effect<
@@ -427,7 +471,9 @@ export declare class CodeCommit extends AWSServiceClient {
     | RepositoryNameRequiredException
     | TipsDivergenceExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeMergeConflicts", input);
+  }
   describePullRequestEvents(
     input: DescribePullRequestEventsInput,
   ): Effect.Effect<
@@ -446,7 +492,9 @@ export declare class CodeCommit extends AWSServiceClient {
     | PullRequestDoesNotExistException
     | PullRequestIdRequiredException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribePullRequestEvents", input);
+  }
   disassociateApprovalRuleTemplateFromRepository(
     input: DisassociateApprovalRuleTemplateFromRepositoryInput,
   ): Effect.Effect<
@@ -463,7 +511,9 @@ export declare class CodeCommit extends AWSServiceClient {
     | RepositoryDoesNotExistException
     | RepositoryNameRequiredException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DisassociateApprovalRuleTemplateFromRepository", input);
+  }
   evaluatePullRequestApprovalRules(
     input: EvaluatePullRequestApprovalRulesInput,
   ): Effect.Effect<
@@ -480,7 +530,9 @@ export declare class CodeCommit extends AWSServiceClient {
     | RevisionIdRequiredException
     | RevisionNotCurrentException
     | CommonAwsError
-  >;
+  > {
+    return this.call("EvaluatePullRequestApprovalRules", input);
+  }
   getApprovalRuleTemplate(
     input: GetApprovalRuleTemplateInput,
   ): Effect.Effect<
@@ -489,7 +541,9 @@ export declare class CodeCommit extends AWSServiceClient {
     | ApprovalRuleTemplateNameRequiredException
     | InvalidApprovalRuleTemplateNameException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetApprovalRuleTemplate", input);
+  }
   getBlob(
     input: GetBlobInput,
   ): Effect.Effect<
@@ -507,7 +561,9 @@ export declare class CodeCommit extends AWSServiceClient {
     | RepositoryDoesNotExistException
     | RepositoryNameRequiredException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetBlob", input);
+  }
   getBranch(
     input: GetBranchInput,
   ): Effect.Effect<
@@ -524,7 +580,9 @@ export declare class CodeCommit extends AWSServiceClient {
     | RepositoryDoesNotExistException
     | RepositoryNameRequiredException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetBranch", input);
+  }
   getComment(
     input: GetCommentInput,
   ): Effect.Effect<
@@ -539,7 +597,9 @@ export declare class CodeCommit extends AWSServiceClient {
     | EncryptionKeyUnavailableException
     | InvalidCommentIdException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetComment", input);
+  }
   getCommentReactions(
     input: GetCommentReactionsInput,
   ): Effect.Effect<
@@ -552,7 +612,9 @@ export declare class CodeCommit extends AWSServiceClient {
     | InvalidMaxResultsException
     | InvalidReactionUserArnException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetCommentReactions", input);
+  }
   getCommentsForComparedCommit(
     input: GetCommentsForComparedCommitInput,
   ): Effect.Effect<
@@ -571,7 +633,9 @@ export declare class CodeCommit extends AWSServiceClient {
     | RepositoryDoesNotExistException
     | RepositoryNameRequiredException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetCommentsForComparedCommit", input);
+  }
   getCommentsForPullRequest(
     input: GetCommentsForPullRequestInput,
   ): Effect.Effect<
@@ -594,7 +658,9 @@ export declare class CodeCommit extends AWSServiceClient {
     | RepositoryNameRequiredException
     | RepositoryNotAssociatedWithPullRequestException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetCommentsForPullRequest", input);
+  }
   getCommit(
     input: GetCommitInput,
   ): Effect.Effect<
@@ -611,7 +677,9 @@ export declare class CodeCommit extends AWSServiceClient {
     | RepositoryDoesNotExistException
     | RepositoryNameRequiredException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetCommit", input);
+  }
   getDifferences(
     input: GetDifferencesInput,
   ): Effect.Effect<
@@ -633,7 +701,9 @@ export declare class CodeCommit extends AWSServiceClient {
     | RepositoryDoesNotExistException
     | RepositoryNameRequiredException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetDifferences", input);
+  }
   getFile(
     input: GetFileInput,
   ): Effect.Effect<
@@ -653,7 +723,9 @@ export declare class CodeCommit extends AWSServiceClient {
     | RepositoryDoesNotExistException
     | RepositoryNameRequiredException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetFile", input);
+  }
   getFolder(
     input: GetFolderInput,
   ): Effect.Effect<
@@ -672,7 +744,9 @@ export declare class CodeCommit extends AWSServiceClient {
     | RepositoryDoesNotExistException
     | RepositoryNameRequiredException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetFolder", input);
+  }
   getMergeCommit(
     input: GetMergeCommitInput,
   ): Effect.Effect<
@@ -691,7 +765,9 @@ export declare class CodeCommit extends AWSServiceClient {
     | RepositoryDoesNotExistException
     | RepositoryNameRequiredException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetMergeCommit", input);
+  }
   getMergeConflicts(
     input: GetMergeConflictsInput,
   ): Effect.Effect<
@@ -719,7 +795,9 @@ export declare class CodeCommit extends AWSServiceClient {
     | RepositoryNameRequiredException
     | TipsDivergenceExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetMergeConflicts", input);
+  }
   getMergeOptions(
     input: GetMergeOptionsInput,
   ): Effect.Effect<
@@ -741,7 +819,9 @@ export declare class CodeCommit extends AWSServiceClient {
     | RepositoryNameRequiredException
     | TipsDivergenceExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetMergeOptions", input);
+  }
   getPullRequest(
     input: GetPullRequestInput,
   ): Effect.Effect<
@@ -755,7 +835,9 @@ export declare class CodeCommit extends AWSServiceClient {
     | PullRequestDoesNotExistException
     | PullRequestIdRequiredException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetPullRequest", input);
+  }
   getPullRequestApprovalStates(
     input: GetPullRequestApprovalStatesInput,
   ): Effect.Effect<
@@ -771,7 +853,9 @@ export declare class CodeCommit extends AWSServiceClient {
     | PullRequestIdRequiredException
     | RevisionIdRequiredException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetPullRequestApprovalStates", input);
+  }
   getPullRequestOverrideState(
     input: GetPullRequestOverrideStateInput,
   ): Effect.Effect<
@@ -787,7 +871,9 @@ export declare class CodeCommit extends AWSServiceClient {
     | PullRequestIdRequiredException
     | RevisionIdRequiredException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetPullRequestOverrideState", input);
+  }
   getRepository(
     input: GetRepositoryInput,
   ): Effect.Effect<
@@ -801,7 +887,9 @@ export declare class CodeCommit extends AWSServiceClient {
     | RepositoryDoesNotExistException
     | RepositoryNameRequiredException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetRepository", input);
+  }
   getRepositoryTriggers(
     input: GetRepositoryTriggersInput,
   ): Effect.Effect<
@@ -815,7 +903,9 @@ export declare class CodeCommit extends AWSServiceClient {
     | RepositoryDoesNotExistException
     | RepositoryNameRequiredException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetRepositoryTriggers", input);
+  }
   listApprovalRuleTemplates(
     input: ListApprovalRuleTemplatesInput,
   ): Effect.Effect<
@@ -823,7 +913,9 @@ export declare class CodeCommit extends AWSServiceClient {
     | InvalidContinuationTokenException
     | InvalidMaxResultsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListApprovalRuleTemplates", input);
+  }
   listAssociatedApprovalRuleTemplatesForRepository(
     input: ListAssociatedApprovalRuleTemplatesForRepositoryInput,
   ): Effect.Effect<
@@ -839,7 +931,9 @@ export declare class CodeCommit extends AWSServiceClient {
     | RepositoryDoesNotExistException
     | RepositoryNameRequiredException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListAssociatedApprovalRuleTemplatesForRepository", input);
+  }
   listBranches(
     input: ListBranchesInput,
   ): Effect.Effect<
@@ -854,7 +948,9 @@ export declare class CodeCommit extends AWSServiceClient {
     | RepositoryDoesNotExistException
     | RepositoryNameRequiredException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListBranches", input);
+  }
   listFileCommitHistory(
     input: ListFileCommitHistoryRequest,
   ): Effect.Effect<
@@ -874,7 +970,9 @@ export declare class CodeCommit extends AWSServiceClient {
     | RepositoryNameRequiredException
     | TipsDivergenceExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListFileCommitHistory", input);
+  }
   listPullRequests(
     input: ListPullRequestsInput,
   ): Effect.Effect<
@@ -893,7 +991,9 @@ export declare class CodeCommit extends AWSServiceClient {
     | RepositoryDoesNotExistException
     | RepositoryNameRequiredException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListPullRequests", input);
+  }
   listRepositories(
     input: ListRepositoriesInput,
   ): Effect.Effect<
@@ -902,7 +1002,9 @@ export declare class CodeCommit extends AWSServiceClient {
     | InvalidOrderException
     | InvalidSortByException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListRepositories", input);
+  }
   listRepositoriesForApprovalRuleTemplate(
     input: ListRepositoriesForApprovalRuleTemplateInput,
   ): Effect.Effect<
@@ -918,7 +1020,9 @@ export declare class CodeCommit extends AWSServiceClient {
     | InvalidContinuationTokenException
     | InvalidMaxResultsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListRepositoriesForApprovalRuleTemplate", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceInput,
   ): Effect.Effect<
@@ -928,7 +1032,9 @@ export declare class CodeCommit extends AWSServiceClient {
     | RepositoryDoesNotExistException
     | ResourceArnRequiredException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   mergeBranchesByFastForward(
     input: MergeBranchesByFastForwardInput,
   ): Effect.Effect<
@@ -953,7 +1059,9 @@ export declare class CodeCommit extends AWSServiceClient {
     | RepositoryNameRequiredException
     | TipsDivergenceExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("MergeBranchesByFastForward", input);
+  }
   mergeBranchesBySquash(
     input: MergeBranchesBySquashInput,
   ): Effect.Effect<
@@ -998,7 +1106,9 @@ export declare class CodeCommit extends AWSServiceClient {
     | RepositoryNameRequiredException
     | TipsDivergenceExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("MergeBranchesBySquash", input);
+  }
   mergeBranchesByThreeWay(
     input: MergeBranchesByThreeWayInput,
   ): Effect.Effect<
@@ -1043,7 +1153,9 @@ export declare class CodeCommit extends AWSServiceClient {
     | RepositoryNameRequiredException
     | TipsDivergenceExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("MergeBranchesByThreeWay", input);
+  }
   mergePullRequestByFastForward(
     input: MergePullRequestByFastForwardInput,
   ): Effect.Effect<
@@ -1068,7 +1180,9 @@ export declare class CodeCommit extends AWSServiceClient {
     | RepositoryNotAssociatedWithPullRequestException
     | TipOfSourceReferenceIsDifferentException
     | CommonAwsError
-  >;
+  > {
+    return this.call("MergePullRequestByFastForward", input);
+  }
   mergePullRequestBySquash(
     input: MergePullRequestBySquashInput,
   ): Effect.Effect<
@@ -1112,7 +1226,9 @@ export declare class CodeCommit extends AWSServiceClient {
     | TipOfSourceReferenceIsDifferentException
     | TipsDivergenceExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("MergePullRequestBySquash", input);
+  }
   mergePullRequestByThreeWay(
     input: MergePullRequestByThreeWayInput,
   ): Effect.Effect<
@@ -1156,7 +1272,9 @@ export declare class CodeCommit extends AWSServiceClient {
     | TipOfSourceReferenceIsDifferentException
     | TipsDivergenceExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("MergePullRequestByThreeWay", input);
+  }
   overridePullRequestApprovalRules(
     input: OverridePullRequestApprovalRulesInput,
   ): Effect.Effect<
@@ -1177,7 +1295,9 @@ export declare class CodeCommit extends AWSServiceClient {
     | RevisionIdRequiredException
     | RevisionNotCurrentException
     | CommonAwsError
-  >;
+  > {
+    return this.call("OverridePullRequestApprovalRules", input);
+  }
   postCommentForComparedCommit(
     input: PostCommentForComparedCommitInput,
   ): Effect.Effect<
@@ -1206,7 +1326,9 @@ export declare class CodeCommit extends AWSServiceClient {
     | RepositoryDoesNotExistException
     | RepositoryNameRequiredException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PostCommentForComparedCommit", input);
+  }
   postCommentForPullRequest(
     input: PostCommentForPullRequestInput,
   ): Effect.Effect<
@@ -1239,7 +1361,9 @@ export declare class CodeCommit extends AWSServiceClient {
     | RepositoryNameRequiredException
     | RepositoryNotAssociatedWithPullRequestException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PostCommentForPullRequest", input);
+  }
   postCommentReply(
     input: PostCommentReplyInput,
   ): Effect.Effect<
@@ -1253,7 +1377,9 @@ export declare class CodeCommit extends AWSServiceClient {
     | InvalidClientRequestTokenException
     | InvalidCommentIdException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PostCommentReply", input);
+  }
   putCommentReaction(
     input: PutCommentReactionInput,
   ): Effect.Effect<
@@ -1266,7 +1392,9 @@ export declare class CodeCommit extends AWSServiceClient {
     | ReactionLimitExceededException
     | ReactionValueRequiredException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutCommentReaction", input);
+  }
   putFile(
     input: PutFileInput,
   ): Effect.Effect<
@@ -1302,7 +1430,9 @@ export declare class CodeCommit extends AWSServiceClient {
     | RepositoryNameRequiredException
     | SameFileContentException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutFile", input);
+  }
   putRepositoryTriggers(
     input: PutRepositoryTriggersInput,
   ): Effect.Effect<
@@ -1329,7 +1459,9 @@ export declare class CodeCommit extends AWSServiceClient {
     | RepositoryTriggerNameRequiredException
     | RepositoryTriggersListRequiredException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutRepositoryTriggers", input);
+  }
   tagResource(
     input: TagResourceInput,
   ): Effect.Effect<
@@ -1344,7 +1476,9 @@ export declare class CodeCommit extends AWSServiceClient {
     | TagsMapRequiredException
     | TooManyTagsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   testRepositoryTriggers(
     input: TestRepositoryTriggersInput,
   ): Effect.Effect<
@@ -1371,7 +1505,9 @@ export declare class CodeCommit extends AWSServiceClient {
     | RepositoryTriggerNameRequiredException
     | RepositoryTriggersListRequiredException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TestRepositoryTriggers", input);
+  }
   untagResource(
     input: UntagResourceInput,
   ): Effect.Effect<
@@ -1386,7 +1522,9 @@ export declare class CodeCommit extends AWSServiceClient {
     | TagPolicyException
     | TooManyTagsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
   updateApprovalRuleTemplateContent(
     input: UpdateApprovalRuleTemplateContentInput,
   ): Effect.Effect<
@@ -1398,7 +1536,9 @@ export declare class CodeCommit extends AWSServiceClient {
     | InvalidApprovalRuleTemplateNameException
     | InvalidRuleContentSha256Exception
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateApprovalRuleTemplateContent", input);
+  }
   updateApprovalRuleTemplateDescription(
     input: UpdateApprovalRuleTemplateDescriptionInput,
   ): Effect.Effect<
@@ -1408,7 +1548,9 @@ export declare class CodeCommit extends AWSServiceClient {
     | InvalidApprovalRuleTemplateDescriptionException
     | InvalidApprovalRuleTemplateNameException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateApprovalRuleTemplateDescription", input);
+  }
   updateApprovalRuleTemplateName(
     input: UpdateApprovalRuleTemplateNameInput,
   ): Effect.Effect<
@@ -1418,7 +1560,9 @@ export declare class CodeCommit extends AWSServiceClient {
     | ApprovalRuleTemplateNameRequiredException
     | InvalidApprovalRuleTemplateNameException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateApprovalRuleTemplateName", input);
+  }
   updateComment(
     input: UpdateCommentInput,
   ): Effect.Effect<
@@ -1431,7 +1575,9 @@ export declare class CodeCommit extends AWSServiceClient {
     | CommentNotCreatedByCallerException
     | InvalidCommentIdException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateComment", input);
+  }
   updateDefaultBranch(
     input: UpdateDefaultBranchInput,
   ): Effect.Effect<
@@ -1448,7 +1594,9 @@ export declare class CodeCommit extends AWSServiceClient {
     | RepositoryDoesNotExistException
     | RepositoryNameRequiredException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateDefaultBranch", input);
+  }
   updatePullRequestApprovalRuleContent(
     input: UpdatePullRequestApprovalRuleContentInput,
   ): Effect.Effect<
@@ -1470,7 +1618,9 @@ export declare class CodeCommit extends AWSServiceClient {
     | PullRequestDoesNotExistException
     | PullRequestIdRequiredException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdatePullRequestApprovalRuleContent", input);
+  }
   updatePullRequestApprovalState(
     input: UpdatePullRequestApprovalStateInput,
   ): Effect.Effect<
@@ -1492,7 +1642,9 @@ export declare class CodeCommit extends AWSServiceClient {
     | RevisionIdRequiredException
     | RevisionNotCurrentException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdatePullRequestApprovalState", input);
+  }
   updatePullRequestDescription(
     input: UpdatePullRequestDescriptionInput,
   ): Effect.Effect<
@@ -1503,7 +1655,9 @@ export declare class CodeCommit extends AWSServiceClient {
     | PullRequestDoesNotExistException
     | PullRequestIdRequiredException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdatePullRequestDescription", input);
+  }
   updatePullRequestStatus(
     input: UpdatePullRequestStatusInput,
   ): Effect.Effect<
@@ -1520,7 +1674,9 @@ export declare class CodeCommit extends AWSServiceClient {
     | PullRequestIdRequiredException
     | PullRequestStatusRequiredException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdatePullRequestStatus", input);
+  }
   updatePullRequestTitle(
     input: UpdatePullRequestTitleInput,
   ): Effect.Effect<
@@ -1532,7 +1688,9 @@ export declare class CodeCommit extends AWSServiceClient {
     | PullRequestIdRequiredException
     | TitleRequiredException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdatePullRequestTitle", input);
+  }
   updateRepositoryDescription(
     input: UpdateRepositoryDescriptionInput,
   ): Effect.Effect<
@@ -1547,7 +1705,9 @@ export declare class CodeCommit extends AWSServiceClient {
     | RepositoryDoesNotExistException
     | RepositoryNameRequiredException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateRepositoryDescription", input);
+  }
   updateRepositoryEncryptionKey(
     input: UpdateRepositoryEncryptionKeyInput,
   ): Effect.Effect<
@@ -1564,7 +1724,9 @@ export declare class CodeCommit extends AWSServiceClient {
     | RepositoryDoesNotExistException
     | RepositoryNameRequiredException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateRepositoryEncryptionKey", input);
+  }
   updateRepositoryName(
     input: UpdateRepositoryNameInput,
   ): Effect.Effect<
@@ -1574,10 +1736,14 @@ export declare class CodeCommit extends AWSServiceClient {
     | RepositoryNameExistsException
     | RepositoryNameRequiredException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateRepositoryName", input);
+  }
 }
 
-export declare class Codecommit extends CodeCommit {}
+export class Codecommit extends CodeCommit {}
+
+export default CodeCommit;
 
 export type AccountId = string;
 

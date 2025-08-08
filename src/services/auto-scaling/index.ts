@@ -2,37 +2,47 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class AutoScaling extends AWSServiceClient {
+export class AutoScaling extends AWSServiceClient {
   attachInstances(
     input: AttachInstancesQuery,
   ): Effect.Effect<
     {},
     ResourceContentionFault | ServiceLinkedRoleFailure | CommonAwsError
-  >;
+  > {
+    return this.call("AttachInstances", input);
+  }
   attachLoadBalancers(
     input: AttachLoadBalancersType,
   ): Effect.Effect<
     AttachLoadBalancersResultType,
     ResourceContentionFault | ServiceLinkedRoleFailure | CommonAwsError
-  >;
+  > {
+    return this.call("AttachLoadBalancers", input);
+  }
   attachLoadBalancerTargetGroups(
     input: AttachLoadBalancerTargetGroupsType,
   ): Effect.Effect<
     AttachLoadBalancerTargetGroupsResultType,
     ResourceContentionFault | ServiceLinkedRoleFailure | CommonAwsError
-  >;
+  > {
+    return this.call("AttachLoadBalancerTargetGroups", input);
+  }
   attachTrafficSources(
     input: AttachTrafficSourcesType,
   ): Effect.Effect<
     AttachTrafficSourcesResultType,
     ResourceContentionFault | ServiceLinkedRoleFailure | CommonAwsError
-  >;
+  > {
+    return this.call("AttachTrafficSources", input);
+  }
   batchDeleteScheduledAction(
     input: BatchDeleteScheduledActionType,
   ): Effect.Effect<
     BatchDeleteScheduledActionAnswer,
     ResourceContentionFault | CommonAwsError
-  >;
+  > {
+    return this.call("BatchDeleteScheduledAction", input);
+  }
   batchPutScheduledUpdateGroupAction(
     input: BatchPutScheduledUpdateGroupActionType,
   ): Effect.Effect<
@@ -41,7 +51,9 @@ export declare class AutoScaling extends AWSServiceClient {
     | LimitExceededFault
     | ResourceContentionFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("BatchPutScheduledUpdateGroupAction", input);
+  }
   cancelInstanceRefresh(
     input: CancelInstanceRefreshType,
   ): Effect.Effect<
@@ -50,13 +62,17 @@ export declare class AutoScaling extends AWSServiceClient {
     | LimitExceededFault
     | ResourceContentionFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("CancelInstanceRefresh", input);
+  }
   completeLifecycleAction(
     input: CompleteLifecycleActionType,
   ): Effect.Effect<
     CompleteLifecycleActionAnswer,
     ResourceContentionFault | CommonAwsError
-  >;
+  > {
+    return this.call("CompleteLifecycleAction", input);
+  }
   createAutoScalingGroup(
     input: CreateAutoScalingGroupType,
   ): Effect.Effect<
@@ -66,7 +82,9 @@ export declare class AutoScaling extends AWSServiceClient {
     | ResourceContentionFault
     | ServiceLinkedRoleFailure
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateAutoScalingGroup", input);
+  }
   createLaunchConfiguration(
     input: CreateLaunchConfigurationType,
   ): Effect.Effect<
@@ -75,7 +93,9 @@ export declare class AutoScaling extends AWSServiceClient {
     | LimitExceededFault
     | ResourceContentionFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateLaunchConfiguration", input);
+  }
   createOrUpdateTags(
     input: CreateOrUpdateTagsType,
   ): Effect.Effect<
@@ -85,7 +105,9 @@ export declare class AutoScaling extends AWSServiceClient {
     | ResourceContentionFault
     | ResourceInUseFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateOrUpdateTags", input);
+  }
   deleteAutoScalingGroup(
     input: DeleteAutoScalingGroupType,
   ): Effect.Effect<
@@ -94,37 +116,51 @@ export declare class AutoScaling extends AWSServiceClient {
     | ResourceInUseFault
     | ScalingActivityInProgressFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteAutoScalingGroup", input);
+  }
   deleteLaunchConfiguration(
     input: LaunchConfigurationNameType,
   ): Effect.Effect<
     {},
     ResourceContentionFault | ResourceInUseFault | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteLaunchConfiguration", input);
+  }
   deleteLifecycleHook(
     input: DeleteLifecycleHookType,
   ): Effect.Effect<
     DeleteLifecycleHookAnswer,
     ResourceContentionFault | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteLifecycleHook", input);
+  }
   deleteNotificationConfiguration(
     input: DeleteNotificationConfigurationType,
-  ): Effect.Effect<{}, ResourceContentionFault | CommonAwsError>;
+  ): Effect.Effect<{}, ResourceContentionFault | CommonAwsError> {
+    return this.call("DeleteNotificationConfiguration", input);
+  }
   deletePolicy(
     input: DeletePolicyType,
   ): Effect.Effect<
     {},
     ResourceContentionFault | ServiceLinkedRoleFailure | CommonAwsError
-  >;
+  > {
+    return this.call("DeletePolicy", input);
+  }
   deleteScheduledAction(
     input: DeleteScheduledActionType,
-  ): Effect.Effect<{}, ResourceContentionFault | CommonAwsError>;
+  ): Effect.Effect<{}, ResourceContentionFault | CommonAwsError> {
+    return this.call("DeleteScheduledAction", input);
+  }
   deleteTags(
     input: DeleteTagsType,
   ): Effect.Effect<
     {},
     ResourceContentionFault | ResourceInUseFault | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteTags", input);
+  }
   deleteWarmPool(
     input: DeleteWarmPoolType,
   ): Effect.Effect<
@@ -134,75 +170,103 @@ export declare class AutoScaling extends AWSServiceClient {
     | ResourceInUseFault
     | ScalingActivityInProgressFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteWarmPool", input);
+  }
   describeAccountLimits(input: {}): Effect.Effect<
     DescribeAccountLimitsAnswer,
     ResourceContentionFault | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeAccountLimits", input);
+  }
   describeAdjustmentTypes(input: {}): Effect.Effect<
     DescribeAdjustmentTypesAnswer,
     ResourceContentionFault | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeAdjustmentTypes", input);
+  }
   describeAutoScalingGroups(
     input: AutoScalingGroupNamesType,
   ): Effect.Effect<
     AutoScalingGroupsType,
     InvalidNextToken | ResourceContentionFault | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeAutoScalingGroups", input);
+  }
   describeAutoScalingInstances(
     input: DescribeAutoScalingInstancesType,
   ): Effect.Effect<
     AutoScalingInstancesType,
     InvalidNextToken | ResourceContentionFault | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeAutoScalingInstances", input);
+  }
   describeAutoScalingNotificationTypes(input: {}): Effect.Effect<
     DescribeAutoScalingNotificationTypesAnswer,
     ResourceContentionFault | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeAutoScalingNotificationTypes", input);
+  }
   describeInstanceRefreshes(
     input: DescribeInstanceRefreshesType,
   ): Effect.Effect<
     DescribeInstanceRefreshesAnswer,
     InvalidNextToken | ResourceContentionFault | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeInstanceRefreshes", input);
+  }
   describeLaunchConfigurations(
     input: LaunchConfigurationNamesType,
   ): Effect.Effect<
     LaunchConfigurationsType,
     InvalidNextToken | ResourceContentionFault | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeLaunchConfigurations", input);
+  }
   describeLifecycleHooks(
     input: DescribeLifecycleHooksType,
   ): Effect.Effect<
     DescribeLifecycleHooksAnswer,
     ResourceContentionFault | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeLifecycleHooks", input);
+  }
   describeLifecycleHookTypes(input: {}): Effect.Effect<
     DescribeLifecycleHookTypesAnswer,
     ResourceContentionFault | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeLifecycleHookTypes", input);
+  }
   describeLoadBalancers(
     input: DescribeLoadBalancersRequest,
   ): Effect.Effect<
     DescribeLoadBalancersResponse,
     InvalidNextToken | ResourceContentionFault | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeLoadBalancers", input);
+  }
   describeLoadBalancerTargetGroups(
     input: DescribeLoadBalancerTargetGroupsRequest,
   ): Effect.Effect<
     DescribeLoadBalancerTargetGroupsResponse,
     InvalidNextToken | ResourceContentionFault | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeLoadBalancerTargetGroups", input);
+  }
   describeMetricCollectionTypes(input: {}): Effect.Effect<
     DescribeMetricCollectionTypesAnswer,
     ResourceContentionFault | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeMetricCollectionTypes", input);
+  }
   describeNotificationConfigurations(
     input: DescribeNotificationConfigurationsType,
   ): Effect.Effect<
     DescribeNotificationConfigurationsAnswer,
     InvalidNextToken | ResourceContentionFault | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeNotificationConfigurations", input);
+  }
   describePolicies(
     input: DescribePoliciesType,
   ): Effect.Effect<
@@ -211,39 +275,53 @@ export declare class AutoScaling extends AWSServiceClient {
     | ResourceContentionFault
     | ServiceLinkedRoleFailure
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribePolicies", input);
+  }
   describeScalingActivities(
     input: DescribeScalingActivitiesType,
   ): Effect.Effect<
     ActivitiesType,
     InvalidNextToken | ResourceContentionFault | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeScalingActivities", input);
+  }
   describeScalingProcessTypes(input: {}): Effect.Effect<
     ProcessesType,
     ResourceContentionFault | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeScalingProcessTypes", input);
+  }
   describeScheduledActions(
     input: DescribeScheduledActionsType,
   ): Effect.Effect<
     ScheduledActionsType,
     InvalidNextToken | ResourceContentionFault | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeScheduledActions", input);
+  }
   describeTags(
     input: DescribeTagsType,
   ): Effect.Effect<
     TagsType,
     InvalidNextToken | ResourceContentionFault | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeTags", input);
+  }
   describeTerminationPolicyTypes(input: {}): Effect.Effect<
     DescribeTerminationPolicyTypesAnswer,
     ResourceContentionFault | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeTerminationPolicyTypes", input);
+  }
   describeTrafficSources(
     input: DescribeTrafficSourcesRequest,
   ): Effect.Effect<
     DescribeTrafficSourcesResponse,
     InvalidNextToken | ResourceContentionFault | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeTrafficSources", input);
+  }
   describeWarmPool(
     input: DescribeWarmPoolType,
   ): Effect.Effect<
@@ -252,64 +330,91 @@ export declare class AutoScaling extends AWSServiceClient {
     | LimitExceededFault
     | ResourceContentionFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeWarmPool", input);
+  }
   detachInstances(
     input: DetachInstancesQuery,
   ): Effect.Effect<
     DetachInstancesAnswer,
     ResourceContentionFault | CommonAwsError
-  >;
+  > {
+    return this.call("DetachInstances", input);
+  }
   detachLoadBalancers(
     input: DetachLoadBalancersType,
   ): Effect.Effect<
     DetachLoadBalancersResultType,
     ResourceContentionFault | CommonAwsError
-  >;
+  > {
+    return this.call("DetachLoadBalancers", input);
+  }
   detachLoadBalancerTargetGroups(
     input: DetachLoadBalancerTargetGroupsType,
   ): Effect.Effect<
     DetachLoadBalancerTargetGroupsResultType,
     ResourceContentionFault | CommonAwsError
-  >;
+  > {
+    return this.call("DetachLoadBalancerTargetGroups", input);
+  }
   detachTrafficSources(
     input: DetachTrafficSourcesType,
   ): Effect.Effect<
     DetachTrafficSourcesResultType,
     ResourceContentionFault | CommonAwsError
-  >;
+  > {
+    return this.call("DetachTrafficSources", input);
+  }
   disableMetricsCollection(
     input: DisableMetricsCollectionQuery,
-  ): Effect.Effect<{}, ResourceContentionFault | CommonAwsError>;
+  ): Effect.Effect<{}, ResourceContentionFault | CommonAwsError> {
+    return this.call("DisableMetricsCollection", input);
+  }
   enableMetricsCollection(
     input: EnableMetricsCollectionQuery,
-  ): Effect.Effect<{}, ResourceContentionFault | CommonAwsError>;
+  ): Effect.Effect<{}, ResourceContentionFault | CommonAwsError> {
+    return this.call("EnableMetricsCollection", input);
+  }
   enterStandby(
     input: EnterStandbyQuery,
   ): Effect.Effect<
     EnterStandbyAnswer,
     ResourceContentionFault | CommonAwsError
-  >;
+  > {
+    return this.call("EnterStandby", input);
+  }
   executePolicy(
     input: ExecutePolicyType,
   ): Effect.Effect<
     {},
     ResourceContentionFault | ScalingActivityInProgressFault | CommonAwsError
-  >;
+  > {
+    return this.call("ExecutePolicy", input);
+  }
   exitStandby(
     input: ExitStandbyQuery,
-  ): Effect.Effect<ExitStandbyAnswer, ResourceContentionFault | CommonAwsError>;
+  ): Effect.Effect<
+    ExitStandbyAnswer,
+    ResourceContentionFault | CommonAwsError
+  > {
+    return this.call("ExitStandby", input);
+  }
   getPredictiveScalingForecast(
     input: GetPredictiveScalingForecastType,
   ): Effect.Effect<
     GetPredictiveScalingForecastAnswer,
     ResourceContentionFault | CommonAwsError
-  >;
+  > {
+    return this.call("GetPredictiveScalingForecast", input);
+  }
   putLifecycleHook(
     input: PutLifecycleHookType,
   ): Effect.Effect<
     PutLifecycleHookAnswer,
     LimitExceededFault | ResourceContentionFault | CommonAwsError
-  >;
+  > {
+    return this.call("PutLifecycleHook", input);
+  }
   putNotificationConfiguration(
     input: PutNotificationConfigurationType,
   ): Effect.Effect<
@@ -318,7 +423,9 @@ export declare class AutoScaling extends AWSServiceClient {
     | ResourceContentionFault
     | ServiceLinkedRoleFailure
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutNotificationConfiguration", input);
+  }
   putScalingPolicy(
     input: PutScalingPolicyType,
   ): Effect.Effect<
@@ -327,7 +434,9 @@ export declare class AutoScaling extends AWSServiceClient {
     | ResourceContentionFault
     | ServiceLinkedRoleFailure
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutScalingPolicy", input);
+  }
   putScheduledUpdateGroupAction(
     input: PutScheduledUpdateGroupActionType,
   ): Effect.Effect<
@@ -336,25 +445,33 @@ export declare class AutoScaling extends AWSServiceClient {
     | LimitExceededFault
     | ResourceContentionFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutScheduledUpdateGroupAction", input);
+  }
   putWarmPool(
     input: PutWarmPoolType,
   ): Effect.Effect<
     PutWarmPoolAnswer,
     LimitExceededFault | ResourceContentionFault | CommonAwsError
-  >;
+  > {
+    return this.call("PutWarmPool", input);
+  }
   recordLifecycleActionHeartbeat(
     input: RecordLifecycleActionHeartbeatType,
   ): Effect.Effect<
     RecordLifecycleActionHeartbeatAnswer,
     ResourceContentionFault | CommonAwsError
-  >;
+  > {
+    return this.call("RecordLifecycleActionHeartbeat", input);
+  }
   resumeProcesses(
     input: ScalingProcessQuery,
   ): Effect.Effect<
     {},
     ResourceContentionFault | ResourceInUseFault | CommonAwsError
-  >;
+  > {
+    return this.call("ResumeProcesses", input);
+  }
   rollbackInstanceRefresh(
     input: RollbackInstanceRefreshType,
   ): Effect.Effect<
@@ -364,22 +481,30 @@ export declare class AutoScaling extends AWSServiceClient {
     | LimitExceededFault
     | ResourceContentionFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("RollbackInstanceRefresh", input);
+  }
   setDesiredCapacity(
     input: SetDesiredCapacityType,
   ): Effect.Effect<
     {},
     ResourceContentionFault | ScalingActivityInProgressFault | CommonAwsError
-  >;
+  > {
+    return this.call("SetDesiredCapacity", input);
+  }
   setInstanceHealth(
     input: SetInstanceHealthQuery,
-  ): Effect.Effect<{}, ResourceContentionFault | CommonAwsError>;
+  ): Effect.Effect<{}, ResourceContentionFault | CommonAwsError> {
+    return this.call("SetInstanceHealth", input);
+  }
   setInstanceProtection(
     input: SetInstanceProtectionQuery,
   ): Effect.Effect<
     SetInstanceProtectionAnswer,
     LimitExceededFault | ResourceContentionFault | CommonAwsError
-  >;
+  > {
+    return this.call("SetInstanceProtection", input);
+  }
   startInstanceRefresh(
     input: StartInstanceRefreshType,
   ): Effect.Effect<
@@ -388,19 +513,25 @@ export declare class AutoScaling extends AWSServiceClient {
     | LimitExceededFault
     | ResourceContentionFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartInstanceRefresh", input);
+  }
   suspendProcesses(
     input: ScalingProcessQuery,
   ): Effect.Effect<
     {},
     ResourceContentionFault | ResourceInUseFault | CommonAwsError
-  >;
+  > {
+    return this.call("SuspendProcesses", input);
+  }
   terminateInstanceInAutoScalingGroup(
     input: TerminateInstanceInAutoScalingGroupType,
   ): Effect.Effect<
     ActivityType,
     ResourceContentionFault | ScalingActivityInProgressFault | CommonAwsError
-  >;
+  > {
+    return this.call("TerminateInstanceInAutoScalingGroup", input);
+  }
   updateAutoScalingGroup(
     input: UpdateAutoScalingGroupType,
   ): Effect.Effect<
@@ -409,8 +540,12 @@ export declare class AutoScaling extends AWSServiceClient {
     | ScalingActivityInProgressFault
     | ServiceLinkedRoleFailure
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateAutoScalingGroup", input);
+  }
 }
+
+export default AutoScaling;
 
 export interface AcceleratorCountRequest {
   Min?: number;

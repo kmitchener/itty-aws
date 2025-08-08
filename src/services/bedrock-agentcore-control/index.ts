@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class BedrockAgentCoreControl extends AWSServiceClient {
+export class BedrockAgentCoreControl extends AWSServiceClient {
   getTokenVault(
     input: GetTokenVaultRequest,
   ): Effect.Effect<
@@ -14,7 +14,9 @@ export declare class BedrockAgentCoreControl extends AWSServiceClient {
     | UnauthorizedException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetTokenVault", input);
+  }
   setTokenVaultCMK(
     input: SetTokenVaultCMKRequest,
   ): Effect.Effect<
@@ -27,10 +29,14 @@ export declare class BedrockAgentCoreControl extends AWSServiceClient {
     | UnauthorizedException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("SetTokenVaultCMK", input);
+  }
 }
 
-export declare class BedrockAgentcoreControl extends BedrockAgentCoreControl {}
+export class BedrockAgentcoreControl extends BedrockAgentCoreControl {}
+
+export default BedrockAgentCoreControl;
 
 export declare class AccessDeniedException extends EffectData.TaggedError(
   "AccessDeniedException",

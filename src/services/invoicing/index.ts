@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class Invoicing extends AWSServiceClient {
+export class Invoicing extends AWSServiceClient {
   batchGetInvoiceProfile(
     input: BatchGetInvoiceProfileRequest,
   ): Effect.Effect<
@@ -13,7 +13,9 @@ export declare class Invoicing extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("BatchGetInvoiceProfile", input);
+  }
   createInvoiceUnit(
     input: CreateInvoiceUnitRequest,
   ): Effect.Effect<
@@ -23,7 +25,9 @@ export declare class Invoicing extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateInvoiceUnit", input);
+  }
   deleteInvoiceUnit(
     input: DeleteInvoiceUnitRequest,
   ): Effect.Effect<
@@ -34,7 +38,9 @@ export declare class Invoicing extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteInvoiceUnit", input);
+  }
   getInvoiceUnit(
     input: GetInvoiceUnitRequest,
   ): Effect.Effect<
@@ -45,7 +51,9 @@ export declare class Invoicing extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetInvoiceUnit", input);
+  }
   listInvoiceSummaries(
     input: ListInvoiceSummariesRequest,
   ): Effect.Effect<
@@ -56,7 +64,9 @@ export declare class Invoicing extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListInvoiceSummaries", input);
+  }
   listInvoiceUnits(
     input: ListInvoiceUnitsRequest,
   ): Effect.Effect<
@@ -66,7 +76,9 @@ export declare class Invoicing extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListInvoiceUnits", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
@@ -77,7 +89,9 @@ export declare class Invoicing extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -89,7 +103,9 @@ export declare class Invoicing extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
@@ -100,7 +116,9 @@ export declare class Invoicing extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
   updateInvoiceUnit(
     input: UpdateInvoiceUnitRequest,
   ): Effect.Effect<
@@ -111,8 +129,12 @@ export declare class Invoicing extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateInvoiceUnit", input);
+  }
 }
+
+export default Invoicing;
 
 export declare class AccessDeniedException extends EffectData.TaggedError(
   "AccessDeniedException",

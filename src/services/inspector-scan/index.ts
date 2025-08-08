@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class InspectorScan extends AWSServiceClient {
+export class InspectorScan extends AWSServiceClient {
   scanSbom(
     input: ScanSbomRequest,
   ): Effect.Effect<
@@ -12,8 +12,12 @@ export declare class InspectorScan extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ScanSbom", input);
+  }
 }
+
+export default InspectorScan;
 
 export declare class AccessDeniedException extends EffectData.TaggedError(
   "AccessDeniedException",

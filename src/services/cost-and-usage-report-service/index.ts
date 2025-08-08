@@ -2,19 +2,23 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class CostandUsageReportService extends AWSServiceClient {
+export class CostandUsageReportService extends AWSServiceClient {
   deleteReportDefinition(
     input: DeleteReportDefinitionRequest,
   ): Effect.Effect<
     DeleteReportDefinitionResponse,
     InternalErrorException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteReportDefinition", input);
+  }
   describeReportDefinitions(
     input: DescribeReportDefinitionsRequest,
   ): Effect.Effect<
     DescribeReportDefinitionsResponse,
     InternalErrorException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeReportDefinitions", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
@@ -23,13 +27,17 @@ export declare class CostandUsageReportService extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   modifyReportDefinition(
     input: ModifyReportDefinitionRequest,
   ): Effect.Effect<
     ModifyReportDefinitionResponse,
     InternalErrorException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("ModifyReportDefinition", input);
+  }
   putReportDefinition(
     input: PutReportDefinitionRequest,
   ): Effect.Effect<
@@ -40,7 +48,9 @@ export declare class CostandUsageReportService extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutReportDefinition", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -49,7 +59,9 @@ export declare class CostandUsageReportService extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
@@ -58,10 +70,14 @@ export declare class CostandUsageReportService extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
 }
 
-export declare class CostAndUsageReportService extends CostandUsageReportService {}
+export class CostAndUsageReportService extends CostandUsageReportService {}
+
+export default CostandUsageReportService;
 
 export type AdditionalArtifact = "REDSHIFT" | "QUICKSIGHT" | "ATHENA";
 export type AdditionalArtifactList = Array<AdditionalArtifact>;

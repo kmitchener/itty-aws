@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class QLDBSession extends AWSServiceClient {
+export class QLDBSession extends AWSServiceClient {
   sendCommand(
     input: SendCommandRequest,
   ): Effect.Effect<
@@ -14,10 +14,14 @@ export declare class QLDBSession extends AWSServiceClient {
     | OccConflictException
     | RateExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("SendCommand", input);
+  }
 }
 
-export declare class QldbSession extends QLDBSession {}
+export class QldbSession extends QLDBSession {}
+
+export default QLDBSession;
 
 export interface AbortTransactionRequest {}
 export interface AbortTransactionResult {

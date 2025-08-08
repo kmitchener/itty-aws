@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class ChimeSDKIdentity extends AWSServiceClient {
+export class ChimeSDKIdentity extends AWSServiceClient {
   createAppInstance(
     input: CreateAppInstanceRequest,
   ): Effect.Effect<
@@ -16,7 +16,9 @@ export declare class ChimeSDKIdentity extends AWSServiceClient {
     | ThrottledClientException
     | UnauthorizedClientException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateAppInstance", input);
+  }
   createAppInstanceAdmin(
     input: CreateAppInstanceAdminRequest,
   ): Effect.Effect<
@@ -30,7 +32,9 @@ export declare class ChimeSDKIdentity extends AWSServiceClient {
     | ThrottledClientException
     | UnauthorizedClientException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateAppInstanceAdmin", input);
+  }
   createAppInstanceBot(
     input: CreateAppInstanceBotRequest,
   ): Effect.Effect<
@@ -44,7 +48,9 @@ export declare class ChimeSDKIdentity extends AWSServiceClient {
     | ThrottledClientException
     | UnauthorizedClientException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateAppInstanceBot", input);
+  }
   createAppInstanceUser(
     input: CreateAppInstanceUserRequest,
   ): Effect.Effect<
@@ -58,7 +64,9 @@ export declare class ChimeSDKIdentity extends AWSServiceClient {
     | ThrottledClientException
     | UnauthorizedClientException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateAppInstanceUser", input);
+  }
   deleteAppInstance(
     input: DeleteAppInstanceRequest,
   ): Effect.Effect<
@@ -71,7 +79,9 @@ export declare class ChimeSDKIdentity extends AWSServiceClient {
     | ThrottledClientException
     | UnauthorizedClientException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteAppInstance", input);
+  }
   deleteAppInstanceAdmin(
     input: DeleteAppInstanceAdminRequest,
   ): Effect.Effect<
@@ -85,7 +95,9 @@ export declare class ChimeSDKIdentity extends AWSServiceClient {
     | ThrottledClientException
     | UnauthorizedClientException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteAppInstanceAdmin", input);
+  }
   deleteAppInstanceBot(
     input: DeleteAppInstanceBotRequest,
   ): Effect.Effect<
@@ -99,7 +111,9 @@ export declare class ChimeSDKIdentity extends AWSServiceClient {
     | ThrottledClientException
     | UnauthorizedClientException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteAppInstanceBot", input);
+  }
   deleteAppInstanceUser(
     input: DeleteAppInstanceUserRequest,
   ): Effect.Effect<
@@ -113,7 +127,9 @@ export declare class ChimeSDKIdentity extends AWSServiceClient {
     | ThrottledClientException
     | UnauthorizedClientException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteAppInstanceUser", input);
+  }
   deregisterAppInstanceUserEndpoint(
     input: DeregisterAppInstanceUserEndpointRequest,
   ): Effect.Effect<
@@ -125,7 +141,9 @@ export declare class ChimeSDKIdentity extends AWSServiceClient {
     | ThrottledClientException
     | UnauthorizedClientException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeregisterAppInstanceUserEndpoint", input);
+  }
   describeAppInstance(
     input: DescribeAppInstanceRequest,
   ): Effect.Effect<
@@ -137,7 +155,9 @@ export declare class ChimeSDKIdentity extends AWSServiceClient {
     | ThrottledClientException
     | UnauthorizedClientException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeAppInstance", input);
+  }
   describeAppInstanceAdmin(
     input: DescribeAppInstanceAdminRequest,
   ): Effect.Effect<
@@ -149,7 +169,9 @@ export declare class ChimeSDKIdentity extends AWSServiceClient {
     | ThrottledClientException
     | UnauthorizedClientException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeAppInstanceAdmin", input);
+  }
   describeAppInstanceBot(
     input: DescribeAppInstanceBotRequest,
   ): Effect.Effect<
@@ -162,7 +184,9 @@ export declare class ChimeSDKIdentity extends AWSServiceClient {
     | ThrottledClientException
     | UnauthorizedClientException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeAppInstanceBot", input);
+  }
   describeAppInstanceUser(
     input: DescribeAppInstanceUserRequest,
   ): Effect.Effect<
@@ -174,7 +198,9 @@ export declare class ChimeSDKIdentity extends AWSServiceClient {
     | ThrottledClientException
     | UnauthorizedClientException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeAppInstanceUser", input);
+  }
   describeAppInstanceUserEndpoint(
     input: DescribeAppInstanceUserEndpointRequest,
   ): Effect.Effect<
@@ -186,7 +212,9 @@ export declare class ChimeSDKIdentity extends AWSServiceClient {
     | ThrottledClientException
     | UnauthorizedClientException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeAppInstanceUserEndpoint", input);
+  }
   getAppInstanceRetentionSettings(
     input: GetAppInstanceRetentionSettingsRequest,
   ): Effect.Effect<
@@ -198,7 +226,9 @@ export declare class ChimeSDKIdentity extends AWSServiceClient {
     | ThrottledClientException
     | UnauthorizedClientException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetAppInstanceRetentionSettings", input);
+  }
   listAppInstanceAdmins(
     input: ListAppInstanceAdminsRequest,
   ): Effect.Effect<
@@ -211,7 +241,9 @@ export declare class ChimeSDKIdentity extends AWSServiceClient {
     | ThrottledClientException
     | UnauthorizedClientException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListAppInstanceAdmins", input);
+  }
   listAppInstanceBots(
     input: ListAppInstanceBotsRequest,
   ): Effect.Effect<
@@ -224,7 +256,9 @@ export declare class ChimeSDKIdentity extends AWSServiceClient {
     | ThrottledClientException
     | UnauthorizedClientException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListAppInstanceBots", input);
+  }
   listAppInstances(
     input: ListAppInstancesRequest,
   ): Effect.Effect<
@@ -236,7 +270,9 @@ export declare class ChimeSDKIdentity extends AWSServiceClient {
     | ThrottledClientException
     | UnauthorizedClientException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListAppInstances", input);
+  }
   listAppInstanceUserEndpoints(
     input: ListAppInstanceUserEndpointsRequest,
   ): Effect.Effect<
@@ -248,7 +284,9 @@ export declare class ChimeSDKIdentity extends AWSServiceClient {
     | ThrottledClientException
     | UnauthorizedClientException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListAppInstanceUserEndpoints", input);
+  }
   listAppInstanceUsers(
     input: ListAppInstanceUsersRequest,
   ): Effect.Effect<
@@ -260,7 +298,9 @@ export declare class ChimeSDKIdentity extends AWSServiceClient {
     | ThrottledClientException
     | UnauthorizedClientException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListAppInstanceUsers", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
@@ -272,7 +312,9 @@ export declare class ChimeSDKIdentity extends AWSServiceClient {
     | ThrottledClientException
     | UnauthorizedClientException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   putAppInstanceRetentionSettings(
     input: PutAppInstanceRetentionSettingsRequest,
   ): Effect.Effect<
@@ -284,7 +326,9 @@ export declare class ChimeSDKIdentity extends AWSServiceClient {
     | ThrottledClientException
     | UnauthorizedClientException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutAppInstanceRetentionSettings", input);
+  }
   putAppInstanceUserExpirationSettings(
     input: PutAppInstanceUserExpirationSettingsRequest,
   ): Effect.Effect<
@@ -297,7 +341,9 @@ export declare class ChimeSDKIdentity extends AWSServiceClient {
     | ThrottledClientException
     | UnauthorizedClientException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutAppInstanceUserExpirationSettings", input);
+  }
   registerAppInstanceUserEndpoint(
     input: RegisterAppInstanceUserEndpointRequest,
   ): Effect.Effect<
@@ -311,7 +357,9 @@ export declare class ChimeSDKIdentity extends AWSServiceClient {
     | ThrottledClientException
     | UnauthorizedClientException
     | CommonAwsError
-  >;
+  > {
+    return this.call("RegisterAppInstanceUserEndpoint", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -324,7 +372,9 @@ export declare class ChimeSDKIdentity extends AWSServiceClient {
     | ThrottledClientException
     | UnauthorizedClientException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
@@ -336,7 +386,9 @@ export declare class ChimeSDKIdentity extends AWSServiceClient {
     | ThrottledClientException
     | UnauthorizedClientException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
   updateAppInstance(
     input: UpdateAppInstanceRequest,
   ): Effect.Effect<
@@ -349,7 +401,9 @@ export declare class ChimeSDKIdentity extends AWSServiceClient {
     | ThrottledClientException
     | UnauthorizedClientException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateAppInstance", input);
+  }
   updateAppInstanceBot(
     input: UpdateAppInstanceBotRequest,
   ): Effect.Effect<
@@ -363,7 +417,9 @@ export declare class ChimeSDKIdentity extends AWSServiceClient {
     | ThrottledClientException
     | UnauthorizedClientException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateAppInstanceBot", input);
+  }
   updateAppInstanceUser(
     input: UpdateAppInstanceUserRequest,
   ): Effect.Effect<
@@ -377,7 +433,9 @@ export declare class ChimeSDKIdentity extends AWSServiceClient {
     | ThrottledClientException
     | UnauthorizedClientException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateAppInstanceUser", input);
+  }
   updateAppInstanceUserEndpoint(
     input: UpdateAppInstanceUserEndpointRequest,
   ): Effect.Effect<
@@ -390,10 +448,14 @@ export declare class ChimeSDKIdentity extends AWSServiceClient {
     | ThrottledClientException
     | UnauthorizedClientException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateAppInstanceUserEndpoint", input);
+  }
 }
 
-export declare class ChimeSdkIdentity extends ChimeSDKIdentity {}
+export class ChimeSdkIdentity extends ChimeSDKIdentity {}
+
+export default ChimeSDKIdentity;
 
 export type AllowMessages = "ALL" | "NONE";
 export interface AppInstance {

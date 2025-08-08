@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class CognitoIdentityProvider extends AWSServiceClient {
+export class CognitoIdentityProvider extends AWSServiceClient {
   addCustomAttributes(
     input: AddCustomAttributesRequest,
   ): Effect.Effect<
@@ -14,7 +14,9 @@ export declare class CognitoIdentityProvider extends AWSServiceClient {
     | TooManyRequestsException
     | UserImportInProgressException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AddCustomAttributes", input);
+  }
   adminAddUserToGroup(
     input: AdminAddUserToGroupRequest,
   ): Effect.Effect<
@@ -26,7 +28,9 @@ export declare class CognitoIdentityProvider extends AWSServiceClient {
     | TooManyRequestsException
     | UserNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AdminAddUserToGroup", input);
+  }
   adminConfirmSignUp(
     input: AdminConfirmSignUpRequest,
   ): Effect.Effect<
@@ -43,7 +47,9 @@ export declare class CognitoIdentityProvider extends AWSServiceClient {
     | UserLambdaValidationException
     | UserNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AdminConfirmSignUp", input);
+  }
   adminCreateUser(
     input: AdminCreateUserRequest,
   ): Effect.Effect<
@@ -65,7 +71,9 @@ export declare class CognitoIdentityProvider extends AWSServiceClient {
     | UsernameExistsException
     | UserNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AdminCreateUser", input);
+  }
   adminDeleteUser(
     input: AdminDeleteUserRequest,
   ): Effect.Effect<
@@ -77,7 +85,9 @@ export declare class CognitoIdentityProvider extends AWSServiceClient {
     | TooManyRequestsException
     | UserNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AdminDeleteUser", input);
+  }
   adminDeleteUserAttributes(
     input: AdminDeleteUserAttributesRequest,
   ): Effect.Effect<
@@ -89,7 +99,9 @@ export declare class CognitoIdentityProvider extends AWSServiceClient {
     | TooManyRequestsException
     | UserNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AdminDeleteUserAttributes", input);
+  }
   adminDisableProviderForUser(
     input: AdminDisableProviderForUserRequest,
   ): Effect.Effect<
@@ -102,7 +114,9 @@ export declare class CognitoIdentityProvider extends AWSServiceClient {
     | TooManyRequestsException
     | UserNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AdminDisableProviderForUser", input);
+  }
   adminDisableUser(
     input: AdminDisableUserRequest,
   ): Effect.Effect<
@@ -114,7 +128,9 @@ export declare class CognitoIdentityProvider extends AWSServiceClient {
     | TooManyRequestsException
     | UserNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AdminDisableUser", input);
+  }
   adminEnableUser(
     input: AdminEnableUserRequest,
   ): Effect.Effect<
@@ -126,7 +142,9 @@ export declare class CognitoIdentityProvider extends AWSServiceClient {
     | TooManyRequestsException
     | UserNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AdminEnableUser", input);
+  }
   adminForgetDevice(
     input: AdminForgetDeviceRequest,
   ): Effect.Effect<
@@ -139,7 +157,9 @@ export declare class CognitoIdentityProvider extends AWSServiceClient {
     | TooManyRequestsException
     | UserNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AdminForgetDevice", input);
+  }
   adminGetDevice(
     input: AdminGetDeviceRequest,
   ): Effect.Effect<
@@ -151,7 +171,9 @@ export declare class CognitoIdentityProvider extends AWSServiceClient {
     | ResourceNotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AdminGetDevice", input);
+  }
   adminGetUser(
     input: AdminGetUserRequest,
   ): Effect.Effect<
@@ -163,7 +185,9 @@ export declare class CognitoIdentityProvider extends AWSServiceClient {
     | TooManyRequestsException
     | UserNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AdminGetUser", input);
+  }
   adminInitiateAuth(
     input: AdminInitiateAuthRequest,
   ): Effect.Effect<
@@ -186,7 +210,9 @@ export declare class CognitoIdentityProvider extends AWSServiceClient {
     | UserNotConfirmedException
     | UserNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AdminInitiateAuth", input);
+  }
   adminLinkProviderForUser(
     input: AdminLinkProviderForUserRequest,
   ): Effect.Effect<
@@ -200,7 +226,9 @@ export declare class CognitoIdentityProvider extends AWSServiceClient {
     | TooManyRequestsException
     | UserNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AdminLinkProviderForUser", input);
+  }
   adminListDevices(
     input: AdminListDevicesRequest,
   ): Effect.Effect<
@@ -212,7 +240,9 @@ export declare class CognitoIdentityProvider extends AWSServiceClient {
     | ResourceNotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AdminListDevices", input);
+  }
   adminListGroupsForUser(
     input: AdminListGroupsForUserRequest,
   ): Effect.Effect<
@@ -224,7 +254,9 @@ export declare class CognitoIdentityProvider extends AWSServiceClient {
     | TooManyRequestsException
     | UserNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AdminListGroupsForUser", input);
+  }
   adminListUserAuthEvents(
     input: AdminListUserAuthEventsRequest,
   ): Effect.Effect<
@@ -237,7 +269,9 @@ export declare class CognitoIdentityProvider extends AWSServiceClient {
     | UserNotFoundException
     | UserPoolAddOnNotEnabledException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AdminListUserAuthEvents", input);
+  }
   adminRemoveUserFromGroup(
     input: AdminRemoveUserFromGroupRequest,
   ): Effect.Effect<
@@ -249,7 +283,9 @@ export declare class CognitoIdentityProvider extends AWSServiceClient {
     | TooManyRequestsException
     | UserNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AdminRemoveUserFromGroup", input);
+  }
   adminResetUserPassword(
     input: AdminResetUserPasswordRequest,
   ): Effect.Effect<
@@ -268,7 +304,9 @@ export declare class CognitoIdentityProvider extends AWSServiceClient {
     | UserLambdaValidationException
     | UserNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AdminResetUserPassword", input);
+  }
   adminRespondToAuthChallenge(
     input: AdminRespondToAuthChallengeRequest,
   ): Effect.Effect<
@@ -296,7 +334,9 @@ export declare class CognitoIdentityProvider extends AWSServiceClient {
     | UserNotConfirmedException
     | UserNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AdminRespondToAuthChallenge", input);
+  }
   adminSetUserMFAPreference(
     input: AdminSetUserMFAPreferenceRequest,
   ): Effect.Effect<
@@ -309,7 +349,9 @@ export declare class CognitoIdentityProvider extends AWSServiceClient {
     | UserNotConfirmedException
     | UserNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AdminSetUserMFAPreference", input);
+  }
   adminSetUserPassword(
     input: AdminSetUserPasswordRequest,
   ): Effect.Effect<
@@ -323,7 +365,9 @@ export declare class CognitoIdentityProvider extends AWSServiceClient {
     | TooManyRequestsException
     | UserNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AdminSetUserPassword", input);
+  }
   adminSetUserSettings(
     input: AdminSetUserSettingsRequest,
   ): Effect.Effect<
@@ -334,7 +378,9 @@ export declare class CognitoIdentityProvider extends AWSServiceClient {
     | ResourceNotFoundException
     | UserNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AdminSetUserSettings", input);
+  }
   adminUpdateAuthEventFeedback(
     input: AdminUpdateAuthEventFeedbackRequest,
   ): Effect.Effect<
@@ -347,7 +393,9 @@ export declare class CognitoIdentityProvider extends AWSServiceClient {
     | UserNotFoundException
     | UserPoolAddOnNotEnabledException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AdminUpdateAuthEventFeedback", input);
+  }
   adminUpdateDeviceStatus(
     input: AdminUpdateDeviceStatusRequest,
   ): Effect.Effect<
@@ -360,7 +408,9 @@ export declare class CognitoIdentityProvider extends AWSServiceClient {
     | TooManyRequestsException
     | UserNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AdminUpdateDeviceStatus", input);
+  }
   adminUpdateUserAttributes(
     input: AdminUpdateUserAttributesRequest,
   ): Effect.Effect<
@@ -379,7 +429,9 @@ export declare class CognitoIdentityProvider extends AWSServiceClient {
     | UserLambdaValidationException
     | UserNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AdminUpdateUserAttributes", input);
+  }
   adminUserGlobalSignOut(
     input: AdminUserGlobalSignOutRequest,
   ): Effect.Effect<
@@ -391,7 +443,9 @@ export declare class CognitoIdentityProvider extends AWSServiceClient {
     | TooManyRequestsException
     | UserNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AdminUserGlobalSignOut", input);
+  }
   associateSoftwareToken(
     input: AssociateSoftwareTokenRequest,
   ): Effect.Effect<
@@ -404,7 +458,9 @@ export declare class CognitoIdentityProvider extends AWSServiceClient {
     | ResourceNotFoundException
     | SoftwareTokenMFANotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AssociateSoftwareToken", input);
+  }
   changePassword(
     input: ChangePasswordRequest,
   ): Effect.Effect<
@@ -422,7 +478,9 @@ export declare class CognitoIdentityProvider extends AWSServiceClient {
     | UserNotConfirmedException
     | UserNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ChangePassword", input);
+  }
   completeWebAuthnRegistration(
     input: CompleteWebAuthnRegistrationRequest,
   ): Effect.Effect<
@@ -440,7 +498,9 @@ export declare class CognitoIdentityProvider extends AWSServiceClient {
     | WebAuthnOriginNotAllowedException
     | WebAuthnRelyingPartyMismatchException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CompleteWebAuthnRegistration", input);
+  }
   confirmDevice(
     input: ConfirmDeviceRequest,
   ): Effect.Effect<
@@ -460,7 +520,9 @@ export declare class CognitoIdentityProvider extends AWSServiceClient {
     | UserNotConfirmedException
     | UserNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ConfirmDevice", input);
+  }
   confirmForgotPassword(
     input: ConfirmForgotPasswordRequest,
   ): Effect.Effect<
@@ -483,7 +545,9 @@ export declare class CognitoIdentityProvider extends AWSServiceClient {
     | UserNotConfirmedException
     | UserNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ConfirmForgotPassword", input);
+  }
   confirmSignUp(
     input: ConfirmSignUpRequest,
   ): Effect.Effect<
@@ -504,7 +568,9 @@ export declare class CognitoIdentityProvider extends AWSServiceClient {
     | UserLambdaValidationException
     | UserNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ConfirmSignUp", input);
+  }
   createGroup(
     input: CreateGroupRequest,
   ): Effect.Effect<
@@ -517,7 +583,9 @@ export declare class CognitoIdentityProvider extends AWSServiceClient {
     | ResourceNotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateGroup", input);
+  }
   createIdentityProvider(
     input: CreateIdentityProviderRequest,
   ): Effect.Effect<
@@ -530,7 +598,9 @@ export declare class CognitoIdentityProvider extends AWSServiceClient {
     | ResourceNotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateIdentityProvider", input);
+  }
   createManagedLoginBranding(
     input: CreateManagedLoginBrandingRequest,
   ): Effect.Effect<
@@ -544,7 +614,9 @@ export declare class CognitoIdentityProvider extends AWSServiceClient {
     | ResourceNotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateManagedLoginBranding", input);
+  }
   createResourceServer(
     input: CreateResourceServerRequest,
   ): Effect.Effect<
@@ -556,7 +628,9 @@ export declare class CognitoIdentityProvider extends AWSServiceClient {
     | ResourceNotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateResourceServer", input);
+  }
   createUserImportJob(
     input: CreateUserImportJobRequest,
   ): Effect.Effect<
@@ -569,7 +643,9 @@ export declare class CognitoIdentityProvider extends AWSServiceClient {
     | ResourceNotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateUserImportJob", input);
+  }
   createUserPool(
     input: CreateUserPoolRequest,
   ): Effect.Effect<
@@ -586,7 +662,9 @@ export declare class CognitoIdentityProvider extends AWSServiceClient {
     | TooManyRequestsException
     | UserPoolTaggingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateUserPool", input);
+  }
   createUserPoolClient(
     input: CreateUserPoolClientRequest,
   ): Effect.Effect<
@@ -601,7 +679,9 @@ export declare class CognitoIdentityProvider extends AWSServiceClient {
     | ScopeDoesNotExistException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateUserPoolClient", input);
+  }
   createUserPoolDomain(
     input: CreateUserPoolDomainRequest,
   ): Effect.Effect<
@@ -614,7 +694,9 @@ export declare class CognitoIdentityProvider extends AWSServiceClient {
     | NotAuthorizedException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateUserPoolDomain", input);
+  }
   deleteGroup(
     input: DeleteGroupRequest,
   ): Effect.Effect<
@@ -625,7 +707,9 @@ export declare class CognitoIdentityProvider extends AWSServiceClient {
     | ResourceNotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteGroup", input);
+  }
   deleteIdentityProvider(
     input: DeleteIdentityProviderRequest,
   ): Effect.Effect<
@@ -638,7 +722,9 @@ export declare class CognitoIdentityProvider extends AWSServiceClient {
     | TooManyRequestsException
     | UnsupportedIdentityProviderException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteIdentityProvider", input);
+  }
   deleteManagedLoginBranding(
     input: DeleteManagedLoginBrandingRequest,
   ): Effect.Effect<
@@ -650,7 +736,9 @@ export declare class CognitoIdentityProvider extends AWSServiceClient {
     | ResourceNotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteManagedLoginBranding", input);
+  }
   deleteResourceServer(
     input: DeleteResourceServerRequest,
   ): Effect.Effect<
@@ -661,7 +749,9 @@ export declare class CognitoIdentityProvider extends AWSServiceClient {
     | ResourceNotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteResourceServer", input);
+  }
   deleteUser(
     input: DeleteUserRequest,
   ): Effect.Effect<
@@ -676,7 +766,9 @@ export declare class CognitoIdentityProvider extends AWSServiceClient {
     | UserNotConfirmedException
     | UserNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteUser", input);
+  }
   deleteUserAttributes(
     input: DeleteUserAttributesRequest,
   ): Effect.Effect<
@@ -691,7 +783,9 @@ export declare class CognitoIdentityProvider extends AWSServiceClient {
     | UserNotConfirmedException
     | UserNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteUserAttributes", input);
+  }
   deleteUserPool(
     input: DeleteUserPoolRequest,
   ): Effect.Effect<
@@ -703,7 +797,9 @@ export declare class CognitoIdentityProvider extends AWSServiceClient {
     | TooManyRequestsException
     | UserImportInProgressException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteUserPool", input);
+  }
   deleteUserPoolClient(
     input: DeleteUserPoolClientRequest,
   ): Effect.Effect<
@@ -715,7 +811,9 @@ export declare class CognitoIdentityProvider extends AWSServiceClient {
     | ResourceNotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteUserPoolClient", input);
+  }
   deleteUserPoolDomain(
     input: DeleteUserPoolDomainRequest,
   ): Effect.Effect<
@@ -726,7 +824,9 @@ export declare class CognitoIdentityProvider extends AWSServiceClient {
     | NotAuthorizedException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteUserPoolDomain", input);
+  }
   deleteWebAuthnCredential(
     input: DeleteWebAuthnCredentialRequest,
   ): Effect.Effect<
@@ -739,7 +839,9 @@ export declare class CognitoIdentityProvider extends AWSServiceClient {
     | ResourceNotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteWebAuthnCredential", input);
+  }
   describeIdentityProvider(
     input: DescribeIdentityProviderRequest,
   ): Effect.Effect<
@@ -750,7 +852,9 @@ export declare class CognitoIdentityProvider extends AWSServiceClient {
     | ResourceNotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeIdentityProvider", input);
+  }
   describeManagedLoginBranding(
     input: DescribeManagedLoginBrandingRequest,
   ): Effect.Effect<
@@ -761,7 +865,9 @@ export declare class CognitoIdentityProvider extends AWSServiceClient {
     | ResourceNotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeManagedLoginBranding", input);
+  }
   describeManagedLoginBrandingByClient(
     input: DescribeManagedLoginBrandingByClientRequest,
   ): Effect.Effect<
@@ -772,7 +878,9 @@ export declare class CognitoIdentityProvider extends AWSServiceClient {
     | ResourceNotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeManagedLoginBrandingByClient", input);
+  }
   describeResourceServer(
     input: DescribeResourceServerRequest,
   ): Effect.Effect<
@@ -783,7 +891,9 @@ export declare class CognitoIdentityProvider extends AWSServiceClient {
     | ResourceNotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeResourceServer", input);
+  }
   describeRiskConfiguration(
     input: DescribeRiskConfigurationRequest,
   ): Effect.Effect<
@@ -795,7 +905,9 @@ export declare class CognitoIdentityProvider extends AWSServiceClient {
     | TooManyRequestsException
     | UserPoolAddOnNotEnabledException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeRiskConfiguration", input);
+  }
   describeUserImportJob(
     input: DescribeUserImportJobRequest,
   ): Effect.Effect<
@@ -806,7 +918,9 @@ export declare class CognitoIdentityProvider extends AWSServiceClient {
     | ResourceNotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeUserImportJob", input);
+  }
   describeUserPool(
     input: DescribeUserPoolRequest,
   ): Effect.Effect<
@@ -818,7 +932,9 @@ export declare class CognitoIdentityProvider extends AWSServiceClient {
     | TooManyRequestsException
     | UserPoolTaggingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeUserPool", input);
+  }
   describeUserPoolClient(
     input: DescribeUserPoolClientRequest,
   ): Effect.Effect<
@@ -829,7 +945,9 @@ export declare class CognitoIdentityProvider extends AWSServiceClient {
     | ResourceNotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeUserPoolClient", input);
+  }
   describeUserPoolDomain(
     input: DescribeUserPoolDomainRequest,
   ): Effect.Effect<
@@ -839,7 +957,9 @@ export declare class CognitoIdentityProvider extends AWSServiceClient {
     | NotAuthorizedException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeUserPoolDomain", input);
+  }
   forgetDevice(
     input: ForgetDeviceRequest,
   ): Effect.Effect<
@@ -855,7 +975,9 @@ export declare class CognitoIdentityProvider extends AWSServiceClient {
     | UserNotConfirmedException
     | UserNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ForgetDevice", input);
+  }
   forgotPassword(
     input: ForgotPasswordRequest,
   ): Effect.Effect<
@@ -876,7 +998,9 @@ export declare class CognitoIdentityProvider extends AWSServiceClient {
     | UserLambdaValidationException
     | UserNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ForgotPassword", input);
+  }
   getCSVHeader(
     input: GetCSVHeaderRequest,
   ): Effect.Effect<
@@ -887,7 +1011,9 @@ export declare class CognitoIdentityProvider extends AWSServiceClient {
     | ResourceNotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetCSVHeader", input);
+  }
   getDevice(
     input: GetDeviceRequest,
   ): Effect.Effect<
@@ -903,7 +1029,9 @@ export declare class CognitoIdentityProvider extends AWSServiceClient {
     | UserNotConfirmedException
     | UserNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetDevice", input);
+  }
   getGroup(
     input: GetGroupRequest,
   ): Effect.Effect<
@@ -914,7 +1042,9 @@ export declare class CognitoIdentityProvider extends AWSServiceClient {
     | ResourceNotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetGroup", input);
+  }
   getIdentityProviderByIdentifier(
     input: GetIdentityProviderByIdentifierRequest,
   ): Effect.Effect<
@@ -925,7 +1055,9 @@ export declare class CognitoIdentityProvider extends AWSServiceClient {
     | ResourceNotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetIdentityProviderByIdentifier", input);
+  }
   getLogDeliveryConfiguration(
     input: GetLogDeliveryConfigurationRequest,
   ): Effect.Effect<
@@ -936,7 +1068,9 @@ export declare class CognitoIdentityProvider extends AWSServiceClient {
     | ResourceNotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetLogDeliveryConfiguration", input);
+  }
   getSigningCertificate(
     input: GetSigningCertificateRequest,
   ): Effect.Effect<
@@ -945,7 +1079,9 @@ export declare class CognitoIdentityProvider extends AWSServiceClient {
     | InvalidParameterException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetSigningCertificate", input);
+  }
   getTokensFromRefreshToken(
     input: GetTokensFromRefreshTokenRequest,
   ): Effect.Effect<
@@ -962,7 +1098,9 @@ export declare class CognitoIdentityProvider extends AWSServiceClient {
     | UserLambdaValidationException
     | UserNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetTokensFromRefreshToken", input);
+  }
   getUICustomization(
     input: GetUICustomizationRequest,
   ): Effect.Effect<
@@ -973,7 +1111,9 @@ export declare class CognitoIdentityProvider extends AWSServiceClient {
     | ResourceNotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetUICustomization", input);
+  }
   getUser(
     input: GetUserRequest,
   ): Effect.Effect<
@@ -988,7 +1128,9 @@ export declare class CognitoIdentityProvider extends AWSServiceClient {
     | UserNotConfirmedException
     | UserNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetUser", input);
+  }
   getUserAttributeVerificationCode(
     input: GetUserAttributeVerificationCodeRequest,
   ): Effect.Effect<
@@ -1011,7 +1153,9 @@ export declare class CognitoIdentityProvider extends AWSServiceClient {
     | UserNotConfirmedException
     | UserNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetUserAttributeVerificationCode", input);
+  }
   getUserAuthFactors(
     input: GetUserAuthFactorsRequest,
   ): Effect.Effect<
@@ -1026,7 +1170,9 @@ export declare class CognitoIdentityProvider extends AWSServiceClient {
     | UserNotConfirmedException
     | UserNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetUserAuthFactors", input);
+  }
   getUserPoolMfaConfig(
     input: GetUserPoolMfaConfigRequest,
   ): Effect.Effect<
@@ -1037,7 +1183,9 @@ export declare class CognitoIdentityProvider extends AWSServiceClient {
     | ResourceNotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetUserPoolMfaConfig", input);
+  }
   globalSignOut(
     input: GlobalSignOutRequest,
   ): Effect.Effect<
@@ -1051,7 +1199,9 @@ export declare class CognitoIdentityProvider extends AWSServiceClient {
     | TooManyRequestsException
     | UserNotConfirmedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GlobalSignOut", input);
+  }
   initiateAuth(
     input: InitiateAuthRequest,
   ): Effect.Effect<
@@ -1074,7 +1224,9 @@ export declare class CognitoIdentityProvider extends AWSServiceClient {
     | UserNotConfirmedException
     | UserNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("InitiateAuth", input);
+  }
   listDevices(
     input: ListDevicesRequest,
   ): Effect.Effect<
@@ -1090,7 +1242,9 @@ export declare class CognitoIdentityProvider extends AWSServiceClient {
     | UserNotConfirmedException
     | UserNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListDevices", input);
+  }
   listGroups(
     input: ListGroupsRequest,
   ): Effect.Effect<
@@ -1101,7 +1255,9 @@ export declare class CognitoIdentityProvider extends AWSServiceClient {
     | ResourceNotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListGroups", input);
+  }
   listIdentityProviders(
     input: ListIdentityProvidersRequest,
   ): Effect.Effect<
@@ -1112,7 +1268,9 @@ export declare class CognitoIdentityProvider extends AWSServiceClient {
     | ResourceNotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListIdentityProviders", input);
+  }
   listResourceServers(
     input: ListResourceServersRequest,
   ): Effect.Effect<
@@ -1123,7 +1281,9 @@ export declare class CognitoIdentityProvider extends AWSServiceClient {
     | ResourceNotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListResourceServers", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
@@ -1134,7 +1294,9 @@ export declare class CognitoIdentityProvider extends AWSServiceClient {
     | ResourceNotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   listUserImportJobs(
     input: ListUserImportJobsRequest,
   ): Effect.Effect<
@@ -1145,7 +1307,9 @@ export declare class CognitoIdentityProvider extends AWSServiceClient {
     | ResourceNotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListUserImportJobs", input);
+  }
   listUserPoolClients(
     input: ListUserPoolClientsRequest,
   ): Effect.Effect<
@@ -1156,7 +1320,9 @@ export declare class CognitoIdentityProvider extends AWSServiceClient {
     | ResourceNotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListUserPoolClients", input);
+  }
   listUserPools(
     input: ListUserPoolsRequest,
   ): Effect.Effect<
@@ -1166,7 +1332,9 @@ export declare class CognitoIdentityProvider extends AWSServiceClient {
     | NotAuthorizedException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListUserPools", input);
+  }
   listUsers(
     input: ListUsersRequest,
   ): Effect.Effect<
@@ -1177,7 +1345,9 @@ export declare class CognitoIdentityProvider extends AWSServiceClient {
     | ResourceNotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListUsers", input);
+  }
   listUsersInGroup(
     input: ListUsersInGroupRequest,
   ): Effect.Effect<
@@ -1188,7 +1358,9 @@ export declare class CognitoIdentityProvider extends AWSServiceClient {
     | ResourceNotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListUsersInGroup", input);
+  }
   listWebAuthnCredentials(
     input: ListWebAuthnCredentialsRequest,
   ): Effect.Effect<
@@ -1200,7 +1372,9 @@ export declare class CognitoIdentityProvider extends AWSServiceClient {
     | NotAuthorizedException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListWebAuthnCredentials", input);
+  }
   resendConfirmationCode(
     input: ResendConfirmationCodeRequest,
   ): Effect.Effect<
@@ -1221,7 +1395,9 @@ export declare class CognitoIdentityProvider extends AWSServiceClient {
     | UserLambdaValidationException
     | UserNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ResendConfirmationCode", input);
+  }
   respondToAuthChallenge(
     input: RespondToAuthChallengeRequest,
   ): Effect.Effect<
@@ -1250,7 +1426,9 @@ export declare class CognitoIdentityProvider extends AWSServiceClient {
     | UserNotConfirmedException
     | UserNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("RespondToAuthChallenge", input);
+  }
   revokeToken(
     input: RevokeTokenRequest,
   ): Effect.Effect<
@@ -1263,7 +1441,9 @@ export declare class CognitoIdentityProvider extends AWSServiceClient {
     | UnsupportedOperationException
     | UnsupportedTokenTypeException
     | CommonAwsError
-  >;
+  > {
+    return this.call("RevokeToken", input);
+  }
   setLogDeliveryConfiguration(
     input: SetLogDeliveryConfigurationRequest,
   ): Effect.Effect<
@@ -1275,7 +1455,9 @@ export declare class CognitoIdentityProvider extends AWSServiceClient {
     | ResourceNotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("SetLogDeliveryConfiguration", input);
+  }
   setRiskConfiguration(
     input: SetRiskConfigurationRequest,
   ): Effect.Effect<
@@ -1289,7 +1471,9 @@ export declare class CognitoIdentityProvider extends AWSServiceClient {
     | TooManyRequestsException
     | UserPoolAddOnNotEnabledException
     | CommonAwsError
-  >;
+  > {
+    return this.call("SetRiskConfiguration", input);
+  }
   setUICustomization(
     input: SetUICustomizationRequest,
   ): Effect.Effect<
@@ -1300,7 +1484,9 @@ export declare class CognitoIdentityProvider extends AWSServiceClient {
     | ResourceNotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("SetUICustomization", input);
+  }
   setUserMFAPreference(
     input: SetUserMFAPreferenceRequest,
   ): Effect.Effect<
@@ -1314,7 +1500,9 @@ export declare class CognitoIdentityProvider extends AWSServiceClient {
     | UserNotConfirmedException
     | UserNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("SetUserMFAPreference", input);
+  }
   setUserPoolMfaConfig(
     input: SetUserPoolMfaConfigRequest,
   ): Effect.Effect<
@@ -1329,7 +1517,9 @@ export declare class CognitoIdentityProvider extends AWSServiceClient {
     | ResourceNotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("SetUserPoolMfaConfig", input);
+  }
   setUserSettings(
     input: SetUserSettingsRequest,
   ): Effect.Effect<
@@ -1343,7 +1533,9 @@ export declare class CognitoIdentityProvider extends AWSServiceClient {
     | UserNotConfirmedException
     | UserNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("SetUserSettings", input);
+  }
   signUp(
     input: SignUpRequest,
   ): Effect.Effect<
@@ -1365,7 +1557,9 @@ export declare class CognitoIdentityProvider extends AWSServiceClient {
     | UserLambdaValidationException
     | UsernameExistsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("SignUp", input);
+  }
   startUserImportJob(
     input: StartUserImportJobRequest,
   ): Effect.Effect<
@@ -1377,7 +1571,9 @@ export declare class CognitoIdentityProvider extends AWSServiceClient {
     | ResourceNotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartUserImportJob", input);
+  }
   startWebAuthnRegistration(
     input: StartWebAuthnRegistrationRequest,
   ): Effect.Effect<
@@ -1391,7 +1587,9 @@ export declare class CognitoIdentityProvider extends AWSServiceClient {
     | WebAuthnConfigurationMissingException
     | WebAuthnNotEnabledException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartWebAuthnRegistration", input);
+  }
   stopUserImportJob(
     input: StopUserImportJobRequest,
   ): Effect.Effect<
@@ -1403,7 +1601,9 @@ export declare class CognitoIdentityProvider extends AWSServiceClient {
     | ResourceNotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StopUserImportJob", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -1414,7 +1614,9 @@ export declare class CognitoIdentityProvider extends AWSServiceClient {
     | ResourceNotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
@@ -1425,7 +1627,9 @@ export declare class CognitoIdentityProvider extends AWSServiceClient {
     | ResourceNotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
   updateAuthEventFeedback(
     input: UpdateAuthEventFeedbackRequest,
   ): Effect.Effect<
@@ -1438,7 +1642,9 @@ export declare class CognitoIdentityProvider extends AWSServiceClient {
     | UserNotFoundException
     | UserPoolAddOnNotEnabledException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateAuthEventFeedback", input);
+  }
   updateDeviceStatus(
     input: UpdateDeviceStatusRequest,
   ): Effect.Effect<
@@ -1454,7 +1660,9 @@ export declare class CognitoIdentityProvider extends AWSServiceClient {
     | UserNotConfirmedException
     | UserNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateDeviceStatus", input);
+  }
   updateGroup(
     input: UpdateGroupRequest,
   ): Effect.Effect<
@@ -1465,7 +1673,9 @@ export declare class CognitoIdentityProvider extends AWSServiceClient {
     | ResourceNotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateGroup", input);
+  }
   updateIdentityProvider(
     input: UpdateIdentityProviderRequest,
   ): Effect.Effect<
@@ -1478,7 +1688,9 @@ export declare class CognitoIdentityProvider extends AWSServiceClient {
     | TooManyRequestsException
     | UnsupportedIdentityProviderException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateIdentityProvider", input);
+  }
   updateManagedLoginBranding(
     input: UpdateManagedLoginBrandingRequest,
   ): Effect.Effect<
@@ -1490,7 +1702,9 @@ export declare class CognitoIdentityProvider extends AWSServiceClient {
     | ResourceNotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateManagedLoginBranding", input);
+  }
   updateResourceServer(
     input: UpdateResourceServerRequest,
   ): Effect.Effect<
@@ -1501,7 +1715,9 @@ export declare class CognitoIdentityProvider extends AWSServiceClient {
     | ResourceNotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateResourceServer", input);
+  }
   updateUserAttributes(
     input: UpdateUserAttributesRequest,
   ): Effect.Effect<
@@ -1526,7 +1742,9 @@ export declare class CognitoIdentityProvider extends AWSServiceClient {
     | UserNotConfirmedException
     | UserNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateUserAttributes", input);
+  }
   updateUserPool(
     input: UpdateUserPoolRequest,
   ): Effect.Effect<
@@ -1545,7 +1763,9 @@ export declare class CognitoIdentityProvider extends AWSServiceClient {
     | UserImportInProgressException
     | UserPoolTaggingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateUserPool", input);
+  }
   updateUserPoolClient(
     input: UpdateUserPoolClientRequest,
   ): Effect.Effect<
@@ -1560,7 +1780,9 @@ export declare class CognitoIdentityProvider extends AWSServiceClient {
     | ScopeDoesNotExistException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateUserPoolClient", input);
+  }
   updateUserPoolDomain(
     input: UpdateUserPoolDomainRequest,
   ): Effect.Effect<
@@ -1573,7 +1795,9 @@ export declare class CognitoIdentityProvider extends AWSServiceClient {
     | ResourceNotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateUserPoolDomain", input);
+  }
   verifySoftwareToken(
     input: VerifySoftwareTokenRequest,
   ): Effect.Effect<
@@ -1592,7 +1816,9 @@ export declare class CognitoIdentityProvider extends AWSServiceClient {
     | UserNotConfirmedException
     | UserNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("VerifySoftwareToken", input);
+  }
   verifyUserAttribute(
     input: VerifyUserAttributeRequest,
   ): Effect.Effect<
@@ -1611,8 +1837,12 @@ export declare class CognitoIdentityProvider extends AWSServiceClient {
     | UserNotConfirmedException
     | UserNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("VerifyUserAttribute", input);
+  }
 }
+
+export default CognitoIdentityProvider;
 
 export type AccessTokenValidityType = number;
 

@@ -2,7 +2,7 @@ import type { Effect, Stream, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class BedrockAgentCore extends AWSServiceClient {
+export class BedrockAgentCore extends AWSServiceClient {
   getResourceApiKey(
     input: GetResourceApiKeyRequest,
   ): Effect.Effect<
@@ -14,7 +14,9 @@ export declare class BedrockAgentCore extends AWSServiceClient {
     | UnauthorizedException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetResourceApiKey", input);
+  }
   getResourceOauth2Token(
     input: GetResourceOauth2TokenRequest,
   ): Effect.Effect<
@@ -26,7 +28,9 @@ export declare class BedrockAgentCore extends AWSServiceClient {
     | UnauthorizedException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetResourceOauth2Token", input);
+  }
   getWorkloadAccessToken(
     input: GetWorkloadAccessTokenRequest,
   ): Effect.Effect<
@@ -38,7 +42,9 @@ export declare class BedrockAgentCore extends AWSServiceClient {
     | UnauthorizedException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetWorkloadAccessToken", input);
+  }
   getWorkloadAccessTokenForJWT(
     input: GetWorkloadAccessTokenForJWTRequest,
   ): Effect.Effect<
@@ -50,7 +56,9 @@ export declare class BedrockAgentCore extends AWSServiceClient {
     | UnauthorizedException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetWorkloadAccessTokenForJWT", input);
+  }
   getWorkloadAccessTokenForUserId(
     input: GetWorkloadAccessTokenForUserIdRequest,
   ): Effect.Effect<
@@ -62,7 +70,9 @@ export declare class BedrockAgentCore extends AWSServiceClient {
     | UnauthorizedException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetWorkloadAccessTokenForUserId", input);
+  }
   invokeCodeInterpreter(
     input: InvokeCodeInterpreterRequest,
   ): Effect.Effect<
@@ -75,10 +85,14 @@ export declare class BedrockAgentCore extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("InvokeCodeInterpreter", input);
+  }
 }
 
-export declare class BedrockAgentcore extends BedrockAgentCore {}
+export class BedrockAgentcore extends BedrockAgentCore {}
+
+export default BedrockAgentCore;
 
 export declare class AccessDeniedException extends EffectData.TaggedError(
   "AccessDeniedException",

@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class ApplicationDiscoveryService extends AWSServiceClient {
+export class ApplicationDiscoveryService extends AWSServiceClient {
   associateConfigurationItemsToApplication(
     input: AssociateConfigurationItemsToApplicationRequest,
   ): Effect.Effect<
@@ -13,7 +13,9 @@ export declare class ApplicationDiscoveryService extends AWSServiceClient {
     | InvalidParameterValueException
     | ServerInternalErrorException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AssociateConfigurationItemsToApplication", input);
+  }
   batchDeleteAgents(
     input: BatchDeleteAgentsRequest,
   ): Effect.Effect<
@@ -23,7 +25,9 @@ export declare class ApplicationDiscoveryService extends AWSServiceClient {
     | InvalidParameterValueException
     | ServerInternalErrorException
     | CommonAwsError
-  >;
+  > {
+    return this.call("BatchDeleteAgents", input);
+  }
   batchDeleteImportData(
     input: BatchDeleteImportDataRequest,
   ): Effect.Effect<
@@ -34,7 +38,9 @@ export declare class ApplicationDiscoveryService extends AWSServiceClient {
     | InvalidParameterValueException
     | ServerInternalErrorException
     | CommonAwsError
-  >;
+  > {
+    return this.call("BatchDeleteImportData", input);
+  }
   createApplication(
     input: CreateApplicationRequest,
   ): Effect.Effect<
@@ -45,7 +51,9 @@ export declare class ApplicationDiscoveryService extends AWSServiceClient {
     | InvalidParameterValueException
     | ServerInternalErrorException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateApplication", input);
+  }
   createTags(
     input: CreateTagsRequest,
   ): Effect.Effect<
@@ -57,7 +65,9 @@ export declare class ApplicationDiscoveryService extends AWSServiceClient {
     | ResourceNotFoundException
     | ServerInternalErrorException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateTags", input);
+  }
   deleteApplications(
     input: DeleteApplicationsRequest,
   ): Effect.Effect<
@@ -68,7 +78,9 @@ export declare class ApplicationDiscoveryService extends AWSServiceClient {
     | InvalidParameterValueException
     | ServerInternalErrorException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteApplications", input);
+  }
   deleteTags(
     input: DeleteTagsRequest,
   ): Effect.Effect<
@@ -80,7 +92,9 @@ export declare class ApplicationDiscoveryService extends AWSServiceClient {
     | ResourceNotFoundException
     | ServerInternalErrorException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteTags", input);
+  }
   describeAgents(
     input: DescribeAgentsRequest,
   ): Effect.Effect<
@@ -91,7 +105,9 @@ export declare class ApplicationDiscoveryService extends AWSServiceClient {
     | InvalidParameterValueException
     | ServerInternalErrorException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeAgents", input);
+  }
   describeBatchDeleteConfigurationTask(
     input: DescribeBatchDeleteConfigurationTaskRequest,
   ): Effect.Effect<
@@ -101,7 +117,9 @@ export declare class ApplicationDiscoveryService extends AWSServiceClient {
     | InvalidParameterValueException
     | ServerInternalErrorException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeBatchDeleteConfigurationTask", input);
+  }
   describeConfigurations(
     input: DescribeConfigurationsRequest,
   ): Effect.Effect<
@@ -112,7 +130,9 @@ export declare class ApplicationDiscoveryService extends AWSServiceClient {
     | InvalidParameterValueException
     | ServerInternalErrorException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeConfigurations", input);
+  }
   describeContinuousExports(
     input: DescribeContinuousExportsRequest,
   ): Effect.Effect<
@@ -125,7 +145,9 @@ export declare class ApplicationDiscoveryService extends AWSServiceClient {
     | ResourceNotFoundException
     | ServerInternalErrorException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeContinuousExports", input);
+  }
   describeExportConfigurations(
     input: DescribeExportConfigurationsRequest,
   ): Effect.Effect<
@@ -137,7 +159,9 @@ export declare class ApplicationDiscoveryService extends AWSServiceClient {
     | ResourceNotFoundException
     | ServerInternalErrorException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeExportConfigurations", input);
+  }
   describeExportTasks(
     input: DescribeExportTasksRequest,
   ): Effect.Effect<
@@ -148,7 +172,9 @@ export declare class ApplicationDiscoveryService extends AWSServiceClient {
     | InvalidParameterValueException
     | ServerInternalErrorException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeExportTasks", input);
+  }
   describeImportTasks(
     input: DescribeImportTasksRequest,
   ): Effect.Effect<
@@ -159,7 +185,9 @@ export declare class ApplicationDiscoveryService extends AWSServiceClient {
     | InvalidParameterValueException
     | ServerInternalErrorException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeImportTasks", input);
+  }
   describeTags(
     input: DescribeTagsRequest,
   ): Effect.Effect<
@@ -171,7 +199,9 @@ export declare class ApplicationDiscoveryService extends AWSServiceClient {
     | ResourceNotFoundException
     | ServerInternalErrorException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeTags", input);
+  }
   disassociateConfigurationItemsFromApplication(
     input: DisassociateConfigurationItemsFromApplicationRequest,
   ): Effect.Effect<
@@ -182,7 +212,9 @@ export declare class ApplicationDiscoveryService extends AWSServiceClient {
     | InvalidParameterValueException
     | ServerInternalErrorException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DisassociateConfigurationItemsFromApplication", input);
+  }
   exportConfigurations(input: {}): Effect.Effect<
     ExportConfigurationsResponse,
     | AuthorizationErrorException
@@ -192,7 +224,9 @@ export declare class ApplicationDiscoveryService extends AWSServiceClient {
     | OperationNotPermittedException
     | ServerInternalErrorException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ExportConfigurations", input);
+  }
   getDiscoverySummary(
     input: GetDiscoverySummaryRequest,
   ): Effect.Effect<
@@ -203,7 +237,9 @@ export declare class ApplicationDiscoveryService extends AWSServiceClient {
     | InvalidParameterValueException
     | ServerInternalErrorException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetDiscoverySummary", input);
+  }
   listConfigurations(
     input: ListConfigurationsRequest,
   ): Effect.Effect<
@@ -215,7 +251,9 @@ export declare class ApplicationDiscoveryService extends AWSServiceClient {
     | ResourceNotFoundException
     | ServerInternalErrorException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListConfigurations", input);
+  }
   listServerNeighbors(
     input: ListServerNeighborsRequest,
   ): Effect.Effect<
@@ -226,7 +264,9 @@ export declare class ApplicationDiscoveryService extends AWSServiceClient {
     | InvalidParameterValueException
     | ServerInternalErrorException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListServerNeighbors", input);
+  }
   startBatchDeleteConfigurationTask(
     input: StartBatchDeleteConfigurationTaskRequest,
   ): Effect.Effect<
@@ -239,7 +279,9 @@ export declare class ApplicationDiscoveryService extends AWSServiceClient {
     | OperationNotPermittedException
     | ServerInternalErrorException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartBatchDeleteConfigurationTask", input);
+  }
   startContinuousExport(
     input: StartContinuousExportRequest,
   ): Effect.Effect<
@@ -253,7 +295,9 @@ export declare class ApplicationDiscoveryService extends AWSServiceClient {
     | ResourceInUseException
     | ServerInternalErrorException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartContinuousExport", input);
+  }
   startDataCollectionByAgentIds(
     input: StartDataCollectionByAgentIdsRequest,
   ): Effect.Effect<
@@ -264,7 +308,9 @@ export declare class ApplicationDiscoveryService extends AWSServiceClient {
     | InvalidParameterValueException
     | ServerInternalErrorException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartDataCollectionByAgentIds", input);
+  }
   startExportTask(
     input: StartExportTaskRequest,
   ): Effect.Effect<
@@ -276,7 +322,9 @@ export declare class ApplicationDiscoveryService extends AWSServiceClient {
     | OperationNotPermittedException
     | ServerInternalErrorException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartExportTask", input);
+  }
   startImportTask(
     input: StartImportTaskRequest,
   ): Effect.Effect<
@@ -288,7 +336,9 @@ export declare class ApplicationDiscoveryService extends AWSServiceClient {
     | ResourceInUseException
     | ServerInternalErrorException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartImportTask", input);
+  }
   stopContinuousExport(
     input: StopContinuousExportRequest,
   ): Effect.Effect<
@@ -302,7 +352,9 @@ export declare class ApplicationDiscoveryService extends AWSServiceClient {
     | ResourceNotFoundException
     | ServerInternalErrorException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StopContinuousExport", input);
+  }
   stopDataCollectionByAgentIds(
     input: StopDataCollectionByAgentIdsRequest,
   ): Effect.Effect<
@@ -313,7 +365,9 @@ export declare class ApplicationDiscoveryService extends AWSServiceClient {
     | InvalidParameterValueException
     | ServerInternalErrorException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StopDataCollectionByAgentIds", input);
+  }
   updateApplication(
     input: UpdateApplicationRequest,
   ): Effect.Effect<
@@ -324,8 +378,12 @@ export declare class ApplicationDiscoveryService extends AWSServiceClient {
     | InvalidParameterValueException
     | ServerInternalErrorException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateApplication", input);
+  }
 }
+
+export default ApplicationDiscoveryService;
 
 export interface AgentConfigurationStatus {
   agentId?: string;

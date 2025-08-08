@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class WellArchitected extends AWSServiceClient {
+export class WellArchitected extends AWSServiceClient {
   associateLenses(
     input: AssociateLensesInput,
   ): Effect.Effect<
@@ -14,7 +14,9 @@ export declare class WellArchitected extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AssociateLenses", input);
+  }
   associateProfiles(
     input: AssociateProfilesInput,
   ): Effect.Effect<
@@ -26,7 +28,9 @@ export declare class WellArchitected extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AssociateProfiles", input);
+  }
   createLensShare(
     input: CreateLensShareInput,
   ): Effect.Effect<
@@ -39,7 +43,9 @@ export declare class WellArchitected extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateLensShare", input);
+  }
   createLensVersion(
     input: CreateLensVersionInput,
   ): Effect.Effect<
@@ -52,7 +58,9 @@ export declare class WellArchitected extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateLensVersion", input);
+  }
   createMilestone(
     input: CreateMilestoneInput,
   ): Effect.Effect<
@@ -65,7 +73,9 @@ export declare class WellArchitected extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateMilestone", input);
+  }
   createProfile(
     input: CreateProfileInput,
   ): Effect.Effect<
@@ -77,7 +87,9 @@ export declare class WellArchitected extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateProfile", input);
+  }
   createProfileShare(
     input: CreateProfileShareInput,
   ): Effect.Effect<
@@ -90,7 +102,9 @@ export declare class WellArchitected extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateProfileShare", input);
+  }
   createReviewTemplate(
     input: CreateReviewTemplateInput,
   ): Effect.Effect<
@@ -103,7 +117,9 @@ export declare class WellArchitected extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateReviewTemplate", input);
+  }
   createTemplateShare(
     input: CreateTemplateShareInput,
   ): Effect.Effect<
@@ -116,7 +132,9 @@ export declare class WellArchitected extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateTemplateShare", input);
+  }
   createWorkload(
     input: CreateWorkloadInput,
   ): Effect.Effect<
@@ -129,7 +147,9 @@ export declare class WellArchitected extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateWorkload", input);
+  }
   createWorkloadShare(
     input: CreateWorkloadShareInput,
   ): Effect.Effect<
@@ -142,7 +162,9 @@ export declare class WellArchitected extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateWorkloadShare", input);
+  }
   deleteLens(
     input: DeleteLensInput,
   ): Effect.Effect<
@@ -154,7 +176,9 @@ export declare class WellArchitected extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteLens", input);
+  }
   deleteLensShare(
     input: DeleteLensShareInput,
   ): Effect.Effect<
@@ -166,7 +190,9 @@ export declare class WellArchitected extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteLensShare", input);
+  }
   deleteProfile(
     input: DeleteProfileInput,
   ): Effect.Effect<
@@ -178,7 +204,9 @@ export declare class WellArchitected extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteProfile", input);
+  }
   deleteProfileShare(
     input: DeleteProfileShareInput,
   ): Effect.Effect<
@@ -190,7 +218,9 @@ export declare class WellArchitected extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteProfileShare", input);
+  }
   deleteReviewTemplate(
     input: DeleteReviewTemplateInput,
   ): Effect.Effect<
@@ -202,7 +232,9 @@ export declare class WellArchitected extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteReviewTemplate", input);
+  }
   deleteTemplateShare(
     input: DeleteTemplateShareInput,
   ): Effect.Effect<
@@ -214,7 +246,9 @@ export declare class WellArchitected extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteTemplateShare", input);
+  }
   deleteWorkload(
     input: DeleteWorkloadInput,
   ): Effect.Effect<
@@ -226,7 +260,9 @@ export declare class WellArchitected extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteWorkload", input);
+  }
   deleteWorkloadShare(
     input: DeleteWorkloadShareInput,
   ): Effect.Effect<
@@ -238,7 +274,9 @@ export declare class WellArchitected extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteWorkloadShare", input);
+  }
   disassociateLenses(
     input: DisassociateLensesInput,
   ): Effect.Effect<
@@ -250,7 +288,9 @@ export declare class WellArchitected extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DisassociateLenses", input);
+  }
   disassociateProfiles(
     input: DisassociateProfilesInput,
   ): Effect.Effect<
@@ -262,7 +302,9 @@ export declare class WellArchitected extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DisassociateProfiles", input);
+  }
   exportLens(
     input: ExportLensInput,
   ): Effect.Effect<
@@ -273,7 +315,9 @@ export declare class WellArchitected extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ExportLens", input);
+  }
   getAnswer(
     input: GetAnswerInput,
   ): Effect.Effect<
@@ -284,7 +328,9 @@ export declare class WellArchitected extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetAnswer", input);
+  }
   getConsolidatedReport(
     input: GetConsolidatedReportInput,
   ): Effect.Effect<
@@ -295,7 +341,9 @@ export declare class WellArchitected extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetConsolidatedReport", input);
+  }
   getGlobalSettings(input: {}): Effect.Effect<
     GetGlobalSettingsOutput,
     | AccessDeniedException
@@ -303,7 +351,9 @@ export declare class WellArchitected extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetGlobalSettings", input);
+  }
   getLens(
     input: GetLensInput,
   ): Effect.Effect<
@@ -314,7 +364,9 @@ export declare class WellArchitected extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetLens", input);
+  }
   getLensReview(
     input: GetLensReviewInput,
   ): Effect.Effect<
@@ -325,7 +377,9 @@ export declare class WellArchitected extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetLensReview", input);
+  }
   getLensReviewReport(
     input: GetLensReviewReportInput,
   ): Effect.Effect<
@@ -336,7 +390,9 @@ export declare class WellArchitected extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetLensReviewReport", input);
+  }
   getLensVersionDifference(
     input: GetLensVersionDifferenceInput,
   ): Effect.Effect<
@@ -347,7 +403,9 @@ export declare class WellArchitected extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetLensVersionDifference", input);
+  }
   getMilestone(
     input: GetMilestoneInput,
   ): Effect.Effect<
@@ -358,7 +416,9 @@ export declare class WellArchitected extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetMilestone", input);
+  }
   getProfile(
     input: GetProfileInput,
   ): Effect.Effect<
@@ -369,7 +429,9 @@ export declare class WellArchitected extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetProfile", input);
+  }
   getProfileTemplate(
     input: GetProfileTemplateInput,
   ): Effect.Effect<
@@ -380,7 +442,9 @@ export declare class WellArchitected extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetProfileTemplate", input);
+  }
   getReviewTemplate(
     input: GetReviewTemplateInput,
   ): Effect.Effect<
@@ -391,7 +455,9 @@ export declare class WellArchitected extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetReviewTemplate", input);
+  }
   getReviewTemplateAnswer(
     input: GetReviewTemplateAnswerInput,
   ): Effect.Effect<
@@ -402,7 +468,9 @@ export declare class WellArchitected extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetReviewTemplateAnswer", input);
+  }
   getReviewTemplateLensReview(
     input: GetReviewTemplateLensReviewInput,
   ): Effect.Effect<
@@ -413,7 +481,9 @@ export declare class WellArchitected extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetReviewTemplateLensReview", input);
+  }
   getWorkload(
     input: GetWorkloadInput,
   ): Effect.Effect<
@@ -424,7 +494,9 @@ export declare class WellArchitected extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetWorkload", input);
+  }
   importLens(
     input: ImportLensInput,
   ): Effect.Effect<
@@ -437,7 +509,9 @@ export declare class WellArchitected extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ImportLens", input);
+  }
   listAnswers(
     input: ListAnswersInput,
   ): Effect.Effect<
@@ -448,7 +522,9 @@ export declare class WellArchitected extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListAnswers", input);
+  }
   listCheckDetails(
     input: ListCheckDetailsInput,
   ): Effect.Effect<
@@ -459,7 +535,9 @@ export declare class WellArchitected extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListCheckDetails", input);
+  }
   listCheckSummaries(
     input: ListCheckSummariesInput,
   ): Effect.Effect<
@@ -470,7 +548,9 @@ export declare class WellArchitected extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListCheckSummaries", input);
+  }
   listLenses(
     input: ListLensesInput,
   ): Effect.Effect<
@@ -480,7 +560,9 @@ export declare class WellArchitected extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListLenses", input);
+  }
   listLensReviewImprovements(
     input: ListLensReviewImprovementsInput,
   ): Effect.Effect<
@@ -491,7 +573,9 @@ export declare class WellArchitected extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListLensReviewImprovements", input);
+  }
   listLensReviews(
     input: ListLensReviewsInput,
   ): Effect.Effect<
@@ -502,7 +586,9 @@ export declare class WellArchitected extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListLensReviews", input);
+  }
   listLensShares(
     input: ListLensSharesInput,
   ): Effect.Effect<
@@ -513,7 +599,9 @@ export declare class WellArchitected extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListLensShares", input);
+  }
   listMilestones(
     input: ListMilestonesInput,
   ): Effect.Effect<
@@ -524,7 +612,9 @@ export declare class WellArchitected extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListMilestones", input);
+  }
   listNotifications(
     input: ListNotificationsInput,
   ): Effect.Effect<
@@ -534,7 +624,9 @@ export declare class WellArchitected extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListNotifications", input);
+  }
   listProfileNotifications(
     input: ListProfileNotificationsInput,
   ): Effect.Effect<
@@ -544,7 +636,9 @@ export declare class WellArchitected extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListProfileNotifications", input);
+  }
   listProfiles(
     input: ListProfilesInput,
   ): Effect.Effect<
@@ -554,7 +648,9 @@ export declare class WellArchitected extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListProfiles", input);
+  }
   listProfileShares(
     input: ListProfileSharesInput,
   ): Effect.Effect<
@@ -565,7 +661,9 @@ export declare class WellArchitected extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListProfileShares", input);
+  }
   listReviewTemplateAnswers(
     input: ListReviewTemplateAnswersInput,
   ): Effect.Effect<
@@ -576,7 +674,9 @@ export declare class WellArchitected extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListReviewTemplateAnswers", input);
+  }
   listReviewTemplates(
     input: ListReviewTemplatesInput,
   ): Effect.Effect<
@@ -586,7 +686,9 @@ export declare class WellArchitected extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListReviewTemplates", input);
+  }
   listShareInvitations(
     input: ListShareInvitationsInput,
   ): Effect.Effect<
@@ -596,13 +698,17 @@ export declare class WellArchitected extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListShareInvitations", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceInput,
   ): Effect.Effect<
     ListTagsForResourceOutput,
     InternalServerException | ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   listTemplateShares(
     input: ListTemplateSharesInput,
   ): Effect.Effect<
@@ -613,7 +719,9 @@ export declare class WellArchitected extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTemplateShares", input);
+  }
   listWorkloads(
     input: ListWorkloadsInput,
   ): Effect.Effect<
@@ -623,7 +731,9 @@ export declare class WellArchitected extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListWorkloads", input);
+  }
   listWorkloadShares(
     input: ListWorkloadSharesInput,
   ): Effect.Effect<
@@ -634,19 +744,25 @@ export declare class WellArchitected extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListWorkloadShares", input);
+  }
   tagResource(
     input: TagResourceInput,
   ): Effect.Effect<
     TagResourceOutput,
     InternalServerException | ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceInput,
   ): Effect.Effect<
     UntagResourceOutput,
     InternalServerException | ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
   updateAnswer(
     input: UpdateAnswerInput,
   ): Effect.Effect<
@@ -658,7 +774,9 @@ export declare class WellArchitected extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateAnswer", input);
+  }
   updateGlobalSettings(
     input: UpdateGlobalSettingsInput,
   ): Effect.Effect<
@@ -669,7 +787,9 @@ export declare class WellArchitected extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateGlobalSettings", input);
+  }
   updateIntegration(
     input: UpdateIntegrationInput,
   ): Effect.Effect<
@@ -681,7 +801,9 @@ export declare class WellArchitected extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateIntegration", input);
+  }
   updateLensReview(
     input: UpdateLensReviewInput,
   ): Effect.Effect<
@@ -693,7 +815,9 @@ export declare class WellArchitected extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateLensReview", input);
+  }
   updateProfile(
     input: UpdateProfileInput,
   ): Effect.Effect<
@@ -705,7 +829,9 @@ export declare class WellArchitected extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateProfile", input);
+  }
   updateReviewTemplate(
     input: UpdateReviewTemplateInput,
   ): Effect.Effect<
@@ -717,7 +843,9 @@ export declare class WellArchitected extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateReviewTemplate", input);
+  }
   updateReviewTemplateAnswer(
     input: UpdateReviewTemplateAnswerInput,
   ): Effect.Effect<
@@ -729,7 +857,9 @@ export declare class WellArchitected extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateReviewTemplateAnswer", input);
+  }
   updateReviewTemplateLensReview(
     input: UpdateReviewTemplateLensReviewInput,
   ): Effect.Effect<
@@ -741,7 +871,9 @@ export declare class WellArchitected extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateReviewTemplateLensReview", input);
+  }
   updateShareInvitation(
     input: UpdateShareInvitationInput,
   ): Effect.Effect<
@@ -753,7 +885,9 @@ export declare class WellArchitected extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateShareInvitation", input);
+  }
   updateWorkload(
     input: UpdateWorkloadInput,
   ): Effect.Effect<
@@ -765,7 +899,9 @@ export declare class WellArchitected extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateWorkload", input);
+  }
   updateWorkloadShare(
     input: UpdateWorkloadShareInput,
   ): Effect.Effect<
@@ -777,7 +913,9 @@ export declare class WellArchitected extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateWorkloadShare", input);
+  }
   upgradeLensReview(
     input: UpgradeLensReviewInput,
   ): Effect.Effect<
@@ -790,7 +928,9 @@ export declare class WellArchitected extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpgradeLensReview", input);
+  }
   upgradeProfileVersion(
     input: UpgradeProfileVersionInput,
   ): Effect.Effect<
@@ -803,7 +943,9 @@ export declare class WellArchitected extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpgradeProfileVersion", input);
+  }
   upgradeReviewTemplateLensReview(
     input: UpgradeReviewTemplateLensReviewInput,
   ): Effect.Effect<
@@ -815,10 +957,14 @@ export declare class WellArchitected extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpgradeReviewTemplateLensReview", input);
+  }
 }
 
-export declare class Wellarchitected extends WellArchitected {}
+export class Wellarchitected extends WellArchitected {}
+
+export default WellArchitected;
 
 export declare class AccessDeniedException extends EffectData.TaggedError(
   "AccessDeniedException",

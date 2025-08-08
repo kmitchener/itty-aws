@@ -2,7 +2,7 @@ import type { Effect, Stream, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class IoTJobsDataPlane extends AWSServiceClient {
+export class IoTJobsDataPlane extends AWSServiceClient {
   describeJobExecution(
     input: DescribeJobExecutionRequest,
   ): Effect.Effect<
@@ -14,7 +14,9 @@ export declare class IoTJobsDataPlane extends AWSServiceClient {
     | TerminalStateException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeJobExecution", input);
+  }
   getPendingJobExecutions(
     input: GetPendingJobExecutionsRequest,
   ): Effect.Effect<
@@ -25,7 +27,9 @@ export declare class IoTJobsDataPlane extends AWSServiceClient {
     | ServiceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetPendingJobExecutions", input);
+  }
   startCommandExecution(
     input: StartCommandExecutionRequest,
   ): Effect.Effect<
@@ -37,7 +41,9 @@ export declare class IoTJobsDataPlane extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartCommandExecution", input);
+  }
   startNextPendingJobExecution(
     input: StartNextPendingJobExecutionRequest,
   ): Effect.Effect<
@@ -48,7 +54,9 @@ export declare class IoTJobsDataPlane extends AWSServiceClient {
     | ServiceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartNextPendingJobExecution", input);
+  }
   updateJobExecution(
     input: UpdateJobExecutionRequest,
   ): Effect.Effect<
@@ -60,10 +68,14 @@ export declare class IoTJobsDataPlane extends AWSServiceClient {
     | ServiceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateJobExecution", input);
+  }
 }
 
-export declare class IotJobsDataPlane extends IoTJobsDataPlane {}
+export class IotJobsDataPlane extends IoTJobsDataPlane {}
+
+export default IoTJobsDataPlane;
 
 export type ApproximateSecondsBeforeTimedOut = number;
 

@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class SESv2 extends AWSServiceClient {
+export class SESv2 extends AWSServiceClient {
   batchGetMetricData(
     input: BatchGetMetricDataRequest,
   ): Effect.Effect<
@@ -12,7 +12,9 @@ export declare class SESv2 extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("BatchGetMetricData", input);
+  }
   cancelExportJob(
     input: CancelExportJobRequest,
   ): Effect.Effect<
@@ -21,7 +23,9 @@ export declare class SESv2 extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CancelExportJob", input);
+  }
   createConfigurationSet(
     input: CreateConfigurationSetRequest,
   ): Effect.Effect<
@@ -33,7 +37,9 @@ export declare class SESv2 extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateConfigurationSet", input);
+  }
   createConfigurationSetEventDestination(
     input: CreateConfigurationSetEventDestinationRequest,
   ): Effect.Effect<
@@ -44,7 +50,9 @@ export declare class SESv2 extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateConfigurationSetEventDestination", input);
+  }
   createContact(
     input: CreateContactRequest,
   ): Effect.Effect<
@@ -54,7 +62,9 @@ export declare class SESv2 extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateContact", input);
+  }
   createContactList(
     input: CreateContactListRequest,
   ): Effect.Effect<
@@ -64,7 +74,9 @@ export declare class SESv2 extends AWSServiceClient {
     | LimitExceededException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateContactList", input);
+  }
   createCustomVerificationEmailTemplate(
     input: CreateCustomVerificationEmailTemplateRequest,
   ): Effect.Effect<
@@ -75,7 +87,9 @@ export declare class SESv2 extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateCustomVerificationEmailTemplate", input);
+  }
   createDedicatedIpPool(
     input: CreateDedicatedIpPoolRequest,
   ): Effect.Effect<
@@ -86,7 +100,9 @@ export declare class SESv2 extends AWSServiceClient {
     | LimitExceededException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateDedicatedIpPool", input);
+  }
   createDeliverabilityTestReport(
     input: CreateDeliverabilityTestReportRequest,
   ): Effect.Effect<
@@ -101,7 +117,9 @@ export declare class SESv2 extends AWSServiceClient {
     | SendingPausedException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateDeliverabilityTestReport", input);
+  }
   createEmailIdentity(
     input: CreateEmailIdentityRequest,
   ): Effect.Effect<
@@ -113,7 +131,9 @@ export declare class SESv2 extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateEmailIdentity", input);
+  }
   createEmailIdentityPolicy(
     input: CreateEmailIdentityPolicyRequest,
   ): Effect.Effect<
@@ -124,7 +144,9 @@ export declare class SESv2 extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateEmailIdentityPolicy", input);
+  }
   createEmailTemplate(
     input: CreateEmailTemplateRequest,
   ): Effect.Effect<
@@ -134,7 +156,9 @@ export declare class SESv2 extends AWSServiceClient {
     | LimitExceededException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateEmailTemplate", input);
+  }
   createExportJob(
     input: CreateExportJobRequest,
   ): Effect.Effect<
@@ -144,7 +168,9 @@ export declare class SESv2 extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateExportJob", input);
+  }
   createImportJob(
     input: CreateImportJobRequest,
   ): Effect.Effect<
@@ -153,7 +179,9 @@ export declare class SESv2 extends AWSServiceClient {
     | LimitExceededException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateImportJob", input);
+  }
   createMultiRegionEndpoint(
     input: CreateMultiRegionEndpointRequest,
   ): Effect.Effect<
@@ -163,7 +191,9 @@ export declare class SESv2 extends AWSServiceClient {
     | LimitExceededException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateMultiRegionEndpoint", input);
+  }
   createTenant(
     input: CreateTenantRequest,
   ): Effect.Effect<
@@ -173,7 +203,9 @@ export declare class SESv2 extends AWSServiceClient {
     | LimitExceededException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateTenant", input);
+  }
   createTenantResourceAssociation(
     input: CreateTenantResourceAssociationRequest,
   ): Effect.Effect<
@@ -183,7 +215,9 @@ export declare class SESv2 extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateTenantResourceAssociation", input);
+  }
   deleteConfigurationSet(
     input: DeleteConfigurationSetRequest,
   ): Effect.Effect<
@@ -193,7 +227,9 @@ export declare class SESv2 extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteConfigurationSet", input);
+  }
   deleteConfigurationSetEventDestination(
     input: DeleteConfigurationSetEventDestinationRequest,
   ): Effect.Effect<
@@ -202,7 +238,9 @@ export declare class SESv2 extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteConfigurationSetEventDestination", input);
+  }
   deleteContact(
     input: DeleteContactRequest,
   ): Effect.Effect<
@@ -211,7 +249,9 @@ export declare class SESv2 extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteContact", input);
+  }
   deleteContactList(
     input: DeleteContactListRequest,
   ): Effect.Effect<
@@ -221,7 +261,9 @@ export declare class SESv2 extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteContactList", input);
+  }
   deleteCustomVerificationEmailTemplate(
     input: DeleteCustomVerificationEmailTemplateRequest,
   ): Effect.Effect<
@@ -230,7 +272,9 @@ export declare class SESv2 extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteCustomVerificationEmailTemplate", input);
+  }
   deleteDedicatedIpPool(
     input: DeleteDedicatedIpPoolRequest,
   ): Effect.Effect<
@@ -240,7 +284,9 @@ export declare class SESv2 extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteDedicatedIpPool", input);
+  }
   deleteEmailIdentity(
     input: DeleteEmailIdentityRequest,
   ): Effect.Effect<
@@ -250,7 +296,9 @@ export declare class SESv2 extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteEmailIdentity", input);
+  }
   deleteEmailIdentityPolicy(
     input: DeleteEmailIdentityPolicyRequest,
   ): Effect.Effect<
@@ -259,7 +307,9 @@ export declare class SESv2 extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteEmailIdentityPolicy", input);
+  }
   deleteEmailTemplate(
     input: DeleteEmailTemplateRequest,
   ): Effect.Effect<
@@ -268,7 +318,9 @@ export declare class SESv2 extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteEmailTemplate", input);
+  }
   deleteMultiRegionEndpoint(
     input: DeleteMultiRegionEndpointRequest,
   ): Effect.Effect<
@@ -278,7 +330,9 @@ export declare class SESv2 extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteMultiRegionEndpoint", input);
+  }
   deleteSuppressedDestination(
     input: DeleteSuppressedDestinationRequest,
   ): Effect.Effect<
@@ -287,7 +341,9 @@ export declare class SESv2 extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteSuppressedDestination", input);
+  }
   deleteTenant(
     input: DeleteTenantRequest,
   ): Effect.Effect<
@@ -296,7 +352,9 @@ export declare class SESv2 extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteTenant", input);
+  }
   deleteTenantResourceAssociation(
     input: DeleteTenantResourceAssociationRequest,
   ): Effect.Effect<
@@ -305,13 +363,17 @@ export declare class SESv2 extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteTenantResourceAssociation", input);
+  }
   getAccount(
     input: GetAccountRequest,
   ): Effect.Effect<
     GetAccountResponse,
     BadRequestException | TooManyRequestsException | CommonAwsError
-  >;
+  > {
+    return this.call("GetAccount", input);
+  }
   getBlacklistReports(
     input: GetBlacklistReportsRequest,
   ): Effect.Effect<
@@ -320,7 +382,9 @@ export declare class SESv2 extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetBlacklistReports", input);
+  }
   getConfigurationSet(
     input: GetConfigurationSetRequest,
   ): Effect.Effect<
@@ -329,7 +393,9 @@ export declare class SESv2 extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetConfigurationSet", input);
+  }
   getConfigurationSetEventDestinations(
     input: GetConfigurationSetEventDestinationsRequest,
   ): Effect.Effect<
@@ -338,7 +404,9 @@ export declare class SESv2 extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetConfigurationSetEventDestinations", input);
+  }
   getContact(
     input: GetContactRequest,
   ): Effect.Effect<
@@ -347,7 +415,9 @@ export declare class SESv2 extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetContact", input);
+  }
   getContactList(
     input: GetContactListRequest,
   ): Effect.Effect<
@@ -356,7 +426,9 @@ export declare class SESv2 extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetContactList", input);
+  }
   getCustomVerificationEmailTemplate(
     input: GetCustomVerificationEmailTemplateRequest,
   ): Effect.Effect<
@@ -365,7 +437,9 @@ export declare class SESv2 extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetCustomVerificationEmailTemplate", input);
+  }
   getDedicatedIp(
     input: GetDedicatedIpRequest,
   ): Effect.Effect<
@@ -374,7 +448,9 @@ export declare class SESv2 extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetDedicatedIp", input);
+  }
   getDedicatedIpPool(
     input: GetDedicatedIpPoolRequest,
   ): Effect.Effect<
@@ -383,7 +459,9 @@ export declare class SESv2 extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetDedicatedIpPool", input);
+  }
   getDedicatedIps(
     input: GetDedicatedIpsRequest,
   ): Effect.Effect<
@@ -392,7 +470,9 @@ export declare class SESv2 extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetDedicatedIps", input);
+  }
   getDeliverabilityDashboardOptions(
     input: GetDeliverabilityDashboardOptionsRequest,
   ): Effect.Effect<
@@ -401,7 +481,9 @@ export declare class SESv2 extends AWSServiceClient {
     | LimitExceededException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetDeliverabilityDashboardOptions", input);
+  }
   getDeliverabilityTestReport(
     input: GetDeliverabilityTestReportRequest,
   ): Effect.Effect<
@@ -410,7 +492,9 @@ export declare class SESv2 extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetDeliverabilityTestReport", input);
+  }
   getDomainDeliverabilityCampaign(
     input: GetDomainDeliverabilityCampaignRequest,
   ): Effect.Effect<
@@ -419,7 +503,9 @@ export declare class SESv2 extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetDomainDeliverabilityCampaign", input);
+  }
   getDomainStatisticsReport(
     input: GetDomainStatisticsReportRequest,
   ): Effect.Effect<
@@ -428,7 +514,9 @@ export declare class SESv2 extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetDomainStatisticsReport", input);
+  }
   getEmailIdentity(
     input: GetEmailIdentityRequest,
   ): Effect.Effect<
@@ -437,7 +525,9 @@ export declare class SESv2 extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetEmailIdentity", input);
+  }
   getEmailIdentityPolicies(
     input: GetEmailIdentityPoliciesRequest,
   ): Effect.Effect<
@@ -446,7 +536,9 @@ export declare class SESv2 extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetEmailIdentityPolicies", input);
+  }
   getEmailTemplate(
     input: GetEmailTemplateRequest,
   ): Effect.Effect<
@@ -455,7 +547,9 @@ export declare class SESv2 extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetEmailTemplate", input);
+  }
   getExportJob(
     input: GetExportJobRequest,
   ): Effect.Effect<
@@ -464,7 +558,9 @@ export declare class SESv2 extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetExportJob", input);
+  }
   getImportJob(
     input: GetImportJobRequest,
   ): Effect.Effect<
@@ -473,7 +569,9 @@ export declare class SESv2 extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetImportJob", input);
+  }
   getMessageInsights(
     input: GetMessageInsightsRequest,
   ): Effect.Effect<
@@ -482,7 +580,9 @@ export declare class SESv2 extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetMessageInsights", input);
+  }
   getMultiRegionEndpoint(
     input: GetMultiRegionEndpointRequest,
   ): Effect.Effect<
@@ -491,7 +591,9 @@ export declare class SESv2 extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetMultiRegionEndpoint", input);
+  }
   getReputationEntity(
     input: GetReputationEntityRequest,
   ): Effect.Effect<
@@ -500,7 +602,9 @@ export declare class SESv2 extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetReputationEntity", input);
+  }
   getSuppressedDestination(
     input: GetSuppressedDestinationRequest,
   ): Effect.Effect<
@@ -509,7 +613,9 @@ export declare class SESv2 extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetSuppressedDestination", input);
+  }
   getTenant(
     input: GetTenantRequest,
   ): Effect.Effect<
@@ -518,19 +624,25 @@ export declare class SESv2 extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetTenant", input);
+  }
   listConfigurationSets(
     input: ListConfigurationSetsRequest,
   ): Effect.Effect<
     ListConfigurationSetsResponse,
     BadRequestException | TooManyRequestsException | CommonAwsError
-  >;
+  > {
+    return this.call("ListConfigurationSets", input);
+  }
   listContactLists(
     input: ListContactListsRequest,
   ): Effect.Effect<
     ListContactListsResponse,
     BadRequestException | TooManyRequestsException | CommonAwsError
-  >;
+  > {
+    return this.call("ListContactLists", input);
+  }
   listContacts(
     input: ListContactsRequest,
   ): Effect.Effect<
@@ -539,19 +651,25 @@ export declare class SESv2 extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListContacts", input);
+  }
   listCustomVerificationEmailTemplates(
     input: ListCustomVerificationEmailTemplatesRequest,
   ): Effect.Effect<
     ListCustomVerificationEmailTemplatesResponse,
     BadRequestException | TooManyRequestsException | CommonAwsError
-  >;
+  > {
+    return this.call("ListCustomVerificationEmailTemplates", input);
+  }
   listDedicatedIpPools(
     input: ListDedicatedIpPoolsRequest,
   ): Effect.Effect<
     ListDedicatedIpPoolsResponse,
     BadRequestException | TooManyRequestsException | CommonAwsError
-  >;
+  > {
+    return this.call("ListDedicatedIpPools", input);
+  }
   listDeliverabilityTestReports(
     input: ListDeliverabilityTestReportsRequest,
   ): Effect.Effect<
@@ -560,7 +678,9 @@ export declare class SESv2 extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListDeliverabilityTestReports", input);
+  }
   listDomainDeliverabilityCampaigns(
     input: ListDomainDeliverabilityCampaignsRequest,
   ): Effect.Effect<
@@ -569,37 +689,49 @@ export declare class SESv2 extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListDomainDeliverabilityCampaigns", input);
+  }
   listEmailIdentities(
     input: ListEmailIdentitiesRequest,
   ): Effect.Effect<
     ListEmailIdentitiesResponse,
     BadRequestException | TooManyRequestsException | CommonAwsError
-  >;
+  > {
+    return this.call("ListEmailIdentities", input);
+  }
   listEmailTemplates(
     input: ListEmailTemplatesRequest,
   ): Effect.Effect<
     ListEmailTemplatesResponse,
     BadRequestException | TooManyRequestsException | CommonAwsError
-  >;
+  > {
+    return this.call("ListEmailTemplates", input);
+  }
   listExportJobs(
     input: ListExportJobsRequest,
   ): Effect.Effect<
     ListExportJobsResponse,
     BadRequestException | TooManyRequestsException | CommonAwsError
-  >;
+  > {
+    return this.call("ListExportJobs", input);
+  }
   listImportJobs(
     input: ListImportJobsRequest,
   ): Effect.Effect<
     ListImportJobsResponse,
     BadRequestException | TooManyRequestsException | CommonAwsError
-  >;
+  > {
+    return this.call("ListImportJobs", input);
+  }
   listMultiRegionEndpoints(
     input: ListMultiRegionEndpointsRequest,
   ): Effect.Effect<
     ListMultiRegionEndpointsResponse,
     BadRequestException | TooManyRequestsException | CommonAwsError
-  >;
+  > {
+    return this.call("ListMultiRegionEndpoints", input);
+  }
   listRecommendations(
     input: ListRecommendationsRequest,
   ): Effect.Effect<
@@ -608,13 +740,17 @@ export declare class SESv2 extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListRecommendations", input);
+  }
   listReputationEntities(
     input: ListReputationEntitiesRequest,
   ): Effect.Effect<
     ListReputationEntitiesResponse,
     BadRequestException | TooManyRequestsException | CommonAwsError
-  >;
+  > {
+    return this.call("ListReputationEntities", input);
+  }
   listResourceTenants(
     input: ListResourceTenantsRequest,
   ): Effect.Effect<
@@ -623,7 +759,9 @@ export declare class SESv2 extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListResourceTenants", input);
+  }
   listSuppressedDestinations(
     input: ListSuppressedDestinationsRequest,
   ): Effect.Effect<
@@ -632,7 +770,9 @@ export declare class SESv2 extends AWSServiceClient {
     | InvalidNextTokenException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListSuppressedDestinations", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
@@ -641,7 +781,9 @@ export declare class SESv2 extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   listTenantResources(
     input: ListTenantResourcesRequest,
   ): Effect.Effect<
@@ -650,19 +792,25 @@ export declare class SESv2 extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTenantResources", input);
+  }
   listTenants(
     input: ListTenantsRequest,
   ): Effect.Effect<
     ListTenantsResponse,
     BadRequestException | TooManyRequestsException | CommonAwsError
-  >;
+  > {
+    return this.call("ListTenants", input);
+  }
   putAccountDedicatedIpWarmupAttributes(
     input: PutAccountDedicatedIpWarmupAttributesRequest,
   ): Effect.Effect<
     PutAccountDedicatedIpWarmupAttributesResponse,
     BadRequestException | TooManyRequestsException | CommonAwsError
-  >;
+  > {
+    return this.call("PutAccountDedicatedIpWarmupAttributes", input);
+  }
   putAccountDetails(
     input: PutAccountDetailsRequest,
   ): Effect.Effect<
@@ -671,25 +819,33 @@ export declare class SESv2 extends AWSServiceClient {
     | ConflictException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutAccountDetails", input);
+  }
   putAccountSendingAttributes(
     input: PutAccountSendingAttributesRequest,
   ): Effect.Effect<
     PutAccountSendingAttributesResponse,
     BadRequestException | TooManyRequestsException | CommonAwsError
-  >;
+  > {
+    return this.call("PutAccountSendingAttributes", input);
+  }
   putAccountSuppressionAttributes(
     input: PutAccountSuppressionAttributesRequest,
   ): Effect.Effect<
     PutAccountSuppressionAttributesResponse,
     BadRequestException | TooManyRequestsException | CommonAwsError
-  >;
+  > {
+    return this.call("PutAccountSuppressionAttributes", input);
+  }
   putAccountVdmAttributes(
     input: PutAccountVdmAttributesRequest,
   ): Effect.Effect<
     PutAccountVdmAttributesResponse,
     BadRequestException | TooManyRequestsException | CommonAwsError
-  >;
+  > {
+    return this.call("PutAccountVdmAttributes", input);
+  }
   putConfigurationSetArchivingOptions(
     input: PutConfigurationSetArchivingOptionsRequest,
   ): Effect.Effect<
@@ -698,7 +854,9 @@ export declare class SESv2 extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutConfigurationSetArchivingOptions", input);
+  }
   putConfigurationSetDeliveryOptions(
     input: PutConfigurationSetDeliveryOptionsRequest,
   ): Effect.Effect<
@@ -707,7 +865,9 @@ export declare class SESv2 extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutConfigurationSetDeliveryOptions", input);
+  }
   putConfigurationSetReputationOptions(
     input: PutConfigurationSetReputationOptionsRequest,
   ): Effect.Effect<
@@ -716,7 +876,9 @@ export declare class SESv2 extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutConfigurationSetReputationOptions", input);
+  }
   putConfigurationSetSendingOptions(
     input: PutConfigurationSetSendingOptionsRequest,
   ): Effect.Effect<
@@ -725,7 +887,9 @@ export declare class SESv2 extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutConfigurationSetSendingOptions", input);
+  }
   putConfigurationSetSuppressionOptions(
     input: PutConfigurationSetSuppressionOptionsRequest,
   ): Effect.Effect<
@@ -734,7 +898,9 @@ export declare class SESv2 extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutConfigurationSetSuppressionOptions", input);
+  }
   putConfigurationSetTrackingOptions(
     input: PutConfigurationSetTrackingOptionsRequest,
   ): Effect.Effect<
@@ -743,7 +909,9 @@ export declare class SESv2 extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutConfigurationSetTrackingOptions", input);
+  }
   putConfigurationSetVdmOptions(
     input: PutConfigurationSetVdmOptionsRequest,
   ): Effect.Effect<
@@ -752,7 +920,9 @@ export declare class SESv2 extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutConfigurationSetVdmOptions", input);
+  }
   putDedicatedIpInPool(
     input: PutDedicatedIpInPoolRequest,
   ): Effect.Effect<
@@ -761,7 +931,9 @@ export declare class SESv2 extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutDedicatedIpInPool", input);
+  }
   putDedicatedIpPoolScalingAttributes(
     input: PutDedicatedIpPoolScalingAttributesRequest,
   ): Effect.Effect<
@@ -771,7 +943,9 @@ export declare class SESv2 extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutDedicatedIpPoolScalingAttributes", input);
+  }
   putDedicatedIpWarmupAttributes(
     input: PutDedicatedIpWarmupAttributesRequest,
   ): Effect.Effect<
@@ -780,7 +954,9 @@ export declare class SESv2 extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutDedicatedIpWarmupAttributes", input);
+  }
   putDeliverabilityDashboardOption(
     input: PutDeliverabilityDashboardOptionRequest,
   ): Effect.Effect<
@@ -791,7 +967,9 @@ export declare class SESv2 extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutDeliverabilityDashboardOption", input);
+  }
   putEmailIdentityConfigurationSetAttributes(
     input: PutEmailIdentityConfigurationSetAttributesRequest,
   ): Effect.Effect<
@@ -800,7 +978,9 @@ export declare class SESv2 extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutEmailIdentityConfigurationSetAttributes", input);
+  }
   putEmailIdentityDkimAttributes(
     input: PutEmailIdentityDkimAttributesRequest,
   ): Effect.Effect<
@@ -809,7 +989,9 @@ export declare class SESv2 extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutEmailIdentityDkimAttributes", input);
+  }
   putEmailIdentityDkimSigningAttributes(
     input: PutEmailIdentityDkimSigningAttributesRequest,
   ): Effect.Effect<
@@ -818,7 +1000,9 @@ export declare class SESv2 extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutEmailIdentityDkimSigningAttributes", input);
+  }
   putEmailIdentityFeedbackAttributes(
     input: PutEmailIdentityFeedbackAttributesRequest,
   ): Effect.Effect<
@@ -827,7 +1011,9 @@ export declare class SESv2 extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutEmailIdentityFeedbackAttributes", input);
+  }
   putEmailIdentityMailFromAttributes(
     input: PutEmailIdentityMailFromAttributesRequest,
   ): Effect.Effect<
@@ -836,13 +1022,17 @@ export declare class SESv2 extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutEmailIdentityMailFromAttributes", input);
+  }
   putSuppressedDestination(
     input: PutSuppressedDestinationRequest,
   ): Effect.Effect<
     PutSuppressedDestinationResponse,
     BadRequestException | TooManyRequestsException | CommonAwsError
-  >;
+  > {
+    return this.call("PutSuppressedDestination", input);
+  }
   sendBulkEmail(
     input: SendBulkEmailRequest,
   ): Effect.Effect<
@@ -856,7 +1046,9 @@ export declare class SESv2 extends AWSServiceClient {
     | SendingPausedException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("SendBulkEmail", input);
+  }
   sendCustomVerificationEmail(
     input: SendCustomVerificationEmailRequest,
   ): Effect.Effect<
@@ -869,7 +1061,9 @@ export declare class SESv2 extends AWSServiceClient {
     | SendingPausedException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("SendCustomVerificationEmail", input);
+  }
   sendEmail(
     input: SendEmailRequest,
   ): Effect.Effect<
@@ -883,7 +1077,9 @@ export declare class SESv2 extends AWSServiceClient {
     | SendingPausedException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("SendEmail", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -893,7 +1089,9 @@ export declare class SESv2 extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   testRenderEmailTemplate(
     input: TestRenderEmailTemplateRequest,
   ): Effect.Effect<
@@ -902,7 +1100,9 @@ export declare class SESv2 extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TestRenderEmailTemplate", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
@@ -912,7 +1112,9 @@ export declare class SESv2 extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
   updateConfigurationSetEventDestination(
     input: UpdateConfigurationSetEventDestinationRequest,
   ): Effect.Effect<
@@ -921,7 +1123,9 @@ export declare class SESv2 extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateConfigurationSetEventDestination", input);
+  }
   updateContact(
     input: UpdateContactRequest,
   ): Effect.Effect<
@@ -931,7 +1135,9 @@ export declare class SESv2 extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateContact", input);
+  }
   updateContactList(
     input: UpdateContactListRequest,
   ): Effect.Effect<
@@ -941,7 +1147,9 @@ export declare class SESv2 extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateContactList", input);
+  }
   updateCustomVerificationEmailTemplate(
     input: UpdateCustomVerificationEmailTemplateRequest,
   ): Effect.Effect<
@@ -950,7 +1158,9 @@ export declare class SESv2 extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateCustomVerificationEmailTemplate", input);
+  }
   updateEmailIdentityPolicy(
     input: UpdateEmailIdentityPolicyRequest,
   ): Effect.Effect<
@@ -959,7 +1169,9 @@ export declare class SESv2 extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateEmailIdentityPolicy", input);
+  }
   updateEmailTemplate(
     input: UpdateEmailTemplateRequest,
   ): Effect.Effect<
@@ -968,7 +1180,9 @@ export declare class SESv2 extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateEmailTemplate", input);
+  }
   updateReputationEntityCustomerManagedStatus(
     input: UpdateReputationEntityCustomerManagedStatusRequest,
   ): Effect.Effect<
@@ -977,7 +1191,9 @@ export declare class SESv2 extends AWSServiceClient {
     | ConflictException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateReputationEntityCustomerManagedStatus", input);
+  }
   updateReputationEntityPolicy(
     input: UpdateReputationEntityPolicyRequest,
   ): Effect.Effect<
@@ -986,10 +1202,14 @@ export declare class SESv2 extends AWSServiceClient {
     | ConflictException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateReputationEntityPolicy", input);
+  }
 }
 
-export declare class Sesv2 extends SESv2 {}
+export class Sesv2 extends SESv2 {}
+
+export default SESv2;
 
 export interface AccountDetails {
   MailType?: MailType;

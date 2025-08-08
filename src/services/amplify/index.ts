@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class Amplify extends AWSServiceClient {
+export class Amplify extends AWSServiceClient {
   createApp(
     input: CreateAppRequest,
   ): Effect.Effect<
@@ -13,7 +13,9 @@ export declare class Amplify extends AWSServiceClient {
     | LimitExceededException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateApp", input);
+  }
   createBackendEnvironment(
     input: CreateBackendEnvironmentRequest,
   ): Effect.Effect<
@@ -24,7 +26,9 @@ export declare class Amplify extends AWSServiceClient {
     | NotFoundException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateBackendEnvironment", input);
+  }
   createBranch(
     input: CreateBranchRequest,
   ): Effect.Effect<
@@ -36,7 +40,9 @@ export declare class Amplify extends AWSServiceClient {
     | NotFoundException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateBranch", input);
+  }
   createDeployment(
     input: CreateDeploymentRequest,
   ): Effect.Effect<
@@ -46,7 +52,9 @@ export declare class Amplify extends AWSServiceClient {
     | LimitExceededException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateDeployment", input);
+  }
   createDomainAssociation(
     input: CreateDomainAssociationRequest,
   ): Effect.Effect<
@@ -58,7 +66,9 @@ export declare class Amplify extends AWSServiceClient {
     | NotFoundException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateDomainAssociation", input);
+  }
   createWebhook(
     input: CreateWebhookRequest,
   ): Effect.Effect<
@@ -70,7 +80,9 @@ export declare class Amplify extends AWSServiceClient {
     | NotFoundException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateWebhook", input);
+  }
   deleteApp(
     input: DeleteAppRequest,
   ): Effect.Effect<
@@ -81,7 +93,9 @@ export declare class Amplify extends AWSServiceClient {
     | NotFoundException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteApp", input);
+  }
   deleteBackendEnvironment(
     input: DeleteBackendEnvironmentRequest,
   ): Effect.Effect<
@@ -92,7 +106,9 @@ export declare class Amplify extends AWSServiceClient {
     | NotFoundException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteBackendEnvironment", input);
+  }
   deleteBranch(
     input: DeleteBranchRequest,
   ): Effect.Effect<
@@ -103,7 +119,9 @@ export declare class Amplify extends AWSServiceClient {
     | NotFoundException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteBranch", input);
+  }
   deleteDomainAssociation(
     input: DeleteDomainAssociationRequest,
   ): Effect.Effect<
@@ -114,7 +132,9 @@ export declare class Amplify extends AWSServiceClient {
     | NotFoundException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteDomainAssociation", input);
+  }
   deleteJob(
     input: DeleteJobRequest,
   ): Effect.Effect<
@@ -125,7 +145,9 @@ export declare class Amplify extends AWSServiceClient {
     | NotFoundException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteJob", input);
+  }
   deleteWebhook(
     input: DeleteWebhookRequest,
   ): Effect.Effect<
@@ -136,7 +158,9 @@ export declare class Amplify extends AWSServiceClient {
     | NotFoundException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteWebhook", input);
+  }
   generateAccessLogs(
     input: GenerateAccessLogsRequest,
   ): Effect.Effect<
@@ -146,7 +170,9 @@ export declare class Amplify extends AWSServiceClient {
     | NotFoundException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GenerateAccessLogs", input);
+  }
   getApp(
     input: GetAppRequest,
   ): Effect.Effect<
@@ -156,7 +182,9 @@ export declare class Amplify extends AWSServiceClient {
     | NotFoundException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetApp", input);
+  }
   getArtifactUrl(
     input: GetArtifactUrlRequest,
   ): Effect.Effect<
@@ -167,7 +195,9 @@ export declare class Amplify extends AWSServiceClient {
     | NotFoundException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetArtifactUrl", input);
+  }
   getBackendEnvironment(
     input: GetBackendEnvironmentRequest,
   ): Effect.Effect<
@@ -177,7 +207,9 @@ export declare class Amplify extends AWSServiceClient {
     | NotFoundException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetBackendEnvironment", input);
+  }
   getBranch(
     input: GetBranchRequest,
   ): Effect.Effect<
@@ -187,7 +219,9 @@ export declare class Amplify extends AWSServiceClient {
     | NotFoundException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetBranch", input);
+  }
   getDomainAssociation(
     input: GetDomainAssociationRequest,
   ): Effect.Effect<
@@ -197,7 +231,9 @@ export declare class Amplify extends AWSServiceClient {
     | NotFoundException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetDomainAssociation", input);
+  }
   getJob(
     input: GetJobRequest,
   ): Effect.Effect<
@@ -208,7 +244,9 @@ export declare class Amplify extends AWSServiceClient {
     | NotFoundException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetJob", input);
+  }
   getWebhook(
     input: GetWebhookRequest,
   ): Effect.Effect<
@@ -219,7 +257,9 @@ export declare class Amplify extends AWSServiceClient {
     | NotFoundException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetWebhook", input);
+  }
   listApps(
     input: ListAppsRequest,
   ): Effect.Effect<
@@ -228,7 +268,9 @@ export declare class Amplify extends AWSServiceClient {
     | InternalFailureException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListApps", input);
+  }
   listArtifacts(
     input: ListArtifactsRequest,
   ): Effect.Effect<
@@ -238,7 +280,9 @@ export declare class Amplify extends AWSServiceClient {
     | LimitExceededException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListArtifacts", input);
+  }
   listBackendEnvironments(
     input: ListBackendEnvironmentsRequest,
   ): Effect.Effect<
@@ -247,7 +291,9 @@ export declare class Amplify extends AWSServiceClient {
     | InternalFailureException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListBackendEnvironments", input);
+  }
   listBranches(
     input: ListBranchesRequest,
   ): Effect.Effect<
@@ -256,7 +302,9 @@ export declare class Amplify extends AWSServiceClient {
     | InternalFailureException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListBranches", input);
+  }
   listDomainAssociations(
     input: ListDomainAssociationsRequest,
   ): Effect.Effect<
@@ -265,7 +313,9 @@ export declare class Amplify extends AWSServiceClient {
     | InternalFailureException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListDomainAssociations", input);
+  }
   listJobs(
     input: ListJobsRequest,
   ): Effect.Effect<
@@ -275,7 +325,9 @@ export declare class Amplify extends AWSServiceClient {
     | LimitExceededException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListJobs", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
@@ -284,7 +336,9 @@ export declare class Amplify extends AWSServiceClient {
     | InternalFailureException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   listWebhooks(
     input: ListWebhooksRequest,
   ): Effect.Effect<
@@ -294,7 +348,9 @@ export declare class Amplify extends AWSServiceClient {
     | LimitExceededException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListWebhooks", input);
+  }
   startDeployment(
     input: StartDeploymentRequest,
   ): Effect.Effect<
@@ -305,7 +361,9 @@ export declare class Amplify extends AWSServiceClient {
     | NotFoundException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartDeployment", input);
+  }
   startJob(
     input: StartJobRequest,
   ): Effect.Effect<
@@ -316,7 +374,9 @@ export declare class Amplify extends AWSServiceClient {
     | NotFoundException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartJob", input);
+  }
   stopJob(
     input: StopJobRequest,
   ): Effect.Effect<
@@ -327,7 +387,9 @@ export declare class Amplify extends AWSServiceClient {
     | NotFoundException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StopJob", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -336,7 +398,9 @@ export declare class Amplify extends AWSServiceClient {
     | InternalFailureException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
@@ -345,7 +409,9 @@ export declare class Amplify extends AWSServiceClient {
     | InternalFailureException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
   updateApp(
     input: UpdateAppRequest,
   ): Effect.Effect<
@@ -355,7 +421,9 @@ export declare class Amplify extends AWSServiceClient {
     | NotFoundException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateApp", input);
+  }
   updateBranch(
     input: UpdateBranchRequest,
   ): Effect.Effect<
@@ -366,7 +434,9 @@ export declare class Amplify extends AWSServiceClient {
     | NotFoundException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateBranch", input);
+  }
   updateDomainAssociation(
     input: UpdateDomainAssociationRequest,
   ): Effect.Effect<
@@ -377,7 +447,9 @@ export declare class Amplify extends AWSServiceClient {
     | NotFoundException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateDomainAssociation", input);
+  }
   updateWebhook(
     input: UpdateWebhookRequest,
   ): Effect.Effect<
@@ -388,8 +460,12 @@ export declare class Amplify extends AWSServiceClient {
     | NotFoundException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateWebhook", input);
+  }
 }
+
+export default Amplify;
 
 export type AccessToken = string;
 

@@ -2,52 +2,73 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class IoTSecureTunneling extends AWSServiceClient {
+export class IoTSecureTunneling extends AWSServiceClient {
   closeTunnel(
     input: CloseTunnelRequest,
   ): Effect.Effect<
     CloseTunnelResponse,
     ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("CloseTunnel", input);
+  }
   describeTunnel(
     input: DescribeTunnelRequest,
   ): Effect.Effect<
     DescribeTunnelResponse,
     ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeTunnel", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
     ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   listTunnels(
     input: ListTunnelsRequest,
-  ): Effect.Effect<ListTunnelsResponse, CommonAwsError>;
+  ): Effect.Effect<ListTunnelsResponse, CommonAwsError> {
+    return this.call("ListTunnels", input);
+  }
   openTunnel(
     input: OpenTunnelRequest,
-  ): Effect.Effect<OpenTunnelResponse, LimitExceededException | CommonAwsError>;
+  ): Effect.Effect<
+    OpenTunnelResponse,
+    LimitExceededException | CommonAwsError
+  > {
+    return this.call("OpenTunnel", input);
+  }
   rotateTunnelAccessToken(
     input: RotateTunnelAccessTokenRequest,
   ): Effect.Effect<
     RotateTunnelAccessTokenResponse,
     ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("RotateTunnelAccessToken", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
     ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
     ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
 }
 
-export declare class Iotsecuretunneling extends IoTSecureTunneling {}
+export class Iotsecuretunneling extends IoTSecureTunneling {}
+
+export default IoTSecureTunneling;
 
 export type AmazonResourceName = string;
 

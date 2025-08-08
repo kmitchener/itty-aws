@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class ivschat extends AWSServiceClient {
+export class ivschat extends AWSServiceClient {
   createChatToken(
     input: CreateChatTokenRequest,
   ): Effect.Effect<
@@ -12,7 +12,9 @@ export declare class ivschat extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateChatToken", input);
+  }
   createLoggingConfiguration(
     input: CreateLoggingConfigurationRequest,
   ): Effect.Effect<
@@ -24,7 +26,9 @@ export declare class ivschat extends AWSServiceClient {
     | ServiceQuotaExceededException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateLoggingConfiguration", input);
+  }
   createRoom(
     input: CreateRoomRequest,
   ): Effect.Effect<
@@ -36,7 +40,9 @@ export declare class ivschat extends AWSServiceClient {
     | ServiceQuotaExceededException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateRoom", input);
+  }
   deleteLoggingConfiguration(
     input: DeleteLoggingConfigurationRequest,
   ): Effect.Effect<
@@ -47,7 +53,9 @@ export declare class ivschat extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteLoggingConfiguration", input);
+  }
   deleteMessage(
     input: DeleteMessageRequest,
   ): Effect.Effect<
@@ -58,7 +66,9 @@ export declare class ivschat extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteMessage", input);
+  }
   deleteRoom(
     input: DeleteRoomRequest,
   ): Effect.Effect<
@@ -68,7 +78,9 @@ export declare class ivschat extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteRoom", input);
+  }
   disconnectUser(
     input: DisconnectUserRequest,
   ): Effect.Effect<
@@ -79,7 +91,9 @@ export declare class ivschat extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DisconnectUser", input);
+  }
   getLoggingConfiguration(
     input: GetLoggingConfigurationRequest,
   ): Effect.Effect<
@@ -88,7 +102,9 @@ export declare class ivschat extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetLoggingConfiguration", input);
+  }
   getRoom(
     input: GetRoomRequest,
   ): Effect.Effect<
@@ -97,13 +113,17 @@ export declare class ivschat extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetRoom", input);
+  }
   listLoggingConfigurations(
     input: ListLoggingConfigurationsRequest,
   ): Effect.Effect<
     ListLoggingConfigurationsResponse,
     AccessDeniedException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("ListLoggingConfigurations", input);
+  }
   listRooms(
     input: ListRoomsRequest,
   ): Effect.Effect<
@@ -112,7 +132,9 @@ export declare class ivschat extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListRooms", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
@@ -121,7 +143,9 @@ export declare class ivschat extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   sendEvent(
     input: SendEventRequest,
   ): Effect.Effect<
@@ -132,7 +156,9 @@ export declare class ivschat extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("SendEvent", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -141,7 +167,9 @@ export declare class ivschat extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
@@ -150,7 +178,9 @@ export declare class ivschat extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
   updateLoggingConfiguration(
     input: UpdateLoggingConfigurationRequest,
   ): Effect.Effect<
@@ -161,7 +191,9 @@ export declare class ivschat extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateLoggingConfiguration", input);
+  }
   updateRoom(
     input: UpdateRoomRequest,
   ): Effect.Effect<
@@ -171,10 +203,14 @@ export declare class ivschat extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateRoom", input);
+  }
 }
 
-export declare class Ivschat extends ivschat {}
+export class Ivschat extends ivschat {}
+
+export default ivschat;
 
 export declare class AccessDeniedException extends EffectData.TaggedError(
   "AccessDeniedException",

@@ -2,13 +2,15 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class DynamoDB extends AWSServiceClient {
+export class DynamoDB extends AWSServiceClient {
   batchExecuteStatement(
     input: BatchExecuteStatementInput,
   ): Effect.Effect<
     BatchExecuteStatementOutput,
     InternalServerError | RequestLimitExceeded | CommonAwsError
-  >;
+  > {
+    return this.call("BatchExecuteStatement", input);
+  }
   batchGetItem(
     input: BatchGetItemInput,
   ): Effect.Effect<
@@ -19,7 +21,9 @@ export declare class DynamoDB extends AWSServiceClient {
     | RequestLimitExceeded
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("BatchGetItem", input);
+  }
   batchWriteItem(
     input: BatchWriteItemInput,
   ): Effect.Effect<
@@ -32,7 +36,9 @@ export declare class DynamoDB extends AWSServiceClient {
     | RequestLimitExceeded
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("BatchWriteItem", input);
+  }
   createBackup(
     input: CreateBackupInput,
   ): Effect.Effect<
@@ -45,7 +51,9 @@ export declare class DynamoDB extends AWSServiceClient {
     | TableInUseException
     | TableNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateBackup", input);
+  }
   createGlobalTable(
     input: CreateGlobalTableInput,
   ): Effect.Effect<
@@ -56,7 +64,9 @@ export declare class DynamoDB extends AWSServiceClient {
     | LimitExceededException
     | TableNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateGlobalTable", input);
+  }
   createTable(
     input: CreateTableInput,
   ): Effect.Effect<
@@ -66,7 +76,9 @@ export declare class DynamoDB extends AWSServiceClient {
     | LimitExceededException
     | ResourceInUseException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateTable", input);
+  }
   deleteBackup(
     input: DeleteBackupInput,
   ): Effect.Effect<
@@ -77,7 +89,9 @@ export declare class DynamoDB extends AWSServiceClient {
     | InvalidEndpointException
     | LimitExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteBackup", input);
+  }
   deleteItem(
     input: DeleteItemInput,
   ): Effect.Effect<
@@ -92,7 +106,9 @@ export declare class DynamoDB extends AWSServiceClient {
     | ResourceNotFoundException
     | TransactionConflictException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteItem", input);
+  }
   deleteResourcePolicy(
     input: DeleteResourcePolicyInput,
   ): Effect.Effect<
@@ -104,7 +120,9 @@ export declare class DynamoDB extends AWSServiceClient {
     | ResourceInUseException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteResourcePolicy", input);
+  }
   deleteTable(
     input: DeleteTableInput,
   ): Effect.Effect<
@@ -115,7 +133,9 @@ export declare class DynamoDB extends AWSServiceClient {
     | ResourceInUseException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteTable", input);
+  }
   describeBackup(
     input: DescribeBackupInput,
   ): Effect.Effect<
@@ -124,7 +144,9 @@ export declare class DynamoDB extends AWSServiceClient {
     | InternalServerError
     | InvalidEndpointException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeBackup", input);
+  }
   describeContinuousBackups(
     input: DescribeContinuousBackupsInput,
   ): Effect.Effect<
@@ -133,16 +155,22 @@ export declare class DynamoDB extends AWSServiceClient {
     | InvalidEndpointException
     | TableNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeContinuousBackups", input);
+  }
   describeContributorInsights(
     input: DescribeContributorInsightsInput,
   ): Effect.Effect<
     DescribeContributorInsightsOutput,
     InternalServerError | ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeContributorInsights", input);
+  }
   describeEndpoints(
     input: DescribeEndpointsRequest,
-  ): Effect.Effect<DescribeEndpointsResponse, CommonAwsError>;
+  ): Effect.Effect<DescribeEndpointsResponse, CommonAwsError> {
+    return this.call("DescribeEndpoints", input);
+  }
   describeExport(
     input: DescribeExportInput,
   ): Effect.Effect<
@@ -151,7 +179,9 @@ export declare class DynamoDB extends AWSServiceClient {
     | InternalServerError
     | LimitExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeExport", input);
+  }
   describeGlobalTable(
     input: DescribeGlobalTableInput,
   ): Effect.Effect<
@@ -160,7 +190,9 @@ export declare class DynamoDB extends AWSServiceClient {
     | InternalServerError
     | InvalidEndpointException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeGlobalTable", input);
+  }
   describeGlobalTableSettings(
     input: DescribeGlobalTableSettingsInput,
   ): Effect.Effect<
@@ -169,13 +201,17 @@ export declare class DynamoDB extends AWSServiceClient {
     | InternalServerError
     | InvalidEndpointException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeGlobalTableSettings", input);
+  }
   describeImport(
     input: DescribeImportInput,
   ): Effect.Effect<
     DescribeImportOutput,
     ImportNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeImport", input);
+  }
   describeKinesisStreamingDestination(
     input: DescribeKinesisStreamingDestinationInput,
   ): Effect.Effect<
@@ -184,13 +220,17 @@ export declare class DynamoDB extends AWSServiceClient {
     | InvalidEndpointException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeKinesisStreamingDestination", input);
+  }
   describeLimits(
     input: DescribeLimitsInput,
   ): Effect.Effect<
     DescribeLimitsOutput,
     InternalServerError | InvalidEndpointException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeLimits", input);
+  }
   describeTable(
     input: DescribeTableInput,
   ): Effect.Effect<
@@ -199,13 +239,17 @@ export declare class DynamoDB extends AWSServiceClient {
     | InvalidEndpointException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeTable", input);
+  }
   describeTableReplicaAutoScaling(
     input: DescribeTableReplicaAutoScalingInput,
   ): Effect.Effect<
     DescribeTableReplicaAutoScalingOutput,
     InternalServerError | ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeTableReplicaAutoScaling", input);
+  }
   describeTimeToLive(
     input: DescribeTimeToLiveInput,
   ): Effect.Effect<
@@ -214,7 +258,9 @@ export declare class DynamoDB extends AWSServiceClient {
     | InvalidEndpointException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeTimeToLive", input);
+  }
   disableKinesisStreamingDestination(
     input: KinesisStreamingDestinationInput,
   ): Effect.Effect<
@@ -225,7 +271,9 @@ export declare class DynamoDB extends AWSServiceClient {
     | ResourceInUseException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DisableKinesisStreamingDestination", input);
+  }
   enableKinesisStreamingDestination(
     input: KinesisStreamingDestinationInput,
   ): Effect.Effect<
@@ -236,7 +284,9 @@ export declare class DynamoDB extends AWSServiceClient {
     | ResourceInUseException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("EnableKinesisStreamingDestination", input);
+  }
   executeStatement(
     input: ExecuteStatementInput,
   ): Effect.Effect<
@@ -250,7 +300,9 @@ export declare class DynamoDB extends AWSServiceClient {
     | ResourceNotFoundException
     | TransactionConflictException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ExecuteStatement", input);
+  }
   executeTransaction(
     input: ExecuteTransactionInput,
   ): Effect.Effect<
@@ -263,7 +315,9 @@ export declare class DynamoDB extends AWSServiceClient {
     | TransactionCanceledException
     | TransactionInProgressException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ExecuteTransaction", input);
+  }
   exportTableToPointInTime(
     input: ExportTableToPointInTimeInput,
   ): Effect.Effect<
@@ -275,7 +329,9 @@ export declare class DynamoDB extends AWSServiceClient {
     | PointInTimeRecoveryUnavailableException
     | TableNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ExportTableToPointInTime", input);
+  }
   getItem(
     input: GetItemInput,
   ): Effect.Effect<
@@ -286,7 +342,9 @@ export declare class DynamoDB extends AWSServiceClient {
     | RequestLimitExceeded
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetItem", input);
+  }
   getResourcePolicy(
     input: GetResourcePolicyInput,
   ): Effect.Effect<
@@ -296,7 +354,9 @@ export declare class DynamoDB extends AWSServiceClient {
     | PolicyNotFoundException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetResourcePolicy", input);
+  }
   importTable(
     input: ImportTableInput,
   ): Effect.Effect<
@@ -305,40 +365,54 @@ export declare class DynamoDB extends AWSServiceClient {
     | LimitExceededException
     | ResourceInUseException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ImportTable", input);
+  }
   listBackups(
     input: ListBackupsInput,
   ): Effect.Effect<
     ListBackupsOutput,
     InternalServerError | InvalidEndpointException | CommonAwsError
-  >;
+  > {
+    return this.call("ListBackups", input);
+  }
   listContributorInsights(
     input: ListContributorInsightsInput,
   ): Effect.Effect<
     ListContributorInsightsOutput,
     InternalServerError | ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("ListContributorInsights", input);
+  }
   listExports(
     input: ListExportsInput,
   ): Effect.Effect<
     ListExportsOutput,
     InternalServerError | LimitExceededException | CommonAwsError
-  >;
+  > {
+    return this.call("ListExports", input);
+  }
   listGlobalTables(
     input: ListGlobalTablesInput,
   ): Effect.Effect<
     ListGlobalTablesOutput,
     InternalServerError | InvalidEndpointException | CommonAwsError
-  >;
+  > {
+    return this.call("ListGlobalTables", input);
+  }
   listImports(
     input: ListImportsInput,
-  ): Effect.Effect<ListImportsOutput, LimitExceededException | CommonAwsError>;
+  ): Effect.Effect<ListImportsOutput, LimitExceededException | CommonAwsError> {
+    return this.call("ListImports", input);
+  }
   listTables(
     input: ListTablesInput,
   ): Effect.Effect<
     ListTablesOutput,
     InternalServerError | InvalidEndpointException | CommonAwsError
-  >;
+  > {
+    return this.call("ListTables", input);
+  }
   listTagsOfResource(
     input: ListTagsOfResourceInput,
   ): Effect.Effect<
@@ -347,7 +421,9 @@ export declare class DynamoDB extends AWSServiceClient {
     | InvalidEndpointException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsOfResource", input);
+  }
   putItem(
     input: PutItemInput,
   ): Effect.Effect<
@@ -362,7 +438,9 @@ export declare class DynamoDB extends AWSServiceClient {
     | ResourceNotFoundException
     | TransactionConflictException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutItem", input);
+  }
   putResourcePolicy(
     input: PutResourcePolicyInput,
   ): Effect.Effect<
@@ -374,7 +452,9 @@ export declare class DynamoDB extends AWSServiceClient {
     | ResourceInUseException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutResourcePolicy", input);
+  }
   query(
     input: QueryInput,
   ): Effect.Effect<
@@ -385,7 +465,9 @@ export declare class DynamoDB extends AWSServiceClient {
     | RequestLimitExceeded
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("Query", input);
+  }
   restoreTableFromBackup(
     input: RestoreTableFromBackupInput,
   ): Effect.Effect<
@@ -398,7 +480,9 @@ export declare class DynamoDB extends AWSServiceClient {
     | TableAlreadyExistsException
     | TableInUseException
     | CommonAwsError
-  >;
+  > {
+    return this.call("RestoreTableFromBackup", input);
+  }
   restoreTableToPointInTime(
     input: RestoreTableToPointInTimeInput,
   ): Effect.Effect<
@@ -412,7 +496,9 @@ export declare class DynamoDB extends AWSServiceClient {
     | TableInUseException
     | TableNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("RestoreTableToPointInTime", input);
+  }
   scan(
     input: ScanInput,
   ): Effect.Effect<
@@ -423,7 +509,9 @@ export declare class DynamoDB extends AWSServiceClient {
     | RequestLimitExceeded
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("Scan", input);
+  }
   tagResource(
     input: TagResourceInput,
   ): Effect.Effect<
@@ -434,7 +522,9 @@ export declare class DynamoDB extends AWSServiceClient {
     | ResourceInUseException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   transactGetItems(
     input: TransactGetItemsInput,
   ): Effect.Effect<
@@ -446,7 +536,9 @@ export declare class DynamoDB extends AWSServiceClient {
     | ResourceNotFoundException
     | TransactionCanceledException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TransactGetItems", input);
+  }
   transactWriteItems(
     input: TransactWriteItemsInput,
   ): Effect.Effect<
@@ -460,7 +552,9 @@ export declare class DynamoDB extends AWSServiceClient {
     | TransactionCanceledException
     | TransactionInProgressException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TransactWriteItems", input);
+  }
   untagResource(
     input: UntagResourceInput,
   ): Effect.Effect<
@@ -471,7 +565,9 @@ export declare class DynamoDB extends AWSServiceClient {
     | ResourceInUseException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
   updateContinuousBackups(
     input: UpdateContinuousBackupsInput,
   ): Effect.Effect<
@@ -481,13 +577,17 @@ export declare class DynamoDB extends AWSServiceClient {
     | InvalidEndpointException
     | TableNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateContinuousBackups", input);
+  }
   updateContributorInsights(
     input: UpdateContributorInsightsInput,
   ): Effect.Effect<
     UpdateContributorInsightsOutput,
     InternalServerError | ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateContributorInsights", input);
+  }
   updateGlobalTable(
     input: UpdateGlobalTableInput,
   ): Effect.Effect<
@@ -499,7 +599,9 @@ export declare class DynamoDB extends AWSServiceClient {
     | ReplicaNotFoundException
     | TableNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateGlobalTable", input);
+  }
   updateGlobalTableSettings(
     input: UpdateGlobalTableSettingsInput,
   ): Effect.Effect<
@@ -512,7 +614,9 @@ export declare class DynamoDB extends AWSServiceClient {
     | ReplicaNotFoundException
     | ResourceInUseException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateGlobalTableSettings", input);
+  }
   updateItem(
     input: UpdateItemInput,
   ): Effect.Effect<
@@ -527,7 +631,9 @@ export declare class DynamoDB extends AWSServiceClient {
     | ResourceNotFoundException
     | TransactionConflictException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateItem", input);
+  }
   updateKinesisStreamingDestination(
     input: UpdateKinesisStreamingDestinationInput,
   ): Effect.Effect<
@@ -538,7 +644,9 @@ export declare class DynamoDB extends AWSServiceClient {
     | ResourceInUseException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateKinesisStreamingDestination", input);
+  }
   updateTable(
     input: UpdateTableInput,
   ): Effect.Effect<
@@ -549,7 +657,9 @@ export declare class DynamoDB extends AWSServiceClient {
     | ResourceInUseException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateTable", input);
+  }
   updateTableReplicaAutoScaling(
     input: UpdateTableReplicaAutoScalingInput,
   ): Effect.Effect<
@@ -559,7 +669,9 @@ export declare class DynamoDB extends AWSServiceClient {
     | ResourceInUseException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateTableReplicaAutoScaling", input);
+  }
   updateTimeToLive(
     input: UpdateTimeToLiveInput,
   ): Effect.Effect<
@@ -570,8 +682,12 @@ export declare class DynamoDB extends AWSServiceClient {
     | ResourceInUseException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateTimeToLive", input);
+  }
 }
+
+export default DynamoDB;
 
 export type ApproximateCreationDateTimePrecision =
   | "MILLISECOND"

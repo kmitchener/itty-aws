@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class ACMPCA extends AWSServiceClient {
+export class ACMPCA extends AWSServiceClient {
   createCertificateAuthority(
     input: CreateCertificateAuthorityRequest,
   ): Effect.Effect<
@@ -12,7 +12,9 @@ export declare class ACMPCA extends AWSServiceClient {
     | InvalidTagException
     | LimitExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateCertificateAuthority", input);
+  }
   createCertificateAuthorityAuditReport(
     input: CreateCertificateAuthorityAuditReportRequest,
   ): Effect.Effect<
@@ -24,7 +26,9 @@ export declare class ACMPCA extends AWSServiceClient {
     | RequestInProgressException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateCertificateAuthorityAuditReport", input);
+  }
   createPermission(
     input: CreatePermissionRequest,
   ): Effect.Effect<
@@ -36,7 +40,9 @@ export declare class ACMPCA extends AWSServiceClient {
     | RequestFailedException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreatePermission", input);
+  }
   deleteCertificateAuthority(
     input: DeleteCertificateAuthorityRequest,
   ): Effect.Effect<
@@ -46,7 +52,9 @@ export declare class ACMPCA extends AWSServiceClient {
     | InvalidStateException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteCertificateAuthority", input);
+  }
   deletePermission(
     input: DeletePermissionRequest,
   ): Effect.Effect<
@@ -56,7 +64,9 @@ export declare class ACMPCA extends AWSServiceClient {
     | RequestFailedException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeletePermission", input);
+  }
   deletePolicy(
     input: DeletePolicyRequest,
   ): Effect.Effect<
@@ -68,13 +78,17 @@ export declare class ACMPCA extends AWSServiceClient {
     | RequestFailedException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeletePolicy", input);
+  }
   describeCertificateAuthority(
     input: DescribeCertificateAuthorityRequest,
   ): Effect.Effect<
     DescribeCertificateAuthorityResponse,
     InvalidArnException | ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeCertificateAuthority", input);
+  }
   describeCertificateAuthorityAuditReport(
     input: DescribeCertificateAuthorityAuditReportRequest,
   ): Effect.Effect<
@@ -83,7 +97,9 @@ export declare class ACMPCA extends AWSServiceClient {
     | InvalidArnException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeCertificateAuthorityAuditReport", input);
+  }
   getCertificate(
     input: GetCertificateRequest,
   ): Effect.Effect<
@@ -94,7 +110,9 @@ export declare class ACMPCA extends AWSServiceClient {
     | RequestInProgressException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetCertificate", input);
+  }
   getCertificateAuthorityCertificate(
     input: GetCertificateAuthorityCertificateRequest,
   ): Effect.Effect<
@@ -103,7 +121,9 @@ export declare class ACMPCA extends AWSServiceClient {
     | InvalidStateException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetCertificateAuthorityCertificate", input);
+  }
   getCertificateAuthorityCsr(
     input: GetCertificateAuthorityCsrRequest,
   ): Effect.Effect<
@@ -114,7 +134,9 @@ export declare class ACMPCA extends AWSServiceClient {
     | RequestInProgressException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetCertificateAuthorityCsr", input);
+  }
   getPolicy(
     input: GetPolicyRequest,
   ): Effect.Effect<
@@ -124,7 +146,9 @@ export declare class ACMPCA extends AWSServiceClient {
     | RequestFailedException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetPolicy", input);
+  }
   importCertificateAuthorityCertificate(
     input: ImportCertificateAuthorityCertificateRequest,
   ): Effect.Effect<
@@ -139,7 +163,9 @@ export declare class ACMPCA extends AWSServiceClient {
     | RequestInProgressException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ImportCertificateAuthorityCertificate", input);
+  }
   issueCertificate(
     input: IssueCertificateRequest,
   ): Effect.Effect<
@@ -151,13 +177,17 @@ export declare class ACMPCA extends AWSServiceClient {
     | MalformedCSRException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("IssueCertificate", input);
+  }
   listCertificateAuthorities(
     input: ListCertificateAuthoritiesRequest,
   ): Effect.Effect<
     ListCertificateAuthoritiesResponse,
     InvalidNextTokenException | CommonAwsError
-  >;
+  > {
+    return this.call("ListCertificateAuthorities", input);
+  }
   listPermissions(
     input: ListPermissionsRequest,
   ): Effect.Effect<
@@ -168,7 +198,9 @@ export declare class ACMPCA extends AWSServiceClient {
     | RequestFailedException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListPermissions", input);
+  }
   listTags(
     input: ListTagsRequest,
   ): Effect.Effect<
@@ -178,7 +210,9 @@ export declare class ACMPCA extends AWSServiceClient {
     | RequestFailedException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTags", input);
+  }
   putPolicy(
     input: PutPolicyRequest,
   ): Effect.Effect<
@@ -191,7 +225,9 @@ export declare class ACMPCA extends AWSServiceClient {
     | RequestFailedException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutPolicy", input);
+  }
   restoreCertificateAuthority(
     input: RestoreCertificateAuthorityRequest,
   ): Effect.Effect<
@@ -200,7 +236,9 @@ export declare class ACMPCA extends AWSServiceClient {
     | InvalidStateException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("RestoreCertificateAuthority", input);
+  }
   revokeCertificate(
     input: RevokeCertificateRequest,
   ): Effect.Effect<
@@ -215,7 +253,9 @@ export declare class ACMPCA extends AWSServiceClient {
     | RequestInProgressException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("RevokeCertificate", input);
+  }
   tagCertificateAuthority(
     input: TagCertificateAuthorityRequest,
   ): Effect.Effect<
@@ -226,7 +266,9 @@ export declare class ACMPCA extends AWSServiceClient {
     | ResourceNotFoundException
     | TooManyTagsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagCertificateAuthority", input);
+  }
   untagCertificateAuthority(
     input: UntagCertificateAuthorityRequest,
   ): Effect.Effect<
@@ -236,7 +278,9 @@ export declare class ACMPCA extends AWSServiceClient {
     | InvalidTagException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagCertificateAuthority", input);
+  }
   updateCertificateAuthority(
     input: UpdateCertificateAuthorityRequest,
   ): Effect.Effect<
@@ -248,10 +292,14 @@ export declare class ACMPCA extends AWSServiceClient {
     | InvalidStateException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateCertificateAuthority", input);
+  }
 }
 
-export declare class AcmPca extends ACMPCA {}
+export class AcmPca extends ACMPCA {}
+
+export default ACMPCA;
 
 export interface AccessDescription {
   AccessMethod: AccessMethod;

@@ -4,7 +4,7 @@ import type { Buffer } from "node:buffer";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class MediaStoreData extends AWSServiceClient {
+export class MediaStoreData extends AWSServiceClient {
   deleteObject(
     input: DeleteObjectRequest,
   ): Effect.Effect<
@@ -13,7 +13,9 @@ export declare class MediaStoreData extends AWSServiceClient {
     | InternalServerError
     | ObjectNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteObject", input);
+  }
   describeObject(
     input: DescribeObjectRequest,
   ): Effect.Effect<
@@ -22,7 +24,9 @@ export declare class MediaStoreData extends AWSServiceClient {
     | InternalServerError
     | ObjectNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeObject", input);
+  }
   getObject(
     input: GetObjectRequest,
   ): Effect.Effect<
@@ -32,22 +36,30 @@ export declare class MediaStoreData extends AWSServiceClient {
     | ObjectNotFoundException
     | RequestedRangeNotSatisfiableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetObject", input);
+  }
   listItems(
     input: ListItemsRequest,
   ): Effect.Effect<
     ListItemsResponse,
     ContainerNotFoundException | InternalServerError | CommonAwsError
-  >;
+  > {
+    return this.call("ListItems", input);
+  }
   putObject(
     input: PutObjectRequest,
   ): Effect.Effect<
     PutObjectResponse,
     ContainerNotFoundException | InternalServerError | CommonAwsError
-  >;
+  > {
+    return this.call("PutObject", input);
+  }
 }
 
-export declare class MediastoreData extends MediaStoreData {}
+export class MediastoreData extends MediaStoreData {}
+
+export default MediaStoreData;
 
 export declare class ContainerNotFoundException extends EffectData.TaggedError(
   "ContainerNotFoundException",

@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class savingsplans extends AWSServiceClient {
+export class savingsplans extends AWSServiceClient {
   createSavingsPlan(
     input: CreateSavingsPlanRequest,
   ): Effect.Effect<
@@ -12,7 +12,9 @@ export declare class savingsplans extends AWSServiceClient {
     | ServiceQuotaExceededException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateSavingsPlan", input);
+  }
   deleteQueuedSavingsPlan(
     input: DeleteQueuedSavingsPlanRequest,
   ): Effect.Effect<
@@ -22,31 +24,41 @@ export declare class savingsplans extends AWSServiceClient {
     | ServiceQuotaExceededException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteQueuedSavingsPlan", input);
+  }
   describeSavingsPlanRates(
     input: DescribeSavingsPlanRatesRequest,
   ): Effect.Effect<
     DescribeSavingsPlanRatesResponse,
     ResourceNotFoundException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeSavingsPlanRates", input);
+  }
   describeSavingsPlans(
     input: DescribeSavingsPlansRequest,
   ): Effect.Effect<
     DescribeSavingsPlansResponse,
     InternalServerException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeSavingsPlans", input);
+  }
   describeSavingsPlansOfferingRates(
     input: DescribeSavingsPlansOfferingRatesRequest,
   ): Effect.Effect<
     DescribeSavingsPlansOfferingRatesResponse,
     InternalServerException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeSavingsPlansOfferingRates", input);
+  }
   describeSavingsPlansOfferings(
     input: DescribeSavingsPlansOfferingsRequest,
   ): Effect.Effect<
     DescribeSavingsPlansOfferingsResponse,
     InternalServerException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeSavingsPlansOfferings", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
@@ -55,7 +67,9 @@ export declare class savingsplans extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   returnSavingsPlan(
     input: ReturnSavingsPlanRequest,
   ): Effect.Effect<
@@ -65,7 +79,9 @@ export declare class savingsplans extends AWSServiceClient {
     | ServiceQuotaExceededException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ReturnSavingsPlan", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -75,7 +91,9 @@ export declare class savingsplans extends AWSServiceClient {
     | ServiceQuotaExceededException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
@@ -84,10 +102,14 @@ export declare class savingsplans extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
 }
 
-export declare class Savingsplans extends savingsplans {}
+export class Savingsplans extends savingsplans {}
+
+export default savingsplans;
 
 export type Amount = string;
 

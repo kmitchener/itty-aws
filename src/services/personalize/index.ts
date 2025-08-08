@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class Personalize extends AWSServiceClient {
+export class Personalize extends AWSServiceClient {
   createBatchInferenceJob(
     input: CreateBatchInferenceJobRequest,
   ): Effect.Effect<
@@ -14,7 +14,9 @@ export declare class Personalize extends AWSServiceClient {
     | ResourceNotFoundException
     | TooManyTagsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateBatchInferenceJob", input);
+  }
   createBatchSegmentJob(
     input: CreateBatchSegmentJobRequest,
   ): Effect.Effect<
@@ -26,7 +28,9 @@ export declare class Personalize extends AWSServiceClient {
     | ResourceNotFoundException
     | TooManyTagsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateBatchSegmentJob", input);
+  }
   createCampaign(
     input: CreateCampaignRequest,
   ): Effect.Effect<
@@ -38,7 +42,9 @@ export declare class Personalize extends AWSServiceClient {
     | ResourceNotFoundException
     | TooManyTagsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateCampaign", input);
+  }
   createDataDeletionJob(
     input: CreateDataDeletionJobRequest,
   ): Effect.Effect<
@@ -50,7 +56,9 @@ export declare class Personalize extends AWSServiceClient {
     | ResourceNotFoundException
     | TooManyTagsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateDataDeletionJob", input);
+  }
   createDataset(
     input: CreateDatasetRequest,
   ): Effect.Effect<
@@ -62,7 +70,9 @@ export declare class Personalize extends AWSServiceClient {
     | ResourceNotFoundException
     | TooManyTagsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateDataset", input);
+  }
   createDatasetExportJob(
     input: CreateDatasetExportJobRequest,
   ): Effect.Effect<
@@ -74,7 +84,9 @@ export declare class Personalize extends AWSServiceClient {
     | ResourceNotFoundException
     | TooManyTagsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateDatasetExportJob", input);
+  }
   createDatasetGroup(
     input: CreateDatasetGroupRequest,
   ): Effect.Effect<
@@ -84,7 +96,9 @@ export declare class Personalize extends AWSServiceClient {
     | ResourceAlreadyExistsException
     | TooManyTagsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateDatasetGroup", input);
+  }
   createDatasetImportJob(
     input: CreateDatasetImportJobRequest,
   ): Effect.Effect<
@@ -96,7 +110,9 @@ export declare class Personalize extends AWSServiceClient {
     | ResourceNotFoundException
     | TooManyTagsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateDatasetImportJob", input);
+  }
   createEventTracker(
     input: CreateEventTrackerRequest,
   ): Effect.Effect<
@@ -108,7 +124,9 @@ export declare class Personalize extends AWSServiceClient {
     | ResourceNotFoundException
     | TooManyTagsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateEventTracker", input);
+  }
   createFilter(
     input: CreateFilterRequest,
   ): Effect.Effect<
@@ -119,7 +137,9 @@ export declare class Personalize extends AWSServiceClient {
     | ResourceNotFoundException
     | TooManyTagsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateFilter", input);
+  }
   createMetricAttribution(
     input: CreateMetricAttributionRequest,
   ): Effect.Effect<
@@ -130,7 +150,9 @@ export declare class Personalize extends AWSServiceClient {
     | ResourceInUseException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateMetricAttribution", input);
+  }
   createRecommender(
     input: CreateRecommenderRequest,
   ): Effect.Effect<
@@ -142,7 +164,9 @@ export declare class Personalize extends AWSServiceClient {
     | ResourceNotFoundException
     | TooManyTagsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateRecommender", input);
+  }
   createSchema(
     input: CreateSchemaRequest,
   ): Effect.Effect<
@@ -151,7 +175,9 @@ export declare class Personalize extends AWSServiceClient {
     | LimitExceededException
     | ResourceAlreadyExistsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateSchema", input);
+  }
   createSolution(
     input: CreateSolutionRequest,
   ): Effect.Effect<
@@ -163,7 +189,9 @@ export declare class Personalize extends AWSServiceClient {
     | ResourceNotFoundException
     | TooManyTagsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateSolution", input);
+  }
   createSolutionVersion(
     input: CreateSolutionVersionRequest,
   ): Effect.Effect<
@@ -175,7 +203,9 @@ export declare class Personalize extends AWSServiceClient {
     | ResourceNotFoundException
     | TooManyTagsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateSolutionVersion", input);
+  }
   deleteCampaign(
     input: DeleteCampaignRequest,
   ): Effect.Effect<
@@ -184,7 +214,9 @@ export declare class Personalize extends AWSServiceClient {
     | ResourceInUseException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteCampaign", input);
+  }
   deleteDataset(
     input: DeleteDatasetRequest,
   ): Effect.Effect<
@@ -193,7 +225,9 @@ export declare class Personalize extends AWSServiceClient {
     | ResourceInUseException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteDataset", input);
+  }
   deleteDatasetGroup(
     input: DeleteDatasetGroupRequest,
   ): Effect.Effect<
@@ -202,7 +236,9 @@ export declare class Personalize extends AWSServiceClient {
     | ResourceInUseException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteDatasetGroup", input);
+  }
   deleteEventTracker(
     input: DeleteEventTrackerRequest,
   ): Effect.Effect<
@@ -211,7 +247,9 @@ export declare class Personalize extends AWSServiceClient {
     | ResourceInUseException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteEventTracker", input);
+  }
   deleteFilter(
     input: DeleteFilterRequest,
   ): Effect.Effect<
@@ -220,7 +258,9 @@ export declare class Personalize extends AWSServiceClient {
     | ResourceInUseException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteFilter", input);
+  }
   deleteMetricAttribution(
     input: DeleteMetricAttributionRequest,
   ): Effect.Effect<
@@ -229,7 +269,9 @@ export declare class Personalize extends AWSServiceClient {
     | ResourceInUseException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteMetricAttribution", input);
+  }
   deleteRecommender(
     input: DeleteRecommenderRequest,
   ): Effect.Effect<
@@ -238,7 +280,9 @@ export declare class Personalize extends AWSServiceClient {
     | ResourceInUseException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteRecommender", input);
+  }
   deleteSchema(
     input: DeleteSchemaRequest,
   ): Effect.Effect<
@@ -247,7 +291,9 @@ export declare class Personalize extends AWSServiceClient {
     | ResourceInUseException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteSchema", input);
+  }
   deleteSolution(
     input: DeleteSolutionRequest,
   ): Effect.Effect<
@@ -256,115 +302,153 @@ export declare class Personalize extends AWSServiceClient {
     | ResourceInUseException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteSolution", input);
+  }
   describeAlgorithm(
     input: DescribeAlgorithmRequest,
   ): Effect.Effect<
     DescribeAlgorithmResponse,
     InvalidInputException | ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeAlgorithm", input);
+  }
   describeBatchInferenceJob(
     input: DescribeBatchInferenceJobRequest,
   ): Effect.Effect<
     DescribeBatchInferenceJobResponse,
     InvalidInputException | ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeBatchInferenceJob", input);
+  }
   describeBatchSegmentJob(
     input: DescribeBatchSegmentJobRequest,
   ): Effect.Effect<
     DescribeBatchSegmentJobResponse,
     InvalidInputException | ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeBatchSegmentJob", input);
+  }
   describeCampaign(
     input: DescribeCampaignRequest,
   ): Effect.Effect<
     DescribeCampaignResponse,
     InvalidInputException | ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeCampaign", input);
+  }
   describeDataDeletionJob(
     input: DescribeDataDeletionJobRequest,
   ): Effect.Effect<
     DescribeDataDeletionJobResponse,
     InvalidInputException | ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeDataDeletionJob", input);
+  }
   describeDataset(
     input: DescribeDatasetRequest,
   ): Effect.Effect<
     DescribeDatasetResponse,
     InvalidInputException | ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeDataset", input);
+  }
   describeDatasetExportJob(
     input: DescribeDatasetExportJobRequest,
   ): Effect.Effect<
     DescribeDatasetExportJobResponse,
     InvalidInputException | ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeDatasetExportJob", input);
+  }
   describeDatasetGroup(
     input: DescribeDatasetGroupRequest,
   ): Effect.Effect<
     DescribeDatasetGroupResponse,
     InvalidInputException | ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeDatasetGroup", input);
+  }
   describeDatasetImportJob(
     input: DescribeDatasetImportJobRequest,
   ): Effect.Effect<
     DescribeDatasetImportJobResponse,
     InvalidInputException | ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeDatasetImportJob", input);
+  }
   describeEventTracker(
     input: DescribeEventTrackerRequest,
   ): Effect.Effect<
     DescribeEventTrackerResponse,
     InvalidInputException | ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeEventTracker", input);
+  }
   describeFeatureTransformation(
     input: DescribeFeatureTransformationRequest,
   ): Effect.Effect<
     DescribeFeatureTransformationResponse,
     InvalidInputException | ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeFeatureTransformation", input);
+  }
   describeFilter(
     input: DescribeFilterRequest,
   ): Effect.Effect<
     DescribeFilterResponse,
     InvalidInputException | ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeFilter", input);
+  }
   describeMetricAttribution(
     input: DescribeMetricAttributionRequest,
   ): Effect.Effect<
     DescribeMetricAttributionResponse,
     InvalidInputException | ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeMetricAttribution", input);
+  }
   describeRecipe(
     input: DescribeRecipeRequest,
   ): Effect.Effect<
     DescribeRecipeResponse,
     InvalidInputException | ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeRecipe", input);
+  }
   describeRecommender(
     input: DescribeRecommenderRequest,
   ): Effect.Effect<
     DescribeRecommenderResponse,
     InvalidInputException | ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeRecommender", input);
+  }
   describeSchema(
     input: DescribeSchemaRequest,
   ): Effect.Effect<
     DescribeSchemaResponse,
     InvalidInputException | ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeSchema", input);
+  }
   describeSolution(
     input: DescribeSolutionRequest,
   ): Effect.Effect<
     DescribeSolutionResponse,
     InvalidInputException | ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeSolution", input);
+  }
   describeSolutionVersion(
     input: DescribeSolutionVersionRequest,
   ): Effect.Effect<
     DescribeSolutionVersionResponse,
     InvalidInputException | ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeSolutionVersion", input);
+  }
   getSolutionMetrics(
     input: GetSolutionMetricsRequest,
   ): Effect.Effect<
@@ -373,103 +457,137 @@ export declare class Personalize extends AWSServiceClient {
     | ResourceInUseException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetSolutionMetrics", input);
+  }
   listBatchInferenceJobs(
     input: ListBatchInferenceJobsRequest,
   ): Effect.Effect<
     ListBatchInferenceJobsResponse,
     InvalidInputException | InvalidNextTokenException | CommonAwsError
-  >;
+  > {
+    return this.call("ListBatchInferenceJobs", input);
+  }
   listBatchSegmentJobs(
     input: ListBatchSegmentJobsRequest,
   ): Effect.Effect<
     ListBatchSegmentJobsResponse,
     InvalidInputException | InvalidNextTokenException | CommonAwsError
-  >;
+  > {
+    return this.call("ListBatchSegmentJobs", input);
+  }
   listCampaigns(
     input: ListCampaignsRequest,
   ): Effect.Effect<
     ListCampaignsResponse,
     InvalidInputException | InvalidNextTokenException | CommonAwsError
-  >;
+  > {
+    return this.call("ListCampaigns", input);
+  }
   listDataDeletionJobs(
     input: ListDataDeletionJobsRequest,
   ): Effect.Effect<
     ListDataDeletionJobsResponse,
     InvalidInputException | InvalidNextTokenException | CommonAwsError
-  >;
+  > {
+    return this.call("ListDataDeletionJobs", input);
+  }
   listDatasetExportJobs(
     input: ListDatasetExportJobsRequest,
   ): Effect.Effect<
     ListDatasetExportJobsResponse,
     InvalidInputException | InvalidNextTokenException | CommonAwsError
-  >;
+  > {
+    return this.call("ListDatasetExportJobs", input);
+  }
   listDatasetGroups(
     input: ListDatasetGroupsRequest,
   ): Effect.Effect<
     ListDatasetGroupsResponse,
     InvalidNextTokenException | CommonAwsError
-  >;
+  > {
+    return this.call("ListDatasetGroups", input);
+  }
   listDatasetImportJobs(
     input: ListDatasetImportJobsRequest,
   ): Effect.Effect<
     ListDatasetImportJobsResponse,
     InvalidInputException | InvalidNextTokenException | CommonAwsError
-  >;
+  > {
+    return this.call("ListDatasetImportJobs", input);
+  }
   listDatasets(
     input: ListDatasetsRequest,
   ): Effect.Effect<
     ListDatasetsResponse,
     InvalidInputException | InvalidNextTokenException | CommonAwsError
-  >;
+  > {
+    return this.call("ListDatasets", input);
+  }
   listEventTrackers(
     input: ListEventTrackersRequest,
   ): Effect.Effect<
     ListEventTrackersResponse,
     InvalidInputException | InvalidNextTokenException | CommonAwsError
-  >;
+  > {
+    return this.call("ListEventTrackers", input);
+  }
   listFilters(
     input: ListFiltersRequest,
   ): Effect.Effect<
     ListFiltersResponse,
     InvalidInputException | InvalidNextTokenException | CommonAwsError
-  >;
+  > {
+    return this.call("ListFilters", input);
+  }
   listMetricAttributionMetrics(
     input: ListMetricAttributionMetricsRequest,
   ): Effect.Effect<
     ListMetricAttributionMetricsResponse,
     InvalidInputException | InvalidNextTokenException | CommonAwsError
-  >;
+  > {
+    return this.call("ListMetricAttributionMetrics", input);
+  }
   listMetricAttributions(
     input: ListMetricAttributionsRequest,
   ): Effect.Effect<
     ListMetricAttributionsResponse,
     InvalidInputException | InvalidNextTokenException | CommonAwsError
-  >;
+  > {
+    return this.call("ListMetricAttributions", input);
+  }
   listRecipes(
     input: ListRecipesRequest,
   ): Effect.Effect<
     ListRecipesResponse,
     InvalidInputException | InvalidNextTokenException | CommonAwsError
-  >;
+  > {
+    return this.call("ListRecipes", input);
+  }
   listRecommenders(
     input: ListRecommendersRequest,
   ): Effect.Effect<
     ListRecommendersResponse,
     InvalidInputException | InvalidNextTokenException | CommonAwsError
-  >;
+  > {
+    return this.call("ListRecommenders", input);
+  }
   listSchemas(
     input: ListSchemasRequest,
   ): Effect.Effect<
     ListSchemasResponse,
     InvalidNextTokenException | CommonAwsError
-  >;
+  > {
+    return this.call("ListSchemas", input);
+  }
   listSolutions(
     input: ListSolutionsRequest,
   ): Effect.Effect<
     ListSolutionsResponse,
     InvalidInputException | InvalidNextTokenException | CommonAwsError
-  >;
+  > {
+    return this.call("ListSolutions", input);
+  }
   listSolutionVersions(
     input: ListSolutionVersionsRequest,
   ): Effect.Effect<
@@ -478,7 +596,9 @@ export declare class Personalize extends AWSServiceClient {
     | InvalidNextTokenException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListSolutionVersions", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
@@ -487,7 +607,9 @@ export declare class Personalize extends AWSServiceClient {
     | ResourceInUseException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   startRecommender(
     input: StartRecommenderRequest,
   ): Effect.Effect<
@@ -496,7 +618,9 @@ export declare class Personalize extends AWSServiceClient {
     | ResourceInUseException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartRecommender", input);
+  }
   stopRecommender(
     input: StopRecommenderRequest,
   ): Effect.Effect<
@@ -505,7 +629,9 @@ export declare class Personalize extends AWSServiceClient {
     | ResourceInUseException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StopRecommender", input);
+  }
   stopSolutionVersionCreation(
     input: StopSolutionVersionCreationRequest,
   ): Effect.Effect<
@@ -514,7 +640,9 @@ export declare class Personalize extends AWSServiceClient {
     | ResourceInUseException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StopSolutionVersionCreation", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -525,7 +653,9 @@ export declare class Personalize extends AWSServiceClient {
     | ResourceNotFoundException
     | TooManyTagsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
@@ -535,7 +665,9 @@ export declare class Personalize extends AWSServiceClient {
     | ResourceNotFoundException
     | TooManyTagKeysException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
   updateCampaign(
     input: UpdateCampaignRequest,
   ): Effect.Effect<
@@ -544,7 +676,9 @@ export declare class Personalize extends AWSServiceClient {
     | ResourceInUseException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateCampaign", input);
+  }
   updateDataset(
     input: UpdateDatasetRequest,
   ): Effect.Effect<
@@ -553,7 +687,9 @@ export declare class Personalize extends AWSServiceClient {
     | ResourceInUseException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateDataset", input);
+  }
   updateMetricAttribution(
     input: UpdateMetricAttributionRequest,
   ): Effect.Effect<
@@ -563,7 +699,9 @@ export declare class Personalize extends AWSServiceClient {
     | ResourceInUseException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateMetricAttribution", input);
+  }
   updateRecommender(
     input: UpdateRecommenderRequest,
   ): Effect.Effect<
@@ -572,7 +710,9 @@ export declare class Personalize extends AWSServiceClient {
     | ResourceInUseException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateRecommender", input);
+  }
   updateSolution(
     input: UpdateSolutionRequest,
   ): Effect.Effect<
@@ -582,8 +722,12 @@ export declare class Personalize extends AWSServiceClient {
     | ResourceInUseException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateSolution", input);
+  }
 }
+
+export default Personalize;
 
 export type AccountId = string;
 

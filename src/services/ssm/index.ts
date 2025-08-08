@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class SSM extends AWSServiceClient {
+export class SSM extends AWSServiceClient {
   addTagsToResource(
     input: AddTagsToResourceRequest,
   ): Effect.Effect<
@@ -13,7 +13,9 @@ export declare class SSM extends AWSServiceClient {
     | TooManyTagsError
     | TooManyUpdates
     | CommonAwsError
-  >;
+  > {
+    return this.call("AddTagsToResource", input);
+  }
   associateOpsItemRelatedItem(
     input: AssociateOpsItemRelatedItemRequest,
   ): Effect.Effect<
@@ -25,7 +27,9 @@ export declare class SSM extends AWSServiceClient {
     | OpsItemNotFoundException
     | OpsItemRelatedItemAlreadyExistsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AssociateOpsItemRelatedItem", input);
+  }
   cancelCommand(
     input: CancelCommandRequest,
   ): Effect.Effect<
@@ -35,19 +39,25 @@ export declare class SSM extends AWSServiceClient {
     | InvalidCommandId
     | InvalidInstanceId
     | CommonAwsError
-  >;
+  > {
+    return this.call("CancelCommand", input);
+  }
   cancelMaintenanceWindowExecution(
     input: CancelMaintenanceWindowExecutionRequest,
   ): Effect.Effect<
     CancelMaintenanceWindowExecutionResult,
     DoesNotExistException | InternalServerError | CommonAwsError
-  >;
+  > {
+    return this.call("CancelMaintenanceWindowExecution", input);
+  }
   createActivation(
     input: CreateActivationRequest,
   ): Effect.Effect<
     CreateActivationResult,
     InternalServerError | InvalidParameters | CommonAwsError
-  >;
+  > {
+    return this.call("CreateActivation", input);
+  }
   createAssociation(
     input: CreateAssociationRequest,
   ): Effect.Effect<
@@ -66,7 +76,9 @@ export declare class SSM extends AWSServiceClient {
     | InvalidTargetMaps
     | UnsupportedPlatformType
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateAssociation", input);
+  }
   createAssociationBatch(
     input: CreateAssociationBatchRequest,
   ): Effect.Effect<
@@ -84,7 +96,9 @@ export declare class SSM extends AWSServiceClient {
     | InvalidTargetMaps
     | UnsupportedPlatformType
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateAssociationBatch", input);
+  }
   createDocument(
     input: CreateDocumentRequest,
   ): Effect.Effect<
@@ -97,7 +111,9 @@ export declare class SSM extends AWSServiceClient {
     | MaxDocumentSizeExceeded
     | TooManyUpdates
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateDocument", input);
+  }
   createMaintenanceWindow(
     input: CreateMaintenanceWindowRequest,
   ): Effect.Effect<
@@ -106,7 +122,9 @@ export declare class SSM extends AWSServiceClient {
     | InternalServerError
     | ResourceLimitExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateMaintenanceWindow", input);
+  }
   createOpsItem(
     input: CreateOpsItemRequest,
   ): Effect.Effect<
@@ -117,7 +135,9 @@ export declare class SSM extends AWSServiceClient {
     | OpsItemInvalidParameterException
     | OpsItemLimitExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateOpsItem", input);
+  }
   createOpsMetadata(
     input: CreateOpsMetadataRequest,
   ): Effect.Effect<
@@ -128,7 +148,9 @@ export declare class SSM extends AWSServiceClient {
     | OpsMetadataLimitExceededException
     | OpsMetadataTooManyUpdatesException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateOpsMetadata", input);
+  }
   createPatchBaseline(
     input: CreatePatchBaselineRequest,
   ): Effect.Effect<
@@ -137,7 +159,9 @@ export declare class SSM extends AWSServiceClient {
     | InternalServerError
     | ResourceLimitExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreatePatchBaseline", input);
+  }
   createResourceDataSync(
     input: CreateResourceDataSyncRequest,
   ): Effect.Effect<
@@ -147,7 +171,9 @@ export declare class SSM extends AWSServiceClient {
     | ResourceDataSyncCountExceededException
     | ResourceDataSyncInvalidConfigurationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateResourceDataSync", input);
+  }
   deleteActivation(
     input: DeleteActivationRequest,
   ): Effect.Effect<
@@ -157,7 +183,9 @@ export declare class SSM extends AWSServiceClient {
     | InvalidActivationId
     | TooManyUpdates
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteActivation", input);
+  }
   deleteAssociation(
     input: DeleteAssociationRequest,
   ): Effect.Effect<
@@ -168,7 +196,9 @@ export declare class SSM extends AWSServiceClient {
     | InvalidInstanceId
     | TooManyUpdates
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteAssociation", input);
+  }
   deleteDocument(
     input: DeleteDocumentRequest,
   ): Effect.Effect<
@@ -179,7 +209,9 @@ export declare class SSM extends AWSServiceClient {
     | InvalidDocumentOperation
     | TooManyUpdates
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteDocument", input);
+  }
   deleteInventory(
     input: DeleteInventoryRequest,
   ): Effect.Effect<
@@ -190,19 +222,25 @@ export declare class SSM extends AWSServiceClient {
     | InvalidOptionException
     | InvalidTypeNameException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteInventory", input);
+  }
   deleteMaintenanceWindow(
     input: DeleteMaintenanceWindowRequest,
   ): Effect.Effect<
     DeleteMaintenanceWindowResult,
     InternalServerError | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteMaintenanceWindow", input);
+  }
   deleteOpsItem(
     input: DeleteOpsItemRequest,
   ): Effect.Effect<
     DeleteOpsItemResponse,
     InternalServerError | OpsItemInvalidParameterException | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteOpsItem", input);
+  }
   deleteOpsMetadata(
     input: DeleteOpsMetadataRequest,
   ): Effect.Effect<
@@ -211,25 +249,33 @@ export declare class SSM extends AWSServiceClient {
     | OpsMetadataInvalidArgumentException
     | OpsMetadataNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteOpsMetadata", input);
+  }
   deleteParameter(
     input: DeleteParameterRequest,
   ): Effect.Effect<
     DeleteParameterResult,
     InternalServerError | ParameterNotFound | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteParameter", input);
+  }
   deleteParameters(
     input: DeleteParametersRequest,
   ): Effect.Effect<
     DeleteParametersResult,
     InternalServerError | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteParameters", input);
+  }
   deletePatchBaseline(
     input: DeletePatchBaselineRequest,
   ): Effect.Effect<
     DeletePatchBaselineResult,
     InternalServerError | ResourceInUseException | CommonAwsError
-  >;
+  > {
+    return this.call("DeletePatchBaseline", input);
+  }
   deleteResourceDataSync(
     input: DeleteResourceDataSyncRequest,
   ): Effect.Effect<
@@ -238,7 +284,9 @@ export declare class SSM extends AWSServiceClient {
     | ResourceDataSyncInvalidConfigurationException
     | ResourceDataSyncNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteResourceDataSync", input);
+  }
   deleteResourcePolicy(
     input: DeleteResourcePolicyRequest,
   ): Effect.Effect<
@@ -250,19 +298,25 @@ export declare class SSM extends AWSServiceClient {
     | ResourcePolicyInvalidParameterException
     | ResourcePolicyNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteResourcePolicy", input);
+  }
   deregisterManagedInstance(
     input: DeregisterManagedInstanceRequest,
   ): Effect.Effect<
     DeregisterManagedInstanceResult,
     InternalServerError | InvalidInstanceId | CommonAwsError
-  >;
+  > {
+    return this.call("DeregisterManagedInstance", input);
+  }
   deregisterPatchBaselineForPatchGroup(
     input: DeregisterPatchBaselineForPatchGroupRequest,
   ): Effect.Effect<
     DeregisterPatchBaselineForPatchGroupResult,
     InternalServerError | InvalidResourceId | CommonAwsError
-  >;
+  > {
+    return this.call("DeregisterPatchBaselineForPatchGroup", input);
+  }
   deregisterTargetFromMaintenanceWindow(
     input: DeregisterTargetFromMaintenanceWindowRequest,
   ): Effect.Effect<
@@ -271,19 +325,25 @@ export declare class SSM extends AWSServiceClient {
     | InternalServerError
     | TargetInUseException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeregisterTargetFromMaintenanceWindow", input);
+  }
   deregisterTaskFromMaintenanceWindow(
     input: DeregisterTaskFromMaintenanceWindowRequest,
   ): Effect.Effect<
     DeregisterTaskFromMaintenanceWindowResult,
     DoesNotExistException | InternalServerError | CommonAwsError
-  >;
+  > {
+    return this.call("DeregisterTaskFromMaintenanceWindow", input);
+  }
   describeActivations(
     input: DescribeActivationsRequest,
   ): Effect.Effect<
     DescribeActivationsResult,
     InternalServerError | InvalidFilter | InvalidNextToken | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeActivations", input);
+  }
   describeAssociation(
     input: DescribeAssociationRequest,
   ): Effect.Effect<
@@ -294,7 +354,9 @@ export declare class SSM extends AWSServiceClient {
     | InvalidDocument
     | InvalidInstanceId
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeAssociation", input);
+  }
   describeAssociationExecutions(
     input: DescribeAssociationExecutionsRequest,
   ): Effect.Effect<
@@ -303,7 +365,9 @@ export declare class SSM extends AWSServiceClient {
     | InternalServerError
     | InvalidNextToken
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeAssociationExecutions", input);
+  }
   describeAssociationExecutionTargets(
     input: DescribeAssociationExecutionTargetsRequest,
   ): Effect.Effect<
@@ -313,7 +377,9 @@ export declare class SSM extends AWSServiceClient {
     | InternalServerError
     | InvalidNextToken
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeAssociationExecutionTargets", input);
+  }
   describeAutomationExecutions(
     input: DescribeAutomationExecutionsRequest,
   ): Effect.Effect<
@@ -323,7 +389,9 @@ export declare class SSM extends AWSServiceClient {
     | InvalidFilterValue
     | InvalidNextToken
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeAutomationExecutions", input);
+  }
   describeAutomationStepExecutions(
     input: DescribeAutomationStepExecutionsRequest,
   ): Effect.Effect<
@@ -334,13 +402,17 @@ export declare class SSM extends AWSServiceClient {
     | InvalidFilterValue
     | InvalidNextToken
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeAutomationStepExecutions", input);
+  }
   describeAvailablePatches(
     input: DescribeAvailablePatchesRequest,
   ): Effect.Effect<
     DescribeAvailablePatchesResult,
     InternalServerError | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeAvailablePatches", input);
+  }
   describeDocument(
     input: DescribeDocumentRequest,
   ): Effect.Effect<
@@ -349,7 +421,9 @@ export declare class SSM extends AWSServiceClient {
     | InvalidDocument
     | InvalidDocumentVersion
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeDocument", input);
+  }
   describeDocumentPermission(
     input: DescribeDocumentPermissionRequest,
   ): Effect.Effect<
@@ -360,13 +434,17 @@ export declare class SSM extends AWSServiceClient {
     | InvalidNextToken
     | InvalidPermissionType
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeDocumentPermission", input);
+  }
   describeEffectiveInstanceAssociations(
     input: DescribeEffectiveInstanceAssociationsRequest,
   ): Effect.Effect<
     DescribeEffectiveInstanceAssociationsResult,
     InternalServerError | InvalidInstanceId | InvalidNextToken | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeEffectiveInstanceAssociations", input);
+  }
   describeEffectivePatchesForPatchBaseline(
     input: DescribeEffectivePatchesForPatchBaselineRequest,
   ): Effect.Effect<
@@ -376,13 +454,17 @@ export declare class SSM extends AWSServiceClient {
     | InvalidResourceId
     | UnsupportedOperatingSystem
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeEffectivePatchesForPatchBaseline", input);
+  }
   describeInstanceAssociationsStatus(
     input: DescribeInstanceAssociationsStatusRequest,
   ): Effect.Effect<
     DescribeInstanceAssociationsStatusResult,
     InternalServerError | InvalidInstanceId | InvalidNextToken | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeInstanceAssociationsStatus", input);
+  }
   describeInstanceInformation(
     input: DescribeInstanceInformationRequest,
   ): Effect.Effect<
@@ -393,7 +475,9 @@ export declare class SSM extends AWSServiceClient {
     | InvalidInstanceInformationFilterValue
     | InvalidNextToken
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeInstanceInformation", input);
+  }
   describeInstancePatches(
     input: DescribeInstancePatchesRequest,
   ): Effect.Effect<
@@ -403,19 +487,25 @@ export declare class SSM extends AWSServiceClient {
     | InvalidInstanceId
     | InvalidNextToken
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeInstancePatches", input);
+  }
   describeInstancePatchStates(
     input: DescribeInstancePatchStatesRequest,
   ): Effect.Effect<
     DescribeInstancePatchStatesResult,
     InternalServerError | InvalidNextToken | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeInstancePatchStates", input);
+  }
   describeInstancePatchStatesForPatchGroup(
     input: DescribeInstancePatchStatesForPatchGroupRequest,
   ): Effect.Effect<
     DescribeInstancePatchStatesForPatchGroupResult,
     InternalServerError | InvalidFilter | InvalidNextToken | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeInstancePatchStatesForPatchGroup", input);
+  }
   describeInstanceProperties(
     input: DescribeInstancePropertiesRequest,
   ): Effect.Effect<
@@ -428,7 +518,9 @@ export declare class SSM extends AWSServiceClient {
     | InvalidInstancePropertyFilterValue
     | InvalidNextToken
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeInstanceProperties", input);
+  }
   describeInventoryDeletions(
     input: DescribeInventoryDeletionsRequest,
   ): Effect.Effect<
@@ -437,61 +529,84 @@ export declare class SSM extends AWSServiceClient {
     | InvalidDeletionIdException
     | InvalidNextToken
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeInventoryDeletions", input);
+  }
   describeMaintenanceWindowExecutions(
     input: DescribeMaintenanceWindowExecutionsRequest,
   ): Effect.Effect<
     DescribeMaintenanceWindowExecutionsResult,
     InternalServerError | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeMaintenanceWindowExecutions", input);
+  }
   describeMaintenanceWindowExecutionTaskInvocations(
     input: DescribeMaintenanceWindowExecutionTaskInvocationsRequest,
   ): Effect.Effect<
     DescribeMaintenanceWindowExecutionTaskInvocationsResult,
     DoesNotExistException | InternalServerError | CommonAwsError
-  >;
+  > {
+    return this.call(
+      "DescribeMaintenanceWindowExecutionTaskInvocations",
+      input,
+    );
+  }
   describeMaintenanceWindowExecutionTasks(
     input: DescribeMaintenanceWindowExecutionTasksRequest,
   ): Effect.Effect<
     DescribeMaintenanceWindowExecutionTasksResult,
     DoesNotExistException | InternalServerError | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeMaintenanceWindowExecutionTasks", input);
+  }
   describeMaintenanceWindows(
     input: DescribeMaintenanceWindowsRequest,
   ): Effect.Effect<
     DescribeMaintenanceWindowsResult,
     InternalServerError | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeMaintenanceWindows", input);
+  }
   describeMaintenanceWindowSchedule(
     input: DescribeMaintenanceWindowScheduleRequest,
   ): Effect.Effect<
     DescribeMaintenanceWindowScheduleResult,
     DoesNotExistException | InternalServerError | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeMaintenanceWindowSchedule", input);
+  }
   describeMaintenanceWindowsForTarget(
     input: DescribeMaintenanceWindowsForTargetRequest,
   ): Effect.Effect<
     DescribeMaintenanceWindowsForTargetResult,
     InternalServerError | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeMaintenanceWindowsForTarget", input);
+  }
   describeMaintenanceWindowTargets(
     input: DescribeMaintenanceWindowTargetsRequest,
   ): Effect.Effect<
     DescribeMaintenanceWindowTargetsResult,
     DoesNotExistException | InternalServerError | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeMaintenanceWindowTargets", input);
+  }
   describeMaintenanceWindowTasks(
     input: DescribeMaintenanceWindowTasksRequest,
   ): Effect.Effect<
     DescribeMaintenanceWindowTasksResult,
     DoesNotExistException | InternalServerError | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeMaintenanceWindowTasks", input);
+  }
   describeOpsItems(
     input: DescribeOpsItemsRequest,
   ): Effect.Effect<
     DescribeOpsItemsResponse,
     InternalServerError | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeOpsItems", input);
+  }
   describeParameters(
     input: DescribeParametersRequest,
   ): Effect.Effect<
@@ -502,37 +617,49 @@ export declare class SSM extends AWSServiceClient {
     | InvalidFilterValue
     | InvalidNextToken
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeParameters", input);
+  }
   describePatchBaselines(
     input: DescribePatchBaselinesRequest,
   ): Effect.Effect<
     DescribePatchBaselinesResult,
     InternalServerError | CommonAwsError
-  >;
+  > {
+    return this.call("DescribePatchBaselines", input);
+  }
   describePatchGroups(
     input: DescribePatchGroupsRequest,
   ): Effect.Effect<
     DescribePatchGroupsResult,
     InternalServerError | CommonAwsError
-  >;
+  > {
+    return this.call("DescribePatchGroups", input);
+  }
   describePatchGroupState(
     input: DescribePatchGroupStateRequest,
   ): Effect.Effect<
     DescribePatchGroupStateResult,
     InternalServerError | InvalidNextToken | CommonAwsError
-  >;
+  > {
+    return this.call("DescribePatchGroupState", input);
+  }
   describePatchProperties(
     input: DescribePatchPropertiesRequest,
   ): Effect.Effect<
     DescribePatchPropertiesResult,
     InternalServerError | CommonAwsError
-  >;
+  > {
+    return this.call("DescribePatchProperties", input);
+  }
   describeSessions(
     input: DescribeSessionsRequest,
   ): Effect.Effect<
     DescribeSessionsResponse,
     InternalServerError | InvalidFilterKey | InvalidNextToken | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeSessions", input);
+  }
   disassociateOpsItemRelatedItem(
     input: DisassociateOpsItemRelatedItemRequest,
   ): Effect.Effect<
@@ -543,7 +670,9 @@ export declare class SSM extends AWSServiceClient {
     | OpsItemNotFoundException
     | OpsItemRelatedItemAssociationNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DisassociateOpsItemRelatedItem", input);
+  }
   getAccessToken(
     input: GetAccessTokenRequest,
   ): Effect.Effect<
@@ -554,13 +683,17 @@ export declare class SSM extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetAccessToken", input);
+  }
   getAutomationExecution(
     input: GetAutomationExecutionRequest,
   ): Effect.Effect<
     GetAutomationExecutionResult,
     AutomationExecutionNotFoundException | InternalServerError | CommonAwsError
-  >;
+  > {
+    return this.call("GetAutomationExecution", input);
+  }
   getCalendarState(
     input: GetCalendarStateRequest,
   ): Effect.Effect<
@@ -570,7 +703,9 @@ export declare class SSM extends AWSServiceClient {
     | InvalidDocumentType
     | UnsupportedCalendarException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetCalendarState", input);
+  }
   getCommandInvocation(
     input: GetCommandInvocationRequest,
   ): Effect.Effect<
@@ -581,19 +716,25 @@ export declare class SSM extends AWSServiceClient {
     | InvalidPluginName
     | InvocationDoesNotExist
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetCommandInvocation", input);
+  }
   getConnectionStatus(
     input: GetConnectionStatusRequest,
   ): Effect.Effect<
     GetConnectionStatusResponse,
     InternalServerError | CommonAwsError
-  >;
+  > {
+    return this.call("GetConnectionStatus", input);
+  }
   getDefaultPatchBaseline(
     input: GetDefaultPatchBaselineRequest,
   ): Effect.Effect<
     GetDefaultPatchBaselineResult,
     InternalServerError | CommonAwsError
-  >;
+  > {
+    return this.call("GetDefaultPatchBaseline", input);
+  }
   getDeployablePatchSnapshotForInstance(
     input: GetDeployablePatchSnapshotForInstanceRequest,
   ): Effect.Effect<
@@ -602,7 +743,9 @@ export declare class SSM extends AWSServiceClient {
     | UnsupportedFeatureRequiredException
     | UnsupportedOperatingSystem
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetDeployablePatchSnapshotForInstance", input);
+  }
   getDocument(
     input: GetDocumentRequest,
   ): Effect.Effect<
@@ -611,13 +754,17 @@ export declare class SSM extends AWSServiceClient {
     | InvalidDocument
     | InvalidDocumentVersion
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetDocument", input);
+  }
   getExecutionPreview(
     input: GetExecutionPreviewRequest,
   ): Effect.Effect<
     GetExecutionPreviewResponse,
     InternalServerError | ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("GetExecutionPreview", input);
+  }
   getInventory(
     input: GetInventoryRequest,
   ): Effect.Effect<
@@ -630,7 +777,9 @@ export declare class SSM extends AWSServiceClient {
     | InvalidResultAttributeException
     | InvalidTypeNameException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetInventory", input);
+  }
   getInventorySchema(
     input: GetInventorySchemaRequest,
   ): Effect.Effect<
@@ -639,37 +788,49 @@ export declare class SSM extends AWSServiceClient {
     | InvalidNextToken
     | InvalidTypeNameException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetInventorySchema", input);
+  }
   getMaintenanceWindow(
     input: GetMaintenanceWindowRequest,
   ): Effect.Effect<
     GetMaintenanceWindowResult,
     DoesNotExistException | InternalServerError | CommonAwsError
-  >;
+  > {
+    return this.call("GetMaintenanceWindow", input);
+  }
   getMaintenanceWindowExecution(
     input: GetMaintenanceWindowExecutionRequest,
   ): Effect.Effect<
     GetMaintenanceWindowExecutionResult,
     DoesNotExistException | InternalServerError | CommonAwsError
-  >;
+  > {
+    return this.call("GetMaintenanceWindowExecution", input);
+  }
   getMaintenanceWindowExecutionTask(
     input: GetMaintenanceWindowExecutionTaskRequest,
   ): Effect.Effect<
     GetMaintenanceWindowExecutionTaskResult,
     DoesNotExistException | InternalServerError | CommonAwsError
-  >;
+  > {
+    return this.call("GetMaintenanceWindowExecutionTask", input);
+  }
   getMaintenanceWindowExecutionTaskInvocation(
     input: GetMaintenanceWindowExecutionTaskInvocationRequest,
   ): Effect.Effect<
     GetMaintenanceWindowExecutionTaskInvocationResult,
     DoesNotExistException | InternalServerError | CommonAwsError
-  >;
+  > {
+    return this.call("GetMaintenanceWindowExecutionTaskInvocation", input);
+  }
   getMaintenanceWindowTask(
     input: GetMaintenanceWindowTaskRequest,
   ): Effect.Effect<
     GetMaintenanceWindowTaskResult,
     DoesNotExistException | InternalServerError | CommonAwsError
-  >;
+  > {
+    return this.call("GetMaintenanceWindowTask", input);
+  }
   getOpsItem(
     input: GetOpsItemRequest,
   ): Effect.Effect<
@@ -678,7 +839,9 @@ export declare class SSM extends AWSServiceClient {
     | OpsItemAccessDeniedException
     | OpsItemNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetOpsItem", input);
+  }
   getOpsMetadata(
     input: GetOpsMetadataRequest,
   ): Effect.Effect<
@@ -687,7 +850,9 @@ export declare class SSM extends AWSServiceClient {
     | OpsMetadataInvalidArgumentException
     | OpsMetadataNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetOpsMetadata", input);
+  }
   getOpsSummary(
     input: GetOpsSummaryRequest,
   ): Effect.Effect<
@@ -699,7 +864,9 @@ export declare class SSM extends AWSServiceClient {
     | InvalidTypeNameException
     | ResourceDataSyncNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetOpsSummary", input);
+  }
   getParameter(
     input: GetParameterRequest,
   ): Effect.Effect<
@@ -709,7 +876,9 @@ export declare class SSM extends AWSServiceClient {
     | ParameterNotFound
     | ParameterVersionNotFound
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetParameter", input);
+  }
   getParameterHistory(
     input: GetParameterHistoryRequest,
   ): Effect.Effect<
@@ -719,13 +888,17 @@ export declare class SSM extends AWSServiceClient {
     | InvalidNextToken
     | ParameterNotFound
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetParameterHistory", input);
+  }
   getParameters(
     input: GetParametersRequest,
   ): Effect.Effect<
     GetParametersResult,
     InternalServerError | InvalidKeyId | CommonAwsError
-  >;
+  > {
+    return this.call("GetParameters", input);
+  }
   getParametersByPath(
     input: GetParametersByPathRequest,
   ): Effect.Effect<
@@ -737,7 +910,9 @@ export declare class SSM extends AWSServiceClient {
     | InvalidKeyId
     | InvalidNextToken
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetParametersByPath", input);
+  }
   getPatchBaseline(
     input: GetPatchBaselineRequest,
   ): Effect.Effect<
@@ -746,13 +921,17 @@ export declare class SSM extends AWSServiceClient {
     | InternalServerError
     | InvalidResourceId
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetPatchBaseline", input);
+  }
   getPatchBaselineForPatchGroup(
     input: GetPatchBaselineForPatchGroupRequest,
   ): Effect.Effect<
     GetPatchBaselineForPatchGroupResult,
     InternalServerError | CommonAwsError
-  >;
+  > {
+    return this.call("GetPatchBaselineForPatchGroup", input);
+  }
   getResourcePolicies(
     input: GetResourcePoliciesRequest,
   ): Effect.Effect<
@@ -761,13 +940,17 @@ export declare class SSM extends AWSServiceClient {
     | ResourceNotFoundException
     | ResourcePolicyInvalidParameterException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetResourcePolicies", input);
+  }
   getServiceSetting(
     input: GetServiceSettingRequest,
   ): Effect.Effect<
     GetServiceSettingResult,
     InternalServerError | ServiceSettingNotFound | CommonAwsError
-  >;
+  > {
+    return this.call("GetServiceSetting", input);
+  }
   labelParameterVersion(
     input: LabelParameterVersionRequest,
   ): Effect.Effect<
@@ -778,13 +961,17 @@ export declare class SSM extends AWSServiceClient {
     | ParameterVersionNotFound
     | TooManyUpdates
     | CommonAwsError
-  >;
+  > {
+    return this.call("LabelParameterVersion", input);
+  }
   listAssociations(
     input: ListAssociationsRequest,
   ): Effect.Effect<
     ListAssociationsResult,
     InternalServerError | InvalidNextToken | CommonAwsError
-  >;
+  > {
+    return this.call("ListAssociations", input);
+  }
   listAssociationVersions(
     input: ListAssociationVersionsRequest,
   ): Effect.Effect<
@@ -793,7 +980,9 @@ export declare class SSM extends AWSServiceClient {
     | InternalServerError
     | InvalidNextToken
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListAssociationVersions", input);
+  }
   listCommandInvocations(
     input: ListCommandInvocationsRequest,
   ): Effect.Effect<
@@ -804,7 +993,9 @@ export declare class SSM extends AWSServiceClient {
     | InvalidInstanceId
     | InvalidNextToken
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListCommandInvocations", input);
+  }
   listCommands(
     input: ListCommandsRequest,
   ): Effect.Effect<
@@ -815,7 +1006,9 @@ export declare class SSM extends AWSServiceClient {
     | InvalidInstanceId
     | InvalidNextToken
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListCommands", input);
+  }
   listComplianceItems(
     input: ListComplianceItemsRequest,
   ): Effect.Effect<
@@ -826,13 +1019,17 @@ export declare class SSM extends AWSServiceClient {
     | InvalidResourceId
     | InvalidResourceType
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListComplianceItems", input);
+  }
   listComplianceSummaries(
     input: ListComplianceSummariesRequest,
   ): Effect.Effect<
     ListComplianceSummariesResult,
     InternalServerError | InvalidFilter | InvalidNextToken | CommonAwsError
-  >;
+  > {
+    return this.call("ListComplianceSummaries", input);
+  }
   listDocumentMetadataHistory(
     input: ListDocumentMetadataHistoryRequest,
   ): Effect.Effect<
@@ -842,19 +1039,25 @@ export declare class SSM extends AWSServiceClient {
     | InvalidDocumentVersion
     | InvalidNextToken
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListDocumentMetadataHistory", input);
+  }
   listDocuments(
     input: ListDocumentsRequest,
   ): Effect.Effect<
     ListDocumentsResult,
     InternalServerError | InvalidFilterKey | InvalidNextToken | CommonAwsError
-  >;
+  > {
+    return this.call("ListDocuments", input);
+  }
   listDocumentVersions(
     input: ListDocumentVersionsRequest,
   ): Effect.Effect<
     ListDocumentVersionsResult,
     InternalServerError | InvalidDocument | InvalidNextToken | CommonAwsError
-  >;
+  > {
+    return this.call("ListDocumentVersions", input);
+  }
   listInventoryEntries(
     input: ListInventoryEntriesRequest,
   ): Effect.Effect<
@@ -865,7 +1068,9 @@ export declare class SSM extends AWSServiceClient {
     | InvalidNextToken
     | InvalidTypeNameException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListInventoryEntries", input);
+  }
   listNodes(
     input: ListNodesRequest,
   ): Effect.Effect<
@@ -876,7 +1081,9 @@ export declare class SSM extends AWSServiceClient {
     | ResourceDataSyncNotFoundException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListNodes", input);
+  }
   listNodesSummary(
     input: ListNodesSummaryRequest,
   ): Effect.Effect<
@@ -888,7 +1095,9 @@ export declare class SSM extends AWSServiceClient {
     | ResourceDataSyncNotFoundException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListNodesSummary", input);
+  }
   listOpsItemEvents(
     input: ListOpsItemEventsRequest,
   ): Effect.Effect<
@@ -898,25 +1107,33 @@ export declare class SSM extends AWSServiceClient {
     | OpsItemLimitExceededException
     | OpsItemNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListOpsItemEvents", input);
+  }
   listOpsItemRelatedItems(
     input: ListOpsItemRelatedItemsRequest,
   ): Effect.Effect<
     ListOpsItemRelatedItemsResponse,
     InternalServerError | OpsItemInvalidParameterException | CommonAwsError
-  >;
+  > {
+    return this.call("ListOpsItemRelatedItems", input);
+  }
   listOpsMetadata(
     input: ListOpsMetadataRequest,
   ): Effect.Effect<
     ListOpsMetadataResult,
     InternalServerError | OpsMetadataInvalidArgumentException | CommonAwsError
-  >;
+  > {
+    return this.call("ListOpsMetadata", input);
+  }
   listResourceComplianceSummaries(
     input: ListResourceComplianceSummariesRequest,
   ): Effect.Effect<
     ListResourceComplianceSummariesResult,
     InternalServerError | InvalidFilter | InvalidNextToken | CommonAwsError
-  >;
+  > {
+    return this.call("ListResourceComplianceSummaries", input);
+  }
   listResourceDataSync(
     input: ListResourceDataSyncRequest,
   ): Effect.Effect<
@@ -925,7 +1142,9 @@ export declare class SSM extends AWSServiceClient {
     | InvalidNextToken
     | ResourceDataSyncInvalidConfigurationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListResourceDataSync", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
@@ -934,7 +1153,9 @@ export declare class SSM extends AWSServiceClient {
     | InvalidResourceId
     | InvalidResourceType
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   modifyDocumentPermission(
     input: ModifyDocumentPermissionRequest,
   ): Effect.Effect<
@@ -945,7 +1166,9 @@ export declare class SSM extends AWSServiceClient {
     | InvalidDocument
     | InvalidPermissionType
     | CommonAwsError
-  >;
+  > {
+    return this.call("ModifyDocumentPermission", input);
+  }
   putComplianceItems(
     input: PutComplianceItemsRequest,
   ): Effect.Effect<
@@ -958,7 +1181,9 @@ export declare class SSM extends AWSServiceClient {
     | ItemSizeLimitExceededException
     | TotalSizeLimitExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutComplianceItems", input);
+  }
   putInventory(
     input: PutInventoryRequest,
   ): Effect.Effect<
@@ -976,7 +1201,9 @@ export declare class SSM extends AWSServiceClient {
     | UnsupportedInventoryItemContextException
     | UnsupportedInventorySchemaVersionException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutInventory", input);
+  }
   putParameter(
     input: PutParameterRequest,
   ): Effect.Effect<
@@ -997,7 +1224,9 @@ export declare class SSM extends AWSServiceClient {
     | TooManyUpdates
     | UnsupportedParameterType
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutParameter", input);
+  }
   putResourcePolicy(
     input: PutResourcePolicyRequest,
   ): Effect.Effect<
@@ -1010,7 +1239,9 @@ export declare class SSM extends AWSServiceClient {
     | ResourcePolicyLimitExceededException
     | ResourcePolicyNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutResourcePolicy", input);
+  }
   registerDefaultPatchBaseline(
     input: RegisterDefaultPatchBaselineRequest,
   ): Effect.Effect<
@@ -1019,7 +1250,9 @@ export declare class SSM extends AWSServiceClient {
     | InternalServerError
     | InvalidResourceId
     | CommonAwsError
-  >;
+  > {
+    return this.call("RegisterDefaultPatchBaseline", input);
+  }
   registerPatchBaselineForPatchGroup(
     input: RegisterPatchBaselineForPatchGroupRequest,
   ): Effect.Effect<
@@ -1030,7 +1263,9 @@ export declare class SSM extends AWSServiceClient {
     | InvalidResourceId
     | ResourceLimitExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("RegisterPatchBaselineForPatchGroup", input);
+  }
   registerTargetWithMaintenanceWindow(
     input: RegisterTargetWithMaintenanceWindowRequest,
   ): Effect.Effect<
@@ -1040,7 +1275,9 @@ export declare class SSM extends AWSServiceClient {
     | InternalServerError
     | ResourceLimitExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("RegisterTargetWithMaintenanceWindow", input);
+  }
   registerTaskWithMaintenanceWindow(
     input: RegisterTaskWithMaintenanceWindowRequest,
   ): Effect.Effect<
@@ -1051,7 +1288,9 @@ export declare class SSM extends AWSServiceClient {
     | InternalServerError
     | ResourceLimitExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("RegisterTaskWithMaintenanceWindow", input);
+  }
   removeTagsFromResource(
     input: RemoveTagsFromResourceRequest,
   ): Effect.Effect<
@@ -1061,7 +1300,9 @@ export declare class SSM extends AWSServiceClient {
     | InvalidResourceType
     | TooManyUpdates
     | CommonAwsError
-  >;
+  > {
+    return this.call("RemoveTagsFromResource", input);
+  }
   resetServiceSetting(
     input: ResetServiceSettingRequest,
   ): Effect.Effect<
@@ -1070,13 +1311,17 @@ export declare class SSM extends AWSServiceClient {
     | ServiceSettingNotFound
     | TooManyUpdates
     | CommonAwsError
-  >;
+  > {
+    return this.call("ResetServiceSetting", input);
+  }
   resumeSession(
     input: ResumeSessionRequest,
   ): Effect.Effect<
     ResumeSessionResponse,
     DoesNotExistException | InternalServerError | CommonAwsError
-  >;
+  > {
+    return this.call("ResumeSession", input);
+  }
   sendAutomationSignal(
     input: SendAutomationSignalRequest,
   ): Effect.Effect<
@@ -1086,7 +1331,9 @@ export declare class SSM extends AWSServiceClient {
     | InternalServerError
     | InvalidAutomationSignalException
     | CommonAwsError
-  >;
+  > {
+    return this.call("SendAutomationSignal", input);
+  }
   sendCommand(
     input: SendCommandRequest,
   ): Effect.Effect<
@@ -1103,7 +1350,9 @@ export declare class SSM extends AWSServiceClient {
     | MaxDocumentSizeExceeded
     | UnsupportedPlatformType
     | CommonAwsError
-  >;
+  > {
+    return this.call("SendCommand", input);
+  }
   startAccessRequest(
     input: StartAccessRequestRequest,
   ): Effect.Effect<
@@ -1115,13 +1364,17 @@ export declare class SSM extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartAccessRequest", input);
+  }
   startAssociationsOnce(
     input: StartAssociationsOnceRequest,
   ): Effect.Effect<
     StartAssociationsOnceResult,
     AssociationDoesNotExist | InvalidAssociation | CommonAwsError
-  >;
+  > {
+    return this.call("StartAssociationsOnce", input);
+  }
   startAutomationExecution(
     input: StartAutomationExecutionRequest,
   ): Effect.Effect<
@@ -1134,7 +1387,9 @@ export declare class SSM extends AWSServiceClient {
     | InvalidAutomationExecutionParametersException
     | InvalidTarget
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartAutomationExecution", input);
+  }
   startChangeRequestExecution(
     input: StartChangeRequestExecutionRequest,
   ): Effect.Effect<
@@ -1147,19 +1402,25 @@ export declare class SSM extends AWSServiceClient {
     | InternalServerError
     | InvalidAutomationExecutionParametersException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartChangeRequestExecution", input);
+  }
   startExecutionPreview(
     input: StartExecutionPreviewRequest,
   ): Effect.Effect<
     StartExecutionPreviewResponse,
     InternalServerError | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("StartExecutionPreview", input);
+  }
   startSession(
     input: StartSessionRequest,
   ): Effect.Effect<
     StartSessionResponse,
     InternalServerError | InvalidDocument | TargetNotConnected | CommonAwsError
-  >;
+  > {
+    return this.call("StartSession", input);
+  }
   stopAutomationExecution(
     input: StopAutomationExecutionRequest,
   ): Effect.Effect<
@@ -1168,13 +1429,17 @@ export declare class SSM extends AWSServiceClient {
     | InternalServerError
     | InvalidAutomationStatusUpdateException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StopAutomationExecution", input);
+  }
   terminateSession(
     input: TerminateSessionRequest,
   ): Effect.Effect<
     TerminateSessionResponse,
     InternalServerError | CommonAwsError
-  >;
+  > {
+    return this.call("TerminateSession", input);
+  }
   unlabelParameterVersion(
     input: UnlabelParameterVersionRequest,
   ): Effect.Effect<
@@ -1184,7 +1449,9 @@ export declare class SSM extends AWSServiceClient {
     | ParameterVersionNotFound
     | TooManyUpdates
     | CommonAwsError
-  >;
+  > {
+    return this.call("UnlabelParameterVersion", input);
+  }
   updateAssociation(
     input: UpdateAssociationRequest,
   ): Effect.Effect<
@@ -1203,7 +1470,9 @@ export declare class SSM extends AWSServiceClient {
     | InvalidUpdate
     | TooManyUpdates
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateAssociation", input);
+  }
   updateAssociationStatus(
     input: UpdateAssociationStatusRequest,
   ): Effect.Effect<
@@ -1215,7 +1484,9 @@ export declare class SSM extends AWSServiceClient {
     | StatusUnchanged
     | TooManyUpdates
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateAssociationStatus", input);
+  }
   updateDocument(
     input: UpdateDocumentRequest,
   ): Effect.Effect<
@@ -1231,7 +1502,9 @@ export declare class SSM extends AWSServiceClient {
     | InvalidDocumentVersion
     | MaxDocumentSizeExceeded
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateDocument", input);
+  }
   updateDocumentDefaultVersion(
     input: UpdateDocumentDefaultVersionRequest,
   ): Effect.Effect<
@@ -1241,7 +1514,9 @@ export declare class SSM extends AWSServiceClient {
     | InvalidDocumentSchemaVersion
     | InvalidDocumentVersion
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateDocumentDefaultVersion", input);
+  }
   updateDocumentMetadata(
     input: UpdateDocumentMetadataRequest,
   ): Effect.Effect<
@@ -1252,31 +1527,41 @@ export declare class SSM extends AWSServiceClient {
     | InvalidDocumentVersion
     | TooManyUpdates
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateDocumentMetadata", input);
+  }
   updateMaintenanceWindow(
     input: UpdateMaintenanceWindowRequest,
   ): Effect.Effect<
     UpdateMaintenanceWindowResult,
     DoesNotExistException | InternalServerError | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateMaintenanceWindow", input);
+  }
   updateMaintenanceWindowTarget(
     input: UpdateMaintenanceWindowTargetRequest,
   ): Effect.Effect<
     UpdateMaintenanceWindowTargetResult,
     DoesNotExistException | InternalServerError | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateMaintenanceWindowTarget", input);
+  }
   updateMaintenanceWindowTask(
     input: UpdateMaintenanceWindowTaskRequest,
   ): Effect.Effect<
     UpdateMaintenanceWindowTaskResult,
     DoesNotExistException | InternalServerError | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateMaintenanceWindowTask", input);
+  }
   updateManagedInstanceRole(
     input: UpdateManagedInstanceRoleRequest,
   ): Effect.Effect<
     UpdateManagedInstanceRoleResult,
     InternalServerError | InvalidInstanceId | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateManagedInstanceRole", input);
+  }
   updateOpsItem(
     input: UpdateOpsItemRequest,
   ): Effect.Effect<
@@ -1289,7 +1574,9 @@ export declare class SSM extends AWSServiceClient {
     | OpsItemLimitExceededException
     | OpsItemNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateOpsItem", input);
+  }
   updateOpsMetadata(
     input: UpdateOpsMetadataRequest,
   ): Effect.Effect<
@@ -1300,13 +1587,17 @@ export declare class SSM extends AWSServiceClient {
     | OpsMetadataNotFoundException
     | OpsMetadataTooManyUpdatesException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateOpsMetadata", input);
+  }
   updatePatchBaseline(
     input: UpdatePatchBaselineRequest,
   ): Effect.Effect<
     UpdatePatchBaselineResult,
     DoesNotExistException | InternalServerError | CommonAwsError
-  >;
+  > {
+    return this.call("UpdatePatchBaseline", input);
+  }
   updateResourceDataSync(
     input: UpdateResourceDataSyncRequest,
   ): Effect.Effect<
@@ -1316,7 +1607,9 @@ export declare class SSM extends AWSServiceClient {
     | ResourceDataSyncInvalidConfigurationException
     | ResourceDataSyncNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateResourceDataSync", input);
+  }
   updateServiceSetting(
     input: UpdateServiceSettingRequest,
   ): Effect.Effect<
@@ -1325,10 +1618,14 @@ export declare class SSM extends AWSServiceClient {
     | ServiceSettingNotFound
     | TooManyUpdates
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateServiceSetting", input);
+  }
 }
 
-export declare class Ssm extends SSM {}
+export class Ssm extends SSM {}
+
+export default SSM;
 
 export declare class AccessDeniedException extends EffectData.TaggedError(
   "AccessDeniedException",

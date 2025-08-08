@@ -2,22 +2,30 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class CloudSearchDomain extends AWSServiceClient {
+export class CloudSearchDomain extends AWSServiceClient {
   search(
     input: SearchRequest,
-  ): Effect.Effect<SearchResponse, SearchException | CommonAwsError>;
+  ): Effect.Effect<SearchResponse, SearchException | CommonAwsError> {
+    return this.call("Search", input);
+  }
   suggest(
     input: SuggestRequest,
-  ): Effect.Effect<SuggestResponse, SearchException | CommonAwsError>;
+  ): Effect.Effect<SuggestResponse, SearchException | CommonAwsError> {
+    return this.call("Suggest", input);
+  }
   uploadDocuments(
     input: UploadDocumentsRequest,
   ): Effect.Effect<
     UploadDocumentsResponse,
     DocumentServiceException | CommonAwsError
-  >;
+  > {
+    return this.call("UploadDocuments", input);
+  }
 }
 
-export declare class CloudsearchDomain extends CloudSearchDomain {}
+export class CloudsearchDomain extends CloudSearchDomain {}
+
+export default CloudSearchDomain;
 
 export type Adds = number;
 

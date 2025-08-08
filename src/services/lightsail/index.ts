@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class Lightsail extends AWSServiceClient {
+export class Lightsail extends AWSServiceClient {
   allocateStaticIp(
     input: AllocateStaticIpRequest,
   ): Effect.Effect<
@@ -16,7 +16,9 @@ export declare class Lightsail extends AWSServiceClient {
     | ServiceException
     | UnauthenticatedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AllocateStaticIp", input);
+  }
   attachCertificateToDistribution(
     input: AttachCertificateToDistributionRequest,
   ): Effect.Effect<
@@ -28,7 +30,9 @@ export declare class Lightsail extends AWSServiceClient {
     | ServiceException
     | UnauthenticatedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AttachCertificateToDistribution", input);
+  }
   attachDisk(
     input: AttachDiskRequest,
   ): Effect.Effect<
@@ -42,7 +46,9 @@ export declare class Lightsail extends AWSServiceClient {
     | ServiceException
     | UnauthenticatedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AttachDisk", input);
+  }
   attachInstancesToLoadBalancer(
     input: AttachInstancesToLoadBalancerRequest,
   ): Effect.Effect<
@@ -56,7 +62,9 @@ export declare class Lightsail extends AWSServiceClient {
     | ServiceException
     | UnauthenticatedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AttachInstancesToLoadBalancer", input);
+  }
   attachLoadBalancerTlsCertificate(
     input: AttachLoadBalancerTlsCertificateRequest,
   ): Effect.Effect<
@@ -70,7 +78,9 @@ export declare class Lightsail extends AWSServiceClient {
     | ServiceException
     | UnauthenticatedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AttachLoadBalancerTlsCertificate", input);
+  }
   attachStaticIp(
     input: AttachStaticIpRequest,
   ): Effect.Effect<
@@ -84,7 +94,9 @@ export declare class Lightsail extends AWSServiceClient {
     | ServiceException
     | UnauthenticatedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AttachStaticIp", input);
+  }
   closeInstancePublicPorts(
     input: CloseInstancePublicPortsRequest,
   ): Effect.Effect<
@@ -98,7 +110,9 @@ export declare class Lightsail extends AWSServiceClient {
     | ServiceException
     | UnauthenticatedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CloseInstancePublicPorts", input);
+  }
   copySnapshot(
     input: CopySnapshotRequest,
   ): Effect.Effect<
@@ -112,7 +126,9 @@ export declare class Lightsail extends AWSServiceClient {
     | ServiceException
     | UnauthenticatedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CopySnapshot", input);
+  }
   createBucket(
     input: CreateBucketRequest,
   ): Effect.Effect<
@@ -123,7 +139,9 @@ export declare class Lightsail extends AWSServiceClient {
     | ServiceException
     | UnauthenticatedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateBucket", input);
+  }
   createBucketAccessKey(
     input: CreateBucketAccessKeyRequest,
   ): Effect.Effect<
@@ -135,7 +153,9 @@ export declare class Lightsail extends AWSServiceClient {
     | ServiceException
     | UnauthenticatedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateBucketAccessKey", input);
+  }
   createCertificate(
     input: CreateCertificateRequest,
   ): Effect.Effect<
@@ -147,7 +167,9 @@ export declare class Lightsail extends AWSServiceClient {
     | ServiceException
     | UnauthenticatedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateCertificate", input);
+  }
   createCloudFormationStack(
     input: CreateCloudFormationStackRequest,
   ): Effect.Effect<
@@ -161,7 +183,9 @@ export declare class Lightsail extends AWSServiceClient {
     | ServiceException
     | UnauthenticatedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateCloudFormationStack", input);
+  }
   createContactMethod(
     input: CreateContactMethodRequest,
   ): Effect.Effect<
@@ -174,7 +198,9 @@ export declare class Lightsail extends AWSServiceClient {
     | ServiceException
     | UnauthenticatedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateContactMethod", input);
+  }
   createContainerService(
     input: CreateContainerServiceRequest,
   ): Effect.Effect<
@@ -186,7 +212,9 @@ export declare class Lightsail extends AWSServiceClient {
     | ServiceException
     | UnauthenticatedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateContainerService", input);
+  }
   createContainerServiceDeployment(
     input: CreateContainerServiceDeploymentRequest,
   ): Effect.Effect<
@@ -198,7 +226,9 @@ export declare class Lightsail extends AWSServiceClient {
     | ServiceException
     | UnauthenticatedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateContainerServiceDeployment", input);
+  }
   createContainerServiceRegistryLogin(
     input: CreateContainerServiceRegistryLoginRequest,
   ): Effect.Effect<
@@ -210,7 +240,9 @@ export declare class Lightsail extends AWSServiceClient {
     | ServiceException
     | UnauthenticatedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateContainerServiceRegistryLogin", input);
+  }
   createDisk(
     input: CreateDiskRequest,
   ): Effect.Effect<
@@ -224,7 +256,9 @@ export declare class Lightsail extends AWSServiceClient {
     | ServiceException
     | UnauthenticatedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateDisk", input);
+  }
   createDiskFromSnapshot(
     input: CreateDiskFromSnapshotRequest,
   ): Effect.Effect<
@@ -238,7 +272,9 @@ export declare class Lightsail extends AWSServiceClient {
     | ServiceException
     | UnauthenticatedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateDiskFromSnapshot", input);
+  }
   createDiskSnapshot(
     input: CreateDiskSnapshotRequest,
   ): Effect.Effect<
@@ -252,7 +288,9 @@ export declare class Lightsail extends AWSServiceClient {
     | ServiceException
     | UnauthenticatedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateDiskSnapshot", input);
+  }
   createDistribution(
     input: CreateDistributionRequest,
   ): Effect.Effect<
@@ -264,7 +302,9 @@ export declare class Lightsail extends AWSServiceClient {
     | ServiceException
     | UnauthenticatedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateDistribution", input);
+  }
   createDomain(
     input: CreateDomainRequest,
   ): Effect.Effect<
@@ -278,7 +318,9 @@ export declare class Lightsail extends AWSServiceClient {
     | ServiceException
     | UnauthenticatedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateDomain", input);
+  }
   createDomainEntry(
     input: CreateDomainEntryRequest,
   ): Effect.Effect<
@@ -292,7 +334,9 @@ export declare class Lightsail extends AWSServiceClient {
     | ServiceException
     | UnauthenticatedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateDomainEntry", input);
+  }
   createGUISessionAccessDetails(
     input: CreateGUISessionAccessDetailsRequest,
   ): Effect.Effect<
@@ -304,7 +348,9 @@ export declare class Lightsail extends AWSServiceClient {
     | ServiceException
     | UnauthenticatedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateGUISessionAccessDetails", input);
+  }
   createInstances(
     input: CreateInstancesRequest,
   ): Effect.Effect<
@@ -318,7 +364,9 @@ export declare class Lightsail extends AWSServiceClient {
     | ServiceException
     | UnauthenticatedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateInstances", input);
+  }
   createInstancesFromSnapshot(
     input: CreateInstancesFromSnapshotRequest,
   ): Effect.Effect<
@@ -332,7 +380,9 @@ export declare class Lightsail extends AWSServiceClient {
     | ServiceException
     | UnauthenticatedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateInstancesFromSnapshot", input);
+  }
   createInstanceSnapshot(
     input: CreateInstanceSnapshotRequest,
   ): Effect.Effect<
@@ -346,7 +396,9 @@ export declare class Lightsail extends AWSServiceClient {
     | ServiceException
     | UnauthenticatedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateInstanceSnapshot", input);
+  }
   createKeyPair(
     input: CreateKeyPairRequest,
   ): Effect.Effect<
@@ -360,7 +412,9 @@ export declare class Lightsail extends AWSServiceClient {
     | ServiceException
     | UnauthenticatedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateKeyPair", input);
+  }
   createLoadBalancer(
     input: CreateLoadBalancerRequest,
   ): Effect.Effect<
@@ -374,7 +428,9 @@ export declare class Lightsail extends AWSServiceClient {
     | ServiceException
     | UnauthenticatedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateLoadBalancer", input);
+  }
   createLoadBalancerTlsCertificate(
     input: CreateLoadBalancerTlsCertificateRequest,
   ): Effect.Effect<
@@ -388,7 +444,9 @@ export declare class Lightsail extends AWSServiceClient {
     | ServiceException
     | UnauthenticatedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateLoadBalancerTlsCertificate", input);
+  }
   createRelationalDatabase(
     input: CreateRelationalDatabaseRequest,
   ): Effect.Effect<
@@ -402,7 +460,9 @@ export declare class Lightsail extends AWSServiceClient {
     | ServiceException
     | UnauthenticatedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateRelationalDatabase", input);
+  }
   createRelationalDatabaseFromSnapshot(
     input: CreateRelationalDatabaseFromSnapshotRequest,
   ): Effect.Effect<
@@ -416,7 +476,9 @@ export declare class Lightsail extends AWSServiceClient {
     | ServiceException
     | UnauthenticatedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateRelationalDatabaseFromSnapshot", input);
+  }
   createRelationalDatabaseSnapshot(
     input: CreateRelationalDatabaseSnapshotRequest,
   ): Effect.Effect<
@@ -430,7 +492,9 @@ export declare class Lightsail extends AWSServiceClient {
     | ServiceException
     | UnauthenticatedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateRelationalDatabaseSnapshot", input);
+  }
   deleteAlarm(
     input: DeleteAlarmRequest,
   ): Effect.Effect<
@@ -443,7 +507,9 @@ export declare class Lightsail extends AWSServiceClient {
     | ServiceException
     | UnauthenticatedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteAlarm", input);
+  }
   deleteAutoSnapshot(
     input: DeleteAutoSnapshotRequest,
   ): Effect.Effect<
@@ -456,7 +522,9 @@ export declare class Lightsail extends AWSServiceClient {
     | ServiceException
     | UnauthenticatedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteAutoSnapshot", input);
+  }
   deleteBucket(
     input: DeleteBucketRequest,
   ): Effect.Effect<
@@ -468,7 +536,9 @@ export declare class Lightsail extends AWSServiceClient {
     | ServiceException
     | UnauthenticatedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteBucket", input);
+  }
   deleteBucketAccessKey(
     input: DeleteBucketAccessKeyRequest,
   ): Effect.Effect<
@@ -480,7 +550,9 @@ export declare class Lightsail extends AWSServiceClient {
     | ServiceException
     | UnauthenticatedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteBucketAccessKey", input);
+  }
   deleteCertificate(
     input: DeleteCertificateRequest,
   ): Effect.Effect<
@@ -492,7 +564,9 @@ export declare class Lightsail extends AWSServiceClient {
     | ServiceException
     | UnauthenticatedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteCertificate", input);
+  }
   deleteContactMethod(
     input: DeleteContactMethodRequest,
   ): Effect.Effect<
@@ -505,7 +579,9 @@ export declare class Lightsail extends AWSServiceClient {
     | ServiceException
     | UnauthenticatedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteContactMethod", input);
+  }
   deleteContainerImage(
     input: DeleteContainerImageRequest,
   ): Effect.Effect<
@@ -517,7 +593,9 @@ export declare class Lightsail extends AWSServiceClient {
     | ServiceException
     | UnauthenticatedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteContainerImage", input);
+  }
   deleteContainerService(
     input: DeleteContainerServiceRequest,
   ): Effect.Effect<
@@ -529,7 +607,9 @@ export declare class Lightsail extends AWSServiceClient {
     | ServiceException
     | UnauthenticatedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteContainerService", input);
+  }
   deleteDisk(
     input: DeleteDiskRequest,
   ): Effect.Effect<
@@ -543,7 +623,9 @@ export declare class Lightsail extends AWSServiceClient {
     | ServiceException
     | UnauthenticatedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteDisk", input);
+  }
   deleteDiskSnapshot(
     input: DeleteDiskSnapshotRequest,
   ): Effect.Effect<
@@ -557,7 +639,9 @@ export declare class Lightsail extends AWSServiceClient {
     | ServiceException
     | UnauthenticatedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteDiskSnapshot", input);
+  }
   deleteDistribution(
     input: DeleteDistributionRequest,
   ): Effect.Effect<
@@ -569,7 +653,9 @@ export declare class Lightsail extends AWSServiceClient {
     | ServiceException
     | UnauthenticatedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteDistribution", input);
+  }
   deleteDomain(
     input: DeleteDomainRequest,
   ): Effect.Effect<
@@ -583,7 +669,9 @@ export declare class Lightsail extends AWSServiceClient {
     | ServiceException
     | UnauthenticatedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteDomain", input);
+  }
   deleteDomainEntry(
     input: DeleteDomainEntryRequest,
   ): Effect.Effect<
@@ -597,7 +685,9 @@ export declare class Lightsail extends AWSServiceClient {
     | ServiceException
     | UnauthenticatedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteDomainEntry", input);
+  }
   deleteInstance(
     input: DeleteInstanceRequest,
   ): Effect.Effect<
@@ -611,7 +701,9 @@ export declare class Lightsail extends AWSServiceClient {
     | ServiceException
     | UnauthenticatedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteInstance", input);
+  }
   deleteInstanceSnapshot(
     input: DeleteInstanceSnapshotRequest,
   ): Effect.Effect<
@@ -625,7 +717,9 @@ export declare class Lightsail extends AWSServiceClient {
     | ServiceException
     | UnauthenticatedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteInstanceSnapshot", input);
+  }
   deleteKeyPair(
     input: DeleteKeyPairRequest,
   ): Effect.Effect<
@@ -639,7 +733,9 @@ export declare class Lightsail extends AWSServiceClient {
     | ServiceException
     | UnauthenticatedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteKeyPair", input);
+  }
   deleteKnownHostKeys(
     input: DeleteKnownHostKeysRequest,
   ): Effect.Effect<
@@ -653,7 +749,9 @@ export declare class Lightsail extends AWSServiceClient {
     | ServiceException
     | UnauthenticatedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteKnownHostKeys", input);
+  }
   deleteLoadBalancer(
     input: DeleteLoadBalancerRequest,
   ): Effect.Effect<
@@ -667,7 +765,9 @@ export declare class Lightsail extends AWSServiceClient {
     | ServiceException
     | UnauthenticatedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteLoadBalancer", input);
+  }
   deleteLoadBalancerTlsCertificate(
     input: DeleteLoadBalancerTlsCertificateRequest,
   ): Effect.Effect<
@@ -681,7 +781,9 @@ export declare class Lightsail extends AWSServiceClient {
     | ServiceException
     | UnauthenticatedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteLoadBalancerTlsCertificate", input);
+  }
   deleteRelationalDatabase(
     input: DeleteRelationalDatabaseRequest,
   ): Effect.Effect<
@@ -695,7 +797,9 @@ export declare class Lightsail extends AWSServiceClient {
     | ServiceException
     | UnauthenticatedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteRelationalDatabase", input);
+  }
   deleteRelationalDatabaseSnapshot(
     input: DeleteRelationalDatabaseSnapshotRequest,
   ): Effect.Effect<
@@ -709,7 +813,9 @@ export declare class Lightsail extends AWSServiceClient {
     | ServiceException
     | UnauthenticatedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteRelationalDatabaseSnapshot", input);
+  }
   detachCertificateFromDistribution(
     input: DetachCertificateFromDistributionRequest,
   ): Effect.Effect<
@@ -721,7 +827,9 @@ export declare class Lightsail extends AWSServiceClient {
     | ServiceException
     | UnauthenticatedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DetachCertificateFromDistribution", input);
+  }
   detachDisk(
     input: DetachDiskRequest,
   ): Effect.Effect<
@@ -735,7 +843,9 @@ export declare class Lightsail extends AWSServiceClient {
     | ServiceException
     | UnauthenticatedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DetachDisk", input);
+  }
   detachInstancesFromLoadBalancer(
     input: DetachInstancesFromLoadBalancerRequest,
   ): Effect.Effect<
@@ -749,7 +859,9 @@ export declare class Lightsail extends AWSServiceClient {
     | ServiceException
     | UnauthenticatedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DetachInstancesFromLoadBalancer", input);
+  }
   detachStaticIp(
     input: DetachStaticIpRequest,
   ): Effect.Effect<
@@ -763,7 +875,9 @@ export declare class Lightsail extends AWSServiceClient {
     | ServiceException
     | UnauthenticatedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DetachStaticIp", input);
+  }
   disableAddOn(
     input: DisableAddOnRequest,
   ): Effect.Effect<
@@ -776,7 +890,9 @@ export declare class Lightsail extends AWSServiceClient {
     | ServiceException
     | UnauthenticatedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DisableAddOn", input);
+  }
   downloadDefaultKeyPair(
     input: DownloadDefaultKeyPairRequest,
   ): Effect.Effect<
@@ -790,7 +906,9 @@ export declare class Lightsail extends AWSServiceClient {
     | ServiceException
     | UnauthenticatedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DownloadDefaultKeyPair", input);
+  }
   enableAddOn(
     input: EnableAddOnRequest,
   ): Effect.Effect<
@@ -803,7 +921,9 @@ export declare class Lightsail extends AWSServiceClient {
     | ServiceException
     | UnauthenticatedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("EnableAddOn", input);
+  }
   exportSnapshot(
     input: ExportSnapshotRequest,
   ): Effect.Effect<
@@ -817,7 +937,9 @@ export declare class Lightsail extends AWSServiceClient {
     | ServiceException
     | UnauthenticatedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ExportSnapshot", input);
+  }
   getActiveNames(
     input: GetActiveNamesRequest,
   ): Effect.Effect<
@@ -831,7 +953,9 @@ export declare class Lightsail extends AWSServiceClient {
     | ServiceException
     | UnauthenticatedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetActiveNames", input);
+  }
   getAlarms(
     input: GetAlarmsRequest,
   ): Effect.Effect<
@@ -844,7 +968,9 @@ export declare class Lightsail extends AWSServiceClient {
     | ServiceException
     | UnauthenticatedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetAlarms", input);
+  }
   getAutoSnapshots(
     input: GetAutoSnapshotsRequest,
   ): Effect.Effect<
@@ -857,7 +983,9 @@ export declare class Lightsail extends AWSServiceClient {
     | ServiceException
     | UnauthenticatedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetAutoSnapshots", input);
+  }
   getBlueprints(
     input: GetBlueprintsRequest,
   ): Effect.Effect<
@@ -871,7 +999,9 @@ export declare class Lightsail extends AWSServiceClient {
     | ServiceException
     | UnauthenticatedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetBlueprints", input);
+  }
   getBucketAccessKeys(
     input: GetBucketAccessKeysRequest,
   ): Effect.Effect<
@@ -883,7 +1013,9 @@ export declare class Lightsail extends AWSServiceClient {
     | ServiceException
     | UnauthenticatedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetBucketAccessKeys", input);
+  }
   getBucketBundles(
     input: GetBucketBundlesRequest,
   ): Effect.Effect<
@@ -894,7 +1026,9 @@ export declare class Lightsail extends AWSServiceClient {
     | ServiceException
     | UnauthenticatedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetBucketBundles", input);
+  }
   getBucketMetricData(
     input: GetBucketMetricDataRequest,
   ): Effect.Effect<
@@ -906,7 +1040,9 @@ export declare class Lightsail extends AWSServiceClient {
     | ServiceException
     | UnauthenticatedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetBucketMetricData", input);
+  }
   getBuckets(
     input: GetBucketsRequest,
   ): Effect.Effect<
@@ -918,7 +1054,9 @@ export declare class Lightsail extends AWSServiceClient {
     | ServiceException
     | UnauthenticatedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetBuckets", input);
+  }
   getBundles(
     input: GetBundlesRequest,
   ): Effect.Effect<
@@ -932,7 +1070,9 @@ export declare class Lightsail extends AWSServiceClient {
     | ServiceException
     | UnauthenticatedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetBundles", input);
+  }
   getCertificates(
     input: GetCertificatesRequest,
   ): Effect.Effect<
@@ -944,7 +1084,9 @@ export declare class Lightsail extends AWSServiceClient {
     | ServiceException
     | UnauthenticatedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetCertificates", input);
+  }
   getCloudFormationStackRecords(
     input: GetCloudFormationStackRecordsRequest,
   ): Effect.Effect<
@@ -958,7 +1100,9 @@ export declare class Lightsail extends AWSServiceClient {
     | ServiceException
     | UnauthenticatedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetCloudFormationStackRecords", input);
+  }
   getContactMethods(
     input: GetContactMethodsRequest,
   ): Effect.Effect<
@@ -971,7 +1115,9 @@ export declare class Lightsail extends AWSServiceClient {
     | ServiceException
     | UnauthenticatedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetContactMethods", input);
+  }
   getContainerAPIMetadata(
     input: GetContainerAPIMetadataRequest,
   ): Effect.Effect<
@@ -981,7 +1127,9 @@ export declare class Lightsail extends AWSServiceClient {
     | ServiceException
     | UnauthenticatedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetContainerAPIMetadata", input);
+  }
   getContainerImages(
     input: GetContainerImagesRequest,
   ): Effect.Effect<
@@ -993,7 +1141,9 @@ export declare class Lightsail extends AWSServiceClient {
     | ServiceException
     | UnauthenticatedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetContainerImages", input);
+  }
   getContainerLog(
     input: GetContainerLogRequest,
   ): Effect.Effect<
@@ -1005,7 +1155,9 @@ export declare class Lightsail extends AWSServiceClient {
     | ServiceException
     | UnauthenticatedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetContainerLog", input);
+  }
   getContainerServiceDeployments(
     input: GetContainerServiceDeploymentsRequest,
   ): Effect.Effect<
@@ -1017,7 +1169,9 @@ export declare class Lightsail extends AWSServiceClient {
     | ServiceException
     | UnauthenticatedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetContainerServiceDeployments", input);
+  }
   getContainerServiceMetricData(
     input: GetContainerServiceMetricDataRequest,
   ): Effect.Effect<
@@ -1029,7 +1183,9 @@ export declare class Lightsail extends AWSServiceClient {
     | ServiceException
     | UnauthenticatedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetContainerServiceMetricData", input);
+  }
   getContainerServicePowers(
     input: GetContainerServicePowersRequest,
   ): Effect.Effect<
@@ -1041,7 +1197,9 @@ export declare class Lightsail extends AWSServiceClient {
     | ServiceException
     | UnauthenticatedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetContainerServicePowers", input);
+  }
   getContainerServices(
     input: GetContainerServicesRequest,
   ): Effect.Effect<
@@ -1053,7 +1211,9 @@ export declare class Lightsail extends AWSServiceClient {
     | ServiceException
     | UnauthenticatedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetContainerServices", input);
+  }
   getCostEstimate(
     input: GetCostEstimateRequest,
   ): Effect.Effect<
@@ -1065,7 +1225,9 @@ export declare class Lightsail extends AWSServiceClient {
     | ServiceException
     | UnauthenticatedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetCostEstimate", input);
+  }
   getDisk(
     input: GetDiskRequest,
   ): Effect.Effect<
@@ -1079,7 +1241,9 @@ export declare class Lightsail extends AWSServiceClient {
     | ServiceException
     | UnauthenticatedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetDisk", input);
+  }
   getDisks(
     input: GetDisksRequest,
   ): Effect.Effect<
@@ -1093,7 +1257,9 @@ export declare class Lightsail extends AWSServiceClient {
     | ServiceException
     | UnauthenticatedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetDisks", input);
+  }
   getDiskSnapshot(
     input: GetDiskSnapshotRequest,
   ): Effect.Effect<
@@ -1107,7 +1273,9 @@ export declare class Lightsail extends AWSServiceClient {
     | ServiceException
     | UnauthenticatedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetDiskSnapshot", input);
+  }
   getDiskSnapshots(
     input: GetDiskSnapshotsRequest,
   ): Effect.Effect<
@@ -1121,7 +1289,9 @@ export declare class Lightsail extends AWSServiceClient {
     | ServiceException
     | UnauthenticatedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetDiskSnapshots", input);
+  }
   getDistributionBundles(
     input: GetDistributionBundlesRequest,
   ): Effect.Effect<
@@ -1133,7 +1303,9 @@ export declare class Lightsail extends AWSServiceClient {
     | ServiceException
     | UnauthenticatedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetDistributionBundles", input);
+  }
   getDistributionLatestCacheReset(
     input: GetDistributionLatestCacheResetRequest,
   ): Effect.Effect<
@@ -1145,7 +1317,9 @@ export declare class Lightsail extends AWSServiceClient {
     | ServiceException
     | UnauthenticatedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetDistributionLatestCacheReset", input);
+  }
   getDistributionMetricData(
     input: GetDistributionMetricDataRequest,
   ): Effect.Effect<
@@ -1157,7 +1331,9 @@ export declare class Lightsail extends AWSServiceClient {
     | ServiceException
     | UnauthenticatedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetDistributionMetricData", input);
+  }
   getDistributions(
     input: GetDistributionsRequest,
   ): Effect.Effect<
@@ -1169,7 +1345,9 @@ export declare class Lightsail extends AWSServiceClient {
     | ServiceException
     | UnauthenticatedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetDistributions", input);
+  }
   getDomain(
     input: GetDomainRequest,
   ): Effect.Effect<
@@ -1183,7 +1361,9 @@ export declare class Lightsail extends AWSServiceClient {
     | ServiceException
     | UnauthenticatedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetDomain", input);
+  }
   getDomains(
     input: GetDomainsRequest,
   ): Effect.Effect<
@@ -1197,7 +1377,9 @@ export declare class Lightsail extends AWSServiceClient {
     | ServiceException
     | UnauthenticatedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetDomains", input);
+  }
   getExportSnapshotRecords(
     input: GetExportSnapshotRecordsRequest,
   ): Effect.Effect<
@@ -1211,7 +1393,9 @@ export declare class Lightsail extends AWSServiceClient {
     | ServiceException
     | UnauthenticatedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetExportSnapshotRecords", input);
+  }
   getInstance(
     input: GetInstanceRequest,
   ): Effect.Effect<
@@ -1225,7 +1409,9 @@ export declare class Lightsail extends AWSServiceClient {
     | ServiceException
     | UnauthenticatedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetInstance", input);
+  }
   getInstanceAccessDetails(
     input: GetInstanceAccessDetailsRequest,
   ): Effect.Effect<
@@ -1239,7 +1425,9 @@ export declare class Lightsail extends AWSServiceClient {
     | ServiceException
     | UnauthenticatedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetInstanceAccessDetails", input);
+  }
   getInstanceMetricData(
     input: GetInstanceMetricDataRequest,
   ): Effect.Effect<
@@ -1253,7 +1441,9 @@ export declare class Lightsail extends AWSServiceClient {
     | ServiceException
     | UnauthenticatedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetInstanceMetricData", input);
+  }
   getInstancePortStates(
     input: GetInstancePortStatesRequest,
   ): Effect.Effect<
@@ -1267,7 +1457,9 @@ export declare class Lightsail extends AWSServiceClient {
     | ServiceException
     | UnauthenticatedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetInstancePortStates", input);
+  }
   getInstances(
     input: GetInstancesRequest,
   ): Effect.Effect<
@@ -1281,7 +1473,9 @@ export declare class Lightsail extends AWSServiceClient {
     | ServiceException
     | UnauthenticatedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetInstances", input);
+  }
   getInstanceSnapshot(
     input: GetInstanceSnapshotRequest,
   ): Effect.Effect<
@@ -1295,7 +1489,9 @@ export declare class Lightsail extends AWSServiceClient {
     | ServiceException
     | UnauthenticatedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetInstanceSnapshot", input);
+  }
   getInstanceSnapshots(
     input: GetInstanceSnapshotsRequest,
   ): Effect.Effect<
@@ -1309,7 +1505,9 @@ export declare class Lightsail extends AWSServiceClient {
     | ServiceException
     | UnauthenticatedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetInstanceSnapshots", input);
+  }
   getInstanceState(
     input: GetInstanceStateRequest,
   ): Effect.Effect<
@@ -1323,7 +1521,9 @@ export declare class Lightsail extends AWSServiceClient {
     | ServiceException
     | UnauthenticatedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetInstanceState", input);
+  }
   getKeyPair(
     input: GetKeyPairRequest,
   ): Effect.Effect<
@@ -1337,7 +1537,9 @@ export declare class Lightsail extends AWSServiceClient {
     | ServiceException
     | UnauthenticatedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetKeyPair", input);
+  }
   getKeyPairs(
     input: GetKeyPairsRequest,
   ): Effect.Effect<
@@ -1351,7 +1553,9 @@ export declare class Lightsail extends AWSServiceClient {
     | ServiceException
     | UnauthenticatedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetKeyPairs", input);
+  }
   getLoadBalancer(
     input: GetLoadBalancerRequest,
   ): Effect.Effect<
@@ -1365,7 +1569,9 @@ export declare class Lightsail extends AWSServiceClient {
     | ServiceException
     | UnauthenticatedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetLoadBalancer", input);
+  }
   getLoadBalancerMetricData(
     input: GetLoadBalancerMetricDataRequest,
   ): Effect.Effect<
@@ -1379,7 +1585,9 @@ export declare class Lightsail extends AWSServiceClient {
     | ServiceException
     | UnauthenticatedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetLoadBalancerMetricData", input);
+  }
   getLoadBalancers(
     input: GetLoadBalancersRequest,
   ): Effect.Effect<
@@ -1393,7 +1601,9 @@ export declare class Lightsail extends AWSServiceClient {
     | ServiceException
     | UnauthenticatedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetLoadBalancers", input);
+  }
   getLoadBalancerTlsCertificates(
     input: GetLoadBalancerTlsCertificatesRequest,
   ): Effect.Effect<
@@ -1407,7 +1617,9 @@ export declare class Lightsail extends AWSServiceClient {
     | ServiceException
     | UnauthenticatedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetLoadBalancerTlsCertificates", input);
+  }
   getLoadBalancerTlsPolicies(
     input: GetLoadBalancerTlsPoliciesRequest,
   ): Effect.Effect<
@@ -1419,7 +1631,9 @@ export declare class Lightsail extends AWSServiceClient {
     | ServiceException
     | UnauthenticatedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetLoadBalancerTlsPolicies", input);
+  }
   getOperation(
     input: GetOperationRequest,
   ): Effect.Effect<
@@ -1433,7 +1647,9 @@ export declare class Lightsail extends AWSServiceClient {
     | ServiceException
     | UnauthenticatedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetOperation", input);
+  }
   getOperations(
     input: GetOperationsRequest,
   ): Effect.Effect<
@@ -1447,7 +1663,9 @@ export declare class Lightsail extends AWSServiceClient {
     | ServiceException
     | UnauthenticatedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetOperations", input);
+  }
   getOperationsForResource(
     input: GetOperationsForResourceRequest,
   ): Effect.Effect<
@@ -1461,7 +1679,9 @@ export declare class Lightsail extends AWSServiceClient {
     | ServiceException
     | UnauthenticatedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetOperationsForResource", input);
+  }
   getRegions(
     input: GetRegionsRequest,
   ): Effect.Effect<
@@ -1475,7 +1695,9 @@ export declare class Lightsail extends AWSServiceClient {
     | ServiceException
     | UnauthenticatedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetRegions", input);
+  }
   getRelationalDatabase(
     input: GetRelationalDatabaseRequest,
   ): Effect.Effect<
@@ -1489,7 +1711,9 @@ export declare class Lightsail extends AWSServiceClient {
     | ServiceException
     | UnauthenticatedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetRelationalDatabase", input);
+  }
   getRelationalDatabaseBlueprints(
     input: GetRelationalDatabaseBlueprintsRequest,
   ): Effect.Effect<
@@ -1503,7 +1727,9 @@ export declare class Lightsail extends AWSServiceClient {
     | ServiceException
     | UnauthenticatedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetRelationalDatabaseBlueprints", input);
+  }
   getRelationalDatabaseBundles(
     input: GetRelationalDatabaseBundlesRequest,
   ): Effect.Effect<
@@ -1517,7 +1743,9 @@ export declare class Lightsail extends AWSServiceClient {
     | ServiceException
     | UnauthenticatedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetRelationalDatabaseBundles", input);
+  }
   getRelationalDatabaseEvents(
     input: GetRelationalDatabaseEventsRequest,
   ): Effect.Effect<
@@ -1531,7 +1759,9 @@ export declare class Lightsail extends AWSServiceClient {
     | ServiceException
     | UnauthenticatedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetRelationalDatabaseEvents", input);
+  }
   getRelationalDatabaseLogEvents(
     input: GetRelationalDatabaseLogEventsRequest,
   ): Effect.Effect<
@@ -1545,7 +1775,9 @@ export declare class Lightsail extends AWSServiceClient {
     | ServiceException
     | UnauthenticatedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetRelationalDatabaseLogEvents", input);
+  }
   getRelationalDatabaseLogStreams(
     input: GetRelationalDatabaseLogStreamsRequest,
   ): Effect.Effect<
@@ -1559,7 +1791,9 @@ export declare class Lightsail extends AWSServiceClient {
     | ServiceException
     | UnauthenticatedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetRelationalDatabaseLogStreams", input);
+  }
   getRelationalDatabaseMasterUserPassword(
     input: GetRelationalDatabaseMasterUserPasswordRequest,
   ): Effect.Effect<
@@ -1573,7 +1807,9 @@ export declare class Lightsail extends AWSServiceClient {
     | ServiceException
     | UnauthenticatedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetRelationalDatabaseMasterUserPassword", input);
+  }
   getRelationalDatabaseMetricData(
     input: GetRelationalDatabaseMetricDataRequest,
   ): Effect.Effect<
@@ -1587,7 +1823,9 @@ export declare class Lightsail extends AWSServiceClient {
     | ServiceException
     | UnauthenticatedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetRelationalDatabaseMetricData", input);
+  }
   getRelationalDatabaseParameters(
     input: GetRelationalDatabaseParametersRequest,
   ): Effect.Effect<
@@ -1601,7 +1839,9 @@ export declare class Lightsail extends AWSServiceClient {
     | ServiceException
     | UnauthenticatedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetRelationalDatabaseParameters", input);
+  }
   getRelationalDatabases(
     input: GetRelationalDatabasesRequest,
   ): Effect.Effect<
@@ -1615,7 +1855,9 @@ export declare class Lightsail extends AWSServiceClient {
     | ServiceException
     | UnauthenticatedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetRelationalDatabases", input);
+  }
   getRelationalDatabaseSnapshot(
     input: GetRelationalDatabaseSnapshotRequest,
   ): Effect.Effect<
@@ -1629,7 +1871,9 @@ export declare class Lightsail extends AWSServiceClient {
     | ServiceException
     | UnauthenticatedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetRelationalDatabaseSnapshot", input);
+  }
   getRelationalDatabaseSnapshots(
     input: GetRelationalDatabaseSnapshotsRequest,
   ): Effect.Effect<
@@ -1643,7 +1887,9 @@ export declare class Lightsail extends AWSServiceClient {
     | ServiceException
     | UnauthenticatedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetRelationalDatabaseSnapshots", input);
+  }
   getSetupHistory(
     input: GetSetupHistoryRequest,
   ): Effect.Effect<
@@ -1655,7 +1901,9 @@ export declare class Lightsail extends AWSServiceClient {
     | ServiceException
     | UnauthenticatedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetSetupHistory", input);
+  }
   getStaticIp(
     input: GetStaticIpRequest,
   ): Effect.Effect<
@@ -1669,7 +1917,9 @@ export declare class Lightsail extends AWSServiceClient {
     | ServiceException
     | UnauthenticatedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetStaticIp", input);
+  }
   getStaticIps(
     input: GetStaticIpsRequest,
   ): Effect.Effect<
@@ -1683,7 +1933,9 @@ export declare class Lightsail extends AWSServiceClient {
     | ServiceException
     | UnauthenticatedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetStaticIps", input);
+  }
   importKeyPair(
     input: ImportKeyPairRequest,
   ): Effect.Effect<
@@ -1697,7 +1949,9 @@ export declare class Lightsail extends AWSServiceClient {
     | ServiceException
     | UnauthenticatedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ImportKeyPair", input);
+  }
   isVpcPeered(
     input: IsVpcPeeredRequest,
   ): Effect.Effect<
@@ -1711,7 +1965,9 @@ export declare class Lightsail extends AWSServiceClient {
     | ServiceException
     | UnauthenticatedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("IsVpcPeered", input);
+  }
   openInstancePublicPorts(
     input: OpenInstancePublicPortsRequest,
   ): Effect.Effect<
@@ -1725,7 +1981,9 @@ export declare class Lightsail extends AWSServiceClient {
     | ServiceException
     | UnauthenticatedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("OpenInstancePublicPorts", input);
+  }
   peerVpc(
     input: PeerVpcRequest,
   ): Effect.Effect<
@@ -1739,7 +1997,9 @@ export declare class Lightsail extends AWSServiceClient {
     | ServiceException
     | UnauthenticatedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PeerVpc", input);
+  }
   putAlarm(
     input: PutAlarmRequest,
   ): Effect.Effect<
@@ -1752,7 +2012,9 @@ export declare class Lightsail extends AWSServiceClient {
     | ServiceException
     | UnauthenticatedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutAlarm", input);
+  }
   putInstancePublicPorts(
     input: PutInstancePublicPortsRequest,
   ): Effect.Effect<
@@ -1766,7 +2028,9 @@ export declare class Lightsail extends AWSServiceClient {
     | ServiceException
     | UnauthenticatedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutInstancePublicPorts", input);
+  }
   rebootInstance(
     input: RebootInstanceRequest,
   ): Effect.Effect<
@@ -1780,7 +2044,9 @@ export declare class Lightsail extends AWSServiceClient {
     | ServiceException
     | UnauthenticatedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("RebootInstance", input);
+  }
   rebootRelationalDatabase(
     input: RebootRelationalDatabaseRequest,
   ): Effect.Effect<
@@ -1794,7 +2060,9 @@ export declare class Lightsail extends AWSServiceClient {
     | ServiceException
     | UnauthenticatedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("RebootRelationalDatabase", input);
+  }
   registerContainerImage(
     input: RegisterContainerImageRequest,
   ): Effect.Effect<
@@ -1806,7 +2074,9 @@ export declare class Lightsail extends AWSServiceClient {
     | ServiceException
     | UnauthenticatedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("RegisterContainerImage", input);
+  }
   releaseStaticIp(
     input: ReleaseStaticIpRequest,
   ): Effect.Effect<
@@ -1820,7 +2090,9 @@ export declare class Lightsail extends AWSServiceClient {
     | ServiceException
     | UnauthenticatedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ReleaseStaticIp", input);
+  }
   resetDistributionCache(
     input: ResetDistributionCacheRequest,
   ): Effect.Effect<
@@ -1832,7 +2104,9 @@ export declare class Lightsail extends AWSServiceClient {
     | ServiceException
     | UnauthenticatedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ResetDistributionCache", input);
+  }
   sendContactMethodVerification(
     input: SendContactMethodVerificationRequest,
   ): Effect.Effect<
@@ -1845,7 +2119,9 @@ export declare class Lightsail extends AWSServiceClient {
     | ServiceException
     | UnauthenticatedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("SendContactMethodVerification", input);
+  }
   setIpAddressType(
     input: SetIpAddressTypeRequest,
   ): Effect.Effect<
@@ -1859,7 +2135,9 @@ export declare class Lightsail extends AWSServiceClient {
     | ServiceException
     | UnauthenticatedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("SetIpAddressType", input);
+  }
   setResourceAccessForBucket(
     input: SetResourceAccessForBucketRequest,
   ): Effect.Effect<
@@ -1871,7 +2149,9 @@ export declare class Lightsail extends AWSServiceClient {
     | ServiceException
     | UnauthenticatedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("SetResourceAccessForBucket", input);
+  }
   setupInstanceHttps(
     input: SetupInstanceHttpsRequest,
   ): Effect.Effect<
@@ -1883,7 +2163,9 @@ export declare class Lightsail extends AWSServiceClient {
     | ServiceException
     | UnauthenticatedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("SetupInstanceHttps", input);
+  }
   startGUISession(
     input: StartGUISessionRequest,
   ): Effect.Effect<
@@ -1895,7 +2177,9 @@ export declare class Lightsail extends AWSServiceClient {
     | ServiceException
     | UnauthenticatedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartGUISession", input);
+  }
   startInstance(
     input: StartInstanceRequest,
   ): Effect.Effect<
@@ -1909,7 +2193,9 @@ export declare class Lightsail extends AWSServiceClient {
     | ServiceException
     | UnauthenticatedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartInstance", input);
+  }
   startRelationalDatabase(
     input: StartRelationalDatabaseRequest,
   ): Effect.Effect<
@@ -1923,7 +2209,9 @@ export declare class Lightsail extends AWSServiceClient {
     | ServiceException
     | UnauthenticatedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartRelationalDatabase", input);
+  }
   stopGUISession(
     input: StopGUISessionRequest,
   ): Effect.Effect<
@@ -1935,7 +2223,9 @@ export declare class Lightsail extends AWSServiceClient {
     | ServiceException
     | UnauthenticatedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StopGUISession", input);
+  }
   stopInstance(
     input: StopInstanceRequest,
   ): Effect.Effect<
@@ -1949,7 +2239,9 @@ export declare class Lightsail extends AWSServiceClient {
     | ServiceException
     | UnauthenticatedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StopInstance", input);
+  }
   stopRelationalDatabase(
     input: StopRelationalDatabaseRequest,
   ): Effect.Effect<
@@ -1963,7 +2255,9 @@ export declare class Lightsail extends AWSServiceClient {
     | ServiceException
     | UnauthenticatedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StopRelationalDatabase", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -1977,7 +2271,9 @@ export declare class Lightsail extends AWSServiceClient {
     | ServiceException
     | UnauthenticatedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   testAlarm(
     input: TestAlarmRequest,
   ): Effect.Effect<
@@ -1990,7 +2286,9 @@ export declare class Lightsail extends AWSServiceClient {
     | ServiceException
     | UnauthenticatedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TestAlarm", input);
+  }
   unpeerVpc(
     input: UnpeerVpcRequest,
   ): Effect.Effect<
@@ -2004,7 +2302,9 @@ export declare class Lightsail extends AWSServiceClient {
     | ServiceException
     | UnauthenticatedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UnpeerVpc", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
@@ -2018,7 +2318,9 @@ export declare class Lightsail extends AWSServiceClient {
     | ServiceException
     | UnauthenticatedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
   updateBucket(
     input: UpdateBucketRequest,
   ): Effect.Effect<
@@ -2030,7 +2332,9 @@ export declare class Lightsail extends AWSServiceClient {
     | ServiceException
     | UnauthenticatedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateBucket", input);
+  }
   updateBucketBundle(
     input: UpdateBucketBundleRequest,
   ): Effect.Effect<
@@ -2042,7 +2346,9 @@ export declare class Lightsail extends AWSServiceClient {
     | ServiceException
     | UnauthenticatedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateBucketBundle", input);
+  }
   updateContainerService(
     input: UpdateContainerServiceRequest,
   ): Effect.Effect<
@@ -2054,7 +2360,9 @@ export declare class Lightsail extends AWSServiceClient {
     | ServiceException
     | UnauthenticatedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateContainerService", input);
+  }
   updateDistribution(
     input: UpdateDistributionRequest,
   ): Effect.Effect<
@@ -2066,7 +2374,9 @@ export declare class Lightsail extends AWSServiceClient {
     | ServiceException
     | UnauthenticatedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateDistribution", input);
+  }
   updateDistributionBundle(
     input: UpdateDistributionBundleRequest,
   ): Effect.Effect<
@@ -2078,7 +2388,9 @@ export declare class Lightsail extends AWSServiceClient {
     | ServiceException
     | UnauthenticatedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateDistributionBundle", input);
+  }
   updateDomainEntry(
     input: UpdateDomainEntryRequest,
   ): Effect.Effect<
@@ -2092,7 +2404,9 @@ export declare class Lightsail extends AWSServiceClient {
     | ServiceException
     | UnauthenticatedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateDomainEntry", input);
+  }
   updateInstanceMetadataOptions(
     input: UpdateInstanceMetadataOptionsRequest,
   ): Effect.Effect<
@@ -2106,7 +2420,9 @@ export declare class Lightsail extends AWSServiceClient {
     | ServiceException
     | UnauthenticatedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateInstanceMetadataOptions", input);
+  }
   updateLoadBalancerAttribute(
     input: UpdateLoadBalancerAttributeRequest,
   ): Effect.Effect<
@@ -2120,7 +2436,9 @@ export declare class Lightsail extends AWSServiceClient {
     | ServiceException
     | UnauthenticatedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateLoadBalancerAttribute", input);
+  }
   updateRelationalDatabase(
     input: UpdateRelationalDatabaseRequest,
   ): Effect.Effect<
@@ -2134,7 +2452,9 @@ export declare class Lightsail extends AWSServiceClient {
     | ServiceException
     | UnauthenticatedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateRelationalDatabase", input);
+  }
   updateRelationalDatabaseParameters(
     input: UpdateRelationalDatabaseParametersRequest,
   ): Effect.Effect<
@@ -2148,8 +2468,12 @@ export declare class Lightsail extends AWSServiceClient {
     | ServiceException
     | UnauthenticatedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateRelationalDatabaseParameters", input);
+  }
 }
+
+export default Lightsail;
 
 export declare class AccessDeniedException extends EffectData.TaggedError(
   "AccessDeniedException",

@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class Pinpoint extends AWSServiceClient {
+export class Pinpoint extends AWSServiceClient {
   createApp(
     input: CreateAppRequest,
   ): Effect.Effect<
@@ -15,7 +15,9 @@ export declare class Pinpoint extends AWSServiceClient {
     | PayloadTooLargeException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateApp", input);
+  }
   createCampaign(
     input: CreateCampaignRequest,
   ): Effect.Effect<
@@ -28,7 +30,9 @@ export declare class Pinpoint extends AWSServiceClient {
     | PayloadTooLargeException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateCampaign", input);
+  }
   createEmailTemplate(
     input: CreateEmailTemplateRequest,
   ): Effect.Effect<
@@ -39,7 +43,9 @@ export declare class Pinpoint extends AWSServiceClient {
     | MethodNotAllowedException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateEmailTemplate", input);
+  }
   createExportJob(
     input: CreateExportJobRequest,
   ): Effect.Effect<
@@ -52,7 +58,9 @@ export declare class Pinpoint extends AWSServiceClient {
     | PayloadTooLargeException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateExportJob", input);
+  }
   createImportJob(
     input: CreateImportJobRequest,
   ): Effect.Effect<
@@ -65,7 +73,9 @@ export declare class Pinpoint extends AWSServiceClient {
     | PayloadTooLargeException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateImportJob", input);
+  }
   createInAppTemplate(
     input: CreateInAppTemplateRequest,
   ): Effect.Effect<
@@ -76,7 +86,9 @@ export declare class Pinpoint extends AWSServiceClient {
     | MethodNotAllowedException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateInAppTemplate", input);
+  }
   createJourney(
     input: CreateJourneyRequest,
   ): Effect.Effect<
@@ -89,7 +101,9 @@ export declare class Pinpoint extends AWSServiceClient {
     | PayloadTooLargeException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateJourney", input);
+  }
   createPushTemplate(
     input: CreatePushTemplateRequest,
   ): Effect.Effect<
@@ -100,7 +114,9 @@ export declare class Pinpoint extends AWSServiceClient {
     | MethodNotAllowedException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreatePushTemplate", input);
+  }
   createRecommenderConfiguration(
     input: CreateRecommenderConfigurationRequest,
   ): Effect.Effect<
@@ -113,7 +129,9 @@ export declare class Pinpoint extends AWSServiceClient {
     | PayloadTooLargeException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateRecommenderConfiguration", input);
+  }
   createSegment(
     input: CreateSegmentRequest,
   ): Effect.Effect<
@@ -126,7 +144,9 @@ export declare class Pinpoint extends AWSServiceClient {
     | PayloadTooLargeException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateSegment", input);
+  }
   createSmsTemplate(
     input: CreateSmsTemplateRequest,
   ): Effect.Effect<
@@ -137,7 +157,9 @@ export declare class Pinpoint extends AWSServiceClient {
     | MethodNotAllowedException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateSmsTemplate", input);
+  }
   createVoiceTemplate(
     input: CreateVoiceTemplateRequest,
   ): Effect.Effect<
@@ -148,7 +170,9 @@ export declare class Pinpoint extends AWSServiceClient {
     | MethodNotAllowedException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateVoiceTemplate", input);
+  }
   deleteAdmChannel(
     input: DeleteAdmChannelRequest,
   ): Effect.Effect<
@@ -161,7 +185,9 @@ export declare class Pinpoint extends AWSServiceClient {
     | PayloadTooLargeException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteAdmChannel", input);
+  }
   deleteApnsChannel(
     input: DeleteApnsChannelRequest,
   ): Effect.Effect<
@@ -174,7 +200,9 @@ export declare class Pinpoint extends AWSServiceClient {
     | PayloadTooLargeException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteApnsChannel", input);
+  }
   deleteApnsSandboxChannel(
     input: DeleteApnsSandboxChannelRequest,
   ): Effect.Effect<
@@ -187,7 +215,9 @@ export declare class Pinpoint extends AWSServiceClient {
     | PayloadTooLargeException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteApnsSandboxChannel", input);
+  }
   deleteApnsVoipChannel(
     input: DeleteApnsVoipChannelRequest,
   ): Effect.Effect<
@@ -200,7 +230,9 @@ export declare class Pinpoint extends AWSServiceClient {
     | PayloadTooLargeException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteApnsVoipChannel", input);
+  }
   deleteApnsVoipSandboxChannel(
     input: DeleteApnsVoipSandboxChannelRequest,
   ): Effect.Effect<
@@ -213,7 +245,9 @@ export declare class Pinpoint extends AWSServiceClient {
     | PayloadTooLargeException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteApnsVoipSandboxChannel", input);
+  }
   deleteApp(
     input: DeleteAppRequest,
   ): Effect.Effect<
@@ -226,7 +260,9 @@ export declare class Pinpoint extends AWSServiceClient {
     | PayloadTooLargeException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteApp", input);
+  }
   deleteBaiduChannel(
     input: DeleteBaiduChannelRequest,
   ): Effect.Effect<
@@ -239,7 +275,9 @@ export declare class Pinpoint extends AWSServiceClient {
     | PayloadTooLargeException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteBaiduChannel", input);
+  }
   deleteCampaign(
     input: DeleteCampaignRequest,
   ): Effect.Effect<
@@ -252,7 +290,9 @@ export declare class Pinpoint extends AWSServiceClient {
     | PayloadTooLargeException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteCampaign", input);
+  }
   deleteEmailChannel(
     input: DeleteEmailChannelRequest,
   ): Effect.Effect<
@@ -265,7 +305,9 @@ export declare class Pinpoint extends AWSServiceClient {
     | PayloadTooLargeException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteEmailChannel", input);
+  }
   deleteEmailTemplate(
     input: DeleteEmailTemplateRequest,
   ): Effect.Effect<
@@ -278,7 +320,9 @@ export declare class Pinpoint extends AWSServiceClient {
     | PayloadTooLargeException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteEmailTemplate", input);
+  }
   deleteEndpoint(
     input: DeleteEndpointRequest,
   ): Effect.Effect<
@@ -291,7 +335,9 @@ export declare class Pinpoint extends AWSServiceClient {
     | PayloadTooLargeException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteEndpoint", input);
+  }
   deleteEventStream(
     input: DeleteEventStreamRequest,
   ): Effect.Effect<
@@ -304,7 +350,9 @@ export declare class Pinpoint extends AWSServiceClient {
     | PayloadTooLargeException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteEventStream", input);
+  }
   deleteGcmChannel(
     input: DeleteGcmChannelRequest,
   ): Effect.Effect<
@@ -317,7 +365,9 @@ export declare class Pinpoint extends AWSServiceClient {
     | PayloadTooLargeException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteGcmChannel", input);
+  }
   deleteInAppTemplate(
     input: DeleteInAppTemplateRequest,
   ): Effect.Effect<
@@ -330,7 +380,9 @@ export declare class Pinpoint extends AWSServiceClient {
     | PayloadTooLargeException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteInAppTemplate", input);
+  }
   deleteJourney(
     input: DeleteJourneyRequest,
   ): Effect.Effect<
@@ -343,7 +395,9 @@ export declare class Pinpoint extends AWSServiceClient {
     | PayloadTooLargeException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteJourney", input);
+  }
   deletePushTemplate(
     input: DeletePushTemplateRequest,
   ): Effect.Effect<
@@ -356,7 +410,9 @@ export declare class Pinpoint extends AWSServiceClient {
     | PayloadTooLargeException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeletePushTemplate", input);
+  }
   deleteRecommenderConfiguration(
     input: DeleteRecommenderConfigurationRequest,
   ): Effect.Effect<
@@ -369,7 +425,9 @@ export declare class Pinpoint extends AWSServiceClient {
     | PayloadTooLargeException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteRecommenderConfiguration", input);
+  }
   deleteSegment(
     input: DeleteSegmentRequest,
   ): Effect.Effect<
@@ -382,7 +440,9 @@ export declare class Pinpoint extends AWSServiceClient {
     | PayloadTooLargeException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteSegment", input);
+  }
   deleteSmsChannel(
     input: DeleteSmsChannelRequest,
   ): Effect.Effect<
@@ -395,7 +455,9 @@ export declare class Pinpoint extends AWSServiceClient {
     | PayloadTooLargeException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteSmsChannel", input);
+  }
   deleteSmsTemplate(
     input: DeleteSmsTemplateRequest,
   ): Effect.Effect<
@@ -408,7 +470,9 @@ export declare class Pinpoint extends AWSServiceClient {
     | PayloadTooLargeException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteSmsTemplate", input);
+  }
   deleteUserEndpoints(
     input: DeleteUserEndpointsRequest,
   ): Effect.Effect<
@@ -421,7 +485,9 @@ export declare class Pinpoint extends AWSServiceClient {
     | PayloadTooLargeException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteUserEndpoints", input);
+  }
   deleteVoiceChannel(
     input: DeleteVoiceChannelRequest,
   ): Effect.Effect<
@@ -434,7 +500,9 @@ export declare class Pinpoint extends AWSServiceClient {
     | PayloadTooLargeException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteVoiceChannel", input);
+  }
   deleteVoiceTemplate(
     input: DeleteVoiceTemplateRequest,
   ): Effect.Effect<
@@ -447,7 +515,9 @@ export declare class Pinpoint extends AWSServiceClient {
     | PayloadTooLargeException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteVoiceTemplate", input);
+  }
   getAdmChannel(
     input: GetAdmChannelRequest,
   ): Effect.Effect<
@@ -460,7 +530,9 @@ export declare class Pinpoint extends AWSServiceClient {
     | PayloadTooLargeException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetAdmChannel", input);
+  }
   getApnsChannel(
     input: GetApnsChannelRequest,
   ): Effect.Effect<
@@ -473,7 +545,9 @@ export declare class Pinpoint extends AWSServiceClient {
     | PayloadTooLargeException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetApnsChannel", input);
+  }
   getApnsSandboxChannel(
     input: GetApnsSandboxChannelRequest,
   ): Effect.Effect<
@@ -486,7 +560,9 @@ export declare class Pinpoint extends AWSServiceClient {
     | PayloadTooLargeException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetApnsSandboxChannel", input);
+  }
   getApnsVoipChannel(
     input: GetApnsVoipChannelRequest,
   ): Effect.Effect<
@@ -499,7 +575,9 @@ export declare class Pinpoint extends AWSServiceClient {
     | PayloadTooLargeException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetApnsVoipChannel", input);
+  }
   getApnsVoipSandboxChannel(
     input: GetApnsVoipSandboxChannelRequest,
   ): Effect.Effect<
@@ -512,7 +590,9 @@ export declare class Pinpoint extends AWSServiceClient {
     | PayloadTooLargeException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetApnsVoipSandboxChannel", input);
+  }
   getApp(
     input: GetAppRequest,
   ): Effect.Effect<
@@ -525,7 +605,9 @@ export declare class Pinpoint extends AWSServiceClient {
     | PayloadTooLargeException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetApp", input);
+  }
   getApplicationDateRangeKpi(
     input: GetApplicationDateRangeKpiRequest,
   ): Effect.Effect<
@@ -538,7 +620,9 @@ export declare class Pinpoint extends AWSServiceClient {
     | PayloadTooLargeException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetApplicationDateRangeKpi", input);
+  }
   getApplicationSettings(
     input: GetApplicationSettingsRequest,
   ): Effect.Effect<
@@ -551,7 +635,9 @@ export declare class Pinpoint extends AWSServiceClient {
     | PayloadTooLargeException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetApplicationSettings", input);
+  }
   getApps(
     input: GetAppsRequest,
   ): Effect.Effect<
@@ -564,7 +650,9 @@ export declare class Pinpoint extends AWSServiceClient {
     | PayloadTooLargeException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetApps", input);
+  }
   getBaiduChannel(
     input: GetBaiduChannelRequest,
   ): Effect.Effect<
@@ -577,7 +665,9 @@ export declare class Pinpoint extends AWSServiceClient {
     | PayloadTooLargeException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetBaiduChannel", input);
+  }
   getCampaign(
     input: GetCampaignRequest,
   ): Effect.Effect<
@@ -590,7 +680,9 @@ export declare class Pinpoint extends AWSServiceClient {
     | PayloadTooLargeException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetCampaign", input);
+  }
   getCampaignActivities(
     input: GetCampaignActivitiesRequest,
   ): Effect.Effect<
@@ -603,7 +695,9 @@ export declare class Pinpoint extends AWSServiceClient {
     | PayloadTooLargeException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetCampaignActivities", input);
+  }
   getCampaignDateRangeKpi(
     input: GetCampaignDateRangeKpiRequest,
   ): Effect.Effect<
@@ -616,7 +710,9 @@ export declare class Pinpoint extends AWSServiceClient {
     | PayloadTooLargeException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetCampaignDateRangeKpi", input);
+  }
   getCampaigns(
     input: GetCampaignsRequest,
   ): Effect.Effect<
@@ -629,7 +725,9 @@ export declare class Pinpoint extends AWSServiceClient {
     | PayloadTooLargeException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetCampaigns", input);
+  }
   getCampaignVersion(
     input: GetCampaignVersionRequest,
   ): Effect.Effect<
@@ -642,7 +740,9 @@ export declare class Pinpoint extends AWSServiceClient {
     | PayloadTooLargeException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetCampaignVersion", input);
+  }
   getCampaignVersions(
     input: GetCampaignVersionsRequest,
   ): Effect.Effect<
@@ -655,7 +755,9 @@ export declare class Pinpoint extends AWSServiceClient {
     | PayloadTooLargeException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetCampaignVersions", input);
+  }
   getChannels(
     input: GetChannelsRequest,
   ): Effect.Effect<
@@ -668,7 +770,9 @@ export declare class Pinpoint extends AWSServiceClient {
     | PayloadTooLargeException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetChannels", input);
+  }
   getEmailChannel(
     input: GetEmailChannelRequest,
   ): Effect.Effect<
@@ -681,7 +785,9 @@ export declare class Pinpoint extends AWSServiceClient {
     | PayloadTooLargeException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetEmailChannel", input);
+  }
   getEmailTemplate(
     input: GetEmailTemplateRequest,
   ): Effect.Effect<
@@ -694,7 +800,9 @@ export declare class Pinpoint extends AWSServiceClient {
     | PayloadTooLargeException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetEmailTemplate", input);
+  }
   getEndpoint(
     input: GetEndpointRequest,
   ): Effect.Effect<
@@ -707,7 +815,9 @@ export declare class Pinpoint extends AWSServiceClient {
     | PayloadTooLargeException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetEndpoint", input);
+  }
   getEventStream(
     input: GetEventStreamRequest,
   ): Effect.Effect<
@@ -720,7 +830,9 @@ export declare class Pinpoint extends AWSServiceClient {
     | PayloadTooLargeException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetEventStream", input);
+  }
   getExportJob(
     input: GetExportJobRequest,
   ): Effect.Effect<
@@ -733,7 +845,9 @@ export declare class Pinpoint extends AWSServiceClient {
     | PayloadTooLargeException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetExportJob", input);
+  }
   getExportJobs(
     input: GetExportJobsRequest,
   ): Effect.Effect<
@@ -746,7 +860,9 @@ export declare class Pinpoint extends AWSServiceClient {
     | PayloadTooLargeException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetExportJobs", input);
+  }
   getGcmChannel(
     input: GetGcmChannelRequest,
   ): Effect.Effect<
@@ -759,7 +875,9 @@ export declare class Pinpoint extends AWSServiceClient {
     | PayloadTooLargeException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetGcmChannel", input);
+  }
   getImportJob(
     input: GetImportJobRequest,
   ): Effect.Effect<
@@ -772,7 +890,9 @@ export declare class Pinpoint extends AWSServiceClient {
     | PayloadTooLargeException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetImportJob", input);
+  }
   getImportJobs(
     input: GetImportJobsRequest,
   ): Effect.Effect<
@@ -785,7 +905,9 @@ export declare class Pinpoint extends AWSServiceClient {
     | PayloadTooLargeException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetImportJobs", input);
+  }
   getInAppMessages(
     input: GetInAppMessagesRequest,
   ): Effect.Effect<
@@ -798,7 +920,9 @@ export declare class Pinpoint extends AWSServiceClient {
     | PayloadTooLargeException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetInAppMessages", input);
+  }
   getInAppTemplate(
     input: GetInAppTemplateRequest,
   ): Effect.Effect<
@@ -811,7 +935,9 @@ export declare class Pinpoint extends AWSServiceClient {
     | PayloadTooLargeException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetInAppTemplate", input);
+  }
   getJourney(
     input: GetJourneyRequest,
   ): Effect.Effect<
@@ -824,7 +950,9 @@ export declare class Pinpoint extends AWSServiceClient {
     | PayloadTooLargeException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetJourney", input);
+  }
   getJourneyDateRangeKpi(
     input: GetJourneyDateRangeKpiRequest,
   ): Effect.Effect<
@@ -837,7 +965,9 @@ export declare class Pinpoint extends AWSServiceClient {
     | PayloadTooLargeException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetJourneyDateRangeKpi", input);
+  }
   getJourneyExecutionActivityMetrics(
     input: GetJourneyExecutionActivityMetricsRequest,
   ): Effect.Effect<
@@ -850,7 +980,9 @@ export declare class Pinpoint extends AWSServiceClient {
     | PayloadTooLargeException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetJourneyExecutionActivityMetrics", input);
+  }
   getJourneyExecutionMetrics(
     input: GetJourneyExecutionMetricsRequest,
   ): Effect.Effect<
@@ -863,7 +995,9 @@ export declare class Pinpoint extends AWSServiceClient {
     | PayloadTooLargeException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetJourneyExecutionMetrics", input);
+  }
   getJourneyRunExecutionActivityMetrics(
     input: GetJourneyRunExecutionActivityMetricsRequest,
   ): Effect.Effect<
@@ -876,7 +1010,9 @@ export declare class Pinpoint extends AWSServiceClient {
     | PayloadTooLargeException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetJourneyRunExecutionActivityMetrics", input);
+  }
   getJourneyRunExecutionMetrics(
     input: GetJourneyRunExecutionMetricsRequest,
   ): Effect.Effect<
@@ -889,7 +1025,9 @@ export declare class Pinpoint extends AWSServiceClient {
     | PayloadTooLargeException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetJourneyRunExecutionMetrics", input);
+  }
   getJourneyRuns(
     input: GetJourneyRunsRequest,
   ): Effect.Effect<
@@ -902,7 +1040,9 @@ export declare class Pinpoint extends AWSServiceClient {
     | PayloadTooLargeException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetJourneyRuns", input);
+  }
   getPushTemplate(
     input: GetPushTemplateRequest,
   ): Effect.Effect<
@@ -915,7 +1055,9 @@ export declare class Pinpoint extends AWSServiceClient {
     | PayloadTooLargeException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetPushTemplate", input);
+  }
   getRecommenderConfiguration(
     input: GetRecommenderConfigurationRequest,
   ): Effect.Effect<
@@ -928,7 +1070,9 @@ export declare class Pinpoint extends AWSServiceClient {
     | PayloadTooLargeException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetRecommenderConfiguration", input);
+  }
   getRecommenderConfigurations(
     input: GetRecommenderConfigurationsRequest,
   ): Effect.Effect<
@@ -941,7 +1085,9 @@ export declare class Pinpoint extends AWSServiceClient {
     | PayloadTooLargeException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetRecommenderConfigurations", input);
+  }
   getSegment(
     input: GetSegmentRequest,
   ): Effect.Effect<
@@ -954,7 +1100,9 @@ export declare class Pinpoint extends AWSServiceClient {
     | PayloadTooLargeException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetSegment", input);
+  }
   getSegmentExportJobs(
     input: GetSegmentExportJobsRequest,
   ): Effect.Effect<
@@ -967,7 +1115,9 @@ export declare class Pinpoint extends AWSServiceClient {
     | PayloadTooLargeException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetSegmentExportJobs", input);
+  }
   getSegmentImportJobs(
     input: GetSegmentImportJobsRequest,
   ): Effect.Effect<
@@ -980,7 +1130,9 @@ export declare class Pinpoint extends AWSServiceClient {
     | PayloadTooLargeException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetSegmentImportJobs", input);
+  }
   getSegments(
     input: GetSegmentsRequest,
   ): Effect.Effect<
@@ -993,7 +1145,9 @@ export declare class Pinpoint extends AWSServiceClient {
     | PayloadTooLargeException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetSegments", input);
+  }
   getSegmentVersion(
     input: GetSegmentVersionRequest,
   ): Effect.Effect<
@@ -1006,7 +1160,9 @@ export declare class Pinpoint extends AWSServiceClient {
     | PayloadTooLargeException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetSegmentVersion", input);
+  }
   getSegmentVersions(
     input: GetSegmentVersionsRequest,
   ): Effect.Effect<
@@ -1019,7 +1175,9 @@ export declare class Pinpoint extends AWSServiceClient {
     | PayloadTooLargeException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetSegmentVersions", input);
+  }
   getSmsChannel(
     input: GetSmsChannelRequest,
   ): Effect.Effect<
@@ -1032,7 +1190,9 @@ export declare class Pinpoint extends AWSServiceClient {
     | PayloadTooLargeException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetSmsChannel", input);
+  }
   getSmsTemplate(
     input: GetSmsTemplateRequest,
   ): Effect.Effect<
@@ -1045,7 +1205,9 @@ export declare class Pinpoint extends AWSServiceClient {
     | PayloadTooLargeException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetSmsTemplate", input);
+  }
   getUserEndpoints(
     input: GetUserEndpointsRequest,
   ): Effect.Effect<
@@ -1058,7 +1220,9 @@ export declare class Pinpoint extends AWSServiceClient {
     | PayloadTooLargeException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetUserEndpoints", input);
+  }
   getVoiceChannel(
     input: GetVoiceChannelRequest,
   ): Effect.Effect<
@@ -1071,7 +1235,9 @@ export declare class Pinpoint extends AWSServiceClient {
     | PayloadTooLargeException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetVoiceChannel", input);
+  }
   getVoiceTemplate(
     input: GetVoiceTemplateRequest,
   ): Effect.Effect<
@@ -1084,7 +1250,9 @@ export declare class Pinpoint extends AWSServiceClient {
     | PayloadTooLargeException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetVoiceTemplate", input);
+  }
   listJourneys(
     input: ListJourneysRequest,
   ): Effect.Effect<
@@ -1097,10 +1265,14 @@ export declare class Pinpoint extends AWSServiceClient {
     | PayloadTooLargeException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListJourneys", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
-  ): Effect.Effect<ListTagsForResourceResponse, CommonAwsError>;
+  ): Effect.Effect<ListTagsForResourceResponse, CommonAwsError> {
+    return this.call("ListTagsForResource", input);
+  }
   listTemplates(
     input: ListTemplatesRequest,
   ): Effect.Effect<
@@ -1111,7 +1283,9 @@ export declare class Pinpoint extends AWSServiceClient {
     | MethodNotAllowedException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTemplates", input);
+  }
   listTemplateVersions(
     input: ListTemplateVersionsRequest,
   ): Effect.Effect<
@@ -1124,7 +1298,9 @@ export declare class Pinpoint extends AWSServiceClient {
     | PayloadTooLargeException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTemplateVersions", input);
+  }
   phoneNumberValidate(
     input: PhoneNumberValidateRequest,
   ): Effect.Effect<
@@ -1137,7 +1313,9 @@ export declare class Pinpoint extends AWSServiceClient {
     | PayloadTooLargeException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PhoneNumberValidate", input);
+  }
   putEvents(
     input: PutEventsRequest,
   ): Effect.Effect<
@@ -1150,7 +1328,9 @@ export declare class Pinpoint extends AWSServiceClient {
     | PayloadTooLargeException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutEvents", input);
+  }
   putEventStream(
     input: PutEventStreamRequest,
   ): Effect.Effect<
@@ -1163,7 +1343,9 @@ export declare class Pinpoint extends AWSServiceClient {
     | PayloadTooLargeException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutEventStream", input);
+  }
   removeAttributes(
     input: RemoveAttributesRequest,
   ): Effect.Effect<
@@ -1176,7 +1358,9 @@ export declare class Pinpoint extends AWSServiceClient {
     | PayloadTooLargeException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("RemoveAttributes", input);
+  }
   sendMessages(
     input: SendMessagesRequest,
   ): Effect.Effect<
@@ -1189,7 +1373,9 @@ export declare class Pinpoint extends AWSServiceClient {
     | PayloadTooLargeException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("SendMessages", input);
+  }
   sendOTPMessage(
     input: SendOTPMessageRequest,
   ): Effect.Effect<
@@ -1202,7 +1388,9 @@ export declare class Pinpoint extends AWSServiceClient {
     | PayloadTooLargeException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("SendOTPMessage", input);
+  }
   sendUsersMessages(
     input: SendUsersMessagesRequest,
   ): Effect.Effect<
@@ -1215,9 +1403,17 @@ export declare class Pinpoint extends AWSServiceClient {
     | PayloadTooLargeException
     | TooManyRequestsException
     | CommonAwsError
-  >;
-  tagResource(input: TagResourceRequest): Effect.Effect<{}, CommonAwsError>;
-  untagResource(input: UntagResourceRequest): Effect.Effect<{}, CommonAwsError>;
+  > {
+    return this.call("SendUsersMessages", input);
+  }
+  tagResource(input: TagResourceRequest): Effect.Effect<{}, CommonAwsError> {
+    return this.call("TagResource", input);
+  }
+  untagResource(
+    input: UntagResourceRequest,
+  ): Effect.Effect<{}, CommonAwsError> {
+    return this.call("UntagResource", input);
+  }
   updateAdmChannel(
     input: UpdateAdmChannelRequest,
   ): Effect.Effect<
@@ -1230,7 +1426,9 @@ export declare class Pinpoint extends AWSServiceClient {
     | PayloadTooLargeException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateAdmChannel", input);
+  }
   updateApnsChannel(
     input: UpdateApnsChannelRequest,
   ): Effect.Effect<
@@ -1243,7 +1441,9 @@ export declare class Pinpoint extends AWSServiceClient {
     | PayloadTooLargeException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateApnsChannel", input);
+  }
   updateApnsSandboxChannel(
     input: UpdateApnsSandboxChannelRequest,
   ): Effect.Effect<
@@ -1256,7 +1456,9 @@ export declare class Pinpoint extends AWSServiceClient {
     | PayloadTooLargeException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateApnsSandboxChannel", input);
+  }
   updateApnsVoipChannel(
     input: UpdateApnsVoipChannelRequest,
   ): Effect.Effect<
@@ -1269,7 +1471,9 @@ export declare class Pinpoint extends AWSServiceClient {
     | PayloadTooLargeException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateApnsVoipChannel", input);
+  }
   updateApnsVoipSandboxChannel(
     input: UpdateApnsVoipSandboxChannelRequest,
   ): Effect.Effect<
@@ -1282,7 +1486,9 @@ export declare class Pinpoint extends AWSServiceClient {
     | PayloadTooLargeException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateApnsVoipSandboxChannel", input);
+  }
   updateApplicationSettings(
     input: UpdateApplicationSettingsRequest,
   ): Effect.Effect<
@@ -1295,7 +1501,9 @@ export declare class Pinpoint extends AWSServiceClient {
     | PayloadTooLargeException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateApplicationSettings", input);
+  }
   updateBaiduChannel(
     input: UpdateBaiduChannelRequest,
   ): Effect.Effect<
@@ -1308,7 +1516,9 @@ export declare class Pinpoint extends AWSServiceClient {
     | PayloadTooLargeException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateBaiduChannel", input);
+  }
   updateCampaign(
     input: UpdateCampaignRequest,
   ): Effect.Effect<
@@ -1321,7 +1531,9 @@ export declare class Pinpoint extends AWSServiceClient {
     | PayloadTooLargeException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateCampaign", input);
+  }
   updateEmailChannel(
     input: UpdateEmailChannelRequest,
   ): Effect.Effect<
@@ -1334,7 +1546,9 @@ export declare class Pinpoint extends AWSServiceClient {
     | PayloadTooLargeException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateEmailChannel", input);
+  }
   updateEmailTemplate(
     input: UpdateEmailTemplateRequest,
   ): Effect.Effect<
@@ -1347,7 +1561,9 @@ export declare class Pinpoint extends AWSServiceClient {
     | PayloadTooLargeException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateEmailTemplate", input);
+  }
   updateEndpoint(
     input: UpdateEndpointRequest,
   ): Effect.Effect<
@@ -1360,7 +1576,9 @@ export declare class Pinpoint extends AWSServiceClient {
     | PayloadTooLargeException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateEndpoint", input);
+  }
   updateEndpointsBatch(
     input: UpdateEndpointsBatchRequest,
   ): Effect.Effect<
@@ -1373,7 +1591,9 @@ export declare class Pinpoint extends AWSServiceClient {
     | PayloadTooLargeException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateEndpointsBatch", input);
+  }
   updateGcmChannel(
     input: UpdateGcmChannelRequest,
   ): Effect.Effect<
@@ -1386,7 +1606,9 @@ export declare class Pinpoint extends AWSServiceClient {
     | PayloadTooLargeException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateGcmChannel", input);
+  }
   updateInAppTemplate(
     input: UpdateInAppTemplateRequest,
   ): Effect.Effect<
@@ -1399,7 +1621,9 @@ export declare class Pinpoint extends AWSServiceClient {
     | PayloadTooLargeException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateInAppTemplate", input);
+  }
   updateJourney(
     input: UpdateJourneyRequest,
   ): Effect.Effect<
@@ -1413,7 +1637,9 @@ export declare class Pinpoint extends AWSServiceClient {
     | PayloadTooLargeException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateJourney", input);
+  }
   updateJourneyState(
     input: UpdateJourneyStateRequest,
   ): Effect.Effect<
@@ -1426,7 +1652,9 @@ export declare class Pinpoint extends AWSServiceClient {
     | PayloadTooLargeException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateJourneyState", input);
+  }
   updatePushTemplate(
     input: UpdatePushTemplateRequest,
   ): Effect.Effect<
@@ -1439,7 +1667,9 @@ export declare class Pinpoint extends AWSServiceClient {
     | PayloadTooLargeException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdatePushTemplate", input);
+  }
   updateRecommenderConfiguration(
     input: UpdateRecommenderConfigurationRequest,
   ): Effect.Effect<
@@ -1452,7 +1682,9 @@ export declare class Pinpoint extends AWSServiceClient {
     | PayloadTooLargeException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateRecommenderConfiguration", input);
+  }
   updateSegment(
     input: UpdateSegmentRequest,
   ): Effect.Effect<
@@ -1465,7 +1697,9 @@ export declare class Pinpoint extends AWSServiceClient {
     | PayloadTooLargeException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateSegment", input);
+  }
   updateSmsChannel(
     input: UpdateSmsChannelRequest,
   ): Effect.Effect<
@@ -1478,7 +1712,9 @@ export declare class Pinpoint extends AWSServiceClient {
     | PayloadTooLargeException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateSmsChannel", input);
+  }
   updateSmsTemplate(
     input: UpdateSmsTemplateRequest,
   ): Effect.Effect<
@@ -1491,7 +1727,9 @@ export declare class Pinpoint extends AWSServiceClient {
     | PayloadTooLargeException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateSmsTemplate", input);
+  }
   updateTemplateActiveVersion(
     input: UpdateTemplateActiveVersionRequest,
   ): Effect.Effect<
@@ -1504,7 +1742,9 @@ export declare class Pinpoint extends AWSServiceClient {
     | PayloadTooLargeException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateTemplateActiveVersion", input);
+  }
   updateVoiceChannel(
     input: UpdateVoiceChannelRequest,
   ): Effect.Effect<
@@ -1517,7 +1757,9 @@ export declare class Pinpoint extends AWSServiceClient {
     | PayloadTooLargeException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateVoiceChannel", input);
+  }
   updateVoiceTemplate(
     input: UpdateVoiceTemplateRequest,
   ): Effect.Effect<
@@ -1530,7 +1772,9 @@ export declare class Pinpoint extends AWSServiceClient {
     | PayloadTooLargeException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateVoiceTemplate", input);
+  }
   verifyOTPMessage(
     input: VerifyOTPMessageRequest,
   ): Effect.Effect<
@@ -1543,8 +1787,12 @@ export declare class Pinpoint extends AWSServiceClient {
     | PayloadTooLargeException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("VerifyOTPMessage", input);
+  }
 }
+
+export default Pinpoint;
 
 export type __blob = Uint8Array | string;
 

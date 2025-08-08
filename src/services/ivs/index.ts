@@ -2,13 +2,17 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class ivs extends AWSServiceClient {
+export class ivs extends AWSServiceClient {
   batchGetChannel(
     input: BatchGetChannelRequest,
-  ): Effect.Effect<BatchGetChannelResponse, CommonAwsError>;
+  ): Effect.Effect<BatchGetChannelResponse, CommonAwsError> {
+    return this.call("BatchGetChannel", input);
+  }
   batchGetStreamKey(
     input: BatchGetStreamKeyRequest,
-  ): Effect.Effect<BatchGetStreamKeyResponse, CommonAwsError>;
+  ): Effect.Effect<BatchGetStreamKeyResponse, CommonAwsError> {
+    return this.call("BatchGetStreamKey", input);
+  }
   batchStartViewerSessionRevocation(
     input: BatchStartViewerSessionRevocationRequest,
   ): Effect.Effect<
@@ -18,7 +22,9 @@ export declare class ivs extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("BatchStartViewerSessionRevocation", input);
+  }
   createChannel(
     input: CreateChannelRequest,
   ): Effect.Effect<
@@ -29,7 +35,9 @@ export declare class ivs extends AWSServiceClient {
     | ServiceQuotaExceededException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateChannel", input);
+  }
   createPlaybackRestrictionPolicy(
     input: CreatePlaybackRestrictionPolicyRequest,
   ): Effect.Effect<
@@ -40,7 +48,9 @@ export declare class ivs extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreatePlaybackRestrictionPolicy", input);
+  }
   createRecordingConfiguration(
     input: CreateRecordingConfigurationRequest,
   ): Effect.Effect<
@@ -52,7 +62,9 @@ export declare class ivs extends AWSServiceClient {
     | ServiceQuotaExceededException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateRecordingConfiguration", input);
+  }
   createStreamKey(
     input: CreateStreamKeyRequest,
   ): Effect.Effect<
@@ -63,7 +75,9 @@ export declare class ivs extends AWSServiceClient {
     | ServiceQuotaExceededException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateStreamKey", input);
+  }
   deleteChannel(
     input: DeleteChannelRequest,
   ): Effect.Effect<
@@ -74,7 +88,9 @@ export declare class ivs extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteChannel", input);
+  }
   deletePlaybackKeyPair(
     input: DeletePlaybackKeyPairRequest,
   ): Effect.Effect<
@@ -84,7 +100,9 @@ export declare class ivs extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeletePlaybackKeyPair", input);
+  }
   deletePlaybackRestrictionPolicy(
     input: DeletePlaybackRestrictionPolicyRequest,
   ): Effect.Effect<
@@ -95,7 +113,9 @@ export declare class ivs extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeletePlaybackRestrictionPolicy", input);
+  }
   deleteRecordingConfiguration(
     input: DeleteRecordingConfigurationRequest,
   ): Effect.Effect<
@@ -106,7 +126,9 @@ export declare class ivs extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteRecordingConfiguration", input);
+  }
   deleteStreamKey(
     input: DeleteStreamKeyRequest,
   ): Effect.Effect<
@@ -116,7 +138,9 @@ export declare class ivs extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteStreamKey", input);
+  }
   getChannel(
     input: GetChannelRequest,
   ): Effect.Effect<
@@ -125,7 +149,9 @@ export declare class ivs extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetChannel", input);
+  }
   getPlaybackKeyPair(
     input: GetPlaybackKeyPairRequest,
   ): Effect.Effect<
@@ -134,7 +160,9 @@ export declare class ivs extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetPlaybackKeyPair", input);
+  }
   getPlaybackRestrictionPolicy(
     input: GetPlaybackRestrictionPolicyRequest,
   ): Effect.Effect<
@@ -144,7 +172,9 @@ export declare class ivs extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetPlaybackRestrictionPolicy", input);
+  }
   getRecordingConfiguration(
     input: GetRecordingConfigurationRequest,
   ): Effect.Effect<
@@ -154,7 +184,9 @@ export declare class ivs extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetRecordingConfiguration", input);
+  }
   getStream(
     input: GetStreamRequest,
   ): Effect.Effect<
@@ -164,7 +196,9 @@ export declare class ivs extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetStream", input);
+  }
   getStreamKey(
     input: GetStreamKeyRequest,
   ): Effect.Effect<
@@ -173,7 +207,9 @@ export declare class ivs extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetStreamKey", input);
+  }
   getStreamSession(
     input: GetStreamSessionRequest,
   ): Effect.Effect<
@@ -182,7 +218,9 @@ export declare class ivs extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetStreamSession", input);
+  }
   importPlaybackKeyPair(
     input: ImportPlaybackKeyPairRequest,
   ): Effect.Effect<
@@ -193,7 +231,9 @@ export declare class ivs extends AWSServiceClient {
     | ServiceQuotaExceededException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ImportPlaybackKeyPair", input);
+  }
   listChannels(
     input: ListChannelsRequest,
   ): Effect.Effect<
@@ -202,13 +242,17 @@ export declare class ivs extends AWSServiceClient {
     | ConflictException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListChannels", input);
+  }
   listPlaybackKeyPairs(
     input: ListPlaybackKeyPairsRequest,
   ): Effect.Effect<
     ListPlaybackKeyPairsResponse,
     AccessDeniedException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("ListPlaybackKeyPairs", input);
+  }
   listPlaybackRestrictionPolicies(
     input: ListPlaybackRestrictionPoliciesRequest,
   ): Effect.Effect<
@@ -218,7 +262,9 @@ export declare class ivs extends AWSServiceClient {
     | PendingVerification
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListPlaybackRestrictionPolicies", input);
+  }
   listRecordingConfigurations(
     input: ListRecordingConfigurationsRequest,
   ): Effect.Effect<
@@ -227,7 +273,9 @@ export declare class ivs extends AWSServiceClient {
     | InternalServerException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListRecordingConfigurations", input);
+  }
   listStreamKeys(
     input: ListStreamKeysRequest,
   ): Effect.Effect<
@@ -236,13 +284,17 @@ export declare class ivs extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListStreamKeys", input);
+  }
   listStreams(
     input: ListStreamsRequest,
   ): Effect.Effect<
     ListStreamsResponse,
     AccessDeniedException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("ListStreams", input);
+  }
   listStreamSessions(
     input: ListStreamSessionsRequest,
   ): Effect.Effect<
@@ -251,7 +303,9 @@ export declare class ivs extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListStreamSessions", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
@@ -260,7 +314,9 @@ export declare class ivs extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   putMetadata(
     input: PutMetadataRequest,
   ): Effect.Effect<
@@ -271,7 +327,9 @@ export declare class ivs extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutMetadata", input);
+  }
   startViewerSessionRevocation(
     input: StartViewerSessionRevocationRequest,
   ): Effect.Effect<
@@ -283,7 +341,9 @@ export declare class ivs extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartViewerSessionRevocation", input);
+  }
   stopStream(
     input: StopStreamRequest,
   ): Effect.Effect<
@@ -294,7 +354,9 @@ export declare class ivs extends AWSServiceClient {
     | StreamUnavailable
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StopStream", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -303,7 +365,9 @@ export declare class ivs extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
@@ -312,7 +376,9 @@ export declare class ivs extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
   updateChannel(
     input: UpdateChannelRequest,
   ): Effect.Effect<
@@ -323,7 +389,9 @@ export declare class ivs extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateChannel", input);
+  }
   updatePlaybackRestrictionPolicy(
     input: UpdatePlaybackRestrictionPolicyRequest,
   ): Effect.Effect<
@@ -334,10 +402,14 @@ export declare class ivs extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdatePlaybackRestrictionPolicy", input);
+  }
 }
 
-export declare class Ivs extends ivs {}
+export class Ivs extends ivs {}
+
+export default ivs;
 
 export declare class AccessDeniedException extends EffectData.TaggedError(
   "AccessDeniedException",

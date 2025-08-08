@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class KafkaConnect extends AWSServiceClient {
+export class KafkaConnect extends AWSServiceClient {
   createConnector(
     input: CreateConnectorRequest,
   ): Effect.Effect<
@@ -16,7 +16,9 @@ export declare class KafkaConnect extends AWSServiceClient {
     | TooManyRequestsException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateConnector", input);
+  }
   createCustomPlugin(
     input: CreateCustomPluginRequest,
   ): Effect.Effect<
@@ -30,7 +32,9 @@ export declare class KafkaConnect extends AWSServiceClient {
     | TooManyRequestsException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateCustomPlugin", input);
+  }
   createWorkerConfiguration(
     input: CreateWorkerConfigurationRequest,
   ): Effect.Effect<
@@ -44,7 +48,9 @@ export declare class KafkaConnect extends AWSServiceClient {
     | TooManyRequestsException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateWorkerConfiguration", input);
+  }
   deleteConnector(
     input: DeleteConnectorRequest,
   ): Effect.Effect<
@@ -57,7 +63,9 @@ export declare class KafkaConnect extends AWSServiceClient {
     | TooManyRequestsException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteConnector", input);
+  }
   deleteCustomPlugin(
     input: DeleteCustomPluginRequest,
   ): Effect.Effect<
@@ -70,7 +78,9 @@ export declare class KafkaConnect extends AWSServiceClient {
     | TooManyRequestsException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteCustomPlugin", input);
+  }
   deleteWorkerConfiguration(
     input: DeleteWorkerConfigurationRequest,
   ): Effect.Effect<
@@ -83,7 +93,9 @@ export declare class KafkaConnect extends AWSServiceClient {
     | TooManyRequestsException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteWorkerConfiguration", input);
+  }
   describeConnector(
     input: DescribeConnectorRequest,
   ): Effect.Effect<
@@ -96,7 +108,9 @@ export declare class KafkaConnect extends AWSServiceClient {
     | TooManyRequestsException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeConnector", input);
+  }
   describeConnectorOperation(
     input: DescribeConnectorOperationRequest,
   ): Effect.Effect<
@@ -109,7 +123,9 @@ export declare class KafkaConnect extends AWSServiceClient {
     | TooManyRequestsException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeConnectorOperation", input);
+  }
   describeCustomPlugin(
     input: DescribeCustomPluginRequest,
   ): Effect.Effect<
@@ -122,7 +138,9 @@ export declare class KafkaConnect extends AWSServiceClient {
     | TooManyRequestsException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeCustomPlugin", input);
+  }
   describeWorkerConfiguration(
     input: DescribeWorkerConfigurationRequest,
   ): Effect.Effect<
@@ -135,7 +153,9 @@ export declare class KafkaConnect extends AWSServiceClient {
     | TooManyRequestsException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeWorkerConfiguration", input);
+  }
   listConnectorOperations(
     input: ListConnectorOperationsRequest,
   ): Effect.Effect<
@@ -148,7 +168,9 @@ export declare class KafkaConnect extends AWSServiceClient {
     | TooManyRequestsException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListConnectorOperations", input);
+  }
   listConnectors(
     input: ListConnectorsRequest,
   ): Effect.Effect<
@@ -161,7 +183,9 @@ export declare class KafkaConnect extends AWSServiceClient {
     | TooManyRequestsException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListConnectors", input);
+  }
   listCustomPlugins(
     input: ListCustomPluginsRequest,
   ): Effect.Effect<
@@ -174,7 +198,9 @@ export declare class KafkaConnect extends AWSServiceClient {
     | TooManyRequestsException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListCustomPlugins", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
@@ -187,7 +213,9 @@ export declare class KafkaConnect extends AWSServiceClient {
     | TooManyRequestsException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   listWorkerConfigurations(
     input: ListWorkerConfigurationsRequest,
   ): Effect.Effect<
@@ -200,7 +228,9 @@ export declare class KafkaConnect extends AWSServiceClient {
     | TooManyRequestsException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListWorkerConfigurations", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -214,7 +244,9 @@ export declare class KafkaConnect extends AWSServiceClient {
     | TooManyRequestsException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
@@ -227,7 +259,9 @@ export declare class KafkaConnect extends AWSServiceClient {
     | TooManyRequestsException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
   updateConnector(
     input: UpdateConnectorRequest,
   ): Effect.Effect<
@@ -240,10 +274,14 @@ export declare class KafkaConnect extends AWSServiceClient {
     | TooManyRequestsException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateConnector", input);
+  }
 }
 
-export declare class Kafkaconnect extends KafkaConnect {}
+export class Kafkaconnect extends KafkaConnect {}
+
+export default KafkaConnect;
 
 export type __boolean = boolean;
 

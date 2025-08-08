@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class SupportApp extends AWSServiceClient {
+export class SupportApp extends AWSServiceClient {
   createSlackChannelConfiguration(
     input: CreateSlackChannelConfigurationRequest,
   ): Effect.Effect<
@@ -13,7 +13,9 @@ export declare class SupportApp extends AWSServiceClient {
     | ServiceQuotaExceededException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateSlackChannelConfiguration", input);
+  }
   deleteAccountAlias(
     input: DeleteAccountAliasRequest,
   ): Effect.Effect<
@@ -22,7 +24,9 @@ export declare class SupportApp extends AWSServiceClient {
     | InternalServerException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteAccountAlias", input);
+  }
   deleteSlackChannelConfiguration(
     input: DeleteSlackChannelConfigurationRequest,
   ): Effect.Effect<
@@ -33,7 +37,9 @@ export declare class SupportApp extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteSlackChannelConfiguration", input);
+  }
   deleteSlackWorkspaceConfiguration(
     input: DeleteSlackWorkspaceConfigurationRequest,
   ): Effect.Effect<
@@ -44,25 +50,33 @@ export declare class SupportApp extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteSlackWorkspaceConfiguration", input);
+  }
   getAccountAlias(
     input: GetAccountAliasRequest,
   ): Effect.Effect<
     GetAccountAliasResult,
     InternalServerException | CommonAwsError
-  >;
+  > {
+    return this.call("GetAccountAlias", input);
+  }
   listSlackChannelConfigurations(
     input: ListSlackChannelConfigurationsRequest,
   ): Effect.Effect<
     ListSlackChannelConfigurationsResult,
     AccessDeniedException | InternalServerException | CommonAwsError
-  >;
+  > {
+    return this.call("ListSlackChannelConfigurations", input);
+  }
   listSlackWorkspaceConfigurations(
     input: ListSlackWorkspaceConfigurationsRequest,
   ): Effect.Effect<
     ListSlackWorkspaceConfigurationsResult,
     AccessDeniedException | InternalServerException | CommonAwsError
-  >;
+  > {
+    return this.call("ListSlackWorkspaceConfigurations", input);
+  }
   putAccountAlias(
     input: PutAccountAliasRequest,
   ): Effect.Effect<
@@ -71,7 +85,9 @@ export declare class SupportApp extends AWSServiceClient {
     | InternalServerException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutAccountAlias", input);
+  }
   registerSlackWorkspaceForOrganization(
     input: RegisterSlackWorkspaceForOrganizationRequest,
   ): Effect.Effect<
@@ -82,7 +98,9 @@ export declare class SupportApp extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("RegisterSlackWorkspaceForOrganization", input);
+  }
   updateSlackChannelConfiguration(
     input: UpdateSlackChannelConfigurationRequest,
   ): Effect.Effect<
@@ -93,8 +111,12 @@ export declare class SupportApp extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateSlackChannelConfiguration", input);
+  }
 }
+
+export default SupportApp;
 
 export declare class AccessDeniedException extends EffectData.TaggedError(
   "AccessDeniedException",

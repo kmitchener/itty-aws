@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class Location extends AWSServiceClient {
+export class Location extends AWSServiceClient {
   associateTrackerConsumer(
     input: AssociateTrackerConsumerRequest,
   ): Effect.Effect<
@@ -15,7 +15,9 @@ export declare class Location extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AssociateTrackerConsumer", input);
+  }
   batchDeleteDevicePositionHistory(
     input: BatchDeleteDevicePositionHistoryRequest,
   ): Effect.Effect<
@@ -26,7 +28,9 @@ export declare class Location extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("BatchDeleteDevicePositionHistory", input);
+  }
   batchDeleteGeofence(
     input: BatchDeleteGeofenceRequest,
   ): Effect.Effect<
@@ -37,7 +41,9 @@ export declare class Location extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("BatchDeleteGeofence", input);
+  }
   batchEvaluateGeofences(
     input: BatchEvaluateGeofencesRequest,
   ): Effect.Effect<
@@ -48,7 +54,9 @@ export declare class Location extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("BatchEvaluateGeofences", input);
+  }
   batchGetDevicePosition(
     input: BatchGetDevicePositionRequest,
   ): Effect.Effect<
@@ -59,7 +67,9 @@ export declare class Location extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("BatchGetDevicePosition", input);
+  }
   batchPutGeofence(
     input: BatchPutGeofenceRequest,
   ): Effect.Effect<
@@ -70,7 +80,9 @@ export declare class Location extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("BatchPutGeofence", input);
+  }
   batchUpdateDevicePosition(
     input: BatchUpdateDevicePositionRequest,
   ): Effect.Effect<
@@ -81,7 +93,9 @@ export declare class Location extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("BatchUpdateDevicePosition", input);
+  }
   calculateRoute(
     input: CalculateRouteRequest,
   ): Effect.Effect<
@@ -92,7 +106,9 @@ export declare class Location extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CalculateRoute", input);
+  }
   calculateRouteMatrix(
     input: CalculateRouteMatrixRequest,
   ): Effect.Effect<
@@ -103,7 +119,9 @@ export declare class Location extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CalculateRouteMatrix", input);
+  }
   createGeofenceCollection(
     input: CreateGeofenceCollectionRequest,
   ): Effect.Effect<
@@ -115,7 +133,9 @@ export declare class Location extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateGeofenceCollection", input);
+  }
   createKey(
     input: CreateKeyRequest,
   ): Effect.Effect<
@@ -127,7 +147,9 @@ export declare class Location extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateKey", input);
+  }
   createMap(
     input: CreateMapRequest,
   ): Effect.Effect<
@@ -139,7 +161,9 @@ export declare class Location extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateMap", input);
+  }
   createPlaceIndex(
     input: CreatePlaceIndexRequest,
   ): Effect.Effect<
@@ -151,7 +175,9 @@ export declare class Location extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreatePlaceIndex", input);
+  }
   createRouteCalculator(
     input: CreateRouteCalculatorRequest,
   ): Effect.Effect<
@@ -163,7 +189,9 @@ export declare class Location extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateRouteCalculator", input);
+  }
   createTracker(
     input: CreateTrackerRequest,
   ): Effect.Effect<
@@ -175,7 +203,9 @@ export declare class Location extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateTracker", input);
+  }
   deleteGeofenceCollection(
     input: DeleteGeofenceCollectionRequest,
   ): Effect.Effect<
@@ -186,7 +216,9 @@ export declare class Location extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteGeofenceCollection", input);
+  }
   deleteKey(
     input: DeleteKeyRequest,
   ): Effect.Effect<
@@ -197,7 +229,9 @@ export declare class Location extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteKey", input);
+  }
   deleteMap(
     input: DeleteMapRequest,
   ): Effect.Effect<
@@ -208,7 +242,9 @@ export declare class Location extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteMap", input);
+  }
   deletePlaceIndex(
     input: DeletePlaceIndexRequest,
   ): Effect.Effect<
@@ -219,7 +255,9 @@ export declare class Location extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeletePlaceIndex", input);
+  }
   deleteRouteCalculator(
     input: DeleteRouteCalculatorRequest,
   ): Effect.Effect<
@@ -230,7 +268,9 @@ export declare class Location extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteRouteCalculator", input);
+  }
   deleteTracker(
     input: DeleteTrackerRequest,
   ): Effect.Effect<
@@ -241,7 +281,9 @@ export declare class Location extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteTracker", input);
+  }
   describeGeofenceCollection(
     input: DescribeGeofenceCollectionRequest,
   ): Effect.Effect<
@@ -252,7 +294,9 @@ export declare class Location extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeGeofenceCollection", input);
+  }
   describeKey(
     input: DescribeKeyRequest,
   ): Effect.Effect<
@@ -263,7 +307,9 @@ export declare class Location extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeKey", input);
+  }
   describeMap(
     input: DescribeMapRequest,
   ): Effect.Effect<
@@ -274,7 +320,9 @@ export declare class Location extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeMap", input);
+  }
   describePlaceIndex(
     input: DescribePlaceIndexRequest,
   ): Effect.Effect<
@@ -285,7 +333,9 @@ export declare class Location extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribePlaceIndex", input);
+  }
   describeRouteCalculator(
     input: DescribeRouteCalculatorRequest,
   ): Effect.Effect<
@@ -296,7 +346,9 @@ export declare class Location extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeRouteCalculator", input);
+  }
   describeTracker(
     input: DescribeTrackerRequest,
   ): Effect.Effect<
@@ -307,7 +359,9 @@ export declare class Location extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeTracker", input);
+  }
   disassociateTrackerConsumer(
     input: DisassociateTrackerConsumerRequest,
   ): Effect.Effect<
@@ -318,7 +372,9 @@ export declare class Location extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DisassociateTrackerConsumer", input);
+  }
   forecastGeofenceEvents(
     input: ForecastGeofenceEventsRequest,
   ): Effect.Effect<
@@ -329,7 +385,9 @@ export declare class Location extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ForecastGeofenceEvents", input);
+  }
   getDevicePosition(
     input: GetDevicePositionRequest,
   ): Effect.Effect<
@@ -340,7 +398,9 @@ export declare class Location extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetDevicePosition", input);
+  }
   getDevicePositionHistory(
     input: GetDevicePositionHistoryRequest,
   ): Effect.Effect<
@@ -351,7 +411,9 @@ export declare class Location extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetDevicePositionHistory", input);
+  }
   getGeofence(
     input: GetGeofenceRequest,
   ): Effect.Effect<
@@ -362,7 +424,9 @@ export declare class Location extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetGeofence", input);
+  }
   getMapGlyphs(
     input: GetMapGlyphsRequest,
   ): Effect.Effect<
@@ -373,7 +437,9 @@ export declare class Location extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetMapGlyphs", input);
+  }
   getMapSprites(
     input: GetMapSpritesRequest,
   ): Effect.Effect<
@@ -384,7 +450,9 @@ export declare class Location extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetMapSprites", input);
+  }
   getMapStyleDescriptor(
     input: GetMapStyleDescriptorRequest,
   ): Effect.Effect<
@@ -395,7 +463,9 @@ export declare class Location extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetMapStyleDescriptor", input);
+  }
   getMapTile(
     input: GetMapTileRequest,
   ): Effect.Effect<
@@ -406,7 +476,9 @@ export declare class Location extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetMapTile", input);
+  }
   getPlace(
     input: GetPlaceRequest,
   ): Effect.Effect<
@@ -417,7 +489,9 @@ export declare class Location extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetPlace", input);
+  }
   listDevicePositions(
     input: ListDevicePositionsRequest,
   ): Effect.Effect<
@@ -427,7 +501,9 @@ export declare class Location extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListDevicePositions", input);
+  }
   listGeofenceCollections(
     input: ListGeofenceCollectionsRequest,
   ): Effect.Effect<
@@ -437,7 +513,9 @@ export declare class Location extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListGeofenceCollections", input);
+  }
   listGeofences(
     input: ListGeofencesRequest,
   ): Effect.Effect<
@@ -448,7 +526,9 @@ export declare class Location extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListGeofences", input);
+  }
   listKeys(
     input: ListKeysRequest,
   ): Effect.Effect<
@@ -458,7 +538,9 @@ export declare class Location extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListKeys", input);
+  }
   listMaps(
     input: ListMapsRequest,
   ): Effect.Effect<
@@ -468,7 +550,9 @@ export declare class Location extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListMaps", input);
+  }
   listPlaceIndexes(
     input: ListPlaceIndexesRequest,
   ): Effect.Effect<
@@ -478,7 +562,9 @@ export declare class Location extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListPlaceIndexes", input);
+  }
   listRouteCalculators(
     input: ListRouteCalculatorsRequest,
   ): Effect.Effect<
@@ -488,7 +574,9 @@ export declare class Location extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListRouteCalculators", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
@@ -499,7 +587,9 @@ export declare class Location extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   listTrackerConsumers(
     input: ListTrackerConsumersRequest,
   ): Effect.Effect<
@@ -510,7 +600,9 @@ export declare class Location extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTrackerConsumers", input);
+  }
   listTrackers(
     input: ListTrackersRequest,
   ): Effect.Effect<
@@ -520,7 +612,9 @@ export declare class Location extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTrackers", input);
+  }
   putGeofence(
     input: PutGeofenceRequest,
   ): Effect.Effect<
@@ -532,7 +626,9 @@ export declare class Location extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutGeofence", input);
+  }
   searchPlaceIndexForPosition(
     input: SearchPlaceIndexForPositionRequest,
   ): Effect.Effect<
@@ -543,7 +639,9 @@ export declare class Location extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("SearchPlaceIndexForPosition", input);
+  }
   searchPlaceIndexForSuggestions(
     input: SearchPlaceIndexForSuggestionsRequest,
   ): Effect.Effect<
@@ -554,7 +652,9 @@ export declare class Location extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("SearchPlaceIndexForSuggestions", input);
+  }
   searchPlaceIndexForText(
     input: SearchPlaceIndexForTextRequest,
   ): Effect.Effect<
@@ -565,7 +665,9 @@ export declare class Location extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("SearchPlaceIndexForText", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -576,7 +678,9 @@ export declare class Location extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
@@ -587,7 +691,9 @@ export declare class Location extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
   updateGeofenceCollection(
     input: UpdateGeofenceCollectionRequest,
   ): Effect.Effect<
@@ -598,7 +704,9 @@ export declare class Location extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateGeofenceCollection", input);
+  }
   updateKey(
     input: UpdateKeyRequest,
   ): Effect.Effect<
@@ -609,7 +717,9 @@ export declare class Location extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateKey", input);
+  }
   updateMap(
     input: UpdateMapRequest,
   ): Effect.Effect<
@@ -620,7 +730,9 @@ export declare class Location extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateMap", input);
+  }
   updatePlaceIndex(
     input: UpdatePlaceIndexRequest,
   ): Effect.Effect<
@@ -631,7 +743,9 @@ export declare class Location extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdatePlaceIndex", input);
+  }
   updateRouteCalculator(
     input: UpdateRouteCalculatorRequest,
   ): Effect.Effect<
@@ -642,7 +756,9 @@ export declare class Location extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateRouteCalculator", input);
+  }
   updateTracker(
     input: UpdateTrackerRequest,
   ): Effect.Effect<
@@ -653,7 +769,9 @@ export declare class Location extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateTracker", input);
+  }
   verifyDevicePosition(
     input: VerifyDevicePositionRequest,
   ): Effect.Effect<
@@ -664,8 +782,12 @@ export declare class Location extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("VerifyDevicePosition", input);
+  }
 }
+
+export default Location;
 
 export declare class AccessDeniedException extends EffectData.TaggedError(
   "AccessDeniedException",

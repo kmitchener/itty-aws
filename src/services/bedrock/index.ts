@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class Bedrock extends AWSServiceClient {
+export class Bedrock extends AWSServiceClient {
   batchDeleteEvaluationJob(
     input: BatchDeleteEvaluationJobRequest,
   ): Effect.Effect<
@@ -14,7 +14,9 @@ export declare class Bedrock extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("BatchDeleteEvaluationJob", input);
+  }
   createCustomModel(
     input: CreateCustomModelRequest,
   ): Effect.Effect<
@@ -28,7 +30,9 @@ export declare class Bedrock extends AWSServiceClient {
     | TooManyTagsException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateCustomModel", input);
+  }
   createCustomModelDeployment(
     input: CreateCustomModelDeploymentRequest,
   ): Effect.Effect<
@@ -41,7 +45,9 @@ export declare class Bedrock extends AWSServiceClient {
     | TooManyTagsException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateCustomModelDeployment", input);
+  }
   createEvaluationJob(
     input: CreateEvaluationJobRequest,
   ): Effect.Effect<
@@ -54,7 +60,9 @@ export declare class Bedrock extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateEvaluationJob", input);
+  }
   createFoundationModelAgreement(
     input: CreateFoundationModelAgreementRequest,
   ): Effect.Effect<
@@ -66,7 +74,9 @@ export declare class Bedrock extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateFoundationModelAgreement", input);
+  }
   createGuardrail(
     input: CreateGuardrailRequest,
   ): Effect.Effect<
@@ -80,7 +90,9 @@ export declare class Bedrock extends AWSServiceClient {
     | TooManyTagsException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateGuardrail", input);
+  }
   createGuardrailVersion(
     input: CreateGuardrailVersionRequest,
   ): Effect.Effect<
@@ -93,7 +105,9 @@ export declare class Bedrock extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateGuardrailVersion", input);
+  }
   createInferenceProfile(
     input: CreateInferenceProfileRequest,
   ): Effect.Effect<
@@ -107,7 +121,9 @@ export declare class Bedrock extends AWSServiceClient {
     | TooManyTagsException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateInferenceProfile", input);
+  }
   createMarketplaceModelEndpoint(
     input: CreateMarketplaceModelEndpointRequest,
   ): Effect.Effect<
@@ -120,7 +136,9 @@ export declare class Bedrock extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateMarketplaceModelEndpoint", input);
+  }
   createModelCopyJob(
     input: CreateModelCopyJobRequest,
   ): Effect.Effect<
@@ -130,7 +148,9 @@ export declare class Bedrock extends AWSServiceClient {
     | ResourceNotFoundException
     | TooManyTagsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateModelCopyJob", input);
+  }
   createModelCustomizationJob(
     input: CreateModelCustomizationJobRequest,
   ): Effect.Effect<
@@ -144,7 +164,9 @@ export declare class Bedrock extends AWSServiceClient {
     | TooManyTagsException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateModelCustomizationJob", input);
+  }
   createModelImportJob(
     input: CreateModelImportJobRequest,
   ): Effect.Effect<
@@ -158,7 +180,9 @@ export declare class Bedrock extends AWSServiceClient {
     | TooManyTagsException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateModelImportJob", input);
+  }
   createModelInvocationJob(
     input: CreateModelInvocationJobRequest,
   ): Effect.Effect<
@@ -171,7 +195,9 @@ export declare class Bedrock extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateModelInvocationJob", input);
+  }
   createPromptRouter(
     input: CreatePromptRouterRequest,
   ): Effect.Effect<
@@ -185,7 +211,9 @@ export declare class Bedrock extends AWSServiceClient {
     | TooManyTagsException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreatePromptRouter", input);
+  }
   createProvisionedModelThroughput(
     input: CreateProvisionedModelThroughputRequest,
   ): Effect.Effect<
@@ -198,7 +226,9 @@ export declare class Bedrock extends AWSServiceClient {
     | TooManyTagsException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateProvisionedModelThroughput", input);
+  }
   deleteCustomModel(
     input: DeleteCustomModelRequest,
   ): Effect.Effect<
@@ -210,7 +240,9 @@ export declare class Bedrock extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteCustomModel", input);
+  }
   deleteCustomModelDeployment(
     input: DeleteCustomModelDeploymentRequest,
   ): Effect.Effect<
@@ -222,7 +254,9 @@ export declare class Bedrock extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteCustomModelDeployment", input);
+  }
   deleteFoundationModelAgreement(
     input: DeleteFoundationModelAgreementRequest,
   ): Effect.Effect<
@@ -234,7 +268,9 @@ export declare class Bedrock extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteFoundationModelAgreement", input);
+  }
   deleteGuardrail(
     input: DeleteGuardrailRequest,
   ): Effect.Effect<
@@ -246,7 +282,9 @@ export declare class Bedrock extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteGuardrail", input);
+  }
   deleteImportedModel(
     input: DeleteImportedModelRequest,
   ): Effect.Effect<
@@ -258,7 +296,9 @@ export declare class Bedrock extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteImportedModel", input);
+  }
   deleteInferenceProfile(
     input: DeleteInferenceProfileRequest,
   ): Effect.Effect<
@@ -270,7 +310,9 @@ export declare class Bedrock extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteInferenceProfile", input);
+  }
   deleteMarketplaceModelEndpoint(
     input: DeleteMarketplaceModelEndpointRequest,
   ): Effect.Effect<
@@ -281,7 +323,9 @@ export declare class Bedrock extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteMarketplaceModelEndpoint", input);
+  }
   deleteModelInvocationLoggingConfiguration(
     input: DeleteModelInvocationLoggingConfigurationRequest,
   ): Effect.Effect<
@@ -290,7 +334,9 @@ export declare class Bedrock extends AWSServiceClient {
     | InternalServerException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteModelInvocationLoggingConfiguration", input);
+  }
   deletePromptRouter(
     input: DeletePromptRouterRequest,
   ): Effect.Effect<
@@ -301,7 +347,9 @@ export declare class Bedrock extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeletePromptRouter", input);
+  }
   deleteProvisionedModelThroughput(
     input: DeleteProvisionedModelThroughputRequest,
   ): Effect.Effect<
@@ -313,7 +361,9 @@ export declare class Bedrock extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteProvisionedModelThroughput", input);
+  }
   deregisterMarketplaceModelEndpoint(
     input: DeregisterMarketplaceModelEndpointRequest,
   ): Effect.Effect<
@@ -325,7 +375,9 @@ export declare class Bedrock extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeregisterMarketplaceModelEndpoint", input);
+  }
   getCustomModel(
     input: GetCustomModelRequest,
   ): Effect.Effect<
@@ -336,7 +388,9 @@ export declare class Bedrock extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetCustomModel", input);
+  }
   getCustomModelDeployment(
     input: GetCustomModelDeploymentRequest,
   ): Effect.Effect<
@@ -347,7 +401,9 @@ export declare class Bedrock extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetCustomModelDeployment", input);
+  }
   getEvaluationJob(
     input: GetEvaluationJobRequest,
   ): Effect.Effect<
@@ -358,7 +414,9 @@ export declare class Bedrock extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetEvaluationJob", input);
+  }
   getFoundationModel(
     input: GetFoundationModelRequest,
   ): Effect.Effect<
@@ -369,7 +427,9 @@ export declare class Bedrock extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetFoundationModel", input);
+  }
   getFoundationModelAvailability(
     input: GetFoundationModelAvailabilityRequest,
   ): Effect.Effect<
@@ -380,7 +440,9 @@ export declare class Bedrock extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetFoundationModelAvailability", input);
+  }
   getGuardrail(
     input: GetGuardrailRequest,
   ): Effect.Effect<
@@ -391,7 +453,9 @@ export declare class Bedrock extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetGuardrail", input);
+  }
   getImportedModel(
     input: GetImportedModelRequest,
   ): Effect.Effect<
@@ -402,7 +466,9 @@ export declare class Bedrock extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetImportedModel", input);
+  }
   getInferenceProfile(
     input: GetInferenceProfileRequest,
   ): Effect.Effect<
@@ -413,7 +479,9 @@ export declare class Bedrock extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetInferenceProfile", input);
+  }
   getMarketplaceModelEndpoint(
     input: GetMarketplaceModelEndpointRequest,
   ): Effect.Effect<
@@ -424,7 +492,9 @@ export declare class Bedrock extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetMarketplaceModelEndpoint", input);
+  }
   getModelCopyJob(
     input: GetModelCopyJobRequest,
   ): Effect.Effect<
@@ -435,7 +505,9 @@ export declare class Bedrock extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetModelCopyJob", input);
+  }
   getModelCustomizationJob(
     input: GetModelCustomizationJobRequest,
   ): Effect.Effect<
@@ -446,7 +518,9 @@ export declare class Bedrock extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetModelCustomizationJob", input);
+  }
   getModelImportJob(
     input: GetModelImportJobRequest,
   ): Effect.Effect<
@@ -457,7 +531,9 @@ export declare class Bedrock extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetModelImportJob", input);
+  }
   getModelInvocationJob(
     input: GetModelInvocationJobRequest,
   ): Effect.Effect<
@@ -468,7 +544,9 @@ export declare class Bedrock extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetModelInvocationJob", input);
+  }
   getModelInvocationLoggingConfiguration(
     input: GetModelInvocationLoggingConfigurationRequest,
   ): Effect.Effect<
@@ -477,7 +555,9 @@ export declare class Bedrock extends AWSServiceClient {
     | InternalServerException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetModelInvocationLoggingConfiguration", input);
+  }
   getPromptRouter(
     input: GetPromptRouterRequest,
   ): Effect.Effect<
@@ -488,7 +568,9 @@ export declare class Bedrock extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetPromptRouter", input);
+  }
   getProvisionedModelThroughput(
     input: GetProvisionedModelThroughputRequest,
   ): Effect.Effect<
@@ -499,7 +581,9 @@ export declare class Bedrock extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetProvisionedModelThroughput", input);
+  }
   getUseCaseForModelAccess(
     input: GetUseCaseForModelAccessRequest,
   ): Effect.Effect<
@@ -509,7 +593,9 @@ export declare class Bedrock extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetUseCaseForModelAccess", input);
+  }
   listCustomModelDeployments(
     input: ListCustomModelDeploymentsRequest,
   ): Effect.Effect<
@@ -519,7 +605,9 @@ export declare class Bedrock extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListCustomModelDeployments", input);
+  }
   listCustomModels(
     input: ListCustomModelsRequest,
   ): Effect.Effect<
@@ -529,7 +617,9 @@ export declare class Bedrock extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListCustomModels", input);
+  }
   listEvaluationJobs(
     input: ListEvaluationJobsRequest,
   ): Effect.Effect<
@@ -539,7 +629,9 @@ export declare class Bedrock extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListEvaluationJobs", input);
+  }
   listFoundationModelAgreementOffers(
     input: ListFoundationModelAgreementOffersRequest,
   ): Effect.Effect<
@@ -550,7 +642,9 @@ export declare class Bedrock extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListFoundationModelAgreementOffers", input);
+  }
   listFoundationModels(
     input: ListFoundationModelsRequest,
   ): Effect.Effect<
@@ -560,7 +654,9 @@ export declare class Bedrock extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListFoundationModels", input);
+  }
   listGuardrails(
     input: ListGuardrailsRequest,
   ): Effect.Effect<
@@ -571,7 +667,9 @@ export declare class Bedrock extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListGuardrails", input);
+  }
   listImportedModels(
     input: ListImportedModelsRequest,
   ): Effect.Effect<
@@ -581,7 +679,9 @@ export declare class Bedrock extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListImportedModels", input);
+  }
   listInferenceProfiles(
     input: ListInferenceProfilesRequest,
   ): Effect.Effect<
@@ -591,7 +691,9 @@ export declare class Bedrock extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListInferenceProfiles", input);
+  }
   listMarketplaceModelEndpoints(
     input: ListMarketplaceModelEndpointsRequest,
   ): Effect.Effect<
@@ -602,7 +704,9 @@ export declare class Bedrock extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListMarketplaceModelEndpoints", input);
+  }
   listModelCopyJobs(
     input: ListModelCopyJobsRequest,
   ): Effect.Effect<
@@ -613,7 +717,9 @@ export declare class Bedrock extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListModelCopyJobs", input);
+  }
   listModelCustomizationJobs(
     input: ListModelCustomizationJobsRequest,
   ): Effect.Effect<
@@ -623,7 +729,9 @@ export declare class Bedrock extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListModelCustomizationJobs", input);
+  }
   listModelImportJobs(
     input: ListModelImportJobsRequest,
   ): Effect.Effect<
@@ -633,7 +741,9 @@ export declare class Bedrock extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListModelImportJobs", input);
+  }
   listModelInvocationJobs(
     input: ListModelInvocationJobsRequest,
   ): Effect.Effect<
@@ -643,7 +753,9 @@ export declare class Bedrock extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListModelInvocationJobs", input);
+  }
   listPromptRouters(
     input: ListPromptRoutersRequest,
   ): Effect.Effect<
@@ -653,7 +765,9 @@ export declare class Bedrock extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListPromptRouters", input);
+  }
   listProvisionedModelThroughputs(
     input: ListProvisionedModelThroughputsRequest,
   ): Effect.Effect<
@@ -663,7 +777,9 @@ export declare class Bedrock extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListProvisionedModelThroughputs", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
@@ -674,7 +790,9 @@ export declare class Bedrock extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   putModelInvocationLoggingConfiguration(
     input: PutModelInvocationLoggingConfigurationRequest,
   ): Effect.Effect<
@@ -684,7 +802,9 @@ export declare class Bedrock extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutModelInvocationLoggingConfiguration", input);
+  }
   putUseCaseForModelAccess(
     input: PutUseCaseForModelAccessRequest,
   ): Effect.Effect<
@@ -694,7 +814,9 @@ export declare class Bedrock extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutUseCaseForModelAccess", input);
+  }
   registerMarketplaceModelEndpoint(
     input: RegisterMarketplaceModelEndpointRequest,
   ): Effect.Effect<
@@ -706,7 +828,9 @@ export declare class Bedrock extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("RegisterMarketplaceModelEndpoint", input);
+  }
   stopEvaluationJob(
     input: StopEvaluationJobRequest,
   ): Effect.Effect<
@@ -718,7 +842,9 @@ export declare class Bedrock extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StopEvaluationJob", input);
+  }
   stopModelCustomizationJob(
     input: StopModelCustomizationJobRequest,
   ): Effect.Effect<
@@ -730,7 +856,9 @@ export declare class Bedrock extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StopModelCustomizationJob", input);
+  }
   stopModelInvocationJob(
     input: StopModelInvocationJobRequest,
   ): Effect.Effect<
@@ -742,7 +870,9 @@ export declare class Bedrock extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StopModelInvocationJob", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -754,7 +884,9 @@ export declare class Bedrock extends AWSServiceClient {
     | TooManyTagsException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
@@ -765,7 +897,9 @@ export declare class Bedrock extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
   updateGuardrail(
     input: UpdateGuardrailRequest,
   ): Effect.Effect<
@@ -778,7 +912,9 @@ export declare class Bedrock extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateGuardrail", input);
+  }
   updateMarketplaceModelEndpoint(
     input: UpdateMarketplaceModelEndpointRequest,
   ): Effect.Effect<
@@ -791,7 +927,9 @@ export declare class Bedrock extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateMarketplaceModelEndpoint", input);
+  }
   updateProvisionedModelThroughput(
     input: UpdateProvisionedModelThroughputRequest,
   ): Effect.Effect<
@@ -802,8 +940,12 @@ export declare class Bedrock extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateProvisionedModelThroughput", input);
+  }
 }
+
+export default Bedrock;
 
 export type AcceptEula = boolean;
 

@@ -2,7 +2,7 @@ import type { Effect, Stream, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class IoTAnalytics extends AWSServiceClient {
+export class IoTAnalytics extends AWSServiceClient {
   batchPutMessage(
     input: BatchPutMessageRequest,
   ): Effect.Effect<
@@ -13,7 +13,9 @@ export declare class IoTAnalytics extends AWSServiceClient {
     | ServiceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("BatchPutMessage", input);
+  }
   cancelPipelineReprocessing(
     input: CancelPipelineReprocessingRequest,
   ): Effect.Effect<
@@ -24,7 +26,9 @@ export declare class IoTAnalytics extends AWSServiceClient {
     | ServiceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CancelPipelineReprocessing", input);
+  }
   createChannel(
     input: CreateChannelRequest,
   ): Effect.Effect<
@@ -36,7 +40,9 @@ export declare class IoTAnalytics extends AWSServiceClient {
     | ServiceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateChannel", input);
+  }
   createDataset(
     input: CreateDatasetRequest,
   ): Effect.Effect<
@@ -48,7 +54,9 @@ export declare class IoTAnalytics extends AWSServiceClient {
     | ServiceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateDataset", input);
+  }
   createDatasetContent(
     input: CreateDatasetContentRequest,
   ): Effect.Effect<
@@ -59,7 +67,9 @@ export declare class IoTAnalytics extends AWSServiceClient {
     | ServiceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateDatasetContent", input);
+  }
   createDatastore(
     input: CreateDatastoreRequest,
   ): Effect.Effect<
@@ -71,7 +81,9 @@ export declare class IoTAnalytics extends AWSServiceClient {
     | ServiceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateDatastore", input);
+  }
   createPipeline(
     input: CreatePipelineRequest,
   ): Effect.Effect<
@@ -83,7 +95,9 @@ export declare class IoTAnalytics extends AWSServiceClient {
     | ServiceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreatePipeline", input);
+  }
   deleteChannel(
     input: DeleteChannelRequest,
   ): Effect.Effect<
@@ -94,7 +108,9 @@ export declare class IoTAnalytics extends AWSServiceClient {
     | ServiceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteChannel", input);
+  }
   deleteDataset(
     input: DeleteDatasetRequest,
   ): Effect.Effect<
@@ -105,7 +121,9 @@ export declare class IoTAnalytics extends AWSServiceClient {
     | ServiceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteDataset", input);
+  }
   deleteDatasetContent(
     input: DeleteDatasetContentRequest,
   ): Effect.Effect<
@@ -116,7 +134,9 @@ export declare class IoTAnalytics extends AWSServiceClient {
     | ServiceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteDatasetContent", input);
+  }
   deleteDatastore(
     input: DeleteDatastoreRequest,
   ): Effect.Effect<
@@ -127,7 +147,9 @@ export declare class IoTAnalytics extends AWSServiceClient {
     | ServiceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteDatastore", input);
+  }
   deletePipeline(
     input: DeletePipelineRequest,
   ): Effect.Effect<
@@ -138,7 +160,9 @@ export declare class IoTAnalytics extends AWSServiceClient {
     | ServiceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeletePipeline", input);
+  }
   describeChannel(
     input: DescribeChannelRequest,
   ): Effect.Effect<
@@ -149,7 +173,9 @@ export declare class IoTAnalytics extends AWSServiceClient {
     | ServiceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeChannel", input);
+  }
   describeDataset(
     input: DescribeDatasetRequest,
   ): Effect.Effect<
@@ -160,7 +186,9 @@ export declare class IoTAnalytics extends AWSServiceClient {
     | ServiceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeDataset", input);
+  }
   describeDatastore(
     input: DescribeDatastoreRequest,
   ): Effect.Effect<
@@ -171,7 +199,9 @@ export declare class IoTAnalytics extends AWSServiceClient {
     | ServiceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeDatastore", input);
+  }
   describeLoggingOptions(
     input: DescribeLoggingOptionsRequest,
   ): Effect.Effect<
@@ -182,7 +212,9 @@ export declare class IoTAnalytics extends AWSServiceClient {
     | ServiceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeLoggingOptions", input);
+  }
   describePipeline(
     input: DescribePipelineRequest,
   ): Effect.Effect<
@@ -193,7 +225,9 @@ export declare class IoTAnalytics extends AWSServiceClient {
     | ServiceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribePipeline", input);
+  }
   getDatasetContent(
     input: GetDatasetContentRequest,
   ): Effect.Effect<
@@ -204,7 +238,9 @@ export declare class IoTAnalytics extends AWSServiceClient {
     | ServiceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetDatasetContent", input);
+  }
   listChannels(
     input: ListChannelsRequest,
   ): Effect.Effect<
@@ -214,7 +250,9 @@ export declare class IoTAnalytics extends AWSServiceClient {
     | ServiceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListChannels", input);
+  }
   listDatasetContents(
     input: ListDatasetContentsRequest,
   ): Effect.Effect<
@@ -225,7 +263,9 @@ export declare class IoTAnalytics extends AWSServiceClient {
     | ServiceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListDatasetContents", input);
+  }
   listDatasets(
     input: ListDatasetsRequest,
   ): Effect.Effect<
@@ -235,7 +275,9 @@ export declare class IoTAnalytics extends AWSServiceClient {
     | ServiceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListDatasets", input);
+  }
   listDatastores(
     input: ListDatastoresRequest,
   ): Effect.Effect<
@@ -245,7 +287,9 @@ export declare class IoTAnalytics extends AWSServiceClient {
     | ServiceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListDatastores", input);
+  }
   listPipelines(
     input: ListPipelinesRequest,
   ): Effect.Effect<
@@ -255,7 +299,9 @@ export declare class IoTAnalytics extends AWSServiceClient {
     | ServiceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListPipelines", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
@@ -267,7 +313,9 @@ export declare class IoTAnalytics extends AWSServiceClient {
     | ServiceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   putLoggingOptions(
     input: PutLoggingOptionsRequest,
   ): Effect.Effect<
@@ -277,7 +325,9 @@ export declare class IoTAnalytics extends AWSServiceClient {
     | ServiceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutLoggingOptions", input);
+  }
   runPipelineActivity(
     input: RunPipelineActivityRequest,
   ): Effect.Effect<
@@ -287,7 +337,9 @@ export declare class IoTAnalytics extends AWSServiceClient {
     | ServiceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("RunPipelineActivity", input);
+  }
   sampleChannelData(
     input: SampleChannelDataRequest,
   ): Effect.Effect<
@@ -298,7 +350,9 @@ export declare class IoTAnalytics extends AWSServiceClient {
     | ServiceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("SampleChannelData", input);
+  }
   startPipelineReprocessing(
     input: StartPipelineReprocessingRequest,
   ): Effect.Effect<
@@ -310,7 +364,9 @@ export declare class IoTAnalytics extends AWSServiceClient {
     | ServiceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartPipelineReprocessing", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -322,7 +378,9 @@ export declare class IoTAnalytics extends AWSServiceClient {
     | ServiceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
@@ -334,7 +392,9 @@ export declare class IoTAnalytics extends AWSServiceClient {
     | ServiceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
   updateChannel(
     input: UpdateChannelRequest,
   ): Effect.Effect<
@@ -345,7 +405,9 @@ export declare class IoTAnalytics extends AWSServiceClient {
     | ServiceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateChannel", input);
+  }
   updateDataset(
     input: UpdateDatasetRequest,
   ): Effect.Effect<
@@ -356,7 +418,9 @@ export declare class IoTAnalytics extends AWSServiceClient {
     | ServiceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateDataset", input);
+  }
   updateDatastore(
     input: UpdateDatastoreRequest,
   ): Effect.Effect<
@@ -367,7 +431,9 @@ export declare class IoTAnalytics extends AWSServiceClient {
     | ServiceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateDatastore", input);
+  }
   updatePipeline(
     input: UpdatePipelineRequest,
   ): Effect.Effect<
@@ -379,10 +445,14 @@ export declare class IoTAnalytics extends AWSServiceClient {
     | ServiceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdatePipeline", input);
+  }
 }
 
-export declare class Iotanalytics extends IoTAnalytics {}
+export class Iotanalytics extends IoTAnalytics {}
+
+export default IoTAnalytics;
 
 export type ActivityBatchSize = number;
 

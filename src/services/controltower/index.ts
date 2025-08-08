@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class ControlTower extends AWSServiceClient {
+export class ControlTower extends AWSServiceClient {
   disableControl(
     input: DisableControlInput,
   ): Effect.Effect<
@@ -15,10 +15,14 @@ export declare class ControlTower extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DisableControl", input);
+  }
 }
 
-export declare class Controltower extends ControlTower {}
+export class Controltower extends ControlTower {}
+
+export default ControlTower;
 
 export declare class AccessDeniedException extends EffectData.TaggedError(
   "AccessDeniedException",

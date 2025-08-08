@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class MedicalImaging extends AWSServiceClient {
+export class MedicalImaging extends AWSServiceClient {
   copyImageSet(
     input: CopyImageSetRequest,
   ): Effect.Effect<
@@ -15,7 +15,9 @@ export declare class MedicalImaging extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CopyImageSet", input);
+  }
   deleteImageSet(
     input: DeleteImageSetRequest,
   ): Effect.Effect<
@@ -27,7 +29,9 @@ export declare class MedicalImaging extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteImageSet", input);
+  }
   getDICOMImportJob(
     input: GetDICOMImportJobRequest,
   ): Effect.Effect<
@@ -39,7 +43,9 @@ export declare class MedicalImaging extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetDICOMImportJob", input);
+  }
   getImageFrame(
     input: GetImageFrameRequest,
   ): Effect.Effect<
@@ -51,7 +57,9 @@ export declare class MedicalImaging extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetImageFrame", input);
+  }
   getImageSet(
     input: GetImageSetRequest,
   ): Effect.Effect<
@@ -63,7 +71,9 @@ export declare class MedicalImaging extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetImageSet", input);
+  }
   getImageSetMetadata(
     input: GetImageSetMetadataRequest,
   ): Effect.Effect<
@@ -75,7 +85,9 @@ export declare class MedicalImaging extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetImageSetMetadata", input);
+  }
   listDICOMImportJobs(
     input: ListDICOMImportJobsRequest,
   ): Effect.Effect<
@@ -87,7 +99,9 @@ export declare class MedicalImaging extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListDICOMImportJobs", input);
+  }
   listImageSetVersions(
     input: ListImageSetVersionsRequest,
   ): Effect.Effect<
@@ -99,7 +113,9 @@ export declare class MedicalImaging extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListImageSetVersions", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
@@ -110,7 +126,9 @@ export declare class MedicalImaging extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   searchImageSets(
     input: SearchImageSetsRequest,
   ): Effect.Effect<
@@ -122,7 +140,9 @@ export declare class MedicalImaging extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("SearchImageSets", input);
+  }
   startDICOMImportJob(
     input: StartDICOMImportJobRequest,
   ): Effect.Effect<
@@ -135,7 +155,9 @@ export declare class MedicalImaging extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartDICOMImportJob", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -146,7 +168,9 @@ export declare class MedicalImaging extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
@@ -157,7 +181,9 @@ export declare class MedicalImaging extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
   updateImageSetMetadata(
     input: UpdateImageSetMetadataRequest,
   ): Effect.Effect<
@@ -170,8 +196,12 @@ export declare class MedicalImaging extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateImageSetMetadata", input);
+  }
 }
+
+export default MedicalImaging;
 
 export declare class AccessDeniedException extends EffectData.TaggedError(
   "AccessDeniedException",

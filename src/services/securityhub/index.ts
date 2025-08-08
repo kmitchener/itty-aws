@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class SecurityHub extends AWSServiceClient {
+export class SecurityHub extends AWSServiceClient {
   acceptAdministratorInvitation(
     input: AcceptAdministratorInvitationRequest,
   ): Effect.Effect<
@@ -13,7 +13,9 @@ export declare class SecurityHub extends AWSServiceClient {
     | LimitExceededException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AcceptAdministratorInvitation", input);
+  }
   acceptInvitation(
     input: AcceptInvitationRequest,
   ): Effect.Effect<
@@ -24,7 +26,9 @@ export declare class SecurityHub extends AWSServiceClient {
     | LimitExceededException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AcceptInvitation", input);
+  }
   batchDeleteAutomationRules(
     input: BatchDeleteAutomationRulesRequest,
   ): Effect.Effect<
@@ -35,7 +39,9 @@ export declare class SecurityHub extends AWSServiceClient {
     | LimitExceededException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("BatchDeleteAutomationRules", input);
+  }
   batchDisableStandards(
     input: BatchDisableStandardsRequest,
   ): Effect.Effect<
@@ -46,7 +52,9 @@ export declare class SecurityHub extends AWSServiceClient {
     | InvalidInputException
     | LimitExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("BatchDisableStandards", input);
+  }
   batchEnableStandards(
     input: BatchEnableStandardsRequest,
   ): Effect.Effect<
@@ -57,7 +65,9 @@ export declare class SecurityHub extends AWSServiceClient {
     | InvalidInputException
     | LimitExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("BatchEnableStandards", input);
+  }
   batchGetAutomationRules(
     input: BatchGetAutomationRulesRequest,
   ): Effect.Effect<
@@ -69,7 +79,9 @@ export declare class SecurityHub extends AWSServiceClient {
     | LimitExceededException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("BatchGetAutomationRules", input);
+  }
   batchGetConfigurationPolicyAssociations(
     input: BatchGetConfigurationPolicyAssociationsRequest,
   ): Effect.Effect<
@@ -81,7 +93,9 @@ export declare class SecurityHub extends AWSServiceClient {
     | LimitExceededException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("BatchGetConfigurationPolicyAssociations", input);
+  }
   batchGetSecurityControls(
     input: BatchGetSecurityControlsRequest,
   ): Effect.Effect<
@@ -91,7 +105,9 @@ export declare class SecurityHub extends AWSServiceClient {
     | InvalidInputException
     | LimitExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("BatchGetSecurityControls", input);
+  }
   batchGetStandardsControlAssociations(
     input: BatchGetStandardsControlAssociationsRequest,
   ): Effect.Effect<
@@ -101,7 +117,9 @@ export declare class SecurityHub extends AWSServiceClient {
     | InvalidInputException
     | LimitExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("BatchGetStandardsControlAssociations", input);
+  }
   batchImportFindings(
     input: BatchImportFindingsRequest,
   ): Effect.Effect<
@@ -111,7 +129,9 @@ export declare class SecurityHub extends AWSServiceClient {
     | InvalidInputException
     | LimitExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("BatchImportFindings", input);
+  }
   batchUpdateAutomationRules(
     input: BatchUpdateAutomationRulesRequest,
   ): Effect.Effect<
@@ -122,7 +142,9 @@ export declare class SecurityHub extends AWSServiceClient {
     | LimitExceededException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("BatchUpdateAutomationRules", input);
+  }
   batchUpdateFindings(
     input: BatchUpdateFindingsRequest,
   ): Effect.Effect<
@@ -132,7 +154,9 @@ export declare class SecurityHub extends AWSServiceClient {
     | InvalidInputException
     | LimitExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("BatchUpdateFindings", input);
+  }
   batchUpdateFindingsV2(
     input: BatchUpdateFindingsV2Request,
   ): Effect.Effect<
@@ -143,7 +167,9 @@ export declare class SecurityHub extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("BatchUpdateFindingsV2", input);
+  }
   batchUpdateStandardsControlAssociations(
     input: BatchUpdateStandardsControlAssociationsRequest,
   ): Effect.Effect<
@@ -154,7 +180,9 @@ export declare class SecurityHub extends AWSServiceClient {
     | InvalidInputException
     | LimitExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("BatchUpdateStandardsControlAssociations", input);
+  }
   connectorRegistrationsV2(
     input: ConnectorRegistrationsV2Request,
   ): Effect.Effect<
@@ -166,7 +194,9 @@ export declare class SecurityHub extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ConnectorRegistrationsV2", input);
+  }
   createActionTarget(
     input: CreateActionTargetRequest,
   ): Effect.Effect<
@@ -177,7 +207,9 @@ export declare class SecurityHub extends AWSServiceClient {
     | LimitExceededException
     | ResourceConflictException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateActionTarget", input);
+  }
   createAggregatorV2(
     input: CreateAggregatorV2Request,
   ): Effect.Effect<
@@ -189,7 +221,9 @@ export declare class SecurityHub extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateAggregatorV2", input);
+  }
   createAutomationRule(
     input: CreateAutomationRuleRequest,
   ): Effect.Effect<
@@ -200,7 +234,9 @@ export declare class SecurityHub extends AWSServiceClient {
     | InvalidInputException
     | LimitExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateAutomationRule", input);
+  }
   createAutomationRuleV2(
     input: CreateAutomationRuleV2Request,
   ): Effect.Effect<
@@ -211,7 +247,9 @@ export declare class SecurityHub extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateAutomationRuleV2", input);
+  }
   createConfigurationPolicy(
     input: CreateConfigurationPolicyRequest,
   ): Effect.Effect<
@@ -223,7 +261,9 @@ export declare class SecurityHub extends AWSServiceClient {
     | LimitExceededException
     | ResourceConflictException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateConfigurationPolicy", input);
+  }
   createConnectorV2(
     input: CreateConnectorV2Request,
   ): Effect.Effect<
@@ -235,7 +275,9 @@ export declare class SecurityHub extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateConnectorV2", input);
+  }
   createFindingAggregator(
     input: CreateFindingAggregatorRequest,
   ): Effect.Effect<
@@ -246,7 +288,9 @@ export declare class SecurityHub extends AWSServiceClient {
     | InvalidInputException
     | LimitExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateFindingAggregator", input);
+  }
   createInsight(
     input: CreateInsightRequest,
   ): Effect.Effect<
@@ -257,7 +301,9 @@ export declare class SecurityHub extends AWSServiceClient {
     | LimitExceededException
     | ResourceConflictException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateInsight", input);
+  }
   createMembers(
     input: CreateMembersRequest,
   ): Effect.Effect<
@@ -269,7 +315,9 @@ export declare class SecurityHub extends AWSServiceClient {
     | LimitExceededException
     | ResourceConflictException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateMembers", input);
+  }
   createTicketV2(
     input: CreateTicketV2Request,
   ): Effect.Effect<
@@ -281,7 +329,9 @@ export declare class SecurityHub extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateTicketV2", input);
+  }
   declineInvitations(
     input: DeclineInvitationsRequest,
   ): Effect.Effect<
@@ -291,7 +341,9 @@ export declare class SecurityHub extends AWSServiceClient {
     | InvalidInputException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeclineInvitations", input);
+  }
   deleteActionTarget(
     input: DeleteActionTargetRequest,
   ): Effect.Effect<
@@ -301,7 +353,9 @@ export declare class SecurityHub extends AWSServiceClient {
     | InvalidInputException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteActionTarget", input);
+  }
   deleteAggregatorV2(
     input: DeleteAggregatorV2Request,
   ): Effect.Effect<
@@ -313,7 +367,9 @@ export declare class SecurityHub extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteAggregatorV2", input);
+  }
   deleteAutomationRuleV2(
     input: DeleteAutomationRuleV2Request,
   ): Effect.Effect<
@@ -325,7 +381,9 @@ export declare class SecurityHub extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteAutomationRuleV2", input);
+  }
   deleteConfigurationPolicy(
     input: DeleteConfigurationPolicyRequest,
   ): Effect.Effect<
@@ -338,7 +396,9 @@ export declare class SecurityHub extends AWSServiceClient {
     | ResourceConflictException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteConfigurationPolicy", input);
+  }
   deleteConnectorV2(
     input: DeleteConnectorV2Request,
   ): Effect.Effect<
@@ -350,7 +410,9 @@ export declare class SecurityHub extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteConnectorV2", input);
+  }
   deleteFindingAggregator(
     input: DeleteFindingAggregatorRequest,
   ): Effect.Effect<
@@ -362,7 +424,9 @@ export declare class SecurityHub extends AWSServiceClient {
     | LimitExceededException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteFindingAggregator", input);
+  }
   deleteInsight(
     input: DeleteInsightRequest,
   ): Effect.Effect<
@@ -373,7 +437,9 @@ export declare class SecurityHub extends AWSServiceClient {
     | LimitExceededException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteInsight", input);
+  }
   deleteInvitations(
     input: DeleteInvitationsRequest,
   ): Effect.Effect<
@@ -384,7 +450,9 @@ export declare class SecurityHub extends AWSServiceClient {
     | LimitExceededException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteInvitations", input);
+  }
   deleteMembers(
     input: DeleteMembersRequest,
   ): Effect.Effect<
@@ -395,7 +463,9 @@ export declare class SecurityHub extends AWSServiceClient {
     | LimitExceededException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteMembers", input);
+  }
   describeActionTargets(
     input: DescribeActionTargetsRequest,
   ): Effect.Effect<
@@ -405,7 +475,9 @@ export declare class SecurityHub extends AWSServiceClient {
     | InvalidInputException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeActionTargets", input);
+  }
   describeHub(
     input: DescribeHubRequest,
   ): Effect.Effect<
@@ -416,7 +488,9 @@ export declare class SecurityHub extends AWSServiceClient {
     | LimitExceededException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeHub", input);
+  }
   describeOrganizationConfiguration(
     input: DescribeOrganizationConfigurationRequest,
   ): Effect.Effect<
@@ -426,7 +500,9 @@ export declare class SecurityHub extends AWSServiceClient {
     | InvalidInputException
     | LimitExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeOrganizationConfiguration", input);
+  }
   describeProducts(
     input: DescribeProductsRequest,
   ): Effect.Effect<
@@ -436,7 +512,9 @@ export declare class SecurityHub extends AWSServiceClient {
     | InvalidInputException
     | LimitExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeProducts", input);
+  }
   describeProductsV2(
     input: DescribeProductsV2Request,
   ): Effect.Effect<
@@ -447,7 +525,9 @@ export declare class SecurityHub extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeProductsV2", input);
+  }
   describeSecurityHubV2(
     input: DescribeSecurityHubV2Request,
   ): Effect.Effect<
@@ -457,7 +537,9 @@ export declare class SecurityHub extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeSecurityHubV2", input);
+  }
   describeStandards(
     input: DescribeStandardsRequest,
   ): Effect.Effect<
@@ -466,7 +548,9 @@ export declare class SecurityHub extends AWSServiceClient {
     | InvalidAccessException
     | InvalidInputException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeStandards", input);
+  }
   describeStandardsControls(
     input: DescribeStandardsControlsRequest,
   ): Effect.Effect<
@@ -476,7 +560,9 @@ export declare class SecurityHub extends AWSServiceClient {
     | InvalidInputException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeStandardsControls", input);
+  }
   disableImportFindingsForProduct(
     input: DisableImportFindingsForProductRequest,
   ): Effect.Effect<
@@ -487,7 +573,9 @@ export declare class SecurityHub extends AWSServiceClient {
     | LimitExceededException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DisableImportFindingsForProduct", input);
+  }
   disableOrganizationAdminAccount(
     input: DisableOrganizationAdminAccountRequest,
   ): Effect.Effect<
@@ -498,7 +586,9 @@ export declare class SecurityHub extends AWSServiceClient {
     | InvalidInputException
     | LimitExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DisableOrganizationAdminAccount", input);
+  }
   disableSecurityHub(
     input: DisableSecurityHubRequest,
   ): Effect.Effect<
@@ -509,7 +599,9 @@ export declare class SecurityHub extends AWSServiceClient {
     | LimitExceededException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DisableSecurityHub", input);
+  }
   disableSecurityHubV2(
     input: DisableSecurityHubV2Request,
   ): Effect.Effect<
@@ -519,7 +611,9 @@ export declare class SecurityHub extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DisableSecurityHubV2", input);
+  }
   disassociateFromAdministratorAccount(
     input: DisassociateFromAdministratorAccountRequest,
   ): Effect.Effect<
@@ -530,7 +624,9 @@ export declare class SecurityHub extends AWSServiceClient {
     | LimitExceededException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DisassociateFromAdministratorAccount", input);
+  }
   disassociateFromMasterAccount(
     input: DisassociateFromMasterAccountRequest,
   ): Effect.Effect<
@@ -541,7 +637,9 @@ export declare class SecurityHub extends AWSServiceClient {
     | LimitExceededException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DisassociateFromMasterAccount", input);
+  }
   disassociateMembers(
     input: DisassociateMembersRequest,
   ): Effect.Effect<
@@ -553,7 +651,9 @@ export declare class SecurityHub extends AWSServiceClient {
     | LimitExceededException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DisassociateMembers", input);
+  }
   enableImportFindingsForProduct(
     input: EnableImportFindingsForProductRequest,
   ): Effect.Effect<
@@ -564,7 +664,9 @@ export declare class SecurityHub extends AWSServiceClient {
     | LimitExceededException
     | ResourceConflictException
     | CommonAwsError
-  >;
+  > {
+    return this.call("EnableImportFindingsForProduct", input);
+  }
   enableOrganizationAdminAccount(
     input: EnableOrganizationAdminAccountRequest,
   ): Effect.Effect<
@@ -575,7 +677,9 @@ export declare class SecurityHub extends AWSServiceClient {
     | InvalidInputException
     | LimitExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("EnableOrganizationAdminAccount", input);
+  }
   enableSecurityHub(
     input: EnableSecurityHubRequest,
   ): Effect.Effect<
@@ -586,7 +690,9 @@ export declare class SecurityHub extends AWSServiceClient {
     | LimitExceededException
     | ResourceConflictException
     | CommonAwsError
-  >;
+  > {
+    return this.call("EnableSecurityHub", input);
+  }
   enableSecurityHubV2(
     input: EnableSecurityHubV2Request,
   ): Effect.Effect<
@@ -596,7 +702,9 @@ export declare class SecurityHub extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("EnableSecurityHubV2", input);
+  }
   getAdministratorAccount(
     input: GetAdministratorAccountRequest,
   ): Effect.Effect<
@@ -607,7 +715,9 @@ export declare class SecurityHub extends AWSServiceClient {
     | LimitExceededException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetAdministratorAccount", input);
+  }
   getAggregatorV2(
     input: GetAggregatorV2Request,
   ): Effect.Effect<
@@ -619,7 +729,9 @@ export declare class SecurityHub extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetAggregatorV2", input);
+  }
   getAutomationRuleV2(
     input: GetAutomationRuleV2Request,
   ): Effect.Effect<
@@ -631,7 +743,9 @@ export declare class SecurityHub extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetAutomationRuleV2", input);
+  }
   getConfigurationPolicy(
     input: GetConfigurationPolicyRequest,
   ): Effect.Effect<
@@ -643,7 +757,9 @@ export declare class SecurityHub extends AWSServiceClient {
     | LimitExceededException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetConfigurationPolicy", input);
+  }
   getConfigurationPolicyAssociation(
     input: GetConfigurationPolicyAssociationRequest,
   ): Effect.Effect<
@@ -655,7 +771,9 @@ export declare class SecurityHub extends AWSServiceClient {
     | LimitExceededException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetConfigurationPolicyAssociation", input);
+  }
   getConnectorV2(
     input: GetConnectorV2Request,
   ): Effect.Effect<
@@ -667,7 +785,9 @@ export declare class SecurityHub extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetConnectorV2", input);
+  }
   getEnabledStandards(
     input: GetEnabledStandardsRequest,
   ): Effect.Effect<
@@ -677,7 +797,9 @@ export declare class SecurityHub extends AWSServiceClient {
     | InvalidInputException
     | LimitExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetEnabledStandards", input);
+  }
   getFindingAggregator(
     input: GetFindingAggregatorRequest,
   ): Effect.Effect<
@@ -689,7 +811,9 @@ export declare class SecurityHub extends AWSServiceClient {
     | LimitExceededException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetFindingAggregator", input);
+  }
   getFindingHistory(
     input: GetFindingHistoryRequest,
   ): Effect.Effect<
@@ -699,7 +823,9 @@ export declare class SecurityHub extends AWSServiceClient {
     | InvalidInputException
     | LimitExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetFindingHistory", input);
+  }
   getFindings(
     input: GetFindingsRequest,
   ): Effect.Effect<
@@ -709,7 +835,9 @@ export declare class SecurityHub extends AWSServiceClient {
     | InvalidInputException
     | LimitExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetFindings", input);
+  }
   getFindingStatisticsV2(
     input: GetFindingStatisticsV2Request,
   ): Effect.Effect<
@@ -720,7 +848,9 @@ export declare class SecurityHub extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetFindingStatisticsV2", input);
+  }
   getFindingsV2(
     input: GetFindingsV2Request,
   ): Effect.Effect<
@@ -731,7 +861,9 @@ export declare class SecurityHub extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetFindingsV2", input);
+  }
   getInsightResults(
     input: GetInsightResultsRequest,
   ): Effect.Effect<
@@ -742,7 +874,9 @@ export declare class SecurityHub extends AWSServiceClient {
     | LimitExceededException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetInsightResults", input);
+  }
   getInsights(
     input: GetInsightsRequest,
   ): Effect.Effect<
@@ -753,7 +887,9 @@ export declare class SecurityHub extends AWSServiceClient {
     | LimitExceededException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetInsights", input);
+  }
   getInvitationsCount(
     input: GetInvitationsCountRequest,
   ): Effect.Effect<
@@ -763,7 +899,9 @@ export declare class SecurityHub extends AWSServiceClient {
     | InvalidInputException
     | LimitExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetInvitationsCount", input);
+  }
   getMasterAccount(
     input: GetMasterAccountRequest,
   ): Effect.Effect<
@@ -774,7 +912,9 @@ export declare class SecurityHub extends AWSServiceClient {
     | LimitExceededException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetMasterAccount", input);
+  }
   getMembers(
     input: GetMembersRequest,
   ): Effect.Effect<
@@ -785,7 +925,9 @@ export declare class SecurityHub extends AWSServiceClient {
     | LimitExceededException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetMembers", input);
+  }
   getResourcesStatisticsV2(
     input: GetResourcesStatisticsV2Request,
   ): Effect.Effect<
@@ -797,7 +939,9 @@ export declare class SecurityHub extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetResourcesStatisticsV2", input);
+  }
   getResourcesV2(
     input: GetResourcesV2Request,
   ): Effect.Effect<
@@ -809,7 +953,9 @@ export declare class SecurityHub extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetResourcesV2", input);
+  }
   getSecurityControlDefinition(
     input: GetSecurityControlDefinitionRequest,
   ): Effect.Effect<
@@ -820,7 +966,9 @@ export declare class SecurityHub extends AWSServiceClient {
     | LimitExceededException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetSecurityControlDefinition", input);
+  }
   inviteMembers(
     input: InviteMembersRequest,
   ): Effect.Effect<
@@ -831,7 +979,9 @@ export declare class SecurityHub extends AWSServiceClient {
     | LimitExceededException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("InviteMembers", input);
+  }
   listAggregatorsV2(
     input: ListAggregatorsV2Request,
   ): Effect.Effect<
@@ -843,7 +993,9 @@ export declare class SecurityHub extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListAggregatorsV2", input);
+  }
   listAutomationRules(
     input: ListAutomationRulesRequest,
   ): Effect.Effect<
@@ -854,7 +1006,9 @@ export declare class SecurityHub extends AWSServiceClient {
     | InvalidInputException
     | LimitExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListAutomationRules", input);
+  }
   listAutomationRulesV2(
     input: ListAutomationRulesV2Request,
   ): Effect.Effect<
@@ -865,7 +1019,9 @@ export declare class SecurityHub extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListAutomationRulesV2", input);
+  }
   listConfigurationPolicies(
     input: ListConfigurationPoliciesRequest,
   ): Effect.Effect<
@@ -876,7 +1032,9 @@ export declare class SecurityHub extends AWSServiceClient {
     | InvalidInputException
     | LimitExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListConfigurationPolicies", input);
+  }
   listConfigurationPolicyAssociations(
     input: ListConfigurationPolicyAssociationsRequest,
   ): Effect.Effect<
@@ -887,7 +1045,9 @@ export declare class SecurityHub extends AWSServiceClient {
     | InvalidInputException
     | LimitExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListConfigurationPolicyAssociations", input);
+  }
   listConnectorsV2(
     input: ListConnectorsV2Request,
   ): Effect.Effect<
@@ -899,7 +1059,9 @@ export declare class SecurityHub extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListConnectorsV2", input);
+  }
   listEnabledProductsForImport(
     input: ListEnabledProductsForImportRequest,
   ): Effect.Effect<
@@ -908,7 +1070,9 @@ export declare class SecurityHub extends AWSServiceClient {
     | InvalidAccessException
     | LimitExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListEnabledProductsForImport", input);
+  }
   listFindingAggregators(
     input: ListFindingAggregatorsRequest,
   ): Effect.Effect<
@@ -919,7 +1083,9 @@ export declare class SecurityHub extends AWSServiceClient {
     | InvalidInputException
     | LimitExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListFindingAggregators", input);
+  }
   listInvitations(
     input: ListInvitationsRequest,
   ): Effect.Effect<
@@ -929,7 +1095,9 @@ export declare class SecurityHub extends AWSServiceClient {
     | InvalidInputException
     | LimitExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListInvitations", input);
+  }
   listMembers(
     input: ListMembersRequest,
   ): Effect.Effect<
@@ -939,7 +1107,9 @@ export declare class SecurityHub extends AWSServiceClient {
     | InvalidInputException
     | LimitExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListMembers", input);
+  }
   listOrganizationAdminAccounts(
     input: ListOrganizationAdminAccountsRequest,
   ): Effect.Effect<
@@ -949,7 +1119,9 @@ export declare class SecurityHub extends AWSServiceClient {
     | InvalidInputException
     | LimitExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListOrganizationAdminAccounts", input);
+  }
   listSecurityControlDefinitions(
     input: ListSecurityControlDefinitionsRequest,
   ): Effect.Effect<
@@ -959,7 +1131,9 @@ export declare class SecurityHub extends AWSServiceClient {
     | InvalidInputException
     | LimitExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListSecurityControlDefinitions", input);
+  }
   listStandardsControlAssociations(
     input: ListStandardsControlAssociationsRequest,
   ): Effect.Effect<
@@ -969,7 +1143,9 @@ export declare class SecurityHub extends AWSServiceClient {
     | InvalidInputException
     | LimitExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListStandardsControlAssociations", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
@@ -978,7 +1154,9 @@ export declare class SecurityHub extends AWSServiceClient {
     | InvalidInputException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   startConfigurationPolicyAssociation(
     input: StartConfigurationPolicyAssociationRequest,
   ): Effect.Effect<
@@ -990,7 +1168,9 @@ export declare class SecurityHub extends AWSServiceClient {
     | LimitExceededException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartConfigurationPolicyAssociation", input);
+  }
   startConfigurationPolicyDisassociation(
     input: StartConfigurationPolicyDisassociationRequest,
   ): Effect.Effect<
@@ -1002,7 +1182,9 @@ export declare class SecurityHub extends AWSServiceClient {
     | LimitExceededException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartConfigurationPolicyDisassociation", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -1011,7 +1193,9 @@ export declare class SecurityHub extends AWSServiceClient {
     | InvalidInputException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
@@ -1020,7 +1204,9 @@ export declare class SecurityHub extends AWSServiceClient {
     | InvalidInputException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
   updateActionTarget(
     input: UpdateActionTargetRequest,
   ): Effect.Effect<
@@ -1030,7 +1216,9 @@ export declare class SecurityHub extends AWSServiceClient {
     | InvalidInputException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateActionTarget", input);
+  }
   updateAggregatorV2(
     input: UpdateAggregatorV2Request,
   ): Effect.Effect<
@@ -1042,7 +1230,9 @@ export declare class SecurityHub extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateAggregatorV2", input);
+  }
   updateAutomationRuleV2(
     input: UpdateAutomationRuleV2Request,
   ): Effect.Effect<
@@ -1054,7 +1244,9 @@ export declare class SecurityHub extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateAutomationRuleV2", input);
+  }
   updateConfigurationPolicy(
     input: UpdateConfigurationPolicyRequest,
   ): Effect.Effect<
@@ -1067,7 +1259,9 @@ export declare class SecurityHub extends AWSServiceClient {
     | ResourceConflictException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateConfigurationPolicy", input);
+  }
   updateConnectorV2(
     input: UpdateConnectorV2Request,
   ): Effect.Effect<
@@ -1079,7 +1273,9 @@ export declare class SecurityHub extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateConnectorV2", input);
+  }
   updateFindingAggregator(
     input: UpdateFindingAggregatorRequest,
   ): Effect.Effect<
@@ -1091,7 +1287,9 @@ export declare class SecurityHub extends AWSServiceClient {
     | LimitExceededException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateFindingAggregator", input);
+  }
   updateFindings(
     input: UpdateFindingsRequest,
   ): Effect.Effect<
@@ -1102,7 +1300,9 @@ export declare class SecurityHub extends AWSServiceClient {
     | LimitExceededException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateFindings", input);
+  }
   updateInsight(
     input: UpdateInsightRequest,
   ): Effect.Effect<
@@ -1113,7 +1313,9 @@ export declare class SecurityHub extends AWSServiceClient {
     | LimitExceededException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateInsight", input);
+  }
   updateOrganizationConfiguration(
     input: UpdateOrganizationConfigurationRequest,
   ): Effect.Effect<
@@ -1126,7 +1328,9 @@ export declare class SecurityHub extends AWSServiceClient {
     | ResourceConflictException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateOrganizationConfiguration", input);
+  }
   updateSecurityControl(
     input: UpdateSecurityControlRequest,
   ): Effect.Effect<
@@ -1139,7 +1343,9 @@ export declare class SecurityHub extends AWSServiceClient {
     | ResourceInUseException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateSecurityControl", input);
+  }
   updateSecurityHubConfiguration(
     input: UpdateSecurityHubConfigurationRequest,
   ): Effect.Effect<
@@ -1151,7 +1357,9 @@ export declare class SecurityHub extends AWSServiceClient {
     | LimitExceededException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateSecurityHubConfiguration", input);
+  }
   updateStandardsControl(
     input: UpdateStandardsControlRequest,
   ): Effect.Effect<
@@ -1162,10 +1370,14 @@ export declare class SecurityHub extends AWSServiceClient {
     | InvalidInputException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateStandardsControl", input);
+  }
 }
 
-export declare class Securityhub extends SecurityHub {}
+export class Securityhub extends SecurityHub {}
+
+export default SecurityHub;
 
 export interface AcceptAdministratorInvitationRequest {
   AdministratorId: string;

@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class KeyspacesStreams extends AWSServiceClient {
+export class KeyspacesStreams extends AWSServiceClient {
   getRecords(
     input: GetRecordsInput,
   ): Effect.Effect<
@@ -13,7 +13,9 @@ export declare class KeyspacesStreams extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetRecords", input);
+  }
   getShardIterator(
     input: GetShardIteratorInput,
   ): Effect.Effect<
@@ -24,7 +26,9 @@ export declare class KeyspacesStreams extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetShardIterator", input);
+  }
   getStream(
     input: GetStreamInput,
   ): Effect.Effect<
@@ -35,7 +39,9 @@ export declare class KeyspacesStreams extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetStream", input);
+  }
   listStreams(
     input: ListStreamsInput,
   ): Effect.Effect<
@@ -46,10 +52,14 @@ export declare class KeyspacesStreams extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListStreams", input);
+  }
 }
 
-export declare class Keyspacesstreams extends KeyspacesStreams {}
+export class Keyspacesstreams extends KeyspacesStreams {}
+
+export default KeyspacesStreams;
 
 export declare class AccessDeniedException extends EffectData.TaggedError(
   "AccessDeniedException",

@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class Support extends AWSServiceClient {
+export class Support extends AWSServiceClient {
   addAttachmentsToSet(
     input: AddAttachmentsToSetRequest,
   ): Effect.Effect<
@@ -13,7 +13,9 @@ export declare class Support extends AWSServiceClient {
     | AttachmentSetSizeLimitExceeded
     | InternalServerError
     | CommonAwsError
-  >;
+  > {
+    return this.call("AddAttachmentsToSet", input);
+  }
   addCommunicationToCase(
     input: AddCommunicationToCaseRequest,
   ): Effect.Effect<
@@ -23,7 +25,9 @@ export declare class Support extends AWSServiceClient {
     | CaseIdNotFound
     | InternalServerError
     | CommonAwsError
-  >;
+  > {
+    return this.call("AddCommunicationToCase", input);
+  }
   createCase(
     input: CreateCaseRequest,
   ): Effect.Effect<
@@ -33,7 +37,9 @@ export declare class Support extends AWSServiceClient {
     | CaseCreationLimitExceeded
     | InternalServerError
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateCase", input);
+  }
   describeAttachment(
     input: DescribeAttachmentRequest,
   ): Effect.Effect<
@@ -42,80 +48,108 @@ export declare class Support extends AWSServiceClient {
     | DescribeAttachmentLimitExceeded
     | InternalServerError
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeAttachment", input);
+  }
   describeCases(
     input: DescribeCasesRequest,
   ): Effect.Effect<
     DescribeCasesResponse,
     CaseIdNotFound | InternalServerError | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeCases", input);
+  }
   describeCommunications(
     input: DescribeCommunicationsRequest,
   ): Effect.Effect<
     DescribeCommunicationsResponse,
     CaseIdNotFound | InternalServerError | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeCommunications", input);
+  }
   describeCreateCaseOptions(
     input: DescribeCreateCaseOptionsRequest,
   ): Effect.Effect<
     DescribeCreateCaseOptionsResponse,
     InternalServerError | ThrottlingException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeCreateCaseOptions", input);
+  }
   describeServices(
     input: DescribeServicesRequest,
   ): Effect.Effect<
     DescribeServicesResponse,
     InternalServerError | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeServices", input);
+  }
   describeSeverityLevels(
     input: DescribeSeverityLevelsRequest,
   ): Effect.Effect<
     DescribeSeverityLevelsResponse,
     InternalServerError | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeSeverityLevels", input);
+  }
   describeSupportedLanguages(
     input: DescribeSupportedLanguagesRequest,
   ): Effect.Effect<
     DescribeSupportedLanguagesResponse,
     InternalServerError | ThrottlingException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeSupportedLanguages", input);
+  }
   describeTrustedAdvisorCheckRefreshStatuses(
     input: DescribeTrustedAdvisorCheckRefreshStatusesRequest,
   ): Effect.Effect<
     DescribeTrustedAdvisorCheckRefreshStatusesResponse,
     InternalServerError | ThrottlingException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeTrustedAdvisorCheckRefreshStatuses", input);
+  }
   describeTrustedAdvisorCheckResult(
     input: DescribeTrustedAdvisorCheckResultRequest,
   ): Effect.Effect<
     DescribeTrustedAdvisorCheckResultResponse,
     InternalServerError | ThrottlingException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeTrustedAdvisorCheckResult", input);
+  }
   describeTrustedAdvisorChecks(
     input: DescribeTrustedAdvisorChecksRequest,
   ): Effect.Effect<
     DescribeTrustedAdvisorChecksResponse,
     InternalServerError | ThrottlingException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeTrustedAdvisorChecks", input);
+  }
   describeTrustedAdvisorCheckSummaries(
     input: DescribeTrustedAdvisorCheckSummariesRequest,
   ): Effect.Effect<
     DescribeTrustedAdvisorCheckSummariesResponse,
     InternalServerError | ThrottlingException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeTrustedAdvisorCheckSummaries", input);
+  }
   refreshTrustedAdvisorCheck(
     input: RefreshTrustedAdvisorCheckRequest,
   ): Effect.Effect<
     RefreshTrustedAdvisorCheckResponse,
     InternalServerError | CommonAwsError
-  >;
+  > {
+    return this.call("RefreshTrustedAdvisorCheck", input);
+  }
   resolveCase(
     input: ResolveCaseRequest,
   ): Effect.Effect<
     ResolveCaseResponse,
     CaseIdNotFound | InternalServerError | CommonAwsError
-  >;
+  > {
+    return this.call("ResolveCase", input);
+  }
 }
+
+export default Support;
 
 export interface AddAttachmentsToSetRequest {
   attachmentSetId?: string;

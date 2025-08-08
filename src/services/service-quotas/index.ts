@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class ServiceQuotas extends AWSServiceClient {
+export class ServiceQuotas extends AWSServiceClient {
   associateServiceQuotaTemplate(
     input: AssociateServiceQuotaTemplateRequest,
   ): Effect.Effect<
@@ -16,7 +16,9 @@ export declare class ServiceQuotas extends AWSServiceClient {
     | TemplatesNotAvailableInRegionException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AssociateServiceQuotaTemplate", input);
+  }
   createSupportCase(
     input: CreateSupportCaseRequest,
   ): Effect.Effect<
@@ -30,7 +32,9 @@ export declare class ServiceQuotas extends AWSServiceClient {
     | ServiceException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateSupportCase", input);
+  }
   deleteServiceQuotaIncreaseRequestFromTemplate(
     input: DeleteServiceQuotaIncreaseRequestFromTemplateRequest,
   ): Effect.Effect<
@@ -45,7 +49,9 @@ export declare class ServiceQuotas extends AWSServiceClient {
     | TemplatesNotAvailableInRegionException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteServiceQuotaIncreaseRequestFromTemplate", input);
+  }
   disassociateServiceQuotaTemplate(
     input: DisassociateServiceQuotaTemplateRequest,
   ): Effect.Effect<
@@ -59,7 +65,9 @@ export declare class ServiceQuotas extends AWSServiceClient {
     | TemplatesNotAvailableInRegionException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DisassociateServiceQuotaTemplate", input);
+  }
   getAssociationForServiceQuotaTemplate(
     input: GetAssociationForServiceQuotaTemplateRequest,
   ): Effect.Effect<
@@ -73,7 +81,9 @@ export declare class ServiceQuotas extends AWSServiceClient {
     | TemplatesNotAvailableInRegionException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetAssociationForServiceQuotaTemplate", input);
+  }
   getAWSDefaultServiceQuota(
     input: GetAWSDefaultServiceQuotaRequest,
   ): Effect.Effect<
@@ -84,7 +94,9 @@ export declare class ServiceQuotas extends AWSServiceClient {
     | ServiceException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetAWSDefaultServiceQuota", input);
+  }
   getRequestedServiceQuotaChange(
     input: GetRequestedServiceQuotaChangeRequest,
   ): Effect.Effect<
@@ -95,7 +107,9 @@ export declare class ServiceQuotas extends AWSServiceClient {
     | ServiceException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetRequestedServiceQuotaChange", input);
+  }
   getServiceQuota(
     input: GetServiceQuotaRequest,
   ): Effect.Effect<
@@ -106,7 +120,9 @@ export declare class ServiceQuotas extends AWSServiceClient {
     | ServiceException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetServiceQuota", input);
+  }
   getServiceQuotaIncreaseRequestFromTemplate(
     input: GetServiceQuotaIncreaseRequestFromTemplateRequest,
   ): Effect.Effect<
@@ -121,7 +137,9 @@ export declare class ServiceQuotas extends AWSServiceClient {
     | TemplatesNotAvailableInRegionException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetServiceQuotaIncreaseRequestFromTemplate", input);
+  }
   listAWSDefaultServiceQuotas(
     input: ListAWSDefaultServiceQuotasRequest,
   ): Effect.Effect<
@@ -133,7 +151,9 @@ export declare class ServiceQuotas extends AWSServiceClient {
     | ServiceException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListAWSDefaultServiceQuotas", input);
+  }
   listRequestedServiceQuotaChangeHistory(
     input: ListRequestedServiceQuotaChangeHistoryRequest,
   ): Effect.Effect<
@@ -145,7 +165,9 @@ export declare class ServiceQuotas extends AWSServiceClient {
     | ServiceException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListRequestedServiceQuotaChangeHistory", input);
+  }
   listRequestedServiceQuotaChangeHistoryByQuota(
     input: ListRequestedServiceQuotaChangeHistoryByQuotaRequest,
   ): Effect.Effect<
@@ -157,7 +179,9 @@ export declare class ServiceQuotas extends AWSServiceClient {
     | ServiceException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListRequestedServiceQuotaChangeHistoryByQuota", input);
+  }
   listServiceQuotaIncreaseRequestsInTemplate(
     input: ListServiceQuotaIncreaseRequestsInTemplateRequest,
   ): Effect.Effect<
@@ -171,7 +195,9 @@ export declare class ServiceQuotas extends AWSServiceClient {
     | TemplatesNotAvailableInRegionException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListServiceQuotaIncreaseRequestsInTemplate", input);
+  }
   listServiceQuotas(
     input: ListServiceQuotasRequest,
   ): Effect.Effect<
@@ -183,7 +209,9 @@ export declare class ServiceQuotas extends AWSServiceClient {
     | ServiceException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListServiceQuotas", input);
+  }
   listServices(
     input: ListServicesRequest,
   ): Effect.Effect<
@@ -194,7 +222,9 @@ export declare class ServiceQuotas extends AWSServiceClient {
     | ServiceException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListServices", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
@@ -205,7 +235,9 @@ export declare class ServiceQuotas extends AWSServiceClient {
     | ServiceException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   putServiceQuotaIncreaseRequestIntoTemplate(
     input: PutServiceQuotaIncreaseRequestIntoTemplateRequest,
   ): Effect.Effect<
@@ -221,7 +253,9 @@ export declare class ServiceQuotas extends AWSServiceClient {
     | TemplatesNotAvailableInRegionException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutServiceQuotaIncreaseRequestIntoTemplate", input);
+  }
   requestServiceQuotaIncrease(
     input: RequestServiceQuotaIncreaseRequest,
   ): Effect.Effect<
@@ -236,7 +270,9 @@ export declare class ServiceQuotas extends AWSServiceClient {
     | ServiceException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("RequestServiceQuotaIncrease", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -249,7 +285,9 @@ export declare class ServiceQuotas extends AWSServiceClient {
     | TooManyRequestsException
     | TooManyTagsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
@@ -260,8 +298,12 @@ export declare class ServiceQuotas extends AWSServiceClient {
     | ServiceException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
 }
+
+export default ServiceQuotas;
 
 export declare class AccessDeniedException extends EffectData.TaggedError(
   "AccessDeniedException",

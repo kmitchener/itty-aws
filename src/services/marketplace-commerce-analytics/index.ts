@@ -2,20 +2,26 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class MarketplaceCommerceAnalytics extends AWSServiceClient {
+export class MarketplaceCommerceAnalytics extends AWSServiceClient {
   generateDataSet(
     input: GenerateDataSetRequest,
   ): Effect.Effect<
     GenerateDataSetResult,
     MarketplaceCommerceAnalyticsException | CommonAwsError
-  >;
+  > {
+    return this.call("GenerateDataSet", input);
+  }
   startSupportDataExport(
     input: StartSupportDataExportRequest,
   ): Effect.Effect<
     StartSupportDataExportResult,
     MarketplaceCommerceAnalyticsException | CommonAwsError
-  >;
+  > {
+    return this.call("StartSupportDataExport", input);
+  }
 }
+
+export default MarketplaceCommerceAnalytics;
 
 export type CustomerDefinedValues = Record<string, string>;
 export type DataSetPublicationDate = Date | string;

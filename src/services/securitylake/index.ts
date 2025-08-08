@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class SecurityLake extends AWSServiceClient {
+export class SecurityLake extends AWSServiceClient {
   createDataLakeExceptionSubscription(
     input: CreateDataLakeExceptionSubscriptionRequest,
   ): Effect.Effect<
@@ -14,7 +14,9 @@ export declare class SecurityLake extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateDataLakeExceptionSubscription", input);
+  }
   deleteDataLakeExceptionSubscription(
     input: DeleteDataLakeExceptionSubscriptionRequest,
   ): Effect.Effect<
@@ -26,7 +28,9 @@ export declare class SecurityLake extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteDataLakeExceptionSubscription", input);
+  }
   deregisterDataLakeDelegatedAdministrator(
     input: DeregisterDataLakeDelegatedAdministratorRequest,
   ): Effect.Effect<
@@ -38,7 +42,9 @@ export declare class SecurityLake extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeregisterDataLakeDelegatedAdministrator", input);
+  }
   getDataLakeExceptionSubscription(
     input: GetDataLakeExceptionSubscriptionRequest,
   ): Effect.Effect<
@@ -50,7 +56,9 @@ export declare class SecurityLake extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetDataLakeExceptionSubscription", input);
+  }
   listDataLakeExceptions(
     input: ListDataLakeExceptionsRequest,
   ): Effect.Effect<
@@ -62,7 +70,9 @@ export declare class SecurityLake extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListDataLakeExceptions", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
@@ -74,7 +84,9 @@ export declare class SecurityLake extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   registerDataLakeDelegatedAdministrator(
     input: RegisterDataLakeDelegatedAdministratorRequest,
   ): Effect.Effect<
@@ -86,7 +98,9 @@ export declare class SecurityLake extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("RegisterDataLakeDelegatedAdministrator", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -98,7 +112,9 @@ export declare class SecurityLake extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
@@ -110,7 +126,9 @@ export declare class SecurityLake extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
   updateDataLakeExceptionSubscription(
     input: UpdateDataLakeExceptionSubscriptionRequest,
   ): Effect.Effect<
@@ -122,10 +140,14 @@ export declare class SecurityLake extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateDataLakeExceptionSubscription", input);
+  }
 }
 
-export declare class Securitylake extends SecurityLake {}
+export class Securitylake extends SecurityLake {}
+
+export default SecurityLake;
 
 export declare class AccessDeniedException extends EffectData.TaggedError(
   "AccessDeniedException",

@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class tnb extends AWSServiceClient {
+export class tnb extends AWSServiceClient {
   cancelSolNetworkOperation(
     input: CancelSolNetworkOperationInput,
   ): Effect.Effect<
@@ -13,7 +13,9 @@ export declare class tnb extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CancelSolNetworkOperation", input);
+  }
   createSolFunctionPackage(
     input: CreateSolFunctionPackageInput,
   ): Effect.Effect<
@@ -24,7 +26,9 @@ export declare class tnb extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateSolFunctionPackage", input);
+  }
   createSolNetworkInstance(
     input: CreateSolNetworkInstanceInput,
   ): Effect.Effect<
@@ -36,7 +40,9 @@ export declare class tnb extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateSolNetworkInstance", input);
+  }
   createSolNetworkPackage(
     input: CreateSolNetworkPackageInput,
   ): Effect.Effect<
@@ -47,7 +53,9 @@ export declare class tnb extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateSolNetworkPackage", input);
+  }
   deleteSolFunctionPackage(
     input: DeleteSolFunctionPackageInput,
   ): Effect.Effect<
@@ -58,7 +66,9 @@ export declare class tnb extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteSolFunctionPackage", input);
+  }
   deleteSolNetworkInstance(
     input: DeleteSolNetworkInstanceInput,
   ): Effect.Effect<
@@ -69,7 +79,9 @@ export declare class tnb extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteSolNetworkInstance", input);
+  }
   deleteSolNetworkPackage(
     input: DeleteSolNetworkPackageInput,
   ): Effect.Effect<
@@ -80,7 +92,9 @@ export declare class tnb extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteSolNetworkPackage", input);
+  }
   getSolFunctionInstance(
     input: GetSolFunctionInstanceInput,
   ): Effect.Effect<
@@ -91,7 +105,9 @@ export declare class tnb extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetSolFunctionInstance", input);
+  }
   getSolFunctionPackage(
     input: GetSolFunctionPackageInput,
   ): Effect.Effect<
@@ -102,7 +118,9 @@ export declare class tnb extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetSolFunctionPackage", input);
+  }
   getSolFunctionPackageContent(
     input: GetSolFunctionPackageContentInput,
   ): Effect.Effect<
@@ -113,7 +131,9 @@ export declare class tnb extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetSolFunctionPackageContent", input);
+  }
   getSolFunctionPackageDescriptor(
     input: GetSolFunctionPackageDescriptorInput,
   ): Effect.Effect<
@@ -124,7 +144,9 @@ export declare class tnb extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetSolFunctionPackageDescriptor", input);
+  }
   getSolNetworkInstance(
     input: GetSolNetworkInstanceInput,
   ): Effect.Effect<
@@ -135,7 +157,9 @@ export declare class tnb extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetSolNetworkInstance", input);
+  }
   getSolNetworkOperation(
     input: GetSolNetworkOperationInput,
   ): Effect.Effect<
@@ -146,7 +170,9 @@ export declare class tnb extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetSolNetworkOperation", input);
+  }
   getSolNetworkPackage(
     input: GetSolNetworkPackageInput,
   ): Effect.Effect<
@@ -157,7 +183,9 @@ export declare class tnb extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetSolNetworkPackage", input);
+  }
   getSolNetworkPackageContent(
     input: GetSolNetworkPackageContentInput,
   ): Effect.Effect<
@@ -168,7 +196,9 @@ export declare class tnb extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetSolNetworkPackageContent", input);
+  }
   getSolNetworkPackageDescriptor(
     input: GetSolNetworkPackageDescriptorInput,
   ): Effect.Effect<
@@ -179,7 +209,9 @@ export declare class tnb extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetSolNetworkPackageDescriptor", input);
+  }
   instantiateSolNetworkInstance(
     input: InstantiateSolNetworkInstanceInput,
   ): Effect.Effect<
@@ -191,7 +223,9 @@ export declare class tnb extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("InstantiateSolNetworkInstance", input);
+  }
   listSolFunctionInstances(
     input: ListSolFunctionInstancesInput,
   ): Effect.Effect<
@@ -201,7 +235,9 @@ export declare class tnb extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListSolFunctionInstances", input);
+  }
   listSolFunctionPackages(
     input: ListSolFunctionPackagesInput,
   ): Effect.Effect<
@@ -211,7 +247,9 @@ export declare class tnb extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListSolFunctionPackages", input);
+  }
   listSolNetworkInstances(
     input: ListSolNetworkInstancesInput,
   ): Effect.Effect<
@@ -221,7 +259,9 @@ export declare class tnb extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListSolNetworkInstances", input);
+  }
   listSolNetworkOperations(
     input: ListSolNetworkOperationsInput,
   ): Effect.Effect<
@@ -231,7 +271,9 @@ export declare class tnb extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListSolNetworkOperations", input);
+  }
   listSolNetworkPackages(
     input: ListSolNetworkPackagesInput,
   ): Effect.Effect<
@@ -241,7 +283,9 @@ export declare class tnb extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListSolNetworkPackages", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceInput,
   ): Effect.Effect<
@@ -252,7 +296,9 @@ export declare class tnb extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   putSolFunctionPackageContent(
     input: PutSolFunctionPackageContentInput,
   ): Effect.Effect<
@@ -263,7 +309,9 @@ export declare class tnb extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutSolFunctionPackageContent", input);
+  }
   putSolNetworkPackageContent(
     input: PutSolNetworkPackageContentInput,
   ): Effect.Effect<
@@ -274,7 +322,9 @@ export declare class tnb extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutSolNetworkPackageContent", input);
+  }
   tagResource(
     input: TagResourceInput,
   ): Effect.Effect<
@@ -285,7 +335,9 @@ export declare class tnb extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   terminateSolNetworkInstance(
     input: TerminateSolNetworkInstanceInput,
   ): Effect.Effect<
@@ -297,7 +349,9 @@ export declare class tnb extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TerminateSolNetworkInstance", input);
+  }
   untagResource(
     input: UntagResourceInput,
   ): Effect.Effect<
@@ -308,7 +362,9 @@ export declare class tnb extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
   updateSolFunctionPackage(
     input: UpdateSolFunctionPackageInput,
   ): Effect.Effect<
@@ -319,7 +375,9 @@ export declare class tnb extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateSolFunctionPackage", input);
+  }
   updateSolNetworkInstance(
     input: UpdateSolNetworkInstanceInput,
   ): Effect.Effect<
@@ -331,7 +389,9 @@ export declare class tnb extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateSolNetworkInstance", input);
+  }
   updateSolNetworkPackage(
     input: UpdateSolNetworkPackageInput,
   ): Effect.Effect<
@@ -342,7 +402,9 @@ export declare class tnb extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateSolNetworkPackage", input);
+  }
   validateSolFunctionPackageContent(
     input: ValidateSolFunctionPackageContentInput,
   ): Effect.Effect<
@@ -353,7 +415,9 @@ export declare class tnb extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ValidateSolFunctionPackageContent", input);
+  }
   validateSolNetworkPackageContent(
     input: ValidateSolNetworkPackageContentInput,
   ): Effect.Effect<
@@ -364,10 +428,14 @@ export declare class tnb extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ValidateSolNetworkPackageContent", input);
+  }
 }
 
-export declare class Tnb extends tnb {}
+export class Tnb extends tnb {}
+
+export default tnb;
 
 export declare class AccessDeniedException extends EffectData.TaggedError(
   "AccessDeniedException",

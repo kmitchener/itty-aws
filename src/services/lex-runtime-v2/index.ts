@@ -4,7 +4,7 @@ import type { Buffer } from "node:buffer";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class LexRuntimeV2 extends AWSServiceClient {
+export class LexRuntimeV2 extends AWSServiceClient {
   deleteSession(
     input: DeleteSessionRequest,
   ): Effect.Effect<
@@ -16,7 +16,9 @@ export declare class LexRuntimeV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteSession", input);
+  }
   getSession(
     input: GetSessionRequest,
   ): Effect.Effect<
@@ -27,7 +29,9 @@ export declare class LexRuntimeV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetSession", input);
+  }
   putSession(
     input: PutSessionRequest,
   ): Effect.Effect<
@@ -41,7 +45,9 @@ export declare class LexRuntimeV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutSession", input);
+  }
   recognizeText(
     input: RecognizeTextRequest,
   ): Effect.Effect<
@@ -55,7 +61,9 @@ export declare class LexRuntimeV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("RecognizeText", input);
+  }
   recognizeUtterance(
     input: RecognizeUtteranceRequest,
   ): Effect.Effect<
@@ -69,7 +77,9 @@ export declare class LexRuntimeV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("RecognizeUtterance", input);
+  }
   startConversation(
     input: StartConversationRequest,
   ): Effect.Effect<
@@ -79,8 +89,12 @@ export declare class LexRuntimeV2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartConversation", input);
+  }
 }
+
+export default LexRuntimeV2;
 
 export declare class AccessDeniedException extends EffectData.TaggedError(
   "AccessDeniedException",

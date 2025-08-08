@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class CodePipeline extends AWSServiceClient {
+export class CodePipeline extends AWSServiceClient {
   acknowledgeJob(
     input: AcknowledgeJobInput,
   ): Effect.Effect<
@@ -11,7 +11,9 @@ export declare class CodePipeline extends AWSServiceClient {
     | JobNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AcknowledgeJob", input);
+  }
   acknowledgeThirdPartyJob(
     input: AcknowledgeThirdPartyJobInput,
   ): Effect.Effect<
@@ -21,7 +23,9 @@ export declare class CodePipeline extends AWSServiceClient {
     | JobNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AcknowledgeThirdPartyJob", input);
+  }
   createCustomActionType(
     input: CreateCustomActionTypeInput,
   ): Effect.Effect<
@@ -32,7 +36,9 @@ export declare class CodePipeline extends AWSServiceClient {
     | TooManyTagsException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateCustomActionType", input);
+  }
   createPipeline(
     input: CreatePipelineInput,
   ): Effect.Effect<
@@ -48,31 +54,41 @@ export declare class CodePipeline extends AWSServiceClient {
     | TooManyTagsException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreatePipeline", input);
+  }
   deleteCustomActionType(
     input: DeleteCustomActionTypeInput,
   ): Effect.Effect<
     {},
     ConcurrentModificationException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteCustomActionType", input);
+  }
   deletePipeline(
     input: DeletePipelineInput,
   ): Effect.Effect<
     {},
     ConcurrentModificationException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("DeletePipeline", input);
+  }
   deleteWebhook(
     input: DeleteWebhookInput,
   ): Effect.Effect<
     DeleteWebhookOutput,
     ConcurrentModificationException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteWebhook", input);
+  }
   deregisterWebhookWithThirdParty(
     input: DeregisterWebhookWithThirdPartyInput,
   ): Effect.Effect<
     DeregisterWebhookWithThirdPartyOutput,
     ValidationException | WebhookNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("DeregisterWebhookWithThirdParty", input);
+  }
   disableStageTransition(
     input: DisableStageTransitionInput,
   ): Effect.Effect<
@@ -81,7 +97,9 @@ export declare class CodePipeline extends AWSServiceClient {
     | StageNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DisableStageTransition", input);
+  }
   enableStageTransition(
     input: EnableStageTransitionInput,
   ): Effect.Effect<
@@ -90,19 +108,25 @@ export declare class CodePipeline extends AWSServiceClient {
     | StageNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("EnableStageTransition", input);
+  }
   getActionType(
     input: GetActionTypeInput,
   ): Effect.Effect<
     GetActionTypeOutput,
     ActionTypeNotFoundException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("GetActionType", input);
+  }
   getJobDetails(
     input: GetJobDetailsInput,
   ): Effect.Effect<
     GetJobDetailsOutput,
     JobNotFoundException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("GetJobDetails", input);
+  }
   getPipeline(
     input: GetPipelineInput,
   ): Effect.Effect<
@@ -111,7 +135,9 @@ export declare class CodePipeline extends AWSServiceClient {
     | PipelineVersionNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetPipeline", input);
+  }
   getPipelineExecution(
     input: GetPipelineExecutionInput,
   ): Effect.Effect<
@@ -120,13 +146,17 @@ export declare class CodePipeline extends AWSServiceClient {
     | PipelineNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetPipelineExecution", input);
+  }
   getPipelineState(
     input: GetPipelineStateInput,
   ): Effect.Effect<
     GetPipelineStateOutput,
     PipelineNotFoundException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("GetPipelineState", input);
+  }
   getThirdPartyJobDetails(
     input: GetThirdPartyJobDetailsInput,
   ): Effect.Effect<
@@ -136,7 +166,9 @@ export declare class CodePipeline extends AWSServiceClient {
     | JobNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetThirdPartyJobDetails", input);
+  }
   listActionExecutions(
     input: ListActionExecutionsInput,
   ): Effect.Effect<
@@ -146,13 +178,17 @@ export declare class CodePipeline extends AWSServiceClient {
     | PipelineNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListActionExecutions", input);
+  }
   listActionTypes(
     input: ListActionTypesInput,
   ): Effect.Effect<
     ListActionTypesOutput,
     InvalidNextTokenException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("ListActionTypes", input);
+  }
   listDeployActionExecutionTargets(
     input: ListDeployActionExecutionTargetsInput,
   ): Effect.Effect<
@@ -162,7 +198,9 @@ export declare class CodePipeline extends AWSServiceClient {
     | PipelineNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListDeployActionExecutionTargets", input);
+  }
   listPipelineExecutions(
     input: ListPipelineExecutionsInput,
   ): Effect.Effect<
@@ -171,13 +209,17 @@ export declare class CodePipeline extends AWSServiceClient {
     | PipelineNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListPipelineExecutions", input);
+  }
   listPipelines(
     input: ListPipelinesInput,
   ): Effect.Effect<
     ListPipelinesOutput,
     InvalidNextTokenException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("ListPipelines", input);
+  }
   listRuleExecutions(
     input: ListRuleExecutionsInput,
   ): Effect.Effect<
@@ -187,13 +229,17 @@ export declare class CodePipeline extends AWSServiceClient {
     | PipelineNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListRuleExecutions", input);
+  }
   listRuleTypes(
     input: ListRuleTypesInput,
   ): Effect.Effect<
     ListRuleTypesOutput,
     InvalidNextTokenException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("ListRuleTypes", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceInput,
   ): Effect.Effect<
@@ -203,13 +249,17 @@ export declare class CodePipeline extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   listWebhooks(
     input: ListWebhooksInput,
   ): Effect.Effect<
     ListWebhooksOutput,
     InvalidNextTokenException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("ListWebhooks", input);
+  }
   overrideStageCondition(
     input: OverrideStageConditionInput,
   ): Effect.Effect<
@@ -222,19 +272,25 @@ export declare class CodePipeline extends AWSServiceClient {
     | StageNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("OverrideStageCondition", input);
+  }
   pollForJobs(
     input: PollForJobsInput,
   ): Effect.Effect<
     PollForJobsOutput,
     ActionTypeNotFoundException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("PollForJobs", input);
+  }
   pollForThirdPartyJobs(
     input: PollForThirdPartyJobsInput,
   ): Effect.Effect<
     PollForThirdPartyJobsOutput,
     ActionTypeNotFoundException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("PollForThirdPartyJobs", input);
+  }
   putActionRevision(
     input: PutActionRevisionInput,
   ): Effect.Effect<
@@ -245,7 +301,9 @@ export declare class CodePipeline extends AWSServiceClient {
     | StageNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutActionRevision", input);
+  }
   putApprovalResult(
     input: PutApprovalResultInput,
   ): Effect.Effect<
@@ -257,7 +315,9 @@ export declare class CodePipeline extends AWSServiceClient {
     | StageNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutApprovalResult", input);
+  }
   putJobFailureResult(
     input: PutJobFailureResultInput,
   ): Effect.Effect<
@@ -266,7 +326,9 @@ export declare class CodePipeline extends AWSServiceClient {
     | JobNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutJobFailureResult", input);
+  }
   putJobSuccessResult(
     input: PutJobSuccessResultInput,
   ): Effect.Effect<
@@ -276,7 +338,9 @@ export declare class CodePipeline extends AWSServiceClient {
     | OutputVariablesSizeExceededException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutJobSuccessResult", input);
+  }
   putThirdPartyJobFailureResult(
     input: PutThirdPartyJobFailureResultInput,
   ): Effect.Effect<
@@ -286,7 +350,9 @@ export declare class CodePipeline extends AWSServiceClient {
     | JobNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutThirdPartyJobFailureResult", input);
+  }
   putThirdPartyJobSuccessResult(
     input: PutThirdPartyJobSuccessResultInput,
   ): Effect.Effect<
@@ -296,7 +362,9 @@ export declare class CodePipeline extends AWSServiceClient {
     | JobNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutThirdPartyJobSuccessResult", input);
+  }
   putWebhook(
     input: PutWebhookInput,
   ): Effect.Effect<
@@ -310,13 +378,17 @@ export declare class CodePipeline extends AWSServiceClient {
     | TooManyTagsException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutWebhook", input);
+  }
   registerWebhookWithThirdParty(
     input: RegisterWebhookWithThirdPartyInput,
   ): Effect.Effect<
     RegisterWebhookWithThirdPartyOutput,
     ValidationException | WebhookNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("RegisterWebhookWithThirdParty", input);
+  }
   retryStageExecution(
     input: RetryStageExecutionInput,
   ): Effect.Effect<
@@ -329,7 +401,9 @@ export declare class CodePipeline extends AWSServiceClient {
     | StageNotRetryableException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("RetryStageExecution", input);
+  }
   rollbackStage(
     input: RollbackStageInput,
   ): Effect.Effect<
@@ -342,7 +416,9 @@ export declare class CodePipeline extends AWSServiceClient {
     | UnableToRollbackStageException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("RollbackStage", input);
+  }
   startPipelineExecution(
     input: StartPipelineExecutionInput,
   ): Effect.Effect<
@@ -352,7 +428,9 @@ export declare class CodePipeline extends AWSServiceClient {
     | PipelineNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartPipelineExecution", input);
+  }
   stopPipelineExecution(
     input: StopPipelineExecutionInput,
   ): Effect.Effect<
@@ -363,7 +441,9 @@ export declare class CodePipeline extends AWSServiceClient {
     | PipelineNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StopPipelineExecution", input);
+  }
   tagResource(
     input: TagResourceInput,
   ): Effect.Effect<
@@ -375,7 +455,9 @@ export declare class CodePipeline extends AWSServiceClient {
     | TooManyTagsException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceInput,
   ): Effect.Effect<
@@ -386,7 +468,9 @@ export declare class CodePipeline extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
   updateActionType(
     input: UpdateActionTypeInput,
   ): Effect.Effect<
@@ -395,7 +479,9 @@ export declare class CodePipeline extends AWSServiceClient {
     | RequestFailedException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateActionType", input);
+  }
   updatePipeline(
     input: UpdatePipelineInput,
   ): Effect.Effect<
@@ -407,10 +493,14 @@ export declare class CodePipeline extends AWSServiceClient {
     | LimitExceededException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdatePipeline", input);
+  }
 }
 
-export declare class Codepipeline extends CodePipeline {}
+export class Codepipeline extends CodePipeline {}
+
+export default CodePipeline;
 
 export type AccessKeyId = string;
 

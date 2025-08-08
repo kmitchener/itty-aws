@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class CloudHSM extends AWSServiceClient {
+export class CloudHSM extends AWSServiceClient {
   addTagsToResource(
     input: AddTagsToResourceRequest,
   ): Effect.Effect<
@@ -11,7 +11,9 @@ export declare class CloudHSM extends AWSServiceClient {
     | CloudHsmServiceException
     | InvalidRequestException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AddTagsToResource", input);
+  }
   createHapg(
     input: CreateHapgRequest,
   ): Effect.Effect<
@@ -20,7 +22,9 @@ export declare class CloudHSM extends AWSServiceClient {
     | CloudHsmServiceException
     | InvalidRequestException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateHapg", input);
+  }
   createHsm(
     input: CreateHsmRequest,
   ): Effect.Effect<
@@ -29,7 +33,9 @@ export declare class CloudHSM extends AWSServiceClient {
     | CloudHsmServiceException
     | InvalidRequestException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateHsm", input);
+  }
   createLunaClient(
     input: CreateLunaClientRequest,
   ): Effect.Effect<
@@ -38,7 +44,9 @@ export declare class CloudHSM extends AWSServiceClient {
     | CloudHsmServiceException
     | InvalidRequestException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateLunaClient", input);
+  }
   deleteHapg(
     input: DeleteHapgRequest,
   ): Effect.Effect<
@@ -47,7 +55,9 @@ export declare class CloudHSM extends AWSServiceClient {
     | CloudHsmServiceException
     | InvalidRequestException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteHapg", input);
+  }
   deleteHsm(
     input: DeleteHsmRequest,
   ): Effect.Effect<
@@ -56,7 +66,9 @@ export declare class CloudHSM extends AWSServiceClient {
     | CloudHsmServiceException
     | InvalidRequestException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteHsm", input);
+  }
   deleteLunaClient(
     input: DeleteLunaClientRequest,
   ): Effect.Effect<
@@ -65,7 +77,9 @@ export declare class CloudHSM extends AWSServiceClient {
     | CloudHsmServiceException
     | InvalidRequestException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteLunaClient", input);
+  }
   describeHapg(
     input: DescribeHapgRequest,
   ): Effect.Effect<
@@ -74,7 +88,9 @@ export declare class CloudHSM extends AWSServiceClient {
     | CloudHsmServiceException
     | InvalidRequestException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeHapg", input);
+  }
   describeHsm(
     input: DescribeHsmRequest,
   ): Effect.Effect<
@@ -83,7 +99,9 @@ export declare class CloudHSM extends AWSServiceClient {
     | CloudHsmServiceException
     | InvalidRequestException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeHsm", input);
+  }
   describeLunaClient(
     input: DescribeLunaClientRequest,
   ): Effect.Effect<
@@ -92,7 +110,9 @@ export declare class CloudHSM extends AWSServiceClient {
     | CloudHsmServiceException
     | InvalidRequestException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeLunaClient", input);
+  }
   getConfig(
     input: GetConfigRequest,
   ): Effect.Effect<
@@ -101,7 +121,9 @@ export declare class CloudHSM extends AWSServiceClient {
     | CloudHsmServiceException
     | InvalidRequestException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetConfig", input);
+  }
   listAvailableZones(
     input: ListAvailableZonesRequest,
   ): Effect.Effect<
@@ -110,7 +132,9 @@ export declare class CloudHSM extends AWSServiceClient {
     | CloudHsmServiceException
     | InvalidRequestException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListAvailableZones", input);
+  }
   listHapgs(
     input: ListHapgsRequest,
   ): Effect.Effect<
@@ -119,7 +143,9 @@ export declare class CloudHSM extends AWSServiceClient {
     | CloudHsmServiceException
     | InvalidRequestException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListHapgs", input);
+  }
   listHsms(
     input: ListHsmsRequest,
   ): Effect.Effect<
@@ -128,7 +154,9 @@ export declare class CloudHSM extends AWSServiceClient {
     | CloudHsmServiceException
     | InvalidRequestException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListHsms", input);
+  }
   listLunaClients(
     input: ListLunaClientsRequest,
   ): Effect.Effect<
@@ -137,7 +165,9 @@ export declare class CloudHSM extends AWSServiceClient {
     | CloudHsmServiceException
     | InvalidRequestException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListLunaClients", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
@@ -146,7 +176,9 @@ export declare class CloudHSM extends AWSServiceClient {
     | CloudHsmServiceException
     | InvalidRequestException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   modifyHapg(
     input: ModifyHapgRequest,
   ): Effect.Effect<
@@ -155,7 +187,9 @@ export declare class CloudHSM extends AWSServiceClient {
     | CloudHsmServiceException
     | InvalidRequestException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ModifyHapg", input);
+  }
   modifyHsm(
     input: ModifyHsmRequest,
   ): Effect.Effect<
@@ -164,13 +198,17 @@ export declare class CloudHSM extends AWSServiceClient {
     | CloudHsmServiceException
     | InvalidRequestException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ModifyHsm", input);
+  }
   modifyLunaClient(
     input: ModifyLunaClientRequest,
   ): Effect.Effect<
     ModifyLunaClientResponse,
     CloudHsmServiceException | CommonAwsError
-  >;
+  > {
+    return this.call("ModifyLunaClient", input);
+  }
   removeTagsFromResource(
     input: RemoveTagsFromResourceRequest,
   ): Effect.Effect<
@@ -179,10 +217,14 @@ export declare class CloudHSM extends AWSServiceClient {
     | CloudHsmServiceException
     | InvalidRequestException
     | CommonAwsError
-  >;
+  > {
+    return this.call("RemoveTagsFromResource", input);
+  }
 }
 
-export declare class Cloudhsm extends CloudHSM {}
+export class Cloudhsm extends CloudHSM {}
+
+export default CloudHSM;
 
 export interface AddTagsToResourceRequest {
   ResourceArn: string;

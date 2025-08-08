@@ -4,7 +4,7 @@ import type { Buffer } from "node:buffer";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class APIGateway extends AWSServiceClient {
+export class APIGateway extends AWSServiceClient {
   createApiKey(
     input: CreateApiKeyRequest,
   ): Effect.Effect<
@@ -16,7 +16,9 @@ export declare class APIGateway extends AWSServiceClient {
     | TooManyRequestsException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateApiKey", input);
+  }
   createAuthorizer(
     input: CreateAuthorizerRequest,
   ): Effect.Effect<
@@ -28,7 +30,9 @@ export declare class APIGateway extends AWSServiceClient {
     | TooManyRequestsException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateAuthorizer", input);
+  }
   createBasePathMapping(
     input: CreateBasePathMappingRequest,
   ): Effect.Effect<
@@ -40,7 +44,9 @@ export declare class APIGateway extends AWSServiceClient {
     | TooManyRequestsException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateBasePathMapping", input);
+  }
   createDeployment(
     input: CreateDeploymentRequest,
   ): Effect.Effect<
@@ -53,7 +59,9 @@ export declare class APIGateway extends AWSServiceClient {
     | TooManyRequestsException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateDeployment", input);
+  }
   createDocumentationPart(
     input: CreateDocumentationPartRequest,
   ): Effect.Effect<
@@ -65,7 +73,9 @@ export declare class APIGateway extends AWSServiceClient {
     | TooManyRequestsException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateDocumentationPart", input);
+  }
   createDocumentationVersion(
     input: CreateDocumentationVersionRequest,
   ): Effect.Effect<
@@ -77,7 +87,9 @@ export declare class APIGateway extends AWSServiceClient {
     | TooManyRequestsException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateDocumentationVersion", input);
+  }
   createDomainName(
     input: CreateDomainNameRequest,
   ): Effect.Effect<
@@ -88,7 +100,9 @@ export declare class APIGateway extends AWSServiceClient {
     | TooManyRequestsException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateDomainName", input);
+  }
   createDomainNameAccessAssociation(
     input: CreateDomainNameAccessAssociationRequest,
   ): Effect.Effect<
@@ -99,7 +113,9 @@ export declare class APIGateway extends AWSServiceClient {
     | TooManyRequestsException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateDomainNameAccessAssociation", input);
+  }
   createModel(
     input: CreateModelRequest,
   ): Effect.Effect<
@@ -111,7 +127,9 @@ export declare class APIGateway extends AWSServiceClient {
     | TooManyRequestsException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateModel", input);
+  }
   createRequestValidator(
     input: CreateRequestValidatorRequest,
   ): Effect.Effect<
@@ -123,7 +141,9 @@ export declare class APIGateway extends AWSServiceClient {
     | TooManyRequestsException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateRequestValidator", input);
+  }
   createResource(
     input: CreateResourceRequest,
   ): Effect.Effect<
@@ -135,7 +155,9 @@ export declare class APIGateway extends AWSServiceClient {
     | TooManyRequestsException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateResource", input);
+  }
   createRestApi(
     input: CreateRestApiRequest,
   ): Effect.Effect<
@@ -146,7 +168,9 @@ export declare class APIGateway extends AWSServiceClient {
     | TooManyRequestsException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateRestApi", input);
+  }
   createStage(
     input: CreateStageRequest,
   ): Effect.Effect<
@@ -158,7 +182,9 @@ export declare class APIGateway extends AWSServiceClient {
     | TooManyRequestsException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateStage", input);
+  }
   createUsagePlan(
     input: CreateUsagePlanRequest,
   ): Effect.Effect<
@@ -170,7 +196,9 @@ export declare class APIGateway extends AWSServiceClient {
     | TooManyRequestsException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateUsagePlan", input);
+  }
   createUsagePlanKey(
     input: CreateUsagePlanKeyRequest,
   ): Effect.Effect<
@@ -182,7 +210,9 @@ export declare class APIGateway extends AWSServiceClient {
     | TooManyRequestsException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateUsagePlanKey", input);
+  }
   createVpcLink(
     input: CreateVpcLinkRequest,
   ): Effect.Effect<
@@ -193,7 +223,9 @@ export declare class APIGateway extends AWSServiceClient {
     | TooManyRequestsException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateVpcLink", input);
+  }
   deleteApiKey(
     input: DeleteApiKeyRequest,
   ): Effect.Effect<
@@ -204,7 +236,9 @@ export declare class APIGateway extends AWSServiceClient {
     | TooManyRequestsException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteApiKey", input);
+  }
   deleteAuthorizer(
     input: DeleteAuthorizerRequest,
   ): Effect.Effect<
@@ -215,7 +249,9 @@ export declare class APIGateway extends AWSServiceClient {
     | TooManyRequestsException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteAuthorizer", input);
+  }
   deleteBasePathMapping(
     input: DeleteBasePathMappingRequest,
   ): Effect.Effect<
@@ -226,7 +262,9 @@ export declare class APIGateway extends AWSServiceClient {
     | TooManyRequestsException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteBasePathMapping", input);
+  }
   deleteClientCertificate(
     input: DeleteClientCertificateRequest,
   ): Effect.Effect<
@@ -237,7 +275,9 @@ export declare class APIGateway extends AWSServiceClient {
     | TooManyRequestsException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteClientCertificate", input);
+  }
   deleteDeployment(
     input: DeleteDeploymentRequest,
   ): Effect.Effect<
@@ -249,7 +289,9 @@ export declare class APIGateway extends AWSServiceClient {
     | TooManyRequestsException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteDeployment", input);
+  }
   deleteDocumentationPart(
     input: DeleteDocumentationPartRequest,
   ): Effect.Effect<
@@ -260,7 +302,9 @@ export declare class APIGateway extends AWSServiceClient {
     | TooManyRequestsException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteDocumentationPart", input);
+  }
   deleteDocumentationVersion(
     input: DeleteDocumentationVersionRequest,
   ): Effect.Effect<
@@ -271,7 +315,9 @@ export declare class APIGateway extends AWSServiceClient {
     | TooManyRequestsException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteDocumentationVersion", input);
+  }
   deleteDomainName(
     input: DeleteDomainNameRequest,
   ): Effect.Effect<
@@ -282,7 +328,9 @@ export declare class APIGateway extends AWSServiceClient {
     | TooManyRequestsException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteDomainName", input);
+  }
   deleteDomainNameAccessAssociation(
     input: DeleteDomainNameAccessAssociationRequest,
   ): Effect.Effect<
@@ -293,7 +341,9 @@ export declare class APIGateway extends AWSServiceClient {
     | TooManyRequestsException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteDomainNameAccessAssociation", input);
+  }
   deleteGatewayResponse(
     input: DeleteGatewayResponseRequest,
   ): Effect.Effect<
@@ -304,7 +354,9 @@ export declare class APIGateway extends AWSServiceClient {
     | TooManyRequestsException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteGatewayResponse", input);
+  }
   deleteIntegration(
     input: DeleteIntegrationRequest,
   ): Effect.Effect<
@@ -315,7 +367,9 @@ export declare class APIGateway extends AWSServiceClient {
     | TooManyRequestsException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteIntegration", input);
+  }
   deleteIntegrationResponse(
     input: DeleteIntegrationResponseRequest,
   ): Effect.Effect<
@@ -326,7 +380,9 @@ export declare class APIGateway extends AWSServiceClient {
     | TooManyRequestsException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteIntegrationResponse", input);
+  }
   deleteMethod(
     input: DeleteMethodRequest,
   ): Effect.Effect<
@@ -336,7 +392,9 @@ export declare class APIGateway extends AWSServiceClient {
     | TooManyRequestsException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteMethod", input);
+  }
   deleteMethodResponse(
     input: DeleteMethodResponseRequest,
   ): Effect.Effect<
@@ -347,7 +405,9 @@ export declare class APIGateway extends AWSServiceClient {
     | TooManyRequestsException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteMethodResponse", input);
+  }
   deleteModel(
     input: DeleteModelRequest,
   ): Effect.Effect<
@@ -358,7 +418,9 @@ export declare class APIGateway extends AWSServiceClient {
     | TooManyRequestsException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteModel", input);
+  }
   deleteRequestValidator(
     input: DeleteRequestValidatorRequest,
   ): Effect.Effect<
@@ -369,7 +431,9 @@ export declare class APIGateway extends AWSServiceClient {
     | TooManyRequestsException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteRequestValidator", input);
+  }
   deleteResource(
     input: DeleteResourceRequest,
   ): Effect.Effect<
@@ -380,7 +444,9 @@ export declare class APIGateway extends AWSServiceClient {
     | TooManyRequestsException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteResource", input);
+  }
   deleteRestApi(
     input: DeleteRestApiRequest,
   ): Effect.Effect<
@@ -391,7 +457,9 @@ export declare class APIGateway extends AWSServiceClient {
     | TooManyRequestsException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteRestApi", input);
+  }
   deleteStage(
     input: DeleteStageRequest,
   ): Effect.Effect<
@@ -403,7 +471,9 @@ export declare class APIGateway extends AWSServiceClient {
     | TooManyRequestsException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteStage", input);
+  }
   deleteUsagePlan(
     input: DeleteUsagePlanRequest,
   ): Effect.Effect<
@@ -414,7 +484,9 @@ export declare class APIGateway extends AWSServiceClient {
     | TooManyRequestsException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteUsagePlan", input);
+  }
   deleteUsagePlanKey(
     input: DeleteUsagePlanKeyRequest,
   ): Effect.Effect<
@@ -425,7 +497,9 @@ export declare class APIGateway extends AWSServiceClient {
     | TooManyRequestsException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteUsagePlanKey", input);
+  }
   deleteVpcLink(
     input: DeleteVpcLinkRequest,
   ): Effect.Effect<
@@ -436,7 +510,9 @@ export declare class APIGateway extends AWSServiceClient {
     | TooManyRequestsException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteVpcLink", input);
+  }
   flushStageAuthorizersCache(
     input: FlushStageAuthorizersCacheRequest,
   ): Effect.Effect<
@@ -448,7 +524,9 @@ export declare class APIGateway extends AWSServiceClient {
     | TooManyRequestsException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("FlushStageAuthorizersCache", input);
+  }
   flushStageCache(
     input: FlushStageCacheRequest,
   ): Effect.Effect<
@@ -460,7 +538,9 @@ export declare class APIGateway extends AWSServiceClient {
     | TooManyRequestsException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("FlushStageCache", input);
+  }
   generateClientCertificate(
     input: GenerateClientCertificateRequest,
   ): Effect.Effect<
@@ -471,7 +551,9 @@ export declare class APIGateway extends AWSServiceClient {
     | TooManyRequestsException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GenerateClientCertificate", input);
+  }
   getAccount(
     input: GetAccountRequest,
   ): Effect.Effect<
@@ -481,7 +563,9 @@ export declare class APIGateway extends AWSServiceClient {
     | TooManyRequestsException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetAccount", input);
+  }
   getApiKey(
     input: GetApiKeyRequest,
   ): Effect.Effect<
@@ -491,7 +575,9 @@ export declare class APIGateway extends AWSServiceClient {
     | TooManyRequestsException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetApiKey", input);
+  }
   getApiKeys(
     input: GetApiKeysRequest,
   ): Effect.Effect<
@@ -501,7 +587,9 @@ export declare class APIGateway extends AWSServiceClient {
     | TooManyRequestsException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetApiKeys", input);
+  }
   getAuthorizer(
     input: GetAuthorizerRequest,
   ): Effect.Effect<
@@ -511,7 +599,9 @@ export declare class APIGateway extends AWSServiceClient {
     | TooManyRequestsException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetAuthorizer", input);
+  }
   getAuthorizers(
     input: GetAuthorizersRequest,
   ): Effect.Effect<
@@ -521,7 +611,9 @@ export declare class APIGateway extends AWSServiceClient {
     | TooManyRequestsException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetAuthorizers", input);
+  }
   getBasePathMapping(
     input: GetBasePathMappingRequest,
   ): Effect.Effect<
@@ -531,7 +623,9 @@ export declare class APIGateway extends AWSServiceClient {
     | TooManyRequestsException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetBasePathMapping", input);
+  }
   getBasePathMappings(
     input: GetBasePathMappingsRequest,
   ): Effect.Effect<
@@ -541,7 +635,9 @@ export declare class APIGateway extends AWSServiceClient {
     | TooManyRequestsException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetBasePathMappings", input);
+  }
   getClientCertificate(
     input: GetClientCertificateRequest,
   ): Effect.Effect<
@@ -551,7 +647,9 @@ export declare class APIGateway extends AWSServiceClient {
     | TooManyRequestsException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetClientCertificate", input);
+  }
   getClientCertificates(
     input: GetClientCertificatesRequest,
   ): Effect.Effect<
@@ -561,7 +659,9 @@ export declare class APIGateway extends AWSServiceClient {
     | TooManyRequestsException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetClientCertificates", input);
+  }
   getDeployment(
     input: GetDeploymentRequest,
   ): Effect.Effect<
@@ -572,7 +672,9 @@ export declare class APIGateway extends AWSServiceClient {
     | TooManyRequestsException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetDeployment", input);
+  }
   getDeployments(
     input: GetDeploymentsRequest,
   ): Effect.Effect<
@@ -583,7 +685,9 @@ export declare class APIGateway extends AWSServiceClient {
     | TooManyRequestsException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetDeployments", input);
+  }
   getDocumentationPart(
     input: GetDocumentationPartRequest,
   ): Effect.Effect<
@@ -593,7 +697,9 @@ export declare class APIGateway extends AWSServiceClient {
     | TooManyRequestsException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetDocumentationPart", input);
+  }
   getDocumentationParts(
     input: GetDocumentationPartsRequest,
   ): Effect.Effect<
@@ -603,7 +709,9 @@ export declare class APIGateway extends AWSServiceClient {
     | TooManyRequestsException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetDocumentationParts", input);
+  }
   getDocumentationVersion(
     input: GetDocumentationVersionRequest,
   ): Effect.Effect<
@@ -612,7 +720,9 @@ export declare class APIGateway extends AWSServiceClient {
     | TooManyRequestsException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetDocumentationVersion", input);
+  }
   getDocumentationVersions(
     input: GetDocumentationVersionsRequest,
   ): Effect.Effect<
@@ -622,7 +732,9 @@ export declare class APIGateway extends AWSServiceClient {
     | TooManyRequestsException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetDocumentationVersions", input);
+  }
   getDomainName(
     input: GetDomainNameRequest,
   ): Effect.Effect<
@@ -632,7 +744,9 @@ export declare class APIGateway extends AWSServiceClient {
     | TooManyRequestsException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetDomainName", input);
+  }
   getDomainNameAccessAssociations(
     input: GetDomainNameAccessAssociationsRequest,
   ): Effect.Effect<
@@ -642,7 +756,9 @@ export declare class APIGateway extends AWSServiceClient {
     | TooManyRequestsException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetDomainNameAccessAssociations", input);
+  }
   getDomainNames(
     input: GetDomainNamesRequest,
   ): Effect.Effect<
@@ -652,7 +768,9 @@ export declare class APIGateway extends AWSServiceClient {
     | TooManyRequestsException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetDomainNames", input);
+  }
   getExport(
     input: GetExportRequest,
   ): Effect.Effect<
@@ -664,7 +782,9 @@ export declare class APIGateway extends AWSServiceClient {
     | TooManyRequestsException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetExport", input);
+  }
   getGatewayResponse(
     input: GetGatewayResponseRequest,
   ): Effect.Effect<
@@ -674,7 +794,9 @@ export declare class APIGateway extends AWSServiceClient {
     | TooManyRequestsException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetGatewayResponse", input);
+  }
   getGatewayResponses(
     input: GetGatewayResponsesRequest,
   ): Effect.Effect<
@@ -684,7 +806,9 @@ export declare class APIGateway extends AWSServiceClient {
     | TooManyRequestsException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetGatewayResponses", input);
+  }
   getIntegration(
     input: GetIntegrationRequest,
   ): Effect.Effect<
@@ -694,7 +818,9 @@ export declare class APIGateway extends AWSServiceClient {
     | TooManyRequestsException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetIntegration", input);
+  }
   getIntegrationResponse(
     input: GetIntegrationResponseRequest,
   ): Effect.Effect<
@@ -704,7 +830,9 @@ export declare class APIGateway extends AWSServiceClient {
     | TooManyRequestsException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetIntegrationResponse", input);
+  }
   getMethod(
     input: GetMethodRequest,
   ): Effect.Effect<
@@ -713,7 +841,9 @@ export declare class APIGateway extends AWSServiceClient {
     | TooManyRequestsException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetMethod", input);
+  }
   getMethodResponse(
     input: GetMethodResponseRequest,
   ): Effect.Effect<
@@ -722,7 +852,9 @@ export declare class APIGateway extends AWSServiceClient {
     | TooManyRequestsException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetMethodResponse", input);
+  }
   getModel(
     input: GetModelRequest,
   ): Effect.Effect<
@@ -732,7 +864,9 @@ export declare class APIGateway extends AWSServiceClient {
     | TooManyRequestsException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetModel", input);
+  }
   getModels(
     input: GetModelsRequest,
   ): Effect.Effect<
@@ -742,7 +876,9 @@ export declare class APIGateway extends AWSServiceClient {
     | TooManyRequestsException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetModels", input);
+  }
   getModelTemplate(
     input: GetModelTemplateRequest,
   ): Effect.Effect<
@@ -752,7 +888,9 @@ export declare class APIGateway extends AWSServiceClient {
     | TooManyRequestsException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetModelTemplate", input);
+  }
   getRequestValidator(
     input: GetRequestValidatorRequest,
   ): Effect.Effect<
@@ -762,7 +900,9 @@ export declare class APIGateway extends AWSServiceClient {
     | TooManyRequestsException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetRequestValidator", input);
+  }
   getRequestValidators(
     input: GetRequestValidatorsRequest,
   ): Effect.Effect<
@@ -772,7 +912,9 @@ export declare class APIGateway extends AWSServiceClient {
     | TooManyRequestsException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetRequestValidators", input);
+  }
   getResource(
     input: GetResourceRequest,
   ): Effect.Effect<
@@ -781,7 +923,9 @@ export declare class APIGateway extends AWSServiceClient {
     | TooManyRequestsException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetResource", input);
+  }
   getResources(
     input: GetResourcesRequest,
   ): Effect.Effect<
@@ -791,7 +935,9 @@ export declare class APIGateway extends AWSServiceClient {
     | TooManyRequestsException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetResources", input);
+  }
   getRestApi(
     input: GetRestApiRequest,
   ): Effect.Effect<
@@ -801,7 +947,9 @@ export declare class APIGateway extends AWSServiceClient {
     | TooManyRequestsException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetRestApi", input);
+  }
   getRestApis(
     input: GetRestApisRequest,
   ): Effect.Effect<
@@ -811,7 +959,9 @@ export declare class APIGateway extends AWSServiceClient {
     | TooManyRequestsException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetRestApis", input);
+  }
   getSdk(
     input: GetSdkRequest,
   ): Effect.Effect<
@@ -823,7 +973,9 @@ export declare class APIGateway extends AWSServiceClient {
     | TooManyRequestsException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetSdk", input);
+  }
   getSdkType(
     input: GetSdkTypeRequest,
   ): Effect.Effect<
@@ -833,7 +985,9 @@ export declare class APIGateway extends AWSServiceClient {
     | TooManyRequestsException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetSdkType", input);
+  }
   getSdkTypes(
     input: GetSdkTypesRequest,
   ): Effect.Effect<
@@ -843,7 +997,9 @@ export declare class APIGateway extends AWSServiceClient {
     | TooManyRequestsException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetSdkTypes", input);
+  }
   getStage(
     input: GetStageRequest,
   ): Effect.Effect<
@@ -855,7 +1011,9 @@ export declare class APIGateway extends AWSServiceClient {
     | TooManyRequestsException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetStage", input);
+  }
   getStages(
     input: GetStagesRequest,
   ): Effect.Effect<
@@ -867,7 +1025,9 @@ export declare class APIGateway extends AWSServiceClient {
     | TooManyRequestsException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetStages", input);
+  }
   getTags(
     input: GetTagsRequest,
   ): Effect.Effect<
@@ -877,7 +1037,9 @@ export declare class APIGateway extends AWSServiceClient {
     | TooManyRequestsException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetTags", input);
+  }
   getUsage(
     input: GetUsageRequest,
   ): Effect.Effect<
@@ -887,7 +1049,9 @@ export declare class APIGateway extends AWSServiceClient {
     | TooManyRequestsException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetUsage", input);
+  }
   getUsagePlan(
     input: GetUsagePlanRequest,
   ): Effect.Effect<
@@ -897,7 +1061,9 @@ export declare class APIGateway extends AWSServiceClient {
     | TooManyRequestsException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetUsagePlan", input);
+  }
   getUsagePlanKey(
     input: GetUsagePlanKeyRequest,
   ): Effect.Effect<
@@ -907,7 +1073,9 @@ export declare class APIGateway extends AWSServiceClient {
     | TooManyRequestsException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetUsagePlanKey", input);
+  }
   getUsagePlanKeys(
     input: GetUsagePlanKeysRequest,
   ): Effect.Effect<
@@ -917,7 +1085,9 @@ export declare class APIGateway extends AWSServiceClient {
     | TooManyRequestsException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetUsagePlanKeys", input);
+  }
   getUsagePlans(
     input: GetUsagePlansRequest,
   ): Effect.Effect<
@@ -927,7 +1097,9 @@ export declare class APIGateway extends AWSServiceClient {
     | TooManyRequestsException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetUsagePlans", input);
+  }
   getVpcLink(
     input: GetVpcLinkRequest,
   ): Effect.Effect<
@@ -937,7 +1109,9 @@ export declare class APIGateway extends AWSServiceClient {
     | TooManyRequestsException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetVpcLink", input);
+  }
   getVpcLinks(
     input: GetVpcLinksRequest,
   ): Effect.Effect<
@@ -947,7 +1121,9 @@ export declare class APIGateway extends AWSServiceClient {
     | TooManyRequestsException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetVpcLinks", input);
+  }
   importApiKeys(
     input: ImportApiKeysRequest,
   ): Effect.Effect<
@@ -959,7 +1135,9 @@ export declare class APIGateway extends AWSServiceClient {
     | TooManyRequestsException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ImportApiKeys", input);
+  }
   importDocumentationParts(
     input: ImportDocumentationPartsRequest,
   ): Effect.Effect<
@@ -971,7 +1149,9 @@ export declare class APIGateway extends AWSServiceClient {
     | TooManyRequestsException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ImportDocumentationParts", input);
+  }
   importRestApi(
     input: ImportRestApiRequest,
   ): Effect.Effect<
@@ -983,7 +1163,9 @@ export declare class APIGateway extends AWSServiceClient {
     | TooManyRequestsException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ImportRestApi", input);
+  }
   putGatewayResponse(
     input: PutGatewayResponseRequest,
   ): Effect.Effect<
@@ -995,7 +1177,9 @@ export declare class APIGateway extends AWSServiceClient {
     | TooManyRequestsException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutGatewayResponse", input);
+  }
   putIntegration(
     input: PutIntegrationRequest,
   ): Effect.Effect<
@@ -1007,7 +1191,9 @@ export declare class APIGateway extends AWSServiceClient {
     | TooManyRequestsException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutIntegration", input);
+  }
   putIntegrationResponse(
     input: PutIntegrationResponseRequest,
   ): Effect.Effect<
@@ -1019,7 +1205,9 @@ export declare class APIGateway extends AWSServiceClient {
     | TooManyRequestsException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutIntegrationResponse", input);
+  }
   putMethod(
     input: PutMethodRequest,
   ): Effect.Effect<
@@ -1031,7 +1219,9 @@ export declare class APIGateway extends AWSServiceClient {
     | TooManyRequestsException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutMethod", input);
+  }
   putMethodResponse(
     input: PutMethodResponseRequest,
   ): Effect.Effect<
@@ -1043,7 +1233,9 @@ export declare class APIGateway extends AWSServiceClient {
     | TooManyRequestsException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutMethodResponse", input);
+  }
   putRestApi(
     input: PutRestApiRequest,
   ): Effect.Effect<
@@ -1055,7 +1247,9 @@ export declare class APIGateway extends AWSServiceClient {
     | TooManyRequestsException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutRestApi", input);
+  }
   rejectDomainNameAccessAssociation(
     input: RejectDomainNameAccessAssociationRequest,
   ): Effect.Effect<
@@ -1066,7 +1260,9 @@ export declare class APIGateway extends AWSServiceClient {
     | TooManyRequestsException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("RejectDomainNameAccessAssociation", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -1078,7 +1274,9 @@ export declare class APIGateway extends AWSServiceClient {
     | TooManyRequestsException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   testInvokeAuthorizer(
     input: TestInvokeAuthorizerRequest,
   ): Effect.Effect<
@@ -1088,7 +1286,9 @@ export declare class APIGateway extends AWSServiceClient {
     | TooManyRequestsException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TestInvokeAuthorizer", input);
+  }
   testInvokeMethod(
     input: TestInvokeMethodRequest,
   ): Effect.Effect<
@@ -1098,7 +1298,9 @@ export declare class APIGateway extends AWSServiceClient {
     | TooManyRequestsException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TestInvokeMethod", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
@@ -1110,7 +1312,9 @@ export declare class APIGateway extends AWSServiceClient {
     | TooManyRequestsException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
   updateAccount(
     input: UpdateAccountRequest,
   ): Effect.Effect<
@@ -1122,7 +1326,9 @@ export declare class APIGateway extends AWSServiceClient {
     | TooManyRequestsException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateAccount", input);
+  }
   updateApiKey(
     input: UpdateApiKeyRequest,
   ): Effect.Effect<
@@ -1134,7 +1340,9 @@ export declare class APIGateway extends AWSServiceClient {
     | TooManyRequestsException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateApiKey", input);
+  }
   updateAuthorizer(
     input: UpdateAuthorizerRequest,
   ): Effect.Effect<
@@ -1146,7 +1354,9 @@ export declare class APIGateway extends AWSServiceClient {
     | TooManyRequestsException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateAuthorizer", input);
+  }
   updateBasePathMapping(
     input: UpdateBasePathMappingRequest,
   ): Effect.Effect<
@@ -1158,7 +1368,9 @@ export declare class APIGateway extends AWSServiceClient {
     | TooManyRequestsException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateBasePathMapping", input);
+  }
   updateClientCertificate(
     input: UpdateClientCertificateRequest,
   ): Effect.Effect<
@@ -1170,7 +1382,9 @@ export declare class APIGateway extends AWSServiceClient {
     | TooManyRequestsException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateClientCertificate", input);
+  }
   updateDeployment(
     input: UpdateDeploymentRequest,
   ): Effect.Effect<
@@ -1183,7 +1397,9 @@ export declare class APIGateway extends AWSServiceClient {
     | TooManyRequestsException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateDeployment", input);
+  }
   updateDocumentationPart(
     input: UpdateDocumentationPartRequest,
   ): Effect.Effect<
@@ -1195,7 +1411,9 @@ export declare class APIGateway extends AWSServiceClient {
     | TooManyRequestsException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateDocumentationPart", input);
+  }
   updateDocumentationVersion(
     input: UpdateDocumentationVersionRequest,
   ): Effect.Effect<
@@ -1207,7 +1425,9 @@ export declare class APIGateway extends AWSServiceClient {
     | TooManyRequestsException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateDocumentationVersion", input);
+  }
   updateDomainName(
     input: UpdateDomainNameRequest,
   ): Effect.Effect<
@@ -1219,7 +1439,9 @@ export declare class APIGateway extends AWSServiceClient {
     | TooManyRequestsException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateDomainName", input);
+  }
   updateGatewayResponse(
     input: UpdateGatewayResponseRequest,
   ): Effect.Effect<
@@ -1231,7 +1453,9 @@ export declare class APIGateway extends AWSServiceClient {
     | TooManyRequestsException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateGatewayResponse", input);
+  }
   updateIntegration(
     input: UpdateIntegrationRequest,
   ): Effect.Effect<
@@ -1243,7 +1467,9 @@ export declare class APIGateway extends AWSServiceClient {
     | TooManyRequestsException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateIntegration", input);
+  }
   updateIntegrationResponse(
     input: UpdateIntegrationResponseRequest,
   ): Effect.Effect<
@@ -1255,7 +1481,9 @@ export declare class APIGateway extends AWSServiceClient {
     | TooManyRequestsException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateIntegrationResponse", input);
+  }
   updateMethod(
     input: UpdateMethodRequest,
   ): Effect.Effect<
@@ -1266,7 +1494,9 @@ export declare class APIGateway extends AWSServiceClient {
     | TooManyRequestsException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateMethod", input);
+  }
   updateMethodResponse(
     input: UpdateMethodResponseRequest,
   ): Effect.Effect<
@@ -1278,7 +1508,9 @@ export declare class APIGateway extends AWSServiceClient {
     | TooManyRequestsException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateMethodResponse", input);
+  }
   updateModel(
     input: UpdateModelRequest,
   ): Effect.Effect<
@@ -1290,7 +1522,9 @@ export declare class APIGateway extends AWSServiceClient {
     | TooManyRequestsException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateModel", input);
+  }
   updateRequestValidator(
     input: UpdateRequestValidatorRequest,
   ): Effect.Effect<
@@ -1302,7 +1536,9 @@ export declare class APIGateway extends AWSServiceClient {
     | TooManyRequestsException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateRequestValidator", input);
+  }
   updateResource(
     input: UpdateResourceRequest,
   ): Effect.Effect<
@@ -1313,7 +1549,9 @@ export declare class APIGateway extends AWSServiceClient {
     | TooManyRequestsException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateResource", input);
+  }
   updateRestApi(
     input: UpdateRestApiRequest,
   ): Effect.Effect<
@@ -1325,7 +1563,9 @@ export declare class APIGateway extends AWSServiceClient {
     | TooManyRequestsException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateRestApi", input);
+  }
   updateStage(
     input: UpdateStageRequest,
   ): Effect.Effect<
@@ -1337,7 +1577,9 @@ export declare class APIGateway extends AWSServiceClient {
     | TooManyRequestsException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateStage", input);
+  }
   updateUsage(
     input: UpdateUsageRequest,
   ): Effect.Effect<
@@ -1349,7 +1591,9 @@ export declare class APIGateway extends AWSServiceClient {
     | TooManyRequestsException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateUsage", input);
+  }
   updateUsagePlan(
     input: UpdateUsagePlanRequest,
   ): Effect.Effect<
@@ -1361,7 +1605,9 @@ export declare class APIGateway extends AWSServiceClient {
     | TooManyRequestsException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateUsagePlan", input);
+  }
   updateVpcLink(
     input: UpdateVpcLinkRequest,
   ): Effect.Effect<
@@ -1373,10 +1619,14 @@ export declare class APIGateway extends AWSServiceClient {
     | TooManyRequestsException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateVpcLink", input);
+  }
 }
 
-export declare class ApiGateway extends APIGateway {}
+export class ApiGateway extends APIGateway {}
+
+export default APIGateway;
 
 export type AccessAssociationSourceType = "VPCE";
 export interface AccessLogSettings {

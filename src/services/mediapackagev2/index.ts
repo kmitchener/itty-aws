@@ -2,22 +2,30 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class MediaPackageV2 extends AWSServiceClient {
+export class MediaPackageV2 extends AWSServiceClient {
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
     ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   tagResource(
     input: TagResourceRequest,
-  ): Effect.Effect<{}, ValidationException | CommonAwsError>;
+  ): Effect.Effect<{}, ValidationException | CommonAwsError> {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceRequest,
-  ): Effect.Effect<{}, ValidationException | CommonAwsError>;
+  ): Effect.Effect<{}, ValidationException | CommonAwsError> {
+    return this.call("UntagResource", input);
+  }
 }
 
-export declare class Mediapackagev2 extends MediaPackageV2 {}
+export class Mediapackagev2 extends MediaPackageV2 {}
+
+export default MediaPackageV2;
 
 export declare class AccessDeniedException extends EffectData.TaggedError(
   "AccessDeniedException",

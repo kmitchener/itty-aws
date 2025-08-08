@@ -2,19 +2,23 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class mgn extends AWSServiceClient {
+export class mgn extends AWSServiceClient {
   initializeService(
     input: InitializeServiceRequest,
   ): Effect.Effect<
     InitializeServiceResponse,
     AccessDeniedException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("InitializeService", input);
+  }
   listManagedAccounts(
     input: ListManagedAccountsRequest,
   ): Effect.Effect<
     ListManagedAccountsResponse,
     UninitializedAccountException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("ListManagedAccounts", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
@@ -25,7 +29,9 @@ export declare class mgn extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -36,7 +42,9 @@ export declare class mgn extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
@@ -47,10 +55,14 @@ export declare class mgn extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
 }
 
-export declare class Mgn extends mgn {}
+export class Mgn extends mgn {}
+
+export default mgn;
 
 export declare class AccessDeniedException extends EffectData.TaggedError(
   "AccessDeniedException",

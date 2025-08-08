@@ -2,242 +2,330 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class SageMaker extends AWSServiceClient {
+export class SageMaker extends AWSServiceClient {
   addAssociation(
     input: AddAssociationRequest,
   ): Effect.Effect<
     AddAssociationResponse,
     ResourceLimitExceeded | ResourceNotFound | CommonAwsError
-  >;
-  addTags(input: AddTagsInput): Effect.Effect<AddTagsOutput, CommonAwsError>;
+  > {
+    return this.call("AddAssociation", input);
+  }
+  addTags(input: AddTagsInput): Effect.Effect<AddTagsOutput, CommonAwsError> {
+    return this.call("AddTags", input);
+  }
   associateTrialComponent(
     input: AssociateTrialComponentRequest,
   ): Effect.Effect<
     AssociateTrialComponentResponse,
     ResourceLimitExceeded | ResourceNotFound | CommonAwsError
-  >;
+  > {
+    return this.call("AssociateTrialComponent", input);
+  }
   batchDeleteClusterNodes(
     input: BatchDeleteClusterNodesRequest,
   ): Effect.Effect<
     BatchDeleteClusterNodesResponse,
     ResourceNotFound | CommonAwsError
-  >;
+  > {
+    return this.call("BatchDeleteClusterNodes", input);
+  }
   batchDescribeModelPackage(
     input: BatchDescribeModelPackageInput,
-  ): Effect.Effect<BatchDescribeModelPackageOutput, CommonAwsError>;
+  ): Effect.Effect<BatchDescribeModelPackageOutput, CommonAwsError> {
+    return this.call("BatchDescribeModelPackage", input);
+  }
   createAction(
     input: CreateActionRequest,
   ): Effect.Effect<
     CreateActionResponse,
     ResourceLimitExceeded | CommonAwsError
-  >;
+  > {
+    return this.call("CreateAction", input);
+  }
   createAlgorithm(
     input: CreateAlgorithmInput,
-  ): Effect.Effect<CreateAlgorithmOutput, CommonAwsError>;
+  ): Effect.Effect<CreateAlgorithmOutput, CommonAwsError> {
+    return this.call("CreateAlgorithm", input);
+  }
   createApp(
     input: CreateAppRequest,
   ): Effect.Effect<
     CreateAppResponse,
     ResourceInUse | ResourceLimitExceeded | CommonAwsError
-  >;
+  > {
+    return this.call("CreateApp", input);
+  }
   createAppImageConfig(
     input: CreateAppImageConfigRequest,
   ): Effect.Effect<
     CreateAppImageConfigResponse,
     ResourceInUse | CommonAwsError
-  >;
+  > {
+    return this.call("CreateAppImageConfig", input);
+  }
   createArtifact(
     input: CreateArtifactRequest,
   ): Effect.Effect<
     CreateArtifactResponse,
     ResourceLimitExceeded | CommonAwsError
-  >;
+  > {
+    return this.call("CreateArtifact", input);
+  }
   createAutoMLJob(
     input: CreateAutoMLJobRequest,
   ): Effect.Effect<
     CreateAutoMLJobResponse,
     ResourceInUse | ResourceLimitExceeded | CommonAwsError
-  >;
+  > {
+    return this.call("CreateAutoMLJob", input);
+  }
   createAutoMLJobV2(
     input: CreateAutoMLJobV2Request,
   ): Effect.Effect<
     CreateAutoMLJobV2Response,
     ResourceInUse | ResourceLimitExceeded | CommonAwsError
-  >;
+  > {
+    return this.call("CreateAutoMLJobV2", input);
+  }
   createCluster(
     input: CreateClusterRequest,
   ): Effect.Effect<
     CreateClusterResponse,
     ResourceInUse | ResourceLimitExceeded | CommonAwsError
-  >;
+  > {
+    return this.call("CreateCluster", input);
+  }
   createClusterSchedulerConfig(
     input: CreateClusterSchedulerConfigRequest,
   ): Effect.Effect<
     CreateClusterSchedulerConfigResponse,
     ConflictException | ResourceLimitExceeded | CommonAwsError
-  >;
+  > {
+    return this.call("CreateClusterSchedulerConfig", input);
+  }
   createCodeRepository(
     input: CreateCodeRepositoryInput,
-  ): Effect.Effect<CreateCodeRepositoryOutput, CommonAwsError>;
+  ): Effect.Effect<CreateCodeRepositoryOutput, CommonAwsError> {
+    return this.call("CreateCodeRepository", input);
+  }
   createCompilationJob(
     input: CreateCompilationJobRequest,
   ): Effect.Effect<
     CreateCompilationJobResponse,
     ResourceInUse | ResourceLimitExceeded | CommonAwsError
-  >;
+  > {
+    return this.call("CreateCompilationJob", input);
+  }
   createComputeQuota(
     input: CreateComputeQuotaRequest,
   ): Effect.Effect<
     CreateComputeQuotaResponse,
     ConflictException | ResourceLimitExceeded | CommonAwsError
-  >;
+  > {
+    return this.call("CreateComputeQuota", input);
+  }
   createContext(
     input: CreateContextRequest,
   ): Effect.Effect<
     CreateContextResponse,
     ResourceLimitExceeded | CommonAwsError
-  >;
+  > {
+    return this.call("CreateContext", input);
+  }
   createDataQualityJobDefinition(
     input: CreateDataQualityJobDefinitionRequest,
   ): Effect.Effect<
     CreateDataQualityJobDefinitionResponse,
     ResourceInUse | ResourceLimitExceeded | CommonAwsError
-  >;
+  > {
+    return this.call("CreateDataQualityJobDefinition", input);
+  }
   createDeviceFleet(
     input: CreateDeviceFleetRequest,
-  ): Effect.Effect<{}, ResourceInUse | ResourceLimitExceeded | CommonAwsError>;
+  ): Effect.Effect<{}, ResourceInUse | ResourceLimitExceeded | CommonAwsError> {
+    return this.call("CreateDeviceFleet", input);
+  }
   createDomain(
     input: CreateDomainRequest,
   ): Effect.Effect<
     CreateDomainResponse,
     ResourceInUse | ResourceLimitExceeded | CommonAwsError
-  >;
+  > {
+    return this.call("CreateDomain", input);
+  }
   createEdgeDeploymentPlan(
     input: CreateEdgeDeploymentPlanRequest,
   ): Effect.Effect<
     CreateEdgeDeploymentPlanResponse,
     ResourceLimitExceeded | CommonAwsError
-  >;
+  > {
+    return this.call("CreateEdgeDeploymentPlan", input);
+  }
   createEdgeDeploymentStage(
     input: CreateEdgeDeploymentStageRequest,
-  ): Effect.Effect<{}, ResourceLimitExceeded | CommonAwsError>;
+  ): Effect.Effect<{}, ResourceLimitExceeded | CommonAwsError> {
+    return this.call("CreateEdgeDeploymentStage", input);
+  }
   createEdgePackagingJob(
     input: CreateEdgePackagingJobRequest,
-  ): Effect.Effect<{}, ResourceLimitExceeded | CommonAwsError>;
+  ): Effect.Effect<{}, ResourceLimitExceeded | CommonAwsError> {
+    return this.call("CreateEdgePackagingJob", input);
+  }
   createEndpoint(
     input: CreateEndpointInput,
   ): Effect.Effect<
     CreateEndpointOutput,
     ResourceLimitExceeded | CommonAwsError
-  >;
+  > {
+    return this.call("CreateEndpoint", input);
+  }
   createEndpointConfig(
     input: CreateEndpointConfigInput,
   ): Effect.Effect<
     CreateEndpointConfigOutput,
     ResourceLimitExceeded | CommonAwsError
-  >;
+  > {
+    return this.call("CreateEndpointConfig", input);
+  }
   createExperiment(
     input: CreateExperimentRequest,
   ): Effect.Effect<
     CreateExperimentResponse,
     ResourceLimitExceeded | CommonAwsError
-  >;
+  > {
+    return this.call("CreateExperiment", input);
+  }
   createFeatureGroup(
     input: CreateFeatureGroupRequest,
   ): Effect.Effect<
     CreateFeatureGroupResponse,
     ResourceInUse | ResourceLimitExceeded | CommonAwsError
-  >;
+  > {
+    return this.call("CreateFeatureGroup", input);
+  }
   createFlowDefinition(
     input: CreateFlowDefinitionRequest,
   ): Effect.Effect<
     CreateFlowDefinitionResponse,
     ResourceInUse | ResourceLimitExceeded | CommonAwsError
-  >;
+  > {
+    return this.call("CreateFlowDefinition", input);
+  }
   createHub(
     input: CreateHubRequest,
   ): Effect.Effect<
     CreateHubResponse,
     ResourceInUse | ResourceLimitExceeded | CommonAwsError
-  >;
+  > {
+    return this.call("CreateHub", input);
+  }
   createHubContentPresignedUrls(
     input: CreateHubContentPresignedUrlsRequest,
-  ): Effect.Effect<CreateHubContentPresignedUrlsResponse, CommonAwsError>;
+  ): Effect.Effect<CreateHubContentPresignedUrlsResponse, CommonAwsError> {
+    return this.call("CreateHubContentPresignedUrls", input);
+  }
   createHubContentReference(
     input: CreateHubContentReferenceRequest,
   ): Effect.Effect<
     CreateHubContentReferenceResponse,
     ResourceInUse | ResourceLimitExceeded | ResourceNotFound | CommonAwsError
-  >;
+  > {
+    return this.call("CreateHubContentReference", input);
+  }
   createHumanTaskUi(
     input: CreateHumanTaskUiRequest,
   ): Effect.Effect<
     CreateHumanTaskUiResponse,
     ResourceInUse | ResourceLimitExceeded | CommonAwsError
-  >;
+  > {
+    return this.call("CreateHumanTaskUi", input);
+  }
   createHyperParameterTuningJob(
     input: CreateHyperParameterTuningJobRequest,
   ): Effect.Effect<
     CreateHyperParameterTuningJobResponse,
     ResourceInUse | ResourceLimitExceeded | CommonAwsError
-  >;
+  > {
+    return this.call("CreateHyperParameterTuningJob", input);
+  }
   createImage(
     input: CreateImageRequest,
   ): Effect.Effect<
     CreateImageResponse,
     ResourceInUse | ResourceLimitExceeded | CommonAwsError
-  >;
+  > {
+    return this.call("CreateImage", input);
+  }
   createImageVersion(
     input: CreateImageVersionRequest,
   ): Effect.Effect<
     CreateImageVersionResponse,
     ResourceInUse | ResourceLimitExceeded | ResourceNotFound | CommonAwsError
-  >;
+  > {
+    return this.call("CreateImageVersion", input);
+  }
   createInferenceComponent(
     input: CreateInferenceComponentInput,
   ): Effect.Effect<
     CreateInferenceComponentOutput,
     ResourceLimitExceeded | CommonAwsError
-  >;
+  > {
+    return this.call("CreateInferenceComponent", input);
+  }
   createInferenceExperiment(
     input: CreateInferenceExperimentRequest,
   ): Effect.Effect<
     CreateInferenceExperimentResponse,
     ResourceInUse | ResourceLimitExceeded | CommonAwsError
-  >;
+  > {
+    return this.call("CreateInferenceExperiment", input);
+  }
   createInferenceRecommendationsJob(
     input: CreateInferenceRecommendationsJobRequest,
   ): Effect.Effect<
     CreateInferenceRecommendationsJobResponse,
     ResourceInUse | ResourceLimitExceeded | CommonAwsError
-  >;
+  > {
+    return this.call("CreateInferenceRecommendationsJob", input);
+  }
   createLabelingJob(
     input: CreateLabelingJobRequest,
   ): Effect.Effect<
     CreateLabelingJobResponse,
     ResourceInUse | ResourceLimitExceeded | CommonAwsError
-  >;
+  > {
+    return this.call("CreateLabelingJob", input);
+  }
   createMlflowTrackingServer(
     input: CreateMlflowTrackingServerRequest,
   ): Effect.Effect<
     CreateMlflowTrackingServerResponse,
     ResourceLimitExceeded | CommonAwsError
-  >;
+  > {
+    return this.call("CreateMlflowTrackingServer", input);
+  }
   createModel(
     input: CreateModelInput,
-  ): Effect.Effect<CreateModelOutput, ResourceLimitExceeded | CommonAwsError>;
+  ): Effect.Effect<CreateModelOutput, ResourceLimitExceeded | CommonAwsError> {
+    return this.call("CreateModel", input);
+  }
   createModelBiasJobDefinition(
     input: CreateModelBiasJobDefinitionRequest,
   ): Effect.Effect<
     CreateModelBiasJobDefinitionResponse,
     ResourceInUse | ResourceLimitExceeded | CommonAwsError
-  >;
+  > {
+    return this.call("CreateModelBiasJobDefinition", input);
+  }
   createModelCard(
     input: CreateModelCardRequest,
   ): Effect.Effect<
     CreateModelCardResponse,
     ConflictException | ResourceLimitExceeded | CommonAwsError
-  >;
+  > {
+    return this.call("CreateModelCard", input);
+  }
   createModelCardExportJob(
     input: CreateModelCardExportJobRequest,
   ): Effect.Effect<
@@ -246,67 +334,89 @@ export declare class SageMaker extends AWSServiceClient {
     | ResourceLimitExceeded
     | ResourceNotFound
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateModelCardExportJob", input);
+  }
   createModelExplainabilityJobDefinition(
     input: CreateModelExplainabilityJobDefinitionRequest,
   ): Effect.Effect<
     CreateModelExplainabilityJobDefinitionResponse,
     ResourceInUse | ResourceLimitExceeded | CommonAwsError
-  >;
+  > {
+    return this.call("CreateModelExplainabilityJobDefinition", input);
+  }
   createModelPackage(
     input: CreateModelPackageInput,
   ): Effect.Effect<
     CreateModelPackageOutput,
     ConflictException | ResourceLimitExceeded | CommonAwsError
-  >;
+  > {
+    return this.call("CreateModelPackage", input);
+  }
   createModelPackageGroup(
     input: CreateModelPackageGroupInput,
   ): Effect.Effect<
     CreateModelPackageGroupOutput,
     ResourceLimitExceeded | CommonAwsError
-  >;
+  > {
+    return this.call("CreateModelPackageGroup", input);
+  }
   createModelQualityJobDefinition(
     input: CreateModelQualityJobDefinitionRequest,
   ): Effect.Effect<
     CreateModelQualityJobDefinitionResponse,
     ResourceInUse | ResourceLimitExceeded | CommonAwsError
-  >;
+  > {
+    return this.call("CreateModelQualityJobDefinition", input);
+  }
   createMonitoringSchedule(
     input: CreateMonitoringScheduleRequest,
   ): Effect.Effect<
     CreateMonitoringScheduleResponse,
     ResourceInUse | ResourceLimitExceeded | CommonAwsError
-  >;
+  > {
+    return this.call("CreateMonitoringSchedule", input);
+  }
   createNotebookInstance(
     input: CreateNotebookInstanceInput,
   ): Effect.Effect<
     CreateNotebookInstanceOutput,
     ResourceLimitExceeded | CommonAwsError
-  >;
+  > {
+    return this.call("CreateNotebookInstance", input);
+  }
   createNotebookInstanceLifecycleConfig(
     input: CreateNotebookInstanceLifecycleConfigInput,
   ): Effect.Effect<
     CreateNotebookInstanceLifecycleConfigOutput,
     ResourceLimitExceeded | CommonAwsError
-  >;
+  > {
+    return this.call("CreateNotebookInstanceLifecycleConfig", input);
+  }
   createOptimizationJob(
     input: CreateOptimizationJobRequest,
   ): Effect.Effect<
     CreateOptimizationJobResponse,
     ResourceInUse | ResourceLimitExceeded | CommonAwsError
-  >;
+  > {
+    return this.call("CreateOptimizationJob", input);
+  }
   createPartnerApp(
     input: CreatePartnerAppRequest,
   ): Effect.Effect<
     CreatePartnerAppResponse,
     ConflictException | ResourceLimitExceeded | CommonAwsError
-  >;
+  > {
+    return this.call("CreatePartnerApp", input);
+  }
   createPartnerAppPresignedUrl(
     input: CreatePartnerAppPresignedUrlRequest,
   ): Effect.Effect<
     CreatePartnerAppPresignedUrlResponse,
     ResourceNotFound | CommonAwsError
-  >;
+  > {
+    return this.call("CreatePartnerAppPresignedUrl", input);
+  }
   createPipeline(
     input: CreatePipelineRequest,
   ): Effect.Effect<
@@ -315,973 +425,1468 @@ export declare class SageMaker extends AWSServiceClient {
     | ResourceLimitExceeded
     | ResourceNotFound
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreatePipeline", input);
+  }
   createPresignedDomainUrl(
     input: CreatePresignedDomainUrlRequest,
   ): Effect.Effect<
     CreatePresignedDomainUrlResponse,
     ResourceNotFound | CommonAwsError
-  >;
+  > {
+    return this.call("CreatePresignedDomainUrl", input);
+  }
   createPresignedMlflowTrackingServerUrl(
     input: CreatePresignedMlflowTrackingServerUrlRequest,
   ): Effect.Effect<
     CreatePresignedMlflowTrackingServerUrlResponse,
     ResourceNotFound | CommonAwsError
-  >;
+  > {
+    return this.call("CreatePresignedMlflowTrackingServerUrl", input);
+  }
   createPresignedNotebookInstanceUrl(
     input: CreatePresignedNotebookInstanceUrlInput,
-  ): Effect.Effect<CreatePresignedNotebookInstanceUrlOutput, CommonAwsError>;
+  ): Effect.Effect<CreatePresignedNotebookInstanceUrlOutput, CommonAwsError> {
+    return this.call("CreatePresignedNotebookInstanceUrl", input);
+  }
   createProcessingJob(
     input: CreateProcessingJobRequest,
   ): Effect.Effect<
     CreateProcessingJobResponse,
     ResourceInUse | ResourceLimitExceeded | ResourceNotFound | CommonAwsError
-  >;
+  > {
+    return this.call("CreateProcessingJob", input);
+  }
   createProject(
     input: CreateProjectInput,
-  ): Effect.Effect<CreateProjectOutput, ResourceLimitExceeded | CommonAwsError>;
+  ): Effect.Effect<
+    CreateProjectOutput,
+    ResourceLimitExceeded | CommonAwsError
+  > {
+    return this.call("CreateProject", input);
+  }
   createSpace(
     input: CreateSpaceRequest,
   ): Effect.Effect<
     CreateSpaceResponse,
     ResourceInUse | ResourceLimitExceeded | CommonAwsError
-  >;
+  > {
+    return this.call("CreateSpace", input);
+  }
   createStudioLifecycleConfig(
     input: CreateStudioLifecycleConfigRequest,
   ): Effect.Effect<
     CreateStudioLifecycleConfigResponse,
     ResourceInUse | CommonAwsError
-  >;
+  > {
+    return this.call("CreateStudioLifecycleConfig", input);
+  }
   createTrainingJob(
     input: CreateTrainingJobRequest,
   ): Effect.Effect<
     CreateTrainingJobResponse,
     ResourceInUse | ResourceLimitExceeded | ResourceNotFound | CommonAwsError
-  >;
+  > {
+    return this.call("CreateTrainingJob", input);
+  }
   createTrainingPlan(
     input: CreateTrainingPlanRequest,
   ): Effect.Effect<
     CreateTrainingPlanResponse,
     ResourceInUse | ResourceLimitExceeded | ResourceNotFound | CommonAwsError
-  >;
+  > {
+    return this.call("CreateTrainingPlan", input);
+  }
   createTransformJob(
     input: CreateTransformJobRequest,
   ): Effect.Effect<
     CreateTransformJobResponse,
     ResourceInUse | ResourceLimitExceeded | ResourceNotFound | CommonAwsError
-  >;
+  > {
+    return this.call("CreateTransformJob", input);
+  }
   createTrial(
     input: CreateTrialRequest,
   ): Effect.Effect<
     CreateTrialResponse,
     ResourceLimitExceeded | ResourceNotFound | CommonAwsError
-  >;
+  > {
+    return this.call("CreateTrial", input);
+  }
   createTrialComponent(
     input: CreateTrialComponentRequest,
   ): Effect.Effect<
     CreateTrialComponentResponse,
     ResourceLimitExceeded | CommonAwsError
-  >;
+  > {
+    return this.call("CreateTrialComponent", input);
+  }
   createUserProfile(
     input: CreateUserProfileRequest,
   ): Effect.Effect<
     CreateUserProfileResponse,
     ResourceInUse | ResourceLimitExceeded | CommonAwsError
-  >;
+  > {
+    return this.call("CreateUserProfile", input);
+  }
   createWorkforce(
     input: CreateWorkforceRequest,
-  ): Effect.Effect<CreateWorkforceResponse, CommonAwsError>;
+  ): Effect.Effect<CreateWorkforceResponse, CommonAwsError> {
+    return this.call("CreateWorkforce", input);
+  }
   createWorkteam(
     input: CreateWorkteamRequest,
   ): Effect.Effect<
     CreateWorkteamResponse,
     ResourceInUse | ResourceLimitExceeded | CommonAwsError
-  >;
+  > {
+    return this.call("CreateWorkteam", input);
+  }
   deleteAction(
     input: DeleteActionRequest,
-  ): Effect.Effect<DeleteActionResponse, ResourceNotFound | CommonAwsError>;
+  ): Effect.Effect<DeleteActionResponse, ResourceNotFound | CommonAwsError> {
+    return this.call("DeleteAction", input);
+  }
   deleteAlgorithm(
     input: DeleteAlgorithmInput,
-  ): Effect.Effect<{}, ConflictException | CommonAwsError>;
+  ): Effect.Effect<{}, ConflictException | CommonAwsError> {
+    return this.call("DeleteAlgorithm", input);
+  }
   deleteApp(
     input: DeleteAppRequest,
-  ): Effect.Effect<{}, ResourceInUse | ResourceNotFound | CommonAwsError>;
+  ): Effect.Effect<{}, ResourceInUse | ResourceNotFound | CommonAwsError> {
+    return this.call("DeleteApp", input);
+  }
   deleteAppImageConfig(
     input: DeleteAppImageConfigRequest,
-  ): Effect.Effect<{}, ResourceNotFound | CommonAwsError>;
+  ): Effect.Effect<{}, ResourceNotFound | CommonAwsError> {
+    return this.call("DeleteAppImageConfig", input);
+  }
   deleteArtifact(
     input: DeleteArtifactRequest,
-  ): Effect.Effect<DeleteArtifactResponse, ResourceNotFound | CommonAwsError>;
+  ): Effect.Effect<DeleteArtifactResponse, ResourceNotFound | CommonAwsError> {
+    return this.call("DeleteArtifact", input);
+  }
   deleteAssociation(
     input: DeleteAssociationRequest,
   ): Effect.Effect<
     DeleteAssociationResponse,
     ResourceNotFound | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteAssociation", input);
+  }
   deleteCluster(
     input: DeleteClusterRequest,
   ): Effect.Effect<
     DeleteClusterResponse,
     ConflictException | ResourceNotFound | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteCluster", input);
+  }
   deleteClusterSchedulerConfig(
     input: DeleteClusterSchedulerConfigRequest,
-  ): Effect.Effect<{}, ResourceNotFound | CommonAwsError>;
+  ): Effect.Effect<{}, ResourceNotFound | CommonAwsError> {
+    return this.call("DeleteClusterSchedulerConfig", input);
+  }
   deleteCodeRepository(
     input: DeleteCodeRepositoryInput,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, CommonAwsError> {
+    return this.call("DeleteCodeRepository", input);
+  }
   deleteCompilationJob(
     input: DeleteCompilationJobRequest,
-  ): Effect.Effect<{}, ResourceNotFound | CommonAwsError>;
+  ): Effect.Effect<{}, ResourceNotFound | CommonAwsError> {
+    return this.call("DeleteCompilationJob", input);
+  }
   deleteComputeQuota(
     input: DeleteComputeQuotaRequest,
-  ): Effect.Effect<{}, ResourceNotFound | CommonAwsError>;
+  ): Effect.Effect<{}, ResourceNotFound | CommonAwsError> {
+    return this.call("DeleteComputeQuota", input);
+  }
   deleteContext(
     input: DeleteContextRequest,
-  ): Effect.Effect<DeleteContextResponse, ResourceNotFound | CommonAwsError>;
+  ): Effect.Effect<DeleteContextResponse, ResourceNotFound | CommonAwsError> {
+    return this.call("DeleteContext", input);
+  }
   deleteDataQualityJobDefinition(
     input: DeleteDataQualityJobDefinitionRequest,
-  ): Effect.Effect<{}, ResourceNotFound | CommonAwsError>;
+  ): Effect.Effect<{}, ResourceNotFound | CommonAwsError> {
+    return this.call("DeleteDataQualityJobDefinition", input);
+  }
   deleteDeviceFleet(
     input: DeleteDeviceFleetRequest,
-  ): Effect.Effect<{}, ResourceInUse | CommonAwsError>;
+  ): Effect.Effect<{}, ResourceInUse | CommonAwsError> {
+    return this.call("DeleteDeviceFleet", input);
+  }
   deleteDomain(
     input: DeleteDomainRequest,
-  ): Effect.Effect<{}, ResourceInUse | ResourceNotFound | CommonAwsError>;
+  ): Effect.Effect<{}, ResourceInUse | ResourceNotFound | CommonAwsError> {
+    return this.call("DeleteDomain", input);
+  }
   deleteEdgeDeploymentPlan(
     input: DeleteEdgeDeploymentPlanRequest,
-  ): Effect.Effect<{}, ResourceInUse | CommonAwsError>;
+  ): Effect.Effect<{}, ResourceInUse | CommonAwsError> {
+    return this.call("DeleteEdgeDeploymentPlan", input);
+  }
   deleteEdgeDeploymentStage(
     input: DeleteEdgeDeploymentStageRequest,
-  ): Effect.Effect<{}, ResourceInUse | CommonAwsError>;
-  deleteEndpoint(input: DeleteEndpointInput): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, ResourceInUse | CommonAwsError> {
+    return this.call("DeleteEdgeDeploymentStage", input);
+  }
+  deleteEndpoint(
+    input: DeleteEndpointInput,
+  ): Effect.Effect<{}, CommonAwsError> {
+    return this.call("DeleteEndpoint", input);
+  }
   deleteEndpointConfig(
     input: DeleteEndpointConfigInput,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, CommonAwsError> {
+    return this.call("DeleteEndpointConfig", input);
+  }
   deleteExperiment(
     input: DeleteExperimentRequest,
-  ): Effect.Effect<DeleteExperimentResponse, ResourceNotFound | CommonAwsError>;
+  ): Effect.Effect<
+    DeleteExperimentResponse,
+    ResourceNotFound | CommonAwsError
+  > {
+    return this.call("DeleteExperiment", input);
+  }
   deleteFeatureGroup(
     input: DeleteFeatureGroupRequest,
-  ): Effect.Effect<{}, ResourceNotFound | CommonAwsError>;
+  ): Effect.Effect<{}, ResourceNotFound | CommonAwsError> {
+    return this.call("DeleteFeatureGroup", input);
+  }
   deleteFlowDefinition(
     input: DeleteFlowDefinitionRequest,
   ): Effect.Effect<
     DeleteFlowDefinitionResponse,
     ResourceInUse | ResourceNotFound | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteFlowDefinition", input);
+  }
   deleteHub(
     input: DeleteHubRequest,
-  ): Effect.Effect<{}, ResourceInUse | ResourceNotFound | CommonAwsError>;
+  ): Effect.Effect<{}, ResourceInUse | ResourceNotFound | CommonAwsError> {
+    return this.call("DeleteHub", input);
+  }
   deleteHubContent(
     input: DeleteHubContentRequest,
-  ): Effect.Effect<{}, ResourceInUse | ResourceNotFound | CommonAwsError>;
+  ): Effect.Effect<{}, ResourceInUse | ResourceNotFound | CommonAwsError> {
+    return this.call("DeleteHubContent", input);
+  }
   deleteHubContentReference(
     input: DeleteHubContentReferenceRequest,
-  ): Effect.Effect<{}, ResourceNotFound | CommonAwsError>;
+  ): Effect.Effect<{}, ResourceNotFound | CommonAwsError> {
+    return this.call("DeleteHubContentReference", input);
+  }
   deleteHumanTaskUi(
     input: DeleteHumanTaskUiRequest,
   ): Effect.Effect<
     DeleteHumanTaskUiResponse,
     ResourceNotFound | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteHumanTaskUi", input);
+  }
   deleteHyperParameterTuningJob(
     input: DeleteHyperParameterTuningJobRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, CommonAwsError> {
+    return this.call("DeleteHyperParameterTuningJob", input);
+  }
   deleteImage(
     input: DeleteImageRequest,
   ): Effect.Effect<
     DeleteImageResponse,
     ResourceInUse | ResourceNotFound | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteImage", input);
+  }
   deleteImageVersion(
     input: DeleteImageVersionRequest,
   ): Effect.Effect<
     DeleteImageVersionResponse,
     ResourceInUse | ResourceNotFound | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteImageVersion", input);
+  }
   deleteInferenceComponent(
     input: DeleteInferenceComponentInput,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, CommonAwsError> {
+    return this.call("DeleteInferenceComponent", input);
+  }
   deleteInferenceExperiment(
     input: DeleteInferenceExperimentRequest,
   ): Effect.Effect<
     DeleteInferenceExperimentResponse,
     ConflictException | ResourceNotFound | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteInferenceExperiment", input);
+  }
   deleteMlflowTrackingServer(
     input: DeleteMlflowTrackingServerRequest,
   ): Effect.Effect<
     DeleteMlflowTrackingServerResponse,
     ResourceNotFound | CommonAwsError
-  >;
-  deleteModel(input: DeleteModelInput): Effect.Effect<{}, CommonAwsError>;
+  > {
+    return this.call("DeleteMlflowTrackingServer", input);
+  }
+  deleteModel(input: DeleteModelInput): Effect.Effect<{}, CommonAwsError> {
+    return this.call("DeleteModel", input);
+  }
   deleteModelBiasJobDefinition(
     input: DeleteModelBiasJobDefinitionRequest,
-  ): Effect.Effect<{}, ResourceNotFound | CommonAwsError>;
+  ): Effect.Effect<{}, ResourceNotFound | CommonAwsError> {
+    return this.call("DeleteModelBiasJobDefinition", input);
+  }
   deleteModelCard(
     input: DeleteModelCardRequest,
-  ): Effect.Effect<{}, ConflictException | ResourceNotFound | CommonAwsError>;
+  ): Effect.Effect<{}, ConflictException | ResourceNotFound | CommonAwsError> {
+    return this.call("DeleteModelCard", input);
+  }
   deleteModelExplainabilityJobDefinition(
     input: DeleteModelExplainabilityJobDefinitionRequest,
-  ): Effect.Effect<{}, ResourceNotFound | CommonAwsError>;
+  ): Effect.Effect<{}, ResourceNotFound | CommonAwsError> {
+    return this.call("DeleteModelExplainabilityJobDefinition", input);
+  }
   deleteModelPackage(
     input: DeleteModelPackageInput,
-  ): Effect.Effect<{}, ConflictException | CommonAwsError>;
+  ): Effect.Effect<{}, ConflictException | CommonAwsError> {
+    return this.call("DeleteModelPackage", input);
+  }
   deleteModelPackageGroup(
     input: DeleteModelPackageGroupInput,
-  ): Effect.Effect<{}, ConflictException | CommonAwsError>;
+  ): Effect.Effect<{}, ConflictException | CommonAwsError> {
+    return this.call("DeleteModelPackageGroup", input);
+  }
   deleteModelPackageGroupPolicy(
     input: DeleteModelPackageGroupPolicyInput,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, CommonAwsError> {
+    return this.call("DeleteModelPackageGroupPolicy", input);
+  }
   deleteModelQualityJobDefinition(
     input: DeleteModelQualityJobDefinitionRequest,
-  ): Effect.Effect<{}, ResourceNotFound | CommonAwsError>;
+  ): Effect.Effect<{}, ResourceNotFound | CommonAwsError> {
+    return this.call("DeleteModelQualityJobDefinition", input);
+  }
   deleteMonitoringSchedule(
     input: DeleteMonitoringScheduleRequest,
-  ): Effect.Effect<{}, ResourceNotFound | CommonAwsError>;
+  ): Effect.Effect<{}, ResourceNotFound | CommonAwsError> {
+    return this.call("DeleteMonitoringSchedule", input);
+  }
   deleteNotebookInstance(
     input: DeleteNotebookInstanceInput,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, CommonAwsError> {
+    return this.call("DeleteNotebookInstance", input);
+  }
   deleteNotebookInstanceLifecycleConfig(
     input: DeleteNotebookInstanceLifecycleConfigInput,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, CommonAwsError> {
+    return this.call("DeleteNotebookInstanceLifecycleConfig", input);
+  }
   deleteOptimizationJob(
     input: DeleteOptimizationJobRequest,
-  ): Effect.Effect<{}, ResourceNotFound | CommonAwsError>;
+  ): Effect.Effect<{}, ResourceNotFound | CommonAwsError> {
+    return this.call("DeleteOptimizationJob", input);
+  }
   deletePartnerApp(
     input: DeletePartnerAppRequest,
   ): Effect.Effect<
     DeletePartnerAppResponse,
     ConflictException | ResourceNotFound | CommonAwsError
-  >;
+  > {
+    return this.call("DeletePartnerApp", input);
+  }
   deletePipeline(
     input: DeletePipelineRequest,
   ): Effect.Effect<
     DeletePipelineResponse,
     ConflictException | ResourceNotFound | CommonAwsError
-  >;
+  > {
+    return this.call("DeletePipeline", input);
+  }
   deleteProject(
     input: DeleteProjectInput,
-  ): Effect.Effect<{}, ConflictException | CommonAwsError>;
+  ): Effect.Effect<{}, ConflictException | CommonAwsError> {
+    return this.call("DeleteProject", input);
+  }
   deleteSpace(
     input: DeleteSpaceRequest,
-  ): Effect.Effect<{}, ResourceInUse | ResourceNotFound | CommonAwsError>;
+  ): Effect.Effect<{}, ResourceInUse | ResourceNotFound | CommonAwsError> {
+    return this.call("DeleteSpace", input);
+  }
   deleteStudioLifecycleConfig(
     input: DeleteStudioLifecycleConfigRequest,
-  ): Effect.Effect<{}, ResourceInUse | ResourceNotFound | CommonAwsError>;
+  ): Effect.Effect<{}, ResourceInUse | ResourceNotFound | CommonAwsError> {
+    return this.call("DeleteStudioLifecycleConfig", input);
+  }
   deleteTags(
     input: DeleteTagsInput,
-  ): Effect.Effect<DeleteTagsOutput, CommonAwsError>;
+  ): Effect.Effect<DeleteTagsOutput, CommonAwsError> {
+    return this.call("DeleteTags", input);
+  }
   deleteTrial(
     input: DeleteTrialRequest,
-  ): Effect.Effect<DeleteTrialResponse, ResourceNotFound | CommonAwsError>;
+  ): Effect.Effect<DeleteTrialResponse, ResourceNotFound | CommonAwsError> {
+    return this.call("DeleteTrial", input);
+  }
   deleteTrialComponent(
     input: DeleteTrialComponentRequest,
   ): Effect.Effect<
     DeleteTrialComponentResponse,
     ResourceNotFound | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteTrialComponent", input);
+  }
   deleteUserProfile(
     input: DeleteUserProfileRequest,
-  ): Effect.Effect<{}, ResourceInUse | ResourceNotFound | CommonAwsError>;
+  ): Effect.Effect<{}, ResourceInUse | ResourceNotFound | CommonAwsError> {
+    return this.call("DeleteUserProfile", input);
+  }
   deleteWorkforce(
     input: DeleteWorkforceRequest,
-  ): Effect.Effect<DeleteWorkforceResponse, CommonAwsError>;
+  ): Effect.Effect<DeleteWorkforceResponse, CommonAwsError> {
+    return this.call("DeleteWorkforce", input);
+  }
   deleteWorkteam(
     input: DeleteWorkteamRequest,
   ): Effect.Effect<
     DeleteWorkteamResponse,
     ResourceLimitExceeded | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteWorkteam", input);
+  }
   deregisterDevices(
     input: DeregisterDevicesRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, CommonAwsError> {
+    return this.call("DeregisterDevices", input);
+  }
   describeAction(
     input: DescribeActionRequest,
-  ): Effect.Effect<DescribeActionResponse, ResourceNotFound | CommonAwsError>;
+  ): Effect.Effect<DescribeActionResponse, ResourceNotFound | CommonAwsError> {
+    return this.call("DescribeAction", input);
+  }
   describeAlgorithm(
     input: DescribeAlgorithmInput,
-  ): Effect.Effect<DescribeAlgorithmOutput, CommonAwsError>;
+  ): Effect.Effect<DescribeAlgorithmOutput, CommonAwsError> {
+    return this.call("DescribeAlgorithm", input);
+  }
   describeApp(
     input: DescribeAppRequest,
-  ): Effect.Effect<DescribeAppResponse, ResourceNotFound | CommonAwsError>;
+  ): Effect.Effect<DescribeAppResponse, ResourceNotFound | CommonAwsError> {
+    return this.call("DescribeApp", input);
+  }
   describeAppImageConfig(
     input: DescribeAppImageConfigRequest,
   ): Effect.Effect<
     DescribeAppImageConfigResponse,
     ResourceNotFound | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeAppImageConfig", input);
+  }
   describeArtifact(
     input: DescribeArtifactRequest,
-  ): Effect.Effect<DescribeArtifactResponse, ResourceNotFound | CommonAwsError>;
+  ): Effect.Effect<
+    DescribeArtifactResponse,
+    ResourceNotFound | CommonAwsError
+  > {
+    return this.call("DescribeArtifact", input);
+  }
   describeAutoMLJob(
     input: DescribeAutoMLJobRequest,
   ): Effect.Effect<
     DescribeAutoMLJobResponse,
     ResourceNotFound | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeAutoMLJob", input);
+  }
   describeAutoMLJobV2(
     input: DescribeAutoMLJobV2Request,
   ): Effect.Effect<
     DescribeAutoMLJobV2Response,
     ResourceNotFound | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeAutoMLJobV2", input);
+  }
   describeCluster(
     input: DescribeClusterRequest,
-  ): Effect.Effect<DescribeClusterResponse, ResourceNotFound | CommonAwsError>;
+  ): Effect.Effect<DescribeClusterResponse, ResourceNotFound | CommonAwsError> {
+    return this.call("DescribeCluster", input);
+  }
   describeClusterNode(
     input: DescribeClusterNodeRequest,
   ): Effect.Effect<
     DescribeClusterNodeResponse,
     ResourceNotFound | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeClusterNode", input);
+  }
   describeClusterSchedulerConfig(
     input: DescribeClusterSchedulerConfigRequest,
   ): Effect.Effect<
     DescribeClusterSchedulerConfigResponse,
     ResourceNotFound | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeClusterSchedulerConfig", input);
+  }
   describeCodeRepository(
     input: DescribeCodeRepositoryInput,
-  ): Effect.Effect<DescribeCodeRepositoryOutput, CommonAwsError>;
+  ): Effect.Effect<DescribeCodeRepositoryOutput, CommonAwsError> {
+    return this.call("DescribeCodeRepository", input);
+  }
   describeCompilationJob(
     input: DescribeCompilationJobRequest,
   ): Effect.Effect<
     DescribeCompilationJobResponse,
     ResourceNotFound | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeCompilationJob", input);
+  }
   describeComputeQuota(
     input: DescribeComputeQuotaRequest,
   ): Effect.Effect<
     DescribeComputeQuotaResponse,
     ResourceNotFound | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeComputeQuota", input);
+  }
   describeContext(
     input: DescribeContextRequest,
-  ): Effect.Effect<DescribeContextResponse, ResourceNotFound | CommonAwsError>;
+  ): Effect.Effect<DescribeContextResponse, ResourceNotFound | CommonAwsError> {
+    return this.call("DescribeContext", input);
+  }
   describeDataQualityJobDefinition(
     input: DescribeDataQualityJobDefinitionRequest,
   ): Effect.Effect<
     DescribeDataQualityJobDefinitionResponse,
     ResourceNotFound | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeDataQualityJobDefinition", input);
+  }
   describeDevice(
     input: DescribeDeviceRequest,
-  ): Effect.Effect<DescribeDeviceResponse, ResourceNotFound | CommonAwsError>;
+  ): Effect.Effect<DescribeDeviceResponse, ResourceNotFound | CommonAwsError> {
+    return this.call("DescribeDevice", input);
+  }
   describeDeviceFleet(
     input: DescribeDeviceFleetRequest,
   ): Effect.Effect<
     DescribeDeviceFleetResponse,
     ResourceNotFound | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeDeviceFleet", input);
+  }
   describeDomain(
     input: DescribeDomainRequest,
-  ): Effect.Effect<DescribeDomainResponse, ResourceNotFound | CommonAwsError>;
+  ): Effect.Effect<DescribeDomainResponse, ResourceNotFound | CommonAwsError> {
+    return this.call("DescribeDomain", input);
+  }
   describeEdgeDeploymentPlan(
     input: DescribeEdgeDeploymentPlanRequest,
   ): Effect.Effect<
     DescribeEdgeDeploymentPlanResponse,
     ResourceNotFound | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeEdgeDeploymentPlan", input);
+  }
   describeEdgePackagingJob(
     input: DescribeEdgePackagingJobRequest,
   ): Effect.Effect<
     DescribeEdgePackagingJobResponse,
     ResourceNotFound | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeEdgePackagingJob", input);
+  }
   describeEndpoint(
     input: DescribeEndpointInput,
-  ): Effect.Effect<DescribeEndpointOutput, CommonAwsError>;
+  ): Effect.Effect<DescribeEndpointOutput, CommonAwsError> {
+    return this.call("DescribeEndpoint", input);
+  }
   describeEndpointConfig(
     input: DescribeEndpointConfigInput,
-  ): Effect.Effect<DescribeEndpointConfigOutput, CommonAwsError>;
+  ): Effect.Effect<DescribeEndpointConfigOutput, CommonAwsError> {
+    return this.call("DescribeEndpointConfig", input);
+  }
   describeExperiment(
     input: DescribeExperimentRequest,
   ): Effect.Effect<
     DescribeExperimentResponse,
     ResourceNotFound | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeExperiment", input);
+  }
   describeFeatureGroup(
     input: DescribeFeatureGroupRequest,
   ): Effect.Effect<
     DescribeFeatureGroupResponse,
     ResourceNotFound | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeFeatureGroup", input);
+  }
   describeFeatureMetadata(
     input: DescribeFeatureMetadataRequest,
   ): Effect.Effect<
     DescribeFeatureMetadataResponse,
     ResourceNotFound | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeFeatureMetadata", input);
+  }
   describeFlowDefinition(
     input: DescribeFlowDefinitionRequest,
   ): Effect.Effect<
     DescribeFlowDefinitionResponse,
     ResourceNotFound | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeFlowDefinition", input);
+  }
   describeHub(
     input: DescribeHubRequest,
-  ): Effect.Effect<DescribeHubResponse, ResourceNotFound | CommonAwsError>;
+  ): Effect.Effect<DescribeHubResponse, ResourceNotFound | CommonAwsError> {
+    return this.call("DescribeHub", input);
+  }
   describeHubContent(
     input: DescribeHubContentRequest,
   ): Effect.Effect<
     DescribeHubContentResponse,
     ResourceNotFound | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeHubContent", input);
+  }
   describeHumanTaskUi(
     input: DescribeHumanTaskUiRequest,
   ): Effect.Effect<
     DescribeHumanTaskUiResponse,
     ResourceNotFound | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeHumanTaskUi", input);
+  }
   describeHyperParameterTuningJob(
     input: DescribeHyperParameterTuningJobRequest,
   ): Effect.Effect<
     DescribeHyperParameterTuningJobResponse,
     ResourceNotFound | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeHyperParameterTuningJob", input);
+  }
   describeImage(
     input: DescribeImageRequest,
-  ): Effect.Effect<DescribeImageResponse, ResourceNotFound | CommonAwsError>;
+  ): Effect.Effect<DescribeImageResponse, ResourceNotFound | CommonAwsError> {
+    return this.call("DescribeImage", input);
+  }
   describeImageVersion(
     input: DescribeImageVersionRequest,
   ): Effect.Effect<
     DescribeImageVersionResponse,
     ResourceNotFound | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeImageVersion", input);
+  }
   describeInferenceComponent(
     input: DescribeInferenceComponentInput,
-  ): Effect.Effect<DescribeInferenceComponentOutput, CommonAwsError>;
+  ): Effect.Effect<DescribeInferenceComponentOutput, CommonAwsError> {
+    return this.call("DescribeInferenceComponent", input);
+  }
   describeInferenceExperiment(
     input: DescribeInferenceExperimentRequest,
   ): Effect.Effect<
     DescribeInferenceExperimentResponse,
     ResourceNotFound | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeInferenceExperiment", input);
+  }
   describeInferenceRecommendationsJob(
     input: DescribeInferenceRecommendationsJobRequest,
   ): Effect.Effect<
     DescribeInferenceRecommendationsJobResponse,
     ResourceNotFound | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeInferenceRecommendationsJob", input);
+  }
   describeLabelingJob(
     input: DescribeLabelingJobRequest,
   ): Effect.Effect<
     DescribeLabelingJobResponse,
     ResourceNotFound | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeLabelingJob", input);
+  }
   describeLineageGroup(
     input: DescribeLineageGroupRequest,
   ): Effect.Effect<
     DescribeLineageGroupResponse,
     ResourceNotFound | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeLineageGroup", input);
+  }
   describeMlflowTrackingServer(
     input: DescribeMlflowTrackingServerRequest,
   ): Effect.Effect<
     DescribeMlflowTrackingServerResponse,
     ResourceNotFound | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeMlflowTrackingServer", input);
+  }
   describeModel(
     input: DescribeModelInput,
-  ): Effect.Effect<DescribeModelOutput, CommonAwsError>;
+  ): Effect.Effect<DescribeModelOutput, CommonAwsError> {
+    return this.call("DescribeModel", input);
+  }
   describeModelBiasJobDefinition(
     input: DescribeModelBiasJobDefinitionRequest,
   ): Effect.Effect<
     DescribeModelBiasJobDefinitionResponse,
     ResourceNotFound | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeModelBiasJobDefinition", input);
+  }
   describeModelCard(
     input: DescribeModelCardRequest,
   ): Effect.Effect<
     DescribeModelCardResponse,
     ResourceNotFound | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeModelCard", input);
+  }
   describeModelCardExportJob(
     input: DescribeModelCardExportJobRequest,
   ): Effect.Effect<
     DescribeModelCardExportJobResponse,
     ResourceNotFound | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeModelCardExportJob", input);
+  }
   describeModelExplainabilityJobDefinition(
     input: DescribeModelExplainabilityJobDefinitionRequest,
   ): Effect.Effect<
     DescribeModelExplainabilityJobDefinitionResponse,
     ResourceNotFound | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeModelExplainabilityJobDefinition", input);
+  }
   describeModelPackage(
     input: DescribeModelPackageInput,
-  ): Effect.Effect<DescribeModelPackageOutput, CommonAwsError>;
+  ): Effect.Effect<DescribeModelPackageOutput, CommonAwsError> {
+    return this.call("DescribeModelPackage", input);
+  }
   describeModelPackageGroup(
     input: DescribeModelPackageGroupInput,
-  ): Effect.Effect<DescribeModelPackageGroupOutput, CommonAwsError>;
+  ): Effect.Effect<DescribeModelPackageGroupOutput, CommonAwsError> {
+    return this.call("DescribeModelPackageGroup", input);
+  }
   describeModelQualityJobDefinition(
     input: DescribeModelQualityJobDefinitionRequest,
   ): Effect.Effect<
     DescribeModelQualityJobDefinitionResponse,
     ResourceNotFound | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeModelQualityJobDefinition", input);
+  }
   describeMonitoringSchedule(
     input: DescribeMonitoringScheduleRequest,
   ): Effect.Effect<
     DescribeMonitoringScheduleResponse,
     ResourceNotFound | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeMonitoringSchedule", input);
+  }
   describeNotebookInstance(
     input: DescribeNotebookInstanceInput,
-  ): Effect.Effect<DescribeNotebookInstanceOutput, CommonAwsError>;
+  ): Effect.Effect<DescribeNotebookInstanceOutput, CommonAwsError> {
+    return this.call("DescribeNotebookInstance", input);
+  }
   describeNotebookInstanceLifecycleConfig(
     input: DescribeNotebookInstanceLifecycleConfigInput,
   ): Effect.Effect<
     DescribeNotebookInstanceLifecycleConfigOutput,
     CommonAwsError
-  >;
+  > {
+    return this.call("DescribeNotebookInstanceLifecycleConfig", input);
+  }
   describeOptimizationJob(
     input: DescribeOptimizationJobRequest,
   ): Effect.Effect<
     DescribeOptimizationJobResponse,
     ResourceNotFound | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeOptimizationJob", input);
+  }
   describePartnerApp(
     input: DescribePartnerAppRequest,
   ): Effect.Effect<
     DescribePartnerAppResponse,
     ResourceNotFound | CommonAwsError
-  >;
+  > {
+    return this.call("DescribePartnerApp", input);
+  }
   describePipeline(
     input: DescribePipelineRequest,
-  ): Effect.Effect<DescribePipelineResponse, ResourceNotFound | CommonAwsError>;
+  ): Effect.Effect<
+    DescribePipelineResponse,
+    ResourceNotFound | CommonAwsError
+  > {
+    return this.call("DescribePipeline", input);
+  }
   describePipelineDefinitionForExecution(
     input: DescribePipelineDefinitionForExecutionRequest,
   ): Effect.Effect<
     DescribePipelineDefinitionForExecutionResponse,
     ResourceNotFound | CommonAwsError
-  >;
+  > {
+    return this.call("DescribePipelineDefinitionForExecution", input);
+  }
   describePipelineExecution(
     input: DescribePipelineExecutionRequest,
   ): Effect.Effect<
     DescribePipelineExecutionResponse,
     ResourceNotFound | CommonAwsError
-  >;
+  > {
+    return this.call("DescribePipelineExecution", input);
+  }
   describeProcessingJob(
     input: DescribeProcessingJobRequest,
   ): Effect.Effect<
     DescribeProcessingJobResponse,
     ResourceNotFound | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeProcessingJob", input);
+  }
   describeProject(
     input: DescribeProjectInput,
-  ): Effect.Effect<DescribeProjectOutput, CommonAwsError>;
+  ): Effect.Effect<DescribeProjectOutput, CommonAwsError> {
+    return this.call("DescribeProject", input);
+  }
   describeSpace(
     input: DescribeSpaceRequest,
-  ): Effect.Effect<DescribeSpaceResponse, ResourceNotFound | CommonAwsError>;
+  ): Effect.Effect<DescribeSpaceResponse, ResourceNotFound | CommonAwsError> {
+    return this.call("DescribeSpace", input);
+  }
   describeStudioLifecycleConfig(
     input: DescribeStudioLifecycleConfigRequest,
   ): Effect.Effect<
     DescribeStudioLifecycleConfigResponse,
     ResourceNotFound | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeStudioLifecycleConfig", input);
+  }
   describeSubscribedWorkteam(
     input: DescribeSubscribedWorkteamRequest,
-  ): Effect.Effect<DescribeSubscribedWorkteamResponse, CommonAwsError>;
+  ): Effect.Effect<DescribeSubscribedWorkteamResponse, CommonAwsError> {
+    return this.call("DescribeSubscribedWorkteam", input);
+  }
   describeTrainingJob(
     input: DescribeTrainingJobRequest,
   ): Effect.Effect<
     DescribeTrainingJobResponse,
     ResourceNotFound | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeTrainingJob", input);
+  }
   describeTrainingPlan(
     input: DescribeTrainingPlanRequest,
   ): Effect.Effect<
     DescribeTrainingPlanResponse,
     ResourceNotFound | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeTrainingPlan", input);
+  }
   describeTransformJob(
     input: DescribeTransformJobRequest,
   ): Effect.Effect<
     DescribeTransformJobResponse,
     ResourceNotFound | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeTransformJob", input);
+  }
   describeTrial(
     input: DescribeTrialRequest,
-  ): Effect.Effect<DescribeTrialResponse, ResourceNotFound | CommonAwsError>;
+  ): Effect.Effect<DescribeTrialResponse, ResourceNotFound | CommonAwsError> {
+    return this.call("DescribeTrial", input);
+  }
   describeTrialComponent(
     input: DescribeTrialComponentRequest,
   ): Effect.Effect<
     DescribeTrialComponentResponse,
     ResourceNotFound | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeTrialComponent", input);
+  }
   describeUserProfile(
     input: DescribeUserProfileRequest,
   ): Effect.Effect<
     DescribeUserProfileResponse,
     ResourceLimitExceeded | ResourceNotFound | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeUserProfile", input);
+  }
   describeWorkforce(
     input: DescribeWorkforceRequest,
-  ): Effect.Effect<DescribeWorkforceResponse, CommonAwsError>;
+  ): Effect.Effect<DescribeWorkforceResponse, CommonAwsError> {
+    return this.call("DescribeWorkforce", input);
+  }
   describeWorkteam(
     input: DescribeWorkteamRequest,
-  ): Effect.Effect<DescribeWorkteamResponse, CommonAwsError>;
+  ): Effect.Effect<DescribeWorkteamResponse, CommonAwsError> {
+    return this.call("DescribeWorkteam", input);
+  }
   disableSagemakerServicecatalogPortfolio(
     input: DisableSagemakerServicecatalogPortfolioInput,
   ): Effect.Effect<
     DisableSagemakerServicecatalogPortfolioOutput,
     CommonAwsError
-  >;
+  > {
+    return this.call("DisableSagemakerServicecatalogPortfolio", input);
+  }
   disassociateTrialComponent(
     input: DisassociateTrialComponentRequest,
   ): Effect.Effect<
     DisassociateTrialComponentResponse,
     ResourceNotFound | CommonAwsError
-  >;
+  > {
+    return this.call("DisassociateTrialComponent", input);
+  }
   enableSagemakerServicecatalogPortfolio(
     input: EnableSagemakerServicecatalogPortfolioInput,
   ): Effect.Effect<
     EnableSagemakerServicecatalogPortfolioOutput,
     CommonAwsError
-  >;
+  > {
+    return this.call("EnableSagemakerServicecatalogPortfolio", input);
+  }
   getDeviceFleetReport(
     input: GetDeviceFleetReportRequest,
-  ): Effect.Effect<GetDeviceFleetReportResponse, CommonAwsError>;
+  ): Effect.Effect<GetDeviceFleetReportResponse, CommonAwsError> {
+    return this.call("GetDeviceFleetReport", input);
+  }
   getLineageGroupPolicy(
     input: GetLineageGroupPolicyRequest,
   ): Effect.Effect<
     GetLineageGroupPolicyResponse,
     ResourceNotFound | CommonAwsError
-  >;
+  > {
+    return this.call("GetLineageGroupPolicy", input);
+  }
   getModelPackageGroupPolicy(
     input: GetModelPackageGroupPolicyInput,
-  ): Effect.Effect<GetModelPackageGroupPolicyOutput, CommonAwsError>;
+  ): Effect.Effect<GetModelPackageGroupPolicyOutput, CommonAwsError> {
+    return this.call("GetModelPackageGroupPolicy", input);
+  }
   getSagemakerServicecatalogPortfolioStatus(
     input: GetSagemakerServicecatalogPortfolioStatusInput,
   ): Effect.Effect<
     GetSagemakerServicecatalogPortfolioStatusOutput,
     CommonAwsError
-  >;
+  > {
+    return this.call("GetSagemakerServicecatalogPortfolioStatus", input);
+  }
   getScalingConfigurationRecommendation(
     input: GetScalingConfigurationRecommendationRequest,
   ): Effect.Effect<
     GetScalingConfigurationRecommendationResponse,
     ResourceNotFound | CommonAwsError
-  >;
+  > {
+    return this.call("GetScalingConfigurationRecommendation", input);
+  }
   getSearchSuggestions(
     input: GetSearchSuggestionsRequest,
-  ): Effect.Effect<GetSearchSuggestionsResponse, CommonAwsError>;
+  ): Effect.Effect<GetSearchSuggestionsResponse, CommonAwsError> {
+    return this.call("GetSearchSuggestions", input);
+  }
   importHubContent(
     input: ImportHubContentRequest,
   ): Effect.Effect<
     ImportHubContentResponse,
     ResourceInUse | ResourceLimitExceeded | ResourceNotFound | CommonAwsError
-  >;
+  > {
+    return this.call("ImportHubContent", input);
+  }
   listActions(
     input: ListActionsRequest,
-  ): Effect.Effect<ListActionsResponse, ResourceNotFound | CommonAwsError>;
+  ): Effect.Effect<ListActionsResponse, ResourceNotFound | CommonAwsError> {
+    return this.call("ListActions", input);
+  }
   listAlgorithms(
     input: ListAlgorithmsInput,
-  ): Effect.Effect<ListAlgorithmsOutput, CommonAwsError>;
+  ): Effect.Effect<ListAlgorithmsOutput, CommonAwsError> {
+    return this.call("ListAlgorithms", input);
+  }
   listAliases(
     input: ListAliasesRequest,
-  ): Effect.Effect<ListAliasesResponse, ResourceNotFound | CommonAwsError>;
+  ): Effect.Effect<ListAliasesResponse, ResourceNotFound | CommonAwsError> {
+    return this.call("ListAliases", input);
+  }
   listAppImageConfigs(
     input: ListAppImageConfigsRequest,
-  ): Effect.Effect<ListAppImageConfigsResponse, CommonAwsError>;
+  ): Effect.Effect<ListAppImageConfigsResponse, CommonAwsError> {
+    return this.call("ListAppImageConfigs", input);
+  }
   listApps(
     input: ListAppsRequest,
-  ): Effect.Effect<ListAppsResponse, CommonAwsError>;
+  ): Effect.Effect<ListAppsResponse, CommonAwsError> {
+    return this.call("ListApps", input);
+  }
   listArtifacts(
     input: ListArtifactsRequest,
-  ): Effect.Effect<ListArtifactsResponse, ResourceNotFound | CommonAwsError>;
+  ): Effect.Effect<ListArtifactsResponse, ResourceNotFound | CommonAwsError> {
+    return this.call("ListArtifacts", input);
+  }
   listAssociations(
     input: ListAssociationsRequest,
-  ): Effect.Effect<ListAssociationsResponse, ResourceNotFound | CommonAwsError>;
+  ): Effect.Effect<
+    ListAssociationsResponse,
+    ResourceNotFound | CommonAwsError
+  > {
+    return this.call("ListAssociations", input);
+  }
   listAutoMLJobs(
     input: ListAutoMLJobsRequest,
-  ): Effect.Effect<ListAutoMLJobsResponse, CommonAwsError>;
+  ): Effect.Effect<ListAutoMLJobsResponse, CommonAwsError> {
+    return this.call("ListAutoMLJobs", input);
+  }
   listCandidatesForAutoMLJob(
     input: ListCandidatesForAutoMLJobRequest,
   ): Effect.Effect<
     ListCandidatesForAutoMLJobResponse,
     ResourceNotFound | CommonAwsError
-  >;
+  > {
+    return this.call("ListCandidatesForAutoMLJob", input);
+  }
   listClusterNodes(
     input: ListClusterNodesRequest,
-  ): Effect.Effect<ListClusterNodesResponse, ResourceNotFound | CommonAwsError>;
+  ): Effect.Effect<
+    ListClusterNodesResponse,
+    ResourceNotFound | CommonAwsError
+  > {
+    return this.call("ListClusterNodes", input);
+  }
   listClusters(
     input: ListClustersRequest,
-  ): Effect.Effect<ListClustersResponse, CommonAwsError>;
+  ): Effect.Effect<ListClustersResponse, CommonAwsError> {
+    return this.call("ListClusters", input);
+  }
   listClusterSchedulerConfigs(
     input: ListClusterSchedulerConfigsRequest,
-  ): Effect.Effect<ListClusterSchedulerConfigsResponse, CommonAwsError>;
+  ): Effect.Effect<ListClusterSchedulerConfigsResponse, CommonAwsError> {
+    return this.call("ListClusterSchedulerConfigs", input);
+  }
   listCodeRepositories(
     input: ListCodeRepositoriesInput,
-  ): Effect.Effect<ListCodeRepositoriesOutput, CommonAwsError>;
+  ): Effect.Effect<ListCodeRepositoriesOutput, CommonAwsError> {
+    return this.call("ListCodeRepositories", input);
+  }
   listCompilationJobs(
     input: ListCompilationJobsRequest,
-  ): Effect.Effect<ListCompilationJobsResponse, CommonAwsError>;
+  ): Effect.Effect<ListCompilationJobsResponse, CommonAwsError> {
+    return this.call("ListCompilationJobs", input);
+  }
   listComputeQuotas(
     input: ListComputeQuotasRequest,
-  ): Effect.Effect<ListComputeQuotasResponse, CommonAwsError>;
+  ): Effect.Effect<ListComputeQuotasResponse, CommonAwsError> {
+    return this.call("ListComputeQuotas", input);
+  }
   listContexts(
     input: ListContextsRequest,
-  ): Effect.Effect<ListContextsResponse, ResourceNotFound | CommonAwsError>;
+  ): Effect.Effect<ListContextsResponse, ResourceNotFound | CommonAwsError> {
+    return this.call("ListContexts", input);
+  }
   listDataQualityJobDefinitions(
     input: ListDataQualityJobDefinitionsRequest,
-  ): Effect.Effect<ListDataQualityJobDefinitionsResponse, CommonAwsError>;
+  ): Effect.Effect<ListDataQualityJobDefinitionsResponse, CommonAwsError> {
+    return this.call("ListDataQualityJobDefinitions", input);
+  }
   listDeviceFleets(
     input: ListDeviceFleetsRequest,
-  ): Effect.Effect<ListDeviceFleetsResponse, CommonAwsError>;
+  ): Effect.Effect<ListDeviceFleetsResponse, CommonAwsError> {
+    return this.call("ListDeviceFleets", input);
+  }
   listDevices(
     input: ListDevicesRequest,
-  ): Effect.Effect<ListDevicesResponse, CommonAwsError>;
+  ): Effect.Effect<ListDevicesResponse, CommonAwsError> {
+    return this.call("ListDevices", input);
+  }
   listDomains(
     input: ListDomainsRequest,
-  ): Effect.Effect<ListDomainsResponse, CommonAwsError>;
+  ): Effect.Effect<ListDomainsResponse, CommonAwsError> {
+    return this.call("ListDomains", input);
+  }
   listEdgeDeploymentPlans(
     input: ListEdgeDeploymentPlansRequest,
-  ): Effect.Effect<ListEdgeDeploymentPlansResponse, CommonAwsError>;
+  ): Effect.Effect<ListEdgeDeploymentPlansResponse, CommonAwsError> {
+    return this.call("ListEdgeDeploymentPlans", input);
+  }
   listEdgePackagingJobs(
     input: ListEdgePackagingJobsRequest,
-  ): Effect.Effect<ListEdgePackagingJobsResponse, CommonAwsError>;
+  ): Effect.Effect<ListEdgePackagingJobsResponse, CommonAwsError> {
+    return this.call("ListEdgePackagingJobs", input);
+  }
   listEndpointConfigs(
     input: ListEndpointConfigsInput,
-  ): Effect.Effect<ListEndpointConfigsOutput, CommonAwsError>;
+  ): Effect.Effect<ListEndpointConfigsOutput, CommonAwsError> {
+    return this.call("ListEndpointConfigs", input);
+  }
   listEndpoints(
     input: ListEndpointsInput,
-  ): Effect.Effect<ListEndpointsOutput, CommonAwsError>;
+  ): Effect.Effect<ListEndpointsOutput, CommonAwsError> {
+    return this.call("ListEndpoints", input);
+  }
   listExperiments(
     input: ListExperimentsRequest,
-  ): Effect.Effect<ListExperimentsResponse, CommonAwsError>;
+  ): Effect.Effect<ListExperimentsResponse, CommonAwsError> {
+    return this.call("ListExperiments", input);
+  }
   listFeatureGroups(
     input: ListFeatureGroupsRequest,
-  ): Effect.Effect<ListFeatureGroupsResponse, CommonAwsError>;
+  ): Effect.Effect<ListFeatureGroupsResponse, CommonAwsError> {
+    return this.call("ListFeatureGroups", input);
+  }
   listFlowDefinitions(
     input: ListFlowDefinitionsRequest,
-  ): Effect.Effect<ListFlowDefinitionsResponse, CommonAwsError>;
+  ): Effect.Effect<ListFlowDefinitionsResponse, CommonAwsError> {
+    return this.call("ListFlowDefinitions", input);
+  }
   listHubContents(
     input: ListHubContentsRequest,
-  ): Effect.Effect<ListHubContentsResponse, ResourceNotFound | CommonAwsError>;
+  ): Effect.Effect<ListHubContentsResponse, ResourceNotFound | CommonAwsError> {
+    return this.call("ListHubContents", input);
+  }
   listHubContentVersions(
     input: ListHubContentVersionsRequest,
   ): Effect.Effect<
     ListHubContentVersionsResponse,
     ResourceNotFound | CommonAwsError
-  >;
+  > {
+    return this.call("ListHubContentVersions", input);
+  }
   listHubs(
     input: ListHubsRequest,
-  ): Effect.Effect<ListHubsResponse, CommonAwsError>;
+  ): Effect.Effect<ListHubsResponse, CommonAwsError> {
+    return this.call("ListHubs", input);
+  }
   listHumanTaskUis(
     input: ListHumanTaskUisRequest,
-  ): Effect.Effect<ListHumanTaskUisResponse, CommonAwsError>;
+  ): Effect.Effect<ListHumanTaskUisResponse, CommonAwsError> {
+    return this.call("ListHumanTaskUis", input);
+  }
   listHyperParameterTuningJobs(
     input: ListHyperParameterTuningJobsRequest,
-  ): Effect.Effect<ListHyperParameterTuningJobsResponse, CommonAwsError>;
+  ): Effect.Effect<ListHyperParameterTuningJobsResponse, CommonAwsError> {
+    return this.call("ListHyperParameterTuningJobs", input);
+  }
   listImages(
     input: ListImagesRequest,
-  ): Effect.Effect<ListImagesResponse, CommonAwsError>;
+  ): Effect.Effect<ListImagesResponse, CommonAwsError> {
+    return this.call("ListImages", input);
+  }
   listImageVersions(
     input: ListImageVersionsRequest,
   ): Effect.Effect<
     ListImageVersionsResponse,
     ResourceNotFound | CommonAwsError
-  >;
+  > {
+    return this.call("ListImageVersions", input);
+  }
   listInferenceComponents(
     input: ListInferenceComponentsInput,
-  ): Effect.Effect<ListInferenceComponentsOutput, CommonAwsError>;
+  ): Effect.Effect<ListInferenceComponentsOutput, CommonAwsError> {
+    return this.call("ListInferenceComponents", input);
+  }
   listInferenceExperiments(
     input: ListInferenceExperimentsRequest,
-  ): Effect.Effect<ListInferenceExperimentsResponse, CommonAwsError>;
+  ): Effect.Effect<ListInferenceExperimentsResponse, CommonAwsError> {
+    return this.call("ListInferenceExperiments", input);
+  }
   listInferenceRecommendationsJobs(
     input: ListInferenceRecommendationsJobsRequest,
-  ): Effect.Effect<ListInferenceRecommendationsJobsResponse, CommonAwsError>;
+  ): Effect.Effect<ListInferenceRecommendationsJobsResponse, CommonAwsError> {
+    return this.call("ListInferenceRecommendationsJobs", input);
+  }
   listInferenceRecommendationsJobSteps(
     input: ListInferenceRecommendationsJobStepsRequest,
   ): Effect.Effect<
     ListInferenceRecommendationsJobStepsResponse,
     ResourceNotFound | CommonAwsError
-  >;
+  > {
+    return this.call("ListInferenceRecommendationsJobSteps", input);
+  }
   listLabelingJobs(
     input: ListLabelingJobsRequest,
-  ): Effect.Effect<ListLabelingJobsResponse, CommonAwsError>;
+  ): Effect.Effect<ListLabelingJobsResponse, CommonAwsError> {
+    return this.call("ListLabelingJobs", input);
+  }
   listLabelingJobsForWorkteam(
     input: ListLabelingJobsForWorkteamRequest,
   ): Effect.Effect<
     ListLabelingJobsForWorkteamResponse,
     ResourceNotFound | CommonAwsError
-  >;
+  > {
+    return this.call("ListLabelingJobsForWorkteam", input);
+  }
   listLineageGroups(
     input: ListLineageGroupsRequest,
-  ): Effect.Effect<ListLineageGroupsResponse, CommonAwsError>;
+  ): Effect.Effect<ListLineageGroupsResponse, CommonAwsError> {
+    return this.call("ListLineageGroups", input);
+  }
   listMlflowTrackingServers(
     input: ListMlflowTrackingServersRequest,
-  ): Effect.Effect<ListMlflowTrackingServersResponse, CommonAwsError>;
+  ): Effect.Effect<ListMlflowTrackingServersResponse, CommonAwsError> {
+    return this.call("ListMlflowTrackingServers", input);
+  }
   listModelBiasJobDefinitions(
     input: ListModelBiasJobDefinitionsRequest,
-  ): Effect.Effect<ListModelBiasJobDefinitionsResponse, CommonAwsError>;
+  ): Effect.Effect<ListModelBiasJobDefinitionsResponse, CommonAwsError> {
+    return this.call("ListModelBiasJobDefinitions", input);
+  }
   listModelCardExportJobs(
     input: ListModelCardExportJobsRequest,
-  ): Effect.Effect<ListModelCardExportJobsResponse, CommonAwsError>;
+  ): Effect.Effect<ListModelCardExportJobsResponse, CommonAwsError> {
+    return this.call("ListModelCardExportJobs", input);
+  }
   listModelCards(
     input: ListModelCardsRequest,
-  ): Effect.Effect<ListModelCardsResponse, CommonAwsError>;
+  ): Effect.Effect<ListModelCardsResponse, CommonAwsError> {
+    return this.call("ListModelCards", input);
+  }
   listModelCardVersions(
     input: ListModelCardVersionsRequest,
   ): Effect.Effect<
     ListModelCardVersionsResponse,
     ResourceNotFound | CommonAwsError
-  >;
+  > {
+    return this.call("ListModelCardVersions", input);
+  }
   listModelExplainabilityJobDefinitions(
     input: ListModelExplainabilityJobDefinitionsRequest,
   ): Effect.Effect<
     ListModelExplainabilityJobDefinitionsResponse,
     CommonAwsError
-  >;
+  > {
+    return this.call("ListModelExplainabilityJobDefinitions", input);
+  }
   listModelMetadata(
     input: ListModelMetadataRequest,
-  ): Effect.Effect<ListModelMetadataResponse, CommonAwsError>;
+  ): Effect.Effect<ListModelMetadataResponse, CommonAwsError> {
+    return this.call("ListModelMetadata", input);
+  }
   listModelPackageGroups(
     input: ListModelPackageGroupsInput,
-  ): Effect.Effect<ListModelPackageGroupsOutput, CommonAwsError>;
+  ): Effect.Effect<ListModelPackageGroupsOutput, CommonAwsError> {
+    return this.call("ListModelPackageGroups", input);
+  }
   listModelPackages(
     input: ListModelPackagesInput,
-  ): Effect.Effect<ListModelPackagesOutput, CommonAwsError>;
+  ): Effect.Effect<ListModelPackagesOutput, CommonAwsError> {
+    return this.call("ListModelPackages", input);
+  }
   listModelQualityJobDefinitions(
     input: ListModelQualityJobDefinitionsRequest,
-  ): Effect.Effect<ListModelQualityJobDefinitionsResponse, CommonAwsError>;
+  ): Effect.Effect<ListModelQualityJobDefinitionsResponse, CommonAwsError> {
+    return this.call("ListModelQualityJobDefinitions", input);
+  }
   listModels(
     input: ListModelsInput,
-  ): Effect.Effect<ListModelsOutput, CommonAwsError>;
+  ): Effect.Effect<ListModelsOutput, CommonAwsError> {
+    return this.call("ListModels", input);
+  }
   listMonitoringAlertHistory(
     input: ListMonitoringAlertHistoryRequest,
   ): Effect.Effect<
     ListMonitoringAlertHistoryResponse,
     ResourceNotFound | CommonAwsError
-  >;
+  > {
+    return this.call("ListMonitoringAlertHistory", input);
+  }
   listMonitoringAlerts(
     input: ListMonitoringAlertsRequest,
   ): Effect.Effect<
     ListMonitoringAlertsResponse,
     ResourceNotFound | CommonAwsError
-  >;
+  > {
+    return this.call("ListMonitoringAlerts", input);
+  }
   listMonitoringExecutions(
     input: ListMonitoringExecutionsRequest,
-  ): Effect.Effect<ListMonitoringExecutionsResponse, CommonAwsError>;
+  ): Effect.Effect<ListMonitoringExecutionsResponse, CommonAwsError> {
+    return this.call("ListMonitoringExecutions", input);
+  }
   listMonitoringSchedules(
     input: ListMonitoringSchedulesRequest,
-  ): Effect.Effect<ListMonitoringSchedulesResponse, CommonAwsError>;
+  ): Effect.Effect<ListMonitoringSchedulesResponse, CommonAwsError> {
+    return this.call("ListMonitoringSchedules", input);
+  }
   listNotebookInstanceLifecycleConfigs(
     input: ListNotebookInstanceLifecycleConfigsInput,
-  ): Effect.Effect<ListNotebookInstanceLifecycleConfigsOutput, CommonAwsError>;
+  ): Effect.Effect<ListNotebookInstanceLifecycleConfigsOutput, CommonAwsError> {
+    return this.call("ListNotebookInstanceLifecycleConfigs", input);
+  }
   listNotebookInstances(
     input: ListNotebookInstancesInput,
-  ): Effect.Effect<ListNotebookInstancesOutput, CommonAwsError>;
+  ): Effect.Effect<ListNotebookInstancesOutput, CommonAwsError> {
+    return this.call("ListNotebookInstances", input);
+  }
   listOptimizationJobs(
     input: ListOptimizationJobsRequest,
-  ): Effect.Effect<ListOptimizationJobsResponse, CommonAwsError>;
+  ): Effect.Effect<ListOptimizationJobsResponse, CommonAwsError> {
+    return this.call("ListOptimizationJobs", input);
+  }
   listPartnerApps(
     input: ListPartnerAppsRequest,
-  ): Effect.Effect<ListPartnerAppsResponse, CommonAwsError>;
+  ): Effect.Effect<ListPartnerAppsResponse, CommonAwsError> {
+    return this.call("ListPartnerApps", input);
+  }
   listPipelineExecutions(
     input: ListPipelineExecutionsRequest,
   ): Effect.Effect<
     ListPipelineExecutionsResponse,
     ResourceNotFound | CommonAwsError
-  >;
+  > {
+    return this.call("ListPipelineExecutions", input);
+  }
   listPipelineExecutionSteps(
     input: ListPipelineExecutionStepsRequest,
   ): Effect.Effect<
     ListPipelineExecutionStepsResponse,
     ResourceNotFound | CommonAwsError
-  >;
+  > {
+    return this.call("ListPipelineExecutionSteps", input);
+  }
   listPipelineParametersForExecution(
     input: ListPipelineParametersForExecutionRequest,
   ): Effect.Effect<
     ListPipelineParametersForExecutionResponse,
     ResourceNotFound | CommonAwsError
-  >;
+  > {
+    return this.call("ListPipelineParametersForExecution", input);
+  }
   listPipelines(
     input: ListPipelinesRequest,
-  ): Effect.Effect<ListPipelinesResponse, CommonAwsError>;
+  ): Effect.Effect<ListPipelinesResponse, CommonAwsError> {
+    return this.call("ListPipelines", input);
+  }
   listPipelineVersions(
     input: ListPipelineVersionsRequest,
   ): Effect.Effect<
     ListPipelineVersionsResponse,
     ResourceNotFound | CommonAwsError
-  >;
+  > {
+    return this.call("ListPipelineVersions", input);
+  }
   listProcessingJobs(
     input: ListProcessingJobsRequest,
-  ): Effect.Effect<ListProcessingJobsResponse, CommonAwsError>;
+  ): Effect.Effect<ListProcessingJobsResponse, CommonAwsError> {
+    return this.call("ListProcessingJobs", input);
+  }
   listProjects(
     input: ListProjectsInput,
-  ): Effect.Effect<ListProjectsOutput, CommonAwsError>;
+  ): Effect.Effect<ListProjectsOutput, CommonAwsError> {
+    return this.call("ListProjects", input);
+  }
   listResourceCatalogs(
     input: ListResourceCatalogsRequest,
-  ): Effect.Effect<ListResourceCatalogsResponse, CommonAwsError>;
+  ): Effect.Effect<ListResourceCatalogsResponse, CommonAwsError> {
+    return this.call("ListResourceCatalogs", input);
+  }
   listSpaces(
     input: ListSpacesRequest,
-  ): Effect.Effect<ListSpacesResponse, CommonAwsError>;
+  ): Effect.Effect<ListSpacesResponse, CommonAwsError> {
+    return this.call("ListSpaces", input);
+  }
   listStageDevices(
     input: ListStageDevicesRequest,
-  ): Effect.Effect<ListStageDevicesResponse, CommonAwsError>;
+  ): Effect.Effect<ListStageDevicesResponse, CommonAwsError> {
+    return this.call("ListStageDevices", input);
+  }
   listStudioLifecycleConfigs(
     input: ListStudioLifecycleConfigsRequest,
   ): Effect.Effect<
     ListStudioLifecycleConfigsResponse,
     ResourceInUse | CommonAwsError
-  >;
+  > {
+    return this.call("ListStudioLifecycleConfigs", input);
+  }
   listSubscribedWorkteams(
     input: ListSubscribedWorkteamsRequest,
-  ): Effect.Effect<ListSubscribedWorkteamsResponse, CommonAwsError>;
-  listTags(input: ListTagsInput): Effect.Effect<ListTagsOutput, CommonAwsError>;
+  ): Effect.Effect<ListSubscribedWorkteamsResponse, CommonAwsError> {
+    return this.call("ListSubscribedWorkteams", input);
+  }
+  listTags(
+    input: ListTagsInput,
+  ): Effect.Effect<ListTagsOutput, CommonAwsError> {
+    return this.call("ListTags", input);
+  }
   listTrainingJobs(
     input: ListTrainingJobsRequest,
-  ): Effect.Effect<ListTrainingJobsResponse, CommonAwsError>;
+  ): Effect.Effect<ListTrainingJobsResponse, CommonAwsError> {
+    return this.call("ListTrainingJobs", input);
+  }
   listTrainingJobsForHyperParameterTuningJob(
     input: ListTrainingJobsForHyperParameterTuningJobRequest,
   ): Effect.Effect<
     ListTrainingJobsForHyperParameterTuningJobResponse,
     ResourceNotFound | CommonAwsError
-  >;
+  > {
+    return this.call("ListTrainingJobsForHyperParameterTuningJob", input);
+  }
   listTrainingPlans(
     input: ListTrainingPlansRequest,
-  ): Effect.Effect<ListTrainingPlansResponse, CommonAwsError>;
+  ): Effect.Effect<ListTrainingPlansResponse, CommonAwsError> {
+    return this.call("ListTrainingPlans", input);
+  }
   listTransformJobs(
     input: ListTransformJobsRequest,
-  ): Effect.Effect<ListTransformJobsResponse, CommonAwsError>;
+  ): Effect.Effect<ListTransformJobsResponse, CommonAwsError> {
+    return this.call("ListTransformJobs", input);
+  }
   listTrialComponents(
     input: ListTrialComponentsRequest,
   ): Effect.Effect<
     ListTrialComponentsResponse,
     ResourceNotFound | CommonAwsError
-  >;
+  > {
+    return this.call("ListTrialComponents", input);
+  }
   listTrials(
     input: ListTrialsRequest,
-  ): Effect.Effect<ListTrialsResponse, ResourceNotFound | CommonAwsError>;
+  ): Effect.Effect<ListTrialsResponse, ResourceNotFound | CommonAwsError> {
+    return this.call("ListTrials", input);
+  }
   listUserProfiles(
     input: ListUserProfilesRequest,
-  ): Effect.Effect<ListUserProfilesResponse, CommonAwsError>;
+  ): Effect.Effect<ListUserProfilesResponse, CommonAwsError> {
+    return this.call("ListUserProfiles", input);
+  }
   listWorkforces(
     input: ListWorkforcesRequest,
-  ): Effect.Effect<ListWorkforcesResponse, CommonAwsError>;
+  ): Effect.Effect<ListWorkforcesResponse, CommonAwsError> {
+    return this.call("ListWorkforces", input);
+  }
   listWorkteams(
     input: ListWorkteamsRequest,
-  ): Effect.Effect<ListWorkteamsResponse, CommonAwsError>;
+  ): Effect.Effect<ListWorkteamsResponse, CommonAwsError> {
+    return this.call("ListWorkteams", input);
+  }
   putModelPackageGroupPolicy(
     input: PutModelPackageGroupPolicyInput,
   ): Effect.Effect<
     PutModelPackageGroupPolicyOutput,
     ConflictException | CommonAwsError
-  >;
+  > {
+    return this.call("PutModelPackageGroupPolicy", input);
+  }
   queryLineage(
     input: QueryLineageRequest,
-  ): Effect.Effect<QueryLineageResponse, ResourceNotFound | CommonAwsError>;
+  ): Effect.Effect<QueryLineageResponse, ResourceNotFound | CommonAwsError> {
+    return this.call("QueryLineage", input);
+  }
   registerDevices(
     input: RegisterDevicesRequest,
-  ): Effect.Effect<{}, ResourceLimitExceeded | CommonAwsError>;
+  ): Effect.Effect<{}, ResourceLimitExceeded | CommonAwsError> {
+    return this.call("RegisterDevices", input);
+  }
   renderUiTemplate(
     input: RenderUiTemplateRequest,
-  ): Effect.Effect<RenderUiTemplateResponse, ResourceNotFound | CommonAwsError>;
+  ): Effect.Effect<
+    RenderUiTemplateResponse,
+    ResourceNotFound | CommonAwsError
+  > {
+    return this.call("RenderUiTemplate", input);
+  }
   retryPipelineExecution(
     input: RetryPipelineExecutionRequest,
   ): Effect.Effect<
@@ -1290,14 +1895,20 @@ export declare class SageMaker extends AWSServiceClient {
     | ResourceLimitExceeded
     | ResourceNotFound
     | CommonAwsError
-  >;
-  search(input: SearchRequest): Effect.Effect<SearchResponse, CommonAwsError>;
+  > {
+    return this.call("RetryPipelineExecution", input);
+  }
+  search(input: SearchRequest): Effect.Effect<SearchResponse, CommonAwsError> {
+    return this.call("Search", input);
+  }
   searchTrainingPlanOfferings(
     input: SearchTrainingPlanOfferingsRequest,
   ): Effect.Effect<
     SearchTrainingPlanOfferingsResponse,
     ResourceLimitExceeded | CommonAwsError
-  >;
+  > {
+    return this.call("SearchTrainingPlanOfferings", input);
+  }
   sendPipelineExecutionStepFailure(
     input: SendPipelineExecutionStepFailureRequest,
   ): Effect.Effect<
@@ -1306,7 +1917,9 @@ export declare class SageMaker extends AWSServiceClient {
     | ResourceLimitExceeded
     | ResourceNotFound
     | CommonAwsError
-  >;
+  > {
+    return this.call("SendPipelineExecutionStepFailure", input);
+  }
   sendPipelineExecutionStepSuccess(
     input: SendPipelineExecutionStepSuccessRequest,
   ): Effect.Effect<
@@ -1315,28 +1928,40 @@ export declare class SageMaker extends AWSServiceClient {
     | ResourceLimitExceeded
     | ResourceNotFound
     | CommonAwsError
-  >;
+  > {
+    return this.call("SendPipelineExecutionStepSuccess", input);
+  }
   startEdgeDeploymentStage(
     input: StartEdgeDeploymentStageRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, CommonAwsError> {
+    return this.call("StartEdgeDeploymentStage", input);
+  }
   startInferenceExperiment(
     input: StartInferenceExperimentRequest,
   ): Effect.Effect<
     StartInferenceExperimentResponse,
     ConflictException | ResourceNotFound | CommonAwsError
-  >;
+  > {
+    return this.call("StartInferenceExperiment", input);
+  }
   startMlflowTrackingServer(
     input: StartMlflowTrackingServerRequest,
   ): Effect.Effect<
     StartMlflowTrackingServerResponse,
     ConflictException | ResourceNotFound | CommonAwsError
-  >;
+  > {
+    return this.call("StartMlflowTrackingServer", input);
+  }
   startMonitoringSchedule(
     input: StartMonitoringScheduleRequest,
-  ): Effect.Effect<{}, ResourceNotFound | CommonAwsError>;
+  ): Effect.Effect<{}, ResourceNotFound | CommonAwsError> {
+    return this.call("StartMonitoringSchedule", input);
+  }
   startNotebookInstance(
     input: StartNotebookInstanceInput,
-  ): Effect.Effect<{}, ResourceLimitExceeded | CommonAwsError>;
+  ): Effect.Effect<{}, ResourceLimitExceeded | CommonAwsError> {
+    return this.call("StartNotebookInstance", input);
+  }
   startPipelineExecution(
     input: StartPipelineExecutionRequest,
   ): Effect.Effect<
@@ -1345,88 +1970,130 @@ export declare class SageMaker extends AWSServiceClient {
     | ResourceLimitExceeded
     | ResourceNotFound
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartPipelineExecution", input);
+  }
   startSession(
     input: StartSessionRequest,
   ): Effect.Effect<
     StartSessionResponse,
     ResourceLimitExceeded | ResourceNotFound | CommonAwsError
-  >;
+  > {
+    return this.call("StartSession", input);
+  }
   stopAutoMLJob(
     input: StopAutoMLJobRequest,
-  ): Effect.Effect<{}, ResourceNotFound | CommonAwsError>;
+  ): Effect.Effect<{}, ResourceNotFound | CommonAwsError> {
+    return this.call("StopAutoMLJob", input);
+  }
   stopCompilationJob(
     input: StopCompilationJobRequest,
-  ): Effect.Effect<{}, ResourceNotFound | CommonAwsError>;
+  ): Effect.Effect<{}, ResourceNotFound | CommonAwsError> {
+    return this.call("StopCompilationJob", input);
+  }
   stopEdgeDeploymentStage(
     input: StopEdgeDeploymentStageRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, CommonAwsError> {
+    return this.call("StopEdgeDeploymentStage", input);
+  }
   stopEdgePackagingJob(
     input: StopEdgePackagingJobRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, CommonAwsError> {
+    return this.call("StopEdgePackagingJob", input);
+  }
   stopHyperParameterTuningJob(
     input: StopHyperParameterTuningJobRequest,
-  ): Effect.Effect<{}, ResourceNotFound | CommonAwsError>;
+  ): Effect.Effect<{}, ResourceNotFound | CommonAwsError> {
+    return this.call("StopHyperParameterTuningJob", input);
+  }
   stopInferenceExperiment(
     input: StopInferenceExperimentRequest,
   ): Effect.Effect<
     StopInferenceExperimentResponse,
     ConflictException | ResourceNotFound | CommonAwsError
-  >;
+  > {
+    return this.call("StopInferenceExperiment", input);
+  }
   stopInferenceRecommendationsJob(
     input: StopInferenceRecommendationsJobRequest,
-  ): Effect.Effect<{}, ResourceNotFound | CommonAwsError>;
+  ): Effect.Effect<{}, ResourceNotFound | CommonAwsError> {
+    return this.call("StopInferenceRecommendationsJob", input);
+  }
   stopLabelingJob(
     input: StopLabelingJobRequest,
-  ): Effect.Effect<{}, ResourceNotFound | CommonAwsError>;
+  ): Effect.Effect<{}, ResourceNotFound | CommonAwsError> {
+    return this.call("StopLabelingJob", input);
+  }
   stopMlflowTrackingServer(
     input: StopMlflowTrackingServerRequest,
   ): Effect.Effect<
     StopMlflowTrackingServerResponse,
     ConflictException | ResourceNotFound | CommonAwsError
-  >;
+  > {
+    return this.call("StopMlflowTrackingServer", input);
+  }
   stopMonitoringSchedule(
     input: StopMonitoringScheduleRequest,
-  ): Effect.Effect<{}, ResourceNotFound | CommonAwsError>;
+  ): Effect.Effect<{}, ResourceNotFound | CommonAwsError> {
+    return this.call("StopMonitoringSchedule", input);
+  }
   stopNotebookInstance(
     input: StopNotebookInstanceInput,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, CommonAwsError> {
+    return this.call("StopNotebookInstance", input);
+  }
   stopOptimizationJob(
     input: StopOptimizationJobRequest,
-  ): Effect.Effect<{}, ResourceNotFound | CommonAwsError>;
+  ): Effect.Effect<{}, ResourceNotFound | CommonAwsError> {
+    return this.call("StopOptimizationJob", input);
+  }
   stopPipelineExecution(
     input: StopPipelineExecutionRequest,
   ): Effect.Effect<
     StopPipelineExecutionResponse,
     ConflictException | ResourceNotFound | CommonAwsError
-  >;
+  > {
+    return this.call("StopPipelineExecution", input);
+  }
   stopProcessingJob(
     input: StopProcessingJobRequest,
-  ): Effect.Effect<{}, ResourceNotFound | CommonAwsError>;
+  ): Effect.Effect<{}, ResourceNotFound | CommonAwsError> {
+    return this.call("StopProcessingJob", input);
+  }
   stopTrainingJob(
     input: StopTrainingJobRequest,
-  ): Effect.Effect<{}, ResourceNotFound | CommonAwsError>;
+  ): Effect.Effect<{}, ResourceNotFound | CommonAwsError> {
+    return this.call("StopTrainingJob", input);
+  }
   stopTransformJob(
     input: StopTransformJobRequest,
-  ): Effect.Effect<{}, ResourceNotFound | CommonAwsError>;
+  ): Effect.Effect<{}, ResourceNotFound | CommonAwsError> {
+    return this.call("StopTransformJob", input);
+  }
   updateAction(
     input: UpdateActionRequest,
   ): Effect.Effect<
     UpdateActionResponse,
     ConflictException | ResourceNotFound | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateAction", input);
+  }
   updateAppImageConfig(
     input: UpdateAppImageConfigRequest,
   ): Effect.Effect<
     UpdateAppImageConfigResponse,
     ResourceNotFound | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateAppImageConfig", input);
+  }
   updateArtifact(
     input: UpdateArtifactRequest,
   ): Effect.Effect<
     UpdateArtifactResponse,
     ConflictException | ResourceNotFound | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateArtifact", input);
+  }
   updateCluster(
     input: UpdateClusterRequest,
   ): Effect.Effect<
@@ -1435,7 +2102,9 @@ export declare class SageMaker extends AWSServiceClient {
     | ResourceLimitExceeded
     | ResourceNotFound
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateCluster", input);
+  }
   updateClusterSchedulerConfig(
     input: UpdateClusterSchedulerConfigRequest,
   ): Effect.Effect<
@@ -1444,19 +2113,25 @@ export declare class SageMaker extends AWSServiceClient {
     | ResourceLimitExceeded
     | ResourceNotFound
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateClusterSchedulerConfig", input);
+  }
   updateClusterSoftware(
     input: UpdateClusterSoftwareRequest,
   ): Effect.Effect<
     UpdateClusterSoftwareResponse,
     ConflictException | ResourceNotFound | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateClusterSoftware", input);
+  }
   updateCodeRepository(
     input: UpdateCodeRepositoryInput,
   ): Effect.Effect<
     UpdateCodeRepositoryOutput,
     ConflictException | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateCodeRepository", input);
+  }
   updateComputeQuota(
     input: UpdateComputeQuotaRequest,
   ): Effect.Effect<
@@ -1465,95 +2140,133 @@ export declare class SageMaker extends AWSServiceClient {
     | ResourceLimitExceeded
     | ResourceNotFound
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateComputeQuota", input);
+  }
   updateContext(
     input: UpdateContextRequest,
   ): Effect.Effect<
     UpdateContextResponse,
     ConflictException | ResourceNotFound | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateContext", input);
+  }
   updateDeviceFleet(
     input: UpdateDeviceFleetRequest,
-  ): Effect.Effect<{}, ResourceInUse | CommonAwsError>;
-  updateDevices(input: UpdateDevicesRequest): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, ResourceInUse | CommonAwsError> {
+    return this.call("UpdateDeviceFleet", input);
+  }
+  updateDevices(
+    input: UpdateDevicesRequest,
+  ): Effect.Effect<{}, CommonAwsError> {
+    return this.call("UpdateDevices", input);
+  }
   updateDomain(
     input: UpdateDomainRequest,
   ): Effect.Effect<
     UpdateDomainResponse,
     ResourceInUse | ResourceLimitExceeded | ResourceNotFound | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateDomain", input);
+  }
   updateEndpoint(
     input: UpdateEndpointInput,
   ): Effect.Effect<
     UpdateEndpointOutput,
     ResourceLimitExceeded | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateEndpoint", input);
+  }
   updateEndpointWeightsAndCapacities(
     input: UpdateEndpointWeightsAndCapacitiesInput,
   ): Effect.Effect<
     UpdateEndpointWeightsAndCapacitiesOutput,
     ResourceLimitExceeded | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateEndpointWeightsAndCapacities", input);
+  }
   updateExperiment(
     input: UpdateExperimentRequest,
   ): Effect.Effect<
     UpdateExperimentResponse,
     ConflictException | ResourceNotFound | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateExperiment", input);
+  }
   updateFeatureGroup(
     input: UpdateFeatureGroupRequest,
   ): Effect.Effect<
     UpdateFeatureGroupResponse,
     ResourceLimitExceeded | ResourceNotFound | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateFeatureGroup", input);
+  }
   updateFeatureMetadata(
     input: UpdateFeatureMetadataRequest,
-  ): Effect.Effect<{}, ResourceNotFound | CommonAwsError>;
+  ): Effect.Effect<{}, ResourceNotFound | CommonAwsError> {
+    return this.call("UpdateFeatureMetadata", input);
+  }
   updateHub(
     input: UpdateHubRequest,
-  ): Effect.Effect<UpdateHubResponse, ResourceNotFound | CommonAwsError>;
+  ): Effect.Effect<UpdateHubResponse, ResourceNotFound | CommonAwsError> {
+    return this.call("UpdateHub", input);
+  }
   updateHubContent(
     input: UpdateHubContentRequest,
   ): Effect.Effect<
     UpdateHubContentResponse,
     ResourceInUse | ResourceNotFound | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateHubContent", input);
+  }
   updateHubContentReference(
     input: UpdateHubContentReferenceRequest,
   ): Effect.Effect<
     UpdateHubContentReferenceResponse,
     ResourceInUse | ResourceNotFound | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateHubContentReference", input);
+  }
   updateImage(
     input: UpdateImageRequest,
   ): Effect.Effect<
     UpdateImageResponse,
     ResourceInUse | ResourceNotFound | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateImage", input);
+  }
   updateImageVersion(
     input: UpdateImageVersionRequest,
   ): Effect.Effect<
     UpdateImageVersionResponse,
     ResourceInUse | ResourceNotFound | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateImageVersion", input);
+  }
   updateInferenceComponent(
     input: UpdateInferenceComponentInput,
   ): Effect.Effect<
     UpdateInferenceComponentOutput,
     ResourceLimitExceeded | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateInferenceComponent", input);
+  }
   updateInferenceComponentRuntimeConfig(
     input: UpdateInferenceComponentRuntimeConfigInput,
   ): Effect.Effect<
     UpdateInferenceComponentRuntimeConfigOutput,
     ResourceLimitExceeded | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateInferenceComponentRuntimeConfig", input);
+  }
   updateInferenceExperiment(
     input: UpdateInferenceExperimentRequest,
   ): Effect.Effect<
     UpdateInferenceExperimentResponse,
     ConflictException | ResourceNotFound | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateInferenceExperiment", input);
+  }
   updateMlflowTrackingServer(
     input: UpdateMlflowTrackingServerRequest,
   ): Effect.Effect<
@@ -1562,7 +2275,9 @@ export declare class SageMaker extends AWSServiceClient {
     | ResourceLimitExceeded
     | ResourceNotFound
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateMlflowTrackingServer", input);
+  }
   updateModelCard(
     input: UpdateModelCardRequest,
   ): Effect.Effect<
@@ -1571,106 +2286,147 @@ export declare class SageMaker extends AWSServiceClient {
     | ResourceLimitExceeded
     | ResourceNotFound
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateModelCard", input);
+  }
   updateModelPackage(
     input: UpdateModelPackageInput,
   ): Effect.Effect<
     UpdateModelPackageOutput,
     ConflictException | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateModelPackage", input);
+  }
   updateMonitoringAlert(
     input: UpdateMonitoringAlertRequest,
   ): Effect.Effect<
     UpdateMonitoringAlertResponse,
     ResourceLimitExceeded | ResourceNotFound | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateMonitoringAlert", input);
+  }
   updateMonitoringSchedule(
     input: UpdateMonitoringScheduleRequest,
   ): Effect.Effect<
     UpdateMonitoringScheduleResponse,
     ResourceLimitExceeded | ResourceNotFound | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateMonitoringSchedule", input);
+  }
   updateNotebookInstance(
     input: UpdateNotebookInstanceInput,
   ): Effect.Effect<
     UpdateNotebookInstanceOutput,
     ResourceLimitExceeded | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateNotebookInstance", input);
+  }
   updateNotebookInstanceLifecycleConfig(
     input: UpdateNotebookInstanceLifecycleConfigInput,
   ): Effect.Effect<
     UpdateNotebookInstanceLifecycleConfigOutput,
     ResourceLimitExceeded | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateNotebookInstanceLifecycleConfig", input);
+  }
   updatePartnerApp(
     input: UpdatePartnerAppRequest,
   ): Effect.Effect<
     UpdatePartnerAppResponse,
     ConflictException | ResourceNotFound | CommonAwsError
-  >;
+  > {
+    return this.call("UpdatePartnerApp", input);
+  }
   updatePipeline(
     input: UpdatePipelineRequest,
   ): Effect.Effect<
     UpdatePipelineResponse,
     ConflictException | ResourceNotFound | CommonAwsError
-  >;
+  > {
+    return this.call("UpdatePipeline", input);
+  }
   updatePipelineExecution(
     input: UpdatePipelineExecutionRequest,
   ): Effect.Effect<
     UpdatePipelineExecutionResponse,
     ConflictException | ResourceNotFound | CommonAwsError
-  >;
+  > {
+    return this.call("UpdatePipelineExecution", input);
+  }
   updatePipelineVersion(
     input: UpdatePipelineVersionRequest,
   ): Effect.Effect<
     UpdatePipelineVersionResponse,
     ConflictException | ResourceNotFound | CommonAwsError
-  >;
+  > {
+    return this.call("UpdatePipelineVersion", input);
+  }
   updateProject(
     input: UpdateProjectInput,
-  ): Effect.Effect<UpdateProjectOutput, ConflictException | CommonAwsError>;
+  ): Effect.Effect<UpdateProjectOutput, ConflictException | CommonAwsError> {
+    return this.call("UpdateProject", input);
+  }
   updateSpace(
     input: UpdateSpaceRequest,
   ): Effect.Effect<
     UpdateSpaceResponse,
     ResourceInUse | ResourceLimitExceeded | ResourceNotFound | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateSpace", input);
+  }
   updateTrainingJob(
     input: UpdateTrainingJobRequest,
   ): Effect.Effect<
     UpdateTrainingJobResponse,
     ResourceLimitExceeded | ResourceNotFound | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateTrainingJob", input);
+  }
   updateTrial(
     input: UpdateTrialRequest,
   ): Effect.Effect<
     UpdateTrialResponse,
     ConflictException | ResourceNotFound | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateTrial", input);
+  }
   updateTrialComponent(
     input: UpdateTrialComponentRequest,
   ): Effect.Effect<
     UpdateTrialComponentResponse,
     ConflictException | ResourceNotFound | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateTrialComponent", input);
+  }
   updateUserProfile(
     input: UpdateUserProfileRequest,
   ): Effect.Effect<
     UpdateUserProfileResponse,
     ResourceInUse | ResourceLimitExceeded | ResourceNotFound | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateUserProfile", input);
+  }
   updateWorkforce(
     input: UpdateWorkforceRequest,
-  ): Effect.Effect<UpdateWorkforceResponse, ConflictException | CommonAwsError>;
+  ): Effect.Effect<
+    UpdateWorkforceResponse,
+    ConflictException | CommonAwsError
+  > {
+    return this.call("UpdateWorkforce", input);
+  }
   updateWorkteam(
     input: UpdateWorkteamRequest,
   ): Effect.Effect<
     UpdateWorkteamResponse,
     ResourceLimitExceeded | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateWorkteam", input);
+  }
 }
 
-export declare class Sagemaker extends SageMaker {}
+export class Sagemaker extends SageMaker {}
+
+export default SageMaker;
 
 export type Accept = string;
 

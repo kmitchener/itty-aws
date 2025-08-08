@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class LicenseManagerUserSubscriptions extends AWSServiceClient {
+export class LicenseManagerUserSubscriptions extends AWSServiceClient {
   associateUser(
     input: AssociateUserRequest,
   ): Effect.Effect<
@@ -15,7 +15,9 @@ export declare class LicenseManagerUserSubscriptions extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AssociateUser", input);
+  }
   createLicenseServerEndpoint(
     input: CreateLicenseServerEndpointRequest,
   ): Effect.Effect<
@@ -28,7 +30,9 @@ export declare class LicenseManagerUserSubscriptions extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateLicenseServerEndpoint", input);
+  }
   deleteLicenseServerEndpoint(
     input: DeleteLicenseServerEndpointRequest,
   ): Effect.Effect<
@@ -41,7 +45,9 @@ export declare class LicenseManagerUserSubscriptions extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteLicenseServerEndpoint", input);
+  }
   deregisterIdentityProvider(
     input: DeregisterIdentityProviderRequest,
   ): Effect.Effect<
@@ -54,7 +60,9 @@ export declare class LicenseManagerUserSubscriptions extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeregisterIdentityProvider", input);
+  }
   disassociateUser(
     input: DisassociateUserRequest,
   ): Effect.Effect<
@@ -67,7 +75,9 @@ export declare class LicenseManagerUserSubscriptions extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DisassociateUser", input);
+  }
   listIdentityProviders(
     input: ListIdentityProvidersRequest,
   ): Effect.Effect<
@@ -80,7 +90,9 @@ export declare class LicenseManagerUserSubscriptions extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListIdentityProviders", input);
+  }
   listInstances(
     input: ListInstancesRequest,
   ): Effect.Effect<
@@ -93,7 +105,9 @@ export declare class LicenseManagerUserSubscriptions extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListInstances", input);
+  }
   listLicenseServerEndpoints(
     input: ListLicenseServerEndpointsRequest,
   ): Effect.Effect<
@@ -105,7 +119,9 @@ export declare class LicenseManagerUserSubscriptions extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListLicenseServerEndpoints", input);
+  }
   listProductSubscriptions(
     input: ListProductSubscriptionsRequest,
   ): Effect.Effect<
@@ -118,7 +134,9 @@ export declare class LicenseManagerUserSubscriptions extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListProductSubscriptions", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
@@ -127,7 +145,9 @@ export declare class LicenseManagerUserSubscriptions extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   listUserAssociations(
     input: ListUserAssociationsRequest,
   ): Effect.Effect<
@@ -140,7 +160,9 @@ export declare class LicenseManagerUserSubscriptions extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListUserAssociations", input);
+  }
   registerIdentityProvider(
     input: RegisterIdentityProviderRequest,
   ): Effect.Effect<
@@ -153,7 +175,9 @@ export declare class LicenseManagerUserSubscriptions extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("RegisterIdentityProvider", input);
+  }
   startProductSubscription(
     input: StartProductSubscriptionRequest,
   ): Effect.Effect<
@@ -166,7 +190,9 @@ export declare class LicenseManagerUserSubscriptions extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartProductSubscription", input);
+  }
   stopProductSubscription(
     input: StopProductSubscriptionRequest,
   ): Effect.Effect<
@@ -179,7 +205,9 @@ export declare class LicenseManagerUserSubscriptions extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StopProductSubscription", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -188,13 +216,17 @@ export declare class LicenseManagerUserSubscriptions extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
     InternalServerException | ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
   updateIdentityProviderSettings(
     input: UpdateIdentityProviderSettingsRequest,
   ): Effect.Effect<
@@ -204,8 +236,12 @@ export declare class LicenseManagerUserSubscriptions extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateIdentityProviderSettings", input);
+  }
 }
+
+export default LicenseManagerUserSubscriptions;
 
 export declare class AccessDeniedException extends EffectData.TaggedError(
   "AccessDeniedException",

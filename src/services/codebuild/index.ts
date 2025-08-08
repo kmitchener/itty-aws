@@ -2,61 +2,79 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class CodeBuild extends AWSServiceClient {
+export class CodeBuild extends AWSServiceClient {
   batchDeleteBuilds(
     input: BatchDeleteBuildsInput,
   ): Effect.Effect<
     BatchDeleteBuildsOutput,
     InvalidInputException | CommonAwsError
-  >;
+  > {
+    return this.call("BatchDeleteBuilds", input);
+  }
   batchGetBuildBatches(
     input: BatchGetBuildBatchesInput,
   ): Effect.Effect<
     BatchGetBuildBatchesOutput,
     InvalidInputException | CommonAwsError
-  >;
+  > {
+    return this.call("BatchGetBuildBatches", input);
+  }
   batchGetBuilds(
     input: BatchGetBuildsInput,
   ): Effect.Effect<
     BatchGetBuildsOutput,
     InvalidInputException | CommonAwsError
-  >;
+  > {
+    return this.call("BatchGetBuilds", input);
+  }
   batchGetCommandExecutions(
     input: BatchGetCommandExecutionsInput,
   ): Effect.Effect<
     BatchGetCommandExecutionsOutput,
     InvalidInputException | CommonAwsError
-  >;
+  > {
+    return this.call("BatchGetCommandExecutions", input);
+  }
   batchGetFleets(
     input: BatchGetFleetsInput,
   ): Effect.Effect<
     BatchGetFleetsOutput,
     InvalidInputException | CommonAwsError
-  >;
+  > {
+    return this.call("BatchGetFleets", input);
+  }
   batchGetProjects(
     input: BatchGetProjectsInput,
   ): Effect.Effect<
     BatchGetProjectsOutput,
     InvalidInputException | CommonAwsError
-  >;
+  > {
+    return this.call("BatchGetProjects", input);
+  }
   batchGetReportGroups(
     input: BatchGetReportGroupsInput,
   ): Effect.Effect<
     BatchGetReportGroupsOutput,
     InvalidInputException | CommonAwsError
-  >;
+  > {
+    return this.call("BatchGetReportGroups", input);
+  }
   batchGetReports(
     input: BatchGetReportsInput,
   ): Effect.Effect<
     BatchGetReportsOutput,
     InvalidInputException | CommonAwsError
-  >;
+  > {
+    return this.call("BatchGetReports", input);
+  }
   batchGetSandboxes(
     input: BatchGetSandboxesInput,
   ): Effect.Effect<
     BatchGetSandboxesOutput,
     InvalidInputException | CommonAwsError
-  >;
+  > {
+    return this.call("BatchGetSandboxes", input);
+  }
   createFleet(
     input: CreateFleetInput,
   ): Effect.Effect<
@@ -65,7 +83,9 @@ export declare class CodeBuild extends AWSServiceClient {
     | InvalidInputException
     | ResourceAlreadyExistsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateFleet", input);
+  }
   createProject(
     input: CreateProjectInput,
   ): Effect.Effect<
@@ -74,7 +94,9 @@ export declare class CodeBuild extends AWSServiceClient {
     | InvalidInputException
     | ResourceAlreadyExistsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateProject", input);
+  }
   createReportGroup(
     input: CreateReportGroupInput,
   ): Effect.Effect<
@@ -83,7 +105,9 @@ export declare class CodeBuild extends AWSServiceClient {
     | InvalidInputException
     | ResourceAlreadyExistsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateReportGroup", input);
+  }
   createWebhook(
     input: CreateWebhookInput,
   ): Effect.Effect<
@@ -93,40 +117,59 @@ export declare class CodeBuild extends AWSServiceClient {
     | ResourceAlreadyExistsException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateWebhook", input);
+  }
   deleteBuildBatch(
     input: DeleteBuildBatchInput,
   ): Effect.Effect<
     DeleteBuildBatchOutput,
     InvalidInputException | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteBuildBatch", input);
+  }
   deleteFleet(
     input: DeleteFleetInput,
-  ): Effect.Effect<DeleteFleetOutput, InvalidInputException | CommonAwsError>;
+  ): Effect.Effect<DeleteFleetOutput, InvalidInputException | CommonAwsError> {
+    return this.call("DeleteFleet", input);
+  }
   deleteProject(
     input: DeleteProjectInput,
-  ): Effect.Effect<DeleteProjectOutput, InvalidInputException | CommonAwsError>;
+  ): Effect.Effect<
+    DeleteProjectOutput,
+    InvalidInputException | CommonAwsError
+  > {
+    return this.call("DeleteProject", input);
+  }
   deleteReport(
     input: DeleteReportInput,
-  ): Effect.Effect<DeleteReportOutput, InvalidInputException | CommonAwsError>;
+  ): Effect.Effect<DeleteReportOutput, InvalidInputException | CommonAwsError> {
+    return this.call("DeleteReport", input);
+  }
   deleteReportGroup(
     input: DeleteReportGroupInput,
   ): Effect.Effect<
     DeleteReportGroupOutput,
     InvalidInputException | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteReportGroup", input);
+  }
   deleteResourcePolicy(
     input: DeleteResourcePolicyInput,
   ): Effect.Effect<
     DeleteResourcePolicyOutput,
     InvalidInputException | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteResourcePolicy", input);
+  }
   deleteSourceCredentials(
     input: DeleteSourceCredentialsInput,
   ): Effect.Effect<
     DeleteSourceCredentialsOutput,
     InvalidInputException | ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteSourceCredentials", input);
+  }
   deleteWebhook(
     input: DeleteWebhookInput,
   ): Effect.Effect<
@@ -135,31 +178,41 @@ export declare class CodeBuild extends AWSServiceClient {
     | OAuthProviderException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteWebhook", input);
+  }
   describeCodeCoverages(
     input: DescribeCodeCoveragesInput,
   ): Effect.Effect<
     DescribeCodeCoveragesOutput,
     InvalidInputException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeCodeCoverages", input);
+  }
   describeTestCases(
     input: DescribeTestCasesInput,
   ): Effect.Effect<
     DescribeTestCasesOutput,
     InvalidInputException | ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeTestCases", input);
+  }
   getReportGroupTrend(
     input: GetReportGroupTrendInput,
   ): Effect.Effect<
     GetReportGroupTrendOutput,
     InvalidInputException | ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("GetReportGroupTrend", input);
+  }
   getResourcePolicy(
     input: GetResourcePolicyInput,
   ): Effect.Effect<
     GetResourcePolicyOutput,
     InvalidInputException | ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("GetResourcePolicy", input);
+  }
   importSourceCredentials(
     input: ImportSourceCredentialsInput,
   ): Effect.Effect<
@@ -168,97 +221,138 @@ export declare class CodeBuild extends AWSServiceClient {
     | InvalidInputException
     | ResourceAlreadyExistsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ImportSourceCredentials", input);
+  }
   invalidateProjectCache(
     input: InvalidateProjectCacheInput,
   ): Effect.Effect<
     InvalidateProjectCacheOutput,
     InvalidInputException | ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("InvalidateProjectCache", input);
+  }
   listBuildBatches(
     input: ListBuildBatchesInput,
   ): Effect.Effect<
     ListBuildBatchesOutput,
     InvalidInputException | CommonAwsError
-  >;
+  > {
+    return this.call("ListBuildBatches", input);
+  }
   listBuildBatchesForProject(
     input: ListBuildBatchesForProjectInput,
   ): Effect.Effect<
     ListBuildBatchesForProjectOutput,
     InvalidInputException | ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("ListBuildBatchesForProject", input);
+  }
   listBuilds(
     input: ListBuildsInput,
-  ): Effect.Effect<ListBuildsOutput, InvalidInputException | CommonAwsError>;
+  ): Effect.Effect<ListBuildsOutput, InvalidInputException | CommonAwsError> {
+    return this.call("ListBuilds", input);
+  }
   listBuildsForProject(
     input: ListBuildsForProjectInput,
   ): Effect.Effect<
     ListBuildsForProjectOutput,
     InvalidInputException | ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("ListBuildsForProject", input);
+  }
   listCommandExecutionsForSandbox(
     input: ListCommandExecutionsForSandboxInput,
   ): Effect.Effect<
     ListCommandExecutionsForSandboxOutput,
     InvalidInputException | ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("ListCommandExecutionsForSandbox", input);
+  }
   listCuratedEnvironmentImages(
     input: ListCuratedEnvironmentImagesInput,
-  ): Effect.Effect<ListCuratedEnvironmentImagesOutput, CommonAwsError>;
+  ): Effect.Effect<ListCuratedEnvironmentImagesOutput, CommonAwsError> {
+    return this.call("ListCuratedEnvironmentImages", input);
+  }
   listFleets(
     input: ListFleetsInput,
-  ): Effect.Effect<ListFleetsOutput, InvalidInputException | CommonAwsError>;
+  ): Effect.Effect<ListFleetsOutput, InvalidInputException | CommonAwsError> {
+    return this.call("ListFleets", input);
+  }
   listProjects(
     input: ListProjectsInput,
-  ): Effect.Effect<ListProjectsOutput, InvalidInputException | CommonAwsError>;
+  ): Effect.Effect<ListProjectsOutput, InvalidInputException | CommonAwsError> {
+    return this.call("ListProjects", input);
+  }
   listReportGroups(
     input: ListReportGroupsInput,
   ): Effect.Effect<
     ListReportGroupsOutput,
     InvalidInputException | CommonAwsError
-  >;
+  > {
+    return this.call("ListReportGroups", input);
+  }
   listReports(
     input: ListReportsInput,
-  ): Effect.Effect<ListReportsOutput, InvalidInputException | CommonAwsError>;
+  ): Effect.Effect<ListReportsOutput, InvalidInputException | CommonAwsError> {
+    return this.call("ListReports", input);
+  }
   listReportsForReportGroup(
     input: ListReportsForReportGroupInput,
   ): Effect.Effect<
     ListReportsForReportGroupOutput,
     InvalidInputException | ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("ListReportsForReportGroup", input);
+  }
   listSandboxes(
     input: ListSandboxesInput,
-  ): Effect.Effect<ListSandboxesOutput, InvalidInputException | CommonAwsError>;
+  ): Effect.Effect<
+    ListSandboxesOutput,
+    InvalidInputException | CommonAwsError
+  > {
+    return this.call("ListSandboxes", input);
+  }
   listSandboxesForProject(
     input: ListSandboxesForProjectInput,
   ): Effect.Effect<
     ListSandboxesForProjectOutput,
     InvalidInputException | ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("ListSandboxesForProject", input);
+  }
   listSharedProjects(
     input: ListSharedProjectsInput,
   ): Effect.Effect<
     ListSharedProjectsOutput,
     InvalidInputException | CommonAwsError
-  >;
+  > {
+    return this.call("ListSharedProjects", input);
+  }
   listSharedReportGroups(
     input: ListSharedReportGroupsInput,
   ): Effect.Effect<
     ListSharedReportGroupsOutput,
     InvalidInputException | CommonAwsError
-  >;
+  > {
+    return this.call("ListSharedReportGroups", input);
+  }
   listSourceCredentials(
     input: ListSourceCredentialsInput,
   ): Effect.Effect<
     ListSourceCredentialsOutput,
     InvalidInputException | CommonAwsError
-  >;
+  > {
+    return this.call("ListSourceCredentials", input);
+  }
   putResourcePolicy(
     input: PutResourcePolicyInput,
   ): Effect.Effect<
     PutResourcePolicyOutput,
     InvalidInputException | ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("PutResourcePolicy", input);
+  }
   retryBuild(
     input: RetryBuildInput,
   ): Effect.Effect<
@@ -267,13 +361,17 @@ export declare class CodeBuild extends AWSServiceClient {
     | InvalidInputException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("RetryBuild", input);
+  }
   retryBuildBatch(
     input: RetryBuildBatchInput,
   ): Effect.Effect<
     RetryBuildBatchOutput,
     InvalidInputException | ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("RetryBuildBatch", input);
+  }
   startBuild(
     input: StartBuildInput,
   ): Effect.Effect<
@@ -282,19 +380,25 @@ export declare class CodeBuild extends AWSServiceClient {
     | InvalidInputException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartBuild", input);
+  }
   startBuildBatch(
     input: StartBuildBatchInput,
   ): Effect.Effect<
     StartBuildBatchOutput,
     InvalidInputException | ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("StartBuildBatch", input);
+  }
   startCommandExecution(
     input: StartCommandExecutionInput,
   ): Effect.Effect<
     StartCommandExecutionOutput,
     InvalidInputException | ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("StartCommandExecution", input);
+  }
   startSandbox(
     input: StartSandboxInput,
   ): Effect.Effect<
@@ -303,31 +407,41 @@ export declare class CodeBuild extends AWSServiceClient {
     | InvalidInputException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartSandbox", input);
+  }
   startSandboxConnection(
     input: StartSandboxConnectionInput,
   ): Effect.Effect<
     StartSandboxConnectionOutput,
     InvalidInputException | ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("StartSandboxConnection", input);
+  }
   stopBuild(
     input: StopBuildInput,
   ): Effect.Effect<
     StopBuildOutput,
     InvalidInputException | ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("StopBuild", input);
+  }
   stopBuildBatch(
     input: StopBuildBatchInput,
   ): Effect.Effect<
     StopBuildBatchOutput,
     InvalidInputException | ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("StopBuildBatch", input);
+  }
   stopSandbox(
     input: StopSandboxInput,
   ): Effect.Effect<
     StopSandboxOutput,
     InvalidInputException | ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("StopSandbox", input);
+  }
   updateFleet(
     input: UpdateFleetInput,
   ): Effect.Effect<
@@ -336,25 +450,33 @@ export declare class CodeBuild extends AWSServiceClient {
     | InvalidInputException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateFleet", input);
+  }
   updateProject(
     input: UpdateProjectInput,
   ): Effect.Effect<
     UpdateProjectOutput,
     InvalidInputException | ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateProject", input);
+  }
   updateProjectVisibility(
     input: UpdateProjectVisibilityInput,
   ): Effect.Effect<
     UpdateProjectVisibilityOutput,
     InvalidInputException | ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateProjectVisibility", input);
+  }
   updateReportGroup(
     input: UpdateReportGroupInput,
   ): Effect.Effect<
     UpdateReportGroupOutput,
     InvalidInputException | ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateReportGroup", input);
+  }
   updateWebhook(
     input: UpdateWebhookInput,
   ): Effect.Effect<
@@ -363,10 +485,14 @@ export declare class CodeBuild extends AWSServiceClient {
     | OAuthProviderException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateWebhook", input);
+  }
 }
 
-export declare class Codebuild extends CodeBuild {}
+export class Codebuild extends CodeBuild {}
+
+export default CodeBuild;
 
 export declare class AccountLimitExceededException extends EffectData.TaggedError(
   "AccountLimitExceededException",

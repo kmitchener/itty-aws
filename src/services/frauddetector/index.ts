@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class FraudDetector extends AWSServiceClient {
+export class FraudDetector extends AWSServiceClient {
   batchCreateVariable(
     input: BatchCreateVariableRequest,
   ): Effect.Effect<
@@ -12,7 +12,9 @@ export declare class FraudDetector extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("BatchCreateVariable", input);
+  }
   batchGetVariable(
     input: BatchGetVariableRequest,
   ): Effect.Effect<
@@ -22,7 +24,9 @@ export declare class FraudDetector extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("BatchGetVariable", input);
+  }
   cancelBatchImportJob(
     input: CancelBatchImportJobRequest,
   ): Effect.Effect<
@@ -33,7 +37,9 @@ export declare class FraudDetector extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CancelBatchImportJob", input);
+  }
   cancelBatchPredictionJob(
     input: CancelBatchPredictionJobRequest,
   ): Effect.Effect<
@@ -44,7 +50,9 @@ export declare class FraudDetector extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CancelBatchPredictionJob", input);
+  }
   createBatchImportJob(
     input: CreateBatchImportJobRequest,
   ): Effect.Effect<
@@ -55,7 +63,9 @@ export declare class FraudDetector extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateBatchImportJob", input);
+  }
   createBatchPredictionJob(
     input: CreateBatchPredictionJobRequest,
   ): Effect.Effect<
@@ -66,7 +76,9 @@ export declare class FraudDetector extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateBatchPredictionJob", input);
+  }
   createDetectorVersion(
     input: CreateDetectorVersionRequest,
   ): Effect.Effect<
@@ -77,7 +89,9 @@ export declare class FraudDetector extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateDetectorVersion", input);
+  }
   createList(
     input: CreateListRequest,
   ): Effect.Effect<
@@ -87,7 +101,9 @@ export declare class FraudDetector extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateList", input);
+  }
   createModel(
     input: CreateModelRequest,
   ): Effect.Effect<
@@ -97,7 +113,9 @@ export declare class FraudDetector extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateModel", input);
+  }
   createModelVersion(
     input: CreateModelVersionRequest,
   ): Effect.Effect<
@@ -108,7 +126,9 @@ export declare class FraudDetector extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateModelVersion", input);
+  }
   createRule(
     input: CreateRuleRequest,
   ): Effect.Effect<
@@ -118,7 +138,9 @@ export declare class FraudDetector extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateRule", input);
+  }
   createVariable(
     input: CreateVariableRequest,
   ): Effect.Effect<
@@ -128,7 +150,9 @@ export declare class FraudDetector extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateVariable", input);
+  }
   deleteBatchImportJob(
     input: DeleteBatchImportJobRequest,
   ): Effect.Effect<
@@ -138,7 +162,9 @@ export declare class FraudDetector extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteBatchImportJob", input);
+  }
   deleteBatchPredictionJob(
     input: DeleteBatchPredictionJobRequest,
   ): Effect.Effect<
@@ -148,7 +174,9 @@ export declare class FraudDetector extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteBatchPredictionJob", input);
+  }
   deleteDetector(
     input: DeleteDetectorRequest,
   ): Effect.Effect<
@@ -159,7 +187,9 @@ export declare class FraudDetector extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteDetector", input);
+  }
   deleteDetectorVersion(
     input: DeleteDetectorVersionRequest,
   ): Effect.Effect<
@@ -171,7 +201,9 @@ export declare class FraudDetector extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteDetectorVersion", input);
+  }
   deleteEntityType(
     input: DeleteEntityTypeRequest,
   ): Effect.Effect<
@@ -182,7 +214,9 @@ export declare class FraudDetector extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteEntityType", input);
+  }
   deleteEvent(
     input: DeleteEventRequest,
   ): Effect.Effect<
@@ -192,7 +226,9 @@ export declare class FraudDetector extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteEvent", input);
+  }
   deleteEventsByEventType(
     input: DeleteEventsByEventTypeRequest,
   ): Effect.Effect<
@@ -204,7 +240,9 @@ export declare class FraudDetector extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteEventsByEventType", input);
+  }
   deleteEventType(
     input: DeleteEventTypeRequest,
   ): Effect.Effect<
@@ -215,7 +253,9 @@ export declare class FraudDetector extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteEventType", input);
+  }
   deleteExternalModel(
     input: DeleteExternalModelRequest,
   ): Effect.Effect<
@@ -226,7 +266,9 @@ export declare class FraudDetector extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteExternalModel", input);
+  }
   deleteLabel(
     input: DeleteLabelRequest,
   ): Effect.Effect<
@@ -236,7 +278,9 @@ export declare class FraudDetector extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteLabel", input);
+  }
   deleteList(
     input: DeleteListRequest,
   ): Effect.Effect<
@@ -247,7 +291,9 @@ export declare class FraudDetector extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteList", input);
+  }
   deleteModel(
     input: DeleteModelRequest,
   ): Effect.Effect<
@@ -258,7 +304,9 @@ export declare class FraudDetector extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteModel", input);
+  }
   deleteModelVersion(
     input: DeleteModelVersionRequest,
   ): Effect.Effect<
@@ -269,7 +317,9 @@ export declare class FraudDetector extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteModelVersion", input);
+  }
   deleteOutcome(
     input: DeleteOutcomeRequest,
   ): Effect.Effect<
@@ -280,7 +330,9 @@ export declare class FraudDetector extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteOutcome", input);
+  }
   deleteRule(
     input: DeleteRuleRequest,
   ): Effect.Effect<
@@ -291,7 +343,9 @@ export declare class FraudDetector extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteRule", input);
+  }
   deleteVariable(
     input: DeleteVariableRequest,
   ): Effect.Effect<
@@ -302,7 +356,9 @@ export declare class FraudDetector extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteVariable", input);
+  }
   describeDetector(
     input: DescribeDetectorRequest,
   ): Effect.Effect<
@@ -313,7 +369,9 @@ export declare class FraudDetector extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeDetector", input);
+  }
   describeModelVersions(
     input: DescribeModelVersionsRequest,
   ): Effect.Effect<
@@ -324,7 +382,9 @@ export declare class FraudDetector extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeModelVersions", input);
+  }
   getBatchImportJobs(
     input: GetBatchImportJobsRequest,
   ): Effect.Effect<
@@ -335,7 +395,9 @@ export declare class FraudDetector extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetBatchImportJobs", input);
+  }
   getBatchPredictionJobs(
     input: GetBatchPredictionJobsRequest,
   ): Effect.Effect<
@@ -346,7 +408,9 @@ export declare class FraudDetector extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetBatchPredictionJobs", input);
+  }
   getDeleteEventsByEventTypeStatus(
     input: GetDeleteEventsByEventTypeStatusRequest,
   ): Effect.Effect<
@@ -357,7 +421,9 @@ export declare class FraudDetector extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetDeleteEventsByEventTypeStatus", input);
+  }
   getDetectors(
     input: GetDetectorsRequest,
   ): Effect.Effect<
@@ -368,7 +434,9 @@ export declare class FraudDetector extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetDetectors", input);
+  }
   getDetectorVersion(
     input: GetDetectorVersionRequest,
   ): Effect.Effect<
@@ -379,7 +447,9 @@ export declare class FraudDetector extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetDetectorVersion", input);
+  }
   getEntityTypes(
     input: GetEntityTypesRequest,
   ): Effect.Effect<
@@ -390,7 +460,9 @@ export declare class FraudDetector extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetEntityTypes", input);
+  }
   getEvent(
     input: GetEventRequest,
   ): Effect.Effect<
@@ -401,7 +473,9 @@ export declare class FraudDetector extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetEvent", input);
+  }
   getEventPrediction(
     input: GetEventPredictionRequest,
   ): Effect.Effect<
@@ -414,7 +488,9 @@ export declare class FraudDetector extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetEventPrediction", input);
+  }
   getEventPredictionMetadata(
     input: GetEventPredictionMetadataRequest,
   ): Effect.Effect<
@@ -425,7 +501,9 @@ export declare class FraudDetector extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetEventPredictionMetadata", input);
+  }
   getEventTypes(
     input: GetEventTypesRequest,
   ): Effect.Effect<
@@ -436,7 +514,9 @@ export declare class FraudDetector extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetEventTypes", input);
+  }
   getExternalModels(
     input: GetExternalModelsRequest,
   ): Effect.Effect<
@@ -447,7 +527,9 @@ export declare class FraudDetector extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetExternalModels", input);
+  }
   getKMSEncryptionKey(input: {}): Effect.Effect<
     GetKMSEncryptionKeyResult,
     | AccessDeniedException
@@ -455,7 +537,9 @@ export declare class FraudDetector extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetKMSEncryptionKey", input);
+  }
   getLabels(
     input: GetLabelsRequest,
   ): Effect.Effect<
@@ -466,7 +550,9 @@ export declare class FraudDetector extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetLabels", input);
+  }
   getListElements(
     input: GetListElementsRequest,
   ): Effect.Effect<
@@ -477,7 +563,9 @@ export declare class FraudDetector extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetListElements", input);
+  }
   getListsMetadata(
     input: GetListsMetadataRequest,
   ): Effect.Effect<
@@ -488,7 +576,9 @@ export declare class FraudDetector extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetListsMetadata", input);
+  }
   getModels(
     input: GetModelsRequest,
   ): Effect.Effect<
@@ -499,7 +589,9 @@ export declare class FraudDetector extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetModels", input);
+  }
   getModelVersion(
     input: GetModelVersionRequest,
   ): Effect.Effect<
@@ -510,7 +602,9 @@ export declare class FraudDetector extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetModelVersion", input);
+  }
   getOutcomes(
     input: GetOutcomesRequest,
   ): Effect.Effect<
@@ -521,7 +615,9 @@ export declare class FraudDetector extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetOutcomes", input);
+  }
   getRules(
     input: GetRulesRequest,
   ): Effect.Effect<
@@ -532,7 +628,9 @@ export declare class FraudDetector extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetRules", input);
+  }
   getVariables(
     input: GetVariablesRequest,
   ): Effect.Effect<
@@ -543,7 +641,9 @@ export declare class FraudDetector extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetVariables", input);
+  }
   listEventPredictions(
     input: ListEventPredictionsRequest,
   ): Effect.Effect<
@@ -553,7 +653,9 @@ export declare class FraudDetector extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListEventPredictions", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
@@ -563,7 +665,9 @@ export declare class FraudDetector extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   putDetector(
     input: PutDetectorRequest,
   ): Effect.Effect<
@@ -574,7 +678,9 @@ export declare class FraudDetector extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutDetector", input);
+  }
   putEntityType(
     input: PutEntityTypeRequest,
   ): Effect.Effect<
@@ -585,7 +691,9 @@ export declare class FraudDetector extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutEntityType", input);
+  }
   putEventType(
     input: PutEventTypeRequest,
   ): Effect.Effect<
@@ -596,7 +704,9 @@ export declare class FraudDetector extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutEventType", input);
+  }
   putExternalModel(
     input: PutExternalModelRequest,
   ): Effect.Effect<
@@ -607,7 +717,9 @@ export declare class FraudDetector extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutExternalModel", input);
+  }
   putKMSEncryptionKey(
     input: PutKMSEncryptionKeyRequest,
   ): Effect.Effect<
@@ -619,7 +731,9 @@ export declare class FraudDetector extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutKMSEncryptionKey", input);
+  }
   putLabel(
     input: PutLabelRequest,
   ): Effect.Effect<
@@ -630,7 +744,9 @@ export declare class FraudDetector extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutLabel", input);
+  }
   putOutcome(
     input: PutOutcomeRequest,
   ): Effect.Effect<
@@ -641,7 +757,9 @@ export declare class FraudDetector extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutOutcome", input);
+  }
   sendEvent(
     input: SendEventRequest,
   ): Effect.Effect<
@@ -653,7 +771,9 @@ export declare class FraudDetector extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("SendEvent", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -663,7 +783,9 @@ export declare class FraudDetector extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
@@ -673,7 +795,9 @@ export declare class FraudDetector extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
   updateDetectorVersion(
     input: UpdateDetectorVersionRequest,
   ): Effect.Effect<
@@ -685,7 +809,9 @@ export declare class FraudDetector extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateDetectorVersion", input);
+  }
   updateDetectorVersionMetadata(
     input: UpdateDetectorVersionMetadataRequest,
   ): Effect.Effect<
@@ -696,7 +822,9 @@ export declare class FraudDetector extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateDetectorVersionMetadata", input);
+  }
   updateDetectorVersionStatus(
     input: UpdateDetectorVersionStatusRequest,
   ): Effect.Effect<
@@ -708,7 +836,9 @@ export declare class FraudDetector extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateDetectorVersionStatus", input);
+  }
   updateEventLabel(
     input: UpdateEventLabelRequest,
   ): Effect.Effect<
@@ -720,7 +850,9 @@ export declare class FraudDetector extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateEventLabel", input);
+  }
   updateList(
     input: UpdateListRequest,
   ): Effect.Effect<
@@ -732,7 +864,9 @@ export declare class FraudDetector extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateList", input);
+  }
   updateModel(
     input: UpdateModelRequest,
   ): Effect.Effect<
@@ -744,7 +878,9 @@ export declare class FraudDetector extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateModel", input);
+  }
   updateModelVersion(
     input: UpdateModelVersionRequest,
   ): Effect.Effect<
@@ -756,7 +892,9 @@ export declare class FraudDetector extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateModelVersion", input);
+  }
   updateModelVersionStatus(
     input: UpdateModelVersionStatusRequest,
   ): Effect.Effect<
@@ -768,7 +906,9 @@ export declare class FraudDetector extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateModelVersionStatus", input);
+  }
   updateRuleMetadata(
     input: UpdateRuleMetadataRequest,
   ): Effect.Effect<
@@ -780,7 +920,9 @@ export declare class FraudDetector extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateRuleMetadata", input);
+  }
   updateRuleVersion(
     input: UpdateRuleVersionRequest,
   ): Effect.Effect<
@@ -792,7 +934,9 @@ export declare class FraudDetector extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateRuleVersion", input);
+  }
   updateVariable(
     input: UpdateVariableRequest,
   ): Effect.Effect<
@@ -804,10 +948,14 @@ export declare class FraudDetector extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateVariable", input);
+  }
 }
 
-export declare class Frauddetector extends FraudDetector {}
+export class Frauddetector extends FraudDetector {}
+
+export default FraudDetector;
 
 export declare class AccessDeniedException extends EffectData.TaggedError(
   "AccessDeniedException",

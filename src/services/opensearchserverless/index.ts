@@ -2,31 +2,39 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class OpenSearchServerless extends AWSServiceClient {
+export class OpenSearchServerless extends AWSServiceClient {
   batchGetCollection(
     input: BatchGetCollectionRequest,
   ): Effect.Effect<
     BatchGetCollectionResponse,
     InternalServerException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("BatchGetCollection", input);
+  }
   batchGetEffectiveLifecyclePolicy(
     input: BatchGetEffectiveLifecyclePolicyRequest,
   ): Effect.Effect<
     BatchGetEffectiveLifecyclePolicyResponse,
     InternalServerException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("BatchGetEffectiveLifecyclePolicy", input);
+  }
   batchGetLifecyclePolicy(
     input: BatchGetLifecyclePolicyRequest,
   ): Effect.Effect<
     BatchGetLifecyclePolicyResponse,
     InternalServerException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("BatchGetLifecyclePolicy", input);
+  }
   batchGetVpcEndpoint(
     input: BatchGetVpcEndpointRequest,
   ): Effect.Effect<
     BatchGetVpcEndpointResponse,
     InternalServerException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("BatchGetVpcEndpoint", input);
+  }
   createLifecyclePolicy(
     input: CreateLifecyclePolicyRequest,
   ): Effect.Effect<
@@ -36,7 +44,9 @@ export declare class OpenSearchServerless extends AWSServiceClient {
     | ServiceQuotaExceededException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateLifecyclePolicy", input);
+  }
   createSecurityPolicy(
     input: CreateSecurityPolicyRequest,
   ): Effect.Effect<
@@ -46,19 +56,25 @@ export declare class OpenSearchServerless extends AWSServiceClient {
     | ServiceQuotaExceededException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateSecurityPolicy", input);
+  }
   getAccountSettings(
     input: GetAccountSettingsRequest,
   ): Effect.Effect<
     GetAccountSettingsResponse,
     InternalServerException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("GetAccountSettings", input);
+  }
   getPoliciesStats(
     input: GetPoliciesStatsRequest,
   ): Effect.Effect<
     GetPoliciesStatsResponse,
     InternalServerException | CommonAwsError
-  >;
+  > {
+    return this.call("GetPoliciesStats", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
@@ -67,7 +83,9 @@ export declare class OpenSearchServerless extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -78,7 +96,9 @@ export declare class OpenSearchServerless extends AWSServiceClient {
     | ServiceQuotaExceededException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
@@ -88,13 +108,17 @@ export declare class OpenSearchServerless extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
   updateAccountSettings(
     input: UpdateAccountSettingsRequest,
   ): Effect.Effect<
     UpdateAccountSettingsResponse,
     InternalServerException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateAccountSettings", input);
+  }
   updateVpcEndpoint(
     input: UpdateVpcEndpointRequest,
   ): Effect.Effect<
@@ -103,10 +127,14 @@ export declare class OpenSearchServerless extends AWSServiceClient {
     | InternalServerException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateVpcEndpoint", input);
+  }
 }
 
-export declare class Opensearchserverless extends OpenSearchServerless {}
+export class Opensearchserverless extends OpenSearchServerless {}
+
+export default OpenSearchServerless;
 
 export interface AccessPolicyDetail {
   type?: string;

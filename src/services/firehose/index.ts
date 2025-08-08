@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class Firehose extends AWSServiceClient {
+export class Firehose extends AWSServiceClient {
   createDeliveryStream(
     input: CreateDeliveryStreamInput,
   ): Effect.Effect<
@@ -12,22 +12,30 @@ export declare class Firehose extends AWSServiceClient {
     | LimitExceededException
     | ResourceInUseException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateDeliveryStream", input);
+  }
   deleteDeliveryStream(
     input: DeleteDeliveryStreamInput,
   ): Effect.Effect<
     DeleteDeliveryStreamOutput,
     ResourceInUseException | ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteDeliveryStream", input);
+  }
   describeDeliveryStream(
     input: DescribeDeliveryStreamInput,
   ): Effect.Effect<
     DescribeDeliveryStreamOutput,
     ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeDeliveryStream", input);
+  }
   listDeliveryStreams(
     input: ListDeliveryStreamsInput,
-  ): Effect.Effect<ListDeliveryStreamsOutput, CommonAwsError>;
+  ): Effect.Effect<ListDeliveryStreamsOutput, CommonAwsError> {
+    return this.call("ListDeliveryStreams", input);
+  }
   listTagsForDeliveryStream(
     input: ListTagsForDeliveryStreamInput,
   ): Effect.Effect<
@@ -36,7 +44,9 @@ export declare class Firehose extends AWSServiceClient {
     | LimitExceededException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForDeliveryStream", input);
+  }
   putRecord(
     input: PutRecordInput,
   ): Effect.Effect<
@@ -47,7 +57,9 @@ export declare class Firehose extends AWSServiceClient {
     | ResourceNotFoundException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutRecord", input);
+  }
   putRecordBatch(
     input: PutRecordBatchInput,
   ): Effect.Effect<
@@ -58,7 +70,9 @@ export declare class Firehose extends AWSServiceClient {
     | ResourceNotFoundException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutRecordBatch", input);
+  }
   startDeliveryStreamEncryption(
     input: StartDeliveryStreamEncryptionInput,
   ): Effect.Effect<
@@ -69,7 +83,9 @@ export declare class Firehose extends AWSServiceClient {
     | ResourceInUseException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartDeliveryStreamEncryption", input);
+  }
   stopDeliveryStreamEncryption(
     input: StopDeliveryStreamEncryptionInput,
   ): Effect.Effect<
@@ -79,7 +95,9 @@ export declare class Firehose extends AWSServiceClient {
     | ResourceInUseException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StopDeliveryStreamEncryption", input);
+  }
   tagDeliveryStream(
     input: TagDeliveryStreamInput,
   ): Effect.Effect<
@@ -89,7 +107,9 @@ export declare class Firehose extends AWSServiceClient {
     | ResourceInUseException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagDeliveryStream", input);
+  }
   untagDeliveryStream(
     input: UntagDeliveryStreamInput,
   ): Effect.Effect<
@@ -99,7 +119,9 @@ export declare class Firehose extends AWSServiceClient {
     | ResourceInUseException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagDeliveryStream", input);
+  }
   updateDestination(
     input: UpdateDestinationInput,
   ): Effect.Effect<
@@ -109,8 +131,12 @@ export declare class Firehose extends AWSServiceClient {
     | ResourceInUseException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateDestination", input);
+  }
 }
+
+export default Firehose;
 
 export interface AmazonOpenSearchServerlessBufferingHints {
   IntervalInSeconds?: number;

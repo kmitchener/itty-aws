@@ -2,328 +2,436 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class DataSync extends AWSServiceClient {
+export class DataSync extends AWSServiceClient {
   cancelTaskExecution(
     input: CancelTaskExecutionRequest,
   ): Effect.Effect<
     CancelTaskExecutionResponse,
     InternalException | InvalidRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("CancelTaskExecution", input);
+  }
   createAgent(
     input: CreateAgentRequest,
   ): Effect.Effect<
     CreateAgentResponse,
     InternalException | InvalidRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("CreateAgent", input);
+  }
   createLocationAzureBlob(
     input: CreateLocationAzureBlobRequest,
   ): Effect.Effect<
     CreateLocationAzureBlobResponse,
     InternalException | InvalidRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("CreateLocationAzureBlob", input);
+  }
   createLocationEfs(
     input: CreateLocationEfsRequest,
   ): Effect.Effect<
     CreateLocationEfsResponse,
     InternalException | InvalidRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("CreateLocationEfs", input);
+  }
   createLocationFsxLustre(
     input: CreateLocationFsxLustreRequest,
   ): Effect.Effect<
     CreateLocationFsxLustreResponse,
     InternalException | InvalidRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("CreateLocationFsxLustre", input);
+  }
   createLocationFsxOntap(
     input: CreateLocationFsxOntapRequest,
   ): Effect.Effect<
     CreateLocationFsxOntapResponse,
     InternalException | InvalidRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("CreateLocationFsxOntap", input);
+  }
   createLocationFsxOpenZfs(
     input: CreateLocationFsxOpenZfsRequest,
   ): Effect.Effect<
     CreateLocationFsxOpenZfsResponse,
     InternalException | InvalidRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("CreateLocationFsxOpenZfs", input);
+  }
   createLocationFsxWindows(
     input: CreateLocationFsxWindowsRequest,
   ): Effect.Effect<
     CreateLocationFsxWindowsResponse,
     InternalException | InvalidRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("CreateLocationFsxWindows", input);
+  }
   createLocationHdfs(
     input: CreateLocationHdfsRequest,
   ): Effect.Effect<
     CreateLocationHdfsResponse,
     InternalException | InvalidRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("CreateLocationHdfs", input);
+  }
   createLocationNfs(
     input: CreateLocationNfsRequest,
   ): Effect.Effect<
     CreateLocationNfsResponse,
     InternalException | InvalidRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("CreateLocationNfs", input);
+  }
   createLocationObjectStorage(
     input: CreateLocationObjectStorageRequest,
   ): Effect.Effect<
     CreateLocationObjectStorageResponse,
     InternalException | InvalidRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("CreateLocationObjectStorage", input);
+  }
   createLocationS3(
     input: CreateLocationS3Request,
   ): Effect.Effect<
     CreateLocationS3Response,
     InternalException | InvalidRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("CreateLocationS3", input);
+  }
   createLocationSmb(
     input: CreateLocationSmbRequest,
   ): Effect.Effect<
     CreateLocationSmbResponse,
     InternalException | InvalidRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("CreateLocationSmb", input);
+  }
   createTask(
     input: CreateTaskRequest,
   ): Effect.Effect<
     CreateTaskResponse,
     InternalException | InvalidRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("CreateTask", input);
+  }
   deleteAgent(
     input: DeleteAgentRequest,
   ): Effect.Effect<
     DeleteAgentResponse,
     InternalException | InvalidRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteAgent", input);
+  }
   deleteLocation(
     input: DeleteLocationRequest,
   ): Effect.Effect<
     DeleteLocationResponse,
     InternalException | InvalidRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteLocation", input);
+  }
   deleteTask(
     input: DeleteTaskRequest,
   ): Effect.Effect<
     DeleteTaskResponse,
     InternalException | InvalidRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteTask", input);
+  }
   describeAgent(
     input: DescribeAgentRequest,
   ): Effect.Effect<
     DescribeAgentResponse,
     InternalException | InvalidRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeAgent", input);
+  }
   describeLocationAzureBlob(
     input: DescribeLocationAzureBlobRequest,
   ): Effect.Effect<
     DescribeLocationAzureBlobResponse,
     InternalException | InvalidRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeLocationAzureBlob", input);
+  }
   describeLocationEfs(
     input: DescribeLocationEfsRequest,
   ): Effect.Effect<
     DescribeLocationEfsResponse,
     InternalException | InvalidRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeLocationEfs", input);
+  }
   describeLocationFsxLustre(
     input: DescribeLocationFsxLustreRequest,
   ): Effect.Effect<
     DescribeLocationFsxLustreResponse,
     InternalException | InvalidRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeLocationFsxLustre", input);
+  }
   describeLocationFsxOntap(
     input: DescribeLocationFsxOntapRequest,
   ): Effect.Effect<
     DescribeLocationFsxOntapResponse,
     InternalException | InvalidRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeLocationFsxOntap", input);
+  }
   describeLocationFsxOpenZfs(
     input: DescribeLocationFsxOpenZfsRequest,
   ): Effect.Effect<
     DescribeLocationFsxOpenZfsResponse,
     InternalException | InvalidRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeLocationFsxOpenZfs", input);
+  }
   describeLocationFsxWindows(
     input: DescribeLocationFsxWindowsRequest,
   ): Effect.Effect<
     DescribeLocationFsxWindowsResponse,
     InternalException | InvalidRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeLocationFsxWindows", input);
+  }
   describeLocationHdfs(
     input: DescribeLocationHdfsRequest,
   ): Effect.Effect<
     DescribeLocationHdfsResponse,
     InternalException | InvalidRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeLocationHdfs", input);
+  }
   describeLocationNfs(
     input: DescribeLocationNfsRequest,
   ): Effect.Effect<
     DescribeLocationNfsResponse,
     InternalException | InvalidRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeLocationNfs", input);
+  }
   describeLocationObjectStorage(
     input: DescribeLocationObjectStorageRequest,
   ): Effect.Effect<
     DescribeLocationObjectStorageResponse,
     InternalException | InvalidRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeLocationObjectStorage", input);
+  }
   describeLocationS3(
     input: DescribeLocationS3Request,
   ): Effect.Effect<
     DescribeLocationS3Response,
     InternalException | InvalidRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeLocationS3", input);
+  }
   describeLocationSmb(
     input: DescribeLocationSmbRequest,
   ): Effect.Effect<
     DescribeLocationSmbResponse,
     InternalException | InvalidRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeLocationSmb", input);
+  }
   describeTask(
     input: DescribeTaskRequest,
   ): Effect.Effect<
     DescribeTaskResponse,
     InternalException | InvalidRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeTask", input);
+  }
   describeTaskExecution(
     input: DescribeTaskExecutionRequest,
   ): Effect.Effect<
     DescribeTaskExecutionResponse,
     InternalException | InvalidRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeTaskExecution", input);
+  }
   listAgents(
     input: ListAgentsRequest,
   ): Effect.Effect<
     ListAgentsResponse,
     InternalException | InvalidRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("ListAgents", input);
+  }
   listLocations(
     input: ListLocationsRequest,
   ): Effect.Effect<
     ListLocationsResponse,
     InternalException | InvalidRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("ListLocations", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
     InternalException | InvalidRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   listTaskExecutions(
     input: ListTaskExecutionsRequest,
   ): Effect.Effect<
     ListTaskExecutionsResponse,
     InternalException | InvalidRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("ListTaskExecutions", input);
+  }
   listTasks(
     input: ListTasksRequest,
   ): Effect.Effect<
     ListTasksResponse,
     InternalException | InvalidRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("ListTasks", input);
+  }
   startTaskExecution(
     input: StartTaskExecutionRequest,
   ): Effect.Effect<
     StartTaskExecutionResponse,
     InternalException | InvalidRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("StartTaskExecution", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
     InternalException | InvalidRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
     InternalException | InvalidRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
   updateAgent(
     input: UpdateAgentRequest,
   ): Effect.Effect<
     UpdateAgentResponse,
     InternalException | InvalidRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateAgent", input);
+  }
   updateLocationAzureBlob(
     input: UpdateLocationAzureBlobRequest,
   ): Effect.Effect<
     UpdateLocationAzureBlobResponse,
     InternalException | InvalidRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateLocationAzureBlob", input);
+  }
   updateLocationEfs(
     input: UpdateLocationEfsRequest,
   ): Effect.Effect<
     UpdateLocationEfsResponse,
     InternalException | InvalidRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateLocationEfs", input);
+  }
   updateLocationFsxLustre(
     input: UpdateLocationFsxLustreRequest,
   ): Effect.Effect<
     UpdateLocationFsxLustreResponse,
     InternalException | InvalidRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateLocationFsxLustre", input);
+  }
   updateLocationFsxOntap(
     input: UpdateLocationFsxOntapRequest,
   ): Effect.Effect<
     UpdateLocationFsxOntapResponse,
     InternalException | InvalidRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateLocationFsxOntap", input);
+  }
   updateLocationFsxOpenZfs(
     input: UpdateLocationFsxOpenZfsRequest,
   ): Effect.Effect<
     UpdateLocationFsxOpenZfsResponse,
     InternalException | InvalidRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateLocationFsxOpenZfs", input);
+  }
   updateLocationFsxWindows(
     input: UpdateLocationFsxWindowsRequest,
   ): Effect.Effect<
     UpdateLocationFsxWindowsResponse,
     InternalException | InvalidRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateLocationFsxWindows", input);
+  }
   updateLocationHdfs(
     input: UpdateLocationHdfsRequest,
   ): Effect.Effect<
     UpdateLocationHdfsResponse,
     InternalException | InvalidRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateLocationHdfs", input);
+  }
   updateLocationNfs(
     input: UpdateLocationNfsRequest,
   ): Effect.Effect<
     UpdateLocationNfsResponse,
     InternalException | InvalidRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateLocationNfs", input);
+  }
   updateLocationObjectStorage(
     input: UpdateLocationObjectStorageRequest,
   ): Effect.Effect<
     UpdateLocationObjectStorageResponse,
     InternalException | InvalidRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateLocationObjectStorage", input);
+  }
   updateLocationS3(
     input: UpdateLocationS3Request,
   ): Effect.Effect<
     UpdateLocationS3Response,
     InternalException | InvalidRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateLocationS3", input);
+  }
   updateLocationSmb(
     input: UpdateLocationSmbRequest,
   ): Effect.Effect<
     UpdateLocationSmbResponse,
     InternalException | InvalidRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateLocationSmb", input);
+  }
   updateTask(
     input: UpdateTaskRequest,
   ): Effect.Effect<
     UpdateTaskResponse,
     InternalException | InvalidRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateTask", input);
+  }
   updateTaskExecution(
     input: UpdateTaskExecutionRequest,
   ): Effect.Effect<
     UpdateTaskExecutionResponse,
     InternalException | InvalidRequestException | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateTaskExecution", input);
+  }
 }
 
-export declare class Datasync extends DataSync {}
+export class Datasync extends DataSync {}
+
+export default DataSync;
 
 export type ActivationKey = string;
 

@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class Comprehend extends AWSServiceClient {
+export class Comprehend extends AWSServiceClient {
   batchDetectDominantLanguage(
     input: BatchDetectDominantLanguageRequest,
   ): Effect.Effect<
@@ -12,7 +12,9 @@ export declare class Comprehend extends AWSServiceClient {
     | InvalidRequestException
     | TextSizeLimitExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("BatchDetectDominantLanguage", input);
+  }
   batchDetectEntities(
     input: BatchDetectEntitiesRequest,
   ): Effect.Effect<
@@ -23,7 +25,9 @@ export declare class Comprehend extends AWSServiceClient {
     | TextSizeLimitExceededException
     | UnsupportedLanguageException
     | CommonAwsError
-  >;
+  > {
+    return this.call("BatchDetectEntities", input);
+  }
   batchDetectKeyPhrases(
     input: BatchDetectKeyPhrasesRequest,
   ): Effect.Effect<
@@ -34,7 +38,9 @@ export declare class Comprehend extends AWSServiceClient {
     | TextSizeLimitExceededException
     | UnsupportedLanguageException
     | CommonAwsError
-  >;
+  > {
+    return this.call("BatchDetectKeyPhrases", input);
+  }
   batchDetectSentiment(
     input: BatchDetectSentimentRequest,
   ): Effect.Effect<
@@ -45,7 +51,9 @@ export declare class Comprehend extends AWSServiceClient {
     | TextSizeLimitExceededException
     | UnsupportedLanguageException
     | CommonAwsError
-  >;
+  > {
+    return this.call("BatchDetectSentiment", input);
+  }
   batchDetectSyntax(
     input: BatchDetectSyntaxRequest,
   ): Effect.Effect<
@@ -56,7 +64,9 @@ export declare class Comprehend extends AWSServiceClient {
     | TextSizeLimitExceededException
     | UnsupportedLanguageException
     | CommonAwsError
-  >;
+  > {
+    return this.call("BatchDetectSyntax", input);
+  }
   batchDetectTargetedSentiment(
     input: BatchDetectTargetedSentimentRequest,
   ): Effect.Effect<
@@ -67,7 +77,9 @@ export declare class Comprehend extends AWSServiceClient {
     | TextSizeLimitExceededException
     | UnsupportedLanguageException
     | CommonAwsError
-  >;
+  > {
+    return this.call("BatchDetectTargetedSentiment", input);
+  }
   classifyDocument(
     input: ClassifyDocumentRequest,
   ): Effect.Effect<
@@ -77,7 +89,9 @@ export declare class Comprehend extends AWSServiceClient {
     | ResourceUnavailableException
     | TextSizeLimitExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ClassifyDocument", input);
+  }
   containsPiiEntities(
     input: ContainsPiiEntitiesRequest,
   ): Effect.Effect<
@@ -87,7 +101,9 @@ export declare class Comprehend extends AWSServiceClient {
     | TextSizeLimitExceededException
     | UnsupportedLanguageException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ContainsPiiEntities", input);
+  }
   createDataset(
     input: CreateDatasetRequest,
   ): Effect.Effect<
@@ -100,7 +116,9 @@ export declare class Comprehend extends AWSServiceClient {
     | TooManyRequestsException
     | TooManyTagsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateDataset", input);
+  }
   createDocumentClassifier(
     input: CreateDocumentClassifierRequest,
   ): Effect.Effect<
@@ -114,7 +132,9 @@ export declare class Comprehend extends AWSServiceClient {
     | TooManyTagsException
     | UnsupportedLanguageException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateDocumentClassifier", input);
+  }
   createEndpoint(
     input: CreateEndpointRequest,
   ): Effect.Effect<
@@ -128,7 +148,9 @@ export declare class Comprehend extends AWSServiceClient {
     | TooManyRequestsException
     | TooManyTagsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateEndpoint", input);
+  }
   createEntityRecognizer(
     input: CreateEntityRecognizerRequest,
   ): Effect.Effect<
@@ -142,7 +164,9 @@ export declare class Comprehend extends AWSServiceClient {
     | TooManyTagsException
     | UnsupportedLanguageException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateEntityRecognizer", input);
+  }
   createFlywheel(
     input: CreateFlywheelRequest,
   ): Effect.Effect<
@@ -158,7 +182,9 @@ export declare class Comprehend extends AWSServiceClient {
     | TooManyTagsException
     | UnsupportedLanguageException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateFlywheel", input);
+  }
   deleteDocumentClassifier(
     input: DeleteDocumentClassifierRequest,
   ): Effect.Effect<
@@ -170,7 +196,9 @@ export declare class Comprehend extends AWSServiceClient {
     | ResourceUnavailableException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteDocumentClassifier", input);
+  }
   deleteEndpoint(
     input: DeleteEndpointRequest,
   ): Effect.Effect<
@@ -181,7 +209,9 @@ export declare class Comprehend extends AWSServiceClient {
     | ResourceNotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteEndpoint", input);
+  }
   deleteEntityRecognizer(
     input: DeleteEntityRecognizerRequest,
   ): Effect.Effect<
@@ -193,7 +223,9 @@ export declare class Comprehend extends AWSServiceClient {
     | ResourceUnavailableException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteEntityRecognizer", input);
+  }
   deleteFlywheel(
     input: DeleteFlywheelRequest,
   ): Effect.Effect<
@@ -205,7 +237,9 @@ export declare class Comprehend extends AWSServiceClient {
     | ResourceUnavailableException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteFlywheel", input);
+  }
   deleteResourcePolicy(
     input: DeleteResourcePolicyRequest,
   ): Effect.Effect<
@@ -214,7 +248,9 @@ export declare class Comprehend extends AWSServiceClient {
     | InvalidRequestException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteResourcePolicy", input);
+  }
   describeDataset(
     input: DescribeDatasetRequest,
   ): Effect.Effect<
@@ -224,7 +260,9 @@ export declare class Comprehend extends AWSServiceClient {
     | ResourceNotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeDataset", input);
+  }
   describeDocumentClassificationJob(
     input: DescribeDocumentClassificationJobRequest,
   ): Effect.Effect<
@@ -234,7 +272,9 @@ export declare class Comprehend extends AWSServiceClient {
     | JobNotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeDocumentClassificationJob", input);
+  }
   describeDocumentClassifier(
     input: DescribeDocumentClassifierRequest,
   ): Effect.Effect<
@@ -244,7 +284,9 @@ export declare class Comprehend extends AWSServiceClient {
     | ResourceNotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeDocumentClassifier", input);
+  }
   describeDominantLanguageDetectionJob(
     input: DescribeDominantLanguageDetectionJobRequest,
   ): Effect.Effect<
@@ -254,7 +296,9 @@ export declare class Comprehend extends AWSServiceClient {
     | JobNotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeDominantLanguageDetectionJob", input);
+  }
   describeEndpoint(
     input: DescribeEndpointRequest,
   ): Effect.Effect<
@@ -264,7 +308,9 @@ export declare class Comprehend extends AWSServiceClient {
     | ResourceNotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeEndpoint", input);
+  }
   describeEntitiesDetectionJob(
     input: DescribeEntitiesDetectionJobRequest,
   ): Effect.Effect<
@@ -274,7 +320,9 @@ export declare class Comprehend extends AWSServiceClient {
     | JobNotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeEntitiesDetectionJob", input);
+  }
   describeEntityRecognizer(
     input: DescribeEntityRecognizerRequest,
   ): Effect.Effect<
@@ -284,7 +332,9 @@ export declare class Comprehend extends AWSServiceClient {
     | ResourceNotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeEntityRecognizer", input);
+  }
   describeEventsDetectionJob(
     input: DescribeEventsDetectionJobRequest,
   ): Effect.Effect<
@@ -294,7 +344,9 @@ export declare class Comprehend extends AWSServiceClient {
     | JobNotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeEventsDetectionJob", input);
+  }
   describeFlywheel(
     input: DescribeFlywheelRequest,
   ): Effect.Effect<
@@ -304,7 +356,9 @@ export declare class Comprehend extends AWSServiceClient {
     | ResourceNotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeFlywheel", input);
+  }
   describeFlywheelIteration(
     input: DescribeFlywheelIterationRequest,
   ): Effect.Effect<
@@ -314,7 +368,9 @@ export declare class Comprehend extends AWSServiceClient {
     | ResourceNotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeFlywheelIteration", input);
+  }
   describeKeyPhrasesDetectionJob(
     input: DescribeKeyPhrasesDetectionJobRequest,
   ): Effect.Effect<
@@ -324,7 +380,9 @@ export declare class Comprehend extends AWSServiceClient {
     | JobNotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeKeyPhrasesDetectionJob", input);
+  }
   describePiiEntitiesDetectionJob(
     input: DescribePiiEntitiesDetectionJobRequest,
   ): Effect.Effect<
@@ -334,7 +392,9 @@ export declare class Comprehend extends AWSServiceClient {
     | JobNotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribePiiEntitiesDetectionJob", input);
+  }
   describeResourcePolicy(
     input: DescribeResourcePolicyRequest,
   ): Effect.Effect<
@@ -343,7 +403,9 @@ export declare class Comprehend extends AWSServiceClient {
     | InvalidRequestException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeResourcePolicy", input);
+  }
   describeSentimentDetectionJob(
     input: DescribeSentimentDetectionJobRequest,
   ): Effect.Effect<
@@ -353,7 +415,9 @@ export declare class Comprehend extends AWSServiceClient {
     | JobNotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeSentimentDetectionJob", input);
+  }
   describeTargetedSentimentDetectionJob(
     input: DescribeTargetedSentimentDetectionJobRequest,
   ): Effect.Effect<
@@ -363,7 +427,9 @@ export declare class Comprehend extends AWSServiceClient {
     | JobNotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeTargetedSentimentDetectionJob", input);
+  }
   describeTopicsDetectionJob(
     input: DescribeTopicsDetectionJobRequest,
   ): Effect.Effect<
@@ -373,7 +439,9 @@ export declare class Comprehend extends AWSServiceClient {
     | JobNotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeTopicsDetectionJob", input);
+  }
   detectDominantLanguage(
     input: DetectDominantLanguageRequest,
   ): Effect.Effect<
@@ -382,7 +450,9 @@ export declare class Comprehend extends AWSServiceClient {
     | InvalidRequestException
     | TextSizeLimitExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DetectDominantLanguage", input);
+  }
   detectEntities(
     input: DetectEntitiesRequest,
   ): Effect.Effect<
@@ -393,7 +463,9 @@ export declare class Comprehend extends AWSServiceClient {
     | TextSizeLimitExceededException
     | UnsupportedLanguageException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DetectEntities", input);
+  }
   detectKeyPhrases(
     input: DetectKeyPhrasesRequest,
   ): Effect.Effect<
@@ -403,7 +475,9 @@ export declare class Comprehend extends AWSServiceClient {
     | TextSizeLimitExceededException
     | UnsupportedLanguageException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DetectKeyPhrases", input);
+  }
   detectPiiEntities(
     input: DetectPiiEntitiesRequest,
   ): Effect.Effect<
@@ -413,7 +487,9 @@ export declare class Comprehend extends AWSServiceClient {
     | TextSizeLimitExceededException
     | UnsupportedLanguageException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DetectPiiEntities", input);
+  }
   detectSentiment(
     input: DetectSentimentRequest,
   ): Effect.Effect<
@@ -423,7 +499,9 @@ export declare class Comprehend extends AWSServiceClient {
     | TextSizeLimitExceededException
     | UnsupportedLanguageException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DetectSentiment", input);
+  }
   detectSyntax(
     input: DetectSyntaxRequest,
   ): Effect.Effect<
@@ -433,7 +511,9 @@ export declare class Comprehend extends AWSServiceClient {
     | TextSizeLimitExceededException
     | UnsupportedLanguageException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DetectSyntax", input);
+  }
   detectTargetedSentiment(
     input: DetectTargetedSentimentRequest,
   ): Effect.Effect<
@@ -443,7 +523,9 @@ export declare class Comprehend extends AWSServiceClient {
     | TextSizeLimitExceededException
     | UnsupportedLanguageException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DetectTargetedSentiment", input);
+  }
   detectToxicContent(
     input: DetectToxicContentRequest,
   ): Effect.Effect<
@@ -453,7 +535,9 @@ export declare class Comprehend extends AWSServiceClient {
     | TextSizeLimitExceededException
     | UnsupportedLanguageException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DetectToxicContent", input);
+  }
   importModel(
     input: ImportModelRequest,
   ): Effect.Effect<
@@ -468,7 +552,9 @@ export declare class Comprehend extends AWSServiceClient {
     | TooManyRequestsException
     | TooManyTagsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ImportModel", input);
+  }
   listDatasets(
     input: ListDatasetsRequest,
   ): Effect.Effect<
@@ -479,7 +565,9 @@ export declare class Comprehend extends AWSServiceClient {
     | ResourceNotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListDatasets", input);
+  }
   listDocumentClassificationJobs(
     input: ListDocumentClassificationJobsRequest,
   ): Effect.Effect<
@@ -489,7 +577,9 @@ export declare class Comprehend extends AWSServiceClient {
     | InvalidRequestException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListDocumentClassificationJobs", input);
+  }
   listDocumentClassifiers(
     input: ListDocumentClassifiersRequest,
   ): Effect.Effect<
@@ -499,7 +589,9 @@ export declare class Comprehend extends AWSServiceClient {
     | InvalidRequestException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListDocumentClassifiers", input);
+  }
   listDocumentClassifierSummaries(
     input: ListDocumentClassifierSummariesRequest,
   ): Effect.Effect<
@@ -508,7 +600,9 @@ export declare class Comprehend extends AWSServiceClient {
     | InvalidRequestException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListDocumentClassifierSummaries", input);
+  }
   listDominantLanguageDetectionJobs(
     input: ListDominantLanguageDetectionJobsRequest,
   ): Effect.Effect<
@@ -518,7 +612,9 @@ export declare class Comprehend extends AWSServiceClient {
     | InvalidRequestException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListDominantLanguageDetectionJobs", input);
+  }
   listEndpoints(
     input: ListEndpointsRequest,
   ): Effect.Effect<
@@ -527,7 +623,9 @@ export declare class Comprehend extends AWSServiceClient {
     | InvalidRequestException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListEndpoints", input);
+  }
   listEntitiesDetectionJobs(
     input: ListEntitiesDetectionJobsRequest,
   ): Effect.Effect<
@@ -537,7 +635,9 @@ export declare class Comprehend extends AWSServiceClient {
     | InvalidRequestException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListEntitiesDetectionJobs", input);
+  }
   listEntityRecognizers(
     input: ListEntityRecognizersRequest,
   ): Effect.Effect<
@@ -547,7 +647,9 @@ export declare class Comprehend extends AWSServiceClient {
     | InvalidRequestException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListEntityRecognizers", input);
+  }
   listEntityRecognizerSummaries(
     input: ListEntityRecognizerSummariesRequest,
   ): Effect.Effect<
@@ -556,7 +658,9 @@ export declare class Comprehend extends AWSServiceClient {
     | InvalidRequestException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListEntityRecognizerSummaries", input);
+  }
   listEventsDetectionJobs(
     input: ListEventsDetectionJobsRequest,
   ): Effect.Effect<
@@ -566,7 +670,9 @@ export declare class Comprehend extends AWSServiceClient {
     | InvalidRequestException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListEventsDetectionJobs", input);
+  }
   listFlywheelIterationHistory(
     input: ListFlywheelIterationHistoryRequest,
   ): Effect.Effect<
@@ -577,7 +683,9 @@ export declare class Comprehend extends AWSServiceClient {
     | ResourceNotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListFlywheelIterationHistory", input);
+  }
   listFlywheels(
     input: ListFlywheelsRequest,
   ): Effect.Effect<
@@ -587,7 +695,9 @@ export declare class Comprehend extends AWSServiceClient {
     | InvalidRequestException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListFlywheels", input);
+  }
   listKeyPhrasesDetectionJobs(
     input: ListKeyPhrasesDetectionJobsRequest,
   ): Effect.Effect<
@@ -597,7 +707,9 @@ export declare class Comprehend extends AWSServiceClient {
     | InvalidRequestException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListKeyPhrasesDetectionJobs", input);
+  }
   listPiiEntitiesDetectionJobs(
     input: ListPiiEntitiesDetectionJobsRequest,
   ): Effect.Effect<
@@ -607,7 +719,9 @@ export declare class Comprehend extends AWSServiceClient {
     | InvalidRequestException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListPiiEntitiesDetectionJobs", input);
+  }
   listSentimentDetectionJobs(
     input: ListSentimentDetectionJobsRequest,
   ): Effect.Effect<
@@ -617,7 +731,9 @@ export declare class Comprehend extends AWSServiceClient {
     | InvalidRequestException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListSentimentDetectionJobs", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
@@ -626,7 +742,9 @@ export declare class Comprehend extends AWSServiceClient {
     | InvalidRequestException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   listTargetedSentimentDetectionJobs(
     input: ListTargetedSentimentDetectionJobsRequest,
   ): Effect.Effect<
@@ -636,7 +754,9 @@ export declare class Comprehend extends AWSServiceClient {
     | InvalidRequestException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTargetedSentimentDetectionJobs", input);
+  }
   listTopicsDetectionJobs(
     input: ListTopicsDetectionJobsRequest,
   ): Effect.Effect<
@@ -646,7 +766,9 @@ export declare class Comprehend extends AWSServiceClient {
     | InvalidRequestException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTopicsDetectionJobs", input);
+  }
   putResourcePolicy(
     input: PutResourcePolicyRequest,
   ): Effect.Effect<
@@ -655,7 +777,9 @@ export declare class Comprehend extends AWSServiceClient {
     | InvalidRequestException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutResourcePolicy", input);
+  }
   startDocumentClassificationJob(
     input: StartDocumentClassificationJobRequest,
   ): Effect.Effect<
@@ -669,7 +793,9 @@ export declare class Comprehend extends AWSServiceClient {
     | TooManyRequestsException
     | TooManyTagsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartDocumentClassificationJob", input);
+  }
   startDominantLanguageDetectionJob(
     input: StartDominantLanguageDetectionJobRequest,
   ): Effect.Effect<
@@ -681,7 +807,9 @@ export declare class Comprehend extends AWSServiceClient {
     | TooManyRequestsException
     | TooManyTagsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartDominantLanguageDetectionJob", input);
+  }
   startEntitiesDetectionJob(
     input: StartEntitiesDetectionJobRequest,
   ): Effect.Effect<
@@ -695,7 +823,9 @@ export declare class Comprehend extends AWSServiceClient {
     | TooManyRequestsException
     | TooManyTagsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartEntitiesDetectionJob", input);
+  }
   startEventsDetectionJob(
     input: StartEventsDetectionJobRequest,
   ): Effect.Effect<
@@ -707,7 +837,9 @@ export declare class Comprehend extends AWSServiceClient {
     | TooManyRequestsException
     | TooManyTagsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartEventsDetectionJob", input);
+  }
   startFlywheelIteration(
     input: StartFlywheelIterationRequest,
   ): Effect.Effect<
@@ -718,7 +850,9 @@ export declare class Comprehend extends AWSServiceClient {
     | ResourceNotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartFlywheelIteration", input);
+  }
   startKeyPhrasesDetectionJob(
     input: StartKeyPhrasesDetectionJobRequest,
   ): Effect.Effect<
@@ -730,7 +864,9 @@ export declare class Comprehend extends AWSServiceClient {
     | TooManyRequestsException
     | TooManyTagsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartKeyPhrasesDetectionJob", input);
+  }
   startPiiEntitiesDetectionJob(
     input: StartPiiEntitiesDetectionJobRequest,
   ): Effect.Effect<
@@ -742,7 +878,9 @@ export declare class Comprehend extends AWSServiceClient {
     | TooManyRequestsException
     | TooManyTagsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartPiiEntitiesDetectionJob", input);
+  }
   startSentimentDetectionJob(
     input: StartSentimentDetectionJobRequest,
   ): Effect.Effect<
@@ -754,7 +892,9 @@ export declare class Comprehend extends AWSServiceClient {
     | TooManyRequestsException
     | TooManyTagsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartSentimentDetectionJob", input);
+  }
   startTargetedSentimentDetectionJob(
     input: StartTargetedSentimentDetectionJobRequest,
   ): Effect.Effect<
@@ -766,7 +906,9 @@ export declare class Comprehend extends AWSServiceClient {
     | TooManyRequestsException
     | TooManyTagsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartTargetedSentimentDetectionJob", input);
+  }
   startTopicsDetectionJob(
     input: StartTopicsDetectionJobRequest,
   ): Effect.Effect<
@@ -778,7 +920,9 @@ export declare class Comprehend extends AWSServiceClient {
     | TooManyRequestsException
     | TooManyTagsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartTopicsDetectionJob", input);
+  }
   stopDominantLanguageDetectionJob(
     input: StopDominantLanguageDetectionJobRequest,
   ): Effect.Effect<
@@ -787,7 +931,9 @@ export declare class Comprehend extends AWSServiceClient {
     | InvalidRequestException
     | JobNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StopDominantLanguageDetectionJob", input);
+  }
   stopEntitiesDetectionJob(
     input: StopEntitiesDetectionJobRequest,
   ): Effect.Effect<
@@ -796,7 +942,9 @@ export declare class Comprehend extends AWSServiceClient {
     | InvalidRequestException
     | JobNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StopEntitiesDetectionJob", input);
+  }
   stopEventsDetectionJob(
     input: StopEventsDetectionJobRequest,
   ): Effect.Effect<
@@ -805,7 +953,9 @@ export declare class Comprehend extends AWSServiceClient {
     | InvalidRequestException
     | JobNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StopEventsDetectionJob", input);
+  }
   stopKeyPhrasesDetectionJob(
     input: StopKeyPhrasesDetectionJobRequest,
   ): Effect.Effect<
@@ -814,7 +964,9 @@ export declare class Comprehend extends AWSServiceClient {
     | InvalidRequestException
     | JobNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StopKeyPhrasesDetectionJob", input);
+  }
   stopPiiEntitiesDetectionJob(
     input: StopPiiEntitiesDetectionJobRequest,
   ): Effect.Effect<
@@ -823,7 +975,9 @@ export declare class Comprehend extends AWSServiceClient {
     | InvalidRequestException
     | JobNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StopPiiEntitiesDetectionJob", input);
+  }
   stopSentimentDetectionJob(
     input: StopSentimentDetectionJobRequest,
   ): Effect.Effect<
@@ -832,7 +986,9 @@ export declare class Comprehend extends AWSServiceClient {
     | InvalidRequestException
     | JobNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StopSentimentDetectionJob", input);
+  }
   stopTargetedSentimentDetectionJob(
     input: StopTargetedSentimentDetectionJobRequest,
   ): Effect.Effect<
@@ -841,7 +997,9 @@ export declare class Comprehend extends AWSServiceClient {
     | InvalidRequestException
     | JobNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StopTargetedSentimentDetectionJob", input);
+  }
   stopTrainingDocumentClassifier(
     input: StopTrainingDocumentClassifierRequest,
   ): Effect.Effect<
@@ -851,7 +1009,9 @@ export declare class Comprehend extends AWSServiceClient {
     | ResourceNotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StopTrainingDocumentClassifier", input);
+  }
   stopTrainingEntityRecognizer(
     input: StopTrainingEntityRecognizerRequest,
   ): Effect.Effect<
@@ -861,7 +1021,9 @@ export declare class Comprehend extends AWSServiceClient {
     | ResourceNotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StopTrainingEntityRecognizer", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -872,7 +1034,9 @@ export declare class Comprehend extends AWSServiceClient {
     | ResourceNotFoundException
     | TooManyTagsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
@@ -883,7 +1047,9 @@ export declare class Comprehend extends AWSServiceClient {
     | ResourceNotFoundException
     | TooManyTagKeysException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
   updateEndpoint(
     input: UpdateEndpointRequest,
   ): Effect.Effect<
@@ -896,7 +1062,9 @@ export declare class Comprehend extends AWSServiceClient {
     | ResourceUnavailableException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateEndpoint", input);
+  }
   updateFlywheel(
     input: UpdateFlywheelRequest,
   ): Effect.Effect<
@@ -907,8 +1075,12 @@ export declare class Comprehend extends AWSServiceClient {
     | ResourceNotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateFlywheel", input);
+  }
 }
+
+export default Comprehend;
 
 export type AnyLengthString = string;
 

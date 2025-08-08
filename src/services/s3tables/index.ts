@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class S3Tables extends AWSServiceClient {
+export class S3Tables extends AWSServiceClient {
   createNamespace(
     input: CreateNamespaceRequest,
   ): Effect.Effect<
@@ -14,7 +14,9 @@ export declare class S3Tables extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateNamespace", input);
+  }
   createTable(
     input: CreateTableRequest,
   ): Effect.Effect<
@@ -26,7 +28,9 @@ export declare class S3Tables extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateTable", input);
+  }
   createTableBucket(
     input: CreateTableBucketRequest,
   ): Effect.Effect<
@@ -38,7 +42,9 @@ export declare class S3Tables extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateTableBucket", input);
+  }
   deleteNamespace(
     input: DeleteNamespaceRequest,
   ): Effect.Effect<
@@ -50,7 +56,9 @@ export declare class S3Tables extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteNamespace", input);
+  }
   deleteTable(
     input: DeleteTableRequest,
   ): Effect.Effect<
@@ -62,7 +70,9 @@ export declare class S3Tables extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteTable", input);
+  }
   deleteTableBucket(
     input: DeleteTableBucketRequest,
   ): Effect.Effect<
@@ -74,7 +84,9 @@ export declare class S3Tables extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteTableBucket", input);
+  }
   deleteTableBucketEncryption(
     input: DeleteTableBucketEncryptionRequest,
   ): Effect.Effect<
@@ -86,7 +98,9 @@ export declare class S3Tables extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteTableBucketEncryption", input);
+  }
   deleteTableBucketPolicy(
     input: DeleteTableBucketPolicyRequest,
   ): Effect.Effect<
@@ -98,7 +112,9 @@ export declare class S3Tables extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteTableBucketPolicy", input);
+  }
   deleteTablePolicy(
     input: DeleteTablePolicyRequest,
   ): Effect.Effect<
@@ -110,7 +126,9 @@ export declare class S3Tables extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteTablePolicy", input);
+  }
   getNamespace(
     input: GetNamespaceRequest,
   ): Effect.Effect<
@@ -123,7 +141,9 @@ export declare class S3Tables extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetNamespace", input);
+  }
   getTable(
     input: GetTableRequest,
   ): Effect.Effect<
@@ -136,7 +156,9 @@ export declare class S3Tables extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetTable", input);
+  }
   getTableBucket(
     input: GetTableBucketRequest,
   ): Effect.Effect<
@@ -149,7 +171,9 @@ export declare class S3Tables extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetTableBucket", input);
+  }
   getTableBucketEncryption(
     input: GetTableBucketEncryptionRequest,
   ): Effect.Effect<
@@ -161,7 +185,9 @@ export declare class S3Tables extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetTableBucketEncryption", input);
+  }
   getTableBucketMaintenanceConfiguration(
     input: GetTableBucketMaintenanceConfigurationRequest,
   ): Effect.Effect<
@@ -173,7 +199,9 @@ export declare class S3Tables extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetTableBucketMaintenanceConfiguration", input);
+  }
   getTableBucketPolicy(
     input: GetTableBucketPolicyRequest,
   ): Effect.Effect<
@@ -185,7 +213,9 @@ export declare class S3Tables extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetTableBucketPolicy", input);
+  }
   getTableEncryption(
     input: GetTableEncryptionRequest,
   ): Effect.Effect<
@@ -197,7 +227,9 @@ export declare class S3Tables extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetTableEncryption", input);
+  }
   getTableMaintenanceConfiguration(
     input: GetTableMaintenanceConfigurationRequest,
   ): Effect.Effect<
@@ -209,7 +241,9 @@ export declare class S3Tables extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetTableMaintenanceConfiguration", input);
+  }
   getTableMaintenanceJobStatus(
     input: GetTableMaintenanceJobStatusRequest,
   ): Effect.Effect<
@@ -221,7 +255,9 @@ export declare class S3Tables extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetTableMaintenanceJobStatus", input);
+  }
   getTableMetadataLocation(
     input: GetTableMetadataLocationRequest,
   ): Effect.Effect<
@@ -233,7 +269,9 @@ export declare class S3Tables extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetTableMetadataLocation", input);
+  }
   getTablePolicy(
     input: GetTablePolicyRequest,
   ): Effect.Effect<
@@ -245,7 +283,9 @@ export declare class S3Tables extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetTablePolicy", input);
+  }
   listNamespaces(
     input: ListNamespacesRequest,
   ): Effect.Effect<
@@ -258,7 +298,9 @@ export declare class S3Tables extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListNamespaces", input);
+  }
   listTableBuckets(
     input: ListTableBucketsRequest,
   ): Effect.Effect<
@@ -271,7 +313,9 @@ export declare class S3Tables extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTableBuckets", input);
+  }
   listTables(
     input: ListTablesRequest,
   ): Effect.Effect<
@@ -283,7 +327,9 @@ export declare class S3Tables extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTables", input);
+  }
   putTableBucketEncryption(
     input: PutTableBucketEncryptionRequest,
   ): Effect.Effect<
@@ -295,7 +341,9 @@ export declare class S3Tables extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutTableBucketEncryption", input);
+  }
   putTableBucketMaintenanceConfiguration(
     input: PutTableBucketMaintenanceConfigurationRequest,
   ): Effect.Effect<
@@ -307,7 +355,9 @@ export declare class S3Tables extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutTableBucketMaintenanceConfiguration", input);
+  }
   putTableBucketPolicy(
     input: PutTableBucketPolicyRequest,
   ): Effect.Effect<
@@ -319,7 +369,9 @@ export declare class S3Tables extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutTableBucketPolicy", input);
+  }
   putTableMaintenanceConfiguration(
     input: PutTableMaintenanceConfigurationRequest,
   ): Effect.Effect<
@@ -331,7 +383,9 @@ export declare class S3Tables extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutTableMaintenanceConfiguration", input);
+  }
   putTablePolicy(
     input: PutTablePolicyRequest,
   ): Effect.Effect<
@@ -343,7 +397,9 @@ export declare class S3Tables extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutTablePolicy", input);
+  }
   renameTable(
     input: RenameTableRequest,
   ): Effect.Effect<
@@ -355,7 +411,9 @@ export declare class S3Tables extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("RenameTable", input);
+  }
   updateTableMetadataLocation(
     input: UpdateTableMetadataLocationRequest,
   ): Effect.Effect<
@@ -367,10 +425,14 @@ export declare class S3Tables extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateTableMetadataLocation", input);
+  }
 }
 
-export declare class S3tables extends S3Tables {}
+export class S3tables extends S3Tables {}
+
+export default S3Tables;
 
 export declare class AccessDeniedException extends EffectData.TaggedError(
   "AccessDeniedException",

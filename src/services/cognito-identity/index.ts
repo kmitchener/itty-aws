@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class CognitoIdentity extends AWSServiceClient {
+export class CognitoIdentity extends AWSServiceClient {
   createIdentityPool(
     input: CreateIdentityPoolInput,
   ): Effect.Effect<
@@ -14,7 +14,9 @@ export declare class CognitoIdentity extends AWSServiceClient {
     | ResourceConflictException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateIdentityPool", input);
+  }
   deleteIdentities(
     input: DeleteIdentitiesInput,
   ): Effect.Effect<
@@ -23,7 +25,9 @@ export declare class CognitoIdentity extends AWSServiceClient {
     | InvalidParameterException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteIdentities", input);
+  }
   deleteIdentityPool(
     input: DeleteIdentityPoolInput,
   ): Effect.Effect<
@@ -34,7 +38,9 @@ export declare class CognitoIdentity extends AWSServiceClient {
     | ResourceNotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteIdentityPool", input);
+  }
   describeIdentity(
     input: DescribeIdentityInput,
   ): Effect.Effect<
@@ -45,7 +51,9 @@ export declare class CognitoIdentity extends AWSServiceClient {
     | ResourceNotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeIdentity", input);
+  }
   describeIdentityPool(
     input: DescribeIdentityPoolInput,
   ): Effect.Effect<
@@ -56,7 +64,9 @@ export declare class CognitoIdentity extends AWSServiceClient {
     | ResourceNotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeIdentityPool", input);
+  }
   getCredentialsForIdentity(
     input: GetCredentialsForIdentityInput,
   ): Effect.Effect<
@@ -70,7 +80,9 @@ export declare class CognitoIdentity extends AWSServiceClient {
     | ResourceNotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetCredentialsForIdentity", input);
+  }
   getId(
     input: GetIdInput,
   ): Effect.Effect<
@@ -84,7 +96,9 @@ export declare class CognitoIdentity extends AWSServiceClient {
     | ResourceNotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetId", input);
+  }
   getIdentityPoolRoles(
     input: GetIdentityPoolRolesInput,
   ): Effect.Effect<
@@ -96,7 +110,9 @@ export declare class CognitoIdentity extends AWSServiceClient {
     | ResourceNotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetIdentityPoolRoles", input);
+  }
   getOpenIdToken(
     input: GetOpenIdTokenInput,
   ): Effect.Effect<
@@ -109,7 +125,9 @@ export declare class CognitoIdentity extends AWSServiceClient {
     | ResourceNotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetOpenIdToken", input);
+  }
   getOpenIdTokenForDeveloperIdentity(
     input: GetOpenIdTokenForDeveloperIdentityInput,
   ): Effect.Effect<
@@ -122,7 +140,9 @@ export declare class CognitoIdentity extends AWSServiceClient {
     | ResourceNotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetOpenIdTokenForDeveloperIdentity", input);
+  }
   getPrincipalTagAttributeMap(
     input: GetPrincipalTagAttributeMapInput,
   ): Effect.Effect<
@@ -133,7 +153,9 @@ export declare class CognitoIdentity extends AWSServiceClient {
     | ResourceNotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetPrincipalTagAttributeMap", input);
+  }
   listIdentities(
     input: ListIdentitiesInput,
   ): Effect.Effect<
@@ -144,7 +166,9 @@ export declare class CognitoIdentity extends AWSServiceClient {
     | ResourceNotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListIdentities", input);
+  }
   listIdentityPools(
     input: ListIdentityPoolsInput,
   ): Effect.Effect<
@@ -155,7 +179,9 @@ export declare class CognitoIdentity extends AWSServiceClient {
     | ResourceNotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListIdentityPools", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceInput,
   ): Effect.Effect<
@@ -166,7 +192,9 @@ export declare class CognitoIdentity extends AWSServiceClient {
     | ResourceNotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   lookupDeveloperIdentity(
     input: LookupDeveloperIdentityInput,
   ): Effect.Effect<
@@ -178,7 +206,9 @@ export declare class CognitoIdentity extends AWSServiceClient {
     | ResourceNotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("LookupDeveloperIdentity", input);
+  }
   mergeDeveloperIdentities(
     input: MergeDeveloperIdentitiesInput,
   ): Effect.Effect<
@@ -190,7 +220,9 @@ export declare class CognitoIdentity extends AWSServiceClient {
     | ResourceNotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("MergeDeveloperIdentities", input);
+  }
   setIdentityPoolRoles(
     input: SetIdentityPoolRolesInput,
   ): Effect.Effect<
@@ -203,7 +235,9 @@ export declare class CognitoIdentity extends AWSServiceClient {
     | ResourceNotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("SetIdentityPoolRoles", input);
+  }
   setPrincipalTagAttributeMap(
     input: SetPrincipalTagAttributeMapInput,
   ): Effect.Effect<
@@ -214,7 +248,9 @@ export declare class CognitoIdentity extends AWSServiceClient {
     | ResourceNotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("SetPrincipalTagAttributeMap", input);
+  }
   tagResource(
     input: TagResourceInput,
   ): Effect.Effect<
@@ -225,7 +261,9 @@ export declare class CognitoIdentity extends AWSServiceClient {
     | ResourceNotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   unlinkDeveloperIdentity(
     input: UnlinkDeveloperIdentityInput,
   ): Effect.Effect<
@@ -237,7 +275,9 @@ export declare class CognitoIdentity extends AWSServiceClient {
     | ResourceNotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UnlinkDeveloperIdentity", input);
+  }
   unlinkIdentity(
     input: UnlinkIdentityInput,
   ): Effect.Effect<
@@ -250,7 +290,9 @@ export declare class CognitoIdentity extends AWSServiceClient {
     | ResourceNotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UnlinkIdentity", input);
+  }
   untagResource(
     input: UntagResourceInput,
   ): Effect.Effect<
@@ -261,7 +303,9 @@ export declare class CognitoIdentity extends AWSServiceClient {
     | ResourceNotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
   updateIdentityPool(
     input: IdentityPool,
   ): Effect.Effect<
@@ -275,8 +319,12 @@ export declare class CognitoIdentity extends AWSServiceClient {
     | ResourceNotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateIdentityPool", input);
+  }
 }
+
+export default CognitoIdentity;
 
 export type AccessKeyString = string;
 

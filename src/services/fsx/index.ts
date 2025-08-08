@@ -2,13 +2,15 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class FSx extends AWSServiceClient {
+export class FSx extends AWSServiceClient {
   associateFileSystemAliases(
     input: AssociateFileSystemAliasesRequest,
   ): Effect.Effect<
     AssociateFileSystemAliasesResponse,
     BadRequest | FileSystemNotFound | InternalServerError | CommonAwsError
-  >;
+  > {
+    return this.call("AssociateFileSystemAliases", input);
+  }
   cancelDataRepositoryTask(
     input: CancelDataRepositoryTaskRequest,
   ): Effect.Effect<
@@ -19,7 +21,9 @@ export declare class FSx extends AWSServiceClient {
     | InternalServerError
     | UnsupportedOperation
     | CommonAwsError
-  >;
+  > {
+    return this.call("CancelDataRepositoryTask", input);
+  }
   copyBackup(
     input: CopyBackupRequest,
   ): Effect.Effect<
@@ -36,7 +40,9 @@ export declare class FSx extends AWSServiceClient {
     | SourceBackupUnavailable
     | UnsupportedOperation
     | CommonAwsError
-  >;
+  > {
+    return this.call("CopyBackup", input);
+  }
   copySnapshotAndUpdateVolume(
     input: CopySnapshotAndUpdateVolumeRequest,
   ): Effect.Effect<
@@ -46,7 +52,9 @@ export declare class FSx extends AWSServiceClient {
     | InternalServerError
     | ServiceLimitExceeded
     | CommonAwsError
-  >;
+  > {
+    return this.call("CopySnapshotAndUpdateVolume", input);
+  }
   createAndAttachS3AccessPoint(
     input: CreateAndAttachS3AccessPointRequest,
   ): Effect.Effect<
@@ -61,7 +69,9 @@ export declare class FSx extends AWSServiceClient {
     | UnsupportedOperation
     | VolumeNotFound
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateAndAttachS3AccessPoint", input);
+  }
   createBackup(
     input: CreateBackupRequest,
   ): Effect.Effect<
@@ -75,7 +85,9 @@ export declare class FSx extends AWSServiceClient {
     | UnsupportedOperation
     | VolumeNotFound
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateBackup", input);
+  }
   createDataRepositoryAssociation(
     input: CreateDataRepositoryAssociationRequest,
   ): Effect.Effect<
@@ -87,7 +99,9 @@ export declare class FSx extends AWSServiceClient {
     | ServiceLimitExceeded
     | UnsupportedOperation
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateDataRepositoryAssociation", input);
+  }
   createDataRepositoryTask(
     input: CreateDataRepositoryTaskRequest,
   ): Effect.Effect<
@@ -100,7 +114,9 @@ export declare class FSx extends AWSServiceClient {
     | ServiceLimitExceeded
     | UnsupportedOperation
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateDataRepositoryTask", input);
+  }
   createFileCache(
     input: CreateFileCacheRequest,
   ): Effect.Effect<
@@ -113,7 +129,9 @@ export declare class FSx extends AWSServiceClient {
     | MissingFileCacheConfiguration
     | ServiceLimitExceeded
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateFileCache", input);
+  }
   createFileSystem(
     input: CreateFileSystemRequest,
   ): Effect.Effect<
@@ -129,7 +147,9 @@ export declare class FSx extends AWSServiceClient {
     | MissingFileSystemConfiguration
     | ServiceLimitExceeded
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateFileSystem", input);
+  }
   createFileSystemFromBackup(
     input: CreateFileSystemFromBackupRequest,
   ): Effect.Effect<
@@ -144,7 +164,9 @@ export declare class FSx extends AWSServiceClient {
     | MissingFileSystemConfiguration
     | ServiceLimitExceeded
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateFileSystemFromBackup", input);
+  }
   createSnapshot(
     input: CreateSnapshotRequest,
   ): Effect.Effect<
@@ -154,7 +176,9 @@ export declare class FSx extends AWSServiceClient {
     | ServiceLimitExceeded
     | VolumeNotFound
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateSnapshot", input);
+  }
   createStorageVirtualMachine(
     input: CreateStorageVirtualMachineRequest,
   ): Effect.Effect<
@@ -167,7 +191,9 @@ export declare class FSx extends AWSServiceClient {
     | ServiceLimitExceeded
     | UnsupportedOperation
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateStorageVirtualMachine", input);
+  }
   createVolume(
     input: CreateVolumeRequest,
   ): Effect.Effect<
@@ -181,7 +207,9 @@ export declare class FSx extends AWSServiceClient {
     | StorageVirtualMachineNotFound
     | UnsupportedOperation
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateVolume", input);
+  }
   createVolumeFromBackup(
     input: CreateVolumeFromBackupRequest,
   ): Effect.Effect<
@@ -195,7 +223,9 @@ export declare class FSx extends AWSServiceClient {
     | ServiceLimitExceeded
     | StorageVirtualMachineNotFound
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateVolumeFromBackup", input);
+  }
   deleteBackup(
     input: DeleteBackupRequest,
   ): Effect.Effect<
@@ -208,7 +238,9 @@ export declare class FSx extends AWSServiceClient {
     | IncompatibleParameterError
     | InternalServerError
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteBackup", input);
+  }
   deleteDataRepositoryAssociation(
     input: DeleteDataRepositoryAssociationRequest,
   ): Effect.Effect<
@@ -219,7 +251,9 @@ export declare class FSx extends AWSServiceClient {
     | InternalServerError
     | ServiceLimitExceeded
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteDataRepositoryAssociation", input);
+  }
   deleteFileCache(
     input: DeleteFileCacheRequest,
   ): Effect.Effect<
@@ -230,7 +264,9 @@ export declare class FSx extends AWSServiceClient {
     | InternalServerError
     | ServiceLimitExceeded
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteFileCache", input);
+  }
   deleteFileSystem(
     input: DeleteFileSystemRequest,
   ): Effect.Effect<
@@ -241,13 +277,17 @@ export declare class FSx extends AWSServiceClient {
     | InternalServerError
     | ServiceLimitExceeded
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteFileSystem", input);
+  }
   deleteSnapshot(
     input: DeleteSnapshotRequest,
   ): Effect.Effect<
     DeleteSnapshotResponse,
     BadRequest | InternalServerError | SnapshotNotFound | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteSnapshot", input);
+  }
   deleteStorageVirtualMachine(
     input: DeleteStorageVirtualMachineRequest,
   ): Effect.Effect<
@@ -257,7 +297,9 @@ export declare class FSx extends AWSServiceClient {
     | InternalServerError
     | StorageVirtualMachineNotFound
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteStorageVirtualMachine", input);
+  }
   deleteVolume(
     input: DeleteVolumeRequest,
   ): Effect.Effect<
@@ -268,7 +310,9 @@ export declare class FSx extends AWSServiceClient {
     | ServiceLimitExceeded
     | VolumeNotFound
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteVolume", input);
+  }
   describeBackups(
     input: DescribeBackupsRequest,
   ): Effect.Effect<
@@ -279,7 +323,9 @@ export declare class FSx extends AWSServiceClient {
     | InternalServerError
     | VolumeNotFound
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeBackups", input);
+  }
   describeDataRepositoryAssociations(
     input: DescribeDataRepositoryAssociationsRequest,
   ): Effect.Effect<
@@ -290,7 +336,9 @@ export declare class FSx extends AWSServiceClient {
     | InternalServerError
     | InvalidDataRepositoryType
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeDataRepositoryAssociations", input);
+  }
   describeDataRepositoryTasks(
     input: DescribeDataRepositoryTasksRequest,
   ): Effect.Effect<
@@ -300,25 +348,33 @@ export declare class FSx extends AWSServiceClient {
     | FileSystemNotFound
     | InternalServerError
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeDataRepositoryTasks", input);
+  }
   describeFileCaches(
     input: DescribeFileCachesRequest,
   ): Effect.Effect<
     DescribeFileCachesResponse,
     BadRequest | FileCacheNotFound | InternalServerError | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeFileCaches", input);
+  }
   describeFileSystemAliases(
     input: DescribeFileSystemAliasesRequest,
   ): Effect.Effect<
     DescribeFileSystemAliasesResponse,
     BadRequest | FileSystemNotFound | InternalServerError | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeFileSystemAliases", input);
+  }
   describeFileSystems(
     input: DescribeFileSystemsRequest,
   ): Effect.Effect<
     DescribeFileSystemsResponse,
     BadRequest | FileSystemNotFound | InternalServerError | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeFileSystems", input);
+  }
   describeS3AccessPointAttachments(
     input: DescribeS3AccessPointAttachmentsRequest,
   ): Effect.Effect<
@@ -328,19 +384,25 @@ export declare class FSx extends AWSServiceClient {
     | S3AccessPointAttachmentNotFound
     | UnsupportedOperation
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeS3AccessPointAttachments", input);
+  }
   describeSharedVpcConfiguration(
     input: DescribeSharedVpcConfigurationRequest,
   ): Effect.Effect<
     DescribeSharedVpcConfigurationResponse,
     BadRequest | InternalServerError | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeSharedVpcConfiguration", input);
+  }
   describeSnapshots(
     input: DescribeSnapshotsRequest,
   ): Effect.Effect<
     DescribeSnapshotsResponse,
     BadRequest | InternalServerError | SnapshotNotFound | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeSnapshots", input);
+  }
   describeStorageVirtualMachines(
     input: DescribeStorageVirtualMachinesRequest,
   ): Effect.Effect<
@@ -349,13 +411,17 @@ export declare class FSx extends AWSServiceClient {
     | InternalServerError
     | StorageVirtualMachineNotFound
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeStorageVirtualMachines", input);
+  }
   describeVolumes(
     input: DescribeVolumesRequest,
   ): Effect.Effect<
     DescribeVolumesResponse,
     BadRequest | InternalServerError | VolumeNotFound | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeVolumes", input);
+  }
   detachAndDeleteS3AccessPoint(
     input: DetachAndDeleteS3AccessPointRequest,
   ): Effect.Effect<
@@ -366,13 +432,17 @@ export declare class FSx extends AWSServiceClient {
     | S3AccessPointAttachmentNotFound
     | UnsupportedOperation
     | CommonAwsError
-  >;
+  > {
+    return this.call("DetachAndDeleteS3AccessPoint", input);
+  }
   disassociateFileSystemAliases(
     input: DisassociateFileSystemAliasesRequest,
   ): Effect.Effect<
     DisassociateFileSystemAliasesResponse,
     BadRequest | FileSystemNotFound | InternalServerError | CommonAwsError
-  >;
+  > {
+    return this.call("DisassociateFileSystemAliases", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
@@ -383,7 +453,9 @@ export declare class FSx extends AWSServiceClient {
     | ResourceDoesNotSupportTagging
     | ResourceNotFound
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   releaseFileSystemNfsV3Locks(
     input: ReleaseFileSystemNfsV3LocksRequest,
   ): Effect.Effect<
@@ -394,19 +466,25 @@ export declare class FSx extends AWSServiceClient {
     | InternalServerError
     | ServiceLimitExceeded
     | CommonAwsError
-  >;
+  > {
+    return this.call("ReleaseFileSystemNfsV3Locks", input);
+  }
   restoreVolumeFromSnapshot(
     input: RestoreVolumeFromSnapshotRequest,
   ): Effect.Effect<
     RestoreVolumeFromSnapshotResponse,
     BadRequest | InternalServerError | VolumeNotFound | CommonAwsError
-  >;
+  > {
+    return this.call("RestoreVolumeFromSnapshot", input);
+  }
   startMisconfiguredStateRecovery(
     input: StartMisconfiguredStateRecoveryRequest,
   ): Effect.Effect<
     StartMisconfiguredStateRecoveryResponse,
     BadRequest | FileSystemNotFound | InternalServerError | CommonAwsError
-  >;
+  > {
+    return this.call("StartMisconfiguredStateRecovery", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -417,7 +495,9 @@ export declare class FSx extends AWSServiceClient {
     | ResourceDoesNotSupportTagging
     | ResourceNotFound
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
@@ -428,7 +508,9 @@ export declare class FSx extends AWSServiceClient {
     | ResourceDoesNotSupportTagging
     | ResourceNotFound
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
   updateDataRepositoryAssociation(
     input: UpdateDataRepositoryAssociationRequest,
   ): Effect.Effect<
@@ -439,7 +521,9 @@ export declare class FSx extends AWSServiceClient {
     | InternalServerError
     | ServiceLimitExceeded
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateDataRepositoryAssociation", input);
+  }
   updateFileCache(
     input: UpdateFileCacheRequest,
   ): Effect.Effect<
@@ -452,7 +536,9 @@ export declare class FSx extends AWSServiceClient {
     | ServiceLimitExceeded
     | UnsupportedOperation
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateFileCache", input);
+  }
   updateFileSystem(
     input: UpdateFileSystemRequest,
   ): Effect.Effect<
@@ -466,7 +552,9 @@ export declare class FSx extends AWSServiceClient {
     | ServiceLimitExceeded
     | UnsupportedOperation
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateFileSystem", input);
+  }
   updateSharedVpcConfiguration(
     input: UpdateSharedVpcConfigurationRequest,
   ): Effect.Effect<
@@ -475,13 +563,17 @@ export declare class FSx extends AWSServiceClient {
     | IncompatibleParameterError
     | InternalServerError
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateSharedVpcConfiguration", input);
+  }
   updateSnapshot(
     input: UpdateSnapshotRequest,
   ): Effect.Effect<
     UpdateSnapshotResponse,
     BadRequest | InternalServerError | SnapshotNotFound | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateSnapshot", input);
+  }
   updateStorageVirtualMachine(
     input: UpdateStorageVirtualMachineRequest,
   ): Effect.Effect<
@@ -492,7 +584,9 @@ export declare class FSx extends AWSServiceClient {
     | StorageVirtualMachineNotFound
     | UnsupportedOperation
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateStorageVirtualMachine", input);
+  }
   updateVolume(
     input: UpdateVolumeRequest,
   ): Effect.Effect<
@@ -503,10 +597,14 @@ export declare class FSx extends AWSServiceClient {
     | MissingVolumeConfiguration
     | VolumeNotFound
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateVolume", input);
+  }
 }
 
-export declare class Fsx extends FSx {}
+export class Fsx extends FSx {}
+
+export default FSx;
 
 export declare class AccessPointAlreadyOwnedByYou extends EffectData.TaggedError(
   "AccessPointAlreadyOwnedByYou",

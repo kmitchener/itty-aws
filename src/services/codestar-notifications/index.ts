@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class codestarnotifications extends AWSServiceClient {
+export class codestarnotifications extends AWSServiceClient {
   createNotificationRule(
     input: CreateNotificationRuleRequest,
   ): Effect.Effect<
@@ -14,7 +14,9 @@ export declare class codestarnotifications extends AWSServiceClient {
     | ResourceAlreadyExistsException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateNotificationRule", input);
+  }
   deleteNotificationRule(
     input: DeleteNotificationRuleRequest,
   ): Effect.Effect<
@@ -23,40 +25,54 @@ export declare class codestarnotifications extends AWSServiceClient {
     | LimitExceededException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteNotificationRule", input);
+  }
   deleteTarget(
     input: DeleteTargetRequest,
-  ): Effect.Effect<DeleteTargetResult, ValidationException | CommonAwsError>;
+  ): Effect.Effect<DeleteTargetResult, ValidationException | CommonAwsError> {
+    return this.call("DeleteTarget", input);
+  }
   describeNotificationRule(
     input: DescribeNotificationRuleRequest,
   ): Effect.Effect<
     DescribeNotificationRuleResult,
     ResourceNotFoundException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeNotificationRule", input);
+  }
   listEventTypes(
     input: ListEventTypesRequest,
   ): Effect.Effect<
     ListEventTypesResult,
     InvalidNextTokenException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("ListEventTypes", input);
+  }
   listNotificationRules(
     input: ListNotificationRulesRequest,
   ): Effect.Effect<
     ListNotificationRulesResult,
     InvalidNextTokenException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("ListNotificationRules", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResult,
     ResourceNotFoundException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   listTargets(
     input: ListTargetsRequest,
   ): Effect.Effect<
     ListTargetsResult,
     InvalidNextTokenException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("ListTargets", input);
+  }
   subscribe(
     input: SubscribeRequest,
   ): Effect.Effect<
@@ -65,7 +81,9 @@ export declare class codestarnotifications extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("Subscribe", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -75,10 +93,14 @@ export declare class codestarnotifications extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   unsubscribe(
     input: UnsubscribeRequest,
-  ): Effect.Effect<UnsubscribeResult, ValidationException | CommonAwsError>;
+  ): Effect.Effect<UnsubscribeResult, ValidationException | CommonAwsError> {
+    return this.call("Unsubscribe", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
@@ -88,7 +110,9 @@ export declare class codestarnotifications extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
   updateNotificationRule(
     input: UpdateNotificationRuleRequest,
   ): Effect.Effect<
@@ -97,10 +121,14 @@ export declare class codestarnotifications extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateNotificationRule", input);
+  }
 }
 
-export declare class CodestarNotifications extends codestarnotifications {}
+export class CodestarNotifications extends codestarnotifications {}
+
+export default codestarnotifications;
 
 export declare class AccessDeniedException extends EffectData.TaggedError(
   "AccessDeniedException",

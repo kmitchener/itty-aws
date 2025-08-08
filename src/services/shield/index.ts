@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class Shield extends AWSServiceClient {
+export class Shield extends AWSServiceClient {
   associateDRTLogBucket(
     input: AssociateDRTLogBucketRequest,
   ): Effect.Effect<
@@ -16,7 +16,9 @@ export declare class Shield extends AWSServiceClient {
     | OptimisticLockException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AssociateDRTLogBucket", input);
+  }
   associateDRTRole(
     input: AssociateDRTRoleRequest,
   ): Effect.Effect<
@@ -28,7 +30,9 @@ export declare class Shield extends AWSServiceClient {
     | OptimisticLockException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AssociateDRTRole", input);
+  }
   associateHealthCheck(
     input: AssociateHealthCheckRequest,
   ): Effect.Effect<
@@ -40,7 +44,9 @@ export declare class Shield extends AWSServiceClient {
     | OptimisticLockException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AssociateHealthCheck", input);
+  }
   associateProactiveEngagementDetails(
     input: AssociateProactiveEngagementDetailsRequest,
   ): Effect.Effect<
@@ -51,7 +57,9 @@ export declare class Shield extends AWSServiceClient {
     | OptimisticLockException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AssociateProactiveEngagementDetails", input);
+  }
   createProtection(
     input: CreateProtectionRequest,
   ): Effect.Effect<
@@ -65,7 +73,9 @@ export declare class Shield extends AWSServiceClient {
     | ResourceAlreadyExistsException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateProtection", input);
+  }
   createProtectionGroup(
     input: CreateProtectionGroupRequest,
   ): Effect.Effect<
@@ -77,13 +87,17 @@ export declare class Shield extends AWSServiceClient {
     | ResourceAlreadyExistsException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateProtectionGroup", input);
+  }
   createSubscription(
     input: CreateSubscriptionRequest,
   ): Effect.Effect<
     CreateSubscriptionResponse,
     InternalErrorException | ResourceAlreadyExistsException | CommonAwsError
-  >;
+  > {
+    return this.call("CreateSubscription", input);
+  }
   deleteProtection(
     input: DeleteProtectionRequest,
   ): Effect.Effect<
@@ -92,7 +106,9 @@ export declare class Shield extends AWSServiceClient {
     | OptimisticLockException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteProtection", input);
+  }
   deleteProtectionGroup(
     input: DeleteProtectionGroupRequest,
   ): Effect.Effect<
@@ -101,7 +117,9 @@ export declare class Shield extends AWSServiceClient {
     | OptimisticLockException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteProtectionGroup", input);
+  }
   deleteSubscription(
     input: DeleteSubscriptionRequest,
   ): Effect.Effect<
@@ -110,31 +128,41 @@ export declare class Shield extends AWSServiceClient {
     | LockedSubscriptionException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteSubscription", input);
+  }
   describeAttack(
     input: DescribeAttackRequest,
   ): Effect.Effect<
     DescribeAttackResponse,
     AccessDeniedException | InternalErrorException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeAttack", input);
+  }
   describeAttackStatistics(
     input: DescribeAttackStatisticsRequest,
   ): Effect.Effect<
     DescribeAttackStatisticsResponse,
     InternalErrorException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeAttackStatistics", input);
+  }
   describeDRTAccess(
     input: DescribeDRTAccessRequest,
   ): Effect.Effect<
     DescribeDRTAccessResponse,
     InternalErrorException | ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeDRTAccess", input);
+  }
   describeEmergencyContactSettings(
     input: DescribeEmergencyContactSettingsRequest,
   ): Effect.Effect<
     DescribeEmergencyContactSettingsResponse,
     InternalErrorException | ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeEmergencyContactSettings", input);
+  }
   describeProtection(
     input: DescribeProtectionRequest,
   ): Effect.Effect<
@@ -143,19 +171,25 @@ export declare class Shield extends AWSServiceClient {
     | InvalidParameterException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeProtection", input);
+  }
   describeProtectionGroup(
     input: DescribeProtectionGroupRequest,
   ): Effect.Effect<
     DescribeProtectionGroupResponse,
     InternalErrorException | ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeProtectionGroup", input);
+  }
   describeSubscription(
     input: DescribeSubscriptionRequest,
   ): Effect.Effect<
     DescribeSubscriptionResponse,
     InternalErrorException | ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeSubscription", input);
+  }
   disableApplicationLayerAutomaticResponse(
     input: DisableApplicationLayerAutomaticResponseRequest,
   ): Effect.Effect<
@@ -166,7 +200,9 @@ export declare class Shield extends AWSServiceClient {
     | OptimisticLockException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DisableApplicationLayerAutomaticResponse", input);
+  }
   disableProactiveEngagement(
     input: DisableProactiveEngagementRequest,
   ): Effect.Effect<
@@ -177,7 +213,9 @@ export declare class Shield extends AWSServiceClient {
     | OptimisticLockException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DisableProactiveEngagement", input);
+  }
   disassociateDRTLogBucket(
     input: DisassociateDRTLogBucketRequest,
   ): Effect.Effect<
@@ -189,7 +227,9 @@ export declare class Shield extends AWSServiceClient {
     | OptimisticLockException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DisassociateDRTLogBucket", input);
+  }
   disassociateDRTRole(
     input: DisassociateDRTRoleRequest,
   ): Effect.Effect<
@@ -199,7 +239,9 @@ export declare class Shield extends AWSServiceClient {
     | OptimisticLockException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DisassociateDRTRole", input);
+  }
   disassociateHealthCheck(
     input: DisassociateHealthCheckRequest,
   ): Effect.Effect<
@@ -210,7 +252,9 @@ export declare class Shield extends AWSServiceClient {
     | OptimisticLockException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DisassociateHealthCheck", input);
+  }
   enableApplicationLayerAutomaticResponse(
     input: EnableApplicationLayerAutomaticResponseRequest,
   ): Effect.Effect<
@@ -222,7 +266,9 @@ export declare class Shield extends AWSServiceClient {
     | OptimisticLockException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("EnableApplicationLayerAutomaticResponse", input);
+  }
   enableProactiveEngagement(
     input: EnableProactiveEngagementRequest,
   ): Effect.Effect<
@@ -233,13 +279,17 @@ export declare class Shield extends AWSServiceClient {
     | OptimisticLockException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("EnableProactiveEngagement", input);
+  }
   getSubscriptionState(
     input: GetSubscriptionStateRequest,
   ): Effect.Effect<
     GetSubscriptionStateResponse,
     InternalErrorException | CommonAwsError
-  >;
+  > {
+    return this.call("GetSubscriptionState", input);
+  }
   listAttacks(
     input: ListAttacksRequest,
   ): Effect.Effect<
@@ -248,7 +298,9 @@ export declare class Shield extends AWSServiceClient {
     | InvalidOperationException
     | InvalidParameterException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListAttacks", input);
+  }
   listProtectionGroups(
     input: ListProtectionGroupsRequest,
   ): Effect.Effect<
@@ -257,7 +309,9 @@ export declare class Shield extends AWSServiceClient {
     | InvalidPaginationTokenException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListProtectionGroups", input);
+  }
   listProtections(
     input: ListProtectionsRequest,
   ): Effect.Effect<
@@ -266,7 +320,9 @@ export declare class Shield extends AWSServiceClient {
     | InvalidPaginationTokenException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListProtections", input);
+  }
   listResourcesInProtectionGroup(
     input: ListResourcesInProtectionGroupRequest,
   ): Effect.Effect<
@@ -275,7 +331,9 @@ export declare class Shield extends AWSServiceClient {
     | InvalidPaginationTokenException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListResourcesInProtectionGroup", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
@@ -284,7 +342,9 @@ export declare class Shield extends AWSServiceClient {
     | InvalidResourceException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -294,7 +354,9 @@ export declare class Shield extends AWSServiceClient {
     | InvalidResourceException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
@@ -304,7 +366,9 @@ export declare class Shield extends AWSServiceClient {
     | InvalidResourceException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
   updateApplicationLayerAutomaticResponse(
     input: UpdateApplicationLayerAutomaticResponseRequest,
   ): Effect.Effect<
@@ -315,7 +379,9 @@ export declare class Shield extends AWSServiceClient {
     | OptimisticLockException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateApplicationLayerAutomaticResponse", input);
+  }
   updateEmergencyContactSettings(
     input: UpdateEmergencyContactSettingsRequest,
   ): Effect.Effect<
@@ -325,7 +391,9 @@ export declare class Shield extends AWSServiceClient {
     | OptimisticLockException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateEmergencyContactSettings", input);
+  }
   updateProtectionGroup(
     input: UpdateProtectionGroupRequest,
   ): Effect.Effect<
@@ -335,7 +403,9 @@ export declare class Shield extends AWSServiceClient {
     | OptimisticLockException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateProtectionGroup", input);
+  }
   updateSubscription(
     input: UpdateSubscriptionRequest,
   ): Effect.Effect<
@@ -346,8 +416,12 @@ export declare class Shield extends AWSServiceClient {
     | OptimisticLockException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateSubscription", input);
+  }
 }
+
+export default Shield;
 
 export declare class AccessDeniedException extends EffectData.TaggedError(
   "AccessDeniedException",

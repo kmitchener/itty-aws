@@ -3,7 +3,7 @@ import type { ResponseError } from "@effect/platform/HttpClientError";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class schemas extends AWSServiceClient {
+export class schemas extends AWSServiceClient {
   createDiscoverer(
     input: CreateDiscovererRequest,
   ): Effect.Effect<
@@ -15,7 +15,9 @@ export declare class schemas extends AWSServiceClient {
     | ServiceUnavailableException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateDiscoverer", input);
+  }
   createRegistry(
     input: CreateRegistryRequest,
   ): Effect.Effect<
@@ -27,7 +29,9 @@ export declare class schemas extends AWSServiceClient {
     | ServiceUnavailableException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateRegistry", input);
+  }
   createSchema(
     input: CreateSchemaRequest,
   ): Effect.Effect<
@@ -37,7 +41,9 @@ export declare class schemas extends AWSServiceClient {
     | InternalServerErrorException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateSchema", input);
+  }
   deleteDiscoverer(
     input: DeleteDiscovererRequest,
   ): Effect.Effect<
@@ -49,7 +55,9 @@ export declare class schemas extends AWSServiceClient {
     | ServiceUnavailableException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteDiscoverer", input);
+  }
   deleteRegistry(
     input: DeleteRegistryRequest,
   ): Effect.Effect<
@@ -61,7 +69,9 @@ export declare class schemas extends AWSServiceClient {
     | ServiceUnavailableException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteRegistry", input);
+  }
   deleteResourcePolicy(
     input: DeleteResourcePolicyRequest,
   ): Effect.Effect<
@@ -73,7 +83,9 @@ export declare class schemas extends AWSServiceClient {
     | ServiceUnavailableException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteResourcePolicy", input);
+  }
   deleteSchema(
     input: DeleteSchemaRequest,
   ): Effect.Effect<
@@ -85,7 +97,9 @@ export declare class schemas extends AWSServiceClient {
     | ServiceUnavailableException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteSchema", input);
+  }
   deleteSchemaVersion(
     input: DeleteSchemaVersionRequest,
   ): Effect.Effect<
@@ -97,7 +111,9 @@ export declare class schemas extends AWSServiceClient {
     | ServiceUnavailableException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteSchemaVersion", input);
+  }
   describeCodeBinding(
     input: DescribeCodeBindingRequest,
   ): Effect.Effect<
@@ -109,7 +125,9 @@ export declare class schemas extends AWSServiceClient {
     | TooManyRequestsException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeCodeBinding", input);
+  }
   describeDiscoverer(
     input: DescribeDiscovererRequest,
   ): Effect.Effect<
@@ -121,7 +139,9 @@ export declare class schemas extends AWSServiceClient {
     | ServiceUnavailableException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeDiscoverer", input);
+  }
   describeRegistry(
     input: DescribeRegistryRequest,
   ): Effect.Effect<
@@ -133,7 +153,9 @@ export declare class schemas extends AWSServiceClient {
     | ServiceUnavailableException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeRegistry", input);
+  }
   describeSchema(
     input: DescribeSchemaRequest,
   ): Effect.Effect<
@@ -145,7 +167,9 @@ export declare class schemas extends AWSServiceClient {
     | ServiceUnavailableException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeSchema", input);
+  }
   exportSchema(
     input: ExportSchemaRequest,
   ): Effect.Effect<
@@ -158,7 +182,9 @@ export declare class schemas extends AWSServiceClient {
     | TooManyRequestsException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ExportSchema", input);
+  }
   getCodeBindingSource(
     input: GetCodeBindingSourceRequest,
   ): Effect.Effect<
@@ -170,7 +196,9 @@ export declare class schemas extends AWSServiceClient {
     | TooManyRequestsException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetCodeBindingSource", input);
+  }
   getDiscoveredSchema(
     input: GetDiscoveredSchemaRequest,
   ): Effect.Effect<
@@ -181,7 +209,9 @@ export declare class schemas extends AWSServiceClient {
     | ServiceUnavailableException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetDiscoveredSchema", input);
+  }
   getResourcePolicy(
     input: GetResourcePolicyRequest,
   ): Effect.Effect<
@@ -193,7 +223,9 @@ export declare class schemas extends AWSServiceClient {
     | ServiceUnavailableException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetResourcePolicy", input);
+  }
   listDiscoverers(
     input: ListDiscoverersRequest,
   ): Effect.Effect<
@@ -204,7 +236,9 @@ export declare class schemas extends AWSServiceClient {
     | ServiceUnavailableException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListDiscoverers", input);
+  }
   listRegistries(
     input: ListRegistriesRequest,
   ): Effect.Effect<
@@ -215,7 +249,9 @@ export declare class schemas extends AWSServiceClient {
     | ServiceUnavailableException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListRegistries", input);
+  }
   listSchemas(
     input: ListSchemasRequest,
   ): Effect.Effect<
@@ -226,7 +262,9 @@ export declare class schemas extends AWSServiceClient {
     | ServiceUnavailableException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListSchemas", input);
+  }
   listSchemaVersions(
     input: ListSchemaVersionsRequest,
   ): Effect.Effect<
@@ -238,7 +276,9 @@ export declare class schemas extends AWSServiceClient {
     | ServiceUnavailableException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListSchemaVersions", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
@@ -248,7 +288,9 @@ export declare class schemas extends AWSServiceClient {
     | InternalServerErrorException
     | NotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   putCodeBinding(
     input: PutCodeBindingRequest,
   ): Effect.Effect<
@@ -261,7 +303,9 @@ export declare class schemas extends AWSServiceClient {
     | TooManyRequestsException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutCodeBinding", input);
+  }
   putResourcePolicy(
     input: PutResourcePolicyRequest,
   ): Effect.Effect<
@@ -274,7 +318,9 @@ export declare class schemas extends AWSServiceClient {
     | ServiceUnavailableException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutResourcePolicy", input);
+  }
   searchSchemas(
     input: SearchSchemasRequest,
   ): Effect.Effect<
@@ -285,7 +331,9 @@ export declare class schemas extends AWSServiceClient {
     | ServiceUnavailableException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("SearchSchemas", input);
+  }
   startDiscoverer(
     input: StartDiscovererRequest,
   ): Effect.Effect<
@@ -297,7 +345,9 @@ export declare class schemas extends AWSServiceClient {
     | ServiceUnavailableException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartDiscoverer", input);
+  }
   stopDiscoverer(
     input: StopDiscovererRequest,
   ): Effect.Effect<
@@ -309,7 +359,9 @@ export declare class schemas extends AWSServiceClient {
     | ServiceUnavailableException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StopDiscoverer", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -319,7 +371,9 @@ export declare class schemas extends AWSServiceClient {
     | InternalServerErrorException
     | NotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
@@ -329,7 +383,9 @@ export declare class schemas extends AWSServiceClient {
     | InternalServerErrorException
     | NotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
   updateDiscoverer(
     input: UpdateDiscovererRequest,
   ): Effect.Effect<
@@ -341,7 +397,9 @@ export declare class schemas extends AWSServiceClient {
     | ServiceUnavailableException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateDiscoverer", input);
+  }
   updateRegistry(
     input: UpdateRegistryRequest,
   ): Effect.Effect<
@@ -353,7 +411,9 @@ export declare class schemas extends AWSServiceClient {
     | ServiceUnavailableException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateRegistry", input);
+  }
   updateSchema(
     input: UpdateSchemaRequest,
   ): Effect.Effect<
@@ -364,10 +424,14 @@ export declare class schemas extends AWSServiceClient {
     | NotFoundException
     | ServiceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateSchema", input);
+  }
 }
 
-export declare class Schemas extends schemas {}
+export class Schemas extends schemas {}
+
+export default schemas;
 
 export type __boolean = boolean;
 

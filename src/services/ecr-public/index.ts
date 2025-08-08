@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class ECRPUBLIC extends AWSServiceClient {
+export class ECRPUBLIC extends AWSServiceClient {
   batchCheckLayerAvailability(
     input: BatchCheckLayerAvailabilityRequest,
   ): Effect.Effect<
@@ -13,7 +13,9 @@ export declare class ECRPUBLIC extends AWSServiceClient {
     | ServerException
     | UnsupportedCommandException
     | CommonAwsError
-  >;
+  > {
+    return this.call("BatchCheckLayerAvailability", input);
+  }
   batchDeleteImage(
     input: BatchDeleteImageRequest,
   ): Effect.Effect<
@@ -23,7 +25,9 @@ export declare class ECRPUBLIC extends AWSServiceClient {
     | ServerException
     | UnsupportedCommandException
     | CommonAwsError
-  >;
+  > {
+    return this.call("BatchDeleteImage", input);
+  }
   completeLayerUpload(
     input: CompleteLayerUploadRequest,
   ): Effect.Effect<
@@ -39,7 +43,9 @@ export declare class ECRPUBLIC extends AWSServiceClient {
     | UnsupportedCommandException
     | UploadNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CompleteLayerUpload", input);
+  }
   createRepository(
     input: CreateRepositoryRequest,
   ): Effect.Effect<
@@ -52,7 +58,9 @@ export declare class ECRPUBLIC extends AWSServiceClient {
     | TooManyTagsException
     | UnsupportedCommandException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateRepository", input);
+  }
   deleteRepository(
     input: DeleteRepositoryRequest,
   ): Effect.Effect<
@@ -63,7 +71,9 @@ export declare class ECRPUBLIC extends AWSServiceClient {
     | ServerException
     | UnsupportedCommandException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteRepository", input);
+  }
   deleteRepositoryPolicy(
     input: DeleteRepositoryPolicyRequest,
   ): Effect.Effect<
@@ -74,7 +84,9 @@ export declare class ECRPUBLIC extends AWSServiceClient {
     | ServerException
     | UnsupportedCommandException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteRepositoryPolicy", input);
+  }
   describeImages(
     input: DescribeImagesRequest,
   ): Effect.Effect<
@@ -85,7 +97,9 @@ export declare class ECRPUBLIC extends AWSServiceClient {
     | ServerException
     | UnsupportedCommandException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeImages", input);
+  }
   describeImageTags(
     input: DescribeImageTagsRequest,
   ): Effect.Effect<
@@ -95,7 +109,9 @@ export declare class ECRPUBLIC extends AWSServiceClient {
     | ServerException
     | UnsupportedCommandException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeImageTags", input);
+  }
   describeRegistries(
     input: DescribeRegistriesRequest,
   ): Effect.Effect<
@@ -104,7 +120,9 @@ export declare class ECRPUBLIC extends AWSServiceClient {
     | ServerException
     | UnsupportedCommandException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeRegistries", input);
+  }
   describeRepositories(
     input: DescribeRepositoriesRequest,
   ): Effect.Effect<
@@ -114,7 +132,9 @@ export declare class ECRPUBLIC extends AWSServiceClient {
     | ServerException
     | UnsupportedCommandException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeRepositories", input);
+  }
   getAuthorizationToken(
     input: GetAuthorizationTokenRequest,
   ): Effect.Effect<
@@ -123,13 +143,17 @@ export declare class ECRPUBLIC extends AWSServiceClient {
     | ServerException
     | UnsupportedCommandException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetAuthorizationToken", input);
+  }
   getRegistryCatalogData(
     input: GetRegistryCatalogDataRequest,
   ): Effect.Effect<
     GetRegistryCatalogDataResponse,
     ServerException | UnsupportedCommandException | CommonAwsError
-  >;
+  > {
+    return this.call("GetRegistryCatalogData", input);
+  }
   getRepositoryCatalogData(
     input: GetRepositoryCatalogDataRequest,
   ): Effect.Effect<
@@ -140,7 +164,9 @@ export declare class ECRPUBLIC extends AWSServiceClient {
     | ServerException
     | UnsupportedCommandException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetRepositoryCatalogData", input);
+  }
   getRepositoryPolicy(
     input: GetRepositoryPolicyRequest,
   ): Effect.Effect<
@@ -151,7 +177,9 @@ export declare class ECRPUBLIC extends AWSServiceClient {
     | ServerException
     | UnsupportedCommandException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetRepositoryPolicy", input);
+  }
   initiateLayerUpload(
     input: InitiateLayerUploadRequest,
   ): Effect.Effect<
@@ -162,7 +190,9 @@ export declare class ECRPUBLIC extends AWSServiceClient {
     | ServerException
     | UnsupportedCommandException
     | CommonAwsError
-  >;
+  > {
+    return this.call("InitiateLayerUpload", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
@@ -172,7 +202,9 @@ export declare class ECRPUBLIC extends AWSServiceClient {
     | ServerException
     | UnsupportedCommandException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   putImage(
     input: PutImageRequest,
   ): Effect.Effect<
@@ -189,7 +221,9 @@ export declare class ECRPUBLIC extends AWSServiceClient {
     | ServerException
     | UnsupportedCommandException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutImage", input);
+  }
   putRegistryCatalogData(
     input: PutRegistryCatalogDataRequest,
   ): Effect.Effect<
@@ -198,7 +232,9 @@ export declare class ECRPUBLIC extends AWSServiceClient {
     | ServerException
     | UnsupportedCommandException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutRegistryCatalogData", input);
+  }
   putRepositoryCatalogData(
     input: PutRepositoryCatalogDataRequest,
   ): Effect.Effect<
@@ -208,7 +244,9 @@ export declare class ECRPUBLIC extends AWSServiceClient {
     | ServerException
     | UnsupportedCommandException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutRepositoryCatalogData", input);
+  }
   setRepositoryPolicy(
     input: SetRepositoryPolicyRequest,
   ): Effect.Effect<
@@ -218,7 +256,9 @@ export declare class ECRPUBLIC extends AWSServiceClient {
     | ServerException
     | UnsupportedCommandException
     | CommonAwsError
-  >;
+  > {
+    return this.call("SetRepositoryPolicy", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -230,7 +270,9 @@ export declare class ECRPUBLIC extends AWSServiceClient {
     | TooManyTagsException
     | UnsupportedCommandException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
@@ -242,7 +284,9 @@ export declare class ECRPUBLIC extends AWSServiceClient {
     | TooManyTagsException
     | UnsupportedCommandException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
   uploadLayerPart(
     input: UploadLayerPartRequest,
   ): Effect.Effect<
@@ -256,10 +300,14 @@ export declare class ECRPUBLIC extends AWSServiceClient {
     | UnsupportedCommandException
     | UploadNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UploadLayerPart", input);
+  }
 }
 
-export declare class EcrPublic extends ECRPUBLIC {}
+export class EcrPublic extends ECRPUBLIC {}
+
+export default ECRPUBLIC;
 
 export type AboutText = string;
 

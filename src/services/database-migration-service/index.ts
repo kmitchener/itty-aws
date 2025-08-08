@@ -2,19 +2,23 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class DatabaseMigrationService extends AWSServiceClient {
+export class DatabaseMigrationService extends AWSServiceClient {
   addTagsToResource(
     input: AddTagsToResourceMessage,
   ): Effect.Effect<
     AddTagsToResourceResponse,
     InvalidResourceStateFault | ResourceNotFoundFault | CommonAwsError
-  >;
+  > {
+    return this.call("AddTagsToResource", input);
+  }
   applyPendingMaintenanceAction(
     input: ApplyPendingMaintenanceActionMessage,
   ): Effect.Effect<
     ApplyPendingMaintenanceActionResponse,
     ResourceNotFoundFault | CommonAwsError
-  >;
+  > {
+    return this.call("ApplyPendingMaintenanceAction", input);
+  }
   batchStartRecommendations(
     input: BatchStartRecommendationsRequest,
   ): Effect.Effect<
@@ -23,7 +27,9 @@ export declare class DatabaseMigrationService extends AWSServiceClient {
     | InvalidResourceStateFault
     | ResourceNotFoundFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("BatchStartRecommendations", input);
+  }
   cancelReplicationTaskAssessmentRun(
     input: CancelReplicationTaskAssessmentRunMessage,
   ): Effect.Effect<
@@ -32,7 +38,9 @@ export declare class DatabaseMigrationService extends AWSServiceClient {
     | InvalidResourceStateFault
     | ResourceNotFoundFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("CancelReplicationTaskAssessmentRun", input);
+  }
   createDataMigration(
     input: CreateDataMigrationMessage,
   ): Effect.Effect<
@@ -43,7 +51,9 @@ export declare class DatabaseMigrationService extends AWSServiceClient {
     | ResourceNotFoundFault
     | ResourceQuotaExceededFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateDataMigration", input);
+  }
   createDataProvider(
     input: CreateDataProviderMessage,
   ): Effect.Effect<
@@ -53,7 +63,9 @@ export declare class DatabaseMigrationService extends AWSServiceClient {
     | ResourceAlreadyExistsFault
     | ResourceQuotaExceededFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateDataProvider", input);
+  }
   createEndpoint(
     input: CreateEndpointMessage,
   ): Effect.Effect<
@@ -66,7 +78,9 @@ export declare class DatabaseMigrationService extends AWSServiceClient {
     | ResourceQuotaExceededFault
     | S3AccessDeniedFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateEndpoint", input);
+  }
   createEventSubscription(
     input: CreateEventSubscriptionMessage,
   ): Effect.Effect<
@@ -82,7 +96,9 @@ export declare class DatabaseMigrationService extends AWSServiceClient {
     | SNSInvalidTopicFault
     | SNSNoAuthorizationFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateEventSubscription", input);
+  }
   createFleetAdvisorCollector(
     input: CreateFleetAdvisorCollectorRequest,
   ): Effect.Effect<
@@ -93,7 +109,9 @@ export declare class DatabaseMigrationService extends AWSServiceClient {
     | S3AccessDeniedFault
     | S3ResourceNotFoundFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateFleetAdvisorCollector", input);
+  }
   createInstanceProfile(
     input: CreateInstanceProfileMessage,
   ): Effect.Effect<
@@ -108,7 +126,9 @@ export declare class DatabaseMigrationService extends AWSServiceClient {
     | S3AccessDeniedFault
     | S3ResourceNotFoundFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateInstanceProfile", input);
+  }
   createMigrationProject(
     input: CreateMigrationProjectMessage,
   ): Effect.Effect<
@@ -121,7 +141,9 @@ export declare class DatabaseMigrationService extends AWSServiceClient {
     | S3AccessDeniedFault
     | S3ResourceNotFoundFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateMigrationProject", input);
+  }
   createReplicationConfig(
     input: CreateReplicationConfigMessage,
   ): Effect.Effect<
@@ -135,7 +157,9 @@ export declare class DatabaseMigrationService extends AWSServiceClient {
     | ResourceNotFoundFault
     | ResourceQuotaExceededFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateReplicationConfig", input);
+  }
   createReplicationInstance(
     input: CreateReplicationInstanceMessage,
   ): Effect.Effect<
@@ -151,7 +175,9 @@ export declare class DatabaseMigrationService extends AWSServiceClient {
     | ResourceQuotaExceededFault
     | StorageQuotaExceededFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateReplicationInstance", input);
+  }
   createReplicationSubnetGroup(
     input: CreateReplicationSubnetGroupMessage,
   ): Effect.Effect<
@@ -163,7 +189,9 @@ export declare class DatabaseMigrationService extends AWSServiceClient {
     | ResourceNotFoundFault
     | ResourceQuotaExceededFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateReplicationSubnetGroup", input);
+  }
   createReplicationTask(
     input: CreateReplicationTaskMessage,
   ): Effect.Effect<
@@ -175,13 +203,17 @@ export declare class DatabaseMigrationService extends AWSServiceClient {
     | ResourceNotFoundFault
     | ResourceQuotaExceededFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateReplicationTask", input);
+  }
   deleteCertificate(
     input: DeleteCertificateMessage,
   ): Effect.Effect<
     DeleteCertificateResponse,
     InvalidResourceStateFault | ResourceNotFoundFault | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteCertificate", input);
+  }
   deleteConnection(
     input: DeleteConnectionMessage,
   ): Effect.Effect<
@@ -190,7 +222,9 @@ export declare class DatabaseMigrationService extends AWSServiceClient {
     | InvalidResourceStateFault
     | ResourceNotFoundFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteConnection", input);
+  }
   deleteDataMigration(
     input: DeleteDataMigrationMessage,
   ): Effect.Effect<
@@ -199,7 +233,9 @@ export declare class DatabaseMigrationService extends AWSServiceClient {
     | InvalidResourceStateFault
     | ResourceNotFoundFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteDataMigration", input);
+  }
   deleteDataProvider(
     input: DeleteDataProviderMessage,
   ): Effect.Effect<
@@ -209,13 +245,17 @@ export declare class DatabaseMigrationService extends AWSServiceClient {
     | InvalidResourceStateFault
     | ResourceNotFoundFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteDataProvider", input);
+  }
   deleteEndpoint(
     input: DeleteEndpointMessage,
   ): Effect.Effect<
     DeleteEndpointResponse,
     InvalidResourceStateFault | ResourceNotFoundFault | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteEndpoint", input);
+  }
   deleteEventSubscription(
     input: DeleteEventSubscriptionMessage,
   ): Effect.Effect<
@@ -224,7 +264,9 @@ export declare class DatabaseMigrationService extends AWSServiceClient {
     | InvalidResourceStateFault
     | ResourceNotFoundFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteEventSubscription", input);
+  }
   deleteFleetAdvisorCollector(
     input: DeleteCollectorRequest,
   ): Effect.Effect<
@@ -233,7 +275,9 @@ export declare class DatabaseMigrationService extends AWSServiceClient {
     | CollectorNotFoundFault
     | InvalidResourceStateFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteFleetAdvisorCollector", input);
+  }
   deleteFleetAdvisorDatabases(
     input: DeleteFleetAdvisorDatabasesRequest,
   ): Effect.Effect<
@@ -242,7 +286,9 @@ export declare class DatabaseMigrationService extends AWSServiceClient {
     | InvalidOperationFault
     | ResourceNotFoundFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteFleetAdvisorDatabases", input);
+  }
   deleteInstanceProfile(
     input: DeleteInstanceProfileMessage,
   ): Effect.Effect<
@@ -252,7 +298,9 @@ export declare class DatabaseMigrationService extends AWSServiceClient {
     | InvalidResourceStateFault
     | ResourceNotFoundFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteInstanceProfile", input);
+  }
   deleteMigrationProject(
     input: DeleteMigrationProjectMessage,
   ): Effect.Effect<
@@ -262,7 +310,9 @@ export declare class DatabaseMigrationService extends AWSServiceClient {
     | InvalidResourceStateFault
     | ResourceNotFoundFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteMigrationProject", input);
+  }
   deleteReplicationConfig(
     input: DeleteReplicationConfigMessage,
   ): Effect.Effect<
@@ -271,13 +321,17 @@ export declare class DatabaseMigrationService extends AWSServiceClient {
     | InvalidResourceStateFault
     | ResourceNotFoundFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteReplicationConfig", input);
+  }
   deleteReplicationInstance(
     input: DeleteReplicationInstanceMessage,
   ): Effect.Effect<
     DeleteReplicationInstanceResponse,
     InvalidResourceStateFault | ResourceNotFoundFault | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteReplicationInstance", input);
+  }
   deleteReplicationSubnetGroup(
     input: DeleteReplicationSubnetGroupMessage,
   ): Effect.Effect<
@@ -286,13 +340,17 @@ export declare class DatabaseMigrationService extends AWSServiceClient {
     | InvalidResourceStateFault
     | ResourceNotFoundFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteReplicationSubnetGroup", input);
+  }
   deleteReplicationTask(
     input: DeleteReplicationTaskMessage,
   ): Effect.Effect<
     DeleteReplicationTaskResponse,
     InvalidResourceStateFault | ResourceNotFoundFault | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteReplicationTask", input);
+  }
   deleteReplicationTaskAssessmentRun(
     input: DeleteReplicationTaskAssessmentRunMessage,
   ): Effect.Effect<
@@ -301,10 +359,14 @@ export declare class DatabaseMigrationService extends AWSServiceClient {
     | InvalidResourceStateFault
     | ResourceNotFoundFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteReplicationTaskAssessmentRun", input);
+  }
   describeAccountAttributes(
     input: DescribeAccountAttributesMessage,
-  ): Effect.Effect<DescribeAccountAttributesResponse, CommonAwsError>;
+  ): Effect.Effect<DescribeAccountAttributesResponse, CommonAwsError> {
+    return this.call("DescribeAccountAttributes", input);
+  }
   describeApplicableIndividualAssessments(
     input: DescribeApplicableIndividualAssessmentsMessage,
   ): Effect.Effect<
@@ -313,25 +375,33 @@ export declare class DatabaseMigrationService extends AWSServiceClient {
     | InvalidResourceStateFault
     | ResourceNotFoundFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeApplicableIndividualAssessments", input);
+  }
   describeCertificates(
     input: DescribeCertificatesMessage,
   ): Effect.Effect<
     DescribeCertificatesResponse,
     ResourceNotFoundFault | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeCertificates", input);
+  }
   describeConnections(
     input: DescribeConnectionsMessage,
   ): Effect.Effect<
     DescribeConnectionsResponse,
     ResourceNotFoundFault | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeConnections", input);
+  }
   describeConversionConfiguration(
     input: DescribeConversionConfigurationMessage,
   ): Effect.Effect<
     DescribeConversionConfigurationResponse,
     ResourceNotFoundFault | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeConversionConfiguration", input);
+  }
   describeDataMigrations(
     input: DescribeDataMigrationsMessage,
   ): Effect.Effect<
@@ -340,7 +410,9 @@ export declare class DatabaseMigrationService extends AWSServiceClient {
     | InvalidResourceStateFault
     | ResourceNotFoundFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeDataMigrations", input);
+  }
   describeDataProviders(
     input: DescribeDataProvidersMessage,
   ): Effect.Effect<
@@ -349,67 +421,95 @@ export declare class DatabaseMigrationService extends AWSServiceClient {
     | FailedDependencyFault
     | ResourceNotFoundFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeDataProviders", input);
+  }
   describeEndpoints(
     input: DescribeEndpointsMessage,
   ): Effect.Effect<
     DescribeEndpointsResponse,
     ResourceNotFoundFault | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeEndpoints", input);
+  }
   describeEndpointSettings(
     input: DescribeEndpointSettingsMessage,
-  ): Effect.Effect<DescribeEndpointSettingsResponse, CommonAwsError>;
+  ): Effect.Effect<DescribeEndpointSettingsResponse, CommonAwsError> {
+    return this.call("DescribeEndpointSettings", input);
+  }
   describeEndpointTypes(
     input: DescribeEndpointTypesMessage,
-  ): Effect.Effect<DescribeEndpointTypesResponse, CommonAwsError>;
+  ): Effect.Effect<DescribeEndpointTypesResponse, CommonAwsError> {
+    return this.call("DescribeEndpointTypes", input);
+  }
   describeEngineVersions(
     input: DescribeEngineVersionsMessage,
-  ): Effect.Effect<DescribeEngineVersionsResponse, CommonAwsError>;
+  ): Effect.Effect<DescribeEngineVersionsResponse, CommonAwsError> {
+    return this.call("DescribeEngineVersions", input);
+  }
   describeEventCategories(
     input: DescribeEventCategoriesMessage,
-  ): Effect.Effect<DescribeEventCategoriesResponse, CommonAwsError>;
+  ): Effect.Effect<DescribeEventCategoriesResponse, CommonAwsError> {
+    return this.call("DescribeEventCategories", input);
+  }
   describeEvents(
     input: DescribeEventsMessage,
-  ): Effect.Effect<DescribeEventsResponse, CommonAwsError>;
+  ): Effect.Effect<DescribeEventsResponse, CommonAwsError> {
+    return this.call("DescribeEvents", input);
+  }
   describeEventSubscriptions(
     input: DescribeEventSubscriptionsMessage,
   ): Effect.Effect<
     DescribeEventSubscriptionsResponse,
     ResourceNotFoundFault | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeEventSubscriptions", input);
+  }
   describeExtensionPackAssociations(
     input: DescribeExtensionPackAssociationsMessage,
-  ): Effect.Effect<DescribeExtensionPackAssociationsResponse, CommonAwsError>;
+  ): Effect.Effect<DescribeExtensionPackAssociationsResponse, CommonAwsError> {
+    return this.call("DescribeExtensionPackAssociations", input);
+  }
   describeFleetAdvisorCollectors(
     input: DescribeFleetAdvisorCollectorsRequest,
   ): Effect.Effect<
     DescribeFleetAdvisorCollectorsResponse,
     InvalidResourceStateFault | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeFleetAdvisorCollectors", input);
+  }
   describeFleetAdvisorDatabases(
     input: DescribeFleetAdvisorDatabasesRequest,
   ): Effect.Effect<
     DescribeFleetAdvisorDatabasesResponse,
     InvalidResourceStateFault | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeFleetAdvisorDatabases", input);
+  }
   describeFleetAdvisorLsaAnalysis(
     input: DescribeFleetAdvisorLsaAnalysisRequest,
   ): Effect.Effect<
     DescribeFleetAdvisorLsaAnalysisResponse,
     InvalidResourceStateFault | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeFleetAdvisorLsaAnalysis", input);
+  }
   describeFleetAdvisorSchemaObjectSummary(
     input: DescribeFleetAdvisorSchemaObjectSummaryRequest,
   ): Effect.Effect<
     DescribeFleetAdvisorSchemaObjectSummaryResponse,
     InvalidResourceStateFault | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeFleetAdvisorSchemaObjectSummary", input);
+  }
   describeFleetAdvisorSchemas(
     input: DescribeFleetAdvisorSchemasRequest,
   ): Effect.Effect<
     DescribeFleetAdvisorSchemasResponse,
     InvalidResourceStateFault | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeFleetAdvisorSchemas", input);
+  }
   describeInstanceProfiles(
     input: DescribeInstanceProfilesMessage,
   ): Effect.Effect<
@@ -418,37 +518,49 @@ export declare class DatabaseMigrationService extends AWSServiceClient {
     | FailedDependencyFault
     | ResourceNotFoundFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeInstanceProfiles", input);
+  }
   describeMetadataModelAssessments(
     input: DescribeMetadataModelAssessmentsMessage,
   ): Effect.Effect<
     DescribeMetadataModelAssessmentsResponse,
     ResourceNotFoundFault | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeMetadataModelAssessments", input);
+  }
   describeMetadataModelConversions(
     input: DescribeMetadataModelConversionsMessage,
   ): Effect.Effect<
     DescribeMetadataModelConversionsResponse,
     ResourceNotFoundFault | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeMetadataModelConversions", input);
+  }
   describeMetadataModelExportsAsScript(
     input: DescribeMetadataModelExportsAsScriptMessage,
   ): Effect.Effect<
     DescribeMetadataModelExportsAsScriptResponse,
     ResourceNotFoundFault | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeMetadataModelExportsAsScript", input);
+  }
   describeMetadataModelExportsToTarget(
     input: DescribeMetadataModelExportsToTargetMessage,
   ): Effect.Effect<
     DescribeMetadataModelExportsToTargetResponse,
     ResourceNotFoundFault | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeMetadataModelExportsToTarget", input);
+  }
   describeMetadataModelImports(
     input: DescribeMetadataModelImportsMessage,
   ): Effect.Effect<
     DescribeMetadataModelImportsResponse,
     ResourceNotFoundFault | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeMetadataModelImports", input);
+  }
   describeMigrationProjects(
     input: DescribeMigrationProjectsMessage,
   ): Effect.Effect<
@@ -457,103 +569,137 @@ export declare class DatabaseMigrationService extends AWSServiceClient {
     | FailedDependencyFault
     | ResourceNotFoundFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeMigrationProjects", input);
+  }
   describeOrderableReplicationInstances(
     input: DescribeOrderableReplicationInstancesMessage,
   ): Effect.Effect<
     DescribeOrderableReplicationInstancesResponse,
     CommonAwsError
-  >;
+  > {
+    return this.call("DescribeOrderableReplicationInstances", input);
+  }
   describePendingMaintenanceActions(
     input: DescribePendingMaintenanceActionsMessage,
   ): Effect.Effect<
     DescribePendingMaintenanceActionsResponse,
     ResourceNotFoundFault | CommonAwsError
-  >;
+  > {
+    return this.call("DescribePendingMaintenanceActions", input);
+  }
   describeRecommendationLimitations(
     input: DescribeRecommendationLimitationsRequest,
   ): Effect.Effect<
     DescribeRecommendationLimitationsResponse,
     AccessDeniedFault | InvalidResourceStateFault | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeRecommendationLimitations", input);
+  }
   describeRecommendations(
     input: DescribeRecommendationsRequest,
   ): Effect.Effect<
     DescribeRecommendationsResponse,
     AccessDeniedFault | InvalidResourceStateFault | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeRecommendations", input);
+  }
   describeRefreshSchemasStatus(
     input: DescribeRefreshSchemasStatusMessage,
   ): Effect.Effect<
     DescribeRefreshSchemasStatusResponse,
     InvalidResourceStateFault | ResourceNotFoundFault | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeRefreshSchemasStatus", input);
+  }
   describeReplicationConfigs(
     input: DescribeReplicationConfigsMessage,
   ): Effect.Effect<
     DescribeReplicationConfigsResponse,
     ResourceNotFoundFault | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeReplicationConfigs", input);
+  }
   describeReplicationInstances(
     input: DescribeReplicationInstancesMessage,
   ): Effect.Effect<
     DescribeReplicationInstancesResponse,
     ResourceNotFoundFault | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeReplicationInstances", input);
+  }
   describeReplicationInstanceTaskLogs(
     input: DescribeReplicationInstanceTaskLogsMessage,
   ): Effect.Effect<
     DescribeReplicationInstanceTaskLogsResponse,
     InvalidResourceStateFault | ResourceNotFoundFault | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeReplicationInstanceTaskLogs", input);
+  }
   describeReplications(
     input: DescribeReplicationsMessage,
   ): Effect.Effect<
     DescribeReplicationsResponse,
     ResourceNotFoundFault | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeReplications", input);
+  }
   describeReplicationSubnetGroups(
     input: DescribeReplicationSubnetGroupsMessage,
   ): Effect.Effect<
     DescribeReplicationSubnetGroupsResponse,
     ResourceNotFoundFault | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeReplicationSubnetGroups", input);
+  }
   describeReplicationTableStatistics(
     input: DescribeReplicationTableStatisticsMessage,
   ): Effect.Effect<
     DescribeReplicationTableStatisticsResponse,
     InvalidResourceStateFault | ResourceNotFoundFault | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeReplicationTableStatistics", input);
+  }
   describeReplicationTaskAssessmentResults(
     input: DescribeReplicationTaskAssessmentResultsMessage,
   ): Effect.Effect<
     DescribeReplicationTaskAssessmentResultsResponse,
     ResourceNotFoundFault | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeReplicationTaskAssessmentResults", input);
+  }
   describeReplicationTaskAssessmentRuns(
     input: DescribeReplicationTaskAssessmentRunsMessage,
   ): Effect.Effect<
     DescribeReplicationTaskAssessmentRunsResponse,
     ResourceNotFoundFault | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeReplicationTaskAssessmentRuns", input);
+  }
   describeReplicationTaskIndividualAssessments(
     input: DescribeReplicationTaskIndividualAssessmentsMessage,
   ): Effect.Effect<
     DescribeReplicationTaskIndividualAssessmentsResponse,
     ResourceNotFoundFault | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeReplicationTaskIndividualAssessments", input);
+  }
   describeReplicationTasks(
     input: DescribeReplicationTasksMessage,
   ): Effect.Effect<
     DescribeReplicationTasksResponse,
     ResourceNotFoundFault | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeReplicationTasks", input);
+  }
   describeSchemas(
     input: DescribeSchemasMessage,
   ): Effect.Effect<
     DescribeSchemasResponse,
     InvalidResourceStateFault | ResourceNotFoundFault | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeSchemas", input);
+  }
   describeTableStatistics(
     input: DescribeTableStatisticsMessage,
   ): Effect.Effect<
@@ -562,13 +708,17 @@ export declare class DatabaseMigrationService extends AWSServiceClient {
     | InvalidResourceStateFault
     | ResourceNotFoundFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeTableStatistics", input);
+  }
   exportMetadataModelAssessment(
     input: ExportMetadataModelAssessmentMessage,
   ): Effect.Effect<
     ExportMetadataModelAssessmentResponse,
     ResourceNotFoundFault | CommonAwsError
-  >;
+  > {
+    return this.call("ExportMetadataModelAssessment", input);
+  }
   importCertificate(
     input: ImportCertificateMessage,
   ): Effect.Effect<
@@ -577,19 +727,25 @@ export declare class DatabaseMigrationService extends AWSServiceClient {
     | ResourceAlreadyExistsFault
     | ResourceQuotaExceededFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("ImportCertificate", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceMessage,
   ): Effect.Effect<
     ListTagsForResourceResponse,
     InvalidResourceStateFault | ResourceNotFoundFault | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   modifyConversionConfiguration(
     input: ModifyConversionConfigurationMessage,
   ): Effect.Effect<
     ModifyConversionConfigurationResponse,
     InvalidResourceStateFault | ResourceNotFoundFault | CommonAwsError
-  >;
+  > {
+    return this.call("ModifyConversionConfiguration", input);
+  }
   modifyDataMigration(
     input: ModifyDataMigrationMessage,
   ): Effect.Effect<
@@ -598,7 +754,9 @@ export declare class DatabaseMigrationService extends AWSServiceClient {
     | InvalidResourceStateFault
     | ResourceNotFoundFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("ModifyDataMigration", input);
+  }
   modifyDataProvider(
     input: ModifyDataProviderMessage,
   ): Effect.Effect<
@@ -608,7 +766,9 @@ export declare class DatabaseMigrationService extends AWSServiceClient {
     | InvalidResourceStateFault
     | ResourceNotFoundFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("ModifyDataProvider", input);
+  }
   modifyEndpoint(
     input: ModifyEndpointMessage,
   ): Effect.Effect<
@@ -619,7 +779,9 @@ export declare class DatabaseMigrationService extends AWSServiceClient {
     | ResourceAlreadyExistsFault
     | ResourceNotFoundFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("ModifyEndpoint", input);
+  }
   modifyEventSubscription(
     input: ModifyEventSubscriptionMessage,
   ): Effect.Effect<
@@ -635,7 +797,9 @@ export declare class DatabaseMigrationService extends AWSServiceClient {
     | SNSInvalidTopicFault
     | SNSNoAuthorizationFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("ModifyEventSubscription", input);
+  }
   modifyInstanceProfile(
     input: ModifyInstanceProfileMessage,
   ): Effect.Effect<
@@ -648,7 +812,9 @@ export declare class DatabaseMigrationService extends AWSServiceClient {
     | S3AccessDeniedFault
     | S3ResourceNotFoundFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("ModifyInstanceProfile", input);
+  }
   modifyMigrationProject(
     input: ModifyMigrationProjectMessage,
   ): Effect.Effect<
@@ -660,7 +826,9 @@ export declare class DatabaseMigrationService extends AWSServiceClient {
     | S3AccessDeniedFault
     | S3ResourceNotFoundFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("ModifyMigrationProject", input);
+  }
   modifyReplicationConfig(
     input: ModifyReplicationConfigMessage,
   ): Effect.Effect<
@@ -672,7 +840,9 @@ export declare class DatabaseMigrationService extends AWSServiceClient {
     | ReplicationSubnetGroupDoesNotCoverEnoughAZs
     | ResourceNotFoundFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("ModifyReplicationConfig", input);
+  }
   modifyReplicationInstance(
     input: ModifyReplicationInstanceMessage,
   ): Effect.Effect<
@@ -685,7 +855,9 @@ export declare class DatabaseMigrationService extends AWSServiceClient {
     | StorageQuotaExceededFault
     | UpgradeDependencyFailureFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("ModifyReplicationInstance", input);
+  }
   modifyReplicationSubnetGroup(
     input: ModifyReplicationSubnetGroupMessage,
   ): Effect.Effect<
@@ -697,7 +869,9 @@ export declare class DatabaseMigrationService extends AWSServiceClient {
     | ResourceQuotaExceededFault
     | SubnetAlreadyInUse
     | CommonAwsError
-  >;
+  > {
+    return this.call("ModifyReplicationSubnetGroup", input);
+  }
   modifyReplicationTask(
     input: ModifyReplicationTaskMessage,
   ): Effect.Effect<
@@ -707,7 +881,9 @@ export declare class DatabaseMigrationService extends AWSServiceClient {
     | ResourceAlreadyExistsFault
     | ResourceNotFoundFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("ModifyReplicationTask", input);
+  }
   moveReplicationTask(
     input: MoveReplicationTaskMessage,
   ): Effect.Effect<
@@ -718,13 +894,17 @@ export declare class DatabaseMigrationService extends AWSServiceClient {
     | ResourceNotFoundFault
     | ResourceQuotaExceededFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("MoveReplicationTask", input);
+  }
   rebootReplicationInstance(
     input: RebootReplicationInstanceMessage,
   ): Effect.Effect<
     RebootReplicationInstanceResponse,
     InvalidResourceStateFault | ResourceNotFoundFault | CommonAwsError
-  >;
+  > {
+    return this.call("RebootReplicationInstance", input);
+  }
   refreshSchemas(
     input: RefreshSchemasMessage,
   ): Effect.Effect<
@@ -734,29 +914,39 @@ export declare class DatabaseMigrationService extends AWSServiceClient {
     | ResourceNotFoundFault
     | ResourceQuotaExceededFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("RefreshSchemas", input);
+  }
   reloadReplicationTables(
     input: ReloadReplicationTablesMessage,
   ): Effect.Effect<
     ReloadReplicationTablesResponse,
     InvalidResourceStateFault | ResourceNotFoundFault | CommonAwsError
-  >;
+  > {
+    return this.call("ReloadReplicationTables", input);
+  }
   reloadTables(
     input: ReloadTablesMessage,
   ): Effect.Effect<
     ReloadTablesResponse,
     InvalidResourceStateFault | ResourceNotFoundFault | CommonAwsError
-  >;
+  > {
+    return this.call("ReloadTables", input);
+  }
   removeTagsFromResource(
     input: RemoveTagsFromResourceMessage,
   ): Effect.Effect<
     RemoveTagsFromResourceResponse,
     InvalidResourceStateFault | ResourceNotFoundFault | CommonAwsError
-  >;
+  > {
+    return this.call("RemoveTagsFromResource", input);
+  }
   runFleetAdvisorLsaAnalysis(input: {}): Effect.Effect<
     RunFleetAdvisorLsaAnalysisResponse,
     InvalidResourceStateFault | ResourceNotFoundFault | CommonAwsError
-  >;
+  > {
+    return this.call("RunFleetAdvisorLsaAnalysis", input);
+  }
   startDataMigration(
     input: StartDataMigrationMessage,
   ): Effect.Effect<
@@ -767,7 +957,9 @@ export declare class DatabaseMigrationService extends AWSServiceClient {
     | ResourceNotFoundFault
     | ResourceQuotaExceededFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartDataMigration", input);
+  }
   startExtensionPackAssociation(
     input: StartExtensionPackAssociationMessage,
   ): Effect.Effect<
@@ -781,7 +973,9 @@ export declare class DatabaseMigrationService extends AWSServiceClient {
     | S3AccessDeniedFault
     | S3ResourceNotFoundFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartExtensionPackAssociation", input);
+  }
   startMetadataModelAssessment(
     input: StartMetadataModelAssessmentMessage,
   ): Effect.Effect<
@@ -795,7 +989,9 @@ export declare class DatabaseMigrationService extends AWSServiceClient {
     | S3AccessDeniedFault
     | S3ResourceNotFoundFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartMetadataModelAssessment", input);
+  }
   startMetadataModelConversion(
     input: StartMetadataModelConversionMessage,
   ): Effect.Effect<
@@ -809,7 +1005,9 @@ export declare class DatabaseMigrationService extends AWSServiceClient {
     | S3AccessDeniedFault
     | S3ResourceNotFoundFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartMetadataModelConversion", input);
+  }
   startMetadataModelExportAsScript(
     input: StartMetadataModelExportAsScriptMessage,
   ): Effect.Effect<
@@ -823,7 +1021,9 @@ export declare class DatabaseMigrationService extends AWSServiceClient {
     | S3AccessDeniedFault
     | S3ResourceNotFoundFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartMetadataModelExportAsScript", input);
+  }
   startMetadataModelExportToTarget(
     input: StartMetadataModelExportToTargetMessage,
   ): Effect.Effect<
@@ -837,7 +1037,9 @@ export declare class DatabaseMigrationService extends AWSServiceClient {
     | S3AccessDeniedFault
     | S3ResourceNotFoundFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartMetadataModelExportToTarget", input);
+  }
   startMetadataModelImport(
     input: StartMetadataModelImportMessage,
   ): Effect.Effect<
@@ -851,7 +1053,9 @@ export declare class DatabaseMigrationService extends AWSServiceClient {
     | S3AccessDeniedFault
     | S3ResourceNotFoundFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartMetadataModelImport", input);
+  }
   startRecommendations(
     input: StartRecommendationsRequest,
   ): Effect.Effect<
@@ -860,7 +1064,9 @@ export declare class DatabaseMigrationService extends AWSServiceClient {
     | InvalidResourceStateFault
     | ResourceNotFoundFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartRecommendations", input);
+  }
   startReplication(
     input: StartReplicationMessage,
   ): Effect.Effect<
@@ -869,7 +1075,9 @@ export declare class DatabaseMigrationService extends AWSServiceClient {
     | InvalidResourceStateFault
     | ResourceNotFoundFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartReplication", input);
+  }
   startReplicationTask(
     input: StartReplicationTaskMessage,
   ): Effect.Effect<
@@ -878,13 +1086,17 @@ export declare class DatabaseMigrationService extends AWSServiceClient {
     | InvalidResourceStateFault
     | ResourceNotFoundFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartReplicationTask", input);
+  }
   startReplicationTaskAssessment(
     input: StartReplicationTaskAssessmentMessage,
   ): Effect.Effect<
     StartReplicationTaskAssessmentResponse,
     InvalidResourceStateFault | ResourceNotFoundFault | CommonAwsError
-  >;
+  > {
+    return this.call("StartReplicationTaskAssessment", input);
+  }
   startReplicationTaskAssessmentRun(
     input: StartReplicationTaskAssessmentRunMessage,
   ): Effect.Effect<
@@ -902,7 +1114,9 @@ export declare class DatabaseMigrationService extends AWSServiceClient {
     | S3AccessDeniedFault
     | S3ResourceNotFoundFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartReplicationTaskAssessmentRun", input);
+  }
   stopDataMigration(
     input: StopDataMigrationMessage,
   ): Effect.Effect<
@@ -911,7 +1125,9 @@ export declare class DatabaseMigrationService extends AWSServiceClient {
     | InvalidResourceStateFault
     | ResourceNotFoundFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("StopDataMigration", input);
+  }
   stopReplication(
     input: StopReplicationMessage,
   ): Effect.Effect<
@@ -920,13 +1136,17 @@ export declare class DatabaseMigrationService extends AWSServiceClient {
     | InvalidResourceStateFault
     | ResourceNotFoundFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("StopReplication", input);
+  }
   stopReplicationTask(
     input: StopReplicationTaskMessage,
   ): Effect.Effect<
     StopReplicationTaskResponse,
     InvalidResourceStateFault | ResourceNotFoundFault | CommonAwsError
-  >;
+  > {
+    return this.call("StopReplicationTask", input);
+  }
   testConnection(
     input: TestConnectionMessage,
   ): Effect.Effect<
@@ -937,14 +1157,20 @@ export declare class DatabaseMigrationService extends AWSServiceClient {
     | ResourceNotFoundFault
     | ResourceQuotaExceededFault
     | CommonAwsError
-  >;
+  > {
+    return this.call("TestConnection", input);
+  }
   updateSubscriptionsToEventBridge(
     input: UpdateSubscriptionsToEventBridgeMessage,
   ): Effect.Effect<
     UpdateSubscriptionsToEventBridgeResponse,
     AccessDeniedFault | InvalidResourceStateFault | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateSubscriptionsToEventBridge", input);
+  }
 }
+
+export default DatabaseMigrationService;
 
 export declare class AccessDeniedFault extends EffectData.TaggedError(
   "AccessDeniedFault",

@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class CleanRoomsML extends AWSServiceClient {
+export class CleanRoomsML extends AWSServiceClient {
   listCollaborationConfiguredModelAlgorithmAssociations(
     input: ListCollaborationConfiguredModelAlgorithmAssociationsRequest,
   ): Effect.Effect<
@@ -11,7 +11,12 @@ export declare class CleanRoomsML extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call(
+      "ListCollaborationConfiguredModelAlgorithmAssociations",
+      input,
+    );
+  }
   listCollaborationMLInputChannels(
     input: ListCollaborationMLInputChannelsRequest,
   ): Effect.Effect<
@@ -20,7 +25,9 @@ export declare class CleanRoomsML extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListCollaborationMLInputChannels", input);
+  }
   listCollaborationTrainedModelExportJobs(
     input: ListCollaborationTrainedModelExportJobsRequest,
   ): Effect.Effect<
@@ -29,7 +36,9 @@ export declare class CleanRoomsML extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListCollaborationTrainedModelExportJobs", input);
+  }
   listCollaborationTrainedModelInferenceJobs(
     input: ListCollaborationTrainedModelInferenceJobsRequest,
   ): Effect.Effect<
@@ -38,7 +47,9 @@ export declare class CleanRoomsML extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListCollaborationTrainedModelInferenceJobs", input);
+  }
   listCollaborationTrainedModels(
     input: ListCollaborationTrainedModelsRequest,
   ): Effect.Effect<
@@ -47,7 +58,9 @@ export declare class CleanRoomsML extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListCollaborationTrainedModels", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
@@ -56,7 +69,9 @@ export declare class CleanRoomsML extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -65,7 +80,9 @@ export declare class CleanRoomsML extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
@@ -74,10 +91,14 @@ export declare class CleanRoomsML extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
 }
 
-export declare class Cleanroomsml extends CleanRoomsML {}
+export class Cleanroomsml extends CleanRoomsML {}
+
+export default CleanRoomsML;
 
 export declare class AccessDeniedException extends EffectData.TaggedError(
   "AccessDeniedException",

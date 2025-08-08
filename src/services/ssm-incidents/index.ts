@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class SSMIncidents extends AWSServiceClient {
+export class SSMIncidents extends AWSServiceClient {
   batchGetIncidentFindings(
     input: BatchGetIncidentFindingsInput,
   ): Effect.Effect<
@@ -13,7 +13,9 @@ export declare class SSMIncidents extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("BatchGetIncidentFindings", input);
+  }
   createReplicationSet(
     input: CreateReplicationSetInput,
   ): Effect.Effect<
@@ -25,7 +27,9 @@ export declare class SSMIncidents extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateReplicationSet", input);
+  }
   createResponsePlan(
     input: CreateResponsePlanInput,
   ): Effect.Effect<
@@ -37,7 +41,9 @@ export declare class SSMIncidents extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateResponsePlan", input);
+  }
   createTimelineEvent(
     input: CreateTimelineEventInput,
   ): Effect.Effect<
@@ -49,7 +55,9 @@ export declare class SSMIncidents extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateTimelineEvent", input);
+  }
   deleteIncidentRecord(
     input: DeleteIncidentRecordInput,
   ): Effect.Effect<
@@ -59,7 +67,9 @@ export declare class SSMIncidents extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteIncidentRecord", input);
+  }
   deleteReplicationSet(
     input: DeleteReplicationSetInput,
   ): Effect.Effect<
@@ -70,7 +80,9 @@ export declare class SSMIncidents extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteReplicationSet", input);
+  }
   deleteResourcePolicy(
     input: DeleteResourcePolicyInput,
   ): Effect.Effect<
@@ -81,7 +93,9 @@ export declare class SSMIncidents extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteResourcePolicy", input);
+  }
   deleteResponsePlan(
     input: DeleteResponsePlanInput,
   ): Effect.Effect<
@@ -91,7 +105,9 @@ export declare class SSMIncidents extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteResponsePlan", input);
+  }
   deleteTimelineEvent(
     input: DeleteTimelineEventInput,
   ): Effect.Effect<
@@ -101,7 +117,9 @@ export declare class SSMIncidents extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteTimelineEvent", input);
+  }
   getIncidentRecord(
     input: GetIncidentRecordInput,
   ): Effect.Effect<
@@ -112,7 +130,9 @@ export declare class SSMIncidents extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetIncidentRecord", input);
+  }
   getReplicationSet(
     input: GetReplicationSetInput,
   ): Effect.Effect<
@@ -123,7 +143,9 @@ export declare class SSMIncidents extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetReplicationSet", input);
+  }
   getResourcePolicies(
     input: GetResourcePoliciesInput,
   ): Effect.Effect<
@@ -134,7 +156,9 @@ export declare class SSMIncidents extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetResourcePolicies", input);
+  }
   getResponsePlan(
     input: GetResponsePlanInput,
   ): Effect.Effect<
@@ -145,7 +169,9 @@ export declare class SSMIncidents extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetResponsePlan", input);
+  }
   getTimelineEvent(
     input: GetTimelineEventInput,
   ): Effect.Effect<
@@ -156,7 +182,9 @@ export declare class SSMIncidents extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetTimelineEvent", input);
+  }
   listIncidentFindings(
     input: ListIncidentFindingsInput,
   ): Effect.Effect<
@@ -167,7 +195,9 @@ export declare class SSMIncidents extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListIncidentFindings", input);
+  }
   listIncidentRecords(
     input: ListIncidentRecordsInput,
   ): Effect.Effect<
@@ -177,7 +207,9 @@ export declare class SSMIncidents extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListIncidentRecords", input);
+  }
   listRelatedItems(
     input: ListRelatedItemsInput,
   ): Effect.Effect<
@@ -187,7 +219,9 @@ export declare class SSMIncidents extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListRelatedItems", input);
+  }
   listReplicationSets(
     input: ListReplicationSetsInput,
   ): Effect.Effect<
@@ -197,7 +231,9 @@ export declare class SSMIncidents extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListReplicationSets", input);
+  }
   listResponsePlans(
     input: ListResponsePlansInput,
   ): Effect.Effect<
@@ -207,7 +243,9 @@ export declare class SSMIncidents extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListResponsePlans", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
@@ -218,7 +256,9 @@ export declare class SSMIncidents extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   listTimelineEvents(
     input: ListTimelineEventsInput,
   ): Effect.Effect<
@@ -228,7 +268,9 @@ export declare class SSMIncidents extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTimelineEvents", input);
+  }
   putResourcePolicy(
     input: PutResourcePolicyInput,
   ): Effect.Effect<
@@ -239,7 +281,9 @@ export declare class SSMIncidents extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutResourcePolicy", input);
+  }
   startIncident(
     input: StartIncidentInput,
   ): Effect.Effect<
@@ -251,7 +295,9 @@ export declare class SSMIncidents extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartIncident", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -264,7 +310,9 @@ export declare class SSMIncidents extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
@@ -276,7 +324,9 @@ export declare class SSMIncidents extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
   updateDeletionProtection(
     input: UpdateDeletionProtectionInput,
   ): Effect.Effect<
@@ -287,7 +337,9 @@ export declare class SSMIncidents extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateDeletionProtection", input);
+  }
   updateIncidentRecord(
     input: UpdateIncidentRecordInput,
   ): Effect.Effect<
@@ -299,7 +351,9 @@ export declare class SSMIncidents extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateIncidentRecord", input);
+  }
   updateRelatedItems(
     input: UpdateRelatedItemsInput,
   ): Effect.Effect<
@@ -311,7 +365,9 @@ export declare class SSMIncidents extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateRelatedItems", input);
+  }
   updateReplicationSet(
     input: UpdateReplicationSetInput,
   ): Effect.Effect<
@@ -323,7 +379,9 @@ export declare class SSMIncidents extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateReplicationSet", input);
+  }
   updateResponsePlan(
     input: UpdateResponsePlanInput,
   ): Effect.Effect<
@@ -335,7 +393,9 @@ export declare class SSMIncidents extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateResponsePlan", input);
+  }
   updateTimelineEvent(
     input: UpdateTimelineEventInput,
   ): Effect.Effect<
@@ -347,10 +407,14 @@ export declare class SSMIncidents extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateTimelineEvent", input);
+  }
 }
 
-export declare class SsmIncidents extends SSMIncidents {}
+export class SsmIncidents extends SSMIncidents {}
+
+export default SSMIncidents;
 
 export declare class AccessDeniedException extends EffectData.TaggedError(
   "AccessDeniedException",

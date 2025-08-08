@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class IoTManagedIntegrations extends AWSServiceClient {
+export class IoTManagedIntegrations extends AWSServiceClient {
   getCustomEndpoint(
     input: GetCustomEndpointRequest,
   ): Effect.Effect<
@@ -15,7 +15,9 @@ export declare class IoTManagedIntegrations extends AWSServiceClient {
     | UnauthorizedException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetCustomEndpoint", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
@@ -25,7 +27,9 @@ export declare class IoTManagedIntegrations extends AWSServiceClient {
     | ThrottlingException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   registerCustomEndpoint(
     input: RegisterCustomEndpointRequest,
   ): Effect.Effect<
@@ -38,7 +42,9 @@ export declare class IoTManagedIntegrations extends AWSServiceClient {
     | UnauthorizedException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("RegisterCustomEndpoint", input);
+  }
   sendConnectorEvent(
     input: SendConnectorEventRequest,
   ): Effect.Effect<
@@ -50,7 +56,9 @@ export declare class IoTManagedIntegrations extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("SendConnectorEvent", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -61,7 +69,9 @@ export declare class IoTManagedIntegrations extends AWSServiceClient {
     | ThrottlingException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
@@ -72,8 +82,12 @@ export declare class IoTManagedIntegrations extends AWSServiceClient {
     | ThrottlingException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
 }
+
+export default IoTManagedIntegrations;
 
 export interface AbortConfigCriteria {
   Action?: AbortCriteriaAction;

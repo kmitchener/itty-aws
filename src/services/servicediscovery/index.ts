@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class ServiceDiscovery extends AWSServiceClient {
+export class ServiceDiscovery extends AWSServiceClient {
   createHttpNamespace(
     input: CreateHttpNamespaceRequest,
   ): Effect.Effect<
@@ -13,7 +13,9 @@ export declare class ServiceDiscovery extends AWSServiceClient {
     | ResourceLimitExceeded
     | TooManyTagsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateHttpNamespace", input);
+  }
   createPrivateDnsNamespace(
     input: CreatePrivateDnsNamespaceRequest,
   ): Effect.Effect<
@@ -24,7 +26,9 @@ export declare class ServiceDiscovery extends AWSServiceClient {
     | ResourceLimitExceeded
     | TooManyTagsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreatePrivateDnsNamespace", input);
+  }
   createPublicDnsNamespace(
     input: CreatePublicDnsNamespaceRequest,
   ): Effect.Effect<
@@ -35,7 +39,9 @@ export declare class ServiceDiscovery extends AWSServiceClient {
     | ResourceLimitExceeded
     | TooManyTagsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreatePublicDnsNamespace", input);
+  }
   createService(
     input: CreateServiceRequest,
   ): Effect.Effect<
@@ -46,7 +52,9 @@ export declare class ServiceDiscovery extends AWSServiceClient {
     | ServiceAlreadyExists
     | TooManyTagsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateService", input);
+  }
   deleteNamespace(
     input: DeleteNamespaceRequest,
   ): Effect.Effect<
@@ -56,19 +64,25 @@ export declare class ServiceDiscovery extends AWSServiceClient {
     | NamespaceNotFound
     | ResourceInUse
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteNamespace", input);
+  }
   deleteService(
     input: DeleteServiceRequest,
   ): Effect.Effect<
     DeleteServiceResponse,
     InvalidInput | ResourceInUse | ServiceNotFound | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteService", input);
+  }
   deleteServiceAttributes(
     input: DeleteServiceAttributesRequest,
   ): Effect.Effect<
     DeleteServiceAttributesResponse,
     InvalidInput | ServiceNotFound | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteServiceAttributes", input);
+  }
   deregisterInstance(
     input: DeregisterInstanceRequest,
   ): Effect.Effect<
@@ -79,7 +93,9 @@ export declare class ServiceDiscovery extends AWSServiceClient {
     | ResourceInUse
     | ServiceNotFound
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeregisterInstance", input);
+  }
   discoverInstances(
     input: DiscoverInstancesRequest,
   ): Effect.Effect<
@@ -89,7 +105,9 @@ export declare class ServiceDiscovery extends AWSServiceClient {
     | RequestLimitExceeded
     | ServiceNotFound
     | CommonAwsError
-  >;
+  > {
+    return this.call("DiscoverInstances", input);
+  }
   discoverInstancesRevision(
     input: DiscoverInstancesRevisionRequest,
   ): Effect.Effect<
@@ -99,64 +117,88 @@ export declare class ServiceDiscovery extends AWSServiceClient {
     | RequestLimitExceeded
     | ServiceNotFound
     | CommonAwsError
-  >;
+  > {
+    return this.call("DiscoverInstancesRevision", input);
+  }
   getInstance(
     input: GetInstanceRequest,
   ): Effect.Effect<
     GetInstanceResponse,
     InstanceNotFound | InvalidInput | ServiceNotFound | CommonAwsError
-  >;
+  > {
+    return this.call("GetInstance", input);
+  }
   getInstancesHealthStatus(
     input: GetInstancesHealthStatusRequest,
   ): Effect.Effect<
     GetInstancesHealthStatusResponse,
     InstanceNotFound | InvalidInput | ServiceNotFound | CommonAwsError
-  >;
+  > {
+    return this.call("GetInstancesHealthStatus", input);
+  }
   getNamespace(
     input: GetNamespaceRequest,
   ): Effect.Effect<
     GetNamespaceResponse,
     InvalidInput | NamespaceNotFound | CommonAwsError
-  >;
+  > {
+    return this.call("GetNamespace", input);
+  }
   getOperation(
     input: GetOperationRequest,
   ): Effect.Effect<
     GetOperationResponse,
     InvalidInput | OperationNotFound | CommonAwsError
-  >;
+  > {
+    return this.call("GetOperation", input);
+  }
   getService(
     input: GetServiceRequest,
   ): Effect.Effect<
     GetServiceResponse,
     InvalidInput | ServiceNotFound | CommonAwsError
-  >;
+  > {
+    return this.call("GetService", input);
+  }
   getServiceAttributes(
     input: GetServiceAttributesRequest,
   ): Effect.Effect<
     GetServiceAttributesResponse,
     InvalidInput | ServiceNotFound | CommonAwsError
-  >;
+  > {
+    return this.call("GetServiceAttributes", input);
+  }
   listInstances(
     input: ListInstancesRequest,
   ): Effect.Effect<
     ListInstancesResponse,
     InvalidInput | ServiceNotFound | CommonAwsError
-  >;
+  > {
+    return this.call("ListInstances", input);
+  }
   listNamespaces(
     input: ListNamespacesRequest,
-  ): Effect.Effect<ListNamespacesResponse, InvalidInput | CommonAwsError>;
+  ): Effect.Effect<ListNamespacesResponse, InvalidInput | CommonAwsError> {
+    return this.call("ListNamespaces", input);
+  }
   listOperations(
     input: ListOperationsRequest,
-  ): Effect.Effect<ListOperationsResponse, InvalidInput | CommonAwsError>;
+  ): Effect.Effect<ListOperationsResponse, InvalidInput | CommonAwsError> {
+    return this.call("ListOperations", input);
+  }
   listServices(
     input: ListServicesRequest,
-  ): Effect.Effect<ListServicesResponse, InvalidInput | CommonAwsError>;
+  ): Effect.Effect<ListServicesResponse, InvalidInput | CommonAwsError> {
+    return this.call("ListServices", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
     InvalidInput | ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   registerInstance(
     input: RegisterInstanceRequest,
   ): Effect.Effect<
@@ -167,7 +209,9 @@ export declare class ServiceDiscovery extends AWSServiceClient {
     | ResourceLimitExceeded
     | ServiceNotFound
     | CommonAwsError
-  >;
+  > {
+    return this.call("RegisterInstance", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -176,13 +220,17 @@ export declare class ServiceDiscovery extends AWSServiceClient {
     | ResourceNotFoundException
     | TooManyTagsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
     InvalidInput | ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
   updateHttpNamespace(
     input: UpdateHttpNamespaceRequest,
   ): Effect.Effect<
@@ -192,7 +240,9 @@ export declare class ServiceDiscovery extends AWSServiceClient {
     | NamespaceNotFound
     | ResourceInUse
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateHttpNamespace", input);
+  }
   updateInstanceCustomHealthStatus(
     input: UpdateInstanceCustomHealthStatusRequest,
   ): Effect.Effect<
@@ -202,7 +252,9 @@ export declare class ServiceDiscovery extends AWSServiceClient {
     | InvalidInput
     | ServiceNotFound
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateInstanceCustomHealthStatus", input);
+  }
   updatePrivateDnsNamespace(
     input: UpdatePrivateDnsNamespaceRequest,
   ): Effect.Effect<
@@ -212,7 +264,9 @@ export declare class ServiceDiscovery extends AWSServiceClient {
     | NamespaceNotFound
     | ResourceInUse
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdatePrivateDnsNamespace", input);
+  }
   updatePublicDnsNamespace(
     input: UpdatePublicDnsNamespaceRequest,
   ): Effect.Effect<
@@ -222,13 +276,17 @@ export declare class ServiceDiscovery extends AWSServiceClient {
     | NamespaceNotFound
     | ResourceInUse
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdatePublicDnsNamespace", input);
+  }
   updateService(
     input: UpdateServiceRequest,
   ): Effect.Effect<
     UpdateServiceResponse,
     DuplicateRequest | InvalidInput | ServiceNotFound | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateService", input);
+  }
   updateServiceAttributes(
     input: UpdateServiceAttributesRequest,
   ): Effect.Effect<
@@ -237,10 +295,14 @@ export declare class ServiceDiscovery extends AWSServiceClient {
     | ServiceAttributesLimitExceededException
     | ServiceNotFound
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateServiceAttributes", input);
+  }
 }
 
-export declare class Servicediscovery extends ServiceDiscovery {}
+export class Servicediscovery extends ServiceDiscovery {}
+
+export default ServiceDiscovery;
 
 export type AmazonResourceName = string;
 

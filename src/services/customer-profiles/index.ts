@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class CustomerProfiles extends AWSServiceClient {
+export class CustomerProfiles extends AWSServiceClient {
   addProfileKey(
     input: AddProfileKeyRequest,
   ): Effect.Effect<
@@ -13,7 +13,9 @@ export declare class CustomerProfiles extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AddProfileKey", input);
+  }
   batchGetCalculatedAttributeForProfile(
     input: BatchGetCalculatedAttributeForProfileRequest,
   ): Effect.Effect<
@@ -24,7 +26,9 @@ export declare class CustomerProfiles extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("BatchGetCalculatedAttributeForProfile", input);
+  }
   batchGetProfile(
     input: BatchGetProfileRequest,
   ): Effect.Effect<
@@ -35,7 +39,9 @@ export declare class CustomerProfiles extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("BatchGetProfile", input);
+  }
   createCalculatedAttributeDefinition(
     input: CreateCalculatedAttributeDefinitionRequest,
   ): Effect.Effect<
@@ -46,7 +52,9 @@ export declare class CustomerProfiles extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateCalculatedAttributeDefinition", input);
+  }
   createDomain(
     input: CreateDomainRequest,
   ): Effect.Effect<
@@ -57,7 +65,9 @@ export declare class CustomerProfiles extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateDomain", input);
+  }
   createDomainLayout(
     input: CreateDomainLayoutRequest,
   ): Effect.Effect<
@@ -68,7 +78,9 @@ export declare class CustomerProfiles extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateDomainLayout", input);
+  }
   createEventStream(
     input: CreateEventStreamRequest,
   ): Effect.Effect<
@@ -79,7 +91,9 @@ export declare class CustomerProfiles extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateEventStream", input);
+  }
   createEventTrigger(
     input: CreateEventTriggerRequest,
   ): Effect.Effect<
@@ -90,7 +104,9 @@ export declare class CustomerProfiles extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateEventTrigger", input);
+  }
   createIntegrationWorkflow(
     input: CreateIntegrationWorkflowRequest,
   ): Effect.Effect<
@@ -101,7 +117,9 @@ export declare class CustomerProfiles extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateIntegrationWorkflow", input);
+  }
   createProfile(
     input: CreateProfileRequest,
   ): Effect.Effect<
@@ -112,7 +130,9 @@ export declare class CustomerProfiles extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateProfile", input);
+  }
   createSegmentDefinition(
     input: CreateSegmentDefinitionRequest,
   ): Effect.Effect<
@@ -123,7 +143,9 @@ export declare class CustomerProfiles extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateSegmentDefinition", input);
+  }
   createSegmentEstimate(
     input: CreateSegmentEstimateRequest,
   ): Effect.Effect<
@@ -134,7 +156,9 @@ export declare class CustomerProfiles extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateSegmentEstimate", input);
+  }
   createSegmentSnapshot(
     input: CreateSegmentSnapshotRequest,
   ): Effect.Effect<
@@ -145,7 +169,9 @@ export declare class CustomerProfiles extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateSegmentSnapshot", input);
+  }
   createUploadJob(
     input: CreateUploadJobRequest,
   ): Effect.Effect<
@@ -156,7 +182,9 @@ export declare class CustomerProfiles extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateUploadJob", input);
+  }
   deleteCalculatedAttributeDefinition(
     input: DeleteCalculatedAttributeDefinitionRequest,
   ): Effect.Effect<
@@ -167,7 +195,9 @@ export declare class CustomerProfiles extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteCalculatedAttributeDefinition", input);
+  }
   deleteDomain(
     input: DeleteDomainRequest,
   ): Effect.Effect<
@@ -178,7 +208,9 @@ export declare class CustomerProfiles extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteDomain", input);
+  }
   deleteDomainLayout(
     input: DeleteDomainLayoutRequest,
   ): Effect.Effect<
@@ -189,7 +221,9 @@ export declare class CustomerProfiles extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteDomainLayout", input);
+  }
   deleteEventStream(
     input: DeleteEventStreamRequest,
   ): Effect.Effect<
@@ -200,7 +234,9 @@ export declare class CustomerProfiles extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteEventStream", input);
+  }
   deleteEventTrigger(
     input: DeleteEventTriggerRequest,
   ): Effect.Effect<
@@ -211,7 +247,9 @@ export declare class CustomerProfiles extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteEventTrigger", input);
+  }
   deleteIntegration(
     input: DeleteIntegrationRequest,
   ): Effect.Effect<
@@ -222,7 +260,9 @@ export declare class CustomerProfiles extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteIntegration", input);
+  }
   deleteProfile(
     input: DeleteProfileRequest,
   ): Effect.Effect<
@@ -233,7 +273,9 @@ export declare class CustomerProfiles extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteProfile", input);
+  }
   deleteProfileKey(
     input: DeleteProfileKeyRequest,
   ): Effect.Effect<
@@ -244,7 +286,9 @@ export declare class CustomerProfiles extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteProfileKey", input);
+  }
   deleteProfileObject(
     input: DeleteProfileObjectRequest,
   ): Effect.Effect<
@@ -255,7 +299,9 @@ export declare class CustomerProfiles extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteProfileObject", input);
+  }
   deleteProfileObjectType(
     input: DeleteProfileObjectTypeRequest,
   ): Effect.Effect<
@@ -266,7 +312,9 @@ export declare class CustomerProfiles extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteProfileObjectType", input);
+  }
   deleteSegmentDefinition(
     input: DeleteSegmentDefinitionRequest,
   ): Effect.Effect<
@@ -277,7 +325,9 @@ export declare class CustomerProfiles extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteSegmentDefinition", input);
+  }
   deleteWorkflow(
     input: DeleteWorkflowRequest,
   ): Effect.Effect<
@@ -288,7 +338,9 @@ export declare class CustomerProfiles extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteWorkflow", input);
+  }
   detectProfileObjectType(
     input: DetectProfileObjectTypeRequest,
   ): Effect.Effect<
@@ -299,7 +351,9 @@ export declare class CustomerProfiles extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DetectProfileObjectType", input);
+  }
   getAutoMergingPreview(
     input: GetAutoMergingPreviewRequest,
   ): Effect.Effect<
@@ -310,7 +364,9 @@ export declare class CustomerProfiles extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetAutoMergingPreview", input);
+  }
   getCalculatedAttributeDefinition(
     input: GetCalculatedAttributeDefinitionRequest,
   ): Effect.Effect<
@@ -321,7 +377,9 @@ export declare class CustomerProfiles extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetCalculatedAttributeDefinition", input);
+  }
   getCalculatedAttributeForProfile(
     input: GetCalculatedAttributeForProfileRequest,
   ): Effect.Effect<
@@ -332,7 +390,9 @@ export declare class CustomerProfiles extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetCalculatedAttributeForProfile", input);
+  }
   getDomain(
     input: GetDomainRequest,
   ): Effect.Effect<
@@ -343,7 +403,9 @@ export declare class CustomerProfiles extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetDomain", input);
+  }
   getDomainLayout(
     input: GetDomainLayoutRequest,
   ): Effect.Effect<
@@ -354,7 +416,9 @@ export declare class CustomerProfiles extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetDomainLayout", input);
+  }
   getEventStream(
     input: GetEventStreamRequest,
   ): Effect.Effect<
@@ -365,7 +429,9 @@ export declare class CustomerProfiles extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetEventStream", input);
+  }
   getEventTrigger(
     input: GetEventTriggerRequest,
   ): Effect.Effect<
@@ -376,7 +442,9 @@ export declare class CustomerProfiles extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetEventTrigger", input);
+  }
   getIdentityResolutionJob(
     input: GetIdentityResolutionJobRequest,
   ): Effect.Effect<
@@ -387,7 +455,9 @@ export declare class CustomerProfiles extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetIdentityResolutionJob", input);
+  }
   getIntegration(
     input: GetIntegrationRequest,
   ): Effect.Effect<
@@ -398,7 +468,9 @@ export declare class CustomerProfiles extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetIntegration", input);
+  }
   getMatches(
     input: GetMatchesRequest,
   ): Effect.Effect<
@@ -409,7 +481,9 @@ export declare class CustomerProfiles extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetMatches", input);
+  }
   getProfileObjectType(
     input: GetProfileObjectTypeRequest,
   ): Effect.Effect<
@@ -420,7 +494,9 @@ export declare class CustomerProfiles extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetProfileObjectType", input);
+  }
   getProfileObjectTypeTemplate(
     input: GetProfileObjectTypeTemplateRequest,
   ): Effect.Effect<
@@ -431,7 +507,9 @@ export declare class CustomerProfiles extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetProfileObjectTypeTemplate", input);
+  }
   getSegmentDefinition(
     input: GetSegmentDefinitionRequest,
   ): Effect.Effect<
@@ -442,7 +520,9 @@ export declare class CustomerProfiles extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetSegmentDefinition", input);
+  }
   getSegmentEstimate(
     input: GetSegmentEstimateRequest,
   ): Effect.Effect<
@@ -453,7 +533,9 @@ export declare class CustomerProfiles extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetSegmentEstimate", input);
+  }
   getSegmentMembership(
     input: GetSegmentMembershipRequest,
   ): Effect.Effect<
@@ -464,7 +546,9 @@ export declare class CustomerProfiles extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetSegmentMembership", input);
+  }
   getSegmentSnapshot(
     input: GetSegmentSnapshotRequest,
   ): Effect.Effect<
@@ -475,7 +559,9 @@ export declare class CustomerProfiles extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetSegmentSnapshot", input);
+  }
   getSimilarProfiles(
     input: GetSimilarProfilesRequest,
   ): Effect.Effect<
@@ -486,7 +572,9 @@ export declare class CustomerProfiles extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetSimilarProfiles", input);
+  }
   getUploadJob(
     input: GetUploadJobRequest,
   ): Effect.Effect<
@@ -497,7 +585,9 @@ export declare class CustomerProfiles extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetUploadJob", input);
+  }
   getUploadJobPath(
     input: GetUploadJobPathRequest,
   ): Effect.Effect<
@@ -508,7 +598,9 @@ export declare class CustomerProfiles extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetUploadJobPath", input);
+  }
   getWorkflow(
     input: GetWorkflowRequest,
   ): Effect.Effect<
@@ -519,7 +611,9 @@ export declare class CustomerProfiles extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetWorkflow", input);
+  }
   getWorkflowSteps(
     input: GetWorkflowStepsRequest,
   ): Effect.Effect<
@@ -530,7 +624,9 @@ export declare class CustomerProfiles extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetWorkflowSteps", input);
+  }
   listAccountIntegrations(
     input: ListAccountIntegrationsRequest,
   ): Effect.Effect<
@@ -541,7 +637,9 @@ export declare class CustomerProfiles extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListAccountIntegrations", input);
+  }
   listCalculatedAttributeDefinitions(
     input: ListCalculatedAttributeDefinitionsRequest,
   ): Effect.Effect<
@@ -552,7 +650,9 @@ export declare class CustomerProfiles extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListCalculatedAttributeDefinitions", input);
+  }
   listCalculatedAttributesForProfile(
     input: ListCalculatedAttributesForProfileRequest,
   ): Effect.Effect<
@@ -563,7 +663,9 @@ export declare class CustomerProfiles extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListCalculatedAttributesForProfile", input);
+  }
   listDomainLayouts(
     input: ListDomainLayoutsRequest,
   ): Effect.Effect<
@@ -574,7 +676,9 @@ export declare class CustomerProfiles extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListDomainLayouts", input);
+  }
   listDomains(
     input: ListDomainsRequest,
   ): Effect.Effect<
@@ -585,7 +689,9 @@ export declare class CustomerProfiles extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListDomains", input);
+  }
   listEventStreams(
     input: ListEventStreamsRequest,
   ): Effect.Effect<
@@ -596,7 +702,9 @@ export declare class CustomerProfiles extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListEventStreams", input);
+  }
   listEventTriggers(
     input: ListEventTriggersRequest,
   ): Effect.Effect<
@@ -607,7 +715,9 @@ export declare class CustomerProfiles extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListEventTriggers", input);
+  }
   listIdentityResolutionJobs(
     input: ListIdentityResolutionJobsRequest,
   ): Effect.Effect<
@@ -618,7 +728,9 @@ export declare class CustomerProfiles extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListIdentityResolutionJobs", input);
+  }
   listIntegrations(
     input: ListIntegrationsRequest,
   ): Effect.Effect<
@@ -629,7 +741,9 @@ export declare class CustomerProfiles extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListIntegrations", input);
+  }
   listObjectTypeAttributes(
     input: ListObjectTypeAttributesRequest,
   ): Effect.Effect<
@@ -640,7 +754,9 @@ export declare class CustomerProfiles extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListObjectTypeAttributes", input);
+  }
   listProfileAttributeValues(
     input: ProfileAttributeValuesRequest,
   ): Effect.Effect<
@@ -651,7 +767,9 @@ export declare class CustomerProfiles extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListProfileAttributeValues", input);
+  }
   listProfileObjects(
     input: ListProfileObjectsRequest,
   ): Effect.Effect<
@@ -662,7 +780,9 @@ export declare class CustomerProfiles extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListProfileObjects", input);
+  }
   listProfileObjectTypes(
     input: ListProfileObjectTypesRequest,
   ): Effect.Effect<
@@ -673,7 +793,9 @@ export declare class CustomerProfiles extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListProfileObjectTypes", input);
+  }
   listProfileObjectTypeTemplates(
     input: ListProfileObjectTypeTemplatesRequest,
   ): Effect.Effect<
@@ -684,7 +806,9 @@ export declare class CustomerProfiles extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListProfileObjectTypeTemplates", input);
+  }
   listRuleBasedMatches(
     input: ListRuleBasedMatchesRequest,
   ): Effect.Effect<
@@ -695,7 +819,9 @@ export declare class CustomerProfiles extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListRuleBasedMatches", input);
+  }
   listSegmentDefinitions(
     input: ListSegmentDefinitionsRequest,
   ): Effect.Effect<
@@ -706,7 +832,9 @@ export declare class CustomerProfiles extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListSegmentDefinitions", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
@@ -715,7 +843,9 @@ export declare class CustomerProfiles extends AWSServiceClient {
     | InternalServerException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   listUploadJobs(
     input: ListUploadJobsRequest,
   ): Effect.Effect<
@@ -726,7 +856,9 @@ export declare class CustomerProfiles extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListUploadJobs", input);
+  }
   listWorkflows(
     input: ListWorkflowsRequest,
   ): Effect.Effect<
@@ -737,7 +869,9 @@ export declare class CustomerProfiles extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListWorkflows", input);
+  }
   mergeProfiles(
     input: MergeProfilesRequest,
   ): Effect.Effect<
@@ -747,7 +881,9 @@ export declare class CustomerProfiles extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("MergeProfiles", input);
+  }
   putIntegration(
     input: PutIntegrationRequest,
   ): Effect.Effect<
@@ -758,7 +894,9 @@ export declare class CustomerProfiles extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutIntegration", input);
+  }
   putProfileObject(
     input: PutProfileObjectRequest,
   ): Effect.Effect<
@@ -769,7 +907,9 @@ export declare class CustomerProfiles extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutProfileObject", input);
+  }
   putProfileObjectType(
     input: PutProfileObjectTypeRequest,
   ): Effect.Effect<
@@ -780,7 +920,9 @@ export declare class CustomerProfiles extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutProfileObjectType", input);
+  }
   searchProfiles(
     input: SearchProfilesRequest,
   ): Effect.Effect<
@@ -791,7 +933,9 @@ export declare class CustomerProfiles extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("SearchProfiles", input);
+  }
   startUploadJob(
     input: StartUploadJobRequest,
   ): Effect.Effect<
@@ -802,7 +946,9 @@ export declare class CustomerProfiles extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartUploadJob", input);
+  }
   stopUploadJob(
     input: StopUploadJobRequest,
   ): Effect.Effect<
@@ -813,7 +959,9 @@ export declare class CustomerProfiles extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StopUploadJob", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -822,7 +970,9 @@ export declare class CustomerProfiles extends AWSServiceClient {
     | InternalServerException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
@@ -831,7 +981,9 @@ export declare class CustomerProfiles extends AWSServiceClient {
     | InternalServerException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
   updateCalculatedAttributeDefinition(
     input: UpdateCalculatedAttributeDefinitionRequest,
   ): Effect.Effect<
@@ -842,7 +994,9 @@ export declare class CustomerProfiles extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateCalculatedAttributeDefinition", input);
+  }
   updateDomain(
     input: UpdateDomainRequest,
   ): Effect.Effect<
@@ -853,7 +1007,9 @@ export declare class CustomerProfiles extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateDomain", input);
+  }
   updateDomainLayout(
     input: UpdateDomainLayoutRequest,
   ): Effect.Effect<
@@ -864,7 +1020,9 @@ export declare class CustomerProfiles extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateDomainLayout", input);
+  }
   updateEventTrigger(
     input: UpdateEventTriggerRequest,
   ): Effect.Effect<
@@ -875,7 +1033,9 @@ export declare class CustomerProfiles extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateEventTrigger", input);
+  }
   updateProfile(
     input: UpdateProfileRequest,
   ): Effect.Effect<
@@ -886,8 +1046,12 @@ export declare class CustomerProfiles extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateProfile", input);
+  }
 }
+
+export default CustomerProfiles;
 
 export declare class AccessDeniedException extends EffectData.TaggedError(
   "AccessDeniedException",

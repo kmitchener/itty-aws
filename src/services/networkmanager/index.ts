@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class NetworkManager extends AWSServiceClient {
+export class NetworkManager extends AWSServiceClient {
   acceptAttachment(
     input: AcceptAttachmentRequest,
   ): Effect.Effect<
@@ -14,7 +14,9 @@ export declare class NetworkManager extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AcceptAttachment", input);
+  }
   associateConnectPeer(
     input: AssociateConnectPeerRequest,
   ): Effect.Effect<
@@ -27,7 +29,9 @@ export declare class NetworkManager extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AssociateConnectPeer", input);
+  }
   associateCustomerGateway(
     input: AssociateCustomerGatewayRequest,
   ): Effect.Effect<
@@ -40,7 +44,9 @@ export declare class NetworkManager extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AssociateCustomerGateway", input);
+  }
   associateLink(
     input: AssociateLinkRequest,
   ): Effect.Effect<
@@ -53,7 +59,9 @@ export declare class NetworkManager extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AssociateLink", input);
+  }
   associateTransitGatewayConnectPeer(
     input: AssociateTransitGatewayConnectPeerRequest,
   ): Effect.Effect<
@@ -66,7 +74,9 @@ export declare class NetworkManager extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AssociateTransitGatewayConnectPeer", input);
+  }
   createConnectAttachment(
     input: CreateConnectAttachmentRequest,
   ): Effect.Effect<
@@ -78,7 +88,9 @@ export declare class NetworkManager extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateConnectAttachment", input);
+  }
   createConnection(
     input: CreateConnectionRequest,
   ): Effect.Effect<
@@ -90,7 +102,9 @@ export declare class NetworkManager extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateConnection", input);
+  }
   createConnectPeer(
     input: CreateConnectPeerRequest,
   ): Effect.Effect<
@@ -102,7 +116,9 @@ export declare class NetworkManager extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateConnectPeer", input);
+  }
   createCoreNetwork(
     input: CreateCoreNetworkRequest,
   ): Effect.Effect<
@@ -115,7 +131,9 @@ export declare class NetworkManager extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateCoreNetwork", input);
+  }
   createDevice(
     input: CreateDeviceRequest,
   ): Effect.Effect<
@@ -128,7 +146,9 @@ export declare class NetworkManager extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateDevice", input);
+  }
   createDirectConnectGatewayAttachment(
     input: CreateDirectConnectGatewayAttachmentRequest,
   ): Effect.Effect<
@@ -140,7 +160,9 @@ export declare class NetworkManager extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateDirectConnectGatewayAttachment", input);
+  }
   createGlobalNetwork(
     input: CreateGlobalNetworkRequest,
   ): Effect.Effect<
@@ -152,7 +174,9 @@ export declare class NetworkManager extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateGlobalNetwork", input);
+  }
   createLink(
     input: CreateLinkRequest,
   ): Effect.Effect<
@@ -165,7 +189,9 @@ export declare class NetworkManager extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateLink", input);
+  }
   createSite(
     input: CreateSiteRequest,
   ): Effect.Effect<
@@ -178,7 +204,9 @@ export declare class NetworkManager extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateSite", input);
+  }
   createSiteToSiteVpnAttachment(
     input: CreateSiteToSiteVpnAttachmentRequest,
   ): Effect.Effect<
@@ -190,7 +218,9 @@ export declare class NetworkManager extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateSiteToSiteVpnAttachment", input);
+  }
   createTransitGatewayPeering(
     input: CreateTransitGatewayPeeringRequest,
   ): Effect.Effect<
@@ -202,7 +232,9 @@ export declare class NetworkManager extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateTransitGatewayPeering", input);
+  }
   createTransitGatewayRouteTableAttachment(
     input: CreateTransitGatewayRouteTableAttachmentRequest,
   ): Effect.Effect<
@@ -214,7 +246,9 @@ export declare class NetworkManager extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateTransitGatewayRouteTableAttachment", input);
+  }
   createVpcAttachment(
     input: CreateVpcAttachmentRequest,
   ): Effect.Effect<
@@ -226,7 +260,9 @@ export declare class NetworkManager extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateVpcAttachment", input);
+  }
   deleteAttachment(
     input: DeleteAttachmentRequest,
   ): Effect.Effect<
@@ -238,7 +274,9 @@ export declare class NetworkManager extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteAttachment", input);
+  }
   deleteConnection(
     input: DeleteConnectionRequest,
   ): Effect.Effect<
@@ -250,7 +288,9 @@ export declare class NetworkManager extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteConnection", input);
+  }
   deleteConnectPeer(
     input: DeleteConnectPeerRequest,
   ): Effect.Effect<
@@ -262,7 +302,9 @@ export declare class NetworkManager extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteConnectPeer", input);
+  }
   deleteCoreNetwork(
     input: DeleteCoreNetworkRequest,
   ): Effect.Effect<
@@ -274,7 +316,9 @@ export declare class NetworkManager extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteCoreNetwork", input);
+  }
   deleteCoreNetworkPolicyVersion(
     input: DeleteCoreNetworkPolicyVersionRequest,
   ): Effect.Effect<
@@ -286,7 +330,9 @@ export declare class NetworkManager extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteCoreNetworkPolicyVersion", input);
+  }
   deleteDevice(
     input: DeleteDeviceRequest,
   ): Effect.Effect<
@@ -298,7 +344,9 @@ export declare class NetworkManager extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteDevice", input);
+  }
   deleteGlobalNetwork(
     input: DeleteGlobalNetworkRequest,
   ): Effect.Effect<
@@ -310,7 +358,9 @@ export declare class NetworkManager extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteGlobalNetwork", input);
+  }
   deleteLink(
     input: DeleteLinkRequest,
   ): Effect.Effect<
@@ -322,7 +372,9 @@ export declare class NetworkManager extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteLink", input);
+  }
   deletePeering(
     input: DeletePeeringRequest,
   ): Effect.Effect<
@@ -334,7 +386,9 @@ export declare class NetworkManager extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeletePeering", input);
+  }
   deleteResourcePolicy(
     input: DeleteResourcePolicyRequest,
   ): Effect.Effect<
@@ -345,7 +399,9 @@ export declare class NetworkManager extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteResourcePolicy", input);
+  }
   deleteSite(
     input: DeleteSiteRequest,
   ): Effect.Effect<
@@ -357,7 +413,9 @@ export declare class NetworkManager extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteSite", input);
+  }
   deregisterTransitGateway(
     input: DeregisterTransitGatewayRequest,
   ): Effect.Effect<
@@ -369,7 +427,9 @@ export declare class NetworkManager extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeregisterTransitGateway", input);
+  }
   describeGlobalNetworks(
     input: DescribeGlobalNetworksRequest,
   ): Effect.Effect<
@@ -380,7 +440,9 @@ export declare class NetworkManager extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeGlobalNetworks", input);
+  }
   disassociateConnectPeer(
     input: DisassociateConnectPeerRequest,
   ): Effect.Effect<
@@ -392,7 +454,9 @@ export declare class NetworkManager extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DisassociateConnectPeer", input);
+  }
   disassociateCustomerGateway(
     input: DisassociateCustomerGatewayRequest,
   ): Effect.Effect<
@@ -404,7 +468,9 @@ export declare class NetworkManager extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DisassociateCustomerGateway", input);
+  }
   disassociateLink(
     input: DisassociateLinkRequest,
   ): Effect.Effect<
@@ -416,7 +482,9 @@ export declare class NetworkManager extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DisassociateLink", input);
+  }
   disassociateTransitGatewayConnectPeer(
     input: DisassociateTransitGatewayConnectPeerRequest,
   ): Effect.Effect<
@@ -428,7 +496,9 @@ export declare class NetworkManager extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DisassociateTransitGatewayConnectPeer", input);
+  }
   executeCoreNetworkChangeSet(
     input: ExecuteCoreNetworkChangeSetRequest,
   ): Effect.Effect<
@@ -440,7 +510,9 @@ export declare class NetworkManager extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ExecuteCoreNetworkChangeSet", input);
+  }
   getConnectAttachment(
     input: GetConnectAttachmentRequest,
   ): Effect.Effect<
@@ -451,7 +523,9 @@ export declare class NetworkManager extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetConnectAttachment", input);
+  }
   getConnections(
     input: GetConnectionsRequest,
   ): Effect.Effect<
@@ -462,7 +536,9 @@ export declare class NetworkManager extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetConnections", input);
+  }
   getConnectPeer(
     input: GetConnectPeerRequest,
   ): Effect.Effect<
@@ -473,7 +549,9 @@ export declare class NetworkManager extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetConnectPeer", input);
+  }
   getConnectPeerAssociations(
     input: GetConnectPeerAssociationsRequest,
   ): Effect.Effect<
@@ -485,7 +563,9 @@ export declare class NetworkManager extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetConnectPeerAssociations", input);
+  }
   getCoreNetwork(
     input: GetCoreNetworkRequest,
   ): Effect.Effect<
@@ -496,7 +576,9 @@ export declare class NetworkManager extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetCoreNetwork", input);
+  }
   getCoreNetworkChangeEvents(
     input: GetCoreNetworkChangeEventsRequest,
   ): Effect.Effect<
@@ -507,7 +589,9 @@ export declare class NetworkManager extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetCoreNetworkChangeEvents", input);
+  }
   getCoreNetworkChangeSet(
     input: GetCoreNetworkChangeSetRequest,
   ): Effect.Effect<
@@ -518,7 +602,9 @@ export declare class NetworkManager extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetCoreNetworkChangeSet", input);
+  }
   getCoreNetworkPolicy(
     input: GetCoreNetworkPolicyRequest,
   ): Effect.Effect<
@@ -529,7 +615,9 @@ export declare class NetworkManager extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetCoreNetworkPolicy", input);
+  }
   getCustomerGatewayAssociations(
     input: GetCustomerGatewayAssociationsRequest,
   ): Effect.Effect<
@@ -541,7 +629,9 @@ export declare class NetworkManager extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetCustomerGatewayAssociations", input);
+  }
   getDevices(
     input: GetDevicesRequest,
   ): Effect.Effect<
@@ -552,7 +642,9 @@ export declare class NetworkManager extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetDevices", input);
+  }
   getDirectConnectGatewayAttachment(
     input: GetDirectConnectGatewayAttachmentRequest,
   ): Effect.Effect<
@@ -563,7 +655,9 @@ export declare class NetworkManager extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetDirectConnectGatewayAttachment", input);
+  }
   getLinkAssociations(
     input: GetLinkAssociationsRequest,
   ): Effect.Effect<
@@ -574,7 +668,9 @@ export declare class NetworkManager extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetLinkAssociations", input);
+  }
   getLinks(
     input: GetLinksRequest,
   ): Effect.Effect<
@@ -585,7 +681,9 @@ export declare class NetworkManager extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetLinks", input);
+  }
   getNetworkResourceCounts(
     input: GetNetworkResourceCountsRequest,
   ): Effect.Effect<
@@ -595,7 +693,9 @@ export declare class NetworkManager extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetNetworkResourceCounts", input);
+  }
   getNetworkResourceRelationships(
     input: GetNetworkResourceRelationshipsRequest,
   ): Effect.Effect<
@@ -606,7 +706,9 @@ export declare class NetworkManager extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetNetworkResourceRelationships", input);
+  }
   getNetworkResources(
     input: GetNetworkResourcesRequest,
   ): Effect.Effect<
@@ -617,7 +719,9 @@ export declare class NetworkManager extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetNetworkResources", input);
+  }
   getNetworkRoutes(
     input: GetNetworkRoutesRequest,
   ): Effect.Effect<
@@ -628,7 +732,9 @@ export declare class NetworkManager extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetNetworkRoutes", input);
+  }
   getNetworkTelemetry(
     input: GetNetworkTelemetryRequest,
   ): Effect.Effect<
@@ -639,7 +745,9 @@ export declare class NetworkManager extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetNetworkTelemetry", input);
+  }
   getResourcePolicy(
     input: GetResourcePolicyRequest,
   ): Effect.Effect<
@@ -649,7 +757,9 @@ export declare class NetworkManager extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetResourcePolicy", input);
+  }
   getRouteAnalysis(
     input: GetRouteAnalysisRequest,
   ): Effect.Effect<
@@ -660,7 +770,9 @@ export declare class NetworkManager extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetRouteAnalysis", input);
+  }
   getSites(
     input: GetSitesRequest,
   ): Effect.Effect<
@@ -671,7 +783,9 @@ export declare class NetworkManager extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetSites", input);
+  }
   getSiteToSiteVpnAttachment(
     input: GetSiteToSiteVpnAttachmentRequest,
   ): Effect.Effect<
@@ -682,7 +796,9 @@ export declare class NetworkManager extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetSiteToSiteVpnAttachment", input);
+  }
   getTransitGatewayConnectPeerAssociations(
     input: GetTransitGatewayConnectPeerAssociationsRequest,
   ): Effect.Effect<
@@ -694,7 +810,9 @@ export declare class NetworkManager extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetTransitGatewayConnectPeerAssociations", input);
+  }
   getTransitGatewayPeering(
     input: GetTransitGatewayPeeringRequest,
   ): Effect.Effect<
@@ -705,7 +823,9 @@ export declare class NetworkManager extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetTransitGatewayPeering", input);
+  }
   getTransitGatewayRegistrations(
     input: GetTransitGatewayRegistrationsRequest,
   ): Effect.Effect<
@@ -716,7 +836,9 @@ export declare class NetworkManager extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetTransitGatewayRegistrations", input);
+  }
   getTransitGatewayRouteTableAttachment(
     input: GetTransitGatewayRouteTableAttachmentRequest,
   ): Effect.Effect<
@@ -727,7 +849,9 @@ export declare class NetworkManager extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetTransitGatewayRouteTableAttachment", input);
+  }
   getVpcAttachment(
     input: GetVpcAttachmentRequest,
   ): Effect.Effect<
@@ -738,7 +862,9 @@ export declare class NetworkManager extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetVpcAttachment", input);
+  }
   listAttachments(
     input: ListAttachmentsRequest,
   ): Effect.Effect<
@@ -748,7 +874,9 @@ export declare class NetworkManager extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListAttachments", input);
+  }
   listConnectPeers(
     input: ListConnectPeersRequest,
   ): Effect.Effect<
@@ -758,7 +886,9 @@ export declare class NetworkManager extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListConnectPeers", input);
+  }
   listCoreNetworkPolicyVersions(
     input: ListCoreNetworkPolicyVersionsRequest,
   ): Effect.Effect<
@@ -769,7 +899,9 @@ export declare class NetworkManager extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListCoreNetworkPolicyVersions", input);
+  }
   listCoreNetworks(
     input: ListCoreNetworksRequest,
   ): Effect.Effect<
@@ -779,10 +911,17 @@ export declare class NetworkManager extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListCoreNetworks", input);
+  }
   listOrganizationServiceAccessStatus(
     input: ListOrganizationServiceAccessStatusRequest,
-  ): Effect.Effect<ListOrganizationServiceAccessStatusResponse, CommonAwsError>;
+  ): Effect.Effect<
+    ListOrganizationServiceAccessStatusResponse,
+    CommonAwsError
+  > {
+    return this.call("ListOrganizationServiceAccessStatus", input);
+  }
   listPeerings(
     input: ListPeeringsRequest,
   ): Effect.Effect<
@@ -792,7 +931,9 @@ export declare class NetworkManager extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListPeerings", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
@@ -803,7 +944,9 @@ export declare class NetworkManager extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   putCoreNetworkPolicy(
     input: PutCoreNetworkPolicyRequest,
   ): Effect.Effect<
@@ -816,7 +959,9 @@ export declare class NetworkManager extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutCoreNetworkPolicy", input);
+  }
   putResourcePolicy(
     input: PutResourcePolicyRequest,
   ): Effect.Effect<
@@ -828,7 +973,9 @@ export declare class NetworkManager extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutResourcePolicy", input);
+  }
   registerTransitGateway(
     input: RegisterTransitGatewayRequest,
   ): Effect.Effect<
@@ -840,7 +987,9 @@ export declare class NetworkManager extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("RegisterTransitGateway", input);
+  }
   rejectAttachment(
     input: RejectAttachmentRequest,
   ): Effect.Effect<
@@ -852,7 +1001,9 @@ export declare class NetworkManager extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("RejectAttachment", input);
+  }
   restoreCoreNetworkPolicyVersion(
     input: RestoreCoreNetworkPolicyVersionRequest,
   ): Effect.Effect<
@@ -864,7 +1015,9 @@ export declare class NetworkManager extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("RestoreCoreNetworkPolicyVersion", input);
+  }
   startOrganizationServiceAccessUpdate(
     input: StartOrganizationServiceAccessUpdateRequest,
   ): Effect.Effect<
@@ -876,7 +1029,9 @@ export declare class NetworkManager extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartOrganizationServiceAccessUpdate", input);
+  }
   startRouteAnalysis(
     input: StartRouteAnalysisRequest,
   ): Effect.Effect<
@@ -888,7 +1043,9 @@ export declare class NetworkManager extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartRouteAnalysis", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -901,7 +1058,9 @@ export declare class NetworkManager extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
@@ -913,7 +1072,9 @@ export declare class NetworkManager extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
   updateConnection(
     input: UpdateConnectionRequest,
   ): Effect.Effect<
@@ -925,7 +1086,9 @@ export declare class NetworkManager extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateConnection", input);
+  }
   updateCoreNetwork(
     input: UpdateCoreNetworkRequest,
   ): Effect.Effect<
@@ -937,7 +1100,9 @@ export declare class NetworkManager extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateCoreNetwork", input);
+  }
   updateDevice(
     input: UpdateDeviceRequest,
   ): Effect.Effect<
@@ -949,7 +1114,9 @@ export declare class NetworkManager extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateDevice", input);
+  }
   updateDirectConnectGatewayAttachment(
     input: UpdateDirectConnectGatewayAttachmentRequest,
   ): Effect.Effect<
@@ -961,7 +1128,9 @@ export declare class NetworkManager extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateDirectConnectGatewayAttachment", input);
+  }
   updateGlobalNetwork(
     input: UpdateGlobalNetworkRequest,
   ): Effect.Effect<
@@ -973,7 +1142,9 @@ export declare class NetworkManager extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateGlobalNetwork", input);
+  }
   updateLink(
     input: UpdateLinkRequest,
   ): Effect.Effect<
@@ -986,7 +1157,9 @@ export declare class NetworkManager extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateLink", input);
+  }
   updateNetworkResourceMetadata(
     input: UpdateNetworkResourceMetadataRequest,
   ): Effect.Effect<
@@ -998,7 +1171,9 @@ export declare class NetworkManager extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateNetworkResourceMetadata", input);
+  }
   updateSite(
     input: UpdateSiteRequest,
   ): Effect.Effect<
@@ -1010,7 +1185,9 @@ export declare class NetworkManager extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateSite", input);
+  }
   updateVpcAttachment(
     input: UpdateVpcAttachmentRequest,
   ): Effect.Effect<
@@ -1022,10 +1199,14 @@ export declare class NetworkManager extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateVpcAttachment", input);
+  }
 }
 
-export declare class Networkmanager extends NetworkManager {}
+export class Networkmanager extends NetworkManager {}
+
+export default NetworkManager;
 
 export interface AcceptAttachmentRequest {
   AttachmentId: string;

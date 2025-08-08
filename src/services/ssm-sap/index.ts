@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class SsmSap extends AWSServiceClient {
+export class SsmSap extends AWSServiceClient {
   deleteResourcePermission(
     input: DeleteResourcePermissionInput,
   ): Effect.Effect<
@@ -11,7 +11,9 @@ export declare class SsmSap extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteResourcePermission", input);
+  }
   deregisterApplication(
     input: DeregisterApplicationInput,
   ): Effect.Effect<
@@ -20,13 +22,17 @@ export declare class SsmSap extends AWSServiceClient {
     | UnauthorizedException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeregisterApplication", input);
+  }
   getApplication(
     input: GetApplicationInput,
   ): Effect.Effect<
     GetApplicationOutput,
     InternalServerException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("GetApplication", input);
+  }
   getComponent(
     input: GetComponentInput,
   ): Effect.Effect<
@@ -35,19 +41,25 @@ export declare class SsmSap extends AWSServiceClient {
     | UnauthorizedException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetComponent", input);
+  }
   getDatabase(
     input: GetDatabaseInput,
   ): Effect.Effect<
     GetDatabaseOutput,
     InternalServerException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("GetDatabase", input);
+  }
   getOperation(
     input: GetOperationInput,
   ): Effect.Effect<
     GetOperationOutput,
     InternalServerException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("GetOperation", input);
+  }
   getResourcePermission(
     input: GetResourcePermissionInput,
   ): Effect.Effect<
@@ -56,7 +68,9 @@ export declare class SsmSap extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetResourcePermission", input);
+  }
   listApplications(
     input: ListApplicationsInput,
   ): Effect.Effect<
@@ -65,7 +79,9 @@ export declare class SsmSap extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListApplications", input);
+  }
   listComponents(
     input: ListComponentsInput,
   ): Effect.Effect<
@@ -75,7 +91,9 @@ export declare class SsmSap extends AWSServiceClient {
     | UnauthorizedException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListComponents", input);
+  }
   listDatabases(
     input: ListDatabasesInput,
   ): Effect.Effect<
@@ -84,19 +102,25 @@ export declare class SsmSap extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListDatabases", input);
+  }
   listOperationEvents(
     input: ListOperationEventsInput,
   ): Effect.Effect<
     ListOperationEventsOutput,
     InternalServerException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("ListOperationEvents", input);
+  }
   listOperations(
     input: ListOperationsInput,
   ): Effect.Effect<
     ListOperationsOutput,
     InternalServerException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("ListOperations", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
@@ -105,7 +129,9 @@ export declare class SsmSap extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   putResourcePermission(
     input: PutResourcePermissionInput,
   ): Effect.Effect<
@@ -114,7 +140,9 @@ export declare class SsmSap extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutResourcePermission", input);
+  }
   registerApplication(
     input: RegisterApplicationInput,
   ): Effect.Effect<
@@ -124,7 +152,9 @@ export declare class SsmSap extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("RegisterApplication", input);
+  }
   startApplication(
     input: StartApplicationInput,
   ): Effect.Effect<
@@ -134,7 +164,9 @@ export declare class SsmSap extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartApplication", input);
+  }
   startApplicationRefresh(
     input: StartApplicationRefreshInput,
   ): Effect.Effect<
@@ -145,7 +177,9 @@ export declare class SsmSap extends AWSServiceClient {
     | UnauthorizedException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartApplicationRefresh", input);
+  }
   stopApplication(
     input: StopApplicationInput,
   ): Effect.Effect<
@@ -155,7 +189,9 @@ export declare class SsmSap extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StopApplication", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -164,7 +200,9 @@ export declare class SsmSap extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
@@ -173,7 +211,9 @@ export declare class SsmSap extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
   updateApplicationSettings(
     input: UpdateApplicationSettingsInput,
   ): Effect.Effect<
@@ -184,8 +224,12 @@ export declare class SsmSap extends AWSServiceClient {
     | UnauthorizedException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateApplicationSettings", input);
+  }
 }
+
+export default SsmSap;
 
 export type AllocationType =
   | "VPC_SUBNET"

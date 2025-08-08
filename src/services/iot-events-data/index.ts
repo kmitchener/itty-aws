@@ -2,7 +2,7 @@ import type { Effect, Stream, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class IoTEventsData extends AWSServiceClient {
+export class IoTEventsData extends AWSServiceClient {
   batchAcknowledgeAlarm(
     input: BatchAcknowledgeAlarmRequest,
   ): Effect.Effect<
@@ -12,7 +12,9 @@ export declare class IoTEventsData extends AWSServiceClient {
     | ServiceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("BatchAcknowledgeAlarm", input);
+  }
   batchDeleteDetector(
     input: BatchDeleteDetectorRequest,
   ): Effect.Effect<
@@ -22,7 +24,9 @@ export declare class IoTEventsData extends AWSServiceClient {
     | ServiceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("BatchDeleteDetector", input);
+  }
   batchDisableAlarm(
     input: BatchDisableAlarmRequest,
   ): Effect.Effect<
@@ -32,7 +36,9 @@ export declare class IoTEventsData extends AWSServiceClient {
     | ServiceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("BatchDisableAlarm", input);
+  }
   batchEnableAlarm(
     input: BatchEnableAlarmRequest,
   ): Effect.Effect<
@@ -42,7 +48,9 @@ export declare class IoTEventsData extends AWSServiceClient {
     | ServiceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("BatchEnableAlarm", input);
+  }
   batchPutMessage(
     input: BatchPutMessageRequest,
   ): Effect.Effect<
@@ -52,7 +60,9 @@ export declare class IoTEventsData extends AWSServiceClient {
     | ServiceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("BatchPutMessage", input);
+  }
   batchResetAlarm(
     input: BatchResetAlarmRequest,
   ): Effect.Effect<
@@ -62,7 +72,9 @@ export declare class IoTEventsData extends AWSServiceClient {
     | ServiceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("BatchResetAlarm", input);
+  }
   batchSnoozeAlarm(
     input: BatchSnoozeAlarmRequest,
   ): Effect.Effect<
@@ -72,7 +84,9 @@ export declare class IoTEventsData extends AWSServiceClient {
     | ServiceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("BatchSnoozeAlarm", input);
+  }
   batchUpdateDetector(
     input: BatchUpdateDetectorRequest,
   ): Effect.Effect<
@@ -82,7 +96,9 @@ export declare class IoTEventsData extends AWSServiceClient {
     | ServiceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("BatchUpdateDetector", input);
+  }
   describeAlarm(
     input: DescribeAlarmRequest,
   ): Effect.Effect<
@@ -93,7 +109,9 @@ export declare class IoTEventsData extends AWSServiceClient {
     | ServiceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeAlarm", input);
+  }
   describeDetector(
     input: DescribeDetectorRequest,
   ): Effect.Effect<
@@ -104,7 +122,9 @@ export declare class IoTEventsData extends AWSServiceClient {
     | ServiceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeDetector", input);
+  }
   listAlarms(
     input: ListAlarmsRequest,
   ): Effect.Effect<
@@ -115,7 +135,9 @@ export declare class IoTEventsData extends AWSServiceClient {
     | ServiceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListAlarms", input);
+  }
   listDetectors(
     input: ListDetectorsRequest,
   ): Effect.Effect<
@@ -126,10 +148,14 @@ export declare class IoTEventsData extends AWSServiceClient {
     | ServiceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListDetectors", input);
+  }
 }
 
-export declare class IotEventsData extends IoTEventsData {}
+export class IotEventsData extends IoTEventsData {}
+
+export default IoTEventsData;
 
 export interface AcknowledgeActionConfiguration {
   note?: string;

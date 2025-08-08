@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class IoTFleetWise extends AWSServiceClient {
+export class IoTFleetWise extends AWSServiceClient {
   batchCreateVehicle(
     input: BatchCreateVehicleRequest,
   ): Effect.Effect<
@@ -13,7 +13,9 @@ export declare class IoTFleetWise extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("BatchCreateVehicle", input);
+  }
   batchUpdateVehicle(
     input: BatchUpdateVehicleRequest,
   ): Effect.Effect<
@@ -24,7 +26,9 @@ export declare class IoTFleetWise extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("BatchUpdateVehicle", input);
+  }
   getEncryptionConfiguration(
     input: GetEncryptionConfigurationRequest,
   ): Effect.Effect<
@@ -35,13 +39,17 @@ export declare class IoTFleetWise extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetEncryptionConfiguration", input);
+  }
   getLoggingOptions(
     input: GetLoggingOptionsRequest,
   ): Effect.Effect<
     GetLoggingOptionsResponse,
     AccessDeniedException | ThrottlingException | CommonAwsError
-  >;
+  > {
+    return this.call("GetLoggingOptions", input);
+  }
   getRegisterAccountStatus(
     input: GetRegisterAccountStatusRequest,
   ): Effect.Effect<
@@ -52,7 +60,9 @@ export declare class IoTFleetWise extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetRegisterAccountStatus", input);
+  }
   getVehicleStatus(
     input: GetVehicleStatusRequest,
   ): Effect.Effect<
@@ -62,7 +72,9 @@ export declare class IoTFleetWise extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetVehicleStatus", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
@@ -73,7 +85,9 @@ export declare class IoTFleetWise extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   putEncryptionConfiguration(
     input: PutEncryptionConfigurationRequest,
   ): Effect.Effect<
@@ -85,7 +99,9 @@ export declare class IoTFleetWise extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutEncryptionConfiguration", input);
+  }
   putLoggingOptions(
     input: PutLoggingOptionsRequest,
   ): Effect.Effect<
@@ -96,7 +112,9 @@ export declare class IoTFleetWise extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutLoggingOptions", input);
+  }
   registerAccount(
     input: RegisterAccountRequest,
   ): Effect.Effect<
@@ -108,7 +126,9 @@ export declare class IoTFleetWise extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("RegisterAccount", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -119,7 +139,9 @@ export declare class IoTFleetWise extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
@@ -130,10 +152,14 @@ export declare class IoTFleetWise extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
 }
 
-export declare class Iotfleetwise extends IoTFleetWise {}
+export class Iotfleetwise extends IoTFleetWise {}
+
+export default IoTFleetWise;
 
 export declare class AccessDeniedException extends EffectData.TaggedError(
   "AccessDeniedException",

@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class PinpointEmail extends AWSServiceClient {
+export class PinpointEmail extends AWSServiceClient {
   createConfigurationSet(
     input: CreateConfigurationSetRequest,
   ): Effect.Effect<
@@ -14,7 +14,9 @@ export declare class PinpointEmail extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateConfigurationSet", input);
+  }
   createConfigurationSetEventDestination(
     input: CreateConfigurationSetEventDestinationRequest,
   ): Effect.Effect<
@@ -25,7 +27,9 @@ export declare class PinpointEmail extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateConfigurationSetEventDestination", input);
+  }
   createDedicatedIpPool(
     input: CreateDedicatedIpPoolRequest,
   ): Effect.Effect<
@@ -36,7 +40,9 @@ export declare class PinpointEmail extends AWSServiceClient {
     | LimitExceededException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateDedicatedIpPool", input);
+  }
   createDeliverabilityTestReport(
     input: CreateDeliverabilityTestReportRequest,
   ): Effect.Effect<
@@ -51,7 +57,9 @@ export declare class PinpointEmail extends AWSServiceClient {
     | SendingPausedException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateDeliverabilityTestReport", input);
+  }
   createEmailIdentity(
     input: CreateEmailIdentityRequest,
   ): Effect.Effect<
@@ -61,7 +69,9 @@ export declare class PinpointEmail extends AWSServiceClient {
     | LimitExceededException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateEmailIdentity", input);
+  }
   deleteConfigurationSet(
     input: DeleteConfigurationSetRequest,
   ): Effect.Effect<
@@ -71,7 +81,9 @@ export declare class PinpointEmail extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteConfigurationSet", input);
+  }
   deleteConfigurationSetEventDestination(
     input: DeleteConfigurationSetEventDestinationRequest,
   ): Effect.Effect<
@@ -80,7 +92,9 @@ export declare class PinpointEmail extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteConfigurationSetEventDestination", input);
+  }
   deleteDedicatedIpPool(
     input: DeleteDedicatedIpPoolRequest,
   ): Effect.Effect<
@@ -90,7 +104,9 @@ export declare class PinpointEmail extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteDedicatedIpPool", input);
+  }
   deleteEmailIdentity(
     input: DeleteEmailIdentityRequest,
   ): Effect.Effect<
@@ -100,13 +116,17 @@ export declare class PinpointEmail extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteEmailIdentity", input);
+  }
   getAccount(
     input: GetAccountRequest,
   ): Effect.Effect<
     GetAccountResponse,
     BadRequestException | TooManyRequestsException | CommonAwsError
-  >;
+  > {
+    return this.call("GetAccount", input);
+  }
   getBlacklistReports(
     input: GetBlacklistReportsRequest,
   ): Effect.Effect<
@@ -115,7 +135,9 @@ export declare class PinpointEmail extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetBlacklistReports", input);
+  }
   getConfigurationSet(
     input: GetConfigurationSetRequest,
   ): Effect.Effect<
@@ -124,7 +146,9 @@ export declare class PinpointEmail extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetConfigurationSet", input);
+  }
   getConfigurationSetEventDestinations(
     input: GetConfigurationSetEventDestinationsRequest,
   ): Effect.Effect<
@@ -133,7 +157,9 @@ export declare class PinpointEmail extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetConfigurationSetEventDestinations", input);
+  }
   getDedicatedIp(
     input: GetDedicatedIpRequest,
   ): Effect.Effect<
@@ -142,7 +168,9 @@ export declare class PinpointEmail extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetDedicatedIp", input);
+  }
   getDedicatedIps(
     input: GetDedicatedIpsRequest,
   ): Effect.Effect<
@@ -151,7 +179,9 @@ export declare class PinpointEmail extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetDedicatedIps", input);
+  }
   getDeliverabilityDashboardOptions(
     input: GetDeliverabilityDashboardOptionsRequest,
   ): Effect.Effect<
@@ -160,7 +190,9 @@ export declare class PinpointEmail extends AWSServiceClient {
     | LimitExceededException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetDeliverabilityDashboardOptions", input);
+  }
   getDeliverabilityTestReport(
     input: GetDeliverabilityTestReportRequest,
   ): Effect.Effect<
@@ -169,7 +201,9 @@ export declare class PinpointEmail extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetDeliverabilityTestReport", input);
+  }
   getDomainDeliverabilityCampaign(
     input: GetDomainDeliverabilityCampaignRequest,
   ): Effect.Effect<
@@ -178,7 +212,9 @@ export declare class PinpointEmail extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetDomainDeliverabilityCampaign", input);
+  }
   getDomainStatisticsReport(
     input: GetDomainStatisticsReportRequest,
   ): Effect.Effect<
@@ -187,7 +223,9 @@ export declare class PinpointEmail extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetDomainStatisticsReport", input);
+  }
   getEmailIdentity(
     input: GetEmailIdentityRequest,
   ): Effect.Effect<
@@ -196,19 +234,25 @@ export declare class PinpointEmail extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetEmailIdentity", input);
+  }
   listConfigurationSets(
     input: ListConfigurationSetsRequest,
   ): Effect.Effect<
     ListConfigurationSetsResponse,
     BadRequestException | TooManyRequestsException | CommonAwsError
-  >;
+  > {
+    return this.call("ListConfigurationSets", input);
+  }
   listDedicatedIpPools(
     input: ListDedicatedIpPoolsRequest,
   ): Effect.Effect<
     ListDedicatedIpPoolsResponse,
     BadRequestException | TooManyRequestsException | CommonAwsError
-  >;
+  > {
+    return this.call("ListDedicatedIpPools", input);
+  }
   listDeliverabilityTestReports(
     input: ListDeliverabilityTestReportsRequest,
   ): Effect.Effect<
@@ -217,7 +261,9 @@ export declare class PinpointEmail extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListDeliverabilityTestReports", input);
+  }
   listDomainDeliverabilityCampaigns(
     input: ListDomainDeliverabilityCampaignsRequest,
   ): Effect.Effect<
@@ -226,13 +272,17 @@ export declare class PinpointEmail extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListDomainDeliverabilityCampaigns", input);
+  }
   listEmailIdentities(
     input: ListEmailIdentitiesRequest,
   ): Effect.Effect<
     ListEmailIdentitiesResponse,
     BadRequestException | TooManyRequestsException | CommonAwsError
-  >;
+  > {
+    return this.call("ListEmailIdentities", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
@@ -241,19 +291,25 @@ export declare class PinpointEmail extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   putAccountDedicatedIpWarmupAttributes(
     input: PutAccountDedicatedIpWarmupAttributesRequest,
   ): Effect.Effect<
     PutAccountDedicatedIpWarmupAttributesResponse,
     BadRequestException | TooManyRequestsException | CommonAwsError
-  >;
+  > {
+    return this.call("PutAccountDedicatedIpWarmupAttributes", input);
+  }
   putAccountSendingAttributes(
     input: PutAccountSendingAttributesRequest,
   ): Effect.Effect<
     PutAccountSendingAttributesResponse,
     BadRequestException | TooManyRequestsException | CommonAwsError
-  >;
+  > {
+    return this.call("PutAccountSendingAttributes", input);
+  }
   putConfigurationSetDeliveryOptions(
     input: PutConfigurationSetDeliveryOptionsRequest,
   ): Effect.Effect<
@@ -262,7 +318,9 @@ export declare class PinpointEmail extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutConfigurationSetDeliveryOptions", input);
+  }
   putConfigurationSetReputationOptions(
     input: PutConfigurationSetReputationOptionsRequest,
   ): Effect.Effect<
@@ -271,7 +329,9 @@ export declare class PinpointEmail extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutConfigurationSetReputationOptions", input);
+  }
   putConfigurationSetSendingOptions(
     input: PutConfigurationSetSendingOptionsRequest,
   ): Effect.Effect<
@@ -280,7 +340,9 @@ export declare class PinpointEmail extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutConfigurationSetSendingOptions", input);
+  }
   putConfigurationSetTrackingOptions(
     input: PutConfigurationSetTrackingOptionsRequest,
   ): Effect.Effect<
@@ -289,7 +351,9 @@ export declare class PinpointEmail extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutConfigurationSetTrackingOptions", input);
+  }
   putDedicatedIpInPool(
     input: PutDedicatedIpInPoolRequest,
   ): Effect.Effect<
@@ -298,7 +362,9 @@ export declare class PinpointEmail extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutDedicatedIpInPool", input);
+  }
   putDedicatedIpWarmupAttributes(
     input: PutDedicatedIpWarmupAttributesRequest,
   ): Effect.Effect<
@@ -307,7 +373,9 @@ export declare class PinpointEmail extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutDedicatedIpWarmupAttributes", input);
+  }
   putDeliverabilityDashboardOption(
     input: PutDeliverabilityDashboardOptionRequest,
   ): Effect.Effect<
@@ -318,7 +386,9 @@ export declare class PinpointEmail extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutDeliverabilityDashboardOption", input);
+  }
   putEmailIdentityDkimAttributes(
     input: PutEmailIdentityDkimAttributesRequest,
   ): Effect.Effect<
@@ -327,7 +397,9 @@ export declare class PinpointEmail extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutEmailIdentityDkimAttributes", input);
+  }
   putEmailIdentityFeedbackAttributes(
     input: PutEmailIdentityFeedbackAttributesRequest,
   ): Effect.Effect<
@@ -336,7 +408,9 @@ export declare class PinpointEmail extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutEmailIdentityFeedbackAttributes", input);
+  }
   putEmailIdentityMailFromAttributes(
     input: PutEmailIdentityMailFromAttributesRequest,
   ): Effect.Effect<
@@ -345,7 +419,9 @@ export declare class PinpointEmail extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutEmailIdentityMailFromAttributes", input);
+  }
   sendEmail(
     input: SendEmailRequest,
   ): Effect.Effect<
@@ -359,7 +435,9 @@ export declare class PinpointEmail extends AWSServiceClient {
     | SendingPausedException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("SendEmail", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -369,7 +447,9 @@ export declare class PinpointEmail extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
@@ -379,7 +459,9 @@ export declare class PinpointEmail extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
   updateConfigurationSetEventDestination(
     input: UpdateConfigurationSetEventDestinationRequest,
   ): Effect.Effect<
@@ -388,8 +470,12 @@ export declare class PinpointEmail extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateConfigurationSetEventDestination", input);
+  }
 }
+
+export default PinpointEmail;
 
 export declare class AccountSuspendedException extends EffectData.TaggedError(
   "AccountSuspendedException",

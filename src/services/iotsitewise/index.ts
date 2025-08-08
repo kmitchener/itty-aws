@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class IoTSiteWise extends AWSServiceClient {
+export class IoTSiteWise extends AWSServiceClient {
   associateAssets(
     input: AssociateAssetsRequest,
   ): Effect.Effect<
@@ -15,7 +15,9 @@ export declare class IoTSiteWise extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AssociateAssets", input);
+  }
   associateTimeSeriesToAssetProperty(
     input: AssociateTimeSeriesToAssetPropertyRequest,
   ): Effect.Effect<
@@ -26,7 +28,9 @@ export declare class IoTSiteWise extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AssociateTimeSeriesToAssetProperty", input);
+  }
   batchAssociateProjectAssets(
     input: BatchAssociateProjectAssetsRequest,
   ): Effect.Effect<
@@ -37,7 +41,9 @@ export declare class IoTSiteWise extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("BatchAssociateProjectAssets", input);
+  }
   batchDisassociateProjectAssets(
     input: BatchDisassociateProjectAssetsRequest,
   ): Effect.Effect<
@@ -47,7 +53,9 @@ export declare class IoTSiteWise extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("BatchDisassociateProjectAssets", input);
+  }
   batchGetAssetPropertyAggregates(
     input: BatchGetAssetPropertyAggregatesRequest,
   ): Effect.Effect<
@@ -57,7 +65,9 @@ export declare class IoTSiteWise extends AWSServiceClient {
     | ServiceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("BatchGetAssetPropertyAggregates", input);
+  }
   batchGetAssetPropertyValue(
     input: BatchGetAssetPropertyValueRequest,
   ): Effect.Effect<
@@ -67,7 +77,9 @@ export declare class IoTSiteWise extends AWSServiceClient {
     | ServiceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("BatchGetAssetPropertyValue", input);
+  }
   batchGetAssetPropertyValueHistory(
     input: BatchGetAssetPropertyValueHistoryRequest,
   ): Effect.Effect<
@@ -77,7 +89,9 @@ export declare class IoTSiteWise extends AWSServiceClient {
     | ServiceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("BatchGetAssetPropertyValueHistory", input);
+  }
   batchPutAssetPropertyValue(
     input: BatchPutAssetPropertyValueRequest,
   ): Effect.Effect<
@@ -90,7 +104,9 @@ export declare class IoTSiteWise extends AWSServiceClient {
     | ServiceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("BatchPutAssetPropertyValue", input);
+  }
   createAccessPolicy(
     input: CreateAccessPolicyRequest,
   ): Effect.Effect<
@@ -101,7 +117,9 @@ export declare class IoTSiteWise extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateAccessPolicy", input);
+  }
   createAsset(
     input: CreateAssetRequest,
   ): Effect.Effect<
@@ -114,7 +132,9 @@ export declare class IoTSiteWise extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateAsset", input);
+  }
   createAssetModel(
     input: CreateAssetModelRequest,
   ): Effect.Effect<
@@ -127,7 +147,9 @@ export declare class IoTSiteWise extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateAssetModel", input);
+  }
   createAssetModelCompositeModel(
     input: CreateAssetModelCompositeModelRequest,
   ): Effect.Effect<
@@ -141,7 +163,9 @@ export declare class IoTSiteWise extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateAssetModelCompositeModel", input);
+  }
   createBulkImportJob(
     input: CreateBulkImportJobRequest,
   ): Effect.Effect<
@@ -154,7 +178,9 @@ export declare class IoTSiteWise extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateBulkImportJob", input);
+  }
   createComputationModel(
     input: CreateComputationModelRequest,
   ): Effect.Effect<
@@ -167,7 +193,9 @@ export declare class IoTSiteWise extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateComputationModel", input);
+  }
   createDashboard(
     input: CreateDashboardRequest,
   ): Effect.Effect<
@@ -178,7 +206,9 @@ export declare class IoTSiteWise extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateDashboard", input);
+  }
   createDataset(
     input: CreateDatasetRequest,
   ): Effect.Effect<
@@ -191,7 +221,9 @@ export declare class IoTSiteWise extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateDataset", input);
+  }
   createGateway(
     input: CreateGatewayRequest,
   ): Effect.Effect<
@@ -202,7 +234,9 @@ export declare class IoTSiteWise extends AWSServiceClient {
     | ResourceAlreadyExistsException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateGateway", input);
+  }
   createPortal(
     input: CreatePortalRequest,
   ): Effect.Effect<
@@ -213,7 +247,9 @@ export declare class IoTSiteWise extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreatePortal", input);
+  }
   createProject(
     input: CreateProjectRequest,
   ): Effect.Effect<
@@ -224,7 +260,9 @@ export declare class IoTSiteWise extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateProject", input);
+  }
   deleteAccessPolicy(
     input: DeleteAccessPolicyRequest,
   ): Effect.Effect<
@@ -234,7 +272,9 @@ export declare class IoTSiteWise extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteAccessPolicy", input);
+  }
   deleteAsset(
     input: DeleteAssetRequest,
   ): Effect.Effect<
@@ -245,7 +285,9 @@ export declare class IoTSiteWise extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteAsset", input);
+  }
   deleteAssetModel(
     input: DeleteAssetModelRequest,
   ): Effect.Effect<
@@ -257,7 +299,9 @@ export declare class IoTSiteWise extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteAssetModel", input);
+  }
   deleteAssetModelCompositeModel(
     input: DeleteAssetModelCompositeModelRequest,
   ): Effect.Effect<
@@ -269,7 +313,9 @@ export declare class IoTSiteWise extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteAssetModelCompositeModel", input);
+  }
   deleteComputationModel(
     input: DeleteComputationModelRequest,
   ): Effect.Effect<
@@ -280,7 +326,9 @@ export declare class IoTSiteWise extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteComputationModel", input);
+  }
   deleteDashboard(
     input: DeleteDashboardRequest,
   ): Effect.Effect<
@@ -290,7 +338,9 @@ export declare class IoTSiteWise extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteDashboard", input);
+  }
   deleteDataset(
     input: DeleteDatasetRequest,
   ): Effect.Effect<
@@ -301,7 +351,9 @@ export declare class IoTSiteWise extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteDataset", input);
+  }
   deleteGateway(
     input: DeleteGatewayRequest,
   ): Effect.Effect<
@@ -312,7 +364,9 @@ export declare class IoTSiteWise extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteGateway", input);
+  }
   deletePortal(
     input: DeletePortalRequest,
   ): Effect.Effect<
@@ -323,7 +377,9 @@ export declare class IoTSiteWise extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeletePortal", input);
+  }
   deleteProject(
     input: DeleteProjectRequest,
   ): Effect.Effect<
@@ -333,7 +389,9 @@ export declare class IoTSiteWise extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteProject", input);
+  }
   deleteTimeSeries(
     input: DeleteTimeSeriesRequest,
   ): Effect.Effect<
@@ -344,7 +402,9 @@ export declare class IoTSiteWise extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteTimeSeries", input);
+  }
   describeAccessPolicy(
     input: DescribeAccessPolicyRequest,
   ): Effect.Effect<
@@ -354,7 +414,9 @@ export declare class IoTSiteWise extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeAccessPolicy", input);
+  }
   describeAction(
     input: DescribeActionRequest,
   ): Effect.Effect<
@@ -364,7 +426,9 @@ export declare class IoTSiteWise extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeAction", input);
+  }
   describeAsset(
     input: DescribeAssetRequest,
   ): Effect.Effect<
@@ -374,7 +438,9 @@ export declare class IoTSiteWise extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeAsset", input);
+  }
   describeAssetCompositeModel(
     input: DescribeAssetCompositeModelRequest,
   ): Effect.Effect<
@@ -384,7 +450,9 @@ export declare class IoTSiteWise extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeAssetCompositeModel", input);
+  }
   describeAssetModel(
     input: DescribeAssetModelRequest,
   ): Effect.Effect<
@@ -394,7 +462,9 @@ export declare class IoTSiteWise extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeAssetModel", input);
+  }
   describeAssetModelCompositeModel(
     input: DescribeAssetModelCompositeModelRequest,
   ): Effect.Effect<
@@ -404,7 +474,9 @@ export declare class IoTSiteWise extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeAssetModelCompositeModel", input);
+  }
   describeAssetProperty(
     input: DescribeAssetPropertyRequest,
   ): Effect.Effect<
@@ -414,7 +486,9 @@ export declare class IoTSiteWise extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeAssetProperty", input);
+  }
   describeBulkImportJob(
     input: DescribeBulkImportJobRequest,
   ): Effect.Effect<
@@ -424,7 +498,9 @@ export declare class IoTSiteWise extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeBulkImportJob", input);
+  }
   describeComputationModel(
     input: DescribeComputationModelRequest,
   ): Effect.Effect<
@@ -434,7 +510,9 @@ export declare class IoTSiteWise extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeComputationModel", input);
+  }
   describeComputationModelExecutionSummary(
     input: DescribeComputationModelExecutionSummaryRequest,
   ): Effect.Effect<
@@ -444,7 +522,9 @@ export declare class IoTSiteWise extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeComputationModelExecutionSummary", input);
+  }
   describeDashboard(
     input: DescribeDashboardRequest,
   ): Effect.Effect<
@@ -454,7 +534,9 @@ export declare class IoTSiteWise extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeDashboard", input);
+  }
   describeDataset(
     input: DescribeDatasetRequest,
   ): Effect.Effect<
@@ -464,7 +546,9 @@ export declare class IoTSiteWise extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeDataset", input);
+  }
   describeDefaultEncryptionConfiguration(
     input: DescribeDefaultEncryptionConfigurationRequest,
   ): Effect.Effect<
@@ -473,7 +557,9 @@ export declare class IoTSiteWise extends AWSServiceClient {
     | InvalidRequestException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeDefaultEncryptionConfiguration", input);
+  }
   describeExecution(
     input: DescribeExecutionRequest,
   ): Effect.Effect<
@@ -483,7 +569,9 @@ export declare class IoTSiteWise extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeExecution", input);
+  }
   describeGateway(
     input: DescribeGatewayRequest,
   ): Effect.Effect<
@@ -493,7 +581,9 @@ export declare class IoTSiteWise extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeGateway", input);
+  }
   describeGatewayCapabilityConfiguration(
     input: DescribeGatewayCapabilityConfigurationRequest,
   ): Effect.Effect<
@@ -503,7 +593,9 @@ export declare class IoTSiteWise extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeGatewayCapabilityConfiguration", input);
+  }
   describeLoggingOptions(
     input: DescribeLoggingOptionsRequest,
   ): Effect.Effect<
@@ -513,7 +605,9 @@ export declare class IoTSiteWise extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeLoggingOptions", input);
+  }
   describePortal(
     input: DescribePortalRequest,
   ): Effect.Effect<
@@ -523,7 +617,9 @@ export declare class IoTSiteWise extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribePortal", input);
+  }
   describeProject(
     input: DescribeProjectRequest,
   ): Effect.Effect<
@@ -533,7 +629,9 @@ export declare class IoTSiteWise extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeProject", input);
+  }
   describeStorageConfiguration(
     input: DescribeStorageConfigurationRequest,
   ): Effect.Effect<
@@ -545,7 +643,9 @@ export declare class IoTSiteWise extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeStorageConfiguration", input);
+  }
   describeTimeSeries(
     input: DescribeTimeSeriesRequest,
   ): Effect.Effect<
@@ -555,7 +655,9 @@ export declare class IoTSiteWise extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeTimeSeries", input);
+  }
   disassociateAssets(
     input: DisassociateAssetsRequest,
   ): Effect.Effect<
@@ -566,7 +668,9 @@ export declare class IoTSiteWise extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DisassociateAssets", input);
+  }
   disassociateTimeSeriesFromAssetProperty(
     input: DisassociateTimeSeriesFromAssetPropertyRequest,
   ): Effect.Effect<
@@ -577,7 +681,9 @@ export declare class IoTSiteWise extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DisassociateTimeSeriesFromAssetProperty", input);
+  }
   executeAction(
     input: ExecuteActionRequest,
   ): Effect.Effect<
@@ -589,7 +695,9 @@ export declare class IoTSiteWise extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ExecuteAction", input);
+  }
   executeQuery(
     input: ExecuteQueryRequest,
   ): Effect.Effect<
@@ -602,7 +710,9 @@ export declare class IoTSiteWise extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ExecuteQuery", input);
+  }
   getAssetPropertyAggregates(
     input: GetAssetPropertyAggregatesRequest,
   ): Effect.Effect<
@@ -613,7 +723,9 @@ export declare class IoTSiteWise extends AWSServiceClient {
     | ServiceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetAssetPropertyAggregates", input);
+  }
   getAssetPropertyValue(
     input: GetAssetPropertyValueRequest,
   ): Effect.Effect<
@@ -624,7 +736,9 @@ export declare class IoTSiteWise extends AWSServiceClient {
     | ServiceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetAssetPropertyValue", input);
+  }
   getAssetPropertyValueHistory(
     input: GetAssetPropertyValueHistoryRequest,
   ): Effect.Effect<
@@ -635,7 +749,9 @@ export declare class IoTSiteWise extends AWSServiceClient {
     | ServiceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetAssetPropertyValueHistory", input);
+  }
   getInterpolatedAssetPropertyValues(
     input: GetInterpolatedAssetPropertyValuesRequest,
   ): Effect.Effect<
@@ -646,7 +762,9 @@ export declare class IoTSiteWise extends AWSServiceClient {
     | ServiceUnavailableException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetInterpolatedAssetPropertyValues", input);
+  }
   invokeAssistant(
     input: InvokeAssistantRequest,
   ): Effect.Effect<
@@ -659,7 +777,9 @@ export declare class IoTSiteWise extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("InvokeAssistant", input);
+  }
   listAccessPolicies(
     input: ListAccessPoliciesRequest,
   ): Effect.Effect<
@@ -668,7 +788,9 @@ export declare class IoTSiteWise extends AWSServiceClient {
     | InvalidRequestException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListAccessPolicies", input);
+  }
   listActions(
     input: ListActionsRequest,
   ): Effect.Effect<
@@ -678,7 +800,9 @@ export declare class IoTSiteWise extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListActions", input);
+  }
   listAssetModelCompositeModels(
     input: ListAssetModelCompositeModelsRequest,
   ): Effect.Effect<
@@ -688,7 +812,9 @@ export declare class IoTSiteWise extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListAssetModelCompositeModels", input);
+  }
   listAssetModelProperties(
     input: ListAssetModelPropertiesRequest,
   ): Effect.Effect<
@@ -698,7 +824,9 @@ export declare class IoTSiteWise extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListAssetModelProperties", input);
+  }
   listAssetModels(
     input: ListAssetModelsRequest,
   ): Effect.Effect<
@@ -707,7 +835,9 @@ export declare class IoTSiteWise extends AWSServiceClient {
     | InvalidRequestException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListAssetModels", input);
+  }
   listAssetProperties(
     input: ListAssetPropertiesRequest,
   ): Effect.Effect<
@@ -717,7 +847,9 @@ export declare class IoTSiteWise extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListAssetProperties", input);
+  }
   listAssetRelationships(
     input: ListAssetRelationshipsRequest,
   ): Effect.Effect<
@@ -727,7 +859,9 @@ export declare class IoTSiteWise extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListAssetRelationships", input);
+  }
   listAssets(
     input: ListAssetsRequest,
   ): Effect.Effect<
@@ -737,7 +871,9 @@ export declare class IoTSiteWise extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListAssets", input);
+  }
   listAssociatedAssets(
     input: ListAssociatedAssetsRequest,
   ): Effect.Effect<
@@ -747,7 +883,9 @@ export declare class IoTSiteWise extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListAssociatedAssets", input);
+  }
   listBulkImportJobs(
     input: ListBulkImportJobsRequest,
   ): Effect.Effect<
@@ -757,7 +895,9 @@ export declare class IoTSiteWise extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListBulkImportJobs", input);
+  }
   listCompositionRelationships(
     input: ListCompositionRelationshipsRequest,
   ): Effect.Effect<
@@ -767,7 +907,9 @@ export declare class IoTSiteWise extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListCompositionRelationships", input);
+  }
   listComputationModelDataBindingUsages(
     input: ListComputationModelDataBindingUsagesRequest,
   ): Effect.Effect<
@@ -776,7 +918,9 @@ export declare class IoTSiteWise extends AWSServiceClient {
     | InvalidRequestException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListComputationModelDataBindingUsages", input);
+  }
   listComputationModelResolveToResources(
     input: ListComputationModelResolveToResourcesRequest,
   ): Effect.Effect<
@@ -786,7 +930,9 @@ export declare class IoTSiteWise extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListComputationModelResolveToResources", input);
+  }
   listComputationModels(
     input: ListComputationModelsRequest,
   ): Effect.Effect<
@@ -795,7 +941,9 @@ export declare class IoTSiteWise extends AWSServiceClient {
     | InvalidRequestException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListComputationModels", input);
+  }
   listDashboards(
     input: ListDashboardsRequest,
   ): Effect.Effect<
@@ -804,7 +952,9 @@ export declare class IoTSiteWise extends AWSServiceClient {
     | InvalidRequestException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListDashboards", input);
+  }
   listDatasets(
     input: ListDatasetsRequest,
   ): Effect.Effect<
@@ -813,7 +963,9 @@ export declare class IoTSiteWise extends AWSServiceClient {
     | InvalidRequestException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListDatasets", input);
+  }
   listExecutions(
     input: ListExecutionsRequest,
   ): Effect.Effect<
@@ -823,7 +975,9 @@ export declare class IoTSiteWise extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListExecutions", input);
+  }
   listGateways(
     input: ListGatewaysRequest,
   ): Effect.Effect<
@@ -832,7 +986,9 @@ export declare class IoTSiteWise extends AWSServiceClient {
     | InvalidRequestException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListGateways", input);
+  }
   listPortals(
     input: ListPortalsRequest,
   ): Effect.Effect<
@@ -841,7 +997,9 @@ export declare class IoTSiteWise extends AWSServiceClient {
     | InvalidRequestException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListPortals", input);
+  }
   listProjectAssets(
     input: ListProjectAssetsRequest,
   ): Effect.Effect<
@@ -850,7 +1008,9 @@ export declare class IoTSiteWise extends AWSServiceClient {
     | InvalidRequestException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListProjectAssets", input);
+  }
   listProjects(
     input: ListProjectsRequest,
   ): Effect.Effect<
@@ -859,7 +1019,9 @@ export declare class IoTSiteWise extends AWSServiceClient {
     | InvalidRequestException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListProjects", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
@@ -872,7 +1034,9 @@ export declare class IoTSiteWise extends AWSServiceClient {
     | ThrottlingException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   listTimeSeries(
     input: ListTimeSeriesRequest,
   ): Effect.Effect<
@@ -882,7 +1046,9 @@ export declare class IoTSiteWise extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTimeSeries", input);
+  }
   putDefaultEncryptionConfiguration(
     input: PutDefaultEncryptionConfigurationRequest,
   ): Effect.Effect<
@@ -893,7 +1059,9 @@ export declare class IoTSiteWise extends AWSServiceClient {
     | LimitExceededException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutDefaultEncryptionConfiguration", input);
+  }
   putLoggingOptions(
     input: PutLoggingOptionsRequest,
   ): Effect.Effect<
@@ -904,7 +1072,9 @@ export declare class IoTSiteWise extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutLoggingOptions", input);
+  }
   putStorageConfiguration(
     input: PutStorageConfigurationRequest,
   ): Effect.Effect<
@@ -917,7 +1087,9 @@ export declare class IoTSiteWise extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutStorageConfiguration", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -931,7 +1103,9 @@ export declare class IoTSiteWise extends AWSServiceClient {
     | TooManyTagsException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
@@ -944,7 +1118,9 @@ export declare class IoTSiteWise extends AWSServiceClient {
     | ThrottlingException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
   updateAccessPolicy(
     input: UpdateAccessPolicyRequest,
   ): Effect.Effect<
@@ -954,7 +1130,9 @@ export declare class IoTSiteWise extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateAccessPolicy", input);
+  }
   updateAsset(
     input: UpdateAssetRequest,
   ): Effect.Effect<
@@ -966,7 +1144,9 @@ export declare class IoTSiteWise extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateAsset", input);
+  }
   updateAssetModel(
     input: UpdateAssetModelRequest,
   ): Effect.Effect<
@@ -980,7 +1160,9 @@ export declare class IoTSiteWise extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateAssetModel", input);
+  }
   updateAssetModelCompositeModel(
     input: UpdateAssetModelCompositeModelRequest,
   ): Effect.Effect<
@@ -994,7 +1176,9 @@ export declare class IoTSiteWise extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateAssetModelCompositeModel", input);
+  }
   updateAssetProperty(
     input: UpdateAssetPropertyRequest,
   ): Effect.Effect<
@@ -1005,7 +1189,9 @@ export declare class IoTSiteWise extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateAssetProperty", input);
+  }
   updateComputationModel(
     input: UpdateComputationModelRequest,
   ): Effect.Effect<
@@ -1018,7 +1204,9 @@ export declare class IoTSiteWise extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateComputationModel", input);
+  }
   updateDashboard(
     input: UpdateDashboardRequest,
   ): Effect.Effect<
@@ -1028,7 +1216,9 @@ export declare class IoTSiteWise extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateDashboard", input);
+  }
   updateDataset(
     input: UpdateDatasetRequest,
   ): Effect.Effect<
@@ -1040,7 +1230,9 @@ export declare class IoTSiteWise extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateDataset", input);
+  }
   updateGateway(
     input: UpdateGatewayRequest,
   ): Effect.Effect<
@@ -1051,7 +1243,9 @@ export declare class IoTSiteWise extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateGateway", input);
+  }
   updateGatewayCapabilityConfiguration(
     input: UpdateGatewayCapabilityConfigurationRequest,
   ): Effect.Effect<
@@ -1063,7 +1257,9 @@ export declare class IoTSiteWise extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateGatewayCapabilityConfiguration", input);
+  }
   updatePortal(
     input: UpdatePortalRequest,
   ): Effect.Effect<
@@ -1074,7 +1270,9 @@ export declare class IoTSiteWise extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdatePortal", input);
+  }
   updateProject(
     input: UpdateProjectRequest,
   ): Effect.Effect<
@@ -1084,10 +1282,14 @@ export declare class IoTSiteWise extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateProject", input);
+  }
 }
 
-export declare class Iotsitewise extends IoTSiteWise {}
+export class Iotsitewise extends IoTSiteWise {}
+
+export default IoTSiteWise;
 
 export declare class AccessDeniedException extends EffectData.TaggedError(
   "AccessDeniedException",

@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class MediaStore extends AWSServiceClient {
+export class MediaStore extends AWSServiceClient {
   createContainer(
     input: CreateContainerInput,
   ): Effect.Effect<
@@ -11,7 +11,9 @@ export declare class MediaStore extends AWSServiceClient {
     | InternalServerError
     | LimitExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateContainer", input);
+  }
   deleteContainer(
     input: DeleteContainerInput,
   ): Effect.Effect<
@@ -20,7 +22,9 @@ export declare class MediaStore extends AWSServiceClient {
     | ContainerNotFoundException
     | InternalServerError
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteContainer", input);
+  }
   deleteContainerPolicy(
     input: DeleteContainerPolicyInput,
   ): Effect.Effect<
@@ -30,7 +34,9 @@ export declare class MediaStore extends AWSServiceClient {
     | InternalServerError
     | PolicyNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteContainerPolicy", input);
+  }
   deleteCorsPolicy(
     input: DeleteCorsPolicyInput,
   ): Effect.Effect<
@@ -40,7 +46,9 @@ export declare class MediaStore extends AWSServiceClient {
     | CorsPolicyNotFoundException
     | InternalServerError
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteCorsPolicy", input);
+  }
   deleteLifecyclePolicy(
     input: DeleteLifecyclePolicyInput,
   ): Effect.Effect<
@@ -50,7 +58,9 @@ export declare class MediaStore extends AWSServiceClient {
     | InternalServerError
     | PolicyNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteLifecyclePolicy", input);
+  }
   deleteMetricPolicy(
     input: DeleteMetricPolicyInput,
   ): Effect.Effect<
@@ -60,13 +70,17 @@ export declare class MediaStore extends AWSServiceClient {
     | InternalServerError
     | PolicyNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteMetricPolicy", input);
+  }
   describeContainer(
     input: DescribeContainerInput,
   ): Effect.Effect<
     DescribeContainerOutput,
     ContainerNotFoundException | InternalServerError | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeContainer", input);
+  }
   getContainerPolicy(
     input: GetContainerPolicyInput,
   ): Effect.Effect<
@@ -76,7 +90,9 @@ export declare class MediaStore extends AWSServiceClient {
     | InternalServerError
     | PolicyNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetContainerPolicy", input);
+  }
   getCorsPolicy(
     input: GetCorsPolicyInput,
   ): Effect.Effect<
@@ -86,7 +102,9 @@ export declare class MediaStore extends AWSServiceClient {
     | CorsPolicyNotFoundException
     | InternalServerError
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetCorsPolicy", input);
+  }
   getLifecyclePolicy(
     input: GetLifecyclePolicyInput,
   ): Effect.Effect<
@@ -96,7 +114,9 @@ export declare class MediaStore extends AWSServiceClient {
     | InternalServerError
     | PolicyNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetLifecyclePolicy", input);
+  }
   getMetricPolicy(
     input: GetMetricPolicyInput,
   ): Effect.Effect<
@@ -106,10 +126,14 @@ export declare class MediaStore extends AWSServiceClient {
     | InternalServerError
     | PolicyNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetMetricPolicy", input);
+  }
   listContainers(
     input: ListContainersInput,
-  ): Effect.Effect<ListContainersOutput, InternalServerError | CommonAwsError>;
+  ): Effect.Effect<ListContainersOutput, InternalServerError | CommonAwsError> {
+    return this.call("ListContainers", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceInput,
   ): Effect.Effect<
@@ -118,7 +142,9 @@ export declare class MediaStore extends AWSServiceClient {
     | ContainerNotFoundException
     | InternalServerError
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   putContainerPolicy(
     input: PutContainerPolicyInput,
   ): Effect.Effect<
@@ -127,7 +153,9 @@ export declare class MediaStore extends AWSServiceClient {
     | ContainerNotFoundException
     | InternalServerError
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutContainerPolicy", input);
+  }
   putCorsPolicy(
     input: PutCorsPolicyInput,
   ): Effect.Effect<
@@ -136,7 +164,9 @@ export declare class MediaStore extends AWSServiceClient {
     | ContainerNotFoundException
     | InternalServerError
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutCorsPolicy", input);
+  }
   putLifecyclePolicy(
     input: PutLifecyclePolicyInput,
   ): Effect.Effect<
@@ -145,7 +175,9 @@ export declare class MediaStore extends AWSServiceClient {
     | ContainerNotFoundException
     | InternalServerError
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutLifecyclePolicy", input);
+  }
   putMetricPolicy(
     input: PutMetricPolicyInput,
   ): Effect.Effect<
@@ -154,7 +186,9 @@ export declare class MediaStore extends AWSServiceClient {
     | ContainerNotFoundException
     | InternalServerError
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutMetricPolicy", input);
+  }
   startAccessLogging(
     input: StartAccessLoggingInput,
   ): Effect.Effect<
@@ -163,7 +197,9 @@ export declare class MediaStore extends AWSServiceClient {
     | ContainerNotFoundException
     | InternalServerError
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartAccessLogging", input);
+  }
   stopAccessLogging(
     input: StopAccessLoggingInput,
   ): Effect.Effect<
@@ -172,7 +208,9 @@ export declare class MediaStore extends AWSServiceClient {
     | ContainerNotFoundException
     | InternalServerError
     | CommonAwsError
-  >;
+  > {
+    return this.call("StopAccessLogging", input);
+  }
   tagResource(
     input: TagResourceInput,
   ): Effect.Effect<
@@ -181,7 +219,9 @@ export declare class MediaStore extends AWSServiceClient {
     | ContainerNotFoundException
     | InternalServerError
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceInput,
   ): Effect.Effect<
@@ -190,10 +230,14 @@ export declare class MediaStore extends AWSServiceClient {
     | ContainerNotFoundException
     | InternalServerError
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
 }
 
-export declare class Mediastore extends MediaStore {}
+export class Mediastore extends MediaStore {}
+
+export default MediaStore;
 
 export type AllowedHeaders = Array<string>;
 export type AllowedMethods = Array<MethodName>;

@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class AutoScalingPlans extends AWSServiceClient {
+export class AutoScalingPlans extends AWSServiceClient {
   createScalingPlan(
     input: CreateScalingPlanRequest,
   ): Effect.Effect<
@@ -12,7 +12,9 @@ export declare class AutoScalingPlans extends AWSServiceClient {
     | LimitExceededException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateScalingPlan", input);
+  }
   deleteScalingPlan(
     input: DeleteScalingPlanRequest,
   ): Effect.Effect<
@@ -22,7 +24,9 @@ export declare class AutoScalingPlans extends AWSServiceClient {
     | ObjectNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteScalingPlan", input);
+  }
   describeScalingPlanResources(
     input: DescribeScalingPlanResourcesRequest,
   ): Effect.Effect<
@@ -32,7 +36,9 @@ export declare class AutoScalingPlans extends AWSServiceClient {
     | InvalidNextTokenException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeScalingPlanResources", input);
+  }
   describeScalingPlans(
     input: DescribeScalingPlansRequest,
   ): Effect.Effect<
@@ -42,13 +48,17 @@ export declare class AutoScalingPlans extends AWSServiceClient {
     | InvalidNextTokenException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeScalingPlans", input);
+  }
   getScalingPlanResourceForecastData(
     input: GetScalingPlanResourceForecastDataRequest,
   ): Effect.Effect<
     GetScalingPlanResourceForecastDataResponse,
     InternalServiceException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("GetScalingPlanResourceForecastData", input);
+  }
   updateScalingPlan(
     input: UpdateScalingPlanRequest,
   ): Effect.Effect<
@@ -58,8 +68,12 @@ export declare class AutoScalingPlans extends AWSServiceClient {
     | ObjectNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateScalingPlan", input);
+  }
 }
+
+export default AutoScalingPlans;
 
 export interface ApplicationSource {
   CloudFormationStackARN?: string;

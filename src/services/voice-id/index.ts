@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class VoiceID extends AWSServiceClient {
+export class VoiceID extends AWSServiceClient {
   associateFraudster(
     input: AssociateFraudsterRequest,
   ): Effect.Effect<
@@ -15,7 +15,9 @@ export declare class VoiceID extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AssociateFraudster", input);
+  }
   createWatchlist(
     input: CreateWatchlistRequest,
   ): Effect.Effect<
@@ -28,7 +30,9 @@ export declare class VoiceID extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateWatchlist", input);
+  }
   deleteFraudster(
     input: DeleteFraudsterRequest,
   ): Effect.Effect<
@@ -40,7 +44,9 @@ export declare class VoiceID extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteFraudster", input);
+  }
   deleteSpeaker(
     input: DeleteSpeakerRequest,
   ): Effect.Effect<
@@ -52,7 +58,9 @@ export declare class VoiceID extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteSpeaker", input);
+  }
   deleteWatchlist(
     input: DeleteWatchlistRequest,
   ): Effect.Effect<
@@ -64,7 +72,9 @@ export declare class VoiceID extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteWatchlist", input);
+  }
   describeFraudster(
     input: DescribeFraudsterRequest,
   ): Effect.Effect<
@@ -75,7 +85,9 @@ export declare class VoiceID extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeFraudster", input);
+  }
   describeFraudsterRegistrationJob(
     input: DescribeFraudsterRegistrationJobRequest,
   ): Effect.Effect<
@@ -86,7 +98,9 @@ export declare class VoiceID extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeFraudsterRegistrationJob", input);
+  }
   describeSpeaker(
     input: DescribeSpeakerRequest,
   ): Effect.Effect<
@@ -97,7 +111,9 @@ export declare class VoiceID extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeSpeaker", input);
+  }
   describeSpeakerEnrollmentJob(
     input: DescribeSpeakerEnrollmentJobRequest,
   ): Effect.Effect<
@@ -108,7 +124,9 @@ export declare class VoiceID extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeSpeakerEnrollmentJob", input);
+  }
   describeWatchlist(
     input: DescribeWatchlistRequest,
   ): Effect.Effect<
@@ -119,7 +137,9 @@ export declare class VoiceID extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeWatchlist", input);
+  }
   disassociateFraudster(
     input: DisassociateFraudsterRequest,
   ): Effect.Effect<
@@ -131,7 +151,9 @@ export declare class VoiceID extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DisassociateFraudster", input);
+  }
   evaluateSession(
     input: EvaluateSessionRequest,
   ): Effect.Effect<
@@ -143,7 +165,9 @@ export declare class VoiceID extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("EvaluateSession", input);
+  }
   listFraudsterRegistrationJobs(
     input: ListFraudsterRegistrationJobsRequest,
   ): Effect.Effect<
@@ -154,7 +178,9 @@ export declare class VoiceID extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListFraudsterRegistrationJobs", input);
+  }
   listFraudsters(
     input: ListFraudstersRequest,
   ): Effect.Effect<
@@ -165,7 +191,9 @@ export declare class VoiceID extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListFraudsters", input);
+  }
   listSpeakerEnrollmentJobs(
     input: ListSpeakerEnrollmentJobsRequest,
   ): Effect.Effect<
@@ -176,7 +204,9 @@ export declare class VoiceID extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListSpeakerEnrollmentJobs", input);
+  }
   listSpeakers(
     input: ListSpeakersRequest,
   ): Effect.Effect<
@@ -187,7 +217,9 @@ export declare class VoiceID extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListSpeakers", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
@@ -198,7 +230,9 @@ export declare class VoiceID extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   listWatchlists(
     input: ListWatchlistsRequest,
   ): Effect.Effect<
@@ -209,7 +243,9 @@ export declare class VoiceID extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListWatchlists", input);
+  }
   optOutSpeaker(
     input: OptOutSpeakerRequest,
   ): Effect.Effect<
@@ -222,7 +258,9 @@ export declare class VoiceID extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("OptOutSpeaker", input);
+  }
   startFraudsterRegistrationJob(
     input: StartFraudsterRegistrationJobRequest,
   ): Effect.Effect<
@@ -235,7 +273,9 @@ export declare class VoiceID extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartFraudsterRegistrationJob", input);
+  }
   startSpeakerEnrollmentJob(
     input: StartSpeakerEnrollmentJobRequest,
   ): Effect.Effect<
@@ -248,7 +288,9 @@ export declare class VoiceID extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartSpeakerEnrollmentJob", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -260,7 +302,9 @@ export declare class VoiceID extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
@@ -272,7 +316,9 @@ export declare class VoiceID extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
   updateWatchlist(
     input: UpdateWatchlistRequest,
   ): Effect.Effect<
@@ -284,10 +330,14 @@ export declare class VoiceID extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateWatchlist", input);
+  }
 }
 
-export declare class VoiceId extends VoiceID {}
+export class VoiceId extends VoiceID {}
+
+export default VoiceID;
 
 export declare class AccessDeniedException extends EffectData.TaggedError(
   "AccessDeniedException",

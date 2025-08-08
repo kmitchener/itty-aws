@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class Kafka extends AWSServiceClient {
+export class Kafka extends AWSServiceClient {
   batchAssociateScramSecret(
     input: BatchAssociateScramSecretRequest,
   ): Effect.Effect<
@@ -15,7 +15,9 @@ export declare class Kafka extends AWSServiceClient {
     | TooManyRequestsException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("BatchAssociateScramSecret", input);
+  }
   batchDisassociateScramSecret(
     input: BatchDisassociateScramSecretRequest,
   ): Effect.Effect<
@@ -28,7 +30,9 @@ export declare class Kafka extends AWSServiceClient {
     | TooManyRequestsException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("BatchDisassociateScramSecret", input);
+  }
   createCluster(
     input: CreateClusterRequest,
   ): Effect.Effect<
@@ -41,7 +45,9 @@ export declare class Kafka extends AWSServiceClient {
     | TooManyRequestsException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateCluster", input);
+  }
   createClusterV2(
     input: CreateClusterV2Request,
   ): Effect.Effect<
@@ -54,7 +60,9 @@ export declare class Kafka extends AWSServiceClient {
     | TooManyRequestsException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateClusterV2", input);
+  }
   createConfiguration(
     input: CreateConfigurationRequest,
   ): Effect.Effect<
@@ -67,7 +75,9 @@ export declare class Kafka extends AWSServiceClient {
     | TooManyRequestsException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateConfiguration", input);
+  }
   createReplicator(
     input: CreateReplicatorRequest,
   ): Effect.Effect<
@@ -81,7 +91,9 @@ export declare class Kafka extends AWSServiceClient {
     | TooManyRequestsException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateReplicator", input);
+  }
   createVpcConnection(
     input: CreateVpcConnectionRequest,
   ): Effect.Effect<
@@ -93,7 +105,9 @@ export declare class Kafka extends AWSServiceClient {
     | TooManyRequestsException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateVpcConnection", input);
+  }
   deleteCluster(
     input: DeleteClusterRequest,
   ): Effect.Effect<
@@ -103,7 +117,9 @@ export declare class Kafka extends AWSServiceClient {
     | InternalServerErrorException
     | NotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteCluster", input);
+  }
   deleteClusterPolicy(
     input: DeleteClusterPolicyRequest,
   ): Effect.Effect<
@@ -113,7 +129,9 @@ export declare class Kafka extends AWSServiceClient {
     | InternalServerErrorException
     | NotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteClusterPolicy", input);
+  }
   deleteConfiguration(
     input: DeleteConfigurationRequest,
   ): Effect.Effect<
@@ -123,7 +141,9 @@ export declare class Kafka extends AWSServiceClient {
     | InternalServerErrorException
     | NotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteConfiguration", input);
+  }
   deleteReplicator(
     input: DeleteReplicatorRequest,
   ): Effect.Effect<
@@ -136,7 +156,9 @@ export declare class Kafka extends AWSServiceClient {
     | TooManyRequestsException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteReplicator", input);
+  }
   deleteVpcConnection(
     input: DeleteVpcConnectionRequest,
   ): Effect.Effect<
@@ -146,7 +168,9 @@ export declare class Kafka extends AWSServiceClient {
     | InternalServerErrorException
     | NotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteVpcConnection", input);
+  }
   describeCluster(
     input: DescribeClusterRequest,
   ): Effect.Effect<
@@ -157,7 +181,9 @@ export declare class Kafka extends AWSServiceClient {
     | NotFoundException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeCluster", input);
+  }
   describeClusterOperation(
     input: DescribeClusterOperationRequest,
   ): Effect.Effect<
@@ -168,7 +194,9 @@ export declare class Kafka extends AWSServiceClient {
     | NotFoundException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeClusterOperation", input);
+  }
   describeClusterOperationV2(
     input: DescribeClusterOperationV2Request,
   ): Effect.Effect<
@@ -181,7 +209,9 @@ export declare class Kafka extends AWSServiceClient {
     | TooManyRequestsException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeClusterOperationV2", input);
+  }
   describeClusterV2(
     input: DescribeClusterV2Request,
   ): Effect.Effect<
@@ -192,7 +222,9 @@ export declare class Kafka extends AWSServiceClient {
     | NotFoundException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeClusterV2", input);
+  }
   describeConfiguration(
     input: DescribeConfigurationRequest,
   ): Effect.Effect<
@@ -204,7 +236,9 @@ export declare class Kafka extends AWSServiceClient {
     | ServiceUnavailableException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeConfiguration", input);
+  }
   describeConfigurationRevision(
     input: DescribeConfigurationRevisionRequest,
   ): Effect.Effect<
@@ -216,7 +250,9 @@ export declare class Kafka extends AWSServiceClient {
     | ServiceUnavailableException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeConfigurationRevision", input);
+  }
   describeReplicator(
     input: DescribeReplicatorRequest,
   ): Effect.Effect<
@@ -229,7 +265,9 @@ export declare class Kafka extends AWSServiceClient {
     | TooManyRequestsException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeReplicator", input);
+  }
   describeVpcConnection(
     input: DescribeVpcConnectionRequest,
   ): Effect.Effect<
@@ -241,7 +279,9 @@ export declare class Kafka extends AWSServiceClient {
     | ServiceUnavailableException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeVpcConnection", input);
+  }
   getBootstrapBrokers(
     input: GetBootstrapBrokersRequest,
   ): Effect.Effect<
@@ -252,7 +292,9 @@ export declare class Kafka extends AWSServiceClient {
     | InternalServerErrorException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetBootstrapBrokers", input);
+  }
   getClusterPolicy(
     input: GetClusterPolicyRequest,
   ): Effect.Effect<
@@ -262,7 +304,9 @@ export declare class Kafka extends AWSServiceClient {
     | InternalServerErrorException
     | NotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetClusterPolicy", input);
+  }
   getCompatibleKafkaVersions(
     input: GetCompatibleKafkaVersionsRequest,
   ): Effect.Effect<
@@ -275,7 +319,9 @@ export declare class Kafka extends AWSServiceClient {
     | TooManyRequestsException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetCompatibleKafkaVersions", input);
+  }
   listClientVpcConnections(
     input: ListClientVpcConnectionsRequest,
   ): Effect.Effect<
@@ -286,7 +332,9 @@ export declare class Kafka extends AWSServiceClient {
     | ServiceUnavailableException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListClientVpcConnections", input);
+  }
   listClusterOperations(
     input: ListClusterOperationsRequest,
   ): Effect.Effect<
@@ -296,7 +344,9 @@ export declare class Kafka extends AWSServiceClient {
     | InternalServerErrorException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListClusterOperations", input);
+  }
   listClusterOperationsV2(
     input: ListClusterOperationsV2Request,
   ): Effect.Effect<
@@ -309,7 +359,9 @@ export declare class Kafka extends AWSServiceClient {
     | TooManyRequestsException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListClusterOperationsV2", input);
+  }
   listClusters(
     input: ListClustersRequest,
   ): Effect.Effect<
@@ -319,7 +371,9 @@ export declare class Kafka extends AWSServiceClient {
     | InternalServerErrorException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListClusters", input);
+  }
   listClustersV2(
     input: ListClustersV2Request,
   ): Effect.Effect<
@@ -329,7 +383,9 @@ export declare class Kafka extends AWSServiceClient {
     | InternalServerErrorException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListClustersV2", input);
+  }
   listConfigurationRevisions(
     input: ListConfigurationRevisionsRequest,
   ): Effect.Effect<
@@ -341,7 +397,9 @@ export declare class Kafka extends AWSServiceClient {
     | ServiceUnavailableException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListConfigurationRevisions", input);
+  }
   listConfigurations(
     input: ListConfigurationsRequest,
   ): Effect.Effect<
@@ -352,7 +410,9 @@ export declare class Kafka extends AWSServiceClient {
     | ServiceUnavailableException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListConfigurations", input);
+  }
   listKafkaVersions(
     input: ListKafkaVersionsRequest,
   ): Effect.Effect<
@@ -362,7 +422,9 @@ export declare class Kafka extends AWSServiceClient {
     | InternalServerErrorException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListKafkaVersions", input);
+  }
   listNodes(
     input: ListNodesRequest,
   ): Effect.Effect<
@@ -372,7 +434,9 @@ export declare class Kafka extends AWSServiceClient {
     | InternalServerErrorException
     | NotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListNodes", input);
+  }
   listReplicators(
     input: ListReplicatorsRequest,
   ): Effect.Effect<
@@ -385,7 +449,9 @@ export declare class Kafka extends AWSServiceClient {
     | TooManyRequestsException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListReplicators", input);
+  }
   listScramSecrets(
     input: ListScramSecretsRequest,
   ): Effect.Effect<
@@ -398,7 +464,9 @@ export declare class Kafka extends AWSServiceClient {
     | TooManyRequestsException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListScramSecrets", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
@@ -407,7 +475,9 @@ export declare class Kafka extends AWSServiceClient {
     | InternalServerErrorException
     | NotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   listVpcConnections(
     input: ListVpcConnectionsRequest,
   ): Effect.Effect<
@@ -418,7 +488,9 @@ export declare class Kafka extends AWSServiceClient {
     | ServiceUnavailableException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListVpcConnections", input);
+  }
   putClusterPolicy(
     input: PutClusterPolicyRequest,
   ): Effect.Effect<
@@ -427,7 +499,9 @@ export declare class Kafka extends AWSServiceClient {
     | ForbiddenException
     | InternalServerErrorException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutClusterPolicy", input);
+  }
   rebootBroker(
     input: RebootBrokerRequest,
   ): Effect.Effect<
@@ -440,7 +514,9 @@ export declare class Kafka extends AWSServiceClient {
     | TooManyRequestsException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("RebootBroker", input);
+  }
   rejectClientVpcConnection(
     input: RejectClientVpcConnectionRequest,
   ): Effect.Effect<
@@ -451,7 +527,9 @@ export declare class Kafka extends AWSServiceClient {
     | ServiceUnavailableException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("RejectClientVpcConnection", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -460,7 +538,9 @@ export declare class Kafka extends AWSServiceClient {
     | InternalServerErrorException
     | NotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
@@ -469,7 +549,9 @@ export declare class Kafka extends AWSServiceClient {
     | InternalServerErrorException
     | NotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
   updateBrokerCount(
     input: UpdateBrokerCountRequest,
   ): Effect.Effect<
@@ -480,7 +562,9 @@ export declare class Kafka extends AWSServiceClient {
     | ServiceUnavailableException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateBrokerCount", input);
+  }
   updateBrokerStorage(
     input: UpdateBrokerStorageRequest,
   ): Effect.Effect<
@@ -491,7 +575,9 @@ export declare class Kafka extends AWSServiceClient {
     | ServiceUnavailableException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateBrokerStorage", input);
+  }
   updateBrokerType(
     input: UpdateBrokerTypeRequest,
   ): Effect.Effect<
@@ -504,7 +590,9 @@ export declare class Kafka extends AWSServiceClient {
     | TooManyRequestsException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateBrokerType", input);
+  }
   updateClusterConfiguration(
     input: UpdateClusterConfigurationRequest,
   ): Effect.Effect<
@@ -516,7 +604,9 @@ export declare class Kafka extends AWSServiceClient {
     | ServiceUnavailableException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateClusterConfiguration", input);
+  }
   updateClusterKafkaVersion(
     input: UpdateClusterKafkaVersionRequest,
   ): Effect.Effect<
@@ -529,7 +619,9 @@ export declare class Kafka extends AWSServiceClient {
     | TooManyRequestsException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateClusterKafkaVersion", input);
+  }
   updateConfiguration(
     input: UpdateConfigurationRequest,
   ): Effect.Effect<
@@ -541,7 +633,9 @@ export declare class Kafka extends AWSServiceClient {
     | ServiceUnavailableException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateConfiguration", input);
+  }
   updateConnectivity(
     input: UpdateConnectivityRequest,
   ): Effect.Effect<
@@ -553,7 +647,9 @@ export declare class Kafka extends AWSServiceClient {
     | ServiceUnavailableException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateConnectivity", input);
+  }
   updateMonitoring(
     input: UpdateMonitoringRequest,
   ): Effect.Effect<
@@ -564,7 +660,9 @@ export declare class Kafka extends AWSServiceClient {
     | ServiceUnavailableException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateMonitoring", input);
+  }
   updateReplicationInfo(
     input: UpdateReplicationInfoRequest,
   ): Effect.Effect<
@@ -577,7 +675,9 @@ export declare class Kafka extends AWSServiceClient {
     | TooManyRequestsException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateReplicationInfo", input);
+  }
   updateSecurity(
     input: UpdateSecurityRequest,
   ): Effect.Effect<
@@ -590,7 +690,9 @@ export declare class Kafka extends AWSServiceClient {
     | TooManyRequestsException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateSecurity", input);
+  }
   updateStorage(
     input: UpdateStorageRequest,
   ): Effect.Effect<
@@ -603,8 +705,12 @@ export declare class Kafka extends AWSServiceClient {
     | TooManyRequestsException
     | UnauthorizedException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateStorage", input);
+  }
 }
+
+export default Kafka;
 
 export type __blob = Uint8Array | string;
 

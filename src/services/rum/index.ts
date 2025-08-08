@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class RUM extends AWSServiceClient {
+export class RUM extends AWSServiceClient {
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
@@ -11,7 +11,9 @@ export declare class RUM extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   putRumEvents(
     input: PutRumEventsRequest,
   ): Effect.Effect<
@@ -22,7 +24,9 @@ export declare class RUM extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutRumEvents", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -31,7 +35,9 @@ export declare class RUM extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
@@ -40,10 +46,14 @@ export declare class RUM extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
 }
 
-export declare class Rum extends RUM {}
+export class Rum extends RUM {}
+
+export default RUM;
 
 export declare class AccessDeniedException extends EffectData.TaggedError(
   "AccessDeniedException",

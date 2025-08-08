@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class SocialMessaging extends AWSServiceClient {
+export class SocialMessaging extends AWSServiceClient {
   createWhatsAppMessageTemplate(
     input: CreateWhatsAppMessageTemplateInput,
   ): Effect.Effect<
@@ -13,7 +13,9 @@ export declare class SocialMessaging extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottledRequestException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateWhatsAppMessageTemplate", input);
+  }
   createWhatsAppMessageTemplateFromLibrary(
     input: CreateWhatsAppMessageTemplateFromLibraryInput,
   ): Effect.Effect<
@@ -24,7 +26,9 @@ export declare class SocialMessaging extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottledRequestException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateWhatsAppMessageTemplateFromLibrary", input);
+  }
   createWhatsAppMessageTemplateMedia(
     input: CreateWhatsAppMessageTemplateMediaInput,
   ): Effect.Effect<
@@ -35,7 +39,9 @@ export declare class SocialMessaging extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottledRequestException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateWhatsAppMessageTemplateMedia", input);
+  }
   deleteWhatsAppMessageTemplate(
     input: DeleteWhatsAppMessageTemplateInput,
   ): Effect.Effect<
@@ -46,7 +52,9 @@ export declare class SocialMessaging extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottledRequestException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteWhatsAppMessageTemplate", input);
+  }
   getWhatsAppMessageTemplate(
     input: GetWhatsAppMessageTemplateInput,
   ): Effect.Effect<
@@ -57,7 +65,9 @@ export declare class SocialMessaging extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottledRequestException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetWhatsAppMessageTemplate", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceInput,
   ): Effect.Effect<
@@ -66,7 +76,9 @@ export declare class SocialMessaging extends AWSServiceClient {
     | InvalidParametersException
     | ThrottledRequestException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   listWhatsAppMessageTemplates(
     input: ListWhatsAppMessageTemplatesInput,
   ): Effect.Effect<
@@ -77,7 +89,9 @@ export declare class SocialMessaging extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottledRequestException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListWhatsAppMessageTemplates", input);
+  }
   listWhatsAppTemplateLibrary(
     input: ListWhatsAppTemplateLibraryInput,
   ): Effect.Effect<
@@ -88,7 +102,9 @@ export declare class SocialMessaging extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottledRequestException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListWhatsAppTemplateLibrary", input);
+  }
   tagResource(
     input: TagResourceInput,
   ): Effect.Effect<
@@ -97,7 +113,9 @@ export declare class SocialMessaging extends AWSServiceClient {
     | InvalidParametersException
     | ThrottledRequestException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceInput,
   ): Effect.Effect<
@@ -106,7 +124,9 @@ export declare class SocialMessaging extends AWSServiceClient {
     | InvalidParametersException
     | ThrottledRequestException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
   updateWhatsAppMessageTemplate(
     input: UpdateWhatsAppMessageTemplateInput,
   ): Effect.Effect<
@@ -117,10 +137,14 @@ export declare class SocialMessaging extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottledRequestException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateWhatsAppMessageTemplate", input);
+  }
 }
 
-export declare class Socialmessaging extends SocialMessaging {}
+export class Socialmessaging extends SocialMessaging {}
+
+export default SocialMessaging;
 
 export declare class AccessDeniedByMetaException extends EffectData.TaggedError(
   "AccessDeniedByMetaException",

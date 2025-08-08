@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class Inspector2 extends AWSServiceClient {
+export class Inspector2 extends AWSServiceClient {
   associateMember(
     input: AssociateMemberRequest,
   ): Effect.Effect<
@@ -13,7 +13,9 @@ export declare class Inspector2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AssociateMember", input);
+  }
   batchAssociateCodeSecurityScanConfiguration(
     input: BatchAssociateCodeSecurityScanConfigurationRequest,
   ): Effect.Effect<
@@ -25,7 +27,9 @@ export declare class Inspector2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("BatchAssociateCodeSecurityScanConfiguration", input);
+  }
   batchDisassociateCodeSecurityScanConfiguration(
     input: BatchDisassociateCodeSecurityScanConfigurationRequest,
   ): Effect.Effect<
@@ -37,7 +41,9 @@ export declare class Inspector2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("BatchDisassociateCodeSecurityScanConfiguration", input);
+  }
   batchGetAccountStatus(
     input: BatchGetAccountStatusRequest,
   ): Effect.Effect<
@@ -48,7 +54,9 @@ export declare class Inspector2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("BatchGetAccountStatus", input);
+  }
   batchGetCodeSnippet(
     input: BatchGetCodeSnippetRequest,
   ): Effect.Effect<
@@ -58,7 +66,9 @@ export declare class Inspector2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("BatchGetCodeSnippet", input);
+  }
   batchGetFindingDetails(
     input: BatchGetFindingDetailsRequest,
   ): Effect.Effect<
@@ -68,7 +78,9 @@ export declare class Inspector2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("BatchGetFindingDetails", input);
+  }
   batchGetFreeTrialInfo(
     input: BatchGetFreeTrialInfoRequest,
   ): Effect.Effect<
@@ -78,7 +90,9 @@ export declare class Inspector2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("BatchGetFreeTrialInfo", input);
+  }
   batchGetMemberEc2DeepInspectionStatus(
     input: BatchGetMemberEc2DeepInspectionStatusRequest,
   ): Effect.Effect<
@@ -88,7 +102,9 @@ export declare class Inspector2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("BatchGetMemberEc2DeepInspectionStatus", input);
+  }
   batchUpdateMemberEc2DeepInspectionStatus(
     input: BatchUpdateMemberEc2DeepInspectionStatusRequest,
   ): Effect.Effect<
@@ -98,7 +114,9 @@ export declare class Inspector2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("BatchUpdateMemberEc2DeepInspectionStatus", input);
+  }
   cancelFindingsReport(
     input: CancelFindingsReportRequest,
   ): Effect.Effect<
@@ -109,7 +127,9 @@ export declare class Inspector2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CancelFindingsReport", input);
+  }
   cancelSbomExport(
     input: CancelSbomExportRequest,
   ): Effect.Effect<
@@ -120,7 +140,9 @@ export declare class Inspector2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CancelSbomExport", input);
+  }
   createCisScanConfiguration(
     input: CreateCisScanConfigurationRequest,
   ): Effect.Effect<
@@ -130,7 +152,9 @@ export declare class Inspector2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateCisScanConfiguration", input);
+  }
   createCodeSecurityIntegration(
     input: CreateCodeSecurityIntegrationRequest,
   ): Effect.Effect<
@@ -142,7 +166,9 @@ export declare class Inspector2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateCodeSecurityIntegration", input);
+  }
   createCodeSecurityScanConfiguration(
     input: CreateCodeSecurityScanConfigurationRequest,
   ): Effect.Effect<
@@ -154,7 +180,9 @@ export declare class Inspector2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateCodeSecurityScanConfiguration", input);
+  }
   createFilter(
     input: CreateFilterRequest,
   ): Effect.Effect<
@@ -166,7 +194,9 @@ export declare class Inspector2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateFilter", input);
+  }
   createFindingsReport(
     input: CreateFindingsReportRequest,
   ): Effect.Effect<
@@ -177,7 +207,9 @@ export declare class Inspector2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateFindingsReport", input);
+  }
   createSbomExport(
     input: CreateSbomExportRequest,
   ): Effect.Effect<
@@ -188,7 +220,9 @@ export declare class Inspector2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateSbomExport", input);
+  }
   deleteCisScanConfiguration(
     input: DeleteCisScanConfigurationRequest,
   ): Effect.Effect<
@@ -199,7 +233,9 @@ export declare class Inspector2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteCisScanConfiguration", input);
+  }
   deleteCodeSecurityIntegration(
     input: DeleteCodeSecurityIntegrationRequest,
   ): Effect.Effect<
@@ -210,7 +246,9 @@ export declare class Inspector2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteCodeSecurityIntegration", input);
+  }
   deleteCodeSecurityScanConfiguration(
     input: DeleteCodeSecurityScanConfigurationRequest,
   ): Effect.Effect<
@@ -221,7 +259,9 @@ export declare class Inspector2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteCodeSecurityScanConfiguration", input);
+  }
   deleteFilter(
     input: DeleteFilterRequest,
   ): Effect.Effect<
@@ -232,7 +272,9 @@ export declare class Inspector2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteFilter", input);
+  }
   describeOrganizationConfiguration(
     input: DescribeOrganizationConfigurationRequest,
   ): Effect.Effect<
@@ -242,7 +284,9 @@ export declare class Inspector2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeOrganizationConfiguration", input);
+  }
   disable(
     input: DisableRequest,
   ): Effect.Effect<
@@ -253,7 +297,9 @@ export declare class Inspector2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("Disable", input);
+  }
   disableDelegatedAdminAccount(
     input: DisableDelegatedAdminAccountRequest,
   ): Effect.Effect<
@@ -265,7 +311,9 @@ export declare class Inspector2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DisableDelegatedAdminAccount", input);
+  }
   disassociateMember(
     input: DisassociateMemberRequest,
   ): Effect.Effect<
@@ -275,7 +323,9 @@ export declare class Inspector2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DisassociateMember", input);
+  }
   enable(
     input: EnableRequest,
   ): Effect.Effect<
@@ -286,7 +336,9 @@ export declare class Inspector2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("Enable", input);
+  }
   enableDelegatedAdminAccount(
     input: EnableDelegatedAdminAccountRequest,
   ): Effect.Effect<
@@ -298,7 +350,9 @@ export declare class Inspector2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("EnableDelegatedAdminAccount", input);
+  }
   getCisScanReport(
     input: GetCisScanReportRequest,
   ): Effect.Effect<
@@ -309,7 +363,9 @@ export declare class Inspector2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetCisScanReport", input);
+  }
   getCisScanResultDetails(
     input: GetCisScanResultDetailsRequest,
   ): Effect.Effect<
@@ -319,7 +375,9 @@ export declare class Inspector2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetCisScanResultDetails", input);
+  }
   getClustersForImage(
     input: GetClustersForImageRequest,
   ): Effect.Effect<
@@ -329,7 +387,9 @@ export declare class Inspector2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetClustersForImage", input);
+  }
   getCodeSecurityIntegration(
     input: GetCodeSecurityIntegrationRequest,
   ): Effect.Effect<
@@ -340,7 +400,9 @@ export declare class Inspector2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetCodeSecurityIntegration", input);
+  }
   getCodeSecurityScan(
     input: GetCodeSecurityScanRequest,
   ): Effect.Effect<
@@ -352,7 +414,9 @@ export declare class Inspector2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetCodeSecurityScan", input);
+  }
   getCodeSecurityScanConfiguration(
     input: GetCodeSecurityScanConfigurationRequest,
   ): Effect.Effect<
@@ -363,7 +427,9 @@ export declare class Inspector2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetCodeSecurityScanConfiguration", input);
+  }
   getConfiguration(
     input: GetConfigurationRequest,
   ): Effect.Effect<
@@ -372,7 +438,9 @@ export declare class Inspector2 extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetConfiguration", input);
+  }
   getDelegatedAdminAccount(
     input: GetDelegatedAdminAccountRequest,
   ): Effect.Effect<
@@ -383,7 +451,9 @@ export declare class Inspector2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetDelegatedAdminAccount", input);
+  }
   getEc2DeepInspectionConfiguration(
     input: GetEc2DeepInspectionConfigurationRequest,
   ): Effect.Effect<
@@ -393,7 +463,9 @@ export declare class Inspector2 extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetEc2DeepInspectionConfiguration", input);
+  }
   getEncryptionKey(
     input: GetEncryptionKeyRequest,
   ): Effect.Effect<
@@ -404,7 +476,9 @@ export declare class Inspector2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetEncryptionKey", input);
+  }
   getFindingsReportStatus(
     input: GetFindingsReportStatusRequest,
   ): Effect.Effect<
@@ -415,7 +489,9 @@ export declare class Inspector2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetFindingsReportStatus", input);
+  }
   getMember(
     input: GetMemberRequest,
   ): Effect.Effect<
@@ -426,7 +502,9 @@ export declare class Inspector2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetMember", input);
+  }
   getSbomExport(
     input: GetSbomExportRequest,
   ): Effect.Effect<
@@ -437,7 +515,9 @@ export declare class Inspector2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetSbomExport", input);
+  }
   listAccountPermissions(
     input: ListAccountPermissionsRequest,
   ): Effect.Effect<
@@ -447,7 +527,9 @@ export declare class Inspector2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListAccountPermissions", input);
+  }
   listCisScanConfigurations(
     input: ListCisScanConfigurationsRequest,
   ): Effect.Effect<
@@ -457,7 +539,9 @@ export declare class Inspector2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListCisScanConfigurations", input);
+  }
   listCisScanResultsAggregatedByChecks(
     input: ListCisScanResultsAggregatedByChecksRequest,
   ): Effect.Effect<
@@ -467,7 +551,9 @@ export declare class Inspector2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListCisScanResultsAggregatedByChecks", input);
+  }
   listCisScanResultsAggregatedByTargetResource(
     input: ListCisScanResultsAggregatedByTargetResourceRequest,
   ): Effect.Effect<
@@ -477,7 +563,9 @@ export declare class Inspector2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListCisScanResultsAggregatedByTargetResource", input);
+  }
   listCisScans(
     input: ListCisScansRequest,
   ): Effect.Effect<
@@ -487,7 +575,9 @@ export declare class Inspector2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListCisScans", input);
+  }
   listCodeSecurityIntegrations(
     input: ListCodeSecurityIntegrationsRequest,
   ): Effect.Effect<
@@ -497,7 +587,9 @@ export declare class Inspector2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListCodeSecurityIntegrations", input);
+  }
   listCodeSecurityScanConfigurationAssociations(
     input: ListCodeSecurityScanConfigurationAssociationsRequest,
   ): Effect.Effect<
@@ -508,7 +600,9 @@ export declare class Inspector2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListCodeSecurityScanConfigurationAssociations", input);
+  }
   listCodeSecurityScanConfigurations(
     input: ListCodeSecurityScanConfigurationsRequest,
   ): Effect.Effect<
@@ -519,7 +613,9 @@ export declare class Inspector2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListCodeSecurityScanConfigurations", input);
+  }
   listCoverage(
     input: ListCoverageRequest,
   ): Effect.Effect<
@@ -528,7 +624,9 @@ export declare class Inspector2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListCoverage", input);
+  }
   listCoverageStatistics(
     input: ListCoverageStatisticsRequest,
   ): Effect.Effect<
@@ -537,7 +635,9 @@ export declare class Inspector2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListCoverageStatistics", input);
+  }
   listDelegatedAdminAccounts(
     input: ListDelegatedAdminAccountsRequest,
   ): Effect.Effect<
@@ -547,7 +647,9 @@ export declare class Inspector2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListDelegatedAdminAccounts", input);
+  }
   listFilters(
     input: ListFiltersRequest,
   ): Effect.Effect<
@@ -557,7 +659,9 @@ export declare class Inspector2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListFilters", input);
+  }
   listFindingAggregations(
     input: ListFindingAggregationsRequest,
   ): Effect.Effect<
@@ -566,7 +670,9 @@ export declare class Inspector2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListFindingAggregations", input);
+  }
   listFindings(
     input: ListFindingsRequest,
   ): Effect.Effect<
@@ -575,7 +681,9 @@ export declare class Inspector2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListFindings", input);
+  }
   listMembers(
     input: ListMembersRequest,
   ): Effect.Effect<
@@ -585,7 +693,9 @@ export declare class Inspector2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListMembers", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
@@ -595,7 +705,9 @@ export declare class Inspector2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   listUsageTotals(
     input: ListUsageTotalsRequest,
   ): Effect.Effect<
@@ -605,7 +717,9 @@ export declare class Inspector2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListUsageTotals", input);
+  }
   resetEncryptionKey(
     input: ResetEncryptionKeyRequest,
   ): Effect.Effect<
@@ -616,7 +730,9 @@ export declare class Inspector2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ResetEncryptionKey", input);
+  }
   searchVulnerabilities(
     input: SearchVulnerabilitiesRequest,
   ): Effect.Effect<
@@ -626,7 +742,9 @@ export declare class Inspector2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("SearchVulnerabilities", input);
+  }
   sendCisSessionHealth(
     input: SendCisSessionHealthRequest,
   ): Effect.Effect<
@@ -637,7 +755,9 @@ export declare class Inspector2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("SendCisSessionHealth", input);
+  }
   sendCisSessionTelemetry(
     input: SendCisSessionTelemetryRequest,
   ): Effect.Effect<
@@ -648,7 +768,9 @@ export declare class Inspector2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("SendCisSessionTelemetry", input);
+  }
   startCisSession(
     input: StartCisSessionRequest,
   ): Effect.Effect<
@@ -659,7 +781,9 @@ export declare class Inspector2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartCisSession", input);
+  }
   startCodeSecurityScan(
     input: StartCodeSecurityScanRequest,
   ): Effect.Effect<
@@ -671,7 +795,9 @@ export declare class Inspector2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartCodeSecurityScan", input);
+  }
   stopCisSession(
     input: StopCisSessionRequest,
   ): Effect.Effect<
@@ -682,7 +808,9 @@ export declare class Inspector2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StopCisSession", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -693,7 +821,9 @@ export declare class Inspector2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
@@ -703,7 +833,9 @@ export declare class Inspector2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
   updateCisScanConfiguration(
     input: UpdateCisScanConfigurationRequest,
   ): Effect.Effect<
@@ -714,7 +846,9 @@ export declare class Inspector2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateCisScanConfiguration", input);
+  }
   updateCodeSecurityIntegration(
     input: UpdateCodeSecurityIntegrationRequest,
   ): Effect.Effect<
@@ -726,7 +860,9 @@ export declare class Inspector2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateCodeSecurityIntegration", input);
+  }
   updateCodeSecurityScanConfiguration(
     input: UpdateCodeSecurityScanConfigurationRequest,
   ): Effect.Effect<
@@ -738,7 +874,9 @@ export declare class Inspector2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateCodeSecurityScanConfiguration", input);
+  }
   updateConfiguration(
     input: UpdateConfigurationRequest,
   ): Effect.Effect<
@@ -748,7 +886,9 @@ export declare class Inspector2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateConfiguration", input);
+  }
   updateEc2DeepInspectionConfiguration(
     input: UpdateEc2DeepInspectionConfigurationRequest,
   ): Effect.Effect<
@@ -758,7 +898,9 @@ export declare class Inspector2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateEc2DeepInspectionConfiguration", input);
+  }
   updateEncryptionKey(
     input: UpdateEncryptionKeyRequest,
   ): Effect.Effect<
@@ -769,7 +911,9 @@ export declare class Inspector2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateEncryptionKey", input);
+  }
   updateFilter(
     input: UpdateFilterRequest,
   ): Effect.Effect<
@@ -780,7 +924,9 @@ export declare class Inspector2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateFilter", input);
+  }
   updateOrganizationConfiguration(
     input: UpdateOrganizationConfigurationRequest,
   ): Effect.Effect<
@@ -790,7 +936,9 @@ export declare class Inspector2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateOrganizationConfiguration", input);
+  }
   updateOrgEc2DeepInspectionConfiguration(
     input: UpdateOrgEc2DeepInspectionConfigurationRequest,
   ): Effect.Effect<
@@ -800,8 +948,12 @@ export declare class Inspector2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateOrgEc2DeepInspectionConfiguration", input);
+  }
 }
+
+export default Inspector2;
 
 export declare class AccessDeniedException extends EffectData.TaggedError(
   "AccessDeniedException",

@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class CodeStarconnections extends AWSServiceClient {
+export class CodeStarconnections extends AWSServiceClient {
   createConnection(
     input: CreateConnectionInput,
   ): Effect.Effect<
@@ -11,10 +11,14 @@ export declare class CodeStarconnections extends AWSServiceClient {
     | ResourceNotFoundException
     | ResourceUnavailableException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateConnection", input);
+  }
   createHost(
     input: CreateHostInput,
-  ): Effect.Effect<CreateHostOutput, LimitExceededException | CommonAwsError>;
+  ): Effect.Effect<CreateHostOutput, LimitExceededException | CommonAwsError> {
+    return this.call("CreateHost", input);
+  }
   createRepositoryLink(
     input: CreateRepositoryLinkInput,
   ): Effect.Effect<
@@ -27,7 +31,9 @@ export declare class CodeStarconnections extends AWSServiceClient {
     | ResourceAlreadyExistsException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateRepositoryLink", input);
+  }
   createSyncConfiguration(
     input: CreateSyncConfigurationInput,
   ): Effect.Effect<
@@ -40,19 +46,25 @@ export declare class CodeStarconnections extends AWSServiceClient {
     | ResourceAlreadyExistsException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateSyncConfiguration", input);
+  }
   deleteConnection(
     input: DeleteConnectionInput,
   ): Effect.Effect<
     DeleteConnectionOutput,
     ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteConnection", input);
+  }
   deleteHost(
     input: DeleteHostInput,
   ): Effect.Effect<
     DeleteHostOutput,
     ResourceNotFoundException | ResourceUnavailableException | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteHost", input);
+  }
   deleteRepositoryLink(
     input: DeleteRepositoryLinkInput,
   ): Effect.Effect<
@@ -66,7 +78,9 @@ export declare class CodeStarconnections extends AWSServiceClient {
     | ThrottlingException
     | UnsupportedProviderTypeException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteRepositoryLink", input);
+  }
   deleteSyncConfiguration(
     input: DeleteSyncConfigurationInput,
   ): Effect.Effect<
@@ -78,19 +92,25 @@ export declare class CodeStarconnections extends AWSServiceClient {
     | LimitExceededException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteSyncConfiguration", input);
+  }
   getConnection(
     input: GetConnectionInput,
   ): Effect.Effect<
     GetConnectionOutput,
     ResourceNotFoundException | ResourceUnavailableException | CommonAwsError
-  >;
+  > {
+    return this.call("GetConnection", input);
+  }
   getHost(
     input: GetHostInput,
   ): Effect.Effect<
     GetHostOutput,
     ResourceNotFoundException | ResourceUnavailableException | CommonAwsError
-  >;
+  > {
+    return this.call("GetHost", input);
+  }
   getRepositoryLink(
     input: GetRepositoryLinkInput,
   ): Effect.Effect<
@@ -102,7 +122,9 @@ export declare class CodeStarconnections extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetRepositoryLink", input);
+  }
   getRepositorySyncStatus(
     input: GetRepositorySyncStatusInput,
   ): Effect.Effect<
@@ -113,7 +135,9 @@ export declare class CodeStarconnections extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetRepositorySyncStatus", input);
+  }
   getResourceSyncStatus(
     input: GetResourceSyncStatusInput,
   ): Effect.Effect<
@@ -124,7 +148,9 @@ export declare class CodeStarconnections extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetResourceSyncStatus", input);
+  }
   getSyncBlockerSummary(
     input: GetSyncBlockerSummaryInput,
   ): Effect.Effect<
@@ -135,7 +161,9 @@ export declare class CodeStarconnections extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetSyncBlockerSummary", input);
+  }
   getSyncConfiguration(
     input: GetSyncConfigurationInput,
   ): Effect.Effect<
@@ -146,16 +174,22 @@ export declare class CodeStarconnections extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetSyncConfiguration", input);
+  }
   listConnections(
     input: ListConnectionsInput,
   ): Effect.Effect<
     ListConnectionsOutput,
     ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("ListConnections", input);
+  }
   listHosts(
     input: ListHostsInput,
-  ): Effect.Effect<ListHostsOutput, CommonAwsError>;
+  ): Effect.Effect<ListHostsOutput, CommonAwsError> {
+    return this.call("ListHosts", input);
+  }
   listRepositoryLinks(
     input: ListRepositoryLinksInput,
   ): Effect.Effect<
@@ -167,7 +201,9 @@ export declare class CodeStarconnections extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListRepositoryLinks", input);
+  }
   listRepositorySyncDefinitions(
     input: ListRepositorySyncDefinitionsInput,
   ): Effect.Effect<
@@ -178,7 +214,9 @@ export declare class CodeStarconnections extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListRepositorySyncDefinitions", input);
+  }
   listSyncConfigurations(
     input: ListSyncConfigurationsInput,
   ): Effect.Effect<
@@ -189,25 +227,33 @@ export declare class CodeStarconnections extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListSyncConfigurations", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceInput,
   ): Effect.Effect<
     ListTagsForResourceOutput,
     ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   tagResource(
     input: TagResourceInput,
   ): Effect.Effect<
     TagResourceOutput,
     LimitExceededException | ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceInput,
   ): Effect.Effect<
     UntagResourceOutput,
     ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
   updateHost(
     input: UpdateHostInput,
   ): Effect.Effect<
@@ -217,7 +263,9 @@ export declare class CodeStarconnections extends AWSServiceClient {
     | ResourceUnavailableException
     | UnsupportedOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateHost", input);
+  }
   updateRepositoryLink(
     input: UpdateRepositoryLinkInput,
   ): Effect.Effect<
@@ -230,7 +278,9 @@ export declare class CodeStarconnections extends AWSServiceClient {
     | ThrottlingException
     | UpdateOutOfSyncException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateRepositoryLink", input);
+  }
   updateSyncBlocker(
     input: UpdateSyncBlockerInput,
   ): Effect.Effect<
@@ -243,7 +293,9 @@ export declare class CodeStarconnections extends AWSServiceClient {
     | SyncBlockerDoesNotExistException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateSyncBlocker", input);
+  }
   updateSyncConfiguration(
     input: UpdateSyncConfigurationInput,
   ): Effect.Effect<
@@ -256,10 +308,14 @@ export declare class CodeStarconnections extends AWSServiceClient {
     | ThrottlingException
     | UpdateOutOfSyncException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateSyncConfiguration", input);
+  }
 }
 
-export declare class CodestarConnections extends CodeStarconnections {}
+export class CodestarConnections extends CodeStarconnections {}
+
+export default CodeStarconnections;
 
 export declare class AccessDeniedException extends EffectData.TaggedError(
   "AccessDeniedException",

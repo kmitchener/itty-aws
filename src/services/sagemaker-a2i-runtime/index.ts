@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class SageMakerA2IRuntime extends AWSServiceClient {
+export class SageMakerA2IRuntime extends AWSServiceClient {
   deleteHumanLoop(
     input: DeleteHumanLoopRequest,
   ): Effect.Effect<
@@ -12,7 +12,9 @@ export declare class SageMakerA2IRuntime extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteHumanLoop", input);
+  }
   describeHumanLoop(
     input: DescribeHumanLoopRequest,
   ): Effect.Effect<
@@ -22,7 +24,9 @@ export declare class SageMakerA2IRuntime extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeHumanLoop", input);
+  }
   listHumanLoops(
     input: ListHumanLoopsRequest,
   ): Effect.Effect<
@@ -32,7 +36,9 @@ export declare class SageMakerA2IRuntime extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListHumanLoops", input);
+  }
   startHumanLoop(
     input: StartHumanLoopRequest,
   ): Effect.Effect<
@@ -43,7 +49,9 @@ export declare class SageMakerA2IRuntime extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartHumanLoop", input);
+  }
   stopHumanLoop(
     input: StopHumanLoopRequest,
   ): Effect.Effect<
@@ -53,10 +61,14 @@ export declare class SageMakerA2IRuntime extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StopHumanLoop", input);
+  }
 }
 
-export declare class SagemakerA2iRuntime extends SageMakerA2IRuntime {}
+export class SagemakerA2iRuntime extends SageMakerA2IRuntime {}
+
+export default SageMakerA2IRuntime;
 
 export declare class ConflictException extends EffectData.TaggedError(
   "ConflictException",

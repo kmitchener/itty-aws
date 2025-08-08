@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class SSMGuiConnect extends AWSServiceClient {
+export class SSMGuiConnect extends AWSServiceClient {
   deleteConnectionRecordingPreferences(
     input: DeleteConnectionRecordingPreferencesRequest,
   ): Effect.Effect<
@@ -15,7 +15,9 @@ export declare class SSMGuiConnect extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteConnectionRecordingPreferences", input);
+  }
   getConnectionRecordingPreferences(input: {}): Effect.Effect<
     GetConnectionRecordingPreferencesResponse,
     | AccessDeniedException
@@ -26,7 +28,9 @@ export declare class SSMGuiConnect extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetConnectionRecordingPreferences", input);
+  }
   updateConnectionRecordingPreferences(
     input: UpdateConnectionRecordingPreferencesRequest,
   ): Effect.Effect<
@@ -39,10 +43,14 @@ export declare class SSMGuiConnect extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateConnectionRecordingPreferences", input);
+  }
 }
 
-export declare class SsmGuiconnect extends SSMGuiConnect {}
+export class SsmGuiconnect extends SSMGuiConnect {}
+
+export default SSMGuiConnect;
 
 export declare class AccessDeniedException extends EffectData.TaggedError(
   "AccessDeniedException",

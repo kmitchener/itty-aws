@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class finspacedata extends AWSServiceClient {
+export class finspacedata extends AWSServiceClient {
   associateUserToPermissionGroup(
     input: AssociateUserToPermissionGroupRequest,
   ): Effect.Effect<
@@ -14,7 +14,9 @@ export declare class finspacedata extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AssociateUserToPermissionGroup", input);
+  }
   createChangeset(
     input: CreateChangesetRequest,
   ): Effect.Effect<
@@ -27,7 +29,9 @@ export declare class finspacedata extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateChangeset", input);
+  }
   createDataset(
     input: CreateDatasetRequest,
   ): Effect.Effect<
@@ -40,7 +44,9 @@ export declare class finspacedata extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateDataset", input);
+  }
   createDataView(
     input: CreateDataViewRequest,
   ): Effect.Effect<
@@ -52,7 +58,9 @@ export declare class finspacedata extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateDataView", input);
+  }
   createPermissionGroup(
     input: CreatePermissionGroupRequest,
   ): Effect.Effect<
@@ -64,7 +72,9 @@ export declare class finspacedata extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreatePermissionGroup", input);
+  }
   createUser(
     input: CreateUserRequest,
   ): Effect.Effect<
@@ -76,7 +86,9 @@ export declare class finspacedata extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateUser", input);
+  }
   deleteDataset(
     input: DeleteDatasetRequest,
   ): Effect.Effect<
@@ -89,7 +101,9 @@ export declare class finspacedata extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteDataset", input);
+  }
   deletePermissionGroup(
     input: DeletePermissionGroupRequest,
   ): Effect.Effect<
@@ -102,7 +116,9 @@ export declare class finspacedata extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeletePermissionGroup", input);
+  }
   disableUser(
     input: DisableUserRequest,
   ): Effect.Effect<
@@ -114,7 +130,9 @@ export declare class finspacedata extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DisableUser", input);
+  }
   disassociateUserFromPermissionGroup(
     input: DisassociateUserFromPermissionGroupRequest,
   ): Effect.Effect<
@@ -126,7 +144,9 @@ export declare class finspacedata extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DisassociateUserFromPermissionGroup", input);
+  }
   enableUser(
     input: EnableUserRequest,
   ): Effect.Effect<
@@ -139,7 +159,9 @@ export declare class finspacedata extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("EnableUser", input);
+  }
   getChangeset(
     input: GetChangesetRequest,
   ): Effect.Effect<
@@ -151,7 +173,9 @@ export declare class finspacedata extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetChangeset", input);
+  }
   getDataset(
     input: GetDatasetRequest,
   ): Effect.Effect<
@@ -163,7 +187,9 @@ export declare class finspacedata extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetDataset", input);
+  }
   getDataView(
     input: GetDataViewRequest,
   ): Effect.Effect<
@@ -174,7 +200,9 @@ export declare class finspacedata extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetDataView", input);
+  }
   getExternalDataViewAccessDetails(
     input: GetExternalDataViewAccessDetailsRequest,
   ): Effect.Effect<
@@ -185,7 +213,9 @@ export declare class finspacedata extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetExternalDataViewAccessDetails", input);
+  }
   getPermissionGroup(
     input: GetPermissionGroupRequest,
   ): Effect.Effect<
@@ -196,7 +226,9 @@ export declare class finspacedata extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetPermissionGroup", input);
+  }
   getProgrammaticAccessCredentials(
     input: GetProgrammaticAccessCredentialsRequest,
   ): Effect.Effect<
@@ -206,7 +238,9 @@ export declare class finspacedata extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetProgrammaticAccessCredentials", input);
+  }
   getUser(
     input: GetUserRequest,
   ): Effect.Effect<
@@ -217,7 +251,9 @@ export declare class finspacedata extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetUser", input);
+  }
   getWorkingLocation(
     input: GetWorkingLocationRequest,
   ): Effect.Effect<
@@ -227,7 +263,9 @@ export declare class finspacedata extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetWorkingLocation", input);
+  }
   listChangesets(
     input: ListChangesetsRequest,
   ): Effect.Effect<
@@ -239,7 +277,9 @@ export declare class finspacedata extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListChangesets", input);
+  }
   listDatasets(
     input: ListDatasetsRequest,
   ): Effect.Effect<
@@ -250,7 +290,9 @@ export declare class finspacedata extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListDatasets", input);
+  }
   listDataViews(
     input: ListDataViewsRequest,
   ): Effect.Effect<
@@ -261,7 +303,9 @@ export declare class finspacedata extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListDataViews", input);
+  }
   listPermissionGroups(
     input: ListPermissionGroupsRequest,
   ): Effect.Effect<
@@ -271,7 +315,9 @@ export declare class finspacedata extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListPermissionGroups", input);
+  }
   listPermissionGroupsByUser(
     input: ListPermissionGroupsByUserRequest,
   ): Effect.Effect<
@@ -282,7 +328,9 @@ export declare class finspacedata extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListPermissionGroupsByUser", input);
+  }
   listUsers(
     input: ListUsersRequest,
   ): Effect.Effect<
@@ -292,7 +340,9 @@ export declare class finspacedata extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListUsers", input);
+  }
   listUsersByPermissionGroup(
     input: ListUsersByPermissionGroupRequest,
   ): Effect.Effect<
@@ -303,7 +353,9 @@ export declare class finspacedata extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListUsersByPermissionGroup", input);
+  }
   resetUserPassword(
     input: ResetUserPasswordRequest,
   ): Effect.Effect<
@@ -315,7 +367,9 @@ export declare class finspacedata extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ResetUserPassword", input);
+  }
   updateChangeset(
     input: UpdateChangesetRequest,
   ): Effect.Effect<
@@ -327,7 +381,9 @@ export declare class finspacedata extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateChangeset", input);
+  }
   updateDataset(
     input: UpdateDatasetRequest,
   ): Effect.Effect<
@@ -339,7 +395,9 @@ export declare class finspacedata extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateDataset", input);
+  }
   updatePermissionGroup(
     input: UpdatePermissionGroupRequest,
   ): Effect.Effect<
@@ -351,7 +409,9 @@ export declare class finspacedata extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdatePermissionGroup", input);
+  }
   updateUser(
     input: UpdateUserRequest,
   ): Effect.Effect<
@@ -363,10 +423,14 @@ export declare class finspacedata extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateUser", input);
+  }
 }
 
-export declare class FinspaceData extends finspacedata {}
+export class FinspaceData extends finspacedata {}
+
+export default finspacedata;
 
 export declare class AccessDeniedException extends EffectData.TaggedError(
   "AccessDeniedException",

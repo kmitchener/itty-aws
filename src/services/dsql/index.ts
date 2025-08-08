@@ -2,25 +2,33 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class DSQL extends AWSServiceClient {
+export class DSQL extends AWSServiceClient {
   listTagsForResource(
     input: ListTagsForResourceInput,
   ): Effect.Effect<
     ListTagsForResourceOutput,
     ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   tagResource(
     input: TagResourceInput,
   ): Effect.Effect<
     {},
     ResourceNotFoundException | ServiceQuotaExceededException | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceInput,
-  ): Effect.Effect<{}, ResourceNotFoundException | CommonAwsError>;
+  ): Effect.Effect<{}, ResourceNotFoundException | CommonAwsError> {
+    return this.call("UntagResource", input);
+  }
 }
 
-export declare class Dsql extends DSQL {}
+export class Dsql extends DSQL {}
+
+export default DSQL;
 
 export declare class AccessDeniedException extends EffectData.TaggedError(
   "AccessDeniedException",

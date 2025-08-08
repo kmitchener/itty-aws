@@ -2,40 +2,52 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class BCMPricingCalculator extends AWSServiceClient {
+export class BCMPricingCalculator extends AWSServiceClient {
   getPreferences(
     input: GetPreferencesRequest,
   ): Effect.Effect<
     GetPreferencesResponse,
     DataUnavailableException | CommonAwsError
-  >;
+  > {
+    return this.call("GetPreferences", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
     ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
     ResourceNotFoundException | ServiceQuotaExceededException | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
     ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
   updatePreferences(
     input: UpdatePreferencesRequest,
   ): Effect.Effect<
     UpdatePreferencesResponse,
     DataUnavailableException | ServiceQuotaExceededException | CommonAwsError
-  >;
+  > {
+    return this.call("UpdatePreferences", input);
+  }
 }
 
-export declare class BcmPricingCalculator extends BCMPricingCalculator {}
+export class BcmPricingCalculator extends BCMPricingCalculator {}
+
+export default BCMPricingCalculator;
 
 export declare class AccessDeniedException extends EffectData.TaggedError(
   "AccessDeniedException",

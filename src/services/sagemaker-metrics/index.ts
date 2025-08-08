@@ -2,16 +2,22 @@ import type { Effect } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class SageMakerMetrics extends AWSServiceClient {
+export class SageMakerMetrics extends AWSServiceClient {
   batchGetMetrics(
     input: BatchGetMetricsRequest,
-  ): Effect.Effect<BatchGetMetricsResponse, CommonAwsError>;
+  ): Effect.Effect<BatchGetMetricsResponse, CommonAwsError> {
+    return this.call("BatchGetMetrics", input);
+  }
   batchPutMetrics(
     input: BatchPutMetricsRequest,
-  ): Effect.Effect<BatchPutMetricsResponse, CommonAwsError>;
+  ): Effect.Effect<BatchPutMetricsResponse, CommonAwsError> {
+    return this.call("BatchPutMetrics", input);
+  }
 }
 
-export declare class SagemakerMetrics extends SageMakerMetrics {}
+export class SagemakerMetrics extends SageMakerMetrics {}
+
+export default SageMakerMetrics;
 
 export interface BatchGetMetricsRequest {
   MetricQueries: Array<MetricQuery>;

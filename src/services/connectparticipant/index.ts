@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class ConnectParticipant extends AWSServiceClient {
+export class ConnectParticipant extends AWSServiceClient {
   cancelParticipantAuthentication(
     input: CancelParticipantAuthenticationRequest,
   ): Effect.Effect<
@@ -12,7 +12,9 @@ export declare class ConnectParticipant extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CancelParticipantAuthentication", input);
+  }
   completeAttachmentUpload(
     input: CompleteAttachmentUploadRequest,
   ): Effect.Effect<
@@ -24,7 +26,9 @@ export declare class ConnectParticipant extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CompleteAttachmentUpload", input);
+  }
   createParticipantConnection(
     input: CreateParticipantConnectionRequest,
   ): Effect.Effect<
@@ -34,7 +38,9 @@ export declare class ConnectParticipant extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateParticipantConnection", input);
+  }
   describeView(
     input: DescribeViewRequest,
   ): Effect.Effect<
@@ -45,7 +51,9 @@ export declare class ConnectParticipant extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeView", input);
+  }
   disconnectParticipant(
     input: DisconnectParticipantRequest,
   ): Effect.Effect<
@@ -55,7 +63,9 @@ export declare class ConnectParticipant extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DisconnectParticipant", input);
+  }
   getAttachment(
     input: GetAttachmentRequest,
   ): Effect.Effect<
@@ -65,7 +75,9 @@ export declare class ConnectParticipant extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetAttachment", input);
+  }
   getAuthenticationUrl(
     input: GetAuthenticationUrlRequest,
   ): Effect.Effect<
@@ -75,7 +87,9 @@ export declare class ConnectParticipant extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetAuthenticationUrl", input);
+  }
   getTranscript(
     input: GetTranscriptRequest,
   ): Effect.Effect<
@@ -85,7 +99,9 @@ export declare class ConnectParticipant extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetTranscript", input);
+  }
   sendEvent(
     input: SendEventRequest,
   ): Effect.Effect<
@@ -96,7 +112,9 @@ export declare class ConnectParticipant extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("SendEvent", input);
+  }
   sendMessage(
     input: SendMessageRequest,
   ): Effect.Effect<
@@ -106,7 +124,9 @@ export declare class ConnectParticipant extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("SendMessage", input);
+  }
   startAttachmentUpload(
     input: StartAttachmentUploadRequest,
   ): Effect.Effect<
@@ -117,10 +137,14 @@ export declare class ConnectParticipant extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartAttachmentUpload", input);
+  }
 }
 
-export declare class Connectparticipant extends ConnectParticipant {}
+export class Connectparticipant extends ConnectParticipant {}
+
+export default ConnectParticipant;
 
 export declare class AccessDeniedException extends EffectData.TaggedError(
   "AccessDeniedException",

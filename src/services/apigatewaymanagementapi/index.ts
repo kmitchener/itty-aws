@@ -2,19 +2,23 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class ApiGatewayManagementApi extends AWSServiceClient {
+export class ApiGatewayManagementApi extends AWSServiceClient {
   deleteConnection(
     input: DeleteConnectionRequest,
   ): Effect.Effect<
     {},
     ForbiddenException | GoneException | LimitExceededException | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteConnection", input);
+  }
   getConnection(
     input: GetConnectionRequest,
   ): Effect.Effect<
     GetConnectionResponse,
     ForbiddenException | GoneException | LimitExceededException | CommonAwsError
-  >;
+  > {
+    return this.call("GetConnection", input);
+  }
   postToConnection(
     input: PostToConnectionRequest,
   ): Effect.Effect<
@@ -24,10 +28,14 @@ export declare class ApiGatewayManagementApi extends AWSServiceClient {
     | LimitExceededException
     | PayloadTooLargeException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PostToConnection", input);
+  }
 }
 
-export declare class Apigatewaymanagementapi extends ApiGatewayManagementApi {}
+export class Apigatewaymanagementapi extends ApiGatewayManagementApi {}
+
+export default ApiGatewayManagementApi;
 
 export type __string = string;
 

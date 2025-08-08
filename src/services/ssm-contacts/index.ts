@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class SSMContacts extends AWSServiceClient {
+export class SSMContacts extends AWSServiceClient {
   acceptPage(
     input: AcceptPageRequest,
   ): Effect.Effect<
@@ -13,7 +13,9 @@ export declare class SSMContacts extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AcceptPage", input);
+  }
   activateContactChannel(
     input: ActivateContactChannelRequest,
   ): Effect.Effect<
@@ -24,7 +26,9 @@ export declare class SSMContacts extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ActivateContactChannel", input);
+  }
   createContact(
     input: CreateContactRequest,
   ): Effect.Effect<
@@ -37,7 +41,9 @@ export declare class SSMContacts extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateContact", input);
+  }
   createContactChannel(
     input: CreateContactChannelRequest,
   ): Effect.Effect<
@@ -49,7 +55,9 @@ export declare class SSMContacts extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateContactChannel", input);
+  }
   createRotation(
     input: CreateRotationRequest,
   ): Effect.Effect<
@@ -61,7 +69,9 @@ export declare class SSMContacts extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateRotation", input);
+  }
   createRotationOverride(
     input: CreateRotationOverrideRequest,
   ): Effect.Effect<
@@ -73,7 +83,9 @@ export declare class SSMContacts extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateRotationOverride", input);
+  }
   deactivateContactChannel(
     input: DeactivateContactChannelRequest,
   ): Effect.Effect<
@@ -84,7 +96,9 @@ export declare class SSMContacts extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeactivateContactChannel", input);
+  }
   deleteContact(
     input: DeleteContactRequest,
   ): Effect.Effect<
@@ -96,7 +110,9 @@ export declare class SSMContacts extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteContact", input);
+  }
   deleteContactChannel(
     input: DeleteContactChannelRequest,
   ): Effect.Effect<
@@ -107,7 +123,9 @@ export declare class SSMContacts extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteContactChannel", input);
+  }
   deleteRotation(
     input: DeleteRotationRequest,
   ): Effect.Effect<
@@ -119,7 +137,9 @@ export declare class SSMContacts extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteRotation", input);
+  }
   deleteRotationOverride(
     input: DeleteRotationOverrideRequest,
   ): Effect.Effect<
@@ -130,7 +150,9 @@ export declare class SSMContacts extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteRotationOverride", input);
+  }
   describeEngagement(
     input: DescribeEngagementRequest,
   ): Effect.Effect<
@@ -142,7 +164,9 @@ export declare class SSMContacts extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeEngagement", input);
+  }
   describePage(
     input: DescribePageRequest,
   ): Effect.Effect<
@@ -154,7 +178,9 @@ export declare class SSMContacts extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribePage", input);
+  }
   getContact(
     input: GetContactRequest,
   ): Effect.Effect<
@@ -166,7 +192,9 @@ export declare class SSMContacts extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetContact", input);
+  }
   getContactChannel(
     input: GetContactChannelRequest,
   ): Effect.Effect<
@@ -178,7 +206,9 @@ export declare class SSMContacts extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetContactChannel", input);
+  }
   getContactPolicy(
     input: GetContactPolicyRequest,
   ): Effect.Effect<
@@ -189,7 +219,9 @@ export declare class SSMContacts extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetContactPolicy", input);
+  }
   getRotation(
     input: GetRotationRequest,
   ): Effect.Effect<
@@ -200,7 +232,9 @@ export declare class SSMContacts extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetRotation", input);
+  }
   getRotationOverride(
     input: GetRotationOverrideRequest,
   ): Effect.Effect<
@@ -211,7 +245,9 @@ export declare class SSMContacts extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetRotationOverride", input);
+  }
   listContactChannels(
     input: ListContactChannelsRequest,
   ): Effect.Effect<
@@ -223,7 +259,9 @@ export declare class SSMContacts extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListContactChannels", input);
+  }
   listContacts(
     input: ListContactsRequest,
   ): Effect.Effect<
@@ -233,7 +271,9 @@ export declare class SSMContacts extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListContacts", input);
+  }
   listEngagements(
     input: ListEngagementsRequest,
   ): Effect.Effect<
@@ -243,7 +283,9 @@ export declare class SSMContacts extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListEngagements", input);
+  }
   listPageReceipts(
     input: ListPageReceiptsRequest,
   ): Effect.Effect<
@@ -254,7 +296,9 @@ export declare class SSMContacts extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListPageReceipts", input);
+  }
   listPageResolutions(
     input: ListPageResolutionsRequest,
   ): Effect.Effect<
@@ -265,7 +309,9 @@ export declare class SSMContacts extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListPageResolutions", input);
+  }
   listPagesByContact(
     input: ListPagesByContactRequest,
   ): Effect.Effect<
@@ -276,7 +322,9 @@ export declare class SSMContacts extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListPagesByContact", input);
+  }
   listPagesByEngagement(
     input: ListPagesByEngagementRequest,
   ): Effect.Effect<
@@ -287,7 +335,9 @@ export declare class SSMContacts extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListPagesByEngagement", input);
+  }
   listPreviewRotationShifts(
     input: ListPreviewRotationShiftsRequest,
   ): Effect.Effect<
@@ -297,7 +347,9 @@ export declare class SSMContacts extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListPreviewRotationShifts", input);
+  }
   listRotationOverrides(
     input: ListRotationOverridesRequest,
   ): Effect.Effect<
@@ -308,7 +360,9 @@ export declare class SSMContacts extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListRotationOverrides", input);
+  }
   listRotations(
     input: ListRotationsRequest,
   ): Effect.Effect<
@@ -319,7 +373,9 @@ export declare class SSMContacts extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListRotations", input);
+  }
   listRotationShifts(
     input: ListRotationShiftsRequest,
   ): Effect.Effect<
@@ -331,7 +387,9 @@ export declare class SSMContacts extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListRotationShifts", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
@@ -342,7 +400,9 @@ export declare class SSMContacts extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   putContactPolicy(
     input: PutContactPolicyRequest,
   ): Effect.Effect<
@@ -354,7 +414,9 @@ export declare class SSMContacts extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutContactPolicy", input);
+  }
   sendActivationCode(
     input: SendActivationCodeRequest,
   ): Effect.Effect<
@@ -367,7 +429,9 @@ export declare class SSMContacts extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("SendActivationCode", input);
+  }
   startEngagement(
     input: StartEngagementRequest,
   ): Effect.Effect<
@@ -379,7 +443,9 @@ export declare class SSMContacts extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartEngagement", input);
+  }
   stopEngagement(
     input: StopEngagementRequest,
   ): Effect.Effect<
@@ -390,7 +456,9 @@ export declare class SSMContacts extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StopEngagement", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -402,7 +470,9 @@ export declare class SSMContacts extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
@@ -413,7 +483,9 @@ export declare class SSMContacts extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
   updateContact(
     input: UpdateContactRequest,
   ): Effect.Effect<
@@ -426,7 +498,9 @@ export declare class SSMContacts extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateContact", input);
+  }
   updateContactChannel(
     input: UpdateContactChannelRequest,
   ): Effect.Effect<
@@ -439,7 +513,9 @@ export declare class SSMContacts extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateContactChannel", input);
+  }
   updateRotation(
     input: UpdateRotationRequest,
   ): Effect.Effect<
@@ -451,10 +527,14 @@ export declare class SSMContacts extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateRotation", input);
+  }
 }
 
-export declare class SsmContacts extends SSMContacts {}
+export class SsmContacts extends SSMContacts {}
+
+export default SSMContacts;
 
 export type AcceptCode = string;
 

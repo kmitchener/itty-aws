@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class OSIS extends AWSServiceClient {
+export class OSIS extends AWSServiceClient {
   createPipeline(
     input: CreatePipelineRequest,
   ): Effect.Effect<
@@ -15,7 +15,9 @@ export declare class OSIS extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreatePipeline", input);
+  }
   deletePipeline(
     input: DeletePipelineRequest,
   ): Effect.Effect<
@@ -27,7 +29,9 @@ export declare class OSIS extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeletePipeline", input);
+  }
   getPipeline(
     input: GetPipelineRequest,
   ): Effect.Effect<
@@ -38,7 +42,9 @@ export declare class OSIS extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetPipeline", input);
+  }
   getPipelineBlueprint(
     input: GetPipelineBlueprintRequest,
   ): Effect.Effect<
@@ -49,7 +55,9 @@ export declare class OSIS extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetPipelineBlueprint", input);
+  }
   getPipelineChangeProgress(
     input: GetPipelineChangeProgressRequest,
   ): Effect.Effect<
@@ -60,7 +68,9 @@ export declare class OSIS extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetPipelineChangeProgress", input);
+  }
   listPipelineBlueprints(
     input: ListPipelineBlueprintsRequest,
   ): Effect.Effect<
@@ -71,7 +81,9 @@ export declare class OSIS extends AWSServiceClient {
     | InvalidPaginationTokenException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListPipelineBlueprints", input);
+  }
   listPipelines(
     input: ListPipelinesRequest,
   ): Effect.Effect<
@@ -82,7 +94,9 @@ export declare class OSIS extends AWSServiceClient {
     | InvalidPaginationTokenException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListPipelines", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
@@ -93,7 +107,9 @@ export declare class OSIS extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   startPipeline(
     input: StartPipelineRequest,
   ): Effect.Effect<
@@ -105,7 +121,9 @@ export declare class OSIS extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartPipeline", input);
+  }
   stopPipeline(
     input: StopPipelineRequest,
   ): Effect.Effect<
@@ -117,7 +135,9 @@ export declare class OSIS extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StopPipeline", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -129,7 +149,9 @@ export declare class OSIS extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
@@ -140,7 +162,9 @@ export declare class OSIS extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
   updatePipeline(
     input: UpdatePipelineRequest,
   ): Effect.Effect<
@@ -152,7 +176,9 @@ export declare class OSIS extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdatePipeline", input);
+  }
   validatePipeline(
     input: ValidatePipelineRequest,
   ): Effect.Effect<
@@ -162,10 +188,14 @@ export declare class OSIS extends AWSServiceClient {
     | InternalException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ValidatePipeline", input);
+  }
 }
 
-export declare class Osis extends OSIS {}
+export class Osis extends OSIS {}
+
+export default OSIS;
 
 export declare class AccessDeniedException extends EffectData.TaggedError(
   "AccessDeniedException",

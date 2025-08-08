@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class MigrationHubStrategy extends AWSServiceClient {
+export class MigrationHubStrategy extends AWSServiceClient {
   getApplicationComponentDetails(
     input: GetApplicationComponentDetailsRequest,
   ): Effect.Effect<
@@ -11,7 +11,9 @@ export declare class MigrationHubStrategy extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetApplicationComponentDetails", input);
+  }
   getApplicationComponentStrategies(
     input: GetApplicationComponentStrategiesRequest,
   ): Effect.Effect<
@@ -20,7 +22,9 @@ export declare class MigrationHubStrategy extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetApplicationComponentStrategies", input);
+  }
   getAssessment(
     input: GetAssessmentRequest,
   ): Effect.Effect<
@@ -30,7 +34,9 @@ export declare class MigrationHubStrategy extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetAssessment", input);
+  }
   getImportFileTask(
     input: GetImportFileTaskRequest,
   ): Effect.Effect<
@@ -41,7 +47,9 @@ export declare class MigrationHubStrategy extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetImportFileTask", input);
+  }
   getLatestAssessmentId(
     input: GetLatestAssessmentIdRequest,
   ): Effect.Effect<
@@ -51,7 +59,9 @@ export declare class MigrationHubStrategy extends AWSServiceClient {
     | InternalServerException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetLatestAssessmentId", input);
+  }
   getPortfolioPreferences(
     input: GetPortfolioPreferencesRequest,
   ): Effect.Effect<
@@ -61,7 +71,9 @@ export declare class MigrationHubStrategy extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetPortfolioPreferences", input);
+  }
   getPortfolioSummary(
     input: GetPortfolioSummaryRequest,
   ): Effect.Effect<
@@ -70,7 +82,9 @@ export declare class MigrationHubStrategy extends AWSServiceClient {
     | InternalServerException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetPortfolioSummary", input);
+  }
   getRecommendationReportDetails(
     input: GetRecommendationReportDetailsRequest,
   ): Effect.Effect<
@@ -81,7 +95,9 @@ export declare class MigrationHubStrategy extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetRecommendationReportDetails", input);
+  }
   getServerDetails(
     input: GetServerDetailsRequest,
   ): Effect.Effect<
@@ -92,7 +108,9 @@ export declare class MigrationHubStrategy extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetServerDetails", input);
+  }
   getServerStrategies(
     input: GetServerStrategiesRequest,
   ): Effect.Effect<
@@ -103,7 +121,9 @@ export declare class MigrationHubStrategy extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetServerStrategies", input);
+  }
   listAnalyzableServers(
     input: ListAnalyzableServersRequest,
   ): Effect.Effect<
@@ -113,7 +133,9 @@ export declare class MigrationHubStrategy extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListAnalyzableServers", input);
+  }
   listApplicationComponents(
     input: ListApplicationComponentsRequest,
   ): Effect.Effect<
@@ -123,7 +145,9 @@ export declare class MigrationHubStrategy extends AWSServiceClient {
     | ServiceLinkedRoleLockClientException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListApplicationComponents", input);
+  }
   listCollectors(
     input: ListCollectorsRequest,
   ): Effect.Effect<
@@ -133,7 +157,9 @@ export declare class MigrationHubStrategy extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListCollectors", input);
+  }
   listImportFileTask(
     input: ListImportFileTaskRequest,
   ): Effect.Effect<
@@ -143,7 +169,9 @@ export declare class MigrationHubStrategy extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListImportFileTask", input);
+  }
   listServers(
     input: ListServersRequest,
   ): Effect.Effect<
@@ -153,7 +181,9 @@ export declare class MigrationHubStrategy extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListServers", input);
+  }
   putPortfolioPreferences(
     input: PutPortfolioPreferencesRequest,
   ): Effect.Effect<
@@ -164,7 +194,9 @@ export declare class MigrationHubStrategy extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutPortfolioPreferences", input);
+  }
   startAssessment(
     input: StartAssessmentRequest,
   ): Effect.Effect<
@@ -174,7 +206,9 @@ export declare class MigrationHubStrategy extends AWSServiceClient {
     | ServiceQuotaExceededException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartAssessment", input);
+  }
   startImportFileTask(
     input: StartImportFileTaskRequest,
   ): Effect.Effect<
@@ -185,7 +219,9 @@ export declare class MigrationHubStrategy extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartImportFileTask", input);
+  }
   startRecommendationReportGeneration(
     input: StartRecommendationReportGenerationRequest,
   ): Effect.Effect<
@@ -196,7 +232,9 @@ export declare class MigrationHubStrategy extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartRecommendationReportGeneration", input);
+  }
   stopAssessment(
     input: StopAssessmentRequest,
   ): Effect.Effect<
@@ -206,7 +244,9 @@ export declare class MigrationHubStrategy extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StopAssessment", input);
+  }
   updateApplicationComponentConfig(
     input: UpdateApplicationComponentConfigRequest,
   ): Effect.Effect<
@@ -216,7 +256,9 @@ export declare class MigrationHubStrategy extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateApplicationComponentConfig", input);
+  }
   updateServerConfig(
     input: UpdateServerConfigRequest,
   ): Effect.Effect<
@@ -226,10 +268,14 @@ export declare class MigrationHubStrategy extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateServerConfig", input);
+  }
 }
 
-export declare class Migrationhubstrategy extends MigrationHubStrategy {}
+export class Migrationhubstrategy extends MigrationHubStrategy {}
+
+export default MigrationHubStrategy;
 
 export declare class AccessDeniedException extends EffectData.TaggedError(
   "AccessDeniedException",

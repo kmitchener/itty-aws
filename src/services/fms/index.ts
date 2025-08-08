@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class FMS extends AWSServiceClient {
+export class FMS extends AWSServiceClient {
   associateAdminAccount(
     input: AssociateAdminAccountRequest,
   ): Effect.Effect<
@@ -13,7 +13,9 @@ export declare class FMS extends AWSServiceClient {
     | LimitExceededException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AssociateAdminAccount", input);
+  }
   associateThirdPartyFirewall(
     input: AssociateThirdPartyFirewallRequest,
   ): Effect.Effect<
@@ -23,7 +25,9 @@ export declare class FMS extends AWSServiceClient {
     | InvalidOperationException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AssociateThirdPartyFirewall", input);
+  }
   batchAssociateResource(
     input: BatchAssociateResourceRequest,
   ): Effect.Effect<
@@ -34,7 +38,9 @@ export declare class FMS extends AWSServiceClient {
     | LimitExceededException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("BatchAssociateResource", input);
+  }
   batchDisassociateResource(
     input: BatchDisassociateResourceRequest,
   ): Effect.Effect<
@@ -44,7 +50,9 @@ export declare class FMS extends AWSServiceClient {
     | InvalidOperationException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("BatchDisassociateResource", input);
+  }
   deleteAppsList(
     input: DeleteAppsListRequest,
   ): Effect.Effect<
@@ -53,7 +61,9 @@ export declare class FMS extends AWSServiceClient {
     | InvalidOperationException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteAppsList", input);
+  }
   deleteNotificationChannel(
     input: DeleteNotificationChannelRequest,
   ): Effect.Effect<
@@ -62,7 +72,9 @@ export declare class FMS extends AWSServiceClient {
     | InvalidOperationException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteNotificationChannel", input);
+  }
   deletePolicy(
     input: DeletePolicyRequest,
   ): Effect.Effect<
@@ -73,7 +85,9 @@ export declare class FMS extends AWSServiceClient {
     | LimitExceededException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeletePolicy", input);
+  }
   deleteProtocolsList(
     input: DeleteProtocolsListRequest,
   ): Effect.Effect<
@@ -82,7 +96,9 @@ export declare class FMS extends AWSServiceClient {
     | InvalidOperationException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteProtocolsList", input);
+  }
   deleteResourceSet(
     input: DeleteResourceSetRequest,
   ): Effect.Effect<
@@ -92,7 +108,9 @@ export declare class FMS extends AWSServiceClient {
     | InvalidOperationException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteResourceSet", input);
+  }
   disassociateAdminAccount(
     input: DisassociateAdminAccountRequest,
   ): Effect.Effect<
@@ -101,7 +119,9 @@ export declare class FMS extends AWSServiceClient {
     | InvalidOperationException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DisassociateAdminAccount", input);
+  }
   disassociateThirdPartyFirewall(
     input: DisassociateThirdPartyFirewallRequest,
   ): Effect.Effect<
@@ -111,7 +131,9 @@ export declare class FMS extends AWSServiceClient {
     | InvalidOperationException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DisassociateThirdPartyFirewall", input);
+  }
   getAdminAccount(
     input: GetAdminAccountRequest,
   ): Effect.Effect<
@@ -120,7 +142,9 @@ export declare class FMS extends AWSServiceClient {
     | InvalidOperationException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetAdminAccount", input);
+  }
   getAdminScope(
     input: GetAdminScopeRequest,
   ): Effect.Effect<
@@ -131,7 +155,9 @@ export declare class FMS extends AWSServiceClient {
     | LimitExceededException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetAdminScope", input);
+  }
   getAppsList(
     input: GetAppsListRequest,
   ): Effect.Effect<
@@ -140,7 +166,9 @@ export declare class FMS extends AWSServiceClient {
     | InvalidOperationException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetAppsList", input);
+  }
   getComplianceDetail(
     input: GetComplianceDetailRequest,
   ): Effect.Effect<
@@ -150,7 +178,9 @@ export declare class FMS extends AWSServiceClient {
     | InvalidOperationException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetComplianceDetail", input);
+  }
   getNotificationChannel(
     input: GetNotificationChannelRequest,
   ): Effect.Effect<
@@ -159,7 +189,9 @@ export declare class FMS extends AWSServiceClient {
     | InvalidOperationException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetNotificationChannel", input);
+  }
   getPolicy(
     input: GetPolicyRequest,
   ): Effect.Effect<
@@ -169,7 +201,9 @@ export declare class FMS extends AWSServiceClient {
     | InvalidTypeException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetPolicy", input);
+  }
   getProtectionStatus(
     input: GetProtectionStatusRequest,
   ): Effect.Effect<
@@ -178,7 +212,9 @@ export declare class FMS extends AWSServiceClient {
     | InvalidInputException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetProtectionStatus", input);
+  }
   getProtocolsList(
     input: GetProtocolsListRequest,
   ): Effect.Effect<
@@ -187,7 +223,9 @@ export declare class FMS extends AWSServiceClient {
     | InvalidOperationException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetProtocolsList", input);
+  }
   getResourceSet(
     input: GetResourceSetRequest,
   ): Effect.Effect<
@@ -197,7 +235,9 @@ export declare class FMS extends AWSServiceClient {
     | InvalidOperationException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetResourceSet", input);
+  }
   getThirdPartyFirewallAssociationStatus(
     input: GetThirdPartyFirewallAssociationStatusRequest,
   ): Effect.Effect<
@@ -207,7 +247,9 @@ export declare class FMS extends AWSServiceClient {
     | InvalidOperationException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetThirdPartyFirewallAssociationStatus", input);
+  }
   getViolationDetails(
     input: GetViolationDetailsRequest,
   ): Effect.Effect<
@@ -216,7 +258,9 @@ export declare class FMS extends AWSServiceClient {
     | InvalidInputException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetViolationDetails", input);
+  }
   listAdminAccountsForOrganization(
     input: ListAdminAccountsForOrganizationRequest,
   ): Effect.Effect<
@@ -226,7 +270,9 @@ export declare class FMS extends AWSServiceClient {
     | LimitExceededException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListAdminAccountsForOrganization", input);
+  }
   listAdminsManagingAccount(
     input: ListAdminsManagingAccountRequest,
   ): Effect.Effect<
@@ -235,7 +281,9 @@ export declare class FMS extends AWSServiceClient {
     | InvalidInputException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListAdminsManagingAccount", input);
+  }
   listAppsLists(
     input: ListAppsListsRequest,
   ): Effect.Effect<
@@ -245,13 +293,17 @@ export declare class FMS extends AWSServiceClient {
     | LimitExceededException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListAppsLists", input);
+  }
   listComplianceStatus(
     input: ListComplianceStatusRequest,
   ): Effect.Effect<
     ListComplianceStatusResponse,
     InternalErrorException | ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("ListComplianceStatus", input);
+  }
   listDiscoveredResources(
     input: ListDiscoveredResourcesRequest,
   ): Effect.Effect<
@@ -260,13 +312,17 @@ export declare class FMS extends AWSServiceClient {
     | InvalidInputException
     | InvalidOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListDiscoveredResources", input);
+  }
   listMemberAccounts(
     input: ListMemberAccountsRequest,
   ): Effect.Effect<
     ListMemberAccountsResponse,
     InternalErrorException | ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("ListMemberAccounts", input);
+  }
   listPolicies(
     input: ListPoliciesRequest,
   ): Effect.Effect<
@@ -276,7 +332,9 @@ export declare class FMS extends AWSServiceClient {
     | LimitExceededException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListPolicies", input);
+  }
   listProtocolsLists(
     input: ListProtocolsListsRequest,
   ): Effect.Effect<
@@ -285,7 +343,9 @@ export declare class FMS extends AWSServiceClient {
     | InvalidOperationException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListProtocolsLists", input);
+  }
   listResourceSetResources(
     input: ListResourceSetResourcesRequest,
   ): Effect.Effect<
@@ -295,7 +355,9 @@ export declare class FMS extends AWSServiceClient {
     | InvalidOperationException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListResourceSetResources", input);
+  }
   listResourceSets(
     input: ListResourceSetsRequest,
   ): Effect.Effect<
@@ -304,7 +366,9 @@ export declare class FMS extends AWSServiceClient {
     | InvalidInputException
     | InvalidOperationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListResourceSets", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
@@ -314,7 +378,9 @@ export declare class FMS extends AWSServiceClient {
     | InvalidOperationException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   listThirdPartyFirewallFirewallPolicies(
     input: ListThirdPartyFirewallFirewallPoliciesRequest,
   ): Effect.Effect<
@@ -324,7 +390,9 @@ export declare class FMS extends AWSServiceClient {
     | InvalidOperationException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListThirdPartyFirewallFirewallPolicies", input);
+  }
   putAdminAccount(
     input: PutAdminAccountRequest,
   ): Effect.Effect<
@@ -334,7 +402,9 @@ export declare class FMS extends AWSServiceClient {
     | InvalidOperationException
     | LimitExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutAdminAccount", input);
+  }
   putAppsList(
     input: PutAppsListRequest,
   ): Effect.Effect<
@@ -345,7 +415,9 @@ export declare class FMS extends AWSServiceClient {
     | LimitExceededException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutAppsList", input);
+  }
   putNotificationChannel(
     input: PutNotificationChannelRequest,
   ): Effect.Effect<
@@ -354,7 +426,9 @@ export declare class FMS extends AWSServiceClient {
     | InvalidOperationException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutNotificationChannel", input);
+  }
   putPolicy(
     input: PutPolicyRequest,
   ): Effect.Effect<
@@ -366,7 +440,9 @@ export declare class FMS extends AWSServiceClient {
     | LimitExceededException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutPolicy", input);
+  }
   putProtocolsList(
     input: PutProtocolsListRequest,
   ): Effect.Effect<
@@ -377,7 +453,9 @@ export declare class FMS extends AWSServiceClient {
     | LimitExceededException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutProtocolsList", input);
+  }
   putResourceSet(
     input: PutResourceSetRequest,
   ): Effect.Effect<
@@ -387,7 +465,9 @@ export declare class FMS extends AWSServiceClient {
     | InvalidOperationException
     | LimitExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutResourceSet", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -398,7 +478,9 @@ export declare class FMS extends AWSServiceClient {
     | LimitExceededException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
@@ -408,10 +490,14 @@ export declare class FMS extends AWSServiceClient {
     | InvalidOperationException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
 }
 
-export declare class Fms extends FMS {}
+export class Fms extends FMS {}
+
+export default FMS;
 
 export type AccountIdList = Array<string>;
 export type AccountRoleStatus =

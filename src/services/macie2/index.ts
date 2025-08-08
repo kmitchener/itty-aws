@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class Macie2 extends AWSServiceClient {
+export class Macie2 extends AWSServiceClient {
   acceptInvitation(
     input: AcceptInvitationRequest,
   ): Effect.Effect<
@@ -15,7 +15,9 @@ export declare class Macie2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AcceptInvitation", input);
+  }
   batchGetCustomDataIdentifiers(
     input: BatchGetCustomDataIdentifiersRequest,
   ): Effect.Effect<
@@ -28,7 +30,9 @@ export declare class Macie2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("BatchGetCustomDataIdentifiers", input);
+  }
   batchUpdateAutomatedDiscoveryAccounts(
     input: BatchUpdateAutomatedDiscoveryAccountsRequest,
   ): Effect.Effect<
@@ -39,7 +43,9 @@ export declare class Macie2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("BatchUpdateAutomatedDiscoveryAccounts", input);
+  }
   createAllowList(
     input: CreateAllowListRequest,
   ): Effect.Effect<
@@ -52,7 +58,9 @@ export declare class Macie2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateAllowList", input);
+  }
   createClassificationJob(
     input: CreateClassificationJobRequest,
   ): Effect.Effect<
@@ -65,7 +73,9 @@ export declare class Macie2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateClassificationJob", input);
+  }
   createCustomDataIdentifier(
     input: CreateCustomDataIdentifierRequest,
   ): Effect.Effect<
@@ -78,7 +88,9 @@ export declare class Macie2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateCustomDataIdentifier", input);
+  }
   createFindingsFilter(
     input: CreateFindingsFilterRequest,
   ): Effect.Effect<
@@ -91,7 +103,9 @@ export declare class Macie2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateFindingsFilter", input);
+  }
   createInvitations(
     input: CreateInvitationsRequest,
   ): Effect.Effect<
@@ -104,7 +118,9 @@ export declare class Macie2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateInvitations", input);
+  }
   createMember(
     input: CreateMemberRequest,
   ): Effect.Effect<
@@ -117,7 +133,9 @@ export declare class Macie2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateMember", input);
+  }
   createSampleFindings(
     input: CreateSampleFindingsRequest,
   ): Effect.Effect<
@@ -130,7 +148,9 @@ export declare class Macie2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateSampleFindings", input);
+  }
   declineInvitations(
     input: DeclineInvitationsRequest,
   ): Effect.Effect<
@@ -143,7 +163,9 @@ export declare class Macie2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeclineInvitations", input);
+  }
   deleteAllowList(
     input: DeleteAllowListRequest,
   ): Effect.Effect<
@@ -154,7 +176,9 @@ export declare class Macie2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteAllowList", input);
+  }
   deleteCustomDataIdentifier(
     input: DeleteCustomDataIdentifierRequest,
   ): Effect.Effect<
@@ -167,7 +191,9 @@ export declare class Macie2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteCustomDataIdentifier", input);
+  }
   deleteFindingsFilter(
     input: DeleteFindingsFilterRequest,
   ): Effect.Effect<
@@ -180,7 +206,9 @@ export declare class Macie2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteFindingsFilter", input);
+  }
   deleteInvitations(
     input: DeleteInvitationsRequest,
   ): Effect.Effect<
@@ -193,7 +221,9 @@ export declare class Macie2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteInvitations", input);
+  }
   deleteMember(
     input: DeleteMemberRequest,
   ): Effect.Effect<
@@ -206,7 +236,9 @@ export declare class Macie2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteMember", input);
+  }
   describeBuckets(
     input: DescribeBucketsRequest,
   ): Effect.Effect<
@@ -219,7 +251,9 @@ export declare class Macie2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeBuckets", input);
+  }
   describeClassificationJob(
     input: DescribeClassificationJobRequest,
   ): Effect.Effect<
@@ -232,7 +266,9 @@ export declare class Macie2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeClassificationJob", input);
+  }
   describeOrganizationConfiguration(
     input: DescribeOrganizationConfigurationRequest,
   ): Effect.Effect<
@@ -245,7 +281,9 @@ export declare class Macie2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeOrganizationConfiguration", input);
+  }
   disableMacie(
     input: DisableMacieRequest,
   ): Effect.Effect<
@@ -258,7 +296,9 @@ export declare class Macie2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DisableMacie", input);
+  }
   disableOrganizationAdminAccount(
     input: DisableOrganizationAdminAccountRequest,
   ): Effect.Effect<
@@ -271,7 +311,9 @@ export declare class Macie2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DisableOrganizationAdminAccount", input);
+  }
   disassociateFromAdministratorAccount(
     input: DisassociateFromAdministratorAccountRequest,
   ): Effect.Effect<
@@ -284,7 +326,9 @@ export declare class Macie2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DisassociateFromAdministratorAccount", input);
+  }
   disassociateFromMasterAccount(
     input: DisassociateFromMasterAccountRequest,
   ): Effect.Effect<
@@ -297,7 +341,9 @@ export declare class Macie2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DisassociateFromMasterAccount", input);
+  }
   disassociateMember(
     input: DisassociateMemberRequest,
   ): Effect.Effect<
@@ -310,7 +356,9 @@ export declare class Macie2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DisassociateMember", input);
+  }
   enableMacie(
     input: EnableMacieRequest,
   ): Effect.Effect<
@@ -323,7 +371,9 @@ export declare class Macie2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("EnableMacie", input);
+  }
   enableOrganizationAdminAccount(
     input: EnableOrganizationAdminAccountRequest,
   ): Effect.Effect<
@@ -336,7 +386,9 @@ export declare class Macie2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("EnableOrganizationAdminAccount", input);
+  }
   getAdministratorAccount(
     input: GetAdministratorAccountRequest,
   ): Effect.Effect<
@@ -349,7 +401,9 @@ export declare class Macie2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetAdministratorAccount", input);
+  }
   getAllowList(
     input: GetAllowListRequest,
   ): Effect.Effect<
@@ -360,7 +414,9 @@ export declare class Macie2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetAllowList", input);
+  }
   getAutomatedDiscoveryConfiguration(
     input: GetAutomatedDiscoveryConfigurationRequest,
   ): Effect.Effect<
@@ -370,7 +426,9 @@ export declare class Macie2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetAutomatedDiscoveryConfiguration", input);
+  }
   getBucketStatistics(
     input: GetBucketStatisticsRequest,
   ): Effect.Effect<
@@ -383,7 +441,9 @@ export declare class Macie2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetBucketStatistics", input);
+  }
   getClassificationExportConfiguration(
     input: GetClassificationExportConfigurationRequest,
   ): Effect.Effect<
@@ -396,7 +456,9 @@ export declare class Macie2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetClassificationExportConfiguration", input);
+  }
   getClassificationScope(
     input: GetClassificationScopeRequest,
   ): Effect.Effect<
@@ -407,7 +469,9 @@ export declare class Macie2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetClassificationScope", input);
+  }
   getCustomDataIdentifier(
     input: GetCustomDataIdentifierRequest,
   ): Effect.Effect<
@@ -420,7 +484,9 @@ export declare class Macie2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetCustomDataIdentifier", input);
+  }
   getFindings(
     input: GetFindingsRequest,
   ): Effect.Effect<
@@ -433,7 +499,9 @@ export declare class Macie2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetFindings", input);
+  }
   getFindingsFilter(
     input: GetFindingsFilterRequest,
   ): Effect.Effect<
@@ -446,7 +514,9 @@ export declare class Macie2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetFindingsFilter", input);
+  }
   getFindingsPublicationConfiguration(
     input: GetFindingsPublicationConfigurationRequest,
   ): Effect.Effect<
@@ -459,7 +529,9 @@ export declare class Macie2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetFindingsPublicationConfiguration", input);
+  }
   getFindingStatistics(
     input: GetFindingStatisticsRequest,
   ): Effect.Effect<
@@ -472,7 +544,9 @@ export declare class Macie2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetFindingStatistics", input);
+  }
   getInvitationsCount(
     input: GetInvitationsCountRequest,
   ): Effect.Effect<
@@ -485,7 +559,9 @@ export declare class Macie2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetInvitationsCount", input);
+  }
   getMacieSession(
     input: GetMacieSessionRequest,
   ): Effect.Effect<
@@ -498,7 +574,9 @@ export declare class Macie2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetMacieSession", input);
+  }
   getMasterAccount(
     input: GetMasterAccountRequest,
   ): Effect.Effect<
@@ -511,7 +589,9 @@ export declare class Macie2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetMasterAccount", input);
+  }
   getMember(
     input: GetMemberRequest,
   ): Effect.Effect<
@@ -524,7 +604,9 @@ export declare class Macie2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetMember", input);
+  }
   getResourceProfile(
     input: GetResourceProfileRequest,
   ): Effect.Effect<
@@ -536,7 +618,9 @@ export declare class Macie2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetResourceProfile", input);
+  }
   getRevealConfiguration(
     input: GetRevealConfigurationRequest,
   ): Effect.Effect<
@@ -546,7 +630,9 @@ export declare class Macie2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetRevealConfiguration", input);
+  }
   getSensitiveDataOccurrences(
     input: GetSensitiveDataOccurrencesRequest,
   ): Effect.Effect<
@@ -558,7 +644,9 @@ export declare class Macie2 extends AWSServiceClient {
     | ThrottlingException
     | UnprocessableEntityException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetSensitiveDataOccurrences", input);
+  }
   getSensitiveDataOccurrencesAvailability(
     input: GetSensitiveDataOccurrencesAvailabilityRequest,
   ): Effect.Effect<
@@ -568,7 +656,9 @@ export declare class Macie2 extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetSensitiveDataOccurrencesAvailability", input);
+  }
   getSensitivityInspectionTemplate(
     input: GetSensitivityInspectionTemplateRequest,
   ): Effect.Effect<
@@ -579,7 +669,9 @@ export declare class Macie2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetSensitivityInspectionTemplate", input);
+  }
   getUsageStatistics(
     input: GetUsageStatisticsRequest,
   ): Effect.Effect<
@@ -592,7 +684,9 @@ export declare class Macie2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetUsageStatistics", input);
+  }
   getUsageTotals(
     input: GetUsageTotalsRequest,
   ): Effect.Effect<
@@ -605,7 +699,9 @@ export declare class Macie2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetUsageTotals", input);
+  }
   listAllowLists(
     input: ListAllowListsRequest,
   ): Effect.Effect<
@@ -615,7 +711,9 @@ export declare class Macie2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListAllowLists", input);
+  }
   listAutomatedDiscoveryAccounts(
     input: ListAutomatedDiscoveryAccountsRequest,
   ): Effect.Effect<
@@ -626,7 +724,9 @@ export declare class Macie2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListAutomatedDiscoveryAccounts", input);
+  }
   listClassificationJobs(
     input: ListClassificationJobsRequest,
   ): Effect.Effect<
@@ -639,7 +739,9 @@ export declare class Macie2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListClassificationJobs", input);
+  }
   listClassificationScopes(
     input: ListClassificationScopesRequest,
   ): Effect.Effect<
@@ -649,7 +751,9 @@ export declare class Macie2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListClassificationScopes", input);
+  }
   listCustomDataIdentifiers(
     input: ListCustomDataIdentifiersRequest,
   ): Effect.Effect<
@@ -662,7 +766,9 @@ export declare class Macie2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListCustomDataIdentifiers", input);
+  }
   listFindings(
     input: ListFindingsRequest,
   ): Effect.Effect<
@@ -675,7 +781,9 @@ export declare class Macie2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListFindings", input);
+  }
   listFindingsFilters(
     input: ListFindingsFiltersRequest,
   ): Effect.Effect<
@@ -688,7 +796,9 @@ export declare class Macie2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListFindingsFilters", input);
+  }
   listInvitations(
     input: ListInvitationsRequest,
   ): Effect.Effect<
@@ -701,10 +811,14 @@ export declare class Macie2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListInvitations", input);
+  }
   listManagedDataIdentifiers(
     input: ListManagedDataIdentifiersRequest,
-  ): Effect.Effect<ListManagedDataIdentifiersResponse, CommonAwsError>;
+  ): Effect.Effect<ListManagedDataIdentifiersResponse, CommonAwsError> {
+    return this.call("ListManagedDataIdentifiers", input);
+  }
   listMembers(
     input: ListMembersRequest,
   ): Effect.Effect<
@@ -717,7 +831,9 @@ export declare class Macie2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListMembers", input);
+  }
   listOrganizationAdminAccounts(
     input: ListOrganizationAdminAccountsRequest,
   ): Effect.Effect<
@@ -730,7 +846,9 @@ export declare class Macie2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListOrganizationAdminAccounts", input);
+  }
   listResourceProfileArtifacts(
     input: ListResourceProfileArtifactsRequest,
   ): Effect.Effect<
@@ -741,7 +859,9 @@ export declare class Macie2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListResourceProfileArtifacts", input);
+  }
   listResourceProfileDetections(
     input: ListResourceProfileDetectionsRequest,
   ): Effect.Effect<
@@ -753,7 +873,9 @@ export declare class Macie2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListResourceProfileDetections", input);
+  }
   listSensitivityInspectionTemplates(
     input: ListSensitivityInspectionTemplatesRequest,
   ): Effect.Effect<
@@ -764,10 +886,14 @@ export declare class Macie2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListSensitivityInspectionTemplates", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
-  ): Effect.Effect<ListTagsForResourceResponse, CommonAwsError>;
+  ): Effect.Effect<ListTagsForResourceResponse, CommonAwsError> {
+    return this.call("ListTagsForResource", input);
+  }
   putClassificationExportConfiguration(
     input: PutClassificationExportConfigurationRequest,
   ): Effect.Effect<
@@ -780,7 +906,9 @@ export declare class Macie2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutClassificationExportConfiguration", input);
+  }
   putFindingsPublicationConfiguration(
     input: PutFindingsPublicationConfigurationRequest,
   ): Effect.Effect<
@@ -793,7 +921,9 @@ export declare class Macie2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutFindingsPublicationConfiguration", input);
+  }
   searchResources(
     input: SearchResourcesRequest,
   ): Effect.Effect<
@@ -806,10 +936,14 @@ export declare class Macie2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("SearchResources", input);
+  }
   tagResource(
     input: TagResourceRequest,
-  ): Effect.Effect<TagResourceResponse, CommonAwsError>;
+  ): Effect.Effect<TagResourceResponse, CommonAwsError> {
+    return this.call("TagResource", input);
+  }
   testCustomDataIdentifier(
     input: TestCustomDataIdentifierRequest,
   ): Effect.Effect<
@@ -822,10 +956,14 @@ export declare class Macie2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TestCustomDataIdentifier", input);
+  }
   untagResource(
     input: UntagResourceRequest,
-  ): Effect.Effect<UntagResourceResponse, CommonAwsError>;
+  ): Effect.Effect<UntagResourceResponse, CommonAwsError> {
+    return this.call("UntagResource", input);
+  }
   updateAllowList(
     input: UpdateAllowListRequest,
   ): Effect.Effect<
@@ -836,7 +974,9 @@ export declare class Macie2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateAllowList", input);
+  }
   updateAutomatedDiscoveryConfiguration(
     input: UpdateAutomatedDiscoveryConfigurationRequest,
   ): Effect.Effect<
@@ -846,7 +986,9 @@ export declare class Macie2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateAutomatedDiscoveryConfiguration", input);
+  }
   updateClassificationJob(
     input: UpdateClassificationJobRequest,
   ): Effect.Effect<
@@ -859,7 +1001,9 @@ export declare class Macie2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateClassificationJob", input);
+  }
   updateClassificationScope(
     input: UpdateClassificationScopeRequest,
   ): Effect.Effect<
@@ -870,7 +1014,9 @@ export declare class Macie2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateClassificationScope", input);
+  }
   updateFindingsFilter(
     input: UpdateFindingsFilterRequest,
   ): Effect.Effect<
@@ -883,7 +1029,9 @@ export declare class Macie2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateFindingsFilter", input);
+  }
   updateMacieSession(
     input: UpdateMacieSessionRequest,
   ): Effect.Effect<
@@ -896,7 +1044,9 @@ export declare class Macie2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateMacieSession", input);
+  }
   updateMemberSession(
     input: UpdateMemberSessionRequest,
   ): Effect.Effect<
@@ -909,7 +1059,9 @@ export declare class Macie2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateMemberSession", input);
+  }
   updateOrganizationConfiguration(
     input: UpdateOrganizationConfigurationRequest,
   ): Effect.Effect<
@@ -922,7 +1074,9 @@ export declare class Macie2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateOrganizationConfiguration", input);
+  }
   updateResourceProfile(
     input: UpdateResourceProfileRequest,
   ): Effect.Effect<
@@ -934,7 +1088,9 @@ export declare class Macie2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateResourceProfile", input);
+  }
   updateResourceProfileDetections(
     input: UpdateResourceProfileDetectionsRequest,
   ): Effect.Effect<
@@ -946,7 +1102,9 @@ export declare class Macie2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateResourceProfileDetections", input);
+  }
   updateRevealConfiguration(
     input: UpdateRevealConfigurationRequest,
   ): Effect.Effect<
@@ -956,7 +1114,9 @@ export declare class Macie2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateRevealConfiguration", input);
+  }
   updateSensitivityInspectionTemplate(
     input: UpdateSensitivityInspectionTemplateRequest,
   ): Effect.Effect<
@@ -967,8 +1127,12 @@ export declare class Macie2 extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateSensitivityInspectionTemplate", input);
+  }
 }
+
+export default Macie2;
 
 export type __boolean = boolean;
 

@@ -2,244 +2,324 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class MTurk extends AWSServiceClient {
+export class MTurk extends AWSServiceClient {
   acceptQualificationRequest(
     input: AcceptQualificationRequestRequest,
   ): Effect.Effect<
     AcceptQualificationRequestResponse,
     RequestError | ServiceFault | CommonAwsError
-  >;
+  > {
+    return this.call("AcceptQualificationRequest", input);
+  }
   approveAssignment(
     input: ApproveAssignmentRequest,
   ): Effect.Effect<
     ApproveAssignmentResponse,
     RequestError | ServiceFault | CommonAwsError
-  >;
+  > {
+    return this.call("ApproveAssignment", input);
+  }
   associateQualificationWithWorker(
     input: AssociateQualificationWithWorkerRequest,
   ): Effect.Effect<
     AssociateQualificationWithWorkerResponse,
     RequestError | ServiceFault | CommonAwsError
-  >;
+  > {
+    return this.call("AssociateQualificationWithWorker", input);
+  }
   createAdditionalAssignmentsForHIT(
     input: CreateAdditionalAssignmentsForHITRequest,
   ): Effect.Effect<
     CreateAdditionalAssignmentsForHITResponse,
     RequestError | ServiceFault | CommonAwsError
-  >;
+  > {
+    return this.call("CreateAdditionalAssignmentsForHIT", input);
+  }
   createHIT(
     input: CreateHITRequest,
   ): Effect.Effect<
     CreateHITResponse,
     RequestError | ServiceFault | CommonAwsError
-  >;
+  > {
+    return this.call("CreateHIT", input);
+  }
   createHITType(
     input: CreateHITTypeRequest,
   ): Effect.Effect<
     CreateHITTypeResponse,
     RequestError | ServiceFault | CommonAwsError
-  >;
+  > {
+    return this.call("CreateHITType", input);
+  }
   createHITWithHITType(
     input: CreateHITWithHITTypeRequest,
   ): Effect.Effect<
     CreateHITWithHITTypeResponse,
     RequestError | ServiceFault | CommonAwsError
-  >;
+  > {
+    return this.call("CreateHITWithHITType", input);
+  }
   createQualificationType(
     input: CreateQualificationTypeRequest,
   ): Effect.Effect<
     CreateQualificationTypeResponse,
     RequestError | ServiceFault | CommonAwsError
-  >;
+  > {
+    return this.call("CreateQualificationType", input);
+  }
   createWorkerBlock(
     input: CreateWorkerBlockRequest,
   ): Effect.Effect<
     CreateWorkerBlockResponse,
     RequestError | ServiceFault | CommonAwsError
-  >;
+  > {
+    return this.call("CreateWorkerBlock", input);
+  }
   deleteHIT(
     input: DeleteHITRequest,
   ): Effect.Effect<
     DeleteHITResponse,
     RequestError | ServiceFault | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteHIT", input);
+  }
   deleteQualificationType(
     input: DeleteQualificationTypeRequest,
   ): Effect.Effect<
     DeleteQualificationTypeResponse,
     RequestError | ServiceFault | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteQualificationType", input);
+  }
   deleteWorkerBlock(
     input: DeleteWorkerBlockRequest,
   ): Effect.Effect<
     DeleteWorkerBlockResponse,
     RequestError | ServiceFault | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteWorkerBlock", input);
+  }
   disassociateQualificationFromWorker(
     input: DisassociateQualificationFromWorkerRequest,
   ): Effect.Effect<
     DisassociateQualificationFromWorkerResponse,
     RequestError | ServiceFault | CommonAwsError
-  >;
+  > {
+    return this.call("DisassociateQualificationFromWorker", input);
+  }
   getAccountBalance(
     input: GetAccountBalanceRequest,
   ): Effect.Effect<
     GetAccountBalanceResponse,
     RequestError | ServiceFault | CommonAwsError
-  >;
+  > {
+    return this.call("GetAccountBalance", input);
+  }
   getAssignment(
     input: GetAssignmentRequest,
   ): Effect.Effect<
     GetAssignmentResponse,
     RequestError | ServiceFault | CommonAwsError
-  >;
+  > {
+    return this.call("GetAssignment", input);
+  }
   getFileUploadURL(
     input: GetFileUploadURLRequest,
   ): Effect.Effect<
     GetFileUploadURLResponse,
     RequestError | ServiceFault | CommonAwsError
-  >;
+  > {
+    return this.call("GetFileUploadURL", input);
+  }
   getHIT(
     input: GetHITRequest,
   ): Effect.Effect<
     GetHITResponse,
     RequestError | ServiceFault | CommonAwsError
-  >;
+  > {
+    return this.call("GetHIT", input);
+  }
   getQualificationScore(
     input: GetQualificationScoreRequest,
   ): Effect.Effect<
     GetQualificationScoreResponse,
     RequestError | ServiceFault | CommonAwsError
-  >;
+  > {
+    return this.call("GetQualificationScore", input);
+  }
   getQualificationType(
     input: GetQualificationTypeRequest,
   ): Effect.Effect<
     GetQualificationTypeResponse,
     RequestError | ServiceFault | CommonAwsError
-  >;
+  > {
+    return this.call("GetQualificationType", input);
+  }
   listAssignmentsForHIT(
     input: ListAssignmentsForHITRequest,
   ): Effect.Effect<
     ListAssignmentsForHITResponse,
     RequestError | ServiceFault | CommonAwsError
-  >;
+  > {
+    return this.call("ListAssignmentsForHIT", input);
+  }
   listBonusPayments(
     input: ListBonusPaymentsRequest,
   ): Effect.Effect<
     ListBonusPaymentsResponse,
     RequestError | ServiceFault | CommonAwsError
-  >;
+  > {
+    return this.call("ListBonusPayments", input);
+  }
   listHITs(
     input: ListHITsRequest,
   ): Effect.Effect<
     ListHITsResponse,
     RequestError | ServiceFault | CommonAwsError
-  >;
+  > {
+    return this.call("ListHITs", input);
+  }
   listHITsForQualificationType(
     input: ListHITsForQualificationTypeRequest,
   ): Effect.Effect<
     ListHITsForQualificationTypeResponse,
     RequestError | ServiceFault | CommonAwsError
-  >;
+  > {
+    return this.call("ListHITsForQualificationType", input);
+  }
   listQualificationRequests(
     input: ListQualificationRequestsRequest,
   ): Effect.Effect<
     ListQualificationRequestsResponse,
     RequestError | ServiceFault | CommonAwsError
-  >;
+  > {
+    return this.call("ListQualificationRequests", input);
+  }
   listQualificationTypes(
     input: ListQualificationTypesRequest,
   ): Effect.Effect<
     ListQualificationTypesResponse,
     RequestError | ServiceFault | CommonAwsError
-  >;
+  > {
+    return this.call("ListQualificationTypes", input);
+  }
   listReviewableHITs(
     input: ListReviewableHITsRequest,
   ): Effect.Effect<
     ListReviewableHITsResponse,
     RequestError | ServiceFault | CommonAwsError
-  >;
+  > {
+    return this.call("ListReviewableHITs", input);
+  }
   listReviewPolicyResultsForHIT(
     input: ListReviewPolicyResultsForHITRequest,
   ): Effect.Effect<
     ListReviewPolicyResultsForHITResponse,
     RequestError | ServiceFault | CommonAwsError
-  >;
+  > {
+    return this.call("ListReviewPolicyResultsForHIT", input);
+  }
   listWorkerBlocks(
     input: ListWorkerBlocksRequest,
   ): Effect.Effect<
     ListWorkerBlocksResponse,
     RequestError | ServiceFault | CommonAwsError
-  >;
+  > {
+    return this.call("ListWorkerBlocks", input);
+  }
   listWorkersWithQualificationType(
     input: ListWorkersWithQualificationTypeRequest,
   ): Effect.Effect<
     ListWorkersWithQualificationTypeResponse,
     RequestError | ServiceFault | CommonAwsError
-  >;
+  > {
+    return this.call("ListWorkersWithQualificationType", input);
+  }
   notifyWorkers(
     input: NotifyWorkersRequest,
   ): Effect.Effect<
     NotifyWorkersResponse,
     RequestError | ServiceFault | CommonAwsError
-  >;
+  > {
+    return this.call("NotifyWorkers", input);
+  }
   rejectAssignment(
     input: RejectAssignmentRequest,
   ): Effect.Effect<
     RejectAssignmentResponse,
     RequestError | ServiceFault | CommonAwsError
-  >;
+  > {
+    return this.call("RejectAssignment", input);
+  }
   rejectQualificationRequest(
     input: RejectQualificationRequestRequest,
   ): Effect.Effect<
     RejectQualificationRequestResponse,
     RequestError | ServiceFault | CommonAwsError
-  >;
+  > {
+    return this.call("RejectQualificationRequest", input);
+  }
   sendBonus(
     input: SendBonusRequest,
   ): Effect.Effect<
     SendBonusResponse,
     RequestError | ServiceFault | CommonAwsError
-  >;
+  > {
+    return this.call("SendBonus", input);
+  }
   sendTestEventNotification(
     input: SendTestEventNotificationRequest,
   ): Effect.Effect<
     SendTestEventNotificationResponse,
     RequestError | ServiceFault | CommonAwsError
-  >;
+  > {
+    return this.call("SendTestEventNotification", input);
+  }
   updateExpirationForHIT(
     input: UpdateExpirationForHITRequest,
   ): Effect.Effect<
     UpdateExpirationForHITResponse,
     RequestError | ServiceFault | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateExpirationForHIT", input);
+  }
   updateHITReviewStatus(
     input: UpdateHITReviewStatusRequest,
   ): Effect.Effect<
     UpdateHITReviewStatusResponse,
     RequestError | ServiceFault | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateHITReviewStatus", input);
+  }
   updateHITTypeOfHIT(
     input: UpdateHITTypeOfHITRequest,
   ): Effect.Effect<
     UpdateHITTypeOfHITResponse,
     RequestError | ServiceFault | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateHITTypeOfHIT", input);
+  }
   updateNotificationSettings(
     input: UpdateNotificationSettingsRequest,
   ): Effect.Effect<
     UpdateNotificationSettingsResponse,
     RequestError | ServiceFault | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateNotificationSettings", input);
+  }
   updateQualificationType(
     input: UpdateQualificationTypeRequest,
   ): Effect.Effect<
     UpdateQualificationTypeResponse,
     RequestError | ServiceFault | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateQualificationType", input);
+  }
 }
 
-export declare class Mturk extends MTurk {}
+export class Mturk extends MTurk {}
+
+export default MTurk;
 
 export interface AcceptQualificationRequestRequest {
   QualificationRequestId: string;

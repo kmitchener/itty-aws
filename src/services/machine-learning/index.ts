@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class MachineLearning extends AWSServiceClient {
+export class MachineLearning extends AWSServiceClient {
   addTags(
     input: AddTagsInput,
   ): Effect.Effect<
@@ -13,7 +13,9 @@ export declare class MachineLearning extends AWSServiceClient {
     | ResourceNotFoundException
     | TagLimitExceededException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AddTags", input);
+  }
   createBatchPrediction(
     input: CreateBatchPredictionInput,
   ): Effect.Effect<
@@ -22,7 +24,9 @@ export declare class MachineLearning extends AWSServiceClient {
     | InternalServerException
     | InvalidInputException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateBatchPrediction", input);
+  }
   createDataSourceFromRDS(
     input: CreateDataSourceFromRDSInput,
   ): Effect.Effect<
@@ -31,7 +35,9 @@ export declare class MachineLearning extends AWSServiceClient {
     | InternalServerException
     | InvalidInputException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateDataSourceFromRDS", input);
+  }
   createDataSourceFromRedshift(
     input: CreateDataSourceFromRedshiftInput,
   ): Effect.Effect<
@@ -40,7 +46,9 @@ export declare class MachineLearning extends AWSServiceClient {
     | InternalServerException
     | InvalidInputException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateDataSourceFromRedshift", input);
+  }
   createDataSourceFromS3(
     input: CreateDataSourceFromS3Input,
   ): Effect.Effect<
@@ -49,7 +57,9 @@ export declare class MachineLearning extends AWSServiceClient {
     | InternalServerException
     | InvalidInputException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateDataSourceFromS3", input);
+  }
   createEvaluation(
     input: CreateEvaluationInput,
   ): Effect.Effect<
@@ -58,7 +68,9 @@ export declare class MachineLearning extends AWSServiceClient {
     | InternalServerException
     | InvalidInputException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateEvaluation", input);
+  }
   createMLModel(
     input: CreateMLModelInput,
   ): Effect.Effect<
@@ -67,7 +79,9 @@ export declare class MachineLearning extends AWSServiceClient {
     | InternalServerException
     | InvalidInputException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateMLModel", input);
+  }
   createRealtimeEndpoint(
     input: CreateRealtimeEndpointInput,
   ): Effect.Effect<
@@ -76,7 +90,9 @@ export declare class MachineLearning extends AWSServiceClient {
     | InvalidInputException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateRealtimeEndpoint", input);
+  }
   deleteBatchPrediction(
     input: DeleteBatchPredictionInput,
   ): Effect.Effect<
@@ -85,7 +101,9 @@ export declare class MachineLearning extends AWSServiceClient {
     | InvalidInputException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteBatchPrediction", input);
+  }
   deleteDataSource(
     input: DeleteDataSourceInput,
   ): Effect.Effect<
@@ -94,7 +112,9 @@ export declare class MachineLearning extends AWSServiceClient {
     | InvalidInputException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteDataSource", input);
+  }
   deleteEvaluation(
     input: DeleteEvaluationInput,
   ): Effect.Effect<
@@ -103,7 +123,9 @@ export declare class MachineLearning extends AWSServiceClient {
     | InvalidInputException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteEvaluation", input);
+  }
   deleteMLModel(
     input: DeleteMLModelInput,
   ): Effect.Effect<
@@ -112,7 +134,9 @@ export declare class MachineLearning extends AWSServiceClient {
     | InvalidInputException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteMLModel", input);
+  }
   deleteRealtimeEndpoint(
     input: DeleteRealtimeEndpointInput,
   ): Effect.Effect<
@@ -121,7 +145,9 @@ export declare class MachineLearning extends AWSServiceClient {
     | InvalidInputException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteRealtimeEndpoint", input);
+  }
   deleteTags(
     input: DeleteTagsInput,
   ): Effect.Effect<
@@ -131,31 +157,41 @@ export declare class MachineLearning extends AWSServiceClient {
     | InvalidTagException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteTags", input);
+  }
   describeBatchPredictions(
     input: DescribeBatchPredictionsInput,
   ): Effect.Effect<
     DescribeBatchPredictionsOutput,
     InternalServerException | InvalidInputException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeBatchPredictions", input);
+  }
   describeDataSources(
     input: DescribeDataSourcesInput,
   ): Effect.Effect<
     DescribeDataSourcesOutput,
     InternalServerException | InvalidInputException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeDataSources", input);
+  }
   describeEvaluations(
     input: DescribeEvaluationsInput,
   ): Effect.Effect<
     DescribeEvaluationsOutput,
     InternalServerException | InvalidInputException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeEvaluations", input);
+  }
   describeMLModels(
     input: DescribeMLModelsInput,
   ): Effect.Effect<
     DescribeMLModelsOutput,
     InternalServerException | InvalidInputException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeMLModels", input);
+  }
   describeTags(
     input: DescribeTagsInput,
   ): Effect.Effect<
@@ -164,7 +200,9 @@ export declare class MachineLearning extends AWSServiceClient {
     | InvalidInputException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeTags", input);
+  }
   getBatchPrediction(
     input: GetBatchPredictionInput,
   ): Effect.Effect<
@@ -173,7 +211,9 @@ export declare class MachineLearning extends AWSServiceClient {
     | InvalidInputException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetBatchPrediction", input);
+  }
   getDataSource(
     input: GetDataSourceInput,
   ): Effect.Effect<
@@ -182,7 +222,9 @@ export declare class MachineLearning extends AWSServiceClient {
     | InvalidInputException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetDataSource", input);
+  }
   getEvaluation(
     input: GetEvaluationInput,
   ): Effect.Effect<
@@ -191,7 +233,9 @@ export declare class MachineLearning extends AWSServiceClient {
     | InvalidInputException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetEvaluation", input);
+  }
   getMLModel(
     input: GetMLModelInput,
   ): Effect.Effect<
@@ -200,7 +244,9 @@ export declare class MachineLearning extends AWSServiceClient {
     | InvalidInputException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetMLModel", input);
+  }
   predict(
     input: PredictInput,
   ): Effect.Effect<
@@ -211,7 +257,9 @@ export declare class MachineLearning extends AWSServiceClient {
     | PredictorNotMountedException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("Predict", input);
+  }
   updateBatchPrediction(
     input: UpdateBatchPredictionInput,
   ): Effect.Effect<
@@ -220,7 +268,9 @@ export declare class MachineLearning extends AWSServiceClient {
     | InvalidInputException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateBatchPrediction", input);
+  }
   updateDataSource(
     input: UpdateDataSourceInput,
   ): Effect.Effect<
@@ -229,7 +279,9 @@ export declare class MachineLearning extends AWSServiceClient {
     | InvalidInputException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateDataSource", input);
+  }
   updateEvaluation(
     input: UpdateEvaluationInput,
   ): Effect.Effect<
@@ -238,7 +290,9 @@ export declare class MachineLearning extends AWSServiceClient {
     | InvalidInputException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateEvaluation", input);
+  }
   updateMLModel(
     input: UpdateMLModelInput,
   ): Effect.Effect<
@@ -247,8 +301,12 @@ export declare class MachineLearning extends AWSServiceClient {
     | InvalidInputException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateMLModel", input);
+  }
 }
+
+export default MachineLearning;
 
 export interface AddTagsInput {
   Tags: Array<Tag>;

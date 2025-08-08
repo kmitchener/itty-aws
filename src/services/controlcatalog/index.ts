@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class ControlCatalog extends AWSServiceClient {
+export class ControlCatalog extends AWSServiceClient {
   listControlMappings(
     input: ListControlMappingsRequest,
   ): Effect.Effect<
@@ -12,10 +12,14 @@ export declare class ControlCatalog extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListControlMappings", input);
+  }
 }
 
-export declare class Controlcatalog extends ControlCatalog {}
+export class Controlcatalog extends ControlCatalog {}
+
+export default ControlCatalog;
 
 export declare class AccessDeniedException extends EffectData.TaggedError(
   "AccessDeniedException",

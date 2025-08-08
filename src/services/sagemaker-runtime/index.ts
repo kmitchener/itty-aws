@@ -4,7 +4,7 @@ import type { Buffer } from "node:buffer";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class SageMakerRuntime extends AWSServiceClient {
+export class SageMakerRuntime extends AWSServiceClient {
   invokeEndpoint(
     input: InvokeEndpointInput,
   ): Effect.Effect<
@@ -16,13 +16,17 @@ export declare class SageMakerRuntime extends AWSServiceClient {
     | ServiceUnavailable
     | ValidationError
     | CommonAwsError
-  >;
+  > {
+    return this.call("InvokeEndpoint", input);
+  }
   invokeEndpointAsync(
     input: InvokeEndpointAsyncInput,
   ): Effect.Effect<
     InvokeEndpointAsyncOutput,
     InternalFailure | ServiceUnavailable | ValidationError | CommonAwsError
-  >;
+  > {
+    return this.call("InvokeEndpointAsync", input);
+  }
   invokeEndpointWithResponseStream(
     input: InvokeEndpointWithResponseStreamInput,
   ): Effect.Effect<
@@ -34,10 +38,14 @@ export declare class SageMakerRuntime extends AWSServiceClient {
     | ServiceUnavailable
     | ValidationError
     | CommonAwsError
-  >;
+  > {
+    return this.call("InvokeEndpointWithResponseStream", input);
+  }
 }
 
-export declare class SagemakerRuntime extends SageMakerRuntime {}
+export class SagemakerRuntime extends SageMakerRuntime {}
+
+export default SageMakerRuntime;
 
 export type BodyBlob = Uint8Array | string;
 

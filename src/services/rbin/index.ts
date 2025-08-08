@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class rbin extends AWSServiceClient {
+export class rbin extends AWSServiceClient {
   createRule(
     input: CreateRuleRequest,
   ): Effect.Effect<
@@ -11,7 +11,9 @@ export declare class rbin extends AWSServiceClient {
     | ServiceQuotaExceededException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateRule", input);
+  }
   deleteRule(
     input: DeleteRuleRequest,
   ): Effect.Effect<
@@ -21,7 +23,9 @@ export declare class rbin extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteRule", input);
+  }
   getRule(
     input: GetRuleRequest,
   ): Effect.Effect<
@@ -30,13 +34,17 @@ export declare class rbin extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetRule", input);
+  }
   listRules(
     input: ListRulesRequest,
   ): Effect.Effect<
     ListRulesResponse,
     InternalServerException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("ListRules", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
@@ -45,7 +53,9 @@ export declare class rbin extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   lockRule(
     input: LockRuleRequest,
   ): Effect.Effect<
@@ -55,7 +65,9 @@ export declare class rbin extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("LockRule", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -65,7 +77,9 @@ export declare class rbin extends AWSServiceClient {
     | ServiceQuotaExceededException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   unlockRule(
     input: UnlockRuleRequest,
   ): Effect.Effect<
@@ -75,7 +89,9 @@ export declare class rbin extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UnlockRule", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
@@ -84,7 +100,9 @@ export declare class rbin extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
   updateRule(
     input: UpdateRuleRequest,
   ): Effect.Effect<
@@ -95,10 +113,14 @@ export declare class rbin extends AWSServiceClient {
     | ServiceQuotaExceededException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateRule", input);
+  }
 }
 
-export declare class Rbin extends rbin {}
+export class Rbin extends rbin {}
+
+export default rbin;
 
 export declare class ConflictException extends EffectData.TaggedError(
   "ConflictException",

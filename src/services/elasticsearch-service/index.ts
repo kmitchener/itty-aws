@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class ElasticsearchService extends AWSServiceClient {
+export class ElasticsearchService extends AWSServiceClient {
   acceptInboundCrossClusterSearchConnection(
     input: AcceptInboundCrossClusterSearchConnectionRequest,
   ): Effect.Effect<
@@ -11,7 +11,9 @@ export declare class ElasticsearchService extends AWSServiceClient {
     | LimitExceededException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AcceptInboundCrossClusterSearchConnection", input);
+  }
   addTags(
     input: AddTagsRequest,
   ): Effect.Effect<
@@ -21,7 +23,9 @@ export declare class ElasticsearchService extends AWSServiceClient {
     | LimitExceededException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AddTags", input);
+  }
   associatePackage(
     input: AssociatePackageRequest,
   ): Effect.Effect<
@@ -33,7 +37,9 @@ export declare class ElasticsearchService extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AssociatePackage", input);
+  }
   authorizeVpcEndpointAccess(
     input: AuthorizeVpcEndpointAccessRequest,
   ): Effect.Effect<
@@ -45,7 +51,9 @@ export declare class ElasticsearchService extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AuthorizeVpcEndpointAccess", input);
+  }
   cancelDomainConfigChange(
     input: CancelDomainConfigChangeRequest,
   ): Effect.Effect<
@@ -56,7 +64,9 @@ export declare class ElasticsearchService extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CancelDomainConfigChange", input);
+  }
   cancelElasticsearchServiceSoftwareUpdate(
     input: CancelElasticsearchServiceSoftwareUpdateRequest,
   ): Effect.Effect<
@@ -66,7 +76,9 @@ export declare class ElasticsearchService extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CancelElasticsearchServiceSoftwareUpdate", input);
+  }
   createElasticsearchDomain(
     input: CreateElasticsearchDomainRequest,
   ): Effect.Effect<
@@ -79,7 +91,9 @@ export declare class ElasticsearchService extends AWSServiceClient {
     | ResourceAlreadyExistsException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateElasticsearchDomain", input);
+  }
   createOutboundCrossClusterSearchConnection(
     input: CreateOutboundCrossClusterSearchConnectionRequest,
   ): Effect.Effect<
@@ -89,7 +103,9 @@ export declare class ElasticsearchService extends AWSServiceClient {
     | LimitExceededException
     | ResourceAlreadyExistsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateOutboundCrossClusterSearchConnection", input);
+  }
   createPackage(
     input: CreatePackageRequest,
   ): Effect.Effect<
@@ -102,7 +118,9 @@ export declare class ElasticsearchService extends AWSServiceClient {
     | ResourceAlreadyExistsException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreatePackage", input);
+  }
   createVpcEndpoint(
     input: CreateVpcEndpointRequest,
   ): Effect.Effect<
@@ -114,7 +132,9 @@ export declare class ElasticsearchService extends AWSServiceClient {
     | LimitExceededException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateVpcEndpoint", input);
+  }
   deleteElasticsearchDomain(
     input: DeleteElasticsearchDomainRequest,
   ): Effect.Effect<
@@ -124,23 +144,31 @@ export declare class ElasticsearchService extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteElasticsearchDomain", input);
+  }
   deleteElasticsearchServiceRole(input: {}): Effect.Effect<
     {},
     BaseException | InternalException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteElasticsearchServiceRole", input);
+  }
   deleteInboundCrossClusterSearchConnection(
     input: DeleteInboundCrossClusterSearchConnectionRequest,
   ): Effect.Effect<
     DeleteInboundCrossClusterSearchConnectionResponse,
     DisabledOperationException | ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteInboundCrossClusterSearchConnection", input);
+  }
   deleteOutboundCrossClusterSearchConnection(
     input: DeleteOutboundCrossClusterSearchConnectionRequest,
   ): Effect.Effect<
     DeleteOutboundCrossClusterSearchConnectionResponse,
     DisabledOperationException | ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteOutboundCrossClusterSearchConnection", input);
+  }
   deletePackage(
     input: DeletePackageRequest,
   ): Effect.Effect<
@@ -152,7 +180,9 @@ export declare class ElasticsearchService extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeletePackage", input);
+  }
   deleteVpcEndpoint(
     input: DeleteVpcEndpointRequest,
   ): Effect.Effect<
@@ -162,7 +192,9 @@ export declare class ElasticsearchService extends AWSServiceClient {
     | InternalException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteVpcEndpoint", input);
+  }
   describeDomainAutoTunes(
     input: DescribeDomainAutoTunesRequest,
   ): Effect.Effect<
@@ -172,7 +204,9 @@ export declare class ElasticsearchService extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeDomainAutoTunes", input);
+  }
   describeDomainChangeProgress(
     input: DescribeDomainChangeProgressRequest,
   ): Effect.Effect<
@@ -182,7 +216,9 @@ export declare class ElasticsearchService extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeDomainChangeProgress", input);
+  }
   describeElasticsearchDomain(
     input: DescribeElasticsearchDomainRequest,
   ): Effect.Effect<
@@ -192,7 +228,9 @@ export declare class ElasticsearchService extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeElasticsearchDomain", input);
+  }
   describeElasticsearchDomainConfig(
     input: DescribeElasticsearchDomainConfigRequest,
   ): Effect.Effect<
@@ -202,13 +240,17 @@ export declare class ElasticsearchService extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeElasticsearchDomainConfig", input);
+  }
   describeElasticsearchDomains(
     input: DescribeElasticsearchDomainsRequest,
   ): Effect.Effect<
     DescribeElasticsearchDomainsResponse,
     BaseException | InternalException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeElasticsearchDomains", input);
+  }
   describeElasticsearchInstanceTypeLimits(
     input: DescribeElasticsearchInstanceTypeLimitsRequest,
   ): Effect.Effect<
@@ -220,7 +262,9 @@ export declare class ElasticsearchService extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeElasticsearchInstanceTypeLimits", input);
+  }
   describeInboundCrossClusterSearchConnections(
     input: DescribeInboundCrossClusterSearchConnectionsRequest,
   ): Effect.Effect<
@@ -228,7 +272,9 @@ export declare class ElasticsearchService extends AWSServiceClient {
     | DisabledOperationException
     | InvalidPaginationTokenException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeInboundCrossClusterSearchConnections", input);
+  }
   describeOutboundCrossClusterSearchConnections(
     input: DescribeOutboundCrossClusterSearchConnectionsRequest,
   ): Effect.Effect<
@@ -236,7 +282,9 @@ export declare class ElasticsearchService extends AWSServiceClient {
     | DisabledOperationException
     | InvalidPaginationTokenException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeOutboundCrossClusterSearchConnections", input);
+  }
   describePackages(
     input: DescribePackagesRequest,
   ): Effect.Effect<
@@ -247,7 +295,9 @@ export declare class ElasticsearchService extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribePackages", input);
+  }
   describeReservedElasticsearchInstanceOfferings(
     input: DescribeReservedElasticsearchInstanceOfferingsRequest,
   ): Effect.Effect<
@@ -257,7 +307,9 @@ export declare class ElasticsearchService extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeReservedElasticsearchInstanceOfferings", input);
+  }
   describeReservedElasticsearchInstances(
     input: DescribeReservedElasticsearchInstancesRequest,
   ): Effect.Effect<
@@ -267,7 +319,9 @@ export declare class ElasticsearchService extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeReservedElasticsearchInstances", input);
+  }
   describeVpcEndpoints(
     input: DescribeVpcEndpointsRequest,
   ): Effect.Effect<
@@ -277,7 +331,9 @@ export declare class ElasticsearchService extends AWSServiceClient {
     | InternalException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeVpcEndpoints", input);
+  }
   dissociatePackage(
     input: DissociatePackageRequest,
   ): Effect.Effect<
@@ -289,7 +345,9 @@ export declare class ElasticsearchService extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DissociatePackage", input);
+  }
   getCompatibleElasticsearchVersions(
     input: GetCompatibleElasticsearchVersionsRequest,
   ): Effect.Effect<
@@ -300,7 +358,9 @@ export declare class ElasticsearchService extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetCompatibleElasticsearchVersions", input);
+  }
   getPackageVersionHistory(
     input: GetPackageVersionHistoryRequest,
   ): Effect.Effect<
@@ -311,7 +371,9 @@ export declare class ElasticsearchService extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetPackageVersionHistory", input);
+  }
   getUpgradeHistory(
     input: GetUpgradeHistoryRequest,
   ): Effect.Effect<
@@ -322,7 +384,9 @@ export declare class ElasticsearchService extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetUpgradeHistory", input);
+  }
   getUpgradeStatus(
     input: GetUpgradeStatusRequest,
   ): Effect.Effect<
@@ -333,13 +397,17 @@ export declare class ElasticsearchService extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetUpgradeStatus", input);
+  }
   listDomainNames(
     input: ListDomainNamesRequest,
   ): Effect.Effect<
     ListDomainNamesResponse,
     BaseException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("ListDomainNames", input);
+  }
   listDomainsForPackage(
     input: ListDomainsForPackageRequest,
   ): Effect.Effect<
@@ -350,7 +418,9 @@ export declare class ElasticsearchService extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListDomainsForPackage", input);
+  }
   listElasticsearchInstanceTypes(
     input: ListElasticsearchInstanceTypesRequest,
   ): Effect.Effect<
@@ -360,7 +430,9 @@ export declare class ElasticsearchService extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListElasticsearchInstanceTypes", input);
+  }
   listElasticsearchVersions(
     input: ListElasticsearchVersionsRequest,
   ): Effect.Effect<
@@ -370,7 +442,9 @@ export declare class ElasticsearchService extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListElasticsearchVersions", input);
+  }
   listPackagesForDomain(
     input: ListPackagesForDomainRequest,
   ): Effect.Effect<
@@ -381,7 +455,9 @@ export declare class ElasticsearchService extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListPackagesForDomain", input);
+  }
   listTags(
     input: ListTagsRequest,
   ): Effect.Effect<
@@ -391,7 +467,9 @@ export declare class ElasticsearchService extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTags", input);
+  }
   listVpcEndpointAccess(
     input: ListVpcEndpointAccessRequest,
   ): Effect.Effect<
@@ -401,7 +479,9 @@ export declare class ElasticsearchService extends AWSServiceClient {
     | InternalException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListVpcEndpointAccess", input);
+  }
   listVpcEndpoints(
     input: ListVpcEndpointsRequest,
   ): Effect.Effect<
@@ -410,7 +490,9 @@ export declare class ElasticsearchService extends AWSServiceClient {
     | DisabledOperationException
     | InternalException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListVpcEndpoints", input);
+  }
   listVpcEndpointsForDomain(
     input: ListVpcEndpointsForDomainRequest,
   ): Effect.Effect<
@@ -420,7 +502,9 @@ export declare class ElasticsearchService extends AWSServiceClient {
     | InternalException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListVpcEndpointsForDomain", input);
+  }
   purchaseReservedElasticsearchInstanceOffering(
     input: PurchaseReservedElasticsearchInstanceOfferingRequest,
   ): Effect.Effect<
@@ -432,19 +516,25 @@ export declare class ElasticsearchService extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PurchaseReservedElasticsearchInstanceOffering", input);
+  }
   rejectInboundCrossClusterSearchConnection(
     input: RejectInboundCrossClusterSearchConnectionRequest,
   ): Effect.Effect<
     RejectInboundCrossClusterSearchConnectionResponse,
     DisabledOperationException | ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("RejectInboundCrossClusterSearchConnection", input);
+  }
   removeTags(
     input: RemoveTagsRequest,
   ): Effect.Effect<
     {},
     BaseException | InternalException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("RemoveTags", input);
+  }
   revokeVpcEndpointAccess(
     input: RevokeVpcEndpointAccessRequest,
   ): Effect.Effect<
@@ -455,7 +545,9 @@ export declare class ElasticsearchService extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("RevokeVpcEndpointAccess", input);
+  }
   startElasticsearchServiceSoftwareUpdate(
     input: StartElasticsearchServiceSoftwareUpdateRequest,
   ): Effect.Effect<
@@ -465,7 +557,9 @@ export declare class ElasticsearchService extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartElasticsearchServiceSoftwareUpdate", input);
+  }
   updateElasticsearchDomainConfig(
     input: UpdateElasticsearchDomainConfigRequest,
   ): Effect.Effect<
@@ -477,7 +571,9 @@ export declare class ElasticsearchService extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateElasticsearchDomainConfig", input);
+  }
   updatePackage(
     input: UpdatePackageRequest,
   ): Effect.Effect<
@@ -489,7 +585,9 @@ export declare class ElasticsearchService extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdatePackage", input);
+  }
   updateVpcEndpoint(
     input: UpdateVpcEndpointRequest,
   ): Effect.Effect<
@@ -501,7 +599,9 @@ export declare class ElasticsearchService extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateVpcEndpoint", input);
+  }
   upgradeElasticsearchDomain(
     input: UpgradeElasticsearchDomainRequest,
   ): Effect.Effect<
@@ -513,8 +613,12 @@ export declare class ElasticsearchService extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpgradeElasticsearchDomain", input);
+  }
 }
+
+export default ElasticsearchService;
 
 export interface AcceptInboundCrossClusterSearchConnectionRequest {
   CrossClusterSearchConnectionId: string;

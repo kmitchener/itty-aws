@@ -2,13 +2,15 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class WorkMailMessageFlow extends AWSServiceClient {
+export class WorkMailMessageFlow extends AWSServiceClient {
   getRawMessageContent(
     input: GetRawMessageContentRequest,
   ): Effect.Effect<
     GetRawMessageContentResponse,
     ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("GetRawMessageContent", input);
+  }
   putRawMessageContent(
     input: PutRawMessageContentRequest,
   ): Effect.Effect<
@@ -18,10 +20,14 @@ export declare class WorkMailMessageFlow extends AWSServiceClient {
     | MessageRejected
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutRawMessageContent", input);
+  }
 }
 
-export declare class Workmailmessageflow extends WorkMailMessageFlow {}
+export class Workmailmessageflow extends WorkMailMessageFlow {}
+
+export default WorkMailMessageFlow;
 
 export type errorMessage = string;
 

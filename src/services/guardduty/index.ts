@@ -2,37 +2,47 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class GuardDuty extends AWSServiceClient {
+export class GuardDuty extends AWSServiceClient {
   acceptAdministratorInvitation(
     input: AcceptAdministratorInvitationRequest,
   ): Effect.Effect<
     AcceptAdministratorInvitationResponse,
     BadRequestException | InternalServerErrorException | CommonAwsError
-  >;
+  > {
+    return this.call("AcceptAdministratorInvitation", input);
+  }
   acceptInvitation(
     input: AcceptInvitationRequest,
   ): Effect.Effect<
     AcceptInvitationResponse,
     BadRequestException | InternalServerErrorException | CommonAwsError
-  >;
+  > {
+    return this.call("AcceptInvitation", input);
+  }
   archiveFindings(
     input: ArchiveFindingsRequest,
   ): Effect.Effect<
     ArchiveFindingsResponse,
     BadRequestException | InternalServerErrorException | CommonAwsError
-  >;
+  > {
+    return this.call("ArchiveFindings", input);
+  }
   createDetector(
     input: CreateDetectorRequest,
   ): Effect.Effect<
     CreateDetectorResponse,
     BadRequestException | InternalServerErrorException | CommonAwsError
-  >;
+  > {
+    return this.call("CreateDetector", input);
+  }
   createFilter(
     input: CreateFilterRequest,
   ): Effect.Effect<
     CreateFilterResponse,
     BadRequestException | InternalServerErrorException | CommonAwsError
-  >;
+  > {
+    return this.call("CreateFilter", input);
+  }
   createIPSet(
     input: CreateIPSetRequest,
   ): Effect.Effect<
@@ -41,7 +51,9 @@ export declare class GuardDuty extends AWSServiceClient {
     | BadRequestException
     | InternalServerErrorException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateIPSet", input);
+  }
   createMalwareProtectionPlan(
     input: CreateMalwareProtectionPlanRequest,
   ): Effect.Effect<
@@ -51,25 +63,33 @@ export declare class GuardDuty extends AWSServiceClient {
     | ConflictException
     | InternalServerErrorException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateMalwareProtectionPlan", input);
+  }
   createMembers(
     input: CreateMembersRequest,
   ): Effect.Effect<
     CreateMembersResponse,
     BadRequestException | InternalServerErrorException | CommonAwsError
-  >;
+  > {
+    return this.call("CreateMembers", input);
+  }
   createPublishingDestination(
     input: CreatePublishingDestinationRequest,
   ): Effect.Effect<
     CreatePublishingDestinationResponse,
     BadRequestException | InternalServerErrorException | CommonAwsError
-  >;
+  > {
+    return this.call("CreatePublishingDestination", input);
+  }
   createSampleFindings(
     input: CreateSampleFindingsRequest,
   ): Effect.Effect<
     CreateSampleFindingsResponse,
     BadRequestException | InternalServerErrorException | CommonAwsError
-  >;
+  > {
+    return this.call("CreateSampleFindings", input);
+  }
   createThreatIntelSet(
     input: CreateThreatIntelSetRequest,
   ): Effect.Effect<
@@ -78,37 +98,49 @@ export declare class GuardDuty extends AWSServiceClient {
     | BadRequestException
     | InternalServerErrorException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateThreatIntelSet", input);
+  }
   declineInvitations(
     input: DeclineInvitationsRequest,
   ): Effect.Effect<
     DeclineInvitationsResponse,
     BadRequestException | InternalServerErrorException | CommonAwsError
-  >;
+  > {
+    return this.call("DeclineInvitations", input);
+  }
   deleteDetector(
     input: DeleteDetectorRequest,
   ): Effect.Effect<
     DeleteDetectorResponse,
     BadRequestException | InternalServerErrorException | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteDetector", input);
+  }
   deleteFilter(
     input: DeleteFilterRequest,
   ): Effect.Effect<
     DeleteFilterResponse,
     BadRequestException | InternalServerErrorException | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteFilter", input);
+  }
   deleteInvitations(
     input: DeleteInvitationsRequest,
   ): Effect.Effect<
     DeleteInvitationsResponse,
     BadRequestException | InternalServerErrorException | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteInvitations", input);
+  }
   deleteIPSet(
     input: DeleteIPSetRequest,
   ): Effect.Effect<
     DeleteIPSetResponse,
     BadRequestException | InternalServerErrorException | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteIPSet", input);
+  }
   deleteMalwareProtectionPlan(
     input: DeleteMalwareProtectionPlanRequest,
   ): Effect.Effect<
@@ -118,121 +150,161 @@ export declare class GuardDuty extends AWSServiceClient {
     | InternalServerErrorException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteMalwareProtectionPlan", input);
+  }
   deleteMembers(
     input: DeleteMembersRequest,
   ): Effect.Effect<
     DeleteMembersResponse,
     BadRequestException | InternalServerErrorException | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteMembers", input);
+  }
   deletePublishingDestination(
     input: DeletePublishingDestinationRequest,
   ): Effect.Effect<
     DeletePublishingDestinationResponse,
     BadRequestException | InternalServerErrorException | CommonAwsError
-  >;
+  > {
+    return this.call("DeletePublishingDestination", input);
+  }
   deleteThreatIntelSet(
     input: DeleteThreatIntelSetRequest,
   ): Effect.Effect<
     DeleteThreatIntelSetResponse,
     BadRequestException | InternalServerErrorException | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteThreatIntelSet", input);
+  }
   describeMalwareScans(
     input: DescribeMalwareScansRequest,
   ): Effect.Effect<
     DescribeMalwareScansResponse,
     BadRequestException | InternalServerErrorException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeMalwareScans", input);
+  }
   describeOrganizationConfiguration(
     input: DescribeOrganizationConfigurationRequest,
   ): Effect.Effect<
     DescribeOrganizationConfigurationResponse,
     BadRequestException | InternalServerErrorException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeOrganizationConfiguration", input);
+  }
   describePublishingDestination(
     input: DescribePublishingDestinationRequest,
   ): Effect.Effect<
     DescribePublishingDestinationResponse,
     BadRequestException | InternalServerErrorException | CommonAwsError
-  >;
+  > {
+    return this.call("DescribePublishingDestination", input);
+  }
   disableOrganizationAdminAccount(
     input: DisableOrganizationAdminAccountRequest,
   ): Effect.Effect<
     DisableOrganizationAdminAccountResponse,
     BadRequestException | InternalServerErrorException | CommonAwsError
-  >;
+  > {
+    return this.call("DisableOrganizationAdminAccount", input);
+  }
   disassociateFromAdministratorAccount(
     input: DisassociateFromAdministratorAccountRequest,
   ): Effect.Effect<
     DisassociateFromAdministratorAccountResponse,
     BadRequestException | InternalServerErrorException | CommonAwsError
-  >;
+  > {
+    return this.call("DisassociateFromAdministratorAccount", input);
+  }
   disassociateFromMasterAccount(
     input: DisassociateFromMasterAccountRequest,
   ): Effect.Effect<
     DisassociateFromMasterAccountResponse,
     BadRequestException | InternalServerErrorException | CommonAwsError
-  >;
+  > {
+    return this.call("DisassociateFromMasterAccount", input);
+  }
   disassociateMembers(
     input: DisassociateMembersRequest,
   ): Effect.Effect<
     DisassociateMembersResponse,
     BadRequestException | InternalServerErrorException | CommonAwsError
-  >;
+  > {
+    return this.call("DisassociateMembers", input);
+  }
   enableOrganizationAdminAccount(
     input: EnableOrganizationAdminAccountRequest,
   ): Effect.Effect<
     EnableOrganizationAdminAccountResponse,
     BadRequestException | InternalServerErrorException | CommonAwsError
-  >;
+  > {
+    return this.call("EnableOrganizationAdminAccount", input);
+  }
   getAdministratorAccount(
     input: GetAdministratorAccountRequest,
   ): Effect.Effect<
     GetAdministratorAccountResponse,
     BadRequestException | InternalServerErrorException | CommonAwsError
-  >;
+  > {
+    return this.call("GetAdministratorAccount", input);
+  }
   getCoverageStatistics(
     input: GetCoverageStatisticsRequest,
   ): Effect.Effect<
     GetCoverageStatisticsResponse,
     BadRequestException | InternalServerErrorException | CommonAwsError
-  >;
+  > {
+    return this.call("GetCoverageStatistics", input);
+  }
   getDetector(
     input: GetDetectorRequest,
   ): Effect.Effect<
     GetDetectorResponse,
     BadRequestException | InternalServerErrorException | CommonAwsError
-  >;
+  > {
+    return this.call("GetDetector", input);
+  }
   getFilter(
     input: GetFilterRequest,
   ): Effect.Effect<
     GetFilterResponse,
     BadRequestException | InternalServerErrorException | CommonAwsError
-  >;
+  > {
+    return this.call("GetFilter", input);
+  }
   getFindings(
     input: GetFindingsRequest,
   ): Effect.Effect<
     GetFindingsResponse,
     BadRequestException | InternalServerErrorException | CommonAwsError
-  >;
+  > {
+    return this.call("GetFindings", input);
+  }
   getFindingsStatistics(
     input: GetFindingsStatisticsRequest,
   ): Effect.Effect<
     GetFindingsStatisticsResponse,
     BadRequestException | InternalServerErrorException | CommonAwsError
-  >;
+  > {
+    return this.call("GetFindingsStatistics", input);
+  }
   getInvitationsCount(
     input: GetInvitationsCountRequest,
   ): Effect.Effect<
     GetInvitationsCountResponse,
     BadRequestException | InternalServerErrorException | CommonAwsError
-  >;
+  > {
+    return this.call("GetInvitationsCount", input);
+  }
   getIPSet(
     input: GetIPSetRequest,
   ): Effect.Effect<
     GetIPSetResponse,
     BadRequestException | InternalServerErrorException | CommonAwsError
-  >;
+  > {
+    return this.call("GetIPSet", input);
+  }
   getMalwareProtectionPlan(
     input: GetMalwareProtectionPlanRequest,
   ): Effect.Effect<
@@ -242,95 +314,127 @@ export declare class GuardDuty extends AWSServiceClient {
     | InternalServerErrorException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetMalwareProtectionPlan", input);
+  }
   getMalwareScanSettings(
     input: GetMalwareScanSettingsRequest,
   ): Effect.Effect<
     GetMalwareScanSettingsResponse,
     BadRequestException | InternalServerErrorException | CommonAwsError
-  >;
+  > {
+    return this.call("GetMalwareScanSettings", input);
+  }
   getMasterAccount(
     input: GetMasterAccountRequest,
   ): Effect.Effect<
     GetMasterAccountResponse,
     BadRequestException | InternalServerErrorException | CommonAwsError
-  >;
+  > {
+    return this.call("GetMasterAccount", input);
+  }
   getMemberDetectors(
     input: GetMemberDetectorsRequest,
   ): Effect.Effect<
     GetMemberDetectorsResponse,
     BadRequestException | InternalServerErrorException | CommonAwsError
-  >;
+  > {
+    return this.call("GetMemberDetectors", input);
+  }
   getMembers(
     input: GetMembersRequest,
   ): Effect.Effect<
     GetMembersResponse,
     BadRequestException | InternalServerErrorException | CommonAwsError
-  >;
+  > {
+    return this.call("GetMembers", input);
+  }
   getOrganizationStatistics(input: {}): Effect.Effect<
     GetOrganizationStatisticsResponse,
     BadRequestException | InternalServerErrorException | CommonAwsError
-  >;
+  > {
+    return this.call("GetOrganizationStatistics", input);
+  }
   getRemainingFreeTrialDays(
     input: GetRemainingFreeTrialDaysRequest,
   ): Effect.Effect<
     GetRemainingFreeTrialDaysResponse,
     BadRequestException | InternalServerErrorException | CommonAwsError
-  >;
+  > {
+    return this.call("GetRemainingFreeTrialDays", input);
+  }
   getThreatIntelSet(
     input: GetThreatIntelSetRequest,
   ): Effect.Effect<
     GetThreatIntelSetResponse,
     BadRequestException | InternalServerErrorException | CommonAwsError
-  >;
+  > {
+    return this.call("GetThreatIntelSet", input);
+  }
   getUsageStatistics(
     input: GetUsageStatisticsRequest,
   ): Effect.Effect<
     GetUsageStatisticsResponse,
     BadRequestException | InternalServerErrorException | CommonAwsError
-  >;
+  > {
+    return this.call("GetUsageStatistics", input);
+  }
   inviteMembers(
     input: InviteMembersRequest,
   ): Effect.Effect<
     InviteMembersResponse,
     BadRequestException | InternalServerErrorException | CommonAwsError
-  >;
+  > {
+    return this.call("InviteMembers", input);
+  }
   listCoverage(
     input: ListCoverageRequest,
   ): Effect.Effect<
     ListCoverageResponse,
     BadRequestException | InternalServerErrorException | CommonAwsError
-  >;
+  > {
+    return this.call("ListCoverage", input);
+  }
   listDetectors(
     input: ListDetectorsRequest,
   ): Effect.Effect<
     ListDetectorsResponse,
     BadRequestException | InternalServerErrorException | CommonAwsError
-  >;
+  > {
+    return this.call("ListDetectors", input);
+  }
   listFilters(
     input: ListFiltersRequest,
   ): Effect.Effect<
     ListFiltersResponse,
     BadRequestException | InternalServerErrorException | CommonAwsError
-  >;
+  > {
+    return this.call("ListFilters", input);
+  }
   listFindings(
     input: ListFindingsRequest,
   ): Effect.Effect<
     ListFindingsResponse,
     BadRequestException | InternalServerErrorException | CommonAwsError
-  >;
+  > {
+    return this.call("ListFindings", input);
+  }
   listInvitations(
     input: ListInvitationsRequest,
   ): Effect.Effect<
     ListInvitationsResponse,
     BadRequestException | InternalServerErrorException | CommonAwsError
-  >;
+  > {
+    return this.call("ListInvitations", input);
+  }
   listIPSets(
     input: ListIPSetsRequest,
   ): Effect.Effect<
     ListIPSetsResponse,
     BadRequestException | InternalServerErrorException | CommonAwsError
-  >;
+  > {
+    return this.call("ListIPSets", input);
+  }
   listMalwareProtectionPlans(
     input: ListMalwareProtectionPlansRequest,
   ): Effect.Effect<
@@ -339,25 +443,33 @@ export declare class GuardDuty extends AWSServiceClient {
     | BadRequestException
     | InternalServerErrorException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListMalwareProtectionPlans", input);
+  }
   listMembers(
     input: ListMembersRequest,
   ): Effect.Effect<
     ListMembersResponse,
     BadRequestException | InternalServerErrorException | CommonAwsError
-  >;
+  > {
+    return this.call("ListMembers", input);
+  }
   listOrganizationAdminAccounts(
     input: ListOrganizationAdminAccountsRequest,
   ): Effect.Effect<
     ListOrganizationAdminAccountsResponse,
     BadRequestException | InternalServerErrorException | CommonAwsError
-  >;
+  > {
+    return this.call("ListOrganizationAdminAccounts", input);
+  }
   listPublishingDestinations(
     input: ListPublishingDestinationsRequest,
   ): Effect.Effect<
     ListPublishingDestinationsResponse,
     BadRequestException | InternalServerErrorException | CommonAwsError
-  >;
+  > {
+    return this.call("ListPublishingDestinations", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
@@ -366,13 +478,17 @@ export declare class GuardDuty extends AWSServiceClient {
     | BadRequestException
     | InternalServerErrorException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   listThreatIntelSets(
     input: ListThreatIntelSetsRequest,
   ): Effect.Effect<
     ListThreatIntelSetsResponse,
     BadRequestException | InternalServerErrorException | CommonAwsError
-  >;
+  > {
+    return this.call("ListThreatIntelSets", input);
+  }
   startMalwareScan(
     input: StartMalwareScanRequest,
   ): Effect.Effect<
@@ -381,19 +497,25 @@ export declare class GuardDuty extends AWSServiceClient {
     | ConflictException
     | InternalServerErrorException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartMalwareScan", input);
+  }
   startMonitoringMembers(
     input: StartMonitoringMembersRequest,
   ): Effect.Effect<
     StartMonitoringMembersResponse,
     BadRequestException | InternalServerErrorException | CommonAwsError
-  >;
+  > {
+    return this.call("StartMonitoringMembers", input);
+  }
   stopMonitoringMembers(
     input: StopMonitoringMembersRequest,
   ): Effect.Effect<
     StopMonitoringMembersResponse,
     BadRequestException | InternalServerErrorException | CommonAwsError
-  >;
+  > {
+    return this.call("StopMonitoringMembers", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -402,13 +524,17 @@ export declare class GuardDuty extends AWSServiceClient {
     | BadRequestException
     | InternalServerErrorException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   unarchiveFindings(
     input: UnarchiveFindingsRequest,
   ): Effect.Effect<
     UnarchiveFindingsResponse,
     BadRequestException | InternalServerErrorException | CommonAwsError
-  >;
+  > {
+    return this.call("UnarchiveFindings", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
@@ -417,25 +543,33 @@ export declare class GuardDuty extends AWSServiceClient {
     | BadRequestException
     | InternalServerErrorException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
   updateDetector(
     input: UpdateDetectorRequest,
   ): Effect.Effect<
     UpdateDetectorResponse,
     BadRequestException | InternalServerErrorException | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateDetector", input);
+  }
   updateFilter(
     input: UpdateFilterRequest,
   ): Effect.Effect<
     UpdateFilterResponse,
     BadRequestException | InternalServerErrorException | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateFilter", input);
+  }
   updateFindingsFeedback(
     input: UpdateFindingsFeedbackRequest,
   ): Effect.Effect<
     UpdateFindingsFeedbackResponse,
     BadRequestException | InternalServerErrorException | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateFindingsFeedback", input);
+  }
   updateIPSet(
     input: UpdateIPSetRequest,
   ): Effect.Effect<
@@ -444,7 +578,9 @@ export declare class GuardDuty extends AWSServiceClient {
     | BadRequestException
     | InternalServerErrorException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateIPSet", input);
+  }
   updateMalwareProtectionPlan(
     input: UpdateMalwareProtectionPlanRequest,
   ): Effect.Effect<
@@ -454,31 +590,41 @@ export declare class GuardDuty extends AWSServiceClient {
     | InternalServerErrorException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateMalwareProtectionPlan", input);
+  }
   updateMalwareScanSettings(
     input: UpdateMalwareScanSettingsRequest,
   ): Effect.Effect<
     UpdateMalwareScanSettingsResponse,
     BadRequestException | InternalServerErrorException | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateMalwareScanSettings", input);
+  }
   updateMemberDetectors(
     input: UpdateMemberDetectorsRequest,
   ): Effect.Effect<
     UpdateMemberDetectorsResponse,
     BadRequestException | InternalServerErrorException | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateMemberDetectors", input);
+  }
   updateOrganizationConfiguration(
     input: UpdateOrganizationConfigurationRequest,
   ): Effect.Effect<
     UpdateOrganizationConfigurationResponse,
     BadRequestException | InternalServerErrorException | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateOrganizationConfiguration", input);
+  }
   updatePublishingDestination(
     input: UpdatePublishingDestinationRequest,
   ): Effect.Effect<
     UpdatePublishingDestinationResponse,
     BadRequestException | InternalServerErrorException | CommonAwsError
-  >;
+  > {
+    return this.call("UpdatePublishingDestination", input);
+  }
   updateThreatIntelSet(
     input: UpdateThreatIntelSetRequest,
   ): Effect.Effect<
@@ -487,10 +633,14 @@ export declare class GuardDuty extends AWSServiceClient {
     | BadRequestException
     | InternalServerErrorException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateThreatIntelSet", input);
+  }
 }
 
-export declare class Guardduty extends GuardDuty {}
+export class Guardduty extends GuardDuty {}
+
+export default GuardDuty;
 
 export interface AcceptAdministratorInvitationRequest {
   DetectorId: string;

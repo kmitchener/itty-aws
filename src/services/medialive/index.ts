@@ -3,7 +3,7 @@ import type { ResponseError } from "@effect/platform/HttpClientError";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class MediaLive extends AWSServiceClient {
+export class MediaLive extends AWSServiceClient {
   acceptInputDeviceTransfer(
     input: AcceptInputDeviceTransferRequest,
   ): Effect.Effect<
@@ -18,7 +18,9 @@ export declare class MediaLive extends AWSServiceClient {
     | TooManyRequestsException
     | UnprocessableEntityException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AcceptInputDeviceTransfer", input);
+  }
   batchDelete(
     input: BatchDeleteRequest,
   ): Effect.Effect<
@@ -32,7 +34,9 @@ export declare class MediaLive extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("BatchDelete", input);
+  }
   batchStart(
     input: BatchStartRequest,
   ): Effect.Effect<
@@ -46,7 +50,9 @@ export declare class MediaLive extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("BatchStart", input);
+  }
   batchStop(
     input: BatchStopRequest,
   ): Effect.Effect<
@@ -60,7 +66,9 @@ export declare class MediaLive extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("BatchStop", input);
+  }
   batchUpdateSchedule(
     input: BatchUpdateScheduleRequest,
   ): Effect.Effect<
@@ -74,7 +82,9 @@ export declare class MediaLive extends AWSServiceClient {
     | TooManyRequestsException
     | UnprocessableEntityException
     | CommonAwsError
-  >;
+  > {
+    return this.call("BatchUpdateSchedule", input);
+  }
   cancelInputDeviceTransfer(
     input: CancelInputDeviceTransferRequest,
   ): Effect.Effect<
@@ -89,7 +99,9 @@ export declare class MediaLive extends AWSServiceClient {
     | TooManyRequestsException
     | UnprocessableEntityException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CancelInputDeviceTransfer", input);
+  }
   claimDevice(
     input: ClaimDeviceRequest,
   ): Effect.Effect<
@@ -103,7 +115,9 @@ export declare class MediaLive extends AWSServiceClient {
     | TooManyRequestsException
     | UnprocessableEntityException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ClaimDevice", input);
+  }
   createChannel(
     input: CreateChannelRequest,
   ): Effect.Effect<
@@ -117,7 +131,9 @@ export declare class MediaLive extends AWSServiceClient {
     | TooManyRequestsException
     | UnprocessableEntityException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateChannel", input);
+  }
   createChannelPlacementGroup(
     input: CreateChannelPlacementGroupRequest,
   ): Effect.Effect<
@@ -130,7 +146,9 @@ export declare class MediaLive extends AWSServiceClient {
     | TooManyRequestsException
     | UnprocessableEntityException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateChannelPlacementGroup", input);
+  }
   createCloudWatchAlarmTemplate(
     input: CreateCloudWatchAlarmTemplateRequest,
   ): Effect.Effect<
@@ -142,7 +160,9 @@ export declare class MediaLive extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateCloudWatchAlarmTemplate", input);
+  }
   createCloudWatchAlarmTemplateGroup(
     input: CreateCloudWatchAlarmTemplateGroupRequest,
   ): Effect.Effect<
@@ -154,7 +174,9 @@ export declare class MediaLive extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateCloudWatchAlarmTemplateGroup", input);
+  }
   createCluster(
     input: CreateClusterRequest,
   ): Effect.Effect<
@@ -167,7 +189,9 @@ export declare class MediaLive extends AWSServiceClient {
     | InternalServerErrorException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateCluster", input);
+  }
   createEventBridgeRuleTemplate(
     input: CreateEventBridgeRuleTemplateRequest,
   ): Effect.Effect<
@@ -179,7 +203,9 @@ export declare class MediaLive extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateEventBridgeRuleTemplate", input);
+  }
   createEventBridgeRuleTemplateGroup(
     input: CreateEventBridgeRuleTemplateGroupRequest,
   ): Effect.Effect<
@@ -191,7 +217,9 @@ export declare class MediaLive extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateEventBridgeRuleTemplateGroup", input);
+  }
   createInput(
     input: CreateInputRequest,
   ): Effect.Effect<
@@ -203,7 +231,9 @@ export declare class MediaLive extends AWSServiceClient {
     | InternalServerErrorException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateInput", input);
+  }
   createInputSecurityGroup(
     input: CreateInputSecurityGroupRequest,
   ): Effect.Effect<
@@ -215,7 +245,9 @@ export declare class MediaLive extends AWSServiceClient {
     | InternalServerErrorException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateInputSecurityGroup", input);
+  }
   createMultiplex(
     input: CreateMultiplexRequest,
   ): Effect.Effect<
@@ -229,7 +261,9 @@ export declare class MediaLive extends AWSServiceClient {
     | TooManyRequestsException
     | UnprocessableEntityException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateMultiplex", input);
+  }
   createMultiplexProgram(
     input: CreateMultiplexProgramRequest,
   ): Effect.Effect<
@@ -243,7 +277,9 @@ export declare class MediaLive extends AWSServiceClient {
     | TooManyRequestsException
     | UnprocessableEntityException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateMultiplexProgram", input);
+  }
   createNetwork(
     input: CreateNetworkRequest,
   ): Effect.Effect<
@@ -256,7 +292,9 @@ export declare class MediaLive extends AWSServiceClient {
     | InternalServerErrorException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateNetwork", input);
+  }
   createNode(
     input: CreateNodeRequest,
   ): Effect.Effect<
@@ -269,7 +307,9 @@ export declare class MediaLive extends AWSServiceClient {
     | TooManyRequestsException
     | UnprocessableEntityException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateNode", input);
+  }
   createNodeRegistrationScript(
     input: CreateNodeRegistrationScriptRequest,
   ): Effect.Effect<
@@ -282,7 +322,9 @@ export declare class MediaLive extends AWSServiceClient {
     | InternalServerErrorException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateNodeRegistrationScript", input);
+  }
   createPartnerInput(
     input: CreatePartnerInputRequest,
   ): Effect.Effect<
@@ -294,7 +336,9 @@ export declare class MediaLive extends AWSServiceClient {
     | InternalServerErrorException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreatePartnerInput", input);
+  }
   createSdiSource(
     input: CreateSdiSourceRequest,
   ): Effect.Effect<
@@ -307,7 +351,9 @@ export declare class MediaLive extends AWSServiceClient {
     | InternalServerErrorException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateSdiSource", input);
+  }
   createSignalMap(
     input: CreateSignalMapRequest,
   ): Effect.Effect<
@@ -319,7 +365,9 @@ export declare class MediaLive extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateSignalMap", input);
+  }
   createTags(
     input: CreateTagsRequest,
   ): Effect.Effect<
@@ -329,7 +377,9 @@ export declare class MediaLive extends AWSServiceClient {
     | InternalServerErrorException
     | NotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateTags", input);
+  }
   deleteChannel(
     input: DeleteChannelRequest,
   ): Effect.Effect<
@@ -343,7 +393,9 @@ export declare class MediaLive extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteChannel", input);
+  }
   deleteChannelPlacementGroup(
     input: DeleteChannelPlacementGroupRequest,
   ): Effect.Effect<
@@ -357,7 +409,9 @@ export declare class MediaLive extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteChannelPlacementGroup", input);
+  }
   deleteCloudWatchAlarmTemplate(
     input: DeleteCloudWatchAlarmTemplateRequest,
   ): Effect.Effect<
@@ -369,7 +423,9 @@ export declare class MediaLive extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteCloudWatchAlarmTemplate", input);
+  }
   deleteCloudWatchAlarmTemplateGroup(
     input: DeleteCloudWatchAlarmTemplateGroupRequest,
   ): Effect.Effect<
@@ -381,7 +437,9 @@ export declare class MediaLive extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteCloudWatchAlarmTemplateGroup", input);
+  }
   deleteCluster(
     input: DeleteClusterRequest,
   ): Effect.Effect<
@@ -395,7 +453,9 @@ export declare class MediaLive extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteCluster", input);
+  }
   deleteEventBridgeRuleTemplate(
     input: DeleteEventBridgeRuleTemplateRequest,
   ): Effect.Effect<
@@ -407,7 +467,9 @@ export declare class MediaLive extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteEventBridgeRuleTemplate", input);
+  }
   deleteEventBridgeRuleTemplateGroup(
     input: DeleteEventBridgeRuleTemplateGroupRequest,
   ): Effect.Effect<
@@ -419,7 +481,9 @@ export declare class MediaLive extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteEventBridgeRuleTemplateGroup", input);
+  }
   deleteInput(
     input: DeleteInputRequest,
   ): Effect.Effect<
@@ -433,7 +497,9 @@ export declare class MediaLive extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteInput", input);
+  }
   deleteInputSecurityGroup(
     input: DeleteInputSecurityGroupRequest,
   ): Effect.Effect<
@@ -446,7 +512,9 @@ export declare class MediaLive extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteInputSecurityGroup", input);
+  }
   deleteMultiplex(
     input: DeleteMultiplexRequest,
   ): Effect.Effect<
@@ -460,7 +528,9 @@ export declare class MediaLive extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteMultiplex", input);
+  }
   deleteMultiplexProgram(
     input: DeleteMultiplexProgramRequest,
   ): Effect.Effect<
@@ -474,7 +544,9 @@ export declare class MediaLive extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteMultiplexProgram", input);
+  }
   deleteNetwork(
     input: DeleteNetworkRequest,
   ): Effect.Effect<
@@ -488,7 +560,9 @@ export declare class MediaLive extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteNetwork", input);
+  }
   deleteNode(
     input: DeleteNodeRequest,
   ): Effect.Effect<
@@ -502,7 +576,9 @@ export declare class MediaLive extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteNode", input);
+  }
   deleteReservation(
     input: DeleteReservationRequest,
   ): Effect.Effect<
@@ -516,7 +592,9 @@ export declare class MediaLive extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteReservation", input);
+  }
   deleteSchedule(
     input: DeleteScheduleRequest,
   ): Effect.Effect<
@@ -529,7 +607,9 @@ export declare class MediaLive extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteSchedule", input);
+  }
   deleteSdiSource(
     input: DeleteSdiSourceRequest,
   ): Effect.Effect<
@@ -543,7 +623,9 @@ export declare class MediaLive extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteSdiSource", input);
+  }
   deleteSignalMap(
     input: DeleteSignalMapRequest,
   ): Effect.Effect<
@@ -555,7 +637,9 @@ export declare class MediaLive extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteSignalMap", input);
+  }
   deleteTags(
     input: DeleteTagsRequest,
   ): Effect.Effect<
@@ -565,7 +649,9 @@ export declare class MediaLive extends AWSServiceClient {
     | InternalServerErrorException
     | NotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteTags", input);
+  }
   describeAccountConfiguration(
     input: DescribeAccountConfigurationRequest,
   ): Effect.Effect<
@@ -577,7 +663,9 @@ export declare class MediaLive extends AWSServiceClient {
     | InternalServerErrorException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeAccountConfiguration", input);
+  }
   describeChannel(
     input: DescribeChannelRequest,
   ): Effect.Effect<
@@ -590,7 +678,9 @@ export declare class MediaLive extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeChannel", input);
+  }
   describeChannelPlacementGroup(
     input: DescribeChannelPlacementGroupRequest,
   ): Effect.Effect<
@@ -603,7 +693,9 @@ export declare class MediaLive extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeChannelPlacementGroup", input);
+  }
   describeCluster(
     input: DescribeClusterRequest,
   ): Effect.Effect<
@@ -616,7 +708,9 @@ export declare class MediaLive extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeCluster", input);
+  }
   describeInput(
     input: DescribeInputRequest,
   ): Effect.Effect<
@@ -629,7 +723,9 @@ export declare class MediaLive extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeInput", input);
+  }
   describeInputDevice(
     input: DescribeInputDeviceRequest,
   ): Effect.Effect<
@@ -642,7 +738,9 @@ export declare class MediaLive extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeInputDevice", input);
+  }
   describeInputDeviceThumbnail(
     input: DescribeInputDeviceThumbnailRequest,
   ): Effect.Effect<
@@ -655,7 +753,9 @@ export declare class MediaLive extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeInputDeviceThumbnail", input);
+  }
   describeInputSecurityGroup(
     input: DescribeInputSecurityGroupRequest,
   ): Effect.Effect<
@@ -668,7 +768,9 @@ export declare class MediaLive extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeInputSecurityGroup", input);
+  }
   describeMultiplex(
     input: DescribeMultiplexRequest,
   ): Effect.Effect<
@@ -681,7 +783,9 @@ export declare class MediaLive extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeMultiplex", input);
+  }
   describeMultiplexProgram(
     input: DescribeMultiplexProgramRequest,
   ): Effect.Effect<
@@ -694,7 +798,9 @@ export declare class MediaLive extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeMultiplexProgram", input);
+  }
   describeNetwork(
     input: DescribeNetworkRequest,
   ): Effect.Effect<
@@ -707,7 +813,9 @@ export declare class MediaLive extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeNetwork", input);
+  }
   describeNode(
     input: DescribeNodeRequest,
   ): Effect.Effect<
@@ -720,7 +828,9 @@ export declare class MediaLive extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeNode", input);
+  }
   describeOffering(
     input: DescribeOfferingRequest,
   ): Effect.Effect<
@@ -733,7 +843,9 @@ export declare class MediaLive extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeOffering", input);
+  }
   describeReservation(
     input: DescribeReservationRequest,
   ): Effect.Effect<
@@ -746,7 +858,9 @@ export declare class MediaLive extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeReservation", input);
+  }
   describeSchedule(
     input: DescribeScheduleRequest,
   ): Effect.Effect<
@@ -759,7 +873,9 @@ export declare class MediaLive extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeSchedule", input);
+  }
   describeSdiSource(
     input: DescribeSdiSourceRequest,
   ): Effect.Effect<
@@ -772,7 +888,9 @@ export declare class MediaLive extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeSdiSource", input);
+  }
   describeThumbnails(
     input: DescribeThumbnailsRequest,
   ): Effect.Effect<
@@ -786,7 +904,9 @@ export declare class MediaLive extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeThumbnails", input);
+  }
   getCloudWatchAlarmTemplate(
     input: GetCloudWatchAlarmTemplateRequest,
   ): Effect.Effect<
@@ -797,7 +917,9 @@ export declare class MediaLive extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetCloudWatchAlarmTemplate", input);
+  }
   getCloudWatchAlarmTemplateGroup(
     input: GetCloudWatchAlarmTemplateGroupRequest,
   ): Effect.Effect<
@@ -808,7 +930,9 @@ export declare class MediaLive extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetCloudWatchAlarmTemplateGroup", input);
+  }
   getEventBridgeRuleTemplate(
     input: GetEventBridgeRuleTemplateRequest,
   ): Effect.Effect<
@@ -819,7 +943,9 @@ export declare class MediaLive extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetEventBridgeRuleTemplate", input);
+  }
   getEventBridgeRuleTemplateGroup(
     input: GetEventBridgeRuleTemplateGroupRequest,
   ): Effect.Effect<
@@ -830,7 +956,9 @@ export declare class MediaLive extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetEventBridgeRuleTemplateGroup", input);
+  }
   getSignalMap(
     input: GetSignalMapRequest,
   ): Effect.Effect<
@@ -841,7 +969,9 @@ export declare class MediaLive extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetSignalMap", input);
+  }
   listChannelPlacementGroups(
     input: ListChannelPlacementGroupsRequest,
   ): Effect.Effect<
@@ -853,7 +983,9 @@ export declare class MediaLive extends AWSServiceClient {
     | InternalServerErrorException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListChannelPlacementGroups", input);
+  }
   listChannels(
     input: ListChannelsRequest,
   ): Effect.Effect<
@@ -865,7 +997,9 @@ export declare class MediaLive extends AWSServiceClient {
     | InternalServerErrorException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListChannels", input);
+  }
   listCloudWatchAlarmTemplateGroups(
     input: ListCloudWatchAlarmTemplateGroupsRequest,
   ): Effect.Effect<
@@ -876,7 +1010,9 @@ export declare class MediaLive extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListCloudWatchAlarmTemplateGroups", input);
+  }
   listCloudWatchAlarmTemplates(
     input: ListCloudWatchAlarmTemplatesRequest,
   ): Effect.Effect<
@@ -887,7 +1023,9 @@ export declare class MediaLive extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListCloudWatchAlarmTemplates", input);
+  }
   listClusters(
     input: ListClustersRequest,
   ): Effect.Effect<
@@ -899,7 +1037,9 @@ export declare class MediaLive extends AWSServiceClient {
     | InternalServerErrorException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListClusters", input);
+  }
   listEventBridgeRuleTemplateGroups(
     input: ListEventBridgeRuleTemplateGroupsRequest,
   ): Effect.Effect<
@@ -910,7 +1050,9 @@ export declare class MediaLive extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListEventBridgeRuleTemplateGroups", input);
+  }
   listEventBridgeRuleTemplates(
     input: ListEventBridgeRuleTemplatesRequest,
   ): Effect.Effect<
@@ -921,7 +1063,9 @@ export declare class MediaLive extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListEventBridgeRuleTemplates", input);
+  }
   listInputDevices(
     input: ListInputDevicesRequest,
   ): Effect.Effect<
@@ -933,7 +1077,9 @@ export declare class MediaLive extends AWSServiceClient {
     | InternalServerErrorException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListInputDevices", input);
+  }
   listInputDeviceTransfers(
     input: ListInputDeviceTransfersRequest,
   ): Effect.Effect<
@@ -946,7 +1092,9 @@ export declare class MediaLive extends AWSServiceClient {
     | TooManyRequestsException
     | UnprocessableEntityException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListInputDeviceTransfers", input);
+  }
   listInputs(
     input: ListInputsRequest,
   ): Effect.Effect<
@@ -958,7 +1106,9 @@ export declare class MediaLive extends AWSServiceClient {
     | InternalServerErrorException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListInputs", input);
+  }
   listInputSecurityGroups(
     input: ListInputSecurityGroupsRequest,
   ): Effect.Effect<
@@ -970,7 +1120,9 @@ export declare class MediaLive extends AWSServiceClient {
     | InternalServerErrorException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListInputSecurityGroups", input);
+  }
   listMultiplexes(
     input: ListMultiplexesRequest,
   ): Effect.Effect<
@@ -982,7 +1134,9 @@ export declare class MediaLive extends AWSServiceClient {
     | InternalServerErrorException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListMultiplexes", input);
+  }
   listMultiplexPrograms(
     input: ListMultiplexProgramsRequest,
   ): Effect.Effect<
@@ -995,7 +1149,9 @@ export declare class MediaLive extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListMultiplexPrograms", input);
+  }
   listNetworks(
     input: ListNetworksRequest,
   ): Effect.Effect<
@@ -1007,7 +1163,9 @@ export declare class MediaLive extends AWSServiceClient {
     | InternalServerErrorException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListNetworks", input);
+  }
   listNodes(
     input: ListNodesRequest,
   ): Effect.Effect<
@@ -1019,7 +1177,9 @@ export declare class MediaLive extends AWSServiceClient {
     | InternalServerErrorException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListNodes", input);
+  }
   listOfferings(
     input: ListOfferingsRequest,
   ): Effect.Effect<
@@ -1031,7 +1191,9 @@ export declare class MediaLive extends AWSServiceClient {
     | InternalServerErrorException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListOfferings", input);
+  }
   listReservations(
     input: ListReservationsRequest,
   ): Effect.Effect<
@@ -1043,7 +1205,9 @@ export declare class MediaLive extends AWSServiceClient {
     | InternalServerErrorException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListReservations", input);
+  }
   listSdiSources(
     input: ListSdiSourcesRequest,
   ): Effect.Effect<
@@ -1055,7 +1219,9 @@ export declare class MediaLive extends AWSServiceClient {
     | InternalServerErrorException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListSdiSources", input);
+  }
   listSignalMaps(
     input: ListSignalMapsRequest,
   ): Effect.Effect<
@@ -1066,7 +1232,9 @@ export declare class MediaLive extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListSignalMaps", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
@@ -1076,7 +1244,9 @@ export declare class MediaLive extends AWSServiceClient {
     | InternalServerErrorException
     | NotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   listVersions(
     input: ListVersionsRequest,
   ): Effect.Effect<
@@ -1090,7 +1260,9 @@ export declare class MediaLive extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListVersions", input);
+  }
   purchaseOffering(
     input: PurchaseOfferingRequest,
   ): Effect.Effect<
@@ -1104,7 +1276,9 @@ export declare class MediaLive extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PurchaseOffering", input);
+  }
   rebootInputDevice(
     input: RebootInputDeviceRequest,
   ): Effect.Effect<
@@ -1118,7 +1292,9 @@ export declare class MediaLive extends AWSServiceClient {
     | TooManyRequestsException
     | UnprocessableEntityException
     | CommonAwsError
-  >;
+  > {
+    return this.call("RebootInputDevice", input);
+  }
   rejectInputDeviceTransfer(
     input: RejectInputDeviceTransferRequest,
   ): Effect.Effect<
@@ -1133,7 +1309,9 @@ export declare class MediaLive extends AWSServiceClient {
     | TooManyRequestsException
     | UnprocessableEntityException
     | CommonAwsError
-  >;
+  > {
+    return this.call("RejectInputDeviceTransfer", input);
+  }
   restartChannelPipelines(
     input: RestartChannelPipelinesRequest,
   ): Effect.Effect<
@@ -1147,7 +1325,9 @@ export declare class MediaLive extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("RestartChannelPipelines", input);
+  }
   startChannel(
     input: StartChannelRequest,
   ): Effect.Effect<
@@ -1161,7 +1341,9 @@ export declare class MediaLive extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartChannel", input);
+  }
   startDeleteMonitorDeployment(
     input: StartDeleteMonitorDeploymentRequest,
   ): Effect.Effect<
@@ -1173,7 +1355,9 @@ export declare class MediaLive extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartDeleteMonitorDeployment", input);
+  }
   startInputDevice(
     input: StartInputDeviceRequest,
   ): Effect.Effect<
@@ -1187,7 +1371,9 @@ export declare class MediaLive extends AWSServiceClient {
     | TooManyRequestsException
     | UnprocessableEntityException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartInputDevice", input);
+  }
   startInputDeviceMaintenanceWindow(
     input: StartInputDeviceMaintenanceWindowRequest,
   ): Effect.Effect<
@@ -1201,7 +1387,9 @@ export declare class MediaLive extends AWSServiceClient {
     | TooManyRequestsException
     | UnprocessableEntityException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartInputDeviceMaintenanceWindow", input);
+  }
   startMonitorDeployment(
     input: StartMonitorDeploymentRequest,
   ): Effect.Effect<
@@ -1213,7 +1401,9 @@ export declare class MediaLive extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartMonitorDeployment", input);
+  }
   startMultiplex(
     input: StartMultiplexRequest,
   ): Effect.Effect<
@@ -1227,7 +1417,9 @@ export declare class MediaLive extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartMultiplex", input);
+  }
   startUpdateSignalMap(
     input: StartUpdateSignalMapRequest,
   ): Effect.Effect<
@@ -1239,7 +1431,9 @@ export declare class MediaLive extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StartUpdateSignalMap", input);
+  }
   stopChannel(
     input: StopChannelRequest,
   ): Effect.Effect<
@@ -1253,7 +1447,9 @@ export declare class MediaLive extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StopChannel", input);
+  }
   stopInputDevice(
     input: StopInputDeviceRequest,
   ): Effect.Effect<
@@ -1267,7 +1463,9 @@ export declare class MediaLive extends AWSServiceClient {
     | TooManyRequestsException
     | UnprocessableEntityException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StopInputDevice", input);
+  }
   stopMultiplex(
     input: StopMultiplexRequest,
   ): Effect.Effect<
@@ -1281,7 +1479,9 @@ export declare class MediaLive extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("StopMultiplex", input);
+  }
   transferInputDevice(
     input: TransferInputDeviceRequest,
   ): Effect.Effect<
@@ -1296,7 +1496,9 @@ export declare class MediaLive extends AWSServiceClient {
     | TooManyRequestsException
     | UnprocessableEntityException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TransferInputDevice", input);
+  }
   updateAccountConfiguration(
     input: UpdateAccountConfigurationRequest,
   ): Effect.Effect<
@@ -1309,7 +1511,9 @@ export declare class MediaLive extends AWSServiceClient {
     | TooManyRequestsException
     | UnprocessableEntityException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateAccountConfiguration", input);
+  }
   updateChannel(
     input: UpdateChannelRequest,
   ): Effect.Effect<
@@ -1322,7 +1526,9 @@ export declare class MediaLive extends AWSServiceClient {
     | InternalServerErrorException
     | UnprocessableEntityException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateChannel", input);
+  }
   updateChannelClass(
     input: UpdateChannelClassRequest,
   ): Effect.Effect<
@@ -1337,7 +1543,9 @@ export declare class MediaLive extends AWSServiceClient {
     | TooManyRequestsException
     | UnprocessableEntityException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateChannelClass", input);
+  }
   updateChannelPlacementGroup(
     input: UpdateChannelPlacementGroupRequest,
   ): Effect.Effect<
@@ -1351,7 +1559,9 @@ export declare class MediaLive extends AWSServiceClient {
     | TooManyRequestsException
     | UnprocessableEntityException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateChannelPlacementGroup", input);
+  }
   updateCloudWatchAlarmTemplate(
     input: UpdateCloudWatchAlarmTemplateRequest,
   ): Effect.Effect<
@@ -1363,7 +1573,9 @@ export declare class MediaLive extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateCloudWatchAlarmTemplate", input);
+  }
   updateCloudWatchAlarmTemplateGroup(
     input: UpdateCloudWatchAlarmTemplateGroupRequest,
   ): Effect.Effect<
@@ -1375,7 +1587,9 @@ export declare class MediaLive extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateCloudWatchAlarmTemplateGroup", input);
+  }
   updateCluster(
     input: UpdateClusterRequest,
   ): Effect.Effect<
@@ -1388,7 +1602,9 @@ export declare class MediaLive extends AWSServiceClient {
     | InternalServerErrorException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateCluster", input);
+  }
   updateEventBridgeRuleTemplate(
     input: UpdateEventBridgeRuleTemplateRequest,
   ): Effect.Effect<
@@ -1400,7 +1616,9 @@ export declare class MediaLive extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateEventBridgeRuleTemplate", input);
+  }
   updateEventBridgeRuleTemplateGroup(
     input: UpdateEventBridgeRuleTemplateGroupRequest,
   ): Effect.Effect<
@@ -1412,7 +1630,9 @@ export declare class MediaLive extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateEventBridgeRuleTemplateGroup", input);
+  }
   updateInput(
     input: UpdateInputRequest,
   ): Effect.Effect<
@@ -1425,7 +1645,9 @@ export declare class MediaLive extends AWSServiceClient {
     | InternalServerErrorException
     | NotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateInput", input);
+  }
   updateInputDevice(
     input: UpdateInputDeviceRequest,
   ): Effect.Effect<
@@ -1439,7 +1661,9 @@ export declare class MediaLive extends AWSServiceClient {
     | TooManyRequestsException
     | UnprocessableEntityException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateInputDevice", input);
+  }
   updateInputSecurityGroup(
     input: UpdateInputSecurityGroupRequest,
   ): Effect.Effect<
@@ -1452,7 +1676,9 @@ export declare class MediaLive extends AWSServiceClient {
     | InternalServerErrorException
     | NotFoundException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateInputSecurityGroup", input);
+  }
   updateMultiplex(
     input: UpdateMultiplexRequest,
   ): Effect.Effect<
@@ -1466,7 +1692,9 @@ export declare class MediaLive extends AWSServiceClient {
     | NotFoundException
     | UnprocessableEntityException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateMultiplex", input);
+  }
   updateMultiplexProgram(
     input: UpdateMultiplexProgramRequest,
   ): Effect.Effect<
@@ -1480,7 +1708,9 @@ export declare class MediaLive extends AWSServiceClient {
     | NotFoundException
     | UnprocessableEntityException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateMultiplexProgram", input);
+  }
   updateNetwork(
     input: UpdateNetworkRequest,
   ): Effect.Effect<
@@ -1493,7 +1723,9 @@ export declare class MediaLive extends AWSServiceClient {
     | InternalServerErrorException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateNetwork", input);
+  }
   updateNode(
     input: UpdateNodeRequest,
   ): Effect.Effect<
@@ -1506,7 +1738,9 @@ export declare class MediaLive extends AWSServiceClient {
     | InternalServerErrorException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateNode", input);
+  }
   updateNodeState(
     input: UpdateNodeStateRequest,
   ): Effect.Effect<
@@ -1520,7 +1754,9 @@ export declare class MediaLive extends AWSServiceClient {
     | TooManyRequestsException
     | UnprocessableEntityException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateNodeState", input);
+  }
   updateReservation(
     input: UpdateReservationRequest,
   ): Effect.Effect<
@@ -1534,7 +1770,9 @@ export declare class MediaLive extends AWSServiceClient {
     | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateReservation", input);
+  }
   updateSdiSource(
     input: UpdateSdiSourceRequest,
   ): Effect.Effect<
@@ -1547,10 +1785,14 @@ export declare class MediaLive extends AWSServiceClient {
     | InternalServerErrorException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateSdiSource", input);
+  }
 }
 
-export declare class Medialive extends MediaLive {}
+export class Medialive extends MediaLive {}
+
+export default MediaLive;
 
 export type __boolean = boolean;
 

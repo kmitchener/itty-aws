@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class odb extends AWSServiceClient {
+export class odb extends AWSServiceClient {
   acceptMarketplaceRegistration(
     input: AcceptMarketplaceRegistrationInput,
   ): Effect.Effect<
@@ -13,7 +13,9 @@ export declare class odb extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AcceptMarketplaceRegistration", input);
+  }
   getOciOnboardingStatus(
     input: GetOciOnboardingStatusInput,
   ): Effect.Effect<
@@ -23,7 +25,9 @@ export declare class odb extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetOciOnboardingStatus", input);
+  }
   initializeService(
     input: InitializeServiceInput,
   ): Effect.Effect<
@@ -33,7 +37,9 @@ export declare class odb extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("InitializeService", input);
+  }
   listDbSystemShapes(
     input: ListDbSystemShapesInput,
   ): Effect.Effect<
@@ -43,7 +49,9 @@ export declare class odb extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListDbSystemShapes", input);
+  }
   listGiVersions(
     input: ListGiVersionsInput,
   ): Effect.Effect<
@@ -53,7 +61,9 @@ export declare class odb extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListGiVersions", input);
+  }
   listSystemVersions(
     input: ListSystemVersionsInput,
   ): Effect.Effect<
@@ -64,26 +74,36 @@ export declare class odb extends AWSServiceClient {
     | ThrottlingException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListSystemVersions", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
     ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
     ResourceNotFoundException | ServiceQuotaExceededException | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
     ResourceNotFoundException | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
 }
+
+export default odb;
 
 export interface AcceptMarketplaceRegistrationInput {
   marketplaceRegistrationToken: string;

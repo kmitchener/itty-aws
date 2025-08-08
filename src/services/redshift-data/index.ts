@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class RedshiftData extends AWSServiceClient {
+export class RedshiftData extends AWSServiceClient {
   batchExecuteStatement(
     input: BatchExecuteStatementInput,
   ): Effect.Effect<
@@ -13,7 +13,9 @@ export declare class RedshiftData extends AWSServiceClient {
     | InternalServerException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("BatchExecuteStatement", input);
+  }
   cancelStatement(
     input: CancelStatementRequest,
   ): Effect.Effect<
@@ -23,7 +25,9 @@ export declare class RedshiftData extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CancelStatement", input);
+  }
   describeStatement(
     input: DescribeStatementRequest,
   ): Effect.Effect<
@@ -32,7 +36,9 @@ export declare class RedshiftData extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeStatement", input);
+  }
   describeTable(
     input: DescribeTableRequest,
   ): Effect.Effect<
@@ -42,7 +48,9 @@ export declare class RedshiftData extends AWSServiceClient {
     | QueryTimeoutException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeTable", input);
+  }
   executeStatement(
     input: ExecuteStatementInput,
   ): Effect.Effect<
@@ -53,7 +61,9 @@ export declare class RedshiftData extends AWSServiceClient {
     | InternalServerException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ExecuteStatement", input);
+  }
   getStatementResult(
     input: GetStatementResultRequest,
   ): Effect.Effect<
@@ -62,7 +72,9 @@ export declare class RedshiftData extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetStatementResult", input);
+  }
   getStatementResultV2(
     input: GetStatementResultV2Request,
   ): Effect.Effect<
@@ -71,7 +83,9 @@ export declare class RedshiftData extends AWSServiceClient {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("GetStatementResultV2", input);
+  }
   listDatabases(
     input: ListDatabasesRequest,
   ): Effect.Effect<
@@ -81,7 +95,9 @@ export declare class RedshiftData extends AWSServiceClient {
     | QueryTimeoutException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListDatabases", input);
+  }
   listSchemas(
     input: ListSchemasRequest,
   ): Effect.Effect<
@@ -91,13 +107,17 @@ export declare class RedshiftData extends AWSServiceClient {
     | QueryTimeoutException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListSchemas", input);
+  }
   listStatements(
     input: ListStatementsRequest,
   ): Effect.Effect<
     ListStatementsResponse,
     InternalServerException | ValidationException | CommonAwsError
-  >;
+  > {
+    return this.call("ListStatements", input);
+  }
   listTables(
     input: ListTablesRequest,
   ): Effect.Effect<
@@ -107,8 +127,12 @@ export declare class RedshiftData extends AWSServiceClient {
     | QueryTimeoutException
     | ValidationException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTables", input);
+  }
 }
+
+export default RedshiftData;
 
 export declare class ActiveSessionsExceededException extends EffectData.TaggedError(
   "ActiveSessionsExceededException",

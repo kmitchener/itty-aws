@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class Organizations extends AWSServiceClient {
+export class Organizations extends AWSServiceClient {
   acceptHandshake(
     input: AcceptHandshakeRequest,
   ): Effect.Effect<
@@ -19,7 +19,9 @@ export declare class Organizations extends AWSServiceClient {
     | ServiceException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AcceptHandshake", input);
+  }
   attachPolicy(
     input: AttachPolicyRequest,
   ): Effect.Effect<
@@ -38,7 +40,9 @@ export declare class Organizations extends AWSServiceClient {
     | TooManyRequestsException
     | UnsupportedAPIEndpointException
     | CommonAwsError
-  >;
+  > {
+    return this.call("AttachPolicy", input);
+  }
   cancelHandshake(
     input: CancelHandshakeRequest,
   ): Effect.Effect<
@@ -52,7 +56,9 @@ export declare class Organizations extends AWSServiceClient {
     | ServiceException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CancelHandshake", input);
+  }
   closeAccount(
     input: CloseAccountRequest,
   ): Effect.Effect<
@@ -69,7 +75,9 @@ export declare class Organizations extends AWSServiceClient {
     | TooManyRequestsException
     | UnsupportedAPIEndpointException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CloseAccount", input);
+  }
   createAccount(
     input: CreateAccountRequest,
   ): Effect.Effect<
@@ -84,7 +92,9 @@ export declare class Organizations extends AWSServiceClient {
     | TooManyRequestsException
     | UnsupportedAPIEndpointException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateAccount", input);
+  }
   createGovCloudAccount(
     input: CreateGovCloudAccountRequest,
   ): Effect.Effect<
@@ -99,7 +109,9 @@ export declare class Organizations extends AWSServiceClient {
     | TooManyRequestsException
     | UnsupportedAPIEndpointException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateGovCloudAccount", input);
+  }
   createOrganization(
     input: CreateOrganizationRequest,
   ): Effect.Effect<
@@ -113,7 +125,9 @@ export declare class Organizations extends AWSServiceClient {
     | ServiceException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateOrganization", input);
+  }
   createOrganizationalUnit(
     input: CreateOrganizationalUnitRequest,
   ): Effect.Effect<
@@ -128,7 +142,9 @@ export declare class Organizations extends AWSServiceClient {
     | ServiceException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateOrganizationalUnit", input);
+  }
   createPolicy(
     input: CreatePolicyRequest,
   ): Effect.Effect<
@@ -145,7 +161,9 @@ export declare class Organizations extends AWSServiceClient {
     | TooManyRequestsException
     | UnsupportedAPIEndpointException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreatePolicy", input);
+  }
   declineHandshake(
     input: DeclineHandshakeRequest,
   ): Effect.Effect<
@@ -159,7 +177,9 @@ export declare class Organizations extends AWSServiceClient {
     | ServiceException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeclineHandshake", input);
+  }
   deleteOrganization(input: {}): Effect.Effect<
     {},
     | AccessDeniedException
@@ -170,7 +190,9 @@ export declare class Organizations extends AWSServiceClient {
     | ServiceException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteOrganization", input);
+  }
   deleteOrganizationalUnit(
     input: DeleteOrganizationalUnitRequest,
   ): Effect.Effect<
@@ -184,7 +206,9 @@ export declare class Organizations extends AWSServiceClient {
     | ServiceException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteOrganizationalUnit", input);
+  }
   deletePolicy(
     input: DeletePolicyRequest,
   ): Effect.Effect<
@@ -199,7 +223,9 @@ export declare class Organizations extends AWSServiceClient {
     | TooManyRequestsException
     | UnsupportedAPIEndpointException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeletePolicy", input);
+  }
   deleteResourcePolicy(input: {}): Effect.Effect<
     {},
     | AccessDeniedException
@@ -211,7 +237,9 @@ export declare class Organizations extends AWSServiceClient {
     | TooManyRequestsException
     | UnsupportedAPIEndpointException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteResourcePolicy", input);
+  }
   deregisterDelegatedAdministrator(
     input: DeregisterDelegatedAdministratorRequest,
   ): Effect.Effect<
@@ -227,7 +255,9 @@ export declare class Organizations extends AWSServiceClient {
     | TooManyRequestsException
     | UnsupportedAPIEndpointException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeregisterDelegatedAdministrator", input);
+  }
   describeAccount(
     input: DescribeAccountRequest,
   ): Effect.Effect<
@@ -239,7 +269,9 @@ export declare class Organizations extends AWSServiceClient {
     | ServiceException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeAccount", input);
+  }
   describeCreateAccountStatus(
     input: DescribeCreateAccountStatusRequest,
   ): Effect.Effect<
@@ -252,7 +284,9 @@ export declare class Organizations extends AWSServiceClient {
     | TooManyRequestsException
     | UnsupportedAPIEndpointException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeCreateAccountStatus", input);
+  }
   describeEffectivePolicy(
     input: DescribeEffectivePolicyRequest,
   ): Effect.Effect<
@@ -267,7 +301,9 @@ export declare class Organizations extends AWSServiceClient {
     | TooManyRequestsException
     | UnsupportedAPIEndpointException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeEffectivePolicy", input);
+  }
   describeHandshake(
     input: DescribeHandshakeRequest,
   ): Effect.Effect<
@@ -279,7 +315,9 @@ export declare class Organizations extends AWSServiceClient {
     | ServiceException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeHandshake", input);
+  }
   describeOrganization(input: {}): Effect.Effect<
     DescribeOrganizationResponse,
     | AccessDeniedException
@@ -288,7 +326,9 @@ export declare class Organizations extends AWSServiceClient {
     | ServiceException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeOrganization", input);
+  }
   describeOrganizationalUnit(
     input: DescribeOrganizationalUnitRequest,
   ): Effect.Effect<
@@ -300,7 +340,9 @@ export declare class Organizations extends AWSServiceClient {
     | ServiceException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeOrganizationalUnit", input);
+  }
   describePolicy(
     input: DescribePolicyRequest,
   ): Effect.Effect<
@@ -313,7 +355,9 @@ export declare class Organizations extends AWSServiceClient {
     | TooManyRequestsException
     | UnsupportedAPIEndpointException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribePolicy", input);
+  }
   describeResourcePolicy(input: {}): Effect.Effect<
     DescribeResourcePolicyResponse,
     | AccessDeniedException
@@ -324,7 +368,9 @@ export declare class Organizations extends AWSServiceClient {
     | TooManyRequestsException
     | UnsupportedAPIEndpointException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeResourcePolicy", input);
+  }
   detachPolicy(
     input: DetachPolicyRequest,
   ): Effect.Effect<
@@ -342,7 +388,9 @@ export declare class Organizations extends AWSServiceClient {
     | TooManyRequestsException
     | UnsupportedAPIEndpointException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DetachPolicy", input);
+  }
   disableAWSServiceAccess(
     input: DisableAWSServiceAccessRequest,
   ): Effect.Effect<
@@ -356,7 +404,9 @@ export declare class Organizations extends AWSServiceClient {
     | TooManyRequestsException
     | UnsupportedAPIEndpointException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DisableAWSServiceAccess", input);
+  }
   disablePolicyType(
     input: DisablePolicyTypeRequest,
   ): Effect.Effect<
@@ -373,7 +423,9 @@ export declare class Organizations extends AWSServiceClient {
     | TooManyRequestsException
     | UnsupportedAPIEndpointException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DisablePolicyType", input);
+  }
   enableAllFeatures(
     input: EnableAllFeaturesRequest,
   ): Effect.Effect<
@@ -387,7 +439,9 @@ export declare class Organizations extends AWSServiceClient {
     | ServiceException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("EnableAllFeatures", input);
+  }
   enableAWSServiceAccess(
     input: EnableAWSServiceAccessRequest,
   ): Effect.Effect<
@@ -401,7 +455,9 @@ export declare class Organizations extends AWSServiceClient {
     | TooManyRequestsException
     | UnsupportedAPIEndpointException
     | CommonAwsError
-  >;
+  > {
+    return this.call("EnableAWSServiceAccess", input);
+  }
   enablePolicyType(
     input: EnablePolicyTypeRequest,
   ): Effect.Effect<
@@ -419,7 +475,9 @@ export declare class Organizations extends AWSServiceClient {
     | TooManyRequestsException
     | UnsupportedAPIEndpointException
     | CommonAwsError
-  >;
+  > {
+    return this.call("EnablePolicyType", input);
+  }
   inviteAccountToOrganization(
     input: InviteAccountToOrganizationRequest,
   ): Effect.Effect<
@@ -436,7 +494,9 @@ export declare class Organizations extends AWSServiceClient {
     | ServiceException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("InviteAccountToOrganization", input);
+  }
   leaveOrganization(input: {}): Effect.Effect<
     {},
     | AccessDeniedException
@@ -449,7 +509,9 @@ export declare class Organizations extends AWSServiceClient {
     | ServiceException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("LeaveOrganization", input);
+  }
   listAccounts(
     input: ListAccountsRequest,
   ): Effect.Effect<
@@ -460,7 +522,9 @@ export declare class Organizations extends AWSServiceClient {
     | ServiceException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListAccounts", input);
+  }
   listAccountsForParent(
     input: ListAccountsForParentRequest,
   ): Effect.Effect<
@@ -472,7 +536,9 @@ export declare class Organizations extends AWSServiceClient {
     | ServiceException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListAccountsForParent", input);
+  }
   listAWSServiceAccessForOrganization(
     input: ListAWSServiceAccessForOrganizationRequest,
   ): Effect.Effect<
@@ -485,7 +551,9 @@ export declare class Organizations extends AWSServiceClient {
     | TooManyRequestsException
     | UnsupportedAPIEndpointException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListAWSServiceAccessForOrganization", input);
+  }
   listChildren(
     input: ListChildrenRequest,
   ): Effect.Effect<
@@ -497,7 +565,9 @@ export declare class Organizations extends AWSServiceClient {
     | ServiceException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListChildren", input);
+  }
   listCreateAccountStatus(
     input: ListCreateAccountStatusRequest,
   ): Effect.Effect<
@@ -509,7 +579,9 @@ export declare class Organizations extends AWSServiceClient {
     | TooManyRequestsException
     | UnsupportedAPIEndpointException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListCreateAccountStatus", input);
+  }
   listDelegatedAdministrators(
     input: ListDelegatedAdministratorsRequest,
   ): Effect.Effect<
@@ -522,7 +594,9 @@ export declare class Organizations extends AWSServiceClient {
     | TooManyRequestsException
     | UnsupportedAPIEndpointException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListDelegatedAdministrators", input);
+  }
   listDelegatedServicesForAccount(
     input: ListDelegatedServicesForAccountRequest,
   ): Effect.Effect<
@@ -537,7 +611,9 @@ export declare class Organizations extends AWSServiceClient {
     | TooManyRequestsException
     | UnsupportedAPIEndpointException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListDelegatedServicesForAccount", input);
+  }
   listHandshakesForAccount(
     input: ListHandshakesForAccountRequest,
   ): Effect.Effect<
@@ -548,7 +624,9 @@ export declare class Organizations extends AWSServiceClient {
     | ServiceException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListHandshakesForAccount", input);
+  }
   listHandshakesForOrganization(
     input: ListHandshakesForOrganizationRequest,
   ): Effect.Effect<
@@ -560,7 +638,9 @@ export declare class Organizations extends AWSServiceClient {
     | ServiceException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListHandshakesForOrganization", input);
+  }
   listOrganizationalUnitsForParent(
     input: ListOrganizationalUnitsForParentRequest,
   ): Effect.Effect<
@@ -572,7 +652,9 @@ export declare class Organizations extends AWSServiceClient {
     | ServiceException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListOrganizationalUnitsForParent", input);
+  }
   listParents(
     input: ListParentsRequest,
   ): Effect.Effect<
@@ -584,7 +666,9 @@ export declare class Organizations extends AWSServiceClient {
     | ServiceException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListParents", input);
+  }
   listPolicies(
     input: ListPoliciesRequest,
   ): Effect.Effect<
@@ -596,7 +680,9 @@ export declare class Organizations extends AWSServiceClient {
     | TooManyRequestsException
     | UnsupportedAPIEndpointException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListPolicies", input);
+  }
   listPoliciesForTarget(
     input: ListPoliciesForTargetRequest,
   ): Effect.Effect<
@@ -609,7 +695,9 @@ export declare class Organizations extends AWSServiceClient {
     | TooManyRequestsException
     | UnsupportedAPIEndpointException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListPoliciesForTarget", input);
+  }
   listRoots(
     input: ListRootsRequest,
   ): Effect.Effect<
@@ -620,7 +708,9 @@ export declare class Organizations extends AWSServiceClient {
     | ServiceException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListRoots", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
@@ -632,7 +722,9 @@ export declare class Organizations extends AWSServiceClient {
     | TargetNotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   listTargetsForPolicy(
     input: ListTargetsForPolicyRequest,
   ): Effect.Effect<
@@ -645,7 +737,9 @@ export declare class Organizations extends AWSServiceClient {
     | TooManyRequestsException
     | UnsupportedAPIEndpointException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTargetsForPolicy", input);
+  }
   moveAccount(
     input: MoveAccountRequest,
   ): Effect.Effect<
@@ -661,7 +755,9 @@ export declare class Organizations extends AWSServiceClient {
     | SourceParentNotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("MoveAccount", input);
+  }
   putResourcePolicy(
     input: PutResourcePolicyRequest,
   ): Effect.Effect<
@@ -675,7 +771,9 @@ export declare class Organizations extends AWSServiceClient {
     | TooManyRequestsException
     | UnsupportedAPIEndpointException
     | CommonAwsError
-  >;
+  > {
+    return this.call("PutResourcePolicy", input);
+  }
   registerDelegatedAdministrator(
     input: RegisterDelegatedAdministratorRequest,
   ): Effect.Effect<
@@ -691,7 +789,9 @@ export declare class Organizations extends AWSServiceClient {
     | TooManyRequestsException
     | UnsupportedAPIEndpointException
     | CommonAwsError
-  >;
+  > {
+    return this.call("RegisterDelegatedAdministrator", input);
+  }
   removeAccountFromOrganization(
     input: RemoveAccountFromOrganizationRequest,
   ): Effect.Effect<
@@ -706,7 +806,9 @@ export declare class Organizations extends AWSServiceClient {
     | ServiceException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("RemoveAccountFromOrganization", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -720,7 +822,9 @@ export declare class Organizations extends AWSServiceClient {
     | TargetNotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
@@ -734,7 +838,9 @@ export declare class Organizations extends AWSServiceClient {
     | TargetNotFoundException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
   updateOrganizationalUnit(
     input: UpdateOrganizationalUnitRequest,
   ): Effect.Effect<
@@ -748,7 +854,9 @@ export declare class Organizations extends AWSServiceClient {
     | ServiceException
     | TooManyRequestsException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateOrganizationalUnit", input);
+  }
   updatePolicy(
     input: UpdatePolicyRequest,
   ): Effect.Effect<
@@ -766,8 +874,12 @@ export declare class Organizations extends AWSServiceClient {
     | TooManyRequestsException
     | UnsupportedAPIEndpointException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdatePolicy", input);
+  }
 }
+
+export default Organizations;
 
 export interface AcceptHandshakeRequest {
   HandshakeId: string;

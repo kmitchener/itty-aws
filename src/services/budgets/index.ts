@@ -2,7 +2,7 @@ import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
-export declare class BudgetsClient extends AWSServiceClient {
+export class BudgetsClient extends AWSServiceClient {
   createBudget(
     input: CreateBudgetRequest,
   ): Effect.Effect<
@@ -15,7 +15,9 @@ export declare class BudgetsClient extends AWSServiceClient {
     | ServiceQuotaExceededException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateBudget", input);
+  }
   createBudgetAction(
     input: CreateBudgetActionRequest,
   ): Effect.Effect<
@@ -29,7 +31,9 @@ export declare class BudgetsClient extends AWSServiceClient {
     | ServiceQuotaExceededException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateBudgetAction", input);
+  }
   createNotification(
     input: CreateNotificationRequest,
   ): Effect.Effect<
@@ -42,7 +46,9 @@ export declare class BudgetsClient extends AWSServiceClient {
     | NotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateNotification", input);
+  }
   createSubscriber(
     input: CreateSubscriberRequest,
   ): Effect.Effect<
@@ -55,7 +61,9 @@ export declare class BudgetsClient extends AWSServiceClient {
     | NotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("CreateSubscriber", input);
+  }
   deleteBudget(
     input: DeleteBudgetRequest,
   ): Effect.Effect<
@@ -66,7 +74,9 @@ export declare class BudgetsClient extends AWSServiceClient {
     | NotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteBudget", input);
+  }
   deleteBudgetAction(
     input: DeleteBudgetActionRequest,
   ): Effect.Effect<
@@ -78,7 +88,9 @@ export declare class BudgetsClient extends AWSServiceClient {
     | ResourceLockedException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteBudgetAction", input);
+  }
   deleteNotification(
     input: DeleteNotificationRequest,
   ): Effect.Effect<
@@ -89,7 +101,9 @@ export declare class BudgetsClient extends AWSServiceClient {
     | NotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteNotification", input);
+  }
   deleteSubscriber(
     input: DeleteSubscriberRequest,
   ): Effect.Effect<
@@ -100,7 +114,9 @@ export declare class BudgetsClient extends AWSServiceClient {
     | NotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DeleteSubscriber", input);
+  }
   describeBudget(
     input: DescribeBudgetRequest,
   ): Effect.Effect<
@@ -111,7 +127,9 @@ export declare class BudgetsClient extends AWSServiceClient {
     | NotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeBudget", input);
+  }
   describeBudgetAction(
     input: DescribeBudgetActionRequest,
   ): Effect.Effect<
@@ -122,7 +140,9 @@ export declare class BudgetsClient extends AWSServiceClient {
     | NotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeBudgetAction", input);
+  }
   describeBudgetActionHistories(
     input: DescribeBudgetActionHistoriesRequest,
   ): Effect.Effect<
@@ -134,7 +154,9 @@ export declare class BudgetsClient extends AWSServiceClient {
     | NotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeBudgetActionHistories", input);
+  }
   describeBudgetActionsForAccount(
     input: DescribeBudgetActionsForAccountRequest,
   ): Effect.Effect<
@@ -145,7 +167,9 @@ export declare class BudgetsClient extends AWSServiceClient {
     | InvalidParameterException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeBudgetActionsForAccount", input);
+  }
   describeBudgetActionsForBudget(
     input: DescribeBudgetActionsForBudgetRequest,
   ): Effect.Effect<
@@ -157,7 +181,9 @@ export declare class BudgetsClient extends AWSServiceClient {
     | NotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeBudgetActionsForBudget", input);
+  }
   describeBudgetNotificationsForAccount(
     input: DescribeBudgetNotificationsForAccountRequest,
   ): Effect.Effect<
@@ -170,7 +196,9 @@ export declare class BudgetsClient extends AWSServiceClient {
     | NotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeBudgetNotificationsForAccount", input);
+  }
   describeBudgetPerformanceHistory(
     input: DescribeBudgetPerformanceHistoryRequest,
   ): Effect.Effect<
@@ -183,7 +211,9 @@ export declare class BudgetsClient extends AWSServiceClient {
     | NotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeBudgetPerformanceHistory", input);
+  }
   describeBudgets(
     input: DescribeBudgetsRequest,
   ): Effect.Effect<
@@ -196,7 +226,9 @@ export declare class BudgetsClient extends AWSServiceClient {
     | NotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeBudgets", input);
+  }
   describeNotificationsForBudget(
     input: DescribeNotificationsForBudgetRequest,
   ): Effect.Effect<
@@ -209,7 +241,9 @@ export declare class BudgetsClient extends AWSServiceClient {
     | NotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeNotificationsForBudget", input);
+  }
   describeSubscribersForNotification(
     input: DescribeSubscribersForNotificationRequest,
   ): Effect.Effect<
@@ -222,7 +256,9 @@ export declare class BudgetsClient extends AWSServiceClient {
     | NotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("DescribeSubscribersForNotification", input);
+  }
   executeBudgetAction(
     input: ExecuteBudgetActionRequest,
   ): Effect.Effect<
@@ -234,7 +270,9 @@ export declare class BudgetsClient extends AWSServiceClient {
     | ResourceLockedException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ExecuteBudgetAction", input);
+  }
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
@@ -245,7 +283,9 @@ export declare class BudgetsClient extends AWSServiceClient {
     | NotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("ListTagsForResource", input);
+  }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -257,7 +297,9 @@ export declare class BudgetsClient extends AWSServiceClient {
     | ServiceQuotaExceededException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("TagResource", input);
+  }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
@@ -268,7 +310,9 @@ export declare class BudgetsClient extends AWSServiceClient {
     | NotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UntagResource", input);
+  }
   updateBudget(
     input: UpdateBudgetRequest,
   ): Effect.Effect<
@@ -279,7 +323,9 @@ export declare class BudgetsClient extends AWSServiceClient {
     | NotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateBudget", input);
+  }
   updateBudgetAction(
     input: UpdateBudgetActionRequest,
   ): Effect.Effect<
@@ -291,7 +337,9 @@ export declare class BudgetsClient extends AWSServiceClient {
     | ResourceLockedException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateBudgetAction", input);
+  }
   updateNotification(
     input: UpdateNotificationRequest,
   ): Effect.Effect<
@@ -303,7 +351,9 @@ export declare class BudgetsClient extends AWSServiceClient {
     | NotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateNotification", input);
+  }
   updateSubscriber(
     input: UpdateSubscriberRequest,
   ): Effect.Effect<
@@ -315,8 +365,12 @@ export declare class BudgetsClient extends AWSServiceClient {
     | NotFoundException
     | ThrottlingException
     | CommonAwsError
-  >;
+  > {
+    return this.call("UpdateSubscriber", input);
+  }
 }
+
+export default BudgetsClient;
 
 export declare class AccessDeniedException extends EffectData.TaggedError(
   "AccessDeniedException",
