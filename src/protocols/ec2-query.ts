@@ -8,7 +8,7 @@ let ec2ModelMeta: any = null;
 function getEc2ModelMeta() {
   if (!ec2ModelMeta) {
     // Use require() for synchronous dynamic loading
-    ec2ModelMeta = require("../ec2-metadata.js").ec2ModelMeta;
+    ec2ModelMeta = require("./ec2-metadata.js").ec2ModelMeta;
   }
   return ec2ModelMeta;
 }

@@ -10,7 +10,7 @@
  *   bun scripts/generate-ec2-metadata.ts [input-path] [output-path]
  *
  * Example:
- *   bun scripts/generate-ec2-metadata.ts aws-models/models/ec2/service/2016-11-15/ec2-2016-11-15.json src/ec2-metadata.ts
+ *   bun scripts/generate-ec2-metadata.ts aws-models/models/ec2/service/2016-11-15/ec2-2016-11-15.json src/protocols/ec2-metadata.ts
  */
 
 import fs from "node:fs";
@@ -140,7 +140,7 @@ function main(inPath?: string, outPath?: string) {
   // Default paths if not provided
   const inputPath =
     inPath ?? "aws-models/models/ec2/service/2016-11-15/ec2-2016-11-15.json";
-  const outputPath = outPath ?? "src/ec2-metadata.ts";
+  const outputPath = outPath ?? "src/protocols/ec2-metadata.ts";
 
   if (!fs.existsSync(inputPath)) {
     console.error(`Input file not found: ${inputPath}`);

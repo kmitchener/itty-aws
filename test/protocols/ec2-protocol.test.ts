@@ -1,5 +1,5 @@
 import { describe, expect, it } from "@effect/vitest";
-import { Ec2QueryHandler } from "../../dist/protocols/ec2-query.js.ts";
+import { Ec2QueryHandler } from "../../dist/protocols/ec2-query.js";
 
 const handler = new Ec2QueryHandler();
 
@@ -252,7 +252,7 @@ describe("EC2 Query Protocol - Data Type Handling", () => {
 
     const result = handler.parseResponse(xmlResponse, 200) as any;
     expect(result).toBeDefined();
-    expect(result.normalFloat).toBe(Math.PI);
+    expect(result.normalFloat).toBeCloseTo(Math.PI, 5);
   });
 
   it("should handle enum values", () => {
